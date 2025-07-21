@@ -1,0 +1,140 @@
+{
+    "@context": [
+        "https://docs.ddialliance.org/DDI-CDI/1.0/model/encoding/json-ld/ddi-cdi.jsonld",
+        {"skos": "http://www.w3.org/2004/02/skos/core#"}
+    ],
+    "DDICDIModels": [
+        {
+            "@id": "#DataStore_436",
+            "@type": "KeyValueDataStore",
+            "isStructuredBy": {
+                "@id": "#Structure_3474",
+                "@type": "KeyValueStructure",
+                "has_DataStructureComponent": [
+                    {
+                        "@id": "#Component_898",
+                        "@type": "VariableDescriptorComponent",
+                        "refersTo": "#Component_04876",
+                        "isDefinedBy_DescriptorVariable": {
+                            "@id": "#Variable_326",
+                            "@type": "DescriptorVariable",
+                            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#Domain_347f"
+                        }
+                    },
+                    {
+                        "@id": "#Component_04876",
+                        "@type": "VariableValueComponent",
+                        "isDefinedBy_RepresentedVariable": {
+                            "@id": "#Variable_a347",
+                            "@type": "ReferenceVariable",
+                            "takesValuesFrom": "#Domain_d745f"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "@id": "#Domain_d745f",
+            "@type": "ReferenceValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            }
+        },
+        {
+            "@id": "#Domain_347f",
+            "@type": "DescriptorValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": {
+                    "@id": "#Domain_46f54",
+                    "@type": "skos:ConceptScheme",
+                    "skos:hasTopConcept": [
+                        {
+                            "@id": "#concept_9df8",
+                            "@type": "skos:Concept",
+                            "skos:notation": {
+                                "@type": "TypedString",
+                                "content": "Column.1"
+                            },
+                            "skos:prefLabel": {
+                                "@type": "TypedString",
+                                "content": "Column.1"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "@id": "#descriptor_5749",
+            "@type": "Descriptor",
+            "content": {
+                "@type": "TypedString",
+                "content": "Column.1"
+            },
+            "hasValueFrom_DescriptorValueDomain": "#Domain_347f",
+            "hasValueFrom_ValueDomain": "#Domain_347f",
+            "identifies": [
+                {
+                    "@id": "#Variable_34c78",
+                    "@type": "ReferenceVariable",
+                    "displayLabel": {
+                        "@type": "LabelForDisplay",
+                        "locationVariant": {
+                            "@type": "ControlledVocabularyEntry",
+                            "entryValue": "Column.1"
+                        }
+                    },
+                    "name": {
+                        "@type": "ObjectName",
+                        "name": "Column.1"
+                    },
+                    "takesValuesFrom": {
+                        "@id": "#Domain_936b",
+                        "@type": "ReferenceValueDomain",
+                        "recommendedDataType": {
+                            "@type": "ControlledVocabularyEntry",
+                            "entryValue": {
+                                "@id": "#conceptScheme_9cfd",
+                                "@type": "skos:ConceptScheme",
+                                "skos:hasTopConcept": [
+                                    {
+                                        "@id": "#concept_000fc",
+                                        "@type": "skos:Concept",
+                                        "skos:notation": {
+                                            "@type": "TypedString",
+                                            "content": "energy"
+                                        },
+                                        "skos:prefLabel": {
+                                            "@type": "TypedString",
+                                            "content": "mono energy"
+                                        }
+                                    },
+                                    "#Column.1-concept-energy_eV",
+                                    "#Column.1-concept-energy_keV",
+                                    "#Column.1-concept-energy_pixel",
+                                    "#Column.1-concept-angle",
+                                    "#Column.1-concept-angle_degrees",
+                                    "#Column.1-concept-angle_radians",
+                                    "#Column.1-concept-angle_steps"
+                                ]
+                            }
+                        }
+                    }
+                }
+            ],
+            "refersTo": {
+                "@id": "#Value_379f",
+                "@type": "ReferenceValue",
+                "content": {
+                    "@type": "TypedString",
+                    "content": "energy eV"
+                },
+                "hasValueFrom_ValueDomain": "#Domain_d745f",
+                "hasValueFrom_ReferenceValueDomain": "#Domain_d745f",
+                "correspondsTo_VariableValueComponent": "#Component_04876"
+            }
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+Definitions:
+
+DataStore: Collection (Generic container ) of logical records. A data store is reusable across studies (UML).  Represents the source of data (think of a service here at the business level) (Arofan)
+
+Logical record: Collection of instance variables. Logical records are definitions (UML).  Logical Record (cdi:LogicalRecord) references all of the Instance variables used within the Data Set.(cdif book)   The set of logical measurements contained in the records of a Data Set. This is essentially an unordered "bag" of defined variables. What is in the record? A measurement of salinity, a measurement of volume, a measurement of pressure, etc. (including all the logical details about these measurements, but not concerning how they are recorded physically in the file). (Arofan)
+
+Instance variable: Use of a represented variable within a data set. (UML) An InstanceVariable represents a set of DataPoints (Flavio) 
+
+variable: mapping to a value domain from a set of units corresponding to a single unit type. Values that a variable assigns are properties of the units being measured.  (from https://ddi-alliance.atlassian.net/wiki/spaces/DDI4/pages/2790359041/Glossary+work).  variables can be re-used across different structures...variables are the reusable form of the information that can be used across different structures (CDIF Book, data integration)
+
+Dataset: Organized collection of data based on keys. (UML). A collection of units of interest and regular measurements about those units expressed in a structured way. This is the logical part of a distribution, independent of the physical encoding of it. (Arofan)
+
+Component: the specific role played by a variable in the context of a data structure, e.g. measure, identifier, attribute, reference, descriptor... (CDIF book)
+
+Physical Segment Layout (cdi:PhysicalSegementLayout): describes the way in which that Logical Record is expressed in the physical file. contain information needed by machines to read the data , e.g. order of variables, character encodings, delimiters, line-end characters, etc.) (cdifbook)
+
+physical dataset: Information needed for understanding the physical structure of data coming from a file or other source (UML) physical data set is the entry point for information about a file or other source. It includes information about the name of a file, the structure of segments in a file.(https://docs.ddialliance.org/DDI-CDI/1.0/model/FieldLevelDocumentation/DDICDILibrary/Classes/FormatDescription/PhysicalDataSet.html).  The Data Set which has been physically encoded. This is almost certainly not a highly useful class! We left out of the CDIF profile. We can discuss, but really only useful when you have multiple encodings of the same data. (Arofan)
+
+data structure: Data organization based on reusable data structure components. (UML)
+
+Data point:  Container for an instance value. E.g. A cell in a data cube or a table.  (UML and https://docs.ddialliance.org/DDI-CDI/1.0/model/FieldLevelDocumentation/DDICDILibrary/Classes/DataDescription/DataPoint.html)
+
+
+CDIF data structure metadata for data integration.
+
+Base type in cdif book is cdi:DataStore
+
+datastore has a name
+datatore 
+	has a set of LogicalRecord
+	
+	each LogicalRecord:
+	[
+	organizes a WideDataSet/PhysicalDataSet
+		this dataset has:
+			a physical file name
+			a WideDataStructure structure that is a set of components
+				one is a primaryKey
+				components are identifierComponent, AttributeComponent, MeasureComponent. each component is a binding with a representedVariable (or one of its subclasses-- instanceVariable
+		or
+		organizes a LongDataSet/PhysicalDataSet
+			this dataset has:
+				a physical file name
+				a LongDataStructure structure that is a set of components
+					one is a primaryKey	
+					components are  identifierComponent, AttributeComponent, MeasureComponent DescriptorComponent, or VariableValueComponent. components are a binding with a representedVariable, except for VariableValueComponent that is defined by a ReferenceVariable, refers to a DescriptorVariable, and uses a Descriptor that identifiers a ReferenceVariable
+		or
+		organizes a DimensionalDataSet/PhysicalDataSet
+			this dataset has:
+				a physical file name
+				a LongDataStructure structure that is a set of components
+					one is a primaryKey	
+					components are  identifierComponent, AttributeComponent, MeasureComponent DescriptorComponent, or VariableValueComponent. components are a binding with a representedVariable, except for VariableValueComponent that is defined by a ReferenceVariable, refers to a DescriptorVariable, and uses a Descriptor that identifiers a ReferenceVariable
+	hasVariables:
+		list of variable definitions, with name, definiton units of measure, 'measures' population,...?; takes substantive values from, takes sentinel values from...
+	isDefinedBy:
+		UnitType, Universe or Population
+	isFormatted by 
+		physicalSegmentLaout - defines properties for the ?file--encoding, header, delimiter, line terminator etc (csv for the web properties)
+	hasValueMapping:
+		a set of ValueMapping instances that define properties (decimal positions, length) for representation of variables in the logical record
+	hasValueMappingPosition:
+		maps valueMapping instances to order in the logical record. 
+	]

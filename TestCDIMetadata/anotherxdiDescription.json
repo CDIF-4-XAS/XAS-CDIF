@@ -1,0 +1,251 @@
+{
+    "@id": "datastore356",
+    "@type": "cdi:DataStore",
+    "name": "datastorename568i",
+    "has": [
+        {
+            "@id": "lrec2604",
+            "@type": "cdi:LogicalRecord",
+            "organizes": [
+                {
+                    "@type": "KeyValueDatastore",
+                    "isStructuredBy": {
+                        "@type": "KeyValueDataStructure",
+                        "has": {
+                            "@type": "PrimaryKey",
+                            "isComposedOf": [
+                                "#var-Facility.name",
+                                "#var-Beamline.name",
+                                "#var-Scan.start_time"
+                            ]
+                        },
+                        "hasComponent": [
+                            {
+                                "@type": "attributeComponent",
+                                "isDefinedBy": "#var-Outer.name"
+                            },
+                            {
+                                "@type": "measureComponent",
+                                "isDefinedBy": "#var-Scan.edge_energy"
+                            },
+                            {
+                                "@type": "identifierComponent",
+                                "isDefinedBy": "#var-Mono.name"
+                            },
+                            {
+                                "@type": "attributeComponent",
+                                "isDefinedBy": "#var-Mono.d_spacing"
+                            },
+                            {
+                                "@type": "identifierComponent",
+                                "isDefinedBy": "#var-Beamline.name"
+                            },
+                            {
+                                "@type": "attributeComponent",
+                                "isDefinedBy": "#var-Beamline.collimation"
+                            },
+                            {
+                                "@type": "attributeComponent",
+                                "isDefinedBy": "#var-Beamline.focusing"
+                            },
+                            {
+                                "@type": "attributeComponent",
+                                "isDefinedBy": "#var-Beamline.harmonic_rejection"
+                            },
+                            {
+                                "@type": "identifierComponent",
+                                "isDefinedBy": "#var-Facility.name"
+                            },
+                            {
+                                "@type": "measureComponent",
+                                "isDefinedBy": "#var-Facility.energy"
+                            },
+                            {
+                                "@type": "attributeComponent",
+                                "isDefinedBy": "#var-Facility.xray_source"
+                            },
+                            {
+                                "@type": "attributeComponent",
+                                "isDefinedBy": "#var-Scan.start_time"
+                            },
+                            {
+                                "@type": "attributeComponent",
+                                "isDefinedBy": "#var-Detector.I0"
+                            },
+                            {
+                                "@type": "attributeComponent",
+                                "isDefinedBy": "#var-Detector.I1"
+                            },
+                            {
+                                "@type": "identifierComponent",
+                                "isDefinedBy": "#var-Sample.name"
+                            },
+                            {
+                                "@type": "attributeComponent",
+                                "isDefinedBy": "#var-Sample.prep"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "hasVariables": [
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Outer.name",
+                    "name": "Outer.name",
+                    "description": "outer name",
+                    "physicalDataType": "string",
+                    "variableFunction": "not sure what should be here"
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Scan.edge_energy",
+                    "name": "Scan.edge_energy",
+                    "description": "Interpreted/observed scan edge energy",
+                    "physicalDataType": "decimal",
+                    "takesSubstantiveValuesFrom": "positive number",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Mono.name",
+                    "name": "Mono.name",
+                    "description": "monochromator name",
+                    "physicalDataType": "string",
+                    "takesSubstantiveValuesFrom": "",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Mono.d_spacing",
+                    "name": "Mono.d_spacing",
+                    "description": "monochromator d-spacing",
+                    "physicalDataType": "decimal",
+                    "takesSubstantiveValuesFrom": "positive number",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Beamline.name",
+                    "name": "Beamline.name",
+                    "description": "beamline name",
+                    "physicalDataType": "xsd:string",
+                    "takesSubstantiveValuesFrom": "if there is a vocabulary of beam lines at the host facility, that should be here",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Beamline.collimation",
+                    "name": "Beamline.collimation",
+                    "description": "beamline collimation",
+                    "physicalDataType": "string",
+                    "takesSubstantiveValuesFrom": "is a controlled vocabulary defined?",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Beamline.focusing",
+                    "name": "Beamline.focusing",
+                    "description": "beamline focusing",
+                    "physicalDataType": "boolean",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Beamline.harmonic_rejection",
+                    "name": "Beamline.harmonic_rejection",
+                    "description": "Beamline harmonic rejection",
+                    "physicalDataType": "string",
+                    "takesSubstantiveValuesFrom": "vocabulary of rejection types",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Facility.name",
+                    "name": "Facility.name",
+                    "description": "name of facility where analysis was done",
+                    "physicalDataType": "string",
+                    "takesSubstantiveValuesFrom": "vocabulary of XAS facilities; ROR would be better...",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Facility.energy",
+                    "name": "Facility.energy",
+                    "description": "Beam energy provided by the facility",
+                    "physicalDataType": "decimal",
+                    "takesSubstantiveValuesFrom": "positive number",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Facility.xray_source",
+                    "name": "Facility.xray_source",
+                    "description": "instrument type that generates x-rays",
+                    "physicalDataType": "string",
+                    "takesSubstantiveValuesFrom": "vocabulary of x-ray generator types",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Scan.start_time",
+                    "name": "Scan.start_time",
+                    "description": "Beam energy provided by the facility",
+                    "physicalDataType": "xsd:DateTime",
+                    "takesSubstantiveValuesFrom": "define relevant possible date range (e.g. between when the beamline came onlinen and the current time)",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Detector.I0",
+                    "name": "Detector.I0",
+                    "description": "something about a detector",
+                    "physicalDataType": "string",
+                    "takesSubstantiveValuesFrom": "",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Detector.I1",
+                    "name": "Detector.I1",
+                    "description": "something about a detector",
+                    "physicalDataType": "string",
+                    "takesSubstantiveValuesFrom": "",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Sample.name",
+                    "name": "Sample.name",
+                    "description": "Identifier for the analyzed sample",
+                    "physicalDataType": "string",
+                    "takesSubstantiveValuesFrom": "",
+                    "variableFunction": ""
+                },
+                {
+                    "@type": "instanceVariable",
+                    "@id": "#var-Sample.prep",
+                    "name": "Sample.prep",
+                    "description": "description of processing to prepare sample for analysis",
+                    "physicalDataType": "string",
+                    "takesSubstantiveValuesFrom": "maybe theres a controlled vocab for this....",
+                    "variableFunction": ""
+                }
+            ],
+            "isDefinedBy": [
+                {
+                    "@type": "UnitType",
+                    "description": "XAS analysis event; this is the subject of the variables viewed as predicates.",
+                    "name": {
+                        "@type": "string",
+                        "description": "XAS analysis event [where does the name go? it should be a name that identifies the specific analysis event whose results are in the associated wide data"
+                    },
+                    "descriptiveText": {
+                        "@type": "string",
+                        "description": "Cu foil Room Temperature measured at beamline 13-ID"
+                    }
+                }
+            ]
+        }
+    ]
+}

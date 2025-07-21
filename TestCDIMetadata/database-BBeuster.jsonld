@@ -1,0 +1,4950 @@
+{
+  "@context": [
+    "https://ddi-cdi.github.io/ddi-cdi_v1.0-post/encoding/json-ld/ddi-cdi.jsonld"
+  ],
+  "DDICDIModels": [
+    {
+      "@id": "#37a1d02b-9895-55de-bd4f-1b38263a8c64",
+      "@type": "PhysicalDataSet",
+      "allowsDuplicates": false,
+      "physicalFileName": "Valglistearkivet",
+      "formats": "#565af597-f2da-5d22-bb9c-c9fda44c36a8",
+      "has_PhysicalRecordSegment": [
+        "#ab0e2917-af1b-5464-946b-07bd05995ec4",
+        "#610d7b40-b0a6-53f3-b2db-74a8ed51717c",
+        "#a427ecf1-d220-5dce-94f2-301d08386701",
+        "#cf224336-22ac-50e6-9df2-222464ab0940",
+        "#ce0b95a9-67a0-5e1a-a457-38e2f66223ab",
+        "#184eb34a-57d5-532d-966d-db7e4bd7cfc7",
+        "#26bd44f5-8e66-537d-85c8-38b92a037a7f",
+        "#310886c3-261f-591e-8a22-aafa120a38c8",
+        "#dc8a52b9-776f-5f8f-a610-f2f8c951aeda"
+      ],
+      "catalogDetails": {
+        "@type": "CatalogDetails",
+        "relatedResource": {
+          "@type": "Reference",
+          "ddiReference": {
+            "@type": "InternationalRegistrationDataIdentifier",
+            "dataIdentifier": {
+              "@value": "#ccc8364c-7f04-5213-9c83-45394771dca7",
+              "@type": "xsd:string"
+            },
+            "registrationAuthorityIdentifier": {
+              "@value": "no.nsd",
+              "@type": "xsd:string"
+            },
+            "versionIdentifier": {
+              "@value": "1",
+              "@type": "xsd:string"
+            }
+          },
+          "validType": {
+            "@value": "DDI-Lifecycle 3.3 <StudyUnit>",
+            "@type": "xsd:string"
+          },
+          "description": {
+            "@value": "Link to DDI-Lifecycle 3.3 description of StudyUnit 'Valglistearkivet'",
+            "@type": "xsd:string"
+          }
+        }
+      }
+    },
+    {
+      "@id": "#565af597-f2da-5d22-bb9c-c9fda44c36a8",
+      "@type": "DataStore",
+      "allowsDuplicates": false,
+      "recordCount": 0,
+      "has_LogicalRecord": [
+        "#29dee8c6-41af-5411-87ae-4e7d7755d688",
+        "#639092e4-c7fe-5c33-ab70-3a00caaad8b6",
+        "#8f6721f4-7535-5be1-86af-5fc5a7752965",
+        "#ddfc0a15-5d58-52f6-a03c-f25a81cc2670",
+        "#b55cc012-2d20-5bbf-97ae-eb804d2715de",
+        "#c0a33977-0d34-502d-a0f0-06c1346c1f87",
+        "#86c0ea55-8399-5c42-aeb3-5dec64194a42",
+        "#7dfe8921-f5fe-5eac-9214-6b53d038657b",
+        "#009b35d5-5e86-5e1f-874d-555b9947800c"
+      ]
+    },
+    {
+      "@id": "#77a20145-403d-5692-86ba-232b112338b1",
+      "@type": "PhysicalSegmentLayout",
+      "allowsDuplicates": false,
+      "formats": "#29dee8c6-41af-5411-87ae-4e7d7755d688",
+      "isDelimited": false,
+      "isFixedWidth": false,
+      "delimiter": "",
+      "has_ValueMappingPosition": [
+        "#8c17d922-3402-5c1b-9dfb-54c0a1fdee31",
+        "#9fe07fc0-ff4d-5cba-b8d6-b59d116e3b33",
+        "#653271e7-681d-5168-b483-b0a0abfb44fb",
+        "#7374596a-fbe4-5bb7-b769-007ba2818779"
+      ]
+    },
+    {
+      "@id": "#8c17d922-3402-5c1b-9dfb-54c0a1fdee31",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": "#e3726d70-d461-57a8-9d21-0fce11edfbbf"
+    },
+    {
+      "@id": "#9fe07fc0-ff4d-5cba-b8d6-b59d116e3b33",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": "#1bc7e2f1-b311-5f6e-b8d1-bec4fac0555b"
+    },
+    {
+      "@id": "#653271e7-681d-5168-b483-b0a0abfb44fb",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": "#176314a2-73fc-5035-8d61-34198b6498e3"
+    },
+    {
+      "@id": "#7374596a-fbe4-5bb7-b769-007ba2818779",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": "#d66eea96-e732-5a51-b15c-63e4fe12b26e"
+    },
+    {
+      "@id": "#ab0e2917-af1b-5464-946b-07bd05995ec4",
+      "@type": "PhysicalRecordSegment",
+      "mapsTo": "#29dee8c6-41af-5411-87ae-4e7d7755d688",
+      "has_PhysicalSegmentLayout": "#77a20145-403d-5692-86ba-232b112338b1",
+      "has_DataPointPosition": []
+    },
+    {
+      "@id": "#29dee8c6-41af-5411-87ae-4e7d7755d688",
+      "@type": "LogicalRecord",
+      "organizes": "d818709e-6a3f-5fe8-96bb-a7c11673e68f",
+      "has_InstanceVariable": [
+        "#d573939b-8fe5-5d60-907b-f72673708c23",
+        "#e8a3db07-c51e-5904-96b1-7d52362542bc",
+        "#dc862592-44fe-535f-a11f-ef92428363e8",
+        "#ab641989-7c10-5a21-859c-e4bebae71ddc"
+      ]
+    },
+    {
+      "@id": "#d573939b-8fe5-5d60-907b-f72673708c23",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "fylknr"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "fylknr"
+      },
+      "has_PhysicalSegmentLayout": "#77a20145-403d-5692-86ba-232b112338b1",
+      "has_ValueMapping": "#e3726d70-d461-57a8-9d21-0fce11edfbbf",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#d573939b-8fe5-5d60-907b-f72673708c23",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'fylknr'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#e8a3db07-c51e-5904-96b1-7d52362542bc",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "navn"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "navn"
+      },
+      "has_PhysicalSegmentLayout": "#77a20145-403d-5692-86ba-232b112338b1",
+      "has_ValueMapping": "#1bc7e2f1-b311-5f6e-b8d1-bec4fac0555b",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#e8a3db07-c51e-5904-96b1-7d52362542bc",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'navn'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#dc862592-44fe-535f-a11f-ef92428363e8",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "fra_år"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "fra_år"
+      },
+      "has_PhysicalSegmentLayout": "#77a20145-403d-5692-86ba-232b112338b1",
+      "has_ValueMapping": "#176314a2-73fc-5035-8d61-34198b6498e3",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#dc862592-44fe-535f-a11f-ef92428363e8",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'fra_år'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#ab641989-7c10-5a21-859c-e4bebae71ddc",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "til_år"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "til_år"
+      },
+      "has_PhysicalSegmentLayout": "#77a20145-403d-5692-86ba-232b112338b1",
+      "has_ValueMapping": "#d66eea96-e732-5a51-b15c-63e4fe12b26e",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#ab641989-7c10-5a21-859c-e4bebae71ddc",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'til_år'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "d818709e-6a3f-5fe8-96bb-a7c11673e68f",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#154830b2-a140-58a1-a354-f99eb75e201e",
+      "catalogDetails": {
+        "@type": "CatalogDetails",
+        "title": {
+          "@type": "InternationalString",
+          "languageSpecificString": {
+            "@type": "LanguageString",
+            "content": "Valglistearkivet.sql-i_fylke",
+            "language": "en"
+          }
+        },
+        "relatedResource": {
+          "@type": "Reference",
+          "ddiReference": {
+            "@type": "InternationalRegistrationDataIdentifier",
+            "dataIdentifier": {
+              "@value": "d818709e-6a3f-5fe8-96bb-a7c11673e68f",
+              "@type": "xsd:string"
+            },
+            "registrationAuthorityIdentifier": {
+              "@value": "no.nsd",
+              "@type": "xsd:string"
+            },
+            "versionIdentifier": {
+              "@value": "1",
+              "@type": "xsd:string"
+            }
+          },
+          "validType": {
+            "@value": "DDI-Lifecycle 3.3 <PhysicalInstance>",
+            "@type": "xsd:string"
+          },
+          "description": {
+            "@value": "Link to DDI-Lifecycle 3.3 description of PhysicalInstance for i_fylke",
+            "@type": "xsd:string"
+          }
+        }
+      }
+    },
+    {
+      "@id": "#154830b2-a140-58a1-a354-f99eb75e201e",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#7e1220fe-20e3-56f2-8a75-5796333dc514",
+        "#59e0f2e8-4534-5834-aba8-96e2eb42e400",
+        "#d52656ee-2f6f-5e22-8d3d-42185d76fb23",
+        "#542251f3-8664-5d8b-b546-89743d31aef6"
+      ],
+      "has_PrimaryKey": "#345d2f15-3dd5-5d70-83ab-d81f1f1e8917"
+    },
+    {
+      "@id": "#7e1220fe-20e3-56f2-8a75-5796333dc514",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#d573939b-8fe5-5d60-907b-f72673708c23"
+    },
+    {
+      "@id": "#59e0f2e8-4534-5834-aba8-96e2eb42e400",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#e8a3db07-c51e-5904-96b1-7d52362542bc"
+    },
+    {
+      "@id": "#d52656ee-2f6f-5e22-8d3d-42185d76fb23",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#dc862592-44fe-535f-a11f-ef92428363e8"
+    },
+    {
+      "@id": "#542251f3-8664-5d8b-b546-89743d31aef6",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#ab641989-7c10-5a21-859c-e4bebae71ddc"
+    },
+    {
+      "@id": "#345d2f15-3dd5-5d70-83ab-d81f1f1e8917",
+      "@type": "PrimaryKey",
+      "isComposedOf": [
+        "#1d17b33e-2346-5aa5-9995-fc2f09d86589"
+      ]
+    },
+    {
+      "@id": "#1d17b33e-2346-5aa5-9995-fc2f09d86589",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#7e1220fe-20e3-56f2-8a75-5796333dc514"
+    },
+    {
+      "@id": "#e3726d70-d461-57a8-9d21-0fce11edfbbf",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#1bc7e2f1-b311-5f6e-b8d1-bec4fac0555b",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#176314a2-73fc-5035-8d61-34198b6498e3",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#d66eea96-e732-5a51-b15c-63e4fe12b26e",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#43e73b9b-233f-54ec-af1e-959ec8167a76",
+      "@type": "PhysicalSegmentLayout",
+      "allowsDuplicates": false,
+      "formats": "#639092e4-c7fe-5c33-ab70-3a00caaad8b6",
+      "isDelimited": false,
+      "isFixedWidth": false,
+      "delimiter": "",
+      "has_ValueMappingPosition": [
+        "#d62debf8-7c6d-5445-8bf3-6b26a676a19f",
+        "#a3c1f2b0-f287-54d0-a73f-4dfb4556012c",
+        "#586ae9ef-35a0-5d21-aec2-4d3885720f1b",
+        "#c7ce174f-842c-5097-838a-a4cd495b2003",
+        "#eeb9f361-0c36-5f60-9803-4ff86858cc7a",
+        "#bcb3bc54-e3b2-52b1-bca1-7f4fe0cdc1cc"
+      ]
+    },
+    {
+      "@id": "#d62debf8-7c6d-5445-8bf3-6b26a676a19f",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": "#cb942e63-7e80-56f7-8c38-c381e1906ee7"
+    },
+    {
+      "@id": "#a3c1f2b0-f287-54d0-a73f-4dfb4556012c",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": "#513ddebd-7381-5d0d-9196-7b14a63fd619"
+    },
+    {
+      "@id": "#586ae9ef-35a0-5d21-aec2-4d3885720f1b",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": "#0dc5695d-c225-538f-8e16-f092987a108a"
+    },
+    {
+      "@id": "#c7ce174f-842c-5097-838a-a4cd495b2003",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": "#049ebbe8-17a7-5cb8-b9ce-716115a56e8b"
+    },
+    {
+      "@id": "#eeb9f361-0c36-5f60-9803-4ff86858cc7a",
+      "@type": "ValueMappingPosition",
+      "value": 4,
+      "indexes": "#6cefa6b6-52ba-53ed-8b95-b50c527e24aa"
+    },
+    {
+      "@id": "#bcb3bc54-e3b2-52b1-bca1-7f4fe0cdc1cc",
+      "@type": "ValueMappingPosition",
+      "value": 5,
+      "indexes": "#6a028194-f763-5fc3-b533-38bbfe66ec29"
+    },
+    {
+      "@id": "#610d7b40-b0a6-53f3-b2db-74a8ed51717c",
+      "@type": "PhysicalRecordSegment",
+      "mapsTo": "#639092e4-c7fe-5c33-ab70-3a00caaad8b6",
+      "has_PhysicalSegmentLayout": "#43e73b9b-233f-54ec-af1e-959ec8167a76",
+      "has_DataPointPosition": []
+    },
+    {
+      "@id": "#639092e4-c7fe-5c33-ab70-3a00caaad8b6",
+      "@type": "LogicalRecord",
+      "organizes": "687032e0-9ba0-5a0b-9bba-f2c4bafe6701",
+      "has_InstanceVariable": [
+        "#2128a3cd-a559-5713-9e14-a8461268e4a6",
+        "#a46e4e8c-c130-5c6f-8bb2-4fbe558373f7",
+        "#edc39dea-501c-5b5f-97a7-3a630cf33232",
+        "#4f0b5742-25c8-5e43-b35b-9089b26ca7e5",
+        "#85318b1e-a32b-506a-ab81-9990417b913f",
+        "#3d98ecbe-31cf-5e46-b45e-f2cc2f6c9c75"
+      ]
+    },
+    {
+      "@id": "#2128a3cd-a559-5713-9e14-a8461268e4a6",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgdistriktskode"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgdistriktskode"
+      },
+      "has_PhysicalSegmentLayout": "#43e73b9b-233f-54ec-af1e-959ec8167a76",
+      "has_ValueMapping": "#cb942e63-7e80-56f7-8c38-c381e1906ee7",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#2128a3cd-a559-5713-9e14-a8461268e4a6",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgdistriktskode'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#a46e4e8c-c130-5c6f-8bb2-4fbe558373f7",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgdistriktsnavn_no"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgdistriktsnavn_no"
+      },
+      "has_PhysicalSegmentLayout": "#43e73b9b-233f-54ec-af1e-959ec8167a76",
+      "has_ValueMapping": "#513ddebd-7381-5d0d-9196-7b14a63fd619",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#a46e4e8c-c130-5c6f-8bb2-4fbe558373f7",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgdistriktsnavn_no'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#edc39dea-501c-5b5f-97a7-3a630cf33232",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgdistriktsnavn_se"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgdistriktsnavn_se"
+      },
+      "has_PhysicalSegmentLayout": "#43e73b9b-233f-54ec-af1e-959ec8167a76",
+      "has_ValueMapping": "#0dc5695d-c225-538f-8e16-f092987a108a",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#edc39dea-501c-5b5f-97a7-3a630cf33232",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgdistriktsnavn_se'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#4f0b5742-25c8-5e43-b35b-9089b26ca7e5",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "fra_år"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "fra_år"
+      },
+      "has_PhysicalSegmentLayout": "#43e73b9b-233f-54ec-af1e-959ec8167a76",
+      "has_ValueMapping": "#049ebbe8-17a7-5cb8-b9ce-716115a56e8b",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#4f0b5742-25c8-5e43-b35b-9089b26ca7e5",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'fra_år'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#85318b1e-a32b-506a-ab81-9990417b913f",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "til_år"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "til_år"
+      },
+      "has_PhysicalSegmentLayout": "#43e73b9b-233f-54ec-af1e-959ec8167a76",
+      "has_ValueMapping": "#6cefa6b6-52ba-53ed-8b95-b50c527e24aa",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#85318b1e-a32b-506a-ab81-9990417b913f",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'til_år'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#3d98ecbe-31cf-5e46-b45e-f2cc2f6c9c75",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "dokumentasjon"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "dokumentasjon"
+      },
+      "has_PhysicalSegmentLayout": "#43e73b9b-233f-54ec-af1e-959ec8167a76",
+      "has_ValueMapping": "#6a028194-f763-5fc3-b533-38bbfe66ec29",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#3d98ecbe-31cf-5e46-b45e-f2cc2f6c9c75",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'dokumentasjon'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "687032e0-9ba0-5a0b-9bba-f2c4bafe6701",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#5acaba27-353d-5260-8cfd-f1a9263b6c44",
+      "catalogDetails": {
+        "@type": "CatalogDetails",
+        "title": {
+          "@type": "InternationalString",
+          "languageSpecificString": {
+            "@type": "LanguageString",
+            "content": "Valglistearkivet.sql-i_valgdistrikt_samiske",
+            "language": "en"
+          }
+        },
+        "relatedResource": {
+          "@type": "Reference",
+          "ddiReference": {
+            "@type": "InternationalRegistrationDataIdentifier",
+            "dataIdentifier": {
+              "@value": "687032e0-9ba0-5a0b-9bba-f2c4bafe6701",
+              "@type": "xsd:string"
+            },
+            "registrationAuthorityIdentifier": {
+              "@value": "no.nsd",
+              "@type": "xsd:string"
+            },
+            "versionIdentifier": {
+              "@value": "1",
+              "@type": "xsd:string"
+            }
+          },
+          "validType": {
+            "@value": "DDI-Lifecycle 3.3 <PhysicalInstance>",
+            "@type": "xsd:string"
+          },
+          "description": {
+            "@value": "Link to DDI-Lifecycle 3.3 description of PhysicalInstance for i_valgdistrikt_samiske",
+            "@type": "xsd:string"
+          }
+        }
+      }
+    },
+    {
+      "@id": "#5acaba27-353d-5260-8cfd-f1a9263b6c44",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#97cd8252-ff3b-558f-b214-647f5f8cd9eb",
+        "#e76aa455-27f7-5b71-b7f9-1fefbec7a663",
+        "#39c60cba-a103-5cec-8eac-9a2ed1cbfe86",
+        "#25f454cd-70d0-5931-b40a-42dd71ea1d9f",
+        "#b1697447-5019-5ae6-8985-e0c8be931070",
+        "#56d4fbc0-3631-5e8c-8e43-4bac33028e7b"
+      ],
+      "has_PrimaryKey": "#eabe9ec2-c4a3-5291-a53f-a1ff4f40051a"
+    },
+    {
+      "@id": "#97cd8252-ff3b-558f-b214-647f5f8cd9eb",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#2128a3cd-a559-5713-9e14-a8461268e4a6"
+    },
+    {
+      "@id": "#e76aa455-27f7-5b71-b7f9-1fefbec7a663",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#a46e4e8c-c130-5c6f-8bb2-4fbe558373f7"
+    },
+    {
+      "@id": "#39c60cba-a103-5cec-8eac-9a2ed1cbfe86",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#edc39dea-501c-5b5f-97a7-3a630cf33232"
+    },
+    {
+      "@id": "#25f454cd-70d0-5931-b40a-42dd71ea1d9f",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#4f0b5742-25c8-5e43-b35b-9089b26ca7e5"
+    },
+    {
+      "@id": "#b1697447-5019-5ae6-8985-e0c8be931070",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#85318b1e-a32b-506a-ab81-9990417b913f"
+    },
+    {
+      "@id": "#56d4fbc0-3631-5e8c-8e43-4bac33028e7b",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#3d98ecbe-31cf-5e46-b45e-f2cc2f6c9c75"
+    },
+    {
+      "@id": "#eabe9ec2-c4a3-5291-a53f-a1ff4f40051a",
+      "@type": "PrimaryKey",
+      "isComposedOf": [
+        "#d058e8bf-1572-50f2-ba78-b0a433db524c"
+      ]
+    },
+    {
+      "@id": "#d058e8bf-1572-50f2-ba78-b0a433db524c",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#97cd8252-ff3b-558f-b214-647f5f8cd9eb"
+    },
+    {
+      "@id": "#cb942e63-7e80-56f7-8c38-c381e1906ee7",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#513ddebd-7381-5d0d-9196-7b14a63fd619",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#0dc5695d-c225-538f-8e16-f092987a108a",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#049ebbe8-17a7-5cb8-b9ce-716115a56e8b",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#6cefa6b6-52ba-53ed-8b95-b50c527e24aa",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#6a028194-f763-5fc3-b533-38bbfe66ec29",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#ea10fd71-9abb-5ecd-9a47-b53bfaba1150",
+      "@type": "PhysicalSegmentLayout",
+      "allowsDuplicates": false,
+      "formats": "#8f6721f4-7535-5be1-86af-5fc5a7752965",
+      "isDelimited": false,
+      "isFixedWidth": false,
+      "delimiter": "",
+      "has_ValueMappingPosition": [
+        "#934544db-b315-5730-bf4f-cf481fce5710",
+        "#e6d1fa21-b002-5ffb-a212-d466a8b8e06a",
+        "#4acc87dc-44d3-5385-8ce6-60230c26e0b2",
+        "#89542906-474b-531f-b52f-dbdc9a94d9a5"
+      ]
+    },
+    {
+      "@id": "#934544db-b315-5730-bf4f-cf481fce5710",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": "#ecf9140d-b1fe-5038-b173-cefd272db980"
+    },
+    {
+      "@id": "#e6d1fa21-b002-5ffb-a212-d466a8b8e06a",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": "#10bd74b4-2127-508b-922a-cf6a710fa83b"
+    },
+    {
+      "@id": "#4acc87dc-44d3-5385-8ce6-60230c26e0b2",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": "#528b7433-bd81-5859-8a5d-6bb8619359ad"
+    },
+    {
+      "@id": "#89542906-474b-531f-b52f-dbdc9a94d9a5",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": "#1ced03b3-6bf6-551e-9e1b-df7a51ca73c1"
+    },
+    {
+      "@id": "#a427ecf1-d220-5dce-94f2-301d08386701",
+      "@type": "PhysicalRecordSegment",
+      "mapsTo": "#8f6721f4-7535-5be1-86af-5fc5a7752965",
+      "has_PhysicalSegmentLayout": "#ea10fd71-9abb-5ecd-9a47-b53bfaba1150",
+      "has_DataPointPosition": []
+    },
+    {
+      "@id": "#8f6721f4-7535-5be1-86af-5fc5a7752965",
+      "@type": "LogicalRecord",
+      "organizes": "3f13111b-ff2d-5c2c-9e38-bc678137c876",
+      "has_InstanceVariable": [
+        "#f02bd97b-50ac-5c55-b3ef-72b7b6622bde",
+        "#833d1ff4-457e-5f93-ba0f-22a061868b3a",
+        "#3bdbb820-6ea8-5419-b9de-24c4d39cd58a",
+        "#cd750c97-827c-5341-8acd-b0eec126fc3b"
+      ]
+    },
+    {
+      "@id": "#f02bd97b-50ac-5c55-b3ef-72b7b6622bde",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgdistriktskode"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgdistriktskode"
+      },
+      "has_PhysicalSegmentLayout": "#ea10fd71-9abb-5ecd-9a47-b53bfaba1150",
+      "has_ValueMapping": "#ecf9140d-b1fe-5038-b173-cefd272db980",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#f02bd97b-50ac-5c55-b3ef-72b7b6622bde",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgdistriktskode'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#833d1ff4-457e-5f93-ba0f-22a061868b3a",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgdistriktsnavn"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgdistriktsnavn"
+      },
+      "has_PhysicalSegmentLayout": "#ea10fd71-9abb-5ecd-9a47-b53bfaba1150",
+      "has_ValueMapping": "#10bd74b4-2127-508b-922a-cf6a710fa83b",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#833d1ff4-457e-5f93-ba0f-22a061868b3a",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgdistriktsnavn'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#3bdbb820-6ea8-5419-b9de-24c4d39cd58a",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "fra_periode"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "fra_periode"
+      },
+      "has_PhysicalSegmentLayout": "#ea10fd71-9abb-5ecd-9a47-b53bfaba1150",
+      "has_ValueMapping": "#528b7433-bd81-5859-8a5d-6bb8619359ad",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#3bdbb820-6ea8-5419-b9de-24c4d39cd58a",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'fra_periode'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#cd750c97-827c-5341-8acd-b0eec126fc3b",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "til_periode"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "til_periode"
+      },
+      "has_PhysicalSegmentLayout": "#ea10fd71-9abb-5ecd-9a47-b53bfaba1150",
+      "has_ValueMapping": "#1ced03b3-6bf6-551e-9e1b-df7a51ca73c1",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#cd750c97-827c-5341-8acd-b0eec126fc3b",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'til_periode'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "3f13111b-ff2d-5c2c-9e38-bc678137c876",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#0518b49e-9b8a-54ef-9894-50d3581b9199",
+      "catalogDetails": {
+        "@type": "CatalogDetails",
+        "title": {
+          "@type": "InternationalString",
+          "languageSpecificString": {
+            "@type": "LanguageString",
+            "content": "Valglistearkivet.sql-i_valgdistriktskoder",
+            "language": "en"
+          }
+        },
+        "relatedResource": {
+          "@type": "Reference",
+          "ddiReference": {
+            "@type": "InternationalRegistrationDataIdentifier",
+            "dataIdentifier": {
+              "@value": "3f13111b-ff2d-5c2c-9e38-bc678137c876",
+              "@type": "xsd:string"
+            },
+            "registrationAuthorityIdentifier": {
+              "@value": "no.nsd",
+              "@type": "xsd:string"
+            },
+            "versionIdentifier": {
+              "@value": "1",
+              "@type": "xsd:string"
+            }
+          },
+          "validType": {
+            "@value": "DDI-Lifecycle 3.3 <PhysicalInstance>",
+            "@type": "xsd:string"
+          },
+          "description": {
+            "@value": "Link to DDI-Lifecycle 3.3 description of PhysicalInstance for i_valgdistriktskoder",
+            "@type": "xsd:string"
+          }
+        }
+      }
+    },
+    {
+      "@id": "#0518b49e-9b8a-54ef-9894-50d3581b9199",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#d5996b65-65d2-50b1-9940-1c05be1c6513",
+        "#3b6e93d1-0eb9-5a41-a509-eaf9a8da5284",
+        "#69d61216-a308-50da-8a35-56450d5e1a19",
+        "#3e97278d-6a87-5bec-b684-cc3e11a096b9"
+      ]
+    },
+    {
+      "@id": "#d5996b65-65d2-50b1-9940-1c05be1c6513",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#f02bd97b-50ac-5c55-b3ef-72b7b6622bde"
+    },
+    {
+      "@id": "#3b6e93d1-0eb9-5a41-a509-eaf9a8da5284",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#833d1ff4-457e-5f93-ba0f-22a061868b3a"
+    },
+    {
+      "@id": "#69d61216-a308-50da-8a35-56450d5e1a19",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#3bdbb820-6ea8-5419-b9de-24c4d39cd58a"
+    },
+    {
+      "@id": "#3e97278d-6a87-5bec-b684-cc3e11a096b9",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#cd750c97-827c-5341-8acd-b0eec126fc3b"
+    },
+    {
+      "@id": "#ecf9140d-b1fe-5038-b173-cefd272db980",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#10bd74b4-2127-508b-922a-cf6a710fa83b",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#528b7433-bd81-5859-8a5d-6bb8619359ad",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#1ced03b3-6bf6-551e-9e1b-df7a51ca73c1",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "@type": "PhysicalSegmentLayout",
+      "allowsDuplicates": false,
+      "formats": "#ddfc0a15-5d58-52f6-a03c-f25a81cc2670",
+      "isDelimited": false,
+      "isFixedWidth": false,
+      "delimiter": "",
+      "has_ValueMappingPosition": [
+        "#c696016d-9902-57f4-a509-400fff92ca5a",
+        "#63294c61-2170-5af9-964e-ee43b64825c5",
+        "#d9e6d05f-6279-5db3-abf9-2975ec509f06",
+        "#d419c140-d64f-5dee-82b3-9875ff5f040c",
+        "#6e7e1d99-4ee8-5660-8eb4-733aabd13b30",
+        "#14722cc8-2dfa-5176-9343-2935684ac24a",
+        "#7d92aba6-9047-5d85-a9fe-6e47806cb620",
+        "#8d96aff8-8c27-5a36-9046-98d5aa643c81",
+        "#82cc49fb-aea1-57f4-af93-d4af70c5009e",
+        "#e724bb34-4054-5306-a98c-75db35d86858"
+      ]
+    },
+    {
+      "@id": "#c696016d-9902-57f4-a509-400fff92ca5a",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": "#578eeddc-d702-58b7-b9ba-b93479585d88"
+    },
+    {
+      "@id": "#63294c61-2170-5af9-964e-ee43b64825c5",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": "#6b48ea26-7b81-5e7c-86a9-0d828ac5492e"
+    },
+    {
+      "@id": "#d9e6d05f-6279-5db3-abf9-2975ec509f06",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": "#b5640902-da2e-50a4-bc04-b2d8cead9292"
+    },
+    {
+      "@id": "#d419c140-d64f-5dee-82b3-9875ff5f040c",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": "#c6e218e8-5ebe-532d-ada0-5e7bdd00f763"
+    },
+    {
+      "@id": "#6e7e1d99-4ee8-5660-8eb4-733aabd13b30",
+      "@type": "ValueMappingPosition",
+      "value": 4,
+      "indexes": "#1ebbd99d-165b-5d52-b53c-0680bb3660d5"
+    },
+    {
+      "@id": "#14722cc8-2dfa-5176-9343-2935684ac24a",
+      "@type": "ValueMappingPosition",
+      "value": 5,
+      "indexes": "#d4816303-bdae-51c6-b581-ff24917ababc"
+    },
+    {
+      "@id": "#7d92aba6-9047-5d85-a9fe-6e47806cb620",
+      "@type": "ValueMappingPosition",
+      "value": 6,
+      "indexes": "#50047dff-ccb7-5d56-a48a-896bbd370f89"
+    },
+    {
+      "@id": "#8d96aff8-8c27-5a36-9046-98d5aa643c81",
+      "@type": "ValueMappingPosition",
+      "value": 7,
+      "indexes": "#689a3667-683d-512e-8207-85e3f439a0dc"
+    },
+    {
+      "@id": "#82cc49fb-aea1-57f4-af93-d4af70c5009e",
+      "@type": "ValueMappingPosition",
+      "value": 8,
+      "indexes": "#74a8fb0a-0800-5183-bb74-9846da7d3d91"
+    },
+    {
+      "@id": "#e724bb34-4054-5306-a98c-75db35d86858",
+      "@type": "ValueMappingPosition",
+      "value": 9,
+      "indexes": "#6e9370a3-dee5-5ca4-b934-8da009f584b3"
+    },
+    {
+      "@id": "#cf224336-22ac-50e6-9df2-222464ab0940",
+      "@type": "PhysicalRecordSegment",
+      "mapsTo": "#ddfc0a15-5d58-52f6-a03c-f25a81cc2670",
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_DataPointPosition": []
+    },
+    {
+      "@id": "#ddfc0a15-5d58-52f6-a03c-f25a81cc2670",
+      "@type": "LogicalRecord",
+      "organizes": "8f03c344-874a-59cb-827f-7de0889e87d2",
+      "has_InstanceVariable": [
+        "#cc0e6a77-1e92-5f29-9978-27ea81adbf94",
+        "#b002e735-f431-5d83-9f93-9790c461a312",
+        "#c3e31fe9-321e-516e-886e-fa4d1d225e2d",
+        "#ba2e8f5d-7612-59b7-be82-5c04fc280cac",
+        "#025570d2-5c21-5c90-b6ac-6eb5a64c8108",
+        "#4bc60a14-805e-59ef-8e22-804552f63564",
+        "#6cfebe26-c1ff-5559-9add-9181ce27ce37",
+        "#cfea334a-597e-5cd3-9a4b-047346573d77",
+        "#e691f1ea-ec59-5490-8072-176d9197d2cd",
+        "#5432486a-53ac-549b-b996-6ed990416588"
+      ]
+    },
+    {
+      "@id": "#cc0e6a77-1e92-5f29-9978-27ea81adbf94",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "id_liste"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "id_liste"
+      },
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_ValueMapping": "#578eeddc-d702-58b7-b9ba-b93479585d88",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#cc0e6a77-1e92-5f29-9978-27ea81adbf94",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'id_liste'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#b002e735-f431-5d83-9f93-9790c461a312",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "nummer"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "nummer"
+      },
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_ValueMapping": "#6b48ea26-7b81-5e7c-86a9-0d828ac5492e",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#b002e735-f431-5d83-9f93-9790c461a312",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'nummer'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#c3e31fe9-321e-516e-886e-fa4d1d225e2d",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "navn"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "navn"
+      },
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_ValueMapping": "#b5640902-da2e-50a4-bc04-b2d8cead9292",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#c3e31fe9-321e-516e-886e-fa4d1d225e2d",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'navn'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#ba2e8f5d-7612-59b7-be82-5c04fc280cac",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "stilling"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "stilling"
+      },
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_ValueMapping": "#c6e218e8-5ebe-532d-ada0-5e7bdd00f763",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#ba2e8f5d-7612-59b7-be82-5c04fc280cac",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'stilling'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#025570d2-5c21-5c90-b6ac-6eb5a64c8108",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "bosted"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "bosted"
+      },
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_ValueMapping": "#1ebbd99d-165b-5d52-b53c-0680bb3660d5",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#025570d2-5c21-5c90-b6ac-6eb5a64c8108",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'bosted'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#4bc60a14-805e-59ef-8e22-804552f63564",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "kjønn"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "kjønn"
+      },
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_ValueMapping": "#d4816303-bdae-51c6-b581-ff24917ababc",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#4bc60a14-805e-59ef-8e22-804552f63564",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'kjønn'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#6cfebe26-c1ff-5559-9add-9181ce27ce37",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Date"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "født"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "født"
+      },
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_ValueMapping": "#50047dff-ccb7-5d56-a48a-896bbd370f89",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#6cfebe26-c1ff-5559-9add-9181ce27ce37",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'født'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#cfea334a-597e-5cd3-9a4b-047346573d77",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "fødselsår"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "fødselsår"
+      },
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_ValueMapping": "#689a3667-683d-512e-8207-85e3f439a0dc",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#cfea334a-597e-5cd3-9a4b-047346573d77",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'fødselsår'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#e691f1ea-ec59-5490-8072-176d9197d2cd",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "alder"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "alder"
+      },
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_ValueMapping": "#74a8fb0a-0800-5183-bb74-9846da7d3d91",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#e691f1ea-ec59-5490-8072-176d9197d2cd",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'alder'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#5432486a-53ac-549b-b996-6ed990416588",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "kumulert"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "kumulert"
+      },
+      "has_PhysicalSegmentLayout": "#7580ad31-03fc-582a-8ed1-6904d8701070",
+      "has_ValueMapping": "#6e9370a3-dee5-5ca4-b934-8da009f584b3",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#5432486a-53ac-549b-b996-6ed990416588",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'kumulert'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "8f03c344-874a-59cb-827f-7de0889e87d2",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#8674ec7f-5c00-55eb-9e44-7074b79323b3",
+      "catalogDetails": {
+        "@type": "CatalogDetails",
+        "title": {
+          "@type": "InternationalString",
+          "languageSpecificString": {
+            "@type": "LanguageString",
+            "content": "Valglistearkivet.sql-lis_fylkestingsvalg_kandidater",
+            "language": "en"
+          }
+        },
+        "relatedResource": {
+          "@type": "Reference",
+          "ddiReference": {
+            "@type": "InternationalRegistrationDataIdentifier",
+            "dataIdentifier": {
+              "@value": "8f03c344-874a-59cb-827f-7de0889e87d2",
+              "@type": "xsd:string"
+            },
+            "registrationAuthorityIdentifier": {
+              "@value": "no.nsd",
+              "@type": "xsd:string"
+            },
+            "versionIdentifier": {
+              "@value": "1",
+              "@type": "xsd:string"
+            }
+          },
+          "validType": {
+            "@value": "DDI-Lifecycle 3.3 <PhysicalInstance>",
+            "@type": "xsd:string"
+          },
+          "description": {
+            "@value": "Link to DDI-Lifecycle 3.3 description of PhysicalInstance for lis_fylkestingsvalg_kandidater",
+            "@type": "xsd:string"
+          }
+        }
+      }
+    },
+    {
+      "@id": "#8674ec7f-5c00-55eb-9e44-7074b79323b3",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#67b94629-c126-5090-b171-772765ef5218",
+        "#4eca1a28-282e-5f83-81a6-2d25adc03ab5",
+        "#b437a33c-6f92-5307-91fe-0dadab8f0f7b",
+        "#cff511ff-08b1-5824-988d-41b6ec4a2d0c",
+        "#7ab2d500-f329-5d9e-adc3-336d384545c7",
+        "#849fa2c2-ff8a-5639-86c9-d1a238314490",
+        "#1626d163-d861-58b6-a21b-2b639487869d",
+        "#d529953e-7449-5566-9d75-d69421c2e886",
+        "#f7590bd8-f488-5950-9efb-ad891bce2f64",
+        "#bfe76681-0e82-5878-be3c-afe232b79750"
+      ],
+      "has_PrimaryKey": "#e845d1d8-02dc-5815-b5cb-7ef9a4df89cc",
+      "has_ForeignKey": [
+        "#20801d7e-5d0e-558a-8c75-3e462ac5e9d0"
+      ]
+    },
+    {
+      "@id": "#67b94629-c126-5090-b171-772765ef5218",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#cc0e6a77-1e92-5f29-9978-27ea81adbf94"
+    },
+    {
+      "@id": "#4eca1a28-282e-5f83-81a6-2d25adc03ab5",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#b002e735-f431-5d83-9f93-9790c461a312"
+    },
+    {
+      "@id": "#b437a33c-6f92-5307-91fe-0dadab8f0f7b",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#c3e31fe9-321e-516e-886e-fa4d1d225e2d"
+    },
+    {
+      "@id": "#cff511ff-08b1-5824-988d-41b6ec4a2d0c",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#ba2e8f5d-7612-59b7-be82-5c04fc280cac"
+    },
+    {
+      "@id": "#7ab2d500-f329-5d9e-adc3-336d384545c7",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#025570d2-5c21-5c90-b6ac-6eb5a64c8108"
+    },
+    {
+      "@id": "#849fa2c2-ff8a-5639-86c9-d1a238314490",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#4bc60a14-805e-59ef-8e22-804552f63564"
+    },
+    {
+      "@id": "#1626d163-d861-58b6-a21b-2b639487869d",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#6cfebe26-c1ff-5559-9add-9181ce27ce37"
+    },
+    {
+      "@id": "#d529953e-7449-5566-9d75-d69421c2e886",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#cfea334a-597e-5cd3-9a4b-047346573d77"
+    },
+    {
+      "@id": "#f7590bd8-f488-5950-9efb-ad891bce2f64",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#e691f1ea-ec59-5490-8072-176d9197d2cd"
+    },
+    {
+      "@id": "#bfe76681-0e82-5878-be3c-afe232b79750",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#5432486a-53ac-549b-b996-6ed990416588"
+    },
+    {
+      "@id": "#e845d1d8-02dc-5815-b5cb-7ef9a4df89cc",
+      "@type": "PrimaryKey",
+      "isComposedOf": [
+        "#3fe9f3c5-95f7-5465-9683-d2183186f044",
+        "#62aba722-3b83-554f-9c6f-36325b95d84d"
+      ]
+    },
+    {
+      "@id": "#3fe9f3c5-95f7-5465-9683-d2183186f044",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#67b94629-c126-5090-b171-772765ef5218"
+    },
+    {
+      "@id": "#62aba722-3b83-554f-9c6f-36325b95d84d",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#4eca1a28-282e-5f83-81a6-2d25adc03ab5"
+    },
+    {
+      "@id": "#3374daa3-f994-5eea-b4c4-39870d54abd5",
+      "@type": "ForeignKeyComponent",
+      "correspondsTo_DataStructureComponent": "#67b94629-c126-5090-b171-772765ef5218",
+      "references": "#e4f87d32-6f20-587c-abcd-fa1d5bede8a8"
+    },
+    {
+      "@id": "#20801d7e-5d0e-558a-8c75-3e462ac5e9d0",
+      "@type": "ForeignKey",
+      "isComposedOf": [
+        "#3374daa3-f994-5eea-b4c4-39870d54abd5"
+      ]
+    },
+    {
+      "@id": "#578eeddc-d702-58b7-b9ba-b93479585d88",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#6b48ea26-7b81-5e7c-86a9-0d828ac5492e",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#b5640902-da2e-50a4-bc04-b2d8cead9292",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#c6e218e8-5ebe-532d-ada0-5e7bdd00f763",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#1ebbd99d-165b-5d52-b53c-0680bb3660d5",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#d4816303-bdae-51c6-b581-ff24917ababc",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#50047dff-ccb7-5d56-a48a-896bbd370f89",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#689a3667-683d-512e-8207-85e3f439a0dc",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#74a8fb0a-0800-5183-bb74-9846da7d3d91",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#6e9370a3-dee5-5ca4-b934-8da009f584b3",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#962c318a-e09e-59d3-9aa4-7941a9762ed1",
+      "@type": "PhysicalSegmentLayout",
+      "allowsDuplicates": false,
+      "formats": "#b55cc012-2d20-5bbf-97ae-eb804d2715de",
+      "isDelimited": false,
+      "isFixedWidth": false,
+      "delimiter": "",
+      "has_ValueMappingPosition": [
+        "#d1f7259b-1f02-55ab-8060-803f563ea716",
+        "#84213bde-ec60-5035-baf3-3aa874d4e8dc",
+        "#af65acc1-711d-5422-81a2-7fe6ce1443e0",
+        "#cd88a136-fc44-581c-a324-ea2a63fc2108",
+        "#9be57b8e-e1be-555d-94b8-c17156bf85d5"
+      ]
+    },
+    {
+      "@id": "#d1f7259b-1f02-55ab-8060-803f563ea716",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": "#9f7bb14c-d79e-51bf-8969-0fe6f6215844"
+    },
+    {
+      "@id": "#84213bde-ec60-5035-baf3-3aa874d4e8dc",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": "#0be3fa4f-66e4-510c-aaa9-a3edbcb6fb14"
+    },
+    {
+      "@id": "#af65acc1-711d-5422-81a2-7fe6ce1443e0",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": "#36ccd5a7-9e77-5a1b-b967-ae07842404a6"
+    },
+    {
+      "@id": "#cd88a136-fc44-581c-a324-ea2a63fc2108",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": "#cec44296-911c-5f74-915f-20724b45e717"
+    },
+    {
+      "@id": "#9be57b8e-e1be-555d-94b8-c17156bf85d5",
+      "@type": "ValueMappingPosition",
+      "value": 4,
+      "indexes": "#4bc9e6b4-1b57-571a-9402-498f7659eec5"
+    },
+    {
+      "@id": "#ce0b95a9-67a0-5e1a-a457-38e2f66223ab",
+      "@type": "PhysicalRecordSegment",
+      "mapsTo": "#b55cc012-2d20-5bbf-97ae-eb804d2715de",
+      "has_PhysicalSegmentLayout": "#962c318a-e09e-59d3-9aa4-7941a9762ed1",
+      "has_DataPointPosition": []
+    },
+    {
+      "@id": "#b55cc012-2d20-5bbf-97ae-eb804d2715de",
+      "@type": "LogicalRecord",
+      "organizes": "430277d5-90df-5c1c-97a1-45bb1842e138",
+      "has_InstanceVariable": [
+        "#d977af3d-24d7-5473-8993-ae4a1733d3c5",
+        "#f9fd5158-e9d0-5b36-9c60-eb826d5ee144",
+        "#602eb836-f89e-5990-ba94-6e168d9ba78f",
+        "#6629f426-0ef9-534d-baef-b1628e34ad92",
+        "#b6211669-6159-5ebd-b795-ff6c4a9329cd"
+      ]
+    },
+    {
+      "@id": "#d977af3d-24d7-5473-8993-ae4a1733d3c5",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "id_liste"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "id_liste"
+      },
+      "has_PhysicalSegmentLayout": "#962c318a-e09e-59d3-9aa4-7941a9762ed1",
+      "has_ValueMapping": "#9f7bb14c-d79e-51bf-8969-0fe6f6215844",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#d977af3d-24d7-5473-8993-ae4a1733d3c5",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'id_liste'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#f9fd5158-e9d0-5b36-9c60-eb826d5ee144",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgår"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgår"
+      },
+      "has_PhysicalSegmentLayout": "#962c318a-e09e-59d3-9aa4-7941a9762ed1",
+      "has_ValueMapping": "#0be3fa4f-66e4-510c-aaa9-a3edbcb6fb14",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#f9fd5158-e9d0-5b36-9c60-eb826d5ee144",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgår'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#602eb836-f89e-5990-ba94-6e168d9ba78f",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgdistrikt"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgdistrikt"
+      },
+      "has_PhysicalSegmentLayout": "#962c318a-e09e-59d3-9aa4-7941a9762ed1",
+      "has_ValueMapping": "#36ccd5a7-9e77-5a1b-b967-ae07842404a6",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#602eb836-f89e-5990-ba94-6e168d9ba78f",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgdistrikt'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#6629f426-0ef9-534d-baef-b1628e34ad92",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "listenavn"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "listenavn"
+      },
+      "has_PhysicalSegmentLayout": "#962c318a-e09e-59d3-9aa4-7941a9762ed1",
+      "has_ValueMapping": "#cec44296-911c-5f74-915f-20724b45e717",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#6629f426-0ef9-534d-baef-b1628e34ad92",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'listenavn'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#b6211669-6159-5ebd-b795-ff6c4a9329cd",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "parti"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "parti"
+      },
+      "has_PhysicalSegmentLayout": "#962c318a-e09e-59d3-9aa4-7941a9762ed1",
+      "has_ValueMapping": "#4bc9e6b4-1b57-571a-9402-498f7659eec5",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#b6211669-6159-5ebd-b795-ff6c4a9329cd",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'parti'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "430277d5-90df-5c1c-97a1-45bb1842e138",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#8325ea9c-6e43-593c-9f76-b88260ed35bd",
+      "catalogDetails": {
+        "@type": "CatalogDetails",
+        "title": {
+          "@type": "InternationalString",
+          "languageSpecificString": {
+            "@type": "LanguageString",
+            "content": "Valglistearkivet.sql-lis_fylkestingsvalg_listenavn",
+            "language": "en"
+          }
+        },
+        "relatedResource": {
+          "@type": "Reference",
+          "ddiReference": {
+            "@type": "InternationalRegistrationDataIdentifier",
+            "dataIdentifier": {
+              "@value": "430277d5-90df-5c1c-97a1-45bb1842e138",
+              "@type": "xsd:string"
+            },
+            "registrationAuthorityIdentifier": {
+              "@value": "no.nsd",
+              "@type": "xsd:string"
+            },
+            "versionIdentifier": {
+              "@value": "1",
+              "@type": "xsd:string"
+            }
+          },
+          "validType": {
+            "@value": "DDI-Lifecycle 3.3 <PhysicalInstance>",
+            "@type": "xsd:string"
+          },
+          "description": {
+            "@value": "Link to DDI-Lifecycle 3.3 description of PhysicalInstance for lis_fylkestingsvalg_listenavn",
+            "@type": "xsd:string"
+          }
+        }
+      }
+    },
+    {
+      "@id": "#8325ea9c-6e43-593c-9f76-b88260ed35bd",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#4937d743-3741-53c8-ae2e-70ccc4257d95",
+        "#a53082bc-f42a-564e-85d8-469e1a3c7df4",
+        "#96411128-8a53-5503-b7d6-25d5b3ee8abf",
+        "#e678bd00-32b8-5b10-ae68-ba74c421d250",
+        "#9a956bc0-fa46-55e0-8ff4-d3069d857231"
+      ],
+      "has_PrimaryKey": "#828d53cc-0e73-5bee-b7ee-4238f3187fcb",
+      "has_ForeignKey": [
+        "#2963fbdd-ecfd-5c55-a8ac-3db2d902e532"
+      ]
+    },
+    {
+      "@id": "#4937d743-3741-53c8-ae2e-70ccc4257d95",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#d977af3d-24d7-5473-8993-ae4a1733d3c5"
+    },
+    {
+      "@id": "#a53082bc-f42a-564e-85d8-469e1a3c7df4",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#f9fd5158-e9d0-5b36-9c60-eb826d5ee144"
+    },
+    {
+      "@id": "#96411128-8a53-5503-b7d6-25d5b3ee8abf",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#602eb836-f89e-5990-ba94-6e168d9ba78f"
+    },
+    {
+      "@id": "#e678bd00-32b8-5b10-ae68-ba74c421d250",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#6629f426-0ef9-534d-baef-b1628e34ad92"
+    },
+    {
+      "@id": "#9a956bc0-fa46-55e0-8ff4-d3069d857231",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#b6211669-6159-5ebd-b795-ff6c4a9329cd"
+    },
+    {
+      "@id": "#828d53cc-0e73-5bee-b7ee-4238f3187fcb",
+      "@type": "PrimaryKey",
+      "isComposedOf": [
+        "#e4f87d32-6f20-587c-abcd-fa1d5bede8a8"
+      ]
+    },
+    {
+      "@id": "#e4f87d32-6f20-587c-abcd-fa1d5bede8a8",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#4937d743-3741-53c8-ae2e-70ccc4257d95"
+    },
+    {
+      "@id": "#d7f4e53d-8cce-5ec0-a300-0efb5b0b86c1",
+      "@type": "ForeignKeyComponent",
+      "correspondsTo_DataStructureComponent": "#96411128-8a53-5503-b7d6-25d5b3ee8abf",
+      "references": "#1d17b33e-2346-5aa5-9995-fc2f09d86589"
+    },
+    {
+      "@id": "#2963fbdd-ecfd-5c55-a8ac-3db2d902e532",
+      "@type": "ForeignKey",
+      "isComposedOf": [
+        "#d7f4e53d-8cce-5ec0-a300-0efb5b0b86c1"
+      ]
+    },
+    {
+      "@id": "#9f7bb14c-d79e-51bf-8969-0fe6f6215844",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#0be3fa4f-66e4-510c-aaa9-a3edbcb6fb14",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#36ccd5a7-9e77-5a1b-b967-ae07842404a6",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#cec44296-911c-5f74-915f-20724b45e717",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#4bc9e6b4-1b57-571a-9402-498f7659eec5",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#7e086761-1795-5a5b-80ce-4bfd73d63af5",
+      "@type": "PhysicalSegmentLayout",
+      "allowsDuplicates": false,
+      "formats": "#c0a33977-0d34-502d-a0f0-06c1346c1f87",
+      "isDelimited": false,
+      "isFixedWidth": false,
+      "delimiter": "",
+      "has_ValueMappingPosition": [
+        "#e1c40ac0-025a-5a95-8640-df9f8a35a078",
+        "#ae82e392-86a1-5225-be52-f64f05b62ad0",
+        "#470b5927-ec77-5008-b639-b2b497356af4",
+        "#c45bf346-1190-5001-81b2-34054a7a0d8d",
+        "#7e4d61a4-bbb4-50cd-b500-f2a29b02195f",
+        "#2c1771a7-b06a-5cea-9beb-3813eb479114"
+      ]
+    },
+    {
+      "@id": "#e1c40ac0-025a-5a95-8640-df9f8a35a078",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": "#5475e530-e007-580e-a586-3c4e461ab80c"
+    },
+    {
+      "@id": "#ae82e392-86a1-5225-be52-f64f05b62ad0",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": "#2554ed72-0777-5b69-a386-15f8d7db37cf"
+    },
+    {
+      "@id": "#470b5927-ec77-5008-b639-b2b497356af4",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": "#8df6a664-f828-5e04-8ce2-0fbc5e38611e"
+    },
+    {
+      "@id": "#c45bf346-1190-5001-81b2-34054a7a0d8d",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": "#557a7efb-cfc1-5c29-b884-eac06cf54569"
+    },
+    {
+      "@id": "#7e4d61a4-bbb4-50cd-b500-f2a29b02195f",
+      "@type": "ValueMappingPosition",
+      "value": 4,
+      "indexes": "#aac64d94-c2ba-5612-9267-a23aae2530ae"
+    },
+    {
+      "@id": "#2c1771a7-b06a-5cea-9beb-3813eb479114",
+      "@type": "ValueMappingPosition",
+      "value": 5,
+      "indexes": "#4c0373bd-e0e3-573b-b608-b12825ce9529"
+    },
+    {
+      "@id": "#184eb34a-57d5-532d-966d-db7e4bd7cfc7",
+      "@type": "PhysicalRecordSegment",
+      "mapsTo": "#c0a33977-0d34-502d-a0f0-06c1346c1f87",
+      "has_PhysicalSegmentLayout": "#7e086761-1795-5a5b-80ce-4bfd73d63af5",
+      "has_DataPointPosition": []
+    },
+    {
+      "@id": "#c0a33977-0d34-502d-a0f0-06c1346c1f87",
+      "@type": "LogicalRecord",
+      "organizes": "e2cb45e2-6c02-52a0-9d42-c696e88b3a5d",
+      "has_InstanceVariable": [
+        "#fba9b4cf-571a-584b-a150-8c6bf9719ae5",
+        "#b08db38c-7274-5daa-ba32-6d432e8380e4",
+        "#bf7e84d7-5f7b-5bb1-9878-a2ca5aad4703",
+        "#ec52c744-6d2d-5187-8356-9bb90bff5189",
+        "#c6445159-6e6c-5805-861a-501dbd4b753d",
+        "#d6fa7ba1-8a89-5142-a516-006d94159141"
+      ]
+    },
+    {
+      "@id": "#fba9b4cf-571a-584b-a150-8c6bf9719ae5",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "id_liste"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "id_liste"
+      },
+      "has_PhysicalSegmentLayout": "#7e086761-1795-5a5b-80ce-4bfd73d63af5",
+      "has_ValueMapping": "#5475e530-e007-580e-a586-3c4e461ab80c",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#fba9b4cf-571a-584b-a150-8c6bf9719ae5",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'id_liste'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#b08db38c-7274-5daa-ba32-6d432e8380e4",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "nummer"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "nummer"
+      },
+      "has_PhysicalSegmentLayout": "#7e086761-1795-5a5b-80ce-4bfd73d63af5",
+      "has_ValueMapping": "#2554ed72-0777-5b69-a386-15f8d7db37cf",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#b08db38c-7274-5daa-ba32-6d432e8380e4",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'nummer'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#bf7e84d7-5f7b-5bb1-9878-a2ca5aad4703",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "navn"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "navn"
+      },
+      "has_PhysicalSegmentLayout": "#7e086761-1795-5a5b-80ce-4bfd73d63af5",
+      "has_ValueMapping": "#8df6a664-f828-5e04-8ce2-0fbc5e38611e",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#bf7e84d7-5f7b-5bb1-9878-a2ca5aad4703",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'navn'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#ec52c744-6d2d-5187-8356-9bb90bff5189",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "stilling"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "stilling"
+      },
+      "has_PhysicalSegmentLayout": "#7e086761-1795-5a5b-80ce-4bfd73d63af5",
+      "has_ValueMapping": "#557a7efb-cfc1-5c29-b884-eac06cf54569",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#ec52c744-6d2d-5187-8356-9bb90bff5189",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'stilling'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#c6445159-6e6c-5805-861a-501dbd4b753d",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "bosted"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "bosted"
+      },
+      "has_PhysicalSegmentLayout": "#7e086761-1795-5a5b-80ce-4bfd73d63af5",
+      "has_ValueMapping": "#aac64d94-c2ba-5612-9267-a23aae2530ae",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#c6445159-6e6c-5805-861a-501dbd4b753d",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'bosted'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#d6fa7ba1-8a89-5142-a516-006d94159141",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "fødselsår"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "fødselsår"
+      },
+      "has_PhysicalSegmentLayout": "#7e086761-1795-5a5b-80ce-4bfd73d63af5",
+      "has_ValueMapping": "#4c0373bd-e0e3-573b-b608-b12825ce9529",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#d6fa7ba1-8a89-5142-a516-006d94159141",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'fødselsår'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "e2cb45e2-6c02-52a0-9d42-c696e88b3a5d",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#54798a88-e766-58b6-8d6a-71e32a43ee49",
+      "catalogDetails": {
+        "@type": "CatalogDetails",
+        "title": {
+          "@type": "InternationalString",
+          "languageSpecificString": {
+            "@type": "LanguageString",
+            "content": "Valglistearkivet.sql-lis_sametingsvalg_kandidater",
+            "language": "en"
+          }
+        },
+        "relatedResource": {
+          "@type": "Reference",
+          "ddiReference": {
+            "@type": "InternationalRegistrationDataIdentifier",
+            "dataIdentifier": {
+              "@value": "e2cb45e2-6c02-52a0-9d42-c696e88b3a5d",
+              "@type": "xsd:string"
+            },
+            "registrationAuthorityIdentifier": {
+              "@value": "no.nsd",
+              "@type": "xsd:string"
+            },
+            "versionIdentifier": {
+              "@value": "1",
+              "@type": "xsd:string"
+            }
+          },
+          "validType": {
+            "@value": "DDI-Lifecycle 3.3 <PhysicalInstance>",
+            "@type": "xsd:string"
+          },
+          "description": {
+            "@value": "Link to DDI-Lifecycle 3.3 description of PhysicalInstance for lis_sametingsvalg_kandidater",
+            "@type": "xsd:string"
+          }
+        }
+      }
+    },
+    {
+      "@id": "#54798a88-e766-58b6-8d6a-71e32a43ee49",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#cd5c6b8e-88a0-5b62-aaaa-448992451e78",
+        "#b760f655-1472-5bfd-adbb-198577711b30",
+        "#628c47da-059c-5ed3-bcf0-00ffb5e1b7c5",
+        "#eda194bc-b891-52c0-a252-dc7eb6908e28",
+        "#ec712583-7eeb-5ca8-a9d7-f99bd5d52602",
+        "#e492e137-d84c-51bc-8727-6411edebab37"
+      ],
+      "has_PrimaryKey": "#05c1eda2-9f0c-59cc-9f1e-4ca2f4084881",
+      "has_ForeignKey": [
+        "#a0374e8a-2204-5ce8-82fe-cbacdb189cc4"
+      ]
+    },
+    {
+      "@id": "#cd5c6b8e-88a0-5b62-aaaa-448992451e78",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#fba9b4cf-571a-584b-a150-8c6bf9719ae5"
+    },
+    {
+      "@id": "#b760f655-1472-5bfd-adbb-198577711b30",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#b08db38c-7274-5daa-ba32-6d432e8380e4"
+    },
+    {
+      "@id": "#628c47da-059c-5ed3-bcf0-00ffb5e1b7c5",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#bf7e84d7-5f7b-5bb1-9878-a2ca5aad4703"
+    },
+    {
+      "@id": "#eda194bc-b891-52c0-a252-dc7eb6908e28",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#ec52c744-6d2d-5187-8356-9bb90bff5189"
+    },
+    {
+      "@id": "#ec712583-7eeb-5ca8-a9d7-f99bd5d52602",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#c6445159-6e6c-5805-861a-501dbd4b753d"
+    },
+    {
+      "@id": "#e492e137-d84c-51bc-8727-6411edebab37",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#d6fa7ba1-8a89-5142-a516-006d94159141"
+    },
+    {
+      "@id": "#05c1eda2-9f0c-59cc-9f1e-4ca2f4084881",
+      "@type": "PrimaryKey",
+      "isComposedOf": [
+        "#8ce4c03c-7677-5672-bcf8-47402ca0cff3",
+        "#ca7c5e11-ff65-5b23-bbeb-b91437803c68"
+      ]
+    },
+    {
+      "@id": "#8ce4c03c-7677-5672-bcf8-47402ca0cff3",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#cd5c6b8e-88a0-5b62-aaaa-448992451e78"
+    },
+    {
+      "@id": "#ca7c5e11-ff65-5b23-bbeb-b91437803c68",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#b760f655-1472-5bfd-adbb-198577711b30"
+    },
+    {
+      "@id": "#da7e7d57-9d16-5fb4-bafc-e41b549e7cbc",
+      "@type": "ForeignKeyComponent",
+      "correspondsTo_DataStructureComponent": "#cd5c6b8e-88a0-5b62-aaaa-448992451e78",
+      "references": "#18f4ef1c-b05a-5402-bb62-40ce5be6fd9e"
+    },
+    {
+      "@id": "#a0374e8a-2204-5ce8-82fe-cbacdb189cc4",
+      "@type": "ForeignKey",
+      "isComposedOf": [
+        "#da7e7d57-9d16-5fb4-bafc-e41b549e7cbc"
+      ]
+    },
+    {
+      "@id": "#5475e530-e007-580e-a586-3c4e461ab80c",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#2554ed72-0777-5b69-a386-15f8d7db37cf",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#8df6a664-f828-5e04-8ce2-0fbc5e38611e",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#557a7efb-cfc1-5c29-b884-eac06cf54569",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#aac64d94-c2ba-5612-9267-a23aae2530ae",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#4c0373bd-e0e3-573b-b608-b12825ce9529",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "@type": "PhysicalSegmentLayout",
+      "allowsDuplicates": false,
+      "formats": "#86c0ea55-8399-5c42-aeb3-5dec64194a42",
+      "isDelimited": false,
+      "isFixedWidth": false,
+      "delimiter": "",
+      "has_ValueMappingPosition": [
+        "#675374f3-5cea-5e6c-b0f6-0de53a33a51d",
+        "#f5bd8b93-965e-5bdf-b049-c39a36d7277f",
+        "#fe71664f-829d-5ca0-be1b-8aa2e9ad5445",
+        "#edfe6939-910b-590b-9839-61361c69762f",
+        "#fb7e60f7-a52b-54e3-8fa8-0fb04a06ea4f",
+        "#989753f7-3953-5ba9-9942-21c876eae850",
+        "#59176c64-99d5-593d-97b7-0dd4c010e902",
+        "#7bc0724b-4eff-52b9-8c8a-f4b8548aed48",
+        "#c6bc0b3c-ae55-5d92-bf3e-a9a6a2edeb81"
+      ]
+    },
+    {
+      "@id": "#675374f3-5cea-5e6c-b0f6-0de53a33a51d",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": "#3dea6355-3313-5842-b9af-23b90440b02f"
+    },
+    {
+      "@id": "#f5bd8b93-965e-5bdf-b049-c39a36d7277f",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": "#a54b9621-dc0c-5712-97df-1d18d8fb51a5"
+    },
+    {
+      "@id": "#fe71664f-829d-5ca0-be1b-8aa2e9ad5445",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": "#6b7b2930-b76a-5db9-8185-b803953c63ac"
+    },
+    {
+      "@id": "#edfe6939-910b-590b-9839-61361c69762f",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": "#e10b8a60-a19d-5167-97c2-2cb276e55356"
+    },
+    {
+      "@id": "#fb7e60f7-a52b-54e3-8fa8-0fb04a06ea4f",
+      "@type": "ValueMappingPosition",
+      "value": 4,
+      "indexes": "#e964e6ac-4c8e-5676-a418-6c3e078a69ec"
+    },
+    {
+      "@id": "#989753f7-3953-5ba9-9942-21c876eae850",
+      "@type": "ValueMappingPosition",
+      "value": 5,
+      "indexes": "#80d08514-0adf-5061-a360-88defb1c86dd"
+    },
+    {
+      "@id": "#59176c64-99d5-593d-97b7-0dd4c010e902",
+      "@type": "ValueMappingPosition",
+      "value": 6,
+      "indexes": "#33b13948-22a9-5ca7-8def-43c1c6c4ddf7"
+    },
+    {
+      "@id": "#7bc0724b-4eff-52b9-8c8a-f4b8548aed48",
+      "@type": "ValueMappingPosition",
+      "value": 7,
+      "indexes": "#23f3e3a3-28e9-561e-ac70-c317191ad779"
+    },
+    {
+      "@id": "#c6bc0b3c-ae55-5d92-bf3e-a9a6a2edeb81",
+      "@type": "ValueMappingPosition",
+      "value": 8,
+      "indexes": "#15dd091f-7608-512d-a3db-4d10a77f8de5"
+    },
+    {
+      "@id": "#26bd44f5-8e66-537d-85c8-38b92a037a7f",
+      "@type": "PhysicalRecordSegment",
+      "mapsTo": "#86c0ea55-8399-5c42-aeb3-5dec64194a42",
+      "has_PhysicalSegmentLayout": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "has_DataPointPosition": []
+    },
+    {
+      "@id": "#86c0ea55-8399-5c42-aeb3-5dec64194a42",
+      "@type": "LogicalRecord",
+      "organizes": "556ae21e-d982-564b-a143-342ba1659dd8",
+      "has_InstanceVariable": [
+        "#96110608-83e0-5bf9-bc4a-a0d89ddb05cf",
+        "#65a9cd9f-b17b-503e-add7-0ba1ec794d4e",
+        "#701d4826-7802-5d9d-8613-eecb1d29fc7d",
+        "#3d1d495d-ba85-57de-b2fc-380c554d4da7",
+        "#0a78a467-5a4c-5200-a0d0-8f2b354ab8b7",
+        "#acb6a2ad-25d7-5a15-9ea0-9b211edd49ce",
+        "#44c7b5fb-5b71-5c70-88ec-76eaea2236ce",
+        "#c3bfbb20-7662-502b-9296-9031c01bfa93",
+        "#660e31e3-57d0-54e6-9971-7f15fb1abcda"
+      ]
+    },
+    {
+      "@id": "#96110608-83e0-5bf9-bc4a-a0d89ddb05cf",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "id_liste"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "id_liste"
+      },
+      "has_PhysicalSegmentLayout": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "has_ValueMapping": "#3dea6355-3313-5842-b9af-23b90440b02f",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#96110608-83e0-5bf9-bc4a-a0d89ddb05cf",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'id_liste'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#65a9cd9f-b17b-503e-add7-0ba1ec794d4e",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgår"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgår"
+      },
+      "has_PhysicalSegmentLayout": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "has_ValueMapping": "#a54b9621-dc0c-5712-97df-1d18d8fb51a5",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#65a9cd9f-b17b-503e-add7-0ba1ec794d4e",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgår'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#701d4826-7802-5d9d-8613-eecb1d29fc7d",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgdistrikt"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgdistrikt"
+      },
+      "has_PhysicalSegmentLayout": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "has_ValueMapping": "#6b7b2930-b76a-5db9-8185-b803953c63ac",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#701d4826-7802-5d9d-8613-eecb1d29fc7d",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgdistrikt'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#3d1d495d-ba85-57de-b2fc-380c554d4da7",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "listenavn"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "listenavn"
+      },
+      "has_PhysicalSegmentLayout": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "has_ValueMapping": "#e10b8a60-a19d-5167-97c2-2cb276e55356",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#3d1d495d-ba85-57de-b2fc-380c554d4da7",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'listenavn'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#0a78a467-5a4c-5200-a0d0-8f2b354ab8b7",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "delnavn_no"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "delnavn_no"
+      },
+      "has_PhysicalSegmentLayout": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "has_ValueMapping": "#e964e6ac-4c8e-5676-a418-6c3e078a69ec",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#0a78a467-5a4c-5200-a0d0-8f2b354ab8b7",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'delnavn_no'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#acb6a2ad-25d7-5a15-9ea0-9b211edd49ce",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "delnavn_sme"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "delnavn_sme"
+      },
+      "has_PhysicalSegmentLayout": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "has_ValueMapping": "#80d08514-0adf-5061-a360-88defb1c86dd",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#acb6a2ad-25d7-5a15-9ea0-9b211edd49ce",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'delnavn_sme'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#44c7b5fb-5b71-5c70-88ec-76eaea2236ce",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "delnavn_smj"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "delnavn_smj"
+      },
+      "has_PhysicalSegmentLayout": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "has_ValueMapping": "#33b13948-22a9-5ca7-8def-43c1c6c4ddf7",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#44c7b5fb-5b71-5c70-88ec-76eaea2236ce",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'delnavn_smj'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#c3bfbb20-7662-502b-9296-9031c01bfa93",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "delnavn_sma"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "delnavn_sma"
+      },
+      "has_PhysicalSegmentLayout": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "has_ValueMapping": "#23f3e3a3-28e9-561e-ac70-c317191ad779",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#c3bfbb20-7662-502b-9296-9031c01bfa93",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'delnavn_sma'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#660e31e3-57d0-54e6-9971-7f15fb1abcda",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "parti"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "parti"
+      },
+      "has_PhysicalSegmentLayout": "#a91af4c3-fef0-59c2-a911-d840fbefa2df",
+      "has_ValueMapping": "#15dd091f-7608-512d-a3db-4d10a77f8de5",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#660e31e3-57d0-54e6-9971-7f15fb1abcda",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'parti'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "556ae21e-d982-564b-a143-342ba1659dd8",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#d5141a03-07ef-57c5-aeaf-4cf2de6a0394",
+      "catalogDetails": {
+        "@type": "CatalogDetails",
+        "title": {
+          "@type": "InternationalString",
+          "languageSpecificString": {
+            "@type": "LanguageString",
+            "content": "Valglistearkivet.sql-lis_sametingsvalg_listenavn",
+            "language": "en"
+          }
+        },
+        "relatedResource": {
+          "@type": "Reference",
+          "ddiReference": {
+            "@type": "InternationalRegistrationDataIdentifier",
+            "dataIdentifier": {
+              "@value": "556ae21e-d982-564b-a143-342ba1659dd8",
+              "@type": "xsd:string"
+            },
+            "registrationAuthorityIdentifier": {
+              "@value": "no.nsd",
+              "@type": "xsd:string"
+            },
+            "versionIdentifier": {
+              "@value": "1",
+              "@type": "xsd:string"
+            }
+          },
+          "validType": {
+            "@value": "DDI-Lifecycle 3.3 <PhysicalInstance>",
+            "@type": "xsd:string"
+          },
+          "description": {
+            "@value": "Link to DDI-Lifecycle 3.3 description of PhysicalInstance for lis_sametingsvalg_listenavn",
+            "@type": "xsd:string"
+          }
+        }
+      }
+    },
+    {
+      "@id": "#d5141a03-07ef-57c5-aeaf-4cf2de6a0394",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#5cf62dd0-100b-5cab-8f9b-41bb7188c3ec",
+        "#883aaa0b-2b3e-5833-ba5f-9b641bfbb43d",
+        "#cbe84b9f-11cc-54bb-ac06-7313c0ece11a",
+        "#8f34999d-f0ea-56b8-87bd-841499de43e1",
+        "#05b75df9-ae91-50e5-8508-7b068a2b3773",
+        "#cac0f6da-d4f6-5268-a803-fe29a9e169b0",
+        "#767aa66c-b963-5f7a-846f-ee0748fbbd72",
+        "#5e3cbcf5-3354-5af3-a3a2-814e2aae7c7a",
+        "#13478648-9c08-54ef-a0d8-58bdf5d364ac"
+      ],
+      "has_PrimaryKey": "#6882f65d-9f27-5e29-b7d5-f895723b378e",
+      "has_ForeignKey": [
+        "#0db52590-16c5-55ca-85f5-46b5d3077800"
+      ]
+    },
+    {
+      "@id": "#5cf62dd0-100b-5cab-8f9b-41bb7188c3ec",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#96110608-83e0-5bf9-bc4a-a0d89ddb05cf"
+    },
+    {
+      "@id": "#883aaa0b-2b3e-5833-ba5f-9b641bfbb43d",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#65a9cd9f-b17b-503e-add7-0ba1ec794d4e"
+    },
+    {
+      "@id": "#cbe84b9f-11cc-54bb-ac06-7313c0ece11a",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#701d4826-7802-5d9d-8613-eecb1d29fc7d"
+    },
+    {
+      "@id": "#8f34999d-f0ea-56b8-87bd-841499de43e1",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#3d1d495d-ba85-57de-b2fc-380c554d4da7"
+    },
+    {
+      "@id": "#05b75df9-ae91-50e5-8508-7b068a2b3773",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#0a78a467-5a4c-5200-a0d0-8f2b354ab8b7"
+    },
+    {
+      "@id": "#cac0f6da-d4f6-5268-a803-fe29a9e169b0",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#acb6a2ad-25d7-5a15-9ea0-9b211edd49ce"
+    },
+    {
+      "@id": "#767aa66c-b963-5f7a-846f-ee0748fbbd72",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#44c7b5fb-5b71-5c70-88ec-76eaea2236ce"
+    },
+    {
+      "@id": "#5e3cbcf5-3354-5af3-a3a2-814e2aae7c7a",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#c3bfbb20-7662-502b-9296-9031c01bfa93"
+    },
+    {
+      "@id": "#13478648-9c08-54ef-a0d8-58bdf5d364ac",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#660e31e3-57d0-54e6-9971-7f15fb1abcda"
+    },
+    {
+      "@id": "#6882f65d-9f27-5e29-b7d5-f895723b378e",
+      "@type": "PrimaryKey",
+      "isComposedOf": [
+        "#18f4ef1c-b05a-5402-bb62-40ce5be6fd9e"
+      ]
+    },
+    {
+      "@id": "#18f4ef1c-b05a-5402-bb62-40ce5be6fd9e",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#5cf62dd0-100b-5cab-8f9b-41bb7188c3ec"
+    },
+    {
+      "@id": "#245185e4-7e2f-5870-aa7a-eca98f6b5e31",
+      "@type": "ForeignKeyComponent",
+      "correspondsTo_DataStructureComponent": "#cbe84b9f-11cc-54bb-ac06-7313c0ece11a",
+      "references": "#d058e8bf-1572-50f2-ba78-b0a433db524c"
+    },
+    {
+      "@id": "#0db52590-16c5-55ca-85f5-46b5d3077800",
+      "@type": "ForeignKey",
+      "isComposedOf": [
+        "#245185e4-7e2f-5870-aa7a-eca98f6b5e31"
+      ]
+    },
+    {
+      "@id": "#3dea6355-3313-5842-b9af-23b90440b02f",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#a54b9621-dc0c-5712-97df-1d18d8fb51a5",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#6b7b2930-b76a-5db9-8185-b803953c63ac",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#e10b8a60-a19d-5167-97c2-2cb276e55356",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#e964e6ac-4c8e-5676-a418-6c3e078a69ec",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#80d08514-0adf-5061-a360-88defb1c86dd",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#33b13948-22a9-5ca7-8def-43c1c6c4ddf7",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#23f3e3a3-28e9-561e-ac70-c317191ad779",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#15dd091f-7608-512d-a3db-4d10a77f8de5",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "@type": "PhysicalSegmentLayout",
+      "allowsDuplicates": false,
+      "formats": "#7dfe8921-f5fe-5eac-9214-6b53d038657b",
+      "isDelimited": false,
+      "isFixedWidth": false,
+      "delimiter": "",
+      "has_ValueMappingPosition": [
+        "#7f202cbc-bd6c-58c3-9fb9-0136df95af3d",
+        "#b9a22486-63bb-5db3-859b-ddc178e89eb6",
+        "#a5eefc81-d4a6-5ce0-b8bf-bc6a9bd603d7",
+        "#956e4fa7-7a44-536a-892d-7c77b5ee96a0",
+        "#f952686d-095f-5773-8b31-46c03532e352",
+        "#807f79c7-5dd2-5cc5-880c-f13e576943b5",
+        "#bee98190-9094-5f1f-aeea-67ef40b47230",
+        "#9d2f7b33-47c0-582e-a8be-240a0584e971",
+        "#d4017930-15b0-5006-ad0b-fc3af2f59419"
+      ]
+    },
+    {
+      "@id": "#7f202cbc-bd6c-58c3-9fb9-0136df95af3d",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": "#af6d1829-fb18-54f6-b1f4-a8901d32c4eb"
+    },
+    {
+      "@id": "#b9a22486-63bb-5db3-859b-ddc178e89eb6",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": "#e2b47a0d-fe71-526a-a54e-92213d3d2cfe"
+    },
+    {
+      "@id": "#a5eefc81-d4a6-5ce0-b8bf-bc6a9bd603d7",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": "#06f79b40-4bcb-5556-abff-abd5d1c0c228"
+    },
+    {
+      "@id": "#956e4fa7-7a44-536a-892d-7c77b5ee96a0",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": "#5bf5bb7a-c6f7-5c65-a728-0c30a3f217b5"
+    },
+    {
+      "@id": "#f952686d-095f-5773-8b31-46c03532e352",
+      "@type": "ValueMappingPosition",
+      "value": 4,
+      "indexes": "#8c3e6343-94ed-55ec-a92a-55353a7cc57f"
+    },
+    {
+      "@id": "#807f79c7-5dd2-5cc5-880c-f13e576943b5",
+      "@type": "ValueMappingPosition",
+      "value": 5,
+      "indexes": "#ec2802c8-3788-53a7-ac70-73fca4ab969b"
+    },
+    {
+      "@id": "#bee98190-9094-5f1f-aeea-67ef40b47230",
+      "@type": "ValueMappingPosition",
+      "value": 6,
+      "indexes": "#f893dd15-54c4-5e94-b283-443ce69f04e7"
+    },
+    {
+      "@id": "#9d2f7b33-47c0-582e-a8be-240a0584e971",
+      "@type": "ValueMappingPosition",
+      "value": 7,
+      "indexes": "#8d928cad-848c-5e9f-ad22-441fe0b02ddc"
+    },
+    {
+      "@id": "#d4017930-15b0-5006-ad0b-fc3af2f59419",
+      "@type": "ValueMappingPosition",
+      "value": 8,
+      "indexes": "#e1cc8929-3df5-5e2e-8e4c-dbf813326b0a"
+    },
+    {
+      "@id": "#310886c3-261f-591e-8a22-aafa120a38c8",
+      "@type": "PhysicalRecordSegment",
+      "mapsTo": "#7dfe8921-f5fe-5eac-9214-6b53d038657b",
+      "has_PhysicalSegmentLayout": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "has_DataPointPosition": []
+    },
+    {
+      "@id": "#7dfe8921-f5fe-5eac-9214-6b53d038657b",
+      "@type": "LogicalRecord",
+      "organizes": "dbed819d-505f-5c44-8536-8a8ebe3da81c",
+      "has_InstanceVariable": [
+        "#6bf6a863-5832-5fe6-8aaa-aa716a78b69f",
+        "#59c7aec9-ad9e-535a-92ab-f67de94dc440",
+        "#22021386-613d-5493-96f5-7d6a7c5bb4c3",
+        "#20758cc4-d44a-5d9d-8d3e-711ff85572a2",
+        "#bdd6b7d1-5dc1-51e9-8bfb-64cf51235580",
+        "#dd45bda1-888f-5ff2-9e4d-bfd32cbaeb60",
+        "#641fb129-dd1d-5a6b-a38c-0f8e1b05b923",
+        "#8ea71bf3-a695-52ed-a925-068455aae132",
+        "#7125e410-e2d2-566d-b316-87718daabbae"
+      ]
+    },
+    {
+      "@id": "#6bf6a863-5832-5fe6-8aaa-aa716a78b69f",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "id_liste"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "id_liste"
+      },
+      "has_PhysicalSegmentLayout": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "has_ValueMapping": "#af6d1829-fb18-54f6-b1f4-a8901d32c4eb",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#6bf6a863-5832-5fe6-8aaa-aa716a78b69f",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'id_liste'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#59c7aec9-ad9e-535a-92ab-f67de94dc440",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "nummer"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "nummer"
+      },
+      "has_PhysicalSegmentLayout": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "has_ValueMapping": "#e2b47a0d-fe71-526a-a54e-92213d3d2cfe",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#59c7aec9-ad9e-535a-92ab-f67de94dc440",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'nummer'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#22021386-613d-5493-96f5-7d6a7c5bb4c3",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "navn"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "navn"
+      },
+      "has_PhysicalSegmentLayout": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "has_ValueMapping": "#06f79b40-4bcb-5556-abff-abd5d1c0c228",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#22021386-613d-5493-96f5-7d6a7c5bb4c3",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'navn'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#20758cc4-d44a-5d9d-8d3e-711ff85572a2",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "stilling"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "stilling"
+      },
+      "has_PhysicalSegmentLayout": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "has_ValueMapping": "#5bf5bb7a-c6f7-5c65-a728-0c30a3f217b5",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#20758cc4-d44a-5d9d-8d3e-711ff85572a2",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'stilling'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#bdd6b7d1-5dc1-51e9-8bfb-64cf51235580",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "bosted"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "bosted"
+      },
+      "has_PhysicalSegmentLayout": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "has_ValueMapping": "#8c3e6343-94ed-55ec-a92a-55353a7cc57f",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#bdd6b7d1-5dc1-51e9-8bfb-64cf51235580",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'bosted'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#dd45bda1-888f-5ff2-9e4d-bfd32cbaeb60",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "kjønn"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "kjønn"
+      },
+      "has_PhysicalSegmentLayout": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "has_ValueMapping": "#ec2802c8-3788-53a7-ac70-73fca4ab969b",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#dd45bda1-888f-5ff2-9e4d-bfd32cbaeb60",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'kjønn'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#641fb129-dd1d-5a6b-a38c-0f8e1b05b923",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Date"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "født"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "født"
+      },
+      "has_PhysicalSegmentLayout": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "has_ValueMapping": "#f893dd15-54c4-5e94-b283-443ce69f04e7",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#641fb129-dd1d-5a6b-a38c-0f8e1b05b923",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'født'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#8ea71bf3-a695-52ed-a925-068455aae132",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "fødselsår"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "fødselsår"
+      },
+      "has_PhysicalSegmentLayout": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "has_ValueMapping": "#8d928cad-848c-5e9f-ad22-441fe0b02ddc",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#8ea71bf3-a695-52ed-a925-068455aae132",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'fødselsår'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#7125e410-e2d2-566d-b316-87718daabbae",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "alder"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "alder"
+      },
+      "has_PhysicalSegmentLayout": "#478b63f6-176d-5fc1-b28b-a87335097685",
+      "has_ValueMapping": "#e1cc8929-3df5-5e2e-8e4c-dbf813326b0a",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#7125e410-e2d2-566d-b316-87718daabbae",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'alder'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "dbed819d-505f-5c44-8536-8a8ebe3da81c",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#06b7fdb8-b0b7-5864-868f-3953e255be2a",
+      "catalogDetails": {
+        "@type": "CatalogDetails",
+        "title": {
+          "@type": "InternationalString",
+          "languageSpecificString": {
+            "@type": "LanguageString",
+            "content": "Valglistearkivet.sql-lis_stortingsvalg_kandidater",
+            "language": "en"
+          }
+        },
+        "relatedResource": {
+          "@type": "Reference",
+          "ddiReference": {
+            "@type": "InternationalRegistrationDataIdentifier",
+            "dataIdentifier": {
+              "@value": "dbed819d-505f-5c44-8536-8a8ebe3da81c",
+              "@type": "xsd:string"
+            },
+            "registrationAuthorityIdentifier": {
+              "@value": "no.nsd",
+              "@type": "xsd:string"
+            },
+            "versionIdentifier": {
+              "@value": "1",
+              "@type": "xsd:string"
+            }
+          },
+          "validType": {
+            "@value": "DDI-Lifecycle 3.3 <PhysicalInstance>",
+            "@type": "xsd:string"
+          },
+          "description": {
+            "@value": "Link to DDI-Lifecycle 3.3 description of PhysicalInstance for lis_stortingsvalg_kandidater",
+            "@type": "xsd:string"
+          }
+        }
+      }
+    },
+    {
+      "@id": "#06b7fdb8-b0b7-5864-868f-3953e255be2a",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#6f3a324b-699d-52f5-bb0c-47c2e71d144c",
+        "#a45173cc-5b8f-5527-9337-3f7f74784d41",
+        "#327e5218-989f-51d1-aa77-c2c3d9b9d67f",
+        "#bfa1a82f-123c-5228-a18c-8991c6c84082",
+        "#c08d6a8c-9740-5ec4-b113-5347495bf370",
+        "#3b8cb4f1-759f-5bba-8000-13ec4659cd5b",
+        "#1383a87e-0205-52ef-830c-6ccf92b1de9c",
+        "#b6c2dea3-fadc-5ee1-baf5-3bfa29369ea7",
+        "#3abb3467-f92e-5190-8cd3-da5fde8e6b9d"
+      ],
+      "has_PrimaryKey": "#ee4159cb-0c70-5fc7-b802-b4f294c392a9",
+      "has_ForeignKey": [
+        "#85f4739e-4d74-595e-b3cb-021927fed412"
+      ]
+    },
+    {
+      "@id": "#6f3a324b-699d-52f5-bb0c-47c2e71d144c",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#6bf6a863-5832-5fe6-8aaa-aa716a78b69f"
+    },
+    {
+      "@id": "#a45173cc-5b8f-5527-9337-3f7f74784d41",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#59c7aec9-ad9e-535a-92ab-f67de94dc440"
+    },
+    {
+      "@id": "#327e5218-989f-51d1-aa77-c2c3d9b9d67f",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#22021386-613d-5493-96f5-7d6a7c5bb4c3"
+    },
+    {
+      "@id": "#bfa1a82f-123c-5228-a18c-8991c6c84082",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#20758cc4-d44a-5d9d-8d3e-711ff85572a2"
+    },
+    {
+      "@id": "#c08d6a8c-9740-5ec4-b113-5347495bf370",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#bdd6b7d1-5dc1-51e9-8bfb-64cf51235580"
+    },
+    {
+      "@id": "#3b8cb4f1-759f-5bba-8000-13ec4659cd5b",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#dd45bda1-888f-5ff2-9e4d-bfd32cbaeb60"
+    },
+    {
+      "@id": "#1383a87e-0205-52ef-830c-6ccf92b1de9c",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#641fb129-dd1d-5a6b-a38c-0f8e1b05b923"
+    },
+    {
+      "@id": "#b6c2dea3-fadc-5ee1-baf5-3bfa29369ea7",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#8ea71bf3-a695-52ed-a925-068455aae132"
+    },
+    {
+      "@id": "#3abb3467-f92e-5190-8cd3-da5fde8e6b9d",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#7125e410-e2d2-566d-b316-87718daabbae"
+    },
+    {
+      "@id": "#ee4159cb-0c70-5fc7-b802-b4f294c392a9",
+      "@type": "PrimaryKey",
+      "isComposedOf": [
+        "#9fe5964a-4690-556e-aaef-bda3afb036fc",
+        "#3624e132-6d2e-5ac2-984e-ac5b6f09c8ea"
+      ]
+    },
+    {
+      "@id": "#9fe5964a-4690-556e-aaef-bda3afb036fc",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#6f3a324b-699d-52f5-bb0c-47c2e71d144c"
+    },
+    {
+      "@id": "#3624e132-6d2e-5ac2-984e-ac5b6f09c8ea",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#a45173cc-5b8f-5527-9337-3f7f74784d41"
+    },
+    {
+      "@id": "#b29e8344-c4f9-505f-b09b-912de4b133b3",
+      "@type": "ForeignKeyComponent",
+      "correspondsTo_DataStructureComponent": "#6f3a324b-699d-52f5-bb0c-47c2e71d144c",
+      "references": "#65d65380-2afc-58d2-b611-69d8ea134be5"
+    },
+    {
+      "@id": "#85f4739e-4d74-595e-b3cb-021927fed412",
+      "@type": "ForeignKey",
+      "isComposedOf": [
+        "#b29e8344-c4f9-505f-b09b-912de4b133b3"
+      ]
+    },
+    {
+      "@id": "#af6d1829-fb18-54f6-b1f4-a8901d32c4eb",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#e2b47a0d-fe71-526a-a54e-92213d3d2cfe",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#06f79b40-4bcb-5556-abff-abd5d1c0c228",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#5bf5bb7a-c6f7-5c65-a728-0c30a3f217b5",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#8c3e6343-94ed-55ec-a92a-55353a7cc57f",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#ec2802c8-3788-53a7-ac70-73fca4ab969b",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#f893dd15-54c4-5e94-b283-443ce69f04e7",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#8d928cad-848c-5e9f-ad22-441fe0b02ddc",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#e1cc8929-3df5-5e2e-8e4c-dbf813326b0a",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#fe7c1b0f-1303-53f1-9163-0e51d517a9b3",
+      "@type": "PhysicalSegmentLayout",
+      "allowsDuplicates": false,
+      "formats": "#009b35d5-5e86-5e1f-874d-555b9947800c",
+      "isDelimited": false,
+      "isFixedWidth": false,
+      "delimiter": "",
+      "has_ValueMappingPosition": [
+        "#6ca465b9-4a76-5f47-8bd5-ee7cff371433",
+        "#917174ff-1011-5029-a600-7af728c8e812",
+        "#10f69cac-6cea-5bd9-9d06-f5f2d040e404",
+        "#cdcc0f8b-5cbe-5009-b2ce-e002bd1c32aa",
+        "#c8e0a2b2-b7c3-5ee2-acc4-cd3ca05b1ecd",
+        "#c3917061-6c0b-5afb-85d5-565370159ae5",
+        "#1d023c7c-d44d-54c8-857e-38474dfefc27"
+      ]
+    },
+    {
+      "@id": "#6ca465b9-4a76-5f47-8bd5-ee7cff371433",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": "#a7d5ad2b-989f-5a5e-93dd-ad57708bf1c5"
+    },
+    {
+      "@id": "#917174ff-1011-5029-a600-7af728c8e812",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": "#a100d01c-2597-570d-9d19-384b11b38dba"
+    },
+    {
+      "@id": "#10f69cac-6cea-5bd9-9d06-f5f2d040e404",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": "#bbc03d95-3a12-5339-95d3-bfaf04cdfb13"
+    },
+    {
+      "@id": "#cdcc0f8b-5cbe-5009-b2ce-e002bd1c32aa",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": "#93d8ab05-4d0c-5cea-8810-b73bcb0aad5c"
+    },
+    {
+      "@id": "#c8e0a2b2-b7c3-5ee2-acc4-cd3ca05b1ecd",
+      "@type": "ValueMappingPosition",
+      "value": 4,
+      "indexes": "#53a3f9e9-6549-59a0-994c-900abb6397ab"
+    },
+    {
+      "@id": "#c3917061-6c0b-5afb-85d5-565370159ae5",
+      "@type": "ValueMappingPosition",
+      "value": 5,
+      "indexes": "#adab0cc2-18f3-53cc-a924-cb04c90f1990"
+    },
+    {
+      "@id": "#1d023c7c-d44d-54c8-857e-38474dfefc27",
+      "@type": "ValueMappingPosition",
+      "value": 6,
+      "indexes": "#372856b0-12fe-556a-aec0-94de90969e9b"
+    },
+    {
+      "@id": "#dc8a52b9-776f-5f8f-a610-f2f8c951aeda",
+      "@type": "PhysicalRecordSegment",
+      "mapsTo": "#009b35d5-5e86-5e1f-874d-555b9947800c",
+      "has_PhysicalSegmentLayout": "#fe7c1b0f-1303-53f1-9163-0e51d517a9b3",
+      "has_DataPointPosition": []
+    },
+    {
+      "@id": "#009b35d5-5e86-5e1f-874d-555b9947800c",
+      "@type": "LogicalRecord",
+      "organizes": "7422adb4-65d8-5808-90d5-5f97d093ba89",
+      "has_InstanceVariable": [
+        "#8cc8c424-c0ac-56ab-9fec-17da10b56385",
+        "#882c6ac5-3649-534a-a1d1-0ba16fea2ec6",
+        "#ec2264b5-df8e-5dbc-bc94-e62d31f138a2",
+        "#45cbf34f-548a-51b7-b477-322ea66b5005",
+        "#7f05fd47-771f-54d4-8d9d-5cd9ae5dcb67",
+        "#c1b8ea16-2396-5026-8be1-350dd769f0e2",
+        "#c087ce8a-c3e6-5d62-99d7-8eed95aa65f4"
+      ]
+    },
+    {
+      "@id": "#8cc8c424-c0ac-56ab-9fec-17da10b56385",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "id_liste"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "id_liste"
+      },
+      "has_PhysicalSegmentLayout": "#fe7c1b0f-1303-53f1-9163-0e51d517a9b3",
+      "has_ValueMapping": "#a7d5ad2b-989f-5a5e-93dd-ad57708bf1c5",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#8cc8c424-c0ac-56ab-9fec-17da10b56385",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'id_liste'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#882c6ac5-3649-534a-a1d1-0ba16fea2ec6",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgår"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgår"
+      },
+      "has_PhysicalSegmentLayout": "#fe7c1b0f-1303-53f1-9163-0e51d517a9b3",
+      "has_ValueMapping": "#a100d01c-2597-570d-9d19-384b11b38dba",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#882c6ac5-3649-534a-a1d1-0ba16fea2ec6",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgår'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#ec2264b5-df8e-5dbc-bc94-e62d31f138a2",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "Integer"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "valgdistrikt"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "valgdistrikt"
+      },
+      "has_PhysicalSegmentLayout": "#fe7c1b0f-1303-53f1-9163-0e51d517a9b3",
+      "has_ValueMapping": "#bbc03d95-3a12-5339-95d3-bfaf04cdfb13",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#ec2264b5-df8e-5dbc-bc94-e62d31f138a2",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'valgdistrikt'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#45cbf34f-548a-51b7-b477-322ea66b5005",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "listenavn"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "listenavn"
+      },
+      "has_PhysicalSegmentLayout": "#fe7c1b0f-1303-53f1-9163-0e51d517a9b3",
+      "has_ValueMapping": "#93d8ab05-4d0c-5cea-8810-b73bcb0aad5c",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#45cbf34f-548a-51b7-b477-322ea66b5005",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'listenavn'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#7f05fd47-771f-54d4-8d9d-5cd9ae5dcb67",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "listenavn_en"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "listenavn_en"
+      },
+      "has_PhysicalSegmentLayout": "#fe7c1b0f-1303-53f1-9163-0e51d517a9b3",
+      "has_ValueMapping": "#53a3f9e9-6549-59a0-994c-900abb6397ab",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#7f05fd47-771f-54d4-8d9d-5cd9ae5dcb67",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'listenavn_en'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#c1b8ea16-2396-5026-8be1-350dd769f0e2",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "parti"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "parti"
+      },
+      "has_PhysicalSegmentLayout": "#fe7c1b0f-1303-53f1-9163-0e51d517a9b3",
+      "has_ValueMapping": "#adab0cc2-18f3-53cc-a924-cb04c90f1990",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#c1b8ea16-2396-5026-8be1-350dd769f0e2",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'parti'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "#c087ce8a-c3e6-5d62-99d7-8eed95aa65f4",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "String"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "listeforbund"
+        }
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "listeforbund"
+      },
+      "has_PhysicalSegmentLayout": "#fe7c1b0f-1303-53f1-9163-0e51d517a9b3",
+      "has_ValueMapping": "#372856b0-12fe-556a-aec0-94de90969e9b",
+      "source": {
+        "@type": "Reference",
+        "ddiReference": {
+          "@type": "InternationalRegistrationDataIdentifier",
+          "dataIdentifier": {
+            "@value": "#c087ce8a-c3e6-5d62-99d7-8eed95aa65f4",
+            "@type": "xsd:string"
+          },
+          "registrationAuthorityIdentifier": {
+            "@value": "no.nsd",
+            "@type": "xsd:string"
+          },
+          "versionIdentifier": {
+            "@value": "1",
+            "@type": "xsd:string"
+          }
+        },
+        "validType": {
+          "@value": "DDI-Lifecycle 3.3 <Variable>",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@value": "Link to DDI-Lifecycle 3.3 description of variable 'listeforbund'",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    {
+      "@id": "7422adb4-65d8-5808-90d5-5f97d093ba89",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#d12d6f8b-be9f-553e-90c8-9acca105ec36",
+      "catalogDetails": {
+        "@type": "CatalogDetails",
+        "title": {
+          "@type": "InternationalString",
+          "languageSpecificString": {
+            "@type": "LanguageString",
+            "content": "Valglistearkivet.sql-lis_stortingsvalg_listenavn",
+            "language": "en"
+          }
+        },
+        "relatedResource": {
+          "@type": "Reference",
+          "ddiReference": {
+            "@type": "InternationalRegistrationDataIdentifier",
+            "dataIdentifier": {
+              "@value": "7422adb4-65d8-5808-90d5-5f97d093ba89",
+              "@type": "xsd:string"
+            },
+            "registrationAuthorityIdentifier": {
+              "@value": "no.nsd",
+              "@type": "xsd:string"
+            },
+            "versionIdentifier": {
+              "@value": "1",
+              "@type": "xsd:string"
+            }
+          },
+          "validType": {
+            "@value": "DDI-Lifecycle 3.3 <PhysicalInstance>",
+            "@type": "xsd:string"
+          },
+          "description": {
+            "@value": "Link to DDI-Lifecycle 3.3 description of PhysicalInstance for lis_stortingsvalg_listenavn",
+            "@type": "xsd:string"
+          }
+        }
+      }
+    },
+    {
+      "@id": "#d12d6f8b-be9f-553e-90c8-9acca105ec36",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#42c02525-8eac-53bd-9fb3-e3ce75a39800",
+        "#30c7f600-74e2-5966-aec4-d1186b88345f",
+        "#24eab463-9179-55b7-b994-69ba3ebd1052",
+        "#7d37383e-9d06-5f14-ac08-7a05bdfc3542",
+        "#00062efb-ad23-5d02-8acc-1a231fe95890",
+        "#a34fd159-b1da-5513-ade4-6f606ae908d8",
+        "#270967f6-a5d2-5b87-939f-8b0dd593ed69"
+      ],
+      "has_PrimaryKey": "#1805ce7a-6d51-59c4-ae2b-9bd77c662e9a"
+    },
+    {
+      "@id": "#42c02525-8eac-53bd-9fb3-e3ce75a39800",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#8cc8c424-c0ac-56ab-9fec-17da10b56385"
+    },
+    {
+      "@id": "#30c7f600-74e2-5966-aec4-d1186b88345f",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#882c6ac5-3649-534a-a1d1-0ba16fea2ec6"
+    },
+    {
+      "@id": "#24eab463-9179-55b7-b994-69ba3ebd1052",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#ec2264b5-df8e-5dbc-bc94-e62d31f138a2"
+    },
+    {
+      "@id": "#7d37383e-9d06-5f14-ac08-7a05bdfc3542",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#45cbf34f-548a-51b7-b477-322ea66b5005"
+    },
+    {
+      "@id": "#00062efb-ad23-5d02-8acc-1a231fe95890",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#7f05fd47-771f-54d4-8d9d-5cd9ae5dcb67"
+    },
+    {
+      "@id": "#a34fd159-b1da-5513-ade4-6f606ae908d8",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#c1b8ea16-2396-5026-8be1-350dd769f0e2"
+    },
+    {
+      "@id": "#270967f6-a5d2-5b87-939f-8b0dd593ed69",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#c087ce8a-c3e6-5d62-99d7-8eed95aa65f4"
+    },
+    {
+      "@id": "#1805ce7a-6d51-59c4-ae2b-9bd77c662e9a",
+      "@type": "PrimaryKey",
+      "isComposedOf": [
+        "#65d65380-2afc-58d2-b611-69d8ea134be5"
+      ]
+    },
+    {
+      "@id": "#65d65380-2afc-58d2-b611-69d8ea134be5",
+      "@type": "PrimaryKeyComponent",
+      "correspondsTo_DataStructureComponent": "#42c02525-8eac-53bd-9fb3-e3ce75a39800"
+    },
+    {
+      "@id": "#a7d5ad2b-989f-5a5e-93dd-ad57708bf1c5",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#a100d01c-2597-570d-9d19-384b11b38dba",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#bbc03d95-3a12-5339-95d3-bfaf04cdfb13",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#93d8ab05-4d0c-5cea-8810-b73bcb0aad5c",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#53a3f9e9-6549-59a0-994c-900abb6397ab",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#adab0cc2-18f3-53cc-a924-cb04c90f1990",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    },
+    {
+      "@id": "#372856b0-12fe-556a-aec0-94de90969e9b",
+      "@type": "ValueMapping",
+      "defaultValue": "",
+      "formats": []
+    }
+  ]
+}

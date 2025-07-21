@@ -1,0 +1,414 @@
+{
+  "@context": "https://docs.ddialliance.org/DDI-CDI/1.0/model/encoding/json-ld/ddi-cdi.jsonld",
+  "DDICDIModels": [
+    {
+      "@id": "#logicalRecord",
+      "@type": "LogicalRecord",
+      "organizes": "#wideDataSet",
+      "has_InstanceVariable": [
+        "#instanceVariable-Outer.name",
+        "#instanceVariable-Outer.value",
+        "#instanceVariable-line_no",
+        "#instanceVariable-energy",
+        "#instanceVariable-i0",
+        "#instanceVariable-itrans",
+        "#instanceVariable-mutrans"
+      ]
+    },
+    {
+      "@id": "#physicalSegmentLayout",
+      "@type": "PhysicalSegmentLayout",
+      "formats": "#logicalRecord",
+      "isDelimited": "true",
+      "isFixedWidth": false,
+      "delimiter": ",",
+      "has_ValueMapping": [
+        "#valueMapping-Outer.name",
+        "#valueMapping-Outer.value",
+        "#valueMapping-line_no",
+        "#valueMapping-energy",
+        "#valueMapping-i0",
+        "#valueMapping-itrans",
+        "#valueMapping-mutrans"
+      ],
+      "has_ValueMappingPosition": [
+        "#valueMappingPosition-Outer.name",
+        "#valueMappingPosition-Outer.value",
+        "#valueMappingPosition-line_no",
+        "#valueMappingPosition-energy",
+        "#valueMappingPosition-i0",
+        "#valueMappingPosition-itrans",
+        "#valueMappingPosition-mutrans"
+      ]
+    },
+    {
+      "@id": "#valueMapping-Outer.name",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMapping-Outer.value",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMapping-line_no",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMapping-energy",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMapping-i0",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMapping-itrans",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMapping-mutrans",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMappingPosition-Outer.name",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": [
+        "#valueMapping-Outer.name"
+      ]
+    },
+    {
+      "@id": "#valueMappingPosition-Outer.value",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": [
+        "#valueMapping-Outer.value"
+      ]
+    },
+    {
+      "@id": "#valueMappingPosition-line_no",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": [
+        "#valueMapping-line_no"
+      ]
+    },
+    {
+      "@id": "#valueMappingPosition-energy",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": [
+        "#valueMapping-energy"
+      ]
+    },
+    {
+      "@id": "#valueMappingPosition-i0",
+      "@type": "ValueMappingPosition",
+      "value": 4,
+      "indexes": [
+        "#valueMapping-i0"
+      ]
+    },
+    {
+      "@id": "#valueMappingPosition-itrans",
+      "@type": "ValueMappingPosition",
+      "value": 5,
+      "indexes": [
+        "#valueMapping-itrans"
+      ]
+    },
+    {
+      "@id": "#valueMappingPosition-mutrans",
+      "@type": "ValueMappingPosition",
+      "value": 6,
+      "indexes": [
+        "#valueMapping-mutrans"
+      ]
+    },
+    {
+      "@id": "#dataStore",
+      "@type": "DataStore",
+      "has_LogicalRecord": [
+        "#logicalRecord"
+      ]
+    },
+    {
+      "@id": "#wideDataSet",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#wideDataStructure"
+    },
+    {
+      "@id": "#wideDataStructure",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#identifierComponent-Outer.name",
+        "#identifierComponent-Outer.value",
+        "#identifierComponent-line_no",
+        "#measureComponent-energy",
+        "#measureComponent-i0",
+        "#measureComponent-itrans"
+      ]
+    },
+    {
+      "@id": "#identifierComponent-Outer.name",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-Outer.name"
+    },
+    {
+      "@id": "#identifierComponent-Outer.value",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-Outer.value"
+    },
+    {
+      "@id": "#identifierComponent-line_no",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-line_no"
+    },
+    {
+      "@id": "#measureComponent-energy",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-energy"
+    },
+    {
+      "@id": "#measureComponent-i0",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-i0"
+    },
+    {
+      "@id": "#measureComponent-itrans",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-itrans"
+    },
+    {
+      "@id": "#instanceVariable-Outer.name",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "string"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "Outer.name"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "Outer.name"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-Outer.name"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-Outer.name"
+    },
+    {
+      "@id": "#instanceVariable-Outer.value",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "decimal"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "Outer.value"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "Outer.value"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-Outer.value"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-Outer.value"
+    },
+    {
+      "@id": "#instanceVariable-line_no",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "decimal"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "line_no"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "Line number"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-line_no"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-line_no"
+    },
+    {
+      "@id": "#instanceVariable-energy",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "decimal"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "energy"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "mono energy"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-energy"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-energy"
+    },
+    {
+      "@id": "#instanceVariable-i0",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "decimal"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "i0"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "monitor intensity"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-i0"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-i0"
+    },
+    {
+      "@id": "#instanceVariable-itrans",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "decimal"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "itrans"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "transmission intensity"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-itrans"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-itrans"
+    },
+    {
+      "@id": "#instanceVariable-mutrans",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "decimal"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "mutrans"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "mu transmission"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-mutrans"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-mutrans"
+    },
+    {
+      "@id": "#substantiveValueDomain-Outer.name",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+      }
+    },
+    {
+      "@id": "#substantiveValueDomain-Outer.value",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      }
+    },
+    {
+      "@id": "#substantiveValueDomain-line_no",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      }
+    },
+    {
+      "@id": "#substantiveValueDomain-energy",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      }
+    },
+    {
+      "@id": "#substantiveValueDomain-i0",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      }
+    },
+    {
+      "@id": "#substantiveValueDomain-itrans",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      }
+    },
+    {
+      "@id": "#substantiveValueDomain-mutrans",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      }
+    }
+  ]
+}

@@ -1,0 +1,360 @@
+{
+    "@graph": [
+        {
+            "@type": "schema:Dataset",
+            "name": "OMOP CDM Person table",
+            "description": "OMOP CDM Person table for Malawi IDSR data",
+            "variableMeasured": [
+                {
+                    "@type": "PropertyValue",
+                    "name": "person id",
+                    "alternateName": "none",
+                    "description": "Unique person identifier",
+                    "value": "number",
+                    "minValue": "1",
+                    "maxValue": "51299"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "gender concept id",
+                    "propertyID": [
+                        "https://athena.ohdsi.org/search-terms/terms/8532",
+                        "https://athena.ohdsi.org/search-terms/terms/8507"
+                    ],
+                    "sameAs": [
+                        "http://snomed.info/id/139867007",
+                        "http://snomed.info/id/248153007"
+                    ],
+                    "alternateName": "none",
+                    "description": "Gender Concept ID (FEMALE=8532, MALE=8507)",
+                    "value": "number"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "gender_source_concept_id",
+                    "propertyID": [
+                        "F",
+                        "M"
+                    ],
+                    "subjectOf": {
+                        "@type": "schema:CreativeWork",
+                        "name": "WHO IDSR Africa",
+                        "description": "Technical Guidelines for Integrated Disease Surveillance and Response in the WHO African Region",
+                        "url": "https://apps.who.int/iris/bitstream/handle/10665/312317/WHO-AF-WHE-CPI-01-2019-eng.pdf",
+                        "hasPart": {
+                            "@type": "schema:CreativeWork",
+                            "name": "Annex 2F",
+                            "description": "IDSR immediate case-based reporting form."
+                        }
+                    },
+                    "alternateName": "none",
+                    "description": "Gender Concept ID (FEMALE=8532, MALE=8507)",
+                    "value": "number"
+                },
+                {
+                    "@type": "PropertyValue",
+                    "name": "year of birth",
+                    "alternateName": "none",
+                    "description": "year of birth",
+                    "value": "number"
+                }
+            ]
+        },
+        {
+            "@id": "IDSRCovid19PrevalenceAndPredictionStudy/design",
+            "@type": "schema:MedicalObservationalStudyDesign",
+            "identifier": "<nil>",
+            "ohdsi:dateModified": "2020-03-28",
+            "ohdsi:license": "open-source license",
+            "ohdsi:designVersion": "5.4",
+            "aphrc:protocol": {
+                "@type": "ohdsi:IncidenceRateAnalysis",
+                "name": "<nil>"
+            },
+            "description": "In an incidence calculation, we describe: amongst the persons in the target cohort, who experienced the outcome cohort during the time at risk period",
+            "timeAtRisk": {
+                "@type": "ohdsi:TimeAtRisk",
+                "description": "The time at risk defines the time window relative to the target cohort start or end date in which a person is at risk to an outcome.",
+                "startDate": "<nil>",
+                "startDateOffset": "<nil>",
+                "endDate": "<nil>",
+                "endDateOffset": "<nil>"
+            },
+            "url": "http://51.105.33.160:9090/Atlas/#/iranalysis/2",
+            "ohdsi:targetCohort": {
+                "@type": "schema:ItemList",
+                "name": "<nil>",
+                "url": "http://51.105.33.160:9090/Atlas/#/cohortdefinition/7",
+                "description": "Atlas webpage for Covid-19 patient cohort"
+            },
+            "ohdsi:outcomeCohort": {
+                "@type": "schema:ItemList",
+                "name": "<nil>",
+                "identifier": "itemListMedicalConditions",
+                "url": "http://51.105.33.160:9090/Atlas/#/cohortdefinition/11",
+                "description": "This is an array of condition diagnoses any one of which qualifies a person to move from the target cohort to the outcome cohort.",
+                "itemListElement": [
+                    {
+                        "@type": "schema:ListItem",
+                        "identifier": "listItemMedicalCondition",
+                        "item": {
+                            "@type": "schema:MedicalCondition",
+                            "identifier": "medicalCondition #1",
+                            "code": {
+                                "@type": "schema:MedicalCode",
+                                "codeValue": "",
+                                "codingSystem": "SNOMED",
+                                "sameAs": "http://snomed.info/id/"
+                            },
+                            "guideline": {
+                                "@type": "schema:MedicalGuideline",
+                                "evidenceLevel": ["EvidenceLevelC"],
+                                "evidenceOrigin": "<nil>"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "schema:ListItem",
+                        "identifier": "listItemMedicalCondition2",
+                        "item": {
+                            "@type": "schema:MedicalCondition",
+                            "identifier": "medicalCondition #n",
+                            "code": {
+                                "@type": "schema:MedicalCode",
+                                "codeValue": "",
+                                "codingSystem": "SNOMED",
+                                "sameAs": "http://snomed.info/id/"
+                            },
+                            "guideline": {
+                                "@type": "schema:MedicalGuideline",
+                                "evidenceLevel": ["EvidenceLevelC"],
+                                "evidenceOrigin": "<nil>"
+                            }
+                        },
+                        "nextItem": "listItemMedicalTest",
+                        "previousItem": "<nil>"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "identifier": "listItemMedicalTest",
+                        "description": "This is a placeholder for work in progress.",
+                        "item": {"@type": "schema:ItemList"},
+                        "nextItem": "listItemMedicalProcedure",
+                        "previousItem": "listItemMedicalCondition"
+                    }
+                ]
+            },
+            "ohdsi:stratifyCriteria": {
+                "@type": "schema:ItemList",
+                "url": "http://51.105.33.160:9090/Atlas/#/iranalysis/2/definition",
+                "itemListElement": [
+                    {
+                        "@type": "schema:ListItem",
+                        "item": {
+                            "@type": "schema:MedicalIndication",
+                            "description": "Age < 40",
+                            "code": {
+                                "@type": "schema:MedicalCode",
+                                "codeValue": "<nil>",
+                                "codingSystem": "<nil>",
+                                "sameAs": "<nil>"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "schema:ListItem",
+                        "item": {
+                            "@type": "schema:MedicalIndication",
+                            "description": "Age between 40 and 65",
+                            "code": {
+                                "@type": "schema:MedicalCode",
+                                "codeValue": "<nil>",
+                                "codingSystem": "<nil>",
+                                "sameAs": "<nil>"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "schema:ListItem",
+                        "item": {
+                            "@type": "schema:MedicalIndication",
+                            "description": "Age > 65",
+                            "code": {
+                                "@type": "schema:MedicalCode",
+                                "codeValue": "<nil>",
+                                "codingSystem": "<nil>",
+                                "sameAs": "<nil>"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "schema:ListItem",
+                        "item": {
+                            "@type": "schema:MedicalIndication",
+                            "description": "Pre-existing condition: asthma",
+                            "code": {
+                                "@type": "schema:MedicalCode",
+                                "codeValue": "195967001",
+                                "codingSystem": "SNOMED",
+                                "sameAs": "http://snomed.info/id/195967001"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "schema:ListItem",
+                        "item": {
+                            "@type": "schema:MedicalIndication",
+                            "description": "Pre-existing condition: diabetes",
+                            "code": {
+                                "@type": "schema:MedicalCode",
+                                "codeValue": "195967001",
+                                "codingSystem": "SNOMED",
+                                "sameAs": "http://snomed.info/id/195967001"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "schema:ListItem",
+                        "item": {
+                            "@type": "schema:MedicalIndication",
+                            "description": "The biological classification of individuals as female",
+                            "code": {
+                                "@type": "schema:MedicalCode",
+                                "codeValue": "F",
+                                "codingSystem": "OMOP Gender",
+                                "sameAs": "https://athena.ohdsi.org/search-terms/terms/8532"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "schema:ListItem",
+                        "item": {
+                            "@type": "schema:MedicalIndication",
+                            "description": "The biological classification of individuals as male",
+                            "code": {
+                                "@type": "schema:MedicalCode",
+                                "codeValue": "M",
+                                "codingSystem": "OMOP Gender",
+                                "sameAs": "https://athena.ohdsi.org/search-terms/terms/8507"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "schema:ListItem",
+                        "item": {
+                            "@type": "schema:MedicalIndication",
+                            "description": "Vaccinated for COVID",
+                            "code": {
+                                "@type": "schema:MedicalCode",
+                                "codeValue": "85713-6",
+                                "codingSystem": "LOINC",
+                                "sameAs": "https://loinc.org/search/?t=1&s=85713-6"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "potentialAction": {
+                "@type": "schema:UpdateAction",
+                "name": "MedicalObservationalStudy Execute Action",
+                "agent": ["person:MuyingoS"],
+                "instrument": {
+                    "@type": "schema:ItemList",
+                    "name": "OHDSI R library",
+                    "description": "The software stack by way of which the Action produces the Result from the Object dataset(s) at the Target",
+                    "itemListElement": [
+                        {
+                            "@type": "schema:ListItem",
+                            "name": "ATLAS",
+                            "item": {
+                                "@type": "schema:SoftwareApplication",
+                                "softwareVersion": "2.13",
+                                "applicationCategory": "R Package",
+                                "description": "ATLAS is an open source software tool for researchers to conduct scientific analyses on standardised observational data converted to the OMOP Common Data Model V5. Researchers can create cohorts by defining groups of people based on an exposure to a drug or diagnosis of a particular condition using healthcare claims data. ATLAS has vocabulary searching of medical concepts to identify people with specific conditions, drug exposures etc. Patient profiles can be viewed within a specific cohort allowing visualisation of a particular subject's health care records. Population effect level estimation analyses allows for comparison of two different cohorts and leverages R packages."
+                            }
+                        },
+                        {
+                            "@type": "schema:ListItem",
+                            "name": "ACHILLES",
+                            "item": {
+                                "@type": "schema:SoftwareApplication",
+                                "softwareVersion": "1.7",
+                                "applicationCategory": "R Package",
+                                "description": "Automated Characterization of Health Information at Large-scale Longitudinal Evidence Systems (ACHILLES). Achilles provides descriptive statistics on an OMOP CDM database. ACHILLES currently supports CDM version 5.3 and 5.4."
+                            }
+                        },
+                        {
+                            "@type": "schema:ListItem",
+                            "name": "HADES",
+                            "item": {
+                                "@type": "schema:SoftwareApplication",
+                                "softwareVersion": "5.0.3",
+                                "applicationCategory": "R Package",
+                                "description": "HADES includes PatientLevelPrediction. PatientLevelPrediction is an R package for building and validating patient-level predictive models using data in the OMOP Common Data Model format."
+                            }
+                        },
+                        {
+                            "@type": "schema:ListItem",
+                            "name": "WebAPI",
+                            "item": {
+                                "@type": "schema:SoftwareApplication",
+                                "softwareVersion": "2.13",
+                                "applicationCategory": "R Package",
+                                "description": "OHDSI WebAPI contains all OHDSI RESTful services that can be called from OHDSI applications."
+                            }
+                        }
+                    ]
+                },
+                "target": [
+                    {
+                        "@type": "EntryPoint",
+                        "actionPlatform": "ATLAS",
+                        "description": "ATLAS is an open source software tool for researchers to conduct scientific analyses on standardized observational data converted to the OMOP Common Data Model V5. Researchers can create cohorts by defining groups of people based on an exposure to a drug or diagnosis of a particular condition using healthcare claims data. ATLAS has vocabulary searching of medical concepts to identify people with specific conditions, drug exposures etc. Patient profiles can be viewed within a specific cohort allowing visualization of a particular subject's health care records. Population effect level estimationanalyses allows for comparison of two different cohorts and leverages R packages.",
+                        "urlTemplate": "http://51.105.33.160:9090/Atlas",
+                        "contentType": "text/plain"
+                    }
+                ],
+                "object": [
+                    "dataset:mubasCDM",
+                    "dataset:coordinatingcenterCDM"
+                ],
+                "result": {
+                    "@type": "schema:ItemList",
+                    "name": "OHDSIStudyPackageResultsSchema",
+                    "description": "Hosts study settings (metadata) and study results (aggregate data) by analysis from the study package",
+                    "itemListElement": [
+                        {
+                            "@type": "schema:ListItem",
+                            "name": "OHDSIStudyPackageMetadata",
+                            "item": {
+                                "@type": "schema:ItemList",
+                                "name": "MachineActionableSettingByAnalysis",
+                                "description": "OHDSI study package metadata by analysis. Facilitates sharing of analysis settings across multiple CDMs at different institutions"
+                            }
+                        },
+                        {
+                            "@type": "schema:ListItem",
+                            "name": "OHDSIStudyPackageAggregateData",
+                            "item": {
+                                "@type": "schema:ItemList",
+                                "name": "IndicatorCollections",
+                                "description": "OHDSI study package aggregate study data by analysis formatted for synthesis at a network study coordinating center",
+                                "subjectOf": [
+                                    {
+                                        "@type": "schema:CreativeWork",
+                                        "name": "EvidenceSynthesis",
+                                        "description": "This R package contains routines for combining causal effect estimates and study diagnostics across multiple data sites in a distributed study. This includes functions for performing meta-analysis and forest plots.",
+                                        "disambiguatingDescription": "Not for use in synthesizing  predictive analysis network studies across CDMs. Achieving transportability of predictive analysis models takes techniques like transfer learning, attention based learning and/or fine turning.",
+                                        "url": "https://ohdsi.github.io/EvidenceSynthesis/"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

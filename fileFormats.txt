@@ -1,0 +1,16 @@
+data formats
+
+NetCDF
+HDF5
+landsat
+usgs rdb https://help.waterdata.usgs.gov/faq/about-tab-delimited-output
+
+csv for the web
+xdi
+nexus (HDF5)
+geodatabase (e.g. see https://www.hydrosheds.org/hydroatlas)
+shape file (e.g. see https://www.hydrosheds.org/hydroatlas)
+dbf
+JSON
+YAML
+XML

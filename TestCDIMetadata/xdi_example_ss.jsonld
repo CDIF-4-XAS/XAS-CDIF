@@ -1,0 +1,150 @@
+{
+    "@context": [
+        "https://docs.ddialliance.org/DDI-CDI/1.0/model/encoding/json-ld/ddi-cdi.jsonld",
+        {"skos": "http://www.w3.org/2004/02/skos/core#"}
+    ],
+    "DDICDIModels": [
+        {
+            "@id": "#keyValueDataStore",
+            "@type": "KeyValueDataStore",
+            "isStructuredBy": "#keyValueStructure"
+        },
+        {
+            "@id": "#keyValueStructure",
+            "@type": "KeyValueStructure",
+            "has_DataStructureComponent": [
+                "#variableDescriptorComponent",
+                "#variableValueComponent"
+            ]
+        },
+        {
+            "@id": "#variableDescriptorComponent",
+            "@type": "VariableDescriptorComponent",
+            "refersTo": "#variableValueComponent",
+            "isDefinedBy_DescriptorVariable": "#descriptorVariable"
+        },
+        {
+            "@id": "#descriptorVariable",
+            "@type": "DescriptorVariable",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#descriptorValueDomain"
+        },
+        {
+            "@id": "#descriptorValueDomain",
+            "@type": "DescriptorValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "#conceptScheme-descriptorValueDomain"
+            }
+        },
+        {
+            "@id": "#conceptScheme-descriptorValueDomain",
+            "@type": "skos:ConceptScheme",
+            "skos:hasTopConcept": [
+                "#descriptorValueDomain-concept-Column.1"
+            ]
+        },
+        {
+            "@id": "#descriptorValueDomain-concept-Column.1",
+            "@type": "skos:Concept",
+            "skos:notation": {
+                "@type": "TypedString",
+                "content": "Column.1"
+            },
+            "skos:prefLabel": {
+                "@type": "TypedString",
+                "content": "Column.1"
+            }
+        },
+        {
+            "@id": "#variableValueComponent",
+            "@type": "VariableValueComponent",
+            "isDefinedBy_RepresentedVariable": "#referenceVariable"
+        },
+        {
+            "@id": "#referenceVariable",
+            "@type": "ReferenceVariable",
+            "takesValuesFrom": "#referenceValueDomain-referenceVariable"
+        },
+        {
+            "@id": "#referenceValueDomain-referenceVariable",
+            "@type": "ReferenceValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            }
+        },
+        {
+            "@id": "#descriptor-Column.1",
+            "@type": "Descriptor",
+            "content": {
+                "@type": "TypedString",
+                "content": "Column.1"
+            },
+            "hasValueFrom_DescriptorValueDomain": "#descriptorValueDomain",
+            "hasValueFrom_ValueDomain": "#descriptorValueDomain",
+            "identifies": ["#referenceVariable-Column.1"],
+            "refersTo": "#referenceValue-Column.1"
+        },
+        {
+            "@id": "#referenceValue-Column.1",
+            "@type": "ReferenceValue",
+            "content": {
+                "@type": "TypedString",
+                "content": "energy eV"
+            },
+            "hasValueFrom_ValueDomain": "#referenceValueDomain-referenceVariable",
+            "hasValueFrom_ReferenceValueDomain": "#referenceValueDomain-referenceVariable",
+            "correspondsTo_VariableValueComponent": "#variableValueComponent"
+        },
+        {
+            "@id": "#referenceVariable-Column.1",
+            "@type": "ReferenceVariable",
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Column.1"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "Column.1"
+            },
+            "takesValuesFrom": "#referenceValueDomain-Column.1"
+        },
+        {
+            "@id": "#referenceValueDomain-Column.1",
+            "@type": "ReferenceValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "#conceptScheme-Column.1"
+            }
+        },
+        {
+            "@id": "#conceptScheme-Column.1",
+            "@type": "skos:ConceptScheme",
+            "skos:hasTopConcept": [
+                "#Column.1-concept-energy",
+                "#Column.1-concept-energy_eV",
+                "#Column.1-concept-energy_keV",
+                "#Column.1-concept-energy_pixel",
+                "#Column.1-concept-angle",
+                "#Column.1-concept-angle_degrees",
+                "#Column.1-concept-angle_radians",
+                "#Column.1-concept-angle_steps"
+            ]
+        },
+        {
+            "@id": "#Column.1-concept-energy",
+            "@type": "skos:Concept",
+            "skos:notation": {
+                "@type": "TypedString",
+                "content": "energy"
+            },
+            "skos:prefLabel": {
+                "@type": "TypedString",
+                "content": "mono energy"
+            }
+        }
+    ]
+}

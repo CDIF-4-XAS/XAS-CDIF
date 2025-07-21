@@ -1,0 +1,320 @@
+{
+    "@context": [
+        "https://docs.ddialliance.org/DDI-CDI/1.0/model/encoding/json-ld/ddi-cdi.jsonld",
+        {
+            "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+    ],
+    "DDICDIModels": [
+        {
+            "@id": "#physicalDataSet",
+            "@type": "PhysicalDataSet",
+            "allowsDuplicates": false,
+            "physicalFileName": "WeatherObsKeyValue.json",
+            "correspondsTo_DataSet": "#keyValueDataStore",
+            "formats": "#dataStore",
+            "has_PhysicalRecordSegment": [
+                "#physicalRecordSegment"
+            ]
+        },
+        {
+            "@id": "#physicalRecordSegment",
+            "@type": "PhysicalRecordSegment",
+            "mapsTo": "#logicalRecord",
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_DataPointPosition": []
+        },
+        {
+            "@id": "#physicalSegmentLayout",
+            "@type": "PhysicalSegmentLayout",
+            "allowsDuplicates": false,
+            "formats": "#logicalRecord",
+            "isDelimited": false,
+            "isFixedWidth": false,
+            "delimiter": "",
+            "has_ValueMappingPosition": [
+                "#valueMappingPosition-property",
+                "#valueMappingPosition-results",
+                "#valueMappingPosition-sensor.id",
+                "#valueMappingPosition-sensor.label"
+            ]
+        },
+        {
+            "@id": "#valueMapping-property",
+            "@type": "ValueMapping",
+            "defaultValue": "",
+            "formats": []
+        },
+        {
+            "@id": "#valueMapping-results",
+            "@type": "ValueMapping",
+            "defaultValue": "",
+            "formats": []
+        },
+        {
+            "@id": "#valueMapping-sensor.id",
+            "@type": "ValueMapping",
+            "defaultValue": "",
+            "formats": []
+        },
+        {
+            "@id": "#valueMapping-sensor.label",
+            "@type": "ValueMapping",
+            "defaultValue": "",
+            "formats": []
+        },
+        {
+            "@id": "#valueMappingPosition-property",
+            "@type": "ValueMappingPosition",
+            "value": 0,
+            "indexes": "#valueMapping-property"
+        },
+        {
+            "@id": "#valueMappingPosition-results",
+            "@type": "ValueMappingPosition",
+            "value": 1,
+            "indexes": "#valueMapping-results"
+        },
+        {
+            "@id": "#valueMappingPosition-sensor.id",
+            "@type": "ValueMappingPosition",
+            "value": 2,
+            "indexes": "#valueMapping-sensor.id"
+        },
+        {
+            "@id": "#valueMappingPosition-sensor.label",
+            "@type": "ValueMappingPosition",
+            "value": 3,
+            "indexes": "#valueMapping-sensor.label"
+        },
+        {
+            "@id": "#dataStore",
+            "@type": "DataStore",
+            "allowsDuplicates": false,
+            "recordCount": 3,
+            "has_LogicalRecord": [
+                "#logicalRecord"
+            ]
+        },
+        {
+            "@id": "#logicalRecord",
+            "@type": "LogicalRecord",
+            "organizes": "#keyValueDataStore",
+            "has_InstanceVariable": [
+                "#instanceVariable-property",
+                "#instanceVariable-results",
+                "#instanceVariable-sensor.id",
+                "#instanceVariable-sensor.label"
+            ]
+        },
+        {
+            "@id": "#keyValueDataStore",
+            "@type": "KeyValueDataStore",
+            "isStructuredBy": "#keyValueStructure"
+        },
+        {
+            "@id": "#keyValueStructure",
+            "@type": "KeyValueStructure",
+            "has_DataStructureComponent": [
+                "#identifierComponent-property",
+                "#identifierComponent-results",
+                "#identifierComponent-sensor.id",
+                "#identifierComponent-sensor.label"
+            ],
+            "has_ComponentPosition": [
+                "#componentPosition-0",
+                "#componentPosition-1",
+                "#componentPosition-2",
+                "#componentPosition-3"
+            ]
+        },
+        {
+            "@id": "#instanceVariable-property",
+            "@type": "InstanceVariable",
+            "physicalDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "string"
+            },
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Property"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "property"
+            },
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_ValueMapping": "#valueMapping-property",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-property"
+        },
+        {
+            "@id": "#instanceVariable-results",
+            "@type": "InstanceVariable",
+            "physicalDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "string"
+            },
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Results"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "results"
+            },
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_ValueMapping": "#valueMapping-results",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-results"
+        },
+        {
+            "@id": "#instanceVariable-sensor.id",
+            "@type": "InstanceVariable",
+            "physicalDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "string"
+            },
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Sensor Id"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "sensor.id"
+            },
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_ValueMapping": "#valueMapping-sensor.id",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-sensor.id"
+        },
+        {
+            "@id": "#instanceVariable-sensor.label",
+            "@type": "InstanceVariable",
+            "physicalDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "string"
+            },
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Sensor Label"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "sensor.label"
+            },
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_ValueMapping": "#valueMapping-sensor.label",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-sensor.label"
+        },
+        {
+            "@id": "#substantiveValueDomain-property",
+            "@type": "SubstantiveValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            },
+            "isDescribedBy": "#substantiveValueAndConceptDescription-property"
+        },
+        {
+            "@id": "#substantiveValueDomain-results",
+            "@type": "SubstantiveValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            },
+            "isDescribedBy": "#substantiveValueAndConceptDescription-results"
+        },
+        {
+            "@id": "#substantiveValueDomain-sensor.id",
+            "@type": "SubstantiveValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            },
+            "isDescribedBy": "#substantiveValueAndConceptDescription-sensor.id"
+        },
+        {
+            "@id": "#substantiveValueDomain-sensor.label",
+            "@type": "SubstantiveValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            },
+            "isDescribedBy": "#substantiveValueAndConceptDescription-sensor.label"
+        },
+        {
+            "@id": "#substantiveValueAndConceptDescription-property",
+            "@type": "ValueAndConceptDescription",
+            "classificationLevel": "Nominal"
+        },
+        {
+            "@id": "#substantiveValueAndConceptDescription-results",
+            "@type": "ValueAndConceptDescription",
+            "classificationLevel": "Nominal"
+        },
+        {
+            "@id": "#substantiveValueAndConceptDescription-sensor.id",
+            "@type": "ValueAndConceptDescription",
+            "classificationLevel": "Nominal"
+        },
+        {
+            "@id": "#substantiveValueAndConceptDescription-sensor.label",
+            "@type": "ValueAndConceptDescription",
+            "classificationLevel": "Nominal"
+        },
+        {
+            "@id": "#identifierComponent-property",
+            "@type": "IdentifierComponent",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-property"
+        },
+        {
+            "@id": "#identifierComponent-results",
+            "@type": "IdentifierComponent",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-results"
+        },
+        {
+            "@id": "#identifierComponent-sensor.id",
+            "@type": "IdentifierComponent",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-sensor.id"
+        },
+        {
+            "@id": "#identifierComponent-sensor.label",
+            "@type": "IdentifierComponent",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-sensor.label"
+        },
+        {
+            "@id": "#componentPosition-0",
+            "@type": "ComponentPosition",
+            "value": 0,
+            "indexes": "#identifierComponent-property"
+        },
+        {
+            "@id": "#componentPosition-1",
+            "@type": "ComponentPosition",
+            "value": 1,
+            "indexes": "#identifierComponent-results"
+        },
+        {
+            "@id": "#componentPosition-2",
+            "@type": "ComponentPosition",
+            "value": 2,
+            "indexes": "#identifierComponent-sensor.id"
+        },
+        {
+            "@id": "#componentPosition-3",
+            "@type": "ComponentPosition",
+            "value": 3,
+            "indexes": "#identifierComponent-sensor.label"
+        }
+    ]
+}

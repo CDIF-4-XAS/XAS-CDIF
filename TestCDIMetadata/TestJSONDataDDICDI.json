@@ -1,0 +1,7 @@
+{ "orderID": "5347",
+  "sku"    : "20223",
+  "price"  : 23.95,
+  "shipTo" : { "name" : "Jane Smith",
+               "address" : "123 Maple Street,Pretendville, NY",
+               "zip"   : "12345" }
+}

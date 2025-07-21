@@ -1,0 +1,460 @@
+{
+    "@context": [
+        "https://docs.ddialliance.org/DDI-CDI/1.0/model/encoding/json-ld/ddi-cdi.jsonld",
+        {
+            "skos": "http://www.w3.org/2004/02/skos/core#"
+        }
+    ],
+    "DDICDIModels": [
+        {
+            "@id": "#physicalDataSet",
+            "@type": "PhysicalDataSet",
+            "allowsDuplicates": false,
+            "physicalFileName": "keyvalue.json",
+            "correspondsTo_DataSet": "#keyValueDataStore",
+            "formats": "#dataStore",
+            "has_PhysicalRecordSegment": [
+                "#physicalRecordSegment"
+            ]
+        },
+        {
+            "@id": "#physicalRecordSegment",
+            "@type": "PhysicalRecordSegment",
+            "mapsTo": "#logicalRecord",
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_DataPointPosition": []
+        },
+        {
+            "@id": "#physicalSegmentLayout",
+            "@type": "PhysicalSegmentLayout",
+            "allowsDuplicates": false,
+            "formats": "#logicalRecord",
+            "isDelimited": true,
+            "isFixedWidth": false,
+            "delimiter": "/",
+            "has_ValueMappingPosition": [
+                "#valueMappingPosition-key-1",
+                "#valueMappingPosition-key-2",
+                "#valueMappingPosition-key-3",
+                "#valueMappingPosition-key-4",
+                "#valueMappingPosition-key-5",
+                "#valueMappingPosition-value"
+            ]
+        },
+        {
+            "@id": "#valueMapping-key-1",
+            "@type": "ValueMapping",
+            "defaultValue": "",
+            "formats": []
+        },
+        {
+            "@id": "#valueMapping-key-2",
+            "@type": "ValueMapping",
+            "defaultValue": "",
+            "formats": []
+        },
+        {
+            "@id": "#valueMapping-key-3",
+            "@type": "ValueMapping",
+            "defaultValue": "",
+            "formats": []
+        },
+        {
+            "@id": "#valueMapping-key-4",
+            "@type": "ValueMapping",
+            "defaultValue": "",
+            "formats": []
+        },
+        {
+            "@id": "#valueMapping-key-5",
+            "@type": "ValueMapping",
+            "defaultValue": "",
+            "formats": []
+        },
+        {
+            "@id": "#valueMapping-value",
+            "@type": "ValueMapping",
+            "defaultValue": "",
+            "formats": []
+        },
+        {
+            "@id": "#valueMappingPosition-key-1",
+            "@type": "ValueMappingPosition",
+            "value": 0,
+            "indexes": "#valueMapping-key-1"
+        },
+        {
+            "@id": "#valueMappingPosition-key-2",
+            "@type": "ValueMappingPosition",
+            "value": 1,
+            "indexes": "#valueMapping-key-2"
+        },
+        {
+            "@id": "#valueMappingPosition-key-3",
+            "@type": "ValueMappingPosition",
+            "value": 2,
+            "indexes": "#valueMapping-key-3"
+        },
+        {
+            "@id": "#valueMappingPosition-key-4",
+            "@type": "ValueMappingPosition",
+            "value": 3,
+            "indexes": "#valueMapping-key-4"
+        },
+        {
+            "@id": "#valueMappingPosition-key-5",
+            "@type": "ValueMappingPosition",
+            "value": 4,
+            "indexes": "#valueMapping-key-5"
+        },
+        {
+            "@id": "#valueMappingPosition-value",
+            "@type": "ValueMappingPosition",
+            "value": 5,
+            "indexes": "#valueMapping-value"
+        },
+        {
+            "@id": "#dataStore",
+            "@type": "DataStore",
+            "allowsDuplicates": false,
+            "recordCount": 9,
+            "has_LogicalRecord": [
+                "#logicalRecord"
+            ]
+        },
+        {
+            "@id": "#logicalRecord",
+            "@type": "LogicalRecord",
+            "organizes": "#keyValueDataStore",
+            "has_InstanceVariable": [
+                "#instanceVariable-key-1",
+                "#instanceVariable-key-2",
+                "#instanceVariable-key-3",
+                "#instanceVariable-key-4",
+                "#instanceVariable-key-5",
+                "#instanceVariable-value"
+            ]
+        },
+        {
+            "@id": "#keyValueDataStore",
+            "@type": "KeyValueDataStore",
+            "isStructuredBy": "#keyValueStructure"
+        },
+        {
+            "@id": "#keyValueStructure",
+            "@type": "KeyValueStructure",
+            "has_DataStructureComponent": [
+                "#identifierComponent-key-1",
+                "#identifierComponent-key-2",
+                "#identifierComponent-key-3",
+                "#identifierComponent-key-4",
+                "#identifierComponent-key-5",
+                "#variableValueComponent-value",
+                "#variableDescriptorComponent-value"
+            ],
+            "has_ComponentPosition": [
+                "#componentPosition-0",
+                "#componentPosition-1",
+                "#componentPosition-2",
+                "#componentPosition-3",
+                "#componentPosition-4",
+                "#componentPosition-5",
+                "#componentPosition-6"
+            ]
+        },
+        {
+            "@id": "#instanceVariable-key-1",
+            "@type": "InstanceVariable",
+            "physicalDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "string"
+            },
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Key Level 1"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "key-1"
+            },
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_ValueMapping": "#valueMapping-key-1",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-key-1"
+        },
+        {
+            "@id": "#instanceVariable-key-2",
+            "@type": "InstanceVariable",
+            "physicalDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "string"
+            },
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Key Level 2"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "key-2"
+            },
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_ValueMapping": "#valueMapping-key-2",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-key-2"
+        },
+        {
+            "@id": "#instanceVariable-key-3",
+            "@type": "InstanceVariable",
+            "physicalDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "string"
+            },
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Key Level 3"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "key-3"
+            },
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_ValueMapping": "#valueMapping-key-3",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-key-3"
+        },
+        {
+            "@id": "#instanceVariable-key-4",
+            "@type": "InstanceVariable",
+            "physicalDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "string"
+            },
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Key Level 4"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "key-4"
+            },
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_ValueMapping": "#valueMapping-key-4",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-key-4"
+        },
+        {
+            "@id": "#instanceVariable-key-5",
+            "@type": "InstanceVariable",
+            "physicalDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "string"
+            },
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Key Level 5"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "key-5"
+            },
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_ValueMapping": "#valueMapping-key-5",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-key-5"
+        },
+        {
+            "@id": "#instanceVariable-value",
+            "@type": "InstanceVariable",
+            "physicalDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "numeric"
+            },
+            "displayLabel": {
+                "@type": "LabelForDisplay",
+                "locationVariant": {
+                    "@type": "ControlledVocabularyEntry",
+                    "entryValue": "Value"
+                }
+            },
+            "name": {
+                "@type": "ObjectName",
+                "name": "value"
+            },
+            "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+            "has_ValueMapping": "#valueMapping-value",
+            "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-value"
+        },
+        {
+            "@id": "#substantiveValueDomain-key-1",
+            "@type": "SubstantiveValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            },
+            "isDescribedBy": "#substantiveValueAndConceptDescription-key-1"
+        },
+        {
+            "@id": "#substantiveValueDomain-key-2",
+            "@type": "SubstantiveValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            },
+            "isDescribedBy": "#substantiveValueAndConceptDescription-key-2"
+        },
+        {
+            "@id": "#substantiveValueDomain-key-3",
+            "@type": "SubstantiveValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            },
+            "isDescribedBy": "#substantiveValueAndConceptDescription-key-3"
+        },
+        {
+            "@id": "#substantiveValueDomain-key-4",
+            "@type": "SubstantiveValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            },
+            "isDescribedBy": "#substantiveValueAndConceptDescription-key-4"
+        },
+        {
+            "@id": "#substantiveValueDomain-key-5",
+            "@type": "SubstantiveValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#string"
+            },
+            "isDescribedBy": "#substantiveValueAndConceptDescription-key-5"
+        },
+        {
+            "@id": "#substantiveValueDomain-value",
+            "@type": "SubstantiveValueDomain",
+            "recommendedDataType": {
+                "@type": "ControlledVocabularyEntry",
+                "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+            },
+            "isDescribedBy": "#substantiveValueAndConceptDescription-value"
+        },
+        {
+            "@id": "#substantiveValueAndConceptDescription-key-1",
+            "@type": "ValueAndConceptDescription",
+            "classificationLevel": "Nominal"
+        },
+        {
+            "@id": "#substantiveValueAndConceptDescription-key-2",
+            "@type": "ValueAndConceptDescription",
+            "classificationLevel": "Nominal"
+        },
+        {
+            "@id": "#substantiveValueAndConceptDescription-key-3",
+            "@type": "ValueAndConceptDescription",
+            "classificationLevel": "Nominal"
+        },
+        {
+            "@id": "#substantiveValueAndConceptDescription-key-4",
+            "@type": "ValueAndConceptDescription",
+            "classificationLevel": "Nominal"
+        },
+        {
+            "@id": "#substantiveValueAndConceptDescription-key-5",
+            "@type": "ValueAndConceptDescription",
+            "classificationLevel": "Nominal"
+        },
+        {
+            "@id": "#substantiveValueAndConceptDescription-value",
+            "@type": "ValueAndConceptDescription",
+            "classificationLevel": "Continuous"
+        },
+        {
+            "@id": "#identifierComponent-key-1",
+            "@type": "IdentifierComponent",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-key-1"
+        },
+        {
+            "@id": "#identifierComponent-key-2",
+            "@type": "IdentifierComponent",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-key-2"
+        },
+        {
+            "@id": "#identifierComponent-key-3",
+            "@type": "IdentifierComponent",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-key-3"
+        },
+        {
+            "@id": "#identifierComponent-key-4",
+            "@type": "IdentifierComponent",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-key-4"
+        },
+        {
+            "@id": "#identifierComponent-key-5",
+            "@type": "IdentifierComponent",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-key-5"
+        },
+        {
+            "@id": "#variableValueComponent-value",
+            "@type": "VariableValueComponent",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-value"
+        },
+        {
+            "@id": "#variableDescriptorComponent-value",
+            "@type": "VariableDescriptorComponent",
+            "refersTo": "#variableValueComponent-value",
+            "isDefinedBy_RepresentedVariable": "#instanceVariable-value"
+        },
+        {
+            "@id": "#componentPosition-0",
+            "@type": "ComponentPosition",
+            "value": 0,
+            "indexes": "#identifierComponent-key-1"
+        },
+        {
+            "@id": "#componentPosition-1",
+            "@type": "ComponentPosition",
+            "value": 1,
+            "indexes": "#identifierComponent-key-2"
+        },
+        {
+            "@id": "#componentPosition-2",
+            "@type": "ComponentPosition",
+            "value": 2,
+            "indexes": "#identifierComponent-key-3"
+        },
+        {
+            "@id": "#componentPosition-3",
+            "@type": "ComponentPosition",
+            "value": 3,
+            "indexes": "#identifierComponent-key-4"
+        },
+        {
+            "@id": "#componentPosition-4",
+            "@type": "ComponentPosition",
+            "value": 4,
+            "indexes": "#identifierComponent-key-5"
+        },
+        {
+            "@id": "#componentPosition-5",
+            "@type": "ComponentPosition",
+            "value": 5,
+            "indexes": "#variableValueComponent-value"
+        },
+        {
+            "@id": "#componentPosition-6",
+            "@type": "ComponentPosition",
+            "value": 6,
+            "indexes": "#variableDescriptorComponent-value"
+        }
+    ]
+}

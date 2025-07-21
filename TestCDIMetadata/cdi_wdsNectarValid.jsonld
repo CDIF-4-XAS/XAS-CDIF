@@ -1,0 +1,459 @@
+{
+  "@context": [
+    "https://docs.ddialliance.org/DDI-CDI/1.0/model/encoding/json-ld/ddi-cdi.jsonld",
+    {
+      "skos": "http://www.w3.org/2004/02/skos/core#"
+    }
+  ],
+  "DDICDIModels": [
+    {
+      "@id": "#logicalRecord",
+      "@type": "LogicalRecord",
+      "organizes": "#wideDataSet-7876043b-07ba-4177-8651-24da35363488",
+      "has_InstanceVariable": [
+        "#instanceVariable-idno",
+        "#instanceVariable-pweight",
+        "#instanceVariable-cntry",
+        "#instanceVariable-proddate",
+        "#instanceVariable-health"
+      ]
+    },
+    {
+      "@id": "#physicalSegmentLayout",
+      "@type": "PhysicalSegmentLayout",
+      "isDelimited": "true",
+      "isFixedWidth": false,
+      "delimiter": ",",
+      "formats": "#logicalRecord",
+      "has_ValueMapping": [
+        "#valueMapping-idno",
+        "#valueMapping-pweight",
+        "#valueMapping-cntry",
+        "#valueMapping-proddate",
+        "#valueMapping-health"
+      ],
+      "has_ValueMappingPosition": [
+        "#valueMappingPosition-idno",
+        "#valueMappingPosition-pweight",
+        "#valueMappingPosition-cntry",
+        "#valueMappingPosition-proddate",
+        "#valueMappingPosition-health"
+      ]
+    },
+    {
+      "@id": "#valueMapping-idno",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMapping-pweight",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMapping-cntry",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMapping-proddate",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMapping-health",
+      "@type": "ValueMapping",
+      "defaultValue": ""
+    },
+    {
+      "@id": "#valueMappingPosition-idno",
+      "@type": "ValueMappingPosition",
+      "value": 0,
+      "indexes": [
+        "#valueMapping-idno"
+      ]
+    },
+    {
+      "@id": "#valueMappingPosition-pweight",
+      "@type": "ValueMappingPosition",
+      "value": 1,
+      "indexes": [
+        "#valueMapping-pweight"
+      ]
+    },
+    {
+      "@id": "#valueMappingPosition-cntry",
+      "@type": "ValueMappingPosition",
+      "value": 2,
+      "indexes": [
+        "#valueMapping-cntry"
+      ]
+    },
+    {
+      "@id": "#valueMappingPosition-proddate",
+      "@type": "ValueMappingPosition",
+      "value": 3,
+      "indexes": [
+        "#valueMapping-proddate"
+      ]
+    },
+    {
+      "@id": "#valueMappingPosition-health",
+      "@type": "ValueMappingPosition",
+      "value": 4,
+      "indexes": [
+        "#valueMapping-health"
+      ]
+    },
+    {
+      "@id": "#dataStore",
+      "@type": "DataStore",
+      "has_LogicalRecord": [
+        "#logicalRecord"
+      ]
+    },
+    {
+      "@id": "#wideDataSet-7876043b-07ba-4177-8651-24da35363488",
+      "@type": "WideDataSet",
+      "isStructuredBy": "#wideDataStructure"
+    },
+    {
+      "@id": "#wideDataStructure",
+      "@type": "WideDataStructure",
+      "has_DataStructureComponent": [
+        "#identifierComponent-idno",
+        "#attributeComponent-pweight",
+        "#measureComponent-cntry",
+        "#attributeComponent-proddate",
+        "#measureComponent-health"
+      ]
+    },
+    {
+      "@id": "#identifierComponent-idno",
+      "@type": "IdentifierComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-idno"
+    },
+    {
+      "@id": "#attributeComponent-pweight",
+      "@type": "AttributeComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-pweight"
+    },
+    {
+      "@id": "#measureComponent-cntry",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-cntry"
+    },
+    {
+      "@id": "#attributeComponent-proddate",
+      "@type": "AttributeComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-proddate"
+    },
+    {
+      "@id": "#measureComponent-health",
+      "@type": "MeasureComponent",
+      "isDefinedBy_RepresentedVariable": "#instanceVariable-health"
+    },
+    {
+      "@id": "#instanceVariable-idno",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "numeric"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "idno"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "Identifier no"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-idno"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-idno"
+    },
+    {
+      "@id": "#instanceVariable-pweight",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "decimal"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "pweight"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "Person weight"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-pweight"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-pweight"
+    },
+    {
+      "@id": "#instanceVariable-cntry",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "string"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "cntry"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "Country code"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-cntry"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-cntry"
+    },
+    {
+      "@id": "#instanceVariable-proddate",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "datetime"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "proddate"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "Date produced"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-proddate"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-proddate"
+    },
+    {
+      "@id": "#instanceVariable-health",
+      "@type": "InstanceVariable",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "numeric"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "health"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "General health"
+        }
+      },
+      "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
+      "has_ValueMapping": [
+        "#valueMapping-health"
+      ],
+      "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-health"
+    },
+    {
+      "@id": "#substantiveValueDomain-idno",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      }
+    },
+    {
+      "@id": "#substantiveValueDomain-pweight",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      }
+    },
+    {
+      "@id": "#substantiveValueDomain-cntry",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "#conceptScheme-cntry"
+      }
+    },
+    {
+      "@id": "#substantiveValueDomain-proddate",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#dateTime"
+      }
+    },
+    {
+      "@id": "#substantiveValueDomain-health",
+      "@type": "SubstantiveValueDomain",
+      "recommendedDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "#conceptScheme-health"
+      }
+    },
+    {
+      "@id": "#conceptScheme-cntry",
+      "@type": "skos:ConceptScheme",
+      "skos:hasTopConcept": [
+        "#cntry-concept-DE",
+        "#cntry-concept-GB",
+        "#cntry-concept-FR",
+        "#cntry-concept-ES",
+        "#cntry-concept-BE"
+      ]
+    },
+    {
+      "@id": "#cntry-concept-DE",
+      "@type": "skos:Concept",
+      "skos:notation": {
+        "@type": "TypedString",
+        "content": "DE"
+      },
+      "skos:prefLabel": {
+        "@type": "TypedString",
+        "content": "Germany"
+      }
+    },
+    {
+      "@id": "#cntry-concept-GB",
+      "@type": "skos:Concept",
+      "skos:notation": {
+        "@type": "TypedString",
+        "content": "GB"
+      },
+      "skos:prefLabel": {
+        "@type": "TypedString",
+        "content": "Great Britain"
+      }
+    },
+    {
+      "@id": "#cntry-concept-FR",
+      "@type": "skos:Concept",
+      "skos:notation": {
+        "@type": "TypedString",
+        "content": "FR"
+      },
+      "skos:prefLabel": {
+        "@type": "TypedString",
+        "content": "France"
+      }
+    },
+    {
+      "@id": "#cntry-concept-ES",
+      "@type": "skos:Concept",
+      "skos:notation": {
+        "@type": "TypedString",
+        "content": "ES"
+      },
+      "skos:prefLabel": {
+        "@type": "TypedString",
+        "content": "Spain"
+      }
+    },
+    {
+      "@id": "#cntry-concept-BE",
+      "@type": "skos:Concept",
+      "skos:notation": {
+        "@type": "TypedString",
+        "content": "BE"
+      },
+      "skos:prefLabel": {
+        "@type": "TypedString",
+        "content": "Belgium"
+      }
+    },
+    {
+      "@id": "#conceptScheme-health",
+      "@type": "skos:ConceptScheme",
+      "skos:hasTopConcept": [
+        "#health-concept-1",
+        "#health-concept-2",
+        "#health-concept-3",
+        "#health-concept-4",
+        "#health-concept-5"
+      ]
+    },
+    {
+      "@id": "#health-concept-1",
+      "@type": "skos:Concept",
+      "skos:notation": {
+        "@type": "TypedString",
+        "content": "1"
+      },
+      "skos:prefLabel": {
+        "@type": "TypedString",
+        "content": "Very bad"
+      }
+    },
+    {
+      "@id": "#health-concept-2",
+      "@type": "skos:Concept",
+      "skos:notation": {
+        "@type": "TypedString",
+        "content": "2"
+      },
+      "skos:prefLabel": {
+        "@type": "TypedString",
+        "content": "Bad"
+      }
+    },
+    {
+      "@id": "#health-concept-3",
+      "@type": "skos:Concept",
+      "skos:notation": {
+        "@type": "TypedString",
+        "content": "3"
+      },
+      "skos:prefLabel": {
+        "@type": "TypedString",
+        "content": "Fair"
+      }
+    },
+    {
+      "@id": "#health-concept-4",
+      "@type": "skos:Concept",
+      "skos:notation": {
+        "@type": "TypedString",
+        "content": "4"
+      },
+      "skos:prefLabel": {
+        "@type": "TypedString",
+        "content": "Good"
+      }
+    },
+    {
+      "@id": "#health-concept-5",
+      "@type": "skos:Concept",
+      "skos:notation": {
+        "@type": "TypedString",
+        "content": "5"
+      },
+      "skos:prefLabel": {
+        "@type": "TypedString",
+        "content": "Very good"
+      }
+    }
+  ]
+}
