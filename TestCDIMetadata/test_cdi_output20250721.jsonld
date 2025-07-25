@@ -1,0 +1,241 @@
+{
+	"@context": {
+		"cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+		"skos": "http://www.w3.org/2004/02/skos/core#"
+	},
+	"@graph": [
+		{
+			"@id": "#conceptScheme-Column.1",
+			"@type": "skos:ConceptScheme",
+			"skos:hasTopConcept": [
+				{
+					"@id": "Column.1-concept-energy_eV",
+					"@type": "skos:Concept",
+					"skos:notation": "energy eV",
+					"skos:prefLabel": "energy eV"
+				},
+				{
+					"@id": "Column.1-concept-energy",
+					"@type": "skos:Concept",
+					"skos:notation": "energy",
+					"skos:prefLabel": "energy"
+				}
+			]
+		},
+		{
+			"@id": "#conceptScheme-descriptorVariable",
+			"@type": "skos:ConceptScheme",
+			"skos:hasTopConcept": [
+				{
+					"@id": "descriptorVariable-concept-Column.1",
+					"@type": "skos:Concept",
+					"skos:notation": "Column.1",
+					"skos:prefLabel": "Column.1"
+				},
+				{
+					"@id": "descriptorVariable-concept-Outer.name",
+					"@type": "skos:Concept",
+					"skos:notation": "Outer.name",
+					"skos:prefLabel": "Outer.name"
+				}
+			]
+		},
+		{
+			"@id": "#descriptor-Column.1",
+			"@type": "cdi:Descriptor",
+			"cdi:Descriptor_identifies_RepresentedVariable": {
+				"@id": "#instanceVariable-Column.1",
+				"@type": "cdi:InstanceVariable",
+				"cdi:RepresentedVariable_takesSubstantiveValuesFrom_SubstantiveValueDomain": {
+					"@id": "#substantiveValueDomain-Column.1",
+					"@type": "cdi:SubstantiveValueDomain",
+					"cdi:ValueDomain-recommendedDataType": {
+						"@type": "cdi:ControlledVocabularyEntry",
+						"cdi:ControlledVocabularyEntry-entryValue": {
+							"@type": "http://www.w3.org/2001/XMLSchema#string",
+							"@value": "#conceptScheme-Column.1"
+						}
+					}
+				}
+			},
+			"cdi:Descriptor_refersTo_ReferenceValue": {
+				"@id": "#referenceValue-Column.1",
+				"@type": "cdi:ReferenceValue",
+				"cdi:InstanceValue-content": {
+					"@type": "cdi:TypedString",
+					"cdi:TypedString-content": {
+						"@type": "http://www.w3.org/2001/XMLSchema#string",
+						"@value": "energy eV"
+					}
+				},
+				"cdi:InstanceValue_hasValueFrom_ValueDomain": {
+					"@id": "#substantiveValueDomain-Column.1"
+				},
+				"cdi:ReferenceValue_correspondsTo_VariableValueComponent": {
+					"@id": "#variableValueComponent",
+					"@type": "cdi:VariableValueComponent",
+					"cdi:DataStructureComponent_isDefinedBy_RepresentedVariable": {
+						"@id": "#instanceVariable-variableValueComponent",
+						"@type": "cdi:InstanceVariable",
+						"cdi:RepresentedVariable_takesSubstantiveValuesFrom_SubstantiveValueDomain": {
+							"@id": "#substantiveValueDomain-variableValueComponent",
+							"@type": "cdi:SubstantiveValueDomain",
+							"cdi:ValueDomain-recommendedDataType": {
+								"@id": "_:b5",
+								"@type": "cdi:ControlledVocabularyEntry",
+								"cdi:ControlledVocabularyEntry-entryValue": {
+									"@type": "http://www.w3.org/2001/XMLSchema#string",
+									"@value": "https://www.w3.org/TR/xmlschema-2/#string"
+								}
+							}
+						}
+					}
+				}
+			},
+			"cdi:InstanceValue-content": {
+				"@type": "cdi:TypedString",
+				"cdi:TypedString-content": {
+					"@type": "http://www.w3.org/2001/XMLSchema#string",
+					"@value": "Column.1"
+				}
+			},
+			"cdi:InstanceValue_hasValueFrom_ValueDomain": {
+				"@id": "#substantiveValueDomain-descriptorVariable",
+				"@type": "cdi:SubstantiveValueDomain",
+				"cdi:ValueDomain-recommendedDataType": {
+					"@id": "_:b1",
+					"@type": "cdi:ControlledVocabularyEntry",
+					"cdi:ControlledVocabularyEntry-entryValue": {
+						"@type": "http://www.w3.org/2001/XMLSchema#string",
+						"@value": "#conceptScheme-descriptorVariable"
+					}
+				}
+			}
+		},
+		{
+			"@id": "#descriptor-Outer.name",
+			"@type": "cdi:Descriptor",
+			"cdi:Descriptor_identifies_RepresentedVariable": {
+				"@id": "#instanceVariable-Outer.name",
+				"@type": "cdi:InstanceVariable",
+				"cdi:RepresentedVariable_takesSubstantiveValuesFrom_SubstantiveValueDomain": {
+					"@id": "#substantiveValueDomain-Outer.name",
+					"@type": "cdi:SubstantiveValueDomain",
+					"cdi:ValueDomain-recommendedDataType": {
+						"@type": "cdi:ControlledVocabularyEntry",
+						"cdi:ControlledVocabularyEntry-entryValue": {
+							"@type": "http://www.w3.org/2001/XMLSchema#string",
+							"@value": "https://www.w3.org/TR/xmlschema-2/#string"
+						}
+					}
+				}
+			},
+			"cdi:Descriptor_refersTo_ReferenceValue": {
+				"@id": "#referenceValue-Outer.name",
+				"@type": "cdi:ReferenceValue",
+				"cdi:InstanceValue-content": {
+					"@type": "cdi:TypedString",
+					"cdi:TypedString-content": {
+						"@type": "http://www.w3.org/2001/XMLSchema#string",
+						"@value": "x2d"
+					}
+				},
+				"cdi:InstanceValue_hasValueFrom_ValueDomain": {
+					"@id": "#substantiveValueDomain-Outer.name"
+				},
+				"cdi:ReferenceValue_correspondsTo_VariableValueComponent": {
+					"@id": "#variableValueComponent",
+					"@type": "cdi:VariableValueComponent",
+					"cdi:DataStructureComponent_isDefinedBy_RepresentedVariable": {
+						"@id": "#instanceVariable-variableValueComponent",
+						"@type": "cdi:InstanceVariable",
+						"cdi:RepresentedVariable_takesSubstantiveValuesFrom_SubstantiveValueDomain": {
+							"@id": "#substantiveValueDomain-variableValueComponent",
+							"@type": "cdi:SubstantiveValueDomain",
+							"cdi:ValueDomain-recommendedDataType": {
+								"@id": "_:b5",
+								"@type": "cdi:ControlledVocabularyEntry",
+								"cdi:ControlledVocabularyEntry-entryValue": {
+									"@type": "http://www.w3.org/2001/XMLSchema#string",
+									"@value": "https://www.w3.org/TR/xmlschema-2/#string"
+								}
+							}
+						}
+					}
+				}
+			},
+			"cdi:InstanceValue-content": {
+				"@type": "cdi:TypedString",
+				"cdi:TypedString-content": {
+					"@type": "http://www.w3.org/2001/XMLSchema#string",
+					"@value": "Outer.name"
+				}
+			},
+			"cdi:InstanceValue_hasValueFrom_ValueDomain": {
+				"@id": "#substantiveValueDomain-descriptorVariable",
+				"@type": "cdi:SubstantiveValueDomain",
+				"cdi:ValueDomain-recommendedDataType": {
+					"@id": "_:b1",
+					"@type": "cdi:ControlledVocabularyEntry",
+					"cdi:ControlledVocabularyEntry-entryValue": {
+						"@type": "http://www.w3.org/2001/XMLSchema#string",
+						"@value": "#conceptScheme-descriptorVariable"
+					}
+				}
+			}
+		},
+		{
+			"@id": "#keyValueDataStore",
+			"@type": "cdi:KeyValueDataStore",
+			"cdi:DataSet_isStructuredBy_DataStructure": {
+				"@id": "#keyValueStructure",
+				"@type": "cdi:KeyValueStructure",
+				"cdi:DataStructure_has_DataStructureComponent": [
+					{
+						"@id": "#variableDescriptorComponent",
+						"@type": "cdi:VariableDescriptorComponent",
+						"cdi:VariableDescriptorComponent_isDefinedBy_DescriptorVariable": {
+							"@id": "#descriptorVariable",
+							"@type": "cdi:DescriptorVariable",
+							"cdi:RepresentedVariable_takesSubstantiveValuesFrom_SubstantiveValueDomain": {
+								"@id": "#substantiveValueDomain-descriptorVariable",
+								"@type": "cdi:SubstantiveValueDomain",
+								"cdi:ValueDomain-recommendedDataType": {
+									"@id": "_:b1",
+									"@type": "cdi:ControlledVocabularyEntry",
+									"cdi:ControlledVocabularyEntry-entryValue": {
+										"@type": "http://www.w3.org/2001/XMLSchema#string",
+										"@value": "#conceptScheme-descriptorVariable"
+									}
+								}
+							}
+						},
+						"cdi:VariableDescriptorComponent_refersTo_VariableValueComponent": {
+							"@id": "#variableValueComponent",
+							"@type": "cdi:VariableValueComponent",
+							"cdi:DataStructureComponent_isDefinedBy_RepresentedVariable": {
+								"@id": "#instanceVariable-variableValueComponent",
+								"@type": "cdi:InstanceVariable",
+								"cdi:RepresentedVariable_takesSubstantiveValuesFrom_SubstantiveValueDomain": {
+									"@id": "#substantiveValueDomain-variableValueComponent",
+									"@type": "cdi:SubstantiveValueDomain",
+									"cdi:ValueDomain-recommendedDataType": {
+										"@id": "_:b5",
+										"@type": "cdi:ControlledVocabularyEntry",
+										"cdi:ControlledVocabularyEntry-entryValue": {
+											"@type": "http://www.w3.org/2001/XMLSchema#string",
+											"@value": "https://www.w3.org/TR/xmlschema-2/#string"
+										}
+									}
+								}
+							}
+						}
+					},
+					{
+						"@id": "#variableValueComponent"
+					}
+				]
+			}
+		}
+	]
+}

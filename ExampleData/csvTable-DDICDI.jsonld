@@ -1,0 +1,195 @@
+{
+    "@context": {
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "ddicdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "ddicdix": "https://ddi-alliance.github.io/ddi-cdi/DDICDI#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "@id": "ddicdi:ExampleCSVDataSet",
+    "@type": [
+        "schema:Dataset",
+        "ddicdi:WideDataSet"
+    ],
+    "ddicdi:physicalFileName": "example.csv",
+    "schema:identifier": "ex:URIforTheDataset",
+    "schema:name": "Example Dataset",
+    "schema:description": "A dataset describing example data in CSV format. There is only one distribution, indicated by the schema:url, so the data strucgture description is on the schema:Dataset; if there were multiple parts or distributions with different data structure, this information would be in the hasParts section or in distribution",
+    "schema:url": "https://test.org/example.csv",
+    "schema:conditionsOfAccess":[ "these are the applicable conditions for accessing the resource"],
+    "schema:license": ["https://creativecommons.org/public-domain/cc0/"],
+    "schema:dateModified": "2025-07-23",
+    "schema:subjectOf": {
+        "@id": "ex:Metadata_ExampleCSVDataSet",
+        "@type": "schema:DigitalDocument",
+        "schema:identifier": "ddicdi:ExampleCSVDataSet",
+        "schema:about": {"@id":"ddicdi:ExampleCSVDataSet"},
+        "dcterms:conformsTo": [
+            {"@id": "ddicdi:SDO_profile_uri"},
+            {"@id": "ddicdi:basicWideDataProfile"}
+        ],
+        "schema:dateModified": "2014-02-23"
+    },
+    "schema:variableMeasured": [
+        {
+            "@id": "sdonodeid_identifier",
+            "@type": "schema:PropertyValue",
+            "schema:name": "id",
+            "schema:description": "identifier for a heat capacity measurement result",
+            "schema:propertyID": ["http://example.org/property/id"]
+        },
+        {
+            "@id": "sdonodeid_tempc",
+            "@type": "schema:PropertyValue",
+            "schema:name": "temperatureC",
+            "schema:alternateName": "Temperature, C",
+            "schema:description": "Air Temperature, degree C, measured 1 cm above sample",
+            "schema:propertyID": ["http://example.org/property/temperature"],
+            "schema:measurementMethod": "ex:https://protocols.org/airtemp",
+            "schema:unitText": "http://qudt.org/vocab/unit/DEG_C",
+            "schema:minValue": -40,
+            "schema:maxValue": 60
+        },
+        {
+            "@id": "sdonodeid_tempk",
+            "@type": "schema:PropertyValue",
+            "schema:name": "temperatureK",
+            "schema:alternateName": "Temperature, Kelvins",
+            "schema:description": "Air Temperature, Kelvins, measured 1 cm above sample",
+            "schema:propertyID": ["http://example.org/property/temperature"],
+            "schema:measurementMethod": "ex:https://protocols.org/airtemp",
+            "schema:unitText": "http://qudt.org/vocab/unit/DEG_K",
+            "schema:minValue": 233,
+            "schema:maxValue": 333
+        },
+        {
+            "@id": "sdonodeid_status",
+            "@type": "schema:PropertyValue",
+            "schema:name": "status",
+            "schema:alternateName": "Measurement status",
+            "schema:description": "status specifier from controled vocabulary",
+            "schema:propertyID": ["http://example.org/property/status"]
+        },
+        {
+            "@id": "sdonodeid_sampletype",
+            "@type": "schema:PropertyValue",
+            "schema:name": "sample_type",
+            "schema:alternateName": "Type of Sample",
+            "schema:description": "term to categorize kind of sample",
+            "schema:propertyID": ["http://example.org/property/sample_type"]
+        },
+        {
+            "@id": "sdonodeid_specheat1",
+            "@type": "schema:PropertyValue",
+            "schema:name": "spec_heat_1",
+            "schema:alternateName": "step 1 specific Heat",
+            "schema:description": "Specific heat of the first scan run",
+            "schema:propertyID": ["http://example.org/property/sample_type"],
+            "schema:measurementMethod": "ex:https://protocols.org/specheat",
+            "schema:unitText": "http://qudt.org/vocab/unit/J-PER-KiloGM-K"
+        },
+        {
+            "@id": "sdonodeid_specheat2",
+            "@type": "schema:PropertyValue",
+            "schema:name": "spec_heat_2",
+            "schema:alternateName": "step 2 specific Heat",
+            "schema:description": "Specific heat of the repeat scan run",
+            "schema:propertyID": ["http://example.org/property/sample_type"],
+            "schema:measurementMethod": "ex:https://protocols.org/specheat",
+            "schema:unitText": "http://qudt.org/vocab/unit/J-PER-KiloGM-K"
+        }
+    ],
+    "ddicdi:recordCount": 254,
+    "ddicdi:allowsDuplicates": false,
+    "ddicdi:has_PhysicalSegmentLayout": {
+        "@id": "#physicalSegmentLayout",
+        "@type": "PhysicalSegmentLayout",
+        "ddicdi:isDelimited": "true",
+        "ddicdi:isFixedWidth": false,
+        "ddicdi:delimiter": ",",
+        "ddicdi:hasHeader": true,
+        "ddicdi:headerRowCount": 5
+    },
+    "ddicdi:isStructuredBy": {
+        "@id": "#exampleWideDataStructure",
+        "@type": "ddicdi:WideDataStructure",
+        "schema:description": "columnCount: 7",
+        "ddicdi:has": [
+            {
+                "@id": "nodeid_identifier",
+                "@type": "ddicdi:InstanceVariable",
+                "ddicdi:displayLabel": "id",
+                "schema:name": "Identifier",
+                "ddicdi:externalDefinition": {"@id": "http://example.org/property/id"},
+                "ddicdi:physicalDataType": "xsd:string"
+            },
+            {
+                "@id": "nodeid_tempc",
+                "@type": "ddicdi:InstanceVariable",
+                "ddicdi:displayLabel": "temperature, C",
+                "schema:name": "Air Temperature, C",
+                "ddicdi:externalDefinition": {"@id": "http://example.org/property/temperature"},
+                "ddicdi:physicalDataType": "xsd:decimal",
+                "ddicdi:describedUnitOfMeasure": {"@id": "http://qudt.org/vocab/unit/DEG_C"},
+                "ddicdi:minimumValue": -40,
+                "ddicdi:maximumValue": 60
+            },
+            {
+                "@id": "nodeid_tempk",
+                "@type": "ddicdi:InstanceVariable",
+                "ddicdi:displayLabel": "temperature, K",
+                "schema:name": "Air Temperature, K",
+                "ddicdi:externalDefinition": {"@id": "http://example.org/property/temperature"},
+                "ddicdi:physicalDataType": "xsd:decimal",
+                "ddicdi:describedUnitOfMeasure": {"@id": "http://qudt.org/vocab/unit/DEG_K"},
+                "ddicdi:minimumValue": 233,
+                "ddicdi:maximumValue": 333
+            },
+            {
+                "@id": "nodeid_status",
+                "@type": "ddicdi:InstanceVariable",
+                "ddicdi:displayLabel": "status",
+                "schema:name": "Measurement Status",
+                "ddicdi:externalDefinition": {"@id": "http://example.org/property/status"},
+                "ddicdi:physicalDataType": "xsd:string",
+                "ddicdi:hasSubstantiveValueDomain": {
+                    "@type": "skos:ConceptScheme",
+                    "@id": "http://example.org/vocab/measurementStatus"
+                }
+            },
+            {
+                "@id": "nodeid_sampletype",
+                "@type": "ddicdi:InstanceVariable",
+                "ddicdi:displayLabel": "Type of Sample",
+                "schema:name": "sample_type",
+                "ddicdi:externalDefinition": {"@id": "http://example.org/property/sample_type"},
+                "ddicdi:physicalDataType": "xsd:string",
+                "ddicdi:hasSubstantiveValueDomain": {
+                    "@type": "skos:ConceptScheme",
+                    "@id": "http://example.org/vocab/sampleTypes"
+                }
+            },
+            {
+                "@id": "nodeid_specheat1",
+                "@type": "ddicdi:InstanceVariable",
+                "ddicdi:displayLabel": "step 1 specific Heat",
+                "schema:name": "Step Scan 1 Cp [J/g/K]",
+                "ddicdi:physicalDataType": "decimal",
+                "ddicdi:describedUnitOfMeasure": {"@id": "http://qudt.org/vocab/unit/J-PER-KiloGM-K"},
+                "description": "Specific heat of the first scan run"
+            },
+            {
+                "@id": "nodeid_specheat2",
+                "@type": "ddicdi:InstanceVariable",
+                "ddicdi:displayLabel": "step 2 specific Heat",
+                "schema:name": "Step Scan 2 Cp [J/g/K]",
+                "ddicdi:hasIntendedDataType": "decimal",
+                "ddicdi:describedUnitOfMeasure": {"@id": "http://qudt.org/vocab/unit/J-PER-KiloGM-K"},
+                "schema:description": "Specific heat of the second scan run"
+            }
+        ]
+    }
+}
