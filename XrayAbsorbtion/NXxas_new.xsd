@@ -1,0 +1,212 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Root element -->
+	<xs:element name="Group__NXxas_new__ENTRY">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Field__NXxas_new__ENTRY__title" type="xs:string"/>
+				<xs:element name="Field__NXxas_new__ENTRY__start_time" type="xs:dateTime"/>
+				<xs:element name="Field__NXxas_new__ENTRY__definition" type="xs:string"/>
+				<xs:element name="Field__NXxas_new__ENTRY__calculated" type="xs:boolean"/>
+				<xs:element name="Field__NXxas_new__ENTRY__energy" type="xs:string"/>
+				<xs:element name="Field__NXxas_new__ENTRY__intensity" type="xs:string"/>
+				<xs:element name="Field__NXxas_new__ENTRY__intensity_errors" type="xs:string"/>
+				<xs:element name="Group__NXxas_new__ENTRY__mode">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Field__NXxas_new__ENTRY__mode__name">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="transmission"/>
+										<xs:enumeration value="tfy"/>
+										<xs:enumeration value="pfy"/>
+										<xs:enumeration value="ipfy"/>
+										<xs:enumeration value="herfd"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Group__NXxas_new__ENTRY__mode__emission_lines">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Field__NXxas_new__ENTRY__mode__emission_lines__name">
+											<xs:simpleType>
+												<xs:restriction base="xs:string">
+													<xs:enumeration value="K-L1"/>
+													<xs:enumeration value="K-L2"/>
+													<xs:enumeration value="K-L3"/>
+													<xs:enumeration value="K-M1"/>
+													<xs:enumeration value="K-M2"/>
+													<xs:enumeration value="K-M3"/>
+													<xs:enumeration value="K-M4"/>
+													<xs:enumeration value="K-M5"/>
+												</xs:restriction>
+											</xs:simpleType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				 </xs:element>
+				<xs:element name="Group__NXxas_new__ENTRY__element">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Field__NXxas_new__ENTRY__element__symbol">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="H"/>
+										<xs:enumeration value="He"/>
+										<xs:enumeration value="Li"/>
+										<xs:enumeration value="B"/>
+										<xs:enumeration value="C"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Field__NXxas_new__ENTRY__element__atomic_number" type="xs:integer"/>
+							<xs:element name="Field__NXxas_new__ENTRY__element__atomic_weight" type="xs:double"/>
+							<xs:element name="Field__NXxas_new__ENTRY__element__oxidation_state" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				 </xs:element>
+				<xs:element name="Group__NXxas_new__ENTRY__edge">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Field__NXxas_new__ENTRY__edge__name">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:enumeration value="K"/>
+										<xs:enumeration value="Li1"/>
+										<xs:enumeration value="Li2"/>
+										<xs:enumeration value="Li3"/>
+										<xs:enumeration value="M1"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Group__NXxas_new__ENTRY__SAMPLE">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Field__NXxas_new__ENTRY__SAMPLE__name" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				 </xs:element>
+				<xs:element name="Group__NXxas_new__ENTRY__INSTRUMENT">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Group__NXxas_new__ENTRY__INSTRUMENT__SOURCE">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Field__NXxas_new__ENTRY__INSTRUMENT__SOURCE__type" type="xs:string"/>
+										<xs:element name="Field__NXxas_new__ENTRY__INSTRUMENT__SOURCE__name" type="xs:string"/>
+										<xs:element name="Field__NXxas_new__ENTRY__INSTRUMENT__SOURCE__probe" type="xs:string" default="x-ray"/>
+									</xs:sequence>
+								</xs:complexType>
+							 </xs:element>
+							<xs:element name="Group__NXxas_new__ENTRY__INSTRUMENT__monochromator">
+								<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Field__NXxas_new__ENTRY__INSTRUMENT__monochromator__energy">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="min" type="xs:double"/>
+												<xs:element name="max" type="xs:double"/>
+												<xs:element name="avg" type="xs:double"/>
+											</xs:sequence>
+											<xs:attribute name="unit" type="xs:string" default="eV"/>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="Group__NXxas_new__ENTRY__INSTRUMENT__monochromator__crystal">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="Field__NXxas_new__ENTRY__INSTRUMENT__monochromator__crystal__d_spacing" type="xs:double"/>
+												<xs:element name="Field__NXxas_new__ENTRY__INSTRUMENT__monochromator__crystal__type" type="xs:string"/>
+												<xs:element name="Group__NXxas_new__ENTRY__INSTRUMENT__monochromator__reflection">
+													<xs:complexType>
+														<xs:sequence>
+															<xs:element name="Field__NXxas_new__ENTRY__INSTRUMENT__monochromator__reflection__energy">
+																<xs:complexType>
+																	<xs:sequence>
+																	<xs:element name="h" type="xs:double"/>
+																	<xs:element name="k" type="xs:double"/>
+																	<xs:element name="l" type="xs:double"/>
+																	</xs:sequence>
+																</xs:complexType>
+															</xs:element>
+														</xs:sequence>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Group__NXxas_new__ENTRY__INSTRUMENT__DETECTOR">
+							<xs:complexType>
+								<xs:sequence>
+											<xs:element name="Field__NXxas_new__ENTRY__INSTRUMENT__DETECTOR__data">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="min" type="xs:double"/>
+														<xs:element name="max" type="xs:double"/>
+														<xs:element name="avg" type="xs:double"/>
+													</xs:sequence>
+													<xs:attribute name="unit" type="xs:string" default="eV"/>
+												</xs:complexType>
+											</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="Group__NXxas_new__ENTRY__INSTRUMENT__I0">
+							<xs:complexType>
+								<xs:sequence>
+											<xs:element name="Field__NXxas_new__ENTRY__INSTRUMENT__I0__data">
+												<xs:complexType>
+													<xs:sequence>
+														<xs:element name="min" type="xs:double"/>
+														<xs:element name="max" type="xs:double"/>
+														<xs:element name="avg" type="xs:double"/>
+													</xs:sequence>
+													<xs:attribute name="unit" type="xs:string" default="eV"/>
+												</xs:complexType>
+											</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Group__NXxas_new__ENTRY__COLLECTION">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Group__NXxas_new__ENTRY__COLLECTION__DATA">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Field__NXxas_new__ENTRY__COLLECTION__DATA__columns" type="xs:string"/>
+									<xs:element name="Field__NXxas_new__ENTRY__COLLECTION__DATA__data" type="xs:string"/>
+									<xs:element name="Group__NXxas_new__ENTRY__COLLECTION__DATA__data_collector">
+									<xs:complexType>
+										<xs:sequence>
+											<xs:element name="Field__NXxas_new__ENTRY__COLLECTION__DATA__data_collector__name" type="xs:string"/>
+											<xs:element name="Field__NXxas_new__ENTRY__COLLECTION__DATA__data_collector__orcid" type="xs:string"/>
+										</xs:sequence>
+									</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+</xs:schema>
+<!-- 
+Not used:
+#/NXxas_new/ENTRY/DATA-group
+#/NXxas_new/ENTRY/DATA/energy-link
+#/NXxas_new/ENTRY/DATA/intensity-link 
+#/NXxas_new/ENTRY/PROCESS
+-->

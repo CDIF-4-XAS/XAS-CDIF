@@ -1,0 +1,86 @@
+Implementing the cdif XAS profile
+
+1. define variables that are reported in the dataset.  Following the CDIF discovery profile, these should be reported using schema.variableMeasured.  For compatibility with the XAS profile, some of the Schema.org properties are duplicated with cdi-ddi properties:
+
+"@type": [
+		"cdi:InstanceVariable",
+		"schema:PropertyValue"
+	],
+	"schema:name": "i0",
+	"schema:alternateName": "Monitor intensity",
+	"schema:description": "missing, definition of what this variable is about (maybe even an iAdopt description)",
+	"schema:propertyID": {"@id": "xas:incidentIntensityConcept"},
+	"schema:unitText": "counts",
+	"cdi:identifier": "nxs:Field/NXxas/ENTRY/MONITOR/data",
+	"cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+	"cdi:uses": "xas:incidentIntensityConcept",
+	"cdi:name": "i0",
+	"cdi:displayLabel": "monitor intensity"
+},
+
+Add cdi:InstanceVariable as and additional @type.
+schema:name == cdi:name.  this is the label for the variable that appears in the dataset, e.g. an XDI column name. 
+schema:alternateName == cdi:displayLabel.  This is a human-intelligible label for the variable
+schema:unitText = cdi:simpleUnitOfMeasure.  the unit of measure for the values of the variable
+cdi:identifier -- NEXUS ontology identifier for the variable
+schema:propertyID == cdi:uses -- concept used by the instance variable that defines the semantics of the variable. Should be a URI linking to a skos vocabulary defined conceptual variables. 
+
+cdi:physicalDataType adds important information missing in the schema.org variable description-- the physical data type used to represent values in the data. This will typically be an XML schema-defined datatype URI.
+
+
+2.  
+Analysis Event that acquired the data. In this initial version, we are focused on the acquistion of data from lab instrumentation.  Data processing to produce final data products is a subsequent provenance step, which would be described in a separate JSON object in prov:wasGeneratedBy array (TBD). 
+We define xas:AnalysisEvent implemented as a schema:Event, with 'schema:additionalType':'xas:AnalysisEvent'. The event has various properties (besides the regular name and description):  
+-- schema:startDate, schema:endDate
+-- prov:used -- Following the CDIF discovery profile, instruments used to acquire data are in prov:wasGeneratedBy/prov:used.  The instrumentation is described with an array of 1 to many components. A simple instrument can have a single component describeing the instrument. For XAS experiments, based on the XDI spec and NXxas_new, the common instrument components are an x-ray source, monochromator, beamline and detector. NEXUS ontology has identifiers for source and monochromator. There is a URI for monitor, which might be the same as detector (help here please!). There is no NEXUS class for beamline (apparently. does this go by some other label? help!)
+-- sample.  The sample is documented as the schema:mainEntity of the schema:Event-- its what the analysis is all about. There is a NEXUS URI for sample. The ExPaNDS and Daphne documents add additiional properties for samples not accounted for in NXxas_new or XDI. We need vocabulary entries for these properties. 
+-- location: the Facility where the analysis event took place.  The Facility is also represented as an organization contributor in the root dataset section. Additional properties specific to the facility (as opposed to the particular experiment) should be specified here.
+-- additionalProperties.  Other properties of the analysis event, e.g. edge_energy, environmetnal conditions like pressure, temperature, magnetic field.
+
+3. Data Structure.
+The structure of the data in XDI and NEXUS files is quite different, even thought the target content is closely related. The dataStructure is defined in the schema:distribution/schema:DataDownload section, because it is specific to the particular data delivery file format. 
+	--XDI files are described using the cdi-ddi wideDataStructure, defining a set of dataset components that map the instance variables described in the variableMeasure section (see section 1 above), each component corresponding to a column in the data section of the XDI file. The information in the header section of the XDI file is all accounted for in other elements in the JSON-LD document. The free text comments section of the XDI file (between #//// and #---- should be copied to the dataset description (with whitespace removed). The cdi:headerRowCount field specifies how many rows to skip to get to the columnar data.  The column data in XDI is in fixed width columns. Each cdi:dataStructureComponent/cdi:valueMapping has an index indicating the order of the column in the table, and a length. Thus to locatate e.g. column with index 3, the starting character index would be the sum of the length for columns with index 1 and 2 (assuming cdi:isStructuredBy/cdi:arrayBase = 1) incremented by 1.
+	-- NEXUS files use the HDF5 file format. This is a binary format that requires HDF5 software tools to extract information.  Python code to use data in this format can be implemented using the h5py package (https://docs.h5py.org/en/stable/), and there are various pre-compiled tools for working with HDF5 files at https://support.hdfgroup.org/documentation/hdf5/latest/_view_tools_command.html. The ability to access and use these tools is a prerequisite for using NEXUS data. The content of NEXUS files is specified by NEXUS Application Definitions (https://manual.nexusformat.org/classes/applications/). For this profile, we have used the NXxas and draft NXxas_new application definitions.  For this profile, various context and configuration information in the NEXUS files is exposed in the CDIF JSON-LD metadata. Spectral data in the NEXUS files is stored in HDF5 datasets as 1 dimensional arrays, one for the input energy (generally labeled as monochromator energy), and one array for each of the measured responses (e.g. transmitted flux, fluorsence flux). The structure is described based on cdi-ddi dimensionalDataStructure. Each data dimension, identifier or measure component has a cdi:isDefinedBy_InstanceVariable link to one of the variable in the schema:variableMeasured section.  The value mapping for each component specifies the array dimension count and the array shape for that variable, as well as the hdf5 path to access the values for that variable in the file.  
+		--- raw data. The NEXUS file might include a raw data array, either in a scan or collection hdf5 group. This array will have a row for each incident energy step, and a columns for each recorded datum. The labels for columns in this array should be included in a dataset in the group named 'columns'.  In the data structure description, this can be documented as a dataStructure component that is a cdi:wideDataStructure. This component has an HDF5 path to the raw data arry, with appropriate shape like [nenergy, ncol] and dimension 2. Each column in this raw data array could be described as a component defined by instance variables, but to keep it simple, the raw data array can be described in text. 
+
+
+4. other information
+--	Proposal
+		identifier for proposal that initiated the work can be linked using related Link..
+			"relatedLink": [{"@type":"LinkRole", "linkRelationship": "projectProposal",
+			"target: {"@type": "EntryPoint",
+			"encodingType": "text/html",
+			"name": "name of the proposal",
+			"url": "https://example.org/locatorForProposalText",
+			"identifier":"identifier for proposal, could used text or schema:PropertyValue pattern" } } ]
+			
+-- Keywords
+	Put the target element or molecule for the analysis, and the target edge in keywords:
+	"schema:keywords": [
+	{
+		"@type": "schema:DefinedTerm",
+		"schema:name": "K-edge",
+		"schema:termCode": "K",
+		"schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md"
+	},
+	{
+		"@type": "schema:DefinedTerm",
+		"schema:name": "Iron",
+		"schema:termCode": "Fe",
+		"schema:identifier": "http://sweetontology.net/matrElement/Iron",
+		"schema:inDefinedTermSet": "http://sweetontology.net/matrElement"
+	}
+],
+The Sweet ontology is a handy resource for URIs for element, but CHEBI URIs could be used as well.
+
+
+-- AdditionalProperty
+The schema.org  additionalProperty element is used to assign values for various metadata elements that have no schema.org equivalent. Each variable is specified with a schema:PropertyValue element:
+{
+"@type": "schema:PropertyValue",
+"schema:propertyID": "nxs:Field/NXsource/probe",
+"schema:name": "Probe",
+"schema:value": "x-ray"
+}
+
+The propertyID is a URI that identifies the semantics of the property; ideally these would dereference to a skos-type concept defintion, but where appropriate-seeming URIs from the NEXUS ontology are available, those are used. If there is no NEXUS identifier we have invented URIs in an xas: namespace, for production this needs to be reviewed and formalized. The schema:name should be a human intelligible label for the property; a schema:description is recommended if something is avaialble. The schema:value contains the value for the variable. If the value has units of measure, include a schema:unitText entry that specifies the units following NEXUS conventions.

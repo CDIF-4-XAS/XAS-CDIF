@@ -1,0 +1,522 @@
+{
+    "@context": {
+        "@vocab": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "time": "http://www.w3.org/2006/time#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "xas": "https://xas.org/dictionary/",
+        "nxs": "http://purl.org/nexusformat/definitions/",
+        "prov": "http://www.w3.org/ns/prov#"
+    },
+    "@graph": [
+        {
+            "@id": "xas:487y54",
+            "@type": [
+                "schema:Dataset",
+                "schema:Product"
+            ],
+            "schema:name": "X-ray absorption spectra for K edge, Iron metal, XDI CDIF example",
+            "schema:description": "Example metadata including all properties in the CDIF XAS profile",
+            "schema:identifier": "https://doi.org/10.9999/aqweropjh",
+            "schema:dateModified": "2025-06-22",
+            "schema:contributor": [
+                {
+                    "@type": "schema:Role",
+                    "schema:roleName": "Facility",
+                    "schema:contributor": {
+                        "@type": "schema:Organization",
+                        "@id": "#aps",
+                        "schema:name": "APS"
+                    }
+                },
+                {
+                    "@type": "schema:Role",
+                    "schema:roleName": "dataCollector",
+                    "schema:contributor": {
+                        "@type": "schema:Person",
+                        "@id": "https://orcid.org/3547ulkj",
+                        "schema:name": "Collectus, Poindexter"
+                    }
+                },
+                {
+                    "@type": "schema:Role",
+                    "schema:roleName": "principleInvestigator",
+                    "schema:contributor": {
+                        "@type": "schema:Person",
+                        "@id": "https://orcid.org/35735ul",
+                        "schema:name": "Scienceguy, Biggus",
+                        "schema:affiliation": {
+                            "@type": "schema:Organization",
+                            "@id": "https://ror.org/lejkthoj",
+                            "schema:name": "Big Science Institute"
+                        }
+                    }
+                }
+            ],
+            "schema:license": ["https://creativecommons.org/publicdomain/zero/1.0/"],
+            "schema:distribution": [
+                {
+                    "@type": [
+                        "schema:DataDownload",
+                        "PhysicalDataSet"
+                    ],
+                    "schema:contentUrl": "https://github.com/XraySpectroscopy/XASDataLibrary/blob/master/data/Se/Se_Na2SeO4_rt_01.xdi",
+                    "schema:description": "Distribution = PhysicalDataSet text file conformant with XDI specification",
+                    "schema:contentSize": "30 kb",
+                    "schema:encodingFormat": ["text/plain"],
+                    "dcterms:conformsTo": ["https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"],
+                    "allowsDuplicates": false,
+                    "isStructuredBy": {
+                        "@type": "WideDataStructure",
+                        "has_DataStructureComponent": [
+                            {
+                                "@type": "IdentifierComponent",
+                                "isDefinedBy_InstanceVariable": {"@id": "xas:monochromatorEnergy"},
+                                "has": {
+                                    "@type": "ValueMapping",
+                                    "hasIndex": 1,
+                                    "length": 12
+                                }
+                            },
+                            {
+                                "@type": "MeasureComponent",
+                                "isDefinedBy_InstanceVariable": {"@id": "xas:incidentIntensity"},
+                                "has": {
+                                    "@type": "ValueMapping",
+                                    "hasIndex": 3,
+                                    "length": 13
+                                }
+                            },
+                            {
+                                "@type": "MeasureComponent",
+                                "isDefinedBy_InstanceVariable": {"@id": "xas:transmittedIntensity"},
+                                "has": {
+                                    "@type": "ValueMapping",
+                                    "hasIndex": 2,
+                                    "length": 12
+                                }
+                            }
+                        ],
+                        "allowsDuplicates": false,
+                        "arrayBase": 1,
+                        "commentPrefix": "#",
+                        "hasHeader": true,
+                        "headerRowCount": 27,
+                        "skipInitialSpace": true,
+                        "isDelimited": false,
+                        "isFixedWidth": true
+                    }
+                }
+            ],
+            "schema:measurementTechnique": [
+                {
+                    "@type": "schema:DefinedTerm",
+                    "schema:name": "X-Ray Absorption Spectroscopy",
+                    "schema:termCode": "XAS",
+                    "schema:identifier": "http://purl.org/pan-science/PaNET/PaNET01196",
+                    "schema:inDefinedTermSet": "http://purl.org/pan-science/PaNET/PaNET.owl"
+                },
+                {
+                    "@type": "schema:DefinedTerm",
+                    "schema:name": "Transmission",
+                    "schema:inDefinedTermSet": "nxs:Field/NXxas/ENTRY/DATA/mode"
+                }
+            ],
+            "schema:keywords": [
+                {
+                    "@type": "schema:DefinedTerm",
+                    "schema:name": "K-edge",
+                    "schema:termCode": "K",
+                    "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md"
+                },
+                {
+                    "@type": "schema:DefinedTerm",
+                    "schema:name": "Selenium",
+                    "schema:termCode": "Se",
+                    "schema:identifier": "http://sweetontology.net/matrElement/Selenium",
+                    "schema:inDefinedTermSet": "http://sweetontology.net/matrElement"
+                }
+            ],
+            "prov:wasGeneratedBy": {
+                "@type": [
+                    "schema:Event",
+                    "xas:AnalysisEvent",
+                    "schema:Product",
+                    "prov:Activity"
+                ],
+                "schema:identifier": "20241111_DSC_NU_OREX-803224-0_1",
+                "schema:startDate": "2008-04-10T21:58:50",
+                "prov:used": [
+                    {
+                        "@type": [
+                            "schema:Thing",
+                            "schema:Product"
+                        ],
+                        "schema:additionalType": "nxs:BaseClass/NXsource",
+                        "schema:name": "source, made up for this example",
+                        "schema:identifier": "should have a registry with URIs",
+                        "schema:additionalProperty": [
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "nxs:Field/NXsource/type",
+                                "schema:value": "Synchrotron X-ray Source"
+                            },
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "nxs:Field/NXsource/probe",
+                                "schema:name": "Probe",
+                                "schema:value": "x-ray"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": [
+                            "schema:Thing",
+                            "schema:Product"
+                        ],
+                        "schema:additionalType": "xas:Beamline",
+                        "schema:name": "13-BM-D",
+                        "schema:identifier": "should have a registry with URIs",
+                        "schema:additionalProperty": [
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "xas:collimation",
+                                "schema:value": "none"
+                            },
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "xas:focusing",
+                                "schema:name": "focusing",
+                                "schema:value": "???"
+                            },
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "xas:harmonic_rejection",
+                                "schema:name": "harmonic_rejection",
+                                "schema:value": "Rh-coated mirror, detuned"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": [
+                            "schema:Thing",
+                            "schema:Product"
+                        ],
+                        "schema:additionalType": "nxs:BaseClass/NXmonochromator",
+                        "schema:name": "Si 111",
+                        "schema:additionalProperty": [
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "nxs:Field/NXcrystal/d_spacing",
+                                "schema:value": "3.13550",
+                                "schema:unitText": "Angstrom"
+                            },
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "nxs:Field/NXcrystal/chemical_formula",
+                                "schema:value": "Si"
+                            },
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "nxs:Field/NXcrystal/type",
+                                "schema:value": "crystal type"
+                            },
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "nxs:Field/NXcrystal/reflection",
+                                "schema:value": "1,1,1"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": [
+                            "schema:Thing",
+                            "schema:Product"
+                        ],
+                        "schema:additionalType": "nxs:BaseClass/NXmonitor",
+                        "schema:additionalProperty": [
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "nxs:Field/NXmonitor/mode",
+                                "schema:name": "monitor mode",
+                                "schema:value": "monitor"
+                            },
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "nxs:Field/NXmonitor/preset",
+                                "schema:name": "monitor preset",
+                                "schema:value": "N.A."
+                            },
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "xas:detector.i0",
+                                "schema:name": "detector mode i0",
+                                "schema:alternateName": "incident flux measurement method",
+                                "schema:value": "10cm  N2"
+                            },
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "xas:detector.it",
+                                "schema:name": "detector mode it",
+                                "schema:alternateName": "transmitted flux measurement method",
+                                "schema:value": "10cm  N2"
+                            }
+                        ]
+                    }
+                ],
+                "schema:additionalProperty": [
+                    {
+                        "@type": "schema:PropertyValue",
+                        "schema:propertyID":  "xas:pressure",
+                        "schema:description": "extrinsic properties of measurement environment--temperature, pressure, e-field, mag-field.  have to check magnetic_moment, electrochemical_potential",
+                        "schema:value": 3567,
+                        "schema:unitText": "KPa"
+                    },
+                    {
+                        "@type": "schema:PropertyValue",
+                        "schema:propertyID": "xas:edge_energy",
+                        "schema:value": "12658.0",
+                        "schema:unitText": "eV"
+                    },
+                    {
+                        "@type": "schema:PropertyValue",
+                        "schema:propertyID": "nxs:Group/NXdetector/calibration_method",
+                        "schema:name": "calibration method",
+                        "schema:value": "description of calibration procedure",
+                        "schema:url": "http://protocols.io/link/to/calibrationMethod"
+                    },
+                    {
+                        "@type": "schema:PropertyValue",
+                        "schema:propertyID": "nxs:Group/NXentry/experiment_documentation",
+                        "schema:name": "Instrument configuration",
+                        "schema:value": "description of instrument configuration",
+                        "schema:url": "http://protocols.io/link/to/calibrationMethod"
+                    },
+                    {
+                        "@type": "schema:PropertyValue",
+                        "schema:propertyID": "xas:installedOptions",
+                        "schema:name": "Installed Options",
+                        "schema:value": "Description of extra equipment installed on the base instrument(?)"
+                    }
+                ],
+                "schema:location": {
+                    "@type": "schema:Place",
+                    "schema:additionalType": "xas:Facility",
+                    "schema:identifier": "https://ror.org/aps",
+                    "schema:name": "APS",
+                    "schema:additionalProperty": [
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "xas:energy",
+                            "schema:value": "7.00",
+                            "schema:unitText": "GeV"
+                        },
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "xas:current",
+                            "schema:value": "120",
+                            "schema:unitText": "Amps"
+                        },
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID":  "xas:xray_source",
+                            "schema:value": "APS bending magnet"
+                        }
+                    ]
+                },
+                "schema:mainEntity": {
+                    "@type": [
+                        "schema:Thing",
+                        "schema:Product"
+                    ],
+                    "schema:additionalType": [
+                        "MaterialSample",
+                        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                    ],
+                    "schema:name": "Na2SeO4",
+                    "schema:identifier":"igsn:10.6620/357lkj",
+                    "schema:description": "physical properties of sample: ph, eh, volume, porosity, density, concentration, resistivity, viscosity, crystal structure, opacity from xdi list...",
+                    "schema:additionalProperty": [
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID":"xas:porosity",
+                            "schema:value": 27,
+                            "schema:unitText": "percent"
+                        },
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "xas:stoichiometry",
+                            "schema:value": "Na2SeO4"
+                        },
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "xas:samplePreparation",
+                            "schema:value": "powder on tape, 6 layers"
+                        },
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "nxs:Field/NXsample/mass",
+                            "schema:value": "10",
+                          "schema:unitText":"mg" 
+                        },
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "nxs:Field/NXsample/point_group",
+                            "schema:value": "mm2"
+                        },
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "nxs:Field/NXsample/unit_cell",
+                            "schema:value": "cubic; Z = 4; a = 5.46; V = 162.77"
+                        },
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "xas:parentSample",
+                            "schema:value": "igsn:10.3476/342573"
+                        },
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "xas:materialState",
+                            "schema:value": "solid metal foil"
+                        }
+                    ]
+                }
+            },
+            "schema:variableMeasured": [
+                {
+                    "@id": "xas:monochromatorEnergy",
+                    "@type": [
+                        "InstanceVariable",
+                        "schema:PropertyValue"
+                    ],
+                    "schema:name": "energy",
+                    "schema:alternateName": "Monochromator energy",
+                    "schema:description": "missing, definition of what this variable is about (maybe even an iAdopt description",
+                    "schema:propertyID": "xas:monochromatorEnergyConcept",
+                    "schema:unitText": "eV",
+                    "identifier": "should be URI from nexusFormat organization",
+                    "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+                    "simpleUnitOfMeasure": "eV",
+                    "uses": "xas:monochromatorEnergyConcept",
+                    "name": "energy",
+                    "displayLabel": "monochromator energy"
+                },
+                {
+                    "@id": "xas:incidentIntensity",
+                    "@type": [
+                        "InstanceVariable",
+                        "schema:PropertyValue"
+                    ],
+                    "schema:name": "i0",
+                    "schema:alternateName": "Monitor intensity",
+                    "schema:description": "missing, definition of what this variable is about (maybe even an iAdopt description)",
+                    "schema:propertyID": "xas:incidentIntensityConcept",
+                    "schema:unitText": "counts",
+                    "identifier": "should be URI from nexusFormat organization",
+                    "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+                    "uses": "xas:incidentIntensityConcept",
+                    "name": "i0",
+                    "displayLabel": "monitor intensity"
+                },
+                {
+                    "@id": "xas:transmittedIntensity",
+                    "@type": [
+                        "InstanceVariable",
+                        "schema:PropertyValue"
+                    ],
+                    "schema:description": "missing, definition of what this variable is about (maybe even an iAdopt description",
+                    "schema:propertyID": "xas:transmittedIntensityConcept",
+                    "schema:unitText": "counts",
+                    "schema:name": "itrans",
+                    "schema:alternateName": "transmission intensity",
+                    "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+                    "identifier": "should be URI from nexusFormat organization",
+                    "uses": "xas:transmittedIntensityConcept",
+                    "name": "itrans",
+                    "displayLabel": "transmission intensity"
+                }
+            ],
+            "relatedLink": [
+                {
+                    "@type": "LinkRole",
+                    "linkRelationship": "projectProposal",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "encodingType": "text/html",
+                        "name": "name of the proposal",
+                        "url": "https://example.org/locatorForProposalText",
+                        "identifier": "identifier for proposal, could used text or schema:PropertyValue pattern"
+                    }
+                }
+            ],
+            "schema:subjectOf": {
+                "@id": "xas:ja51-pz63",
+                "@type": "schema:Dataset",
+                "schema:dateModified": "2025-08-26",
+                "schema:creator": [
+                    {
+                        "@id": "https://ada.org/person/3479",
+                        "@type": "schema:Person",
+                        "schema:name": "Richard, Stephen M.",
+                        "schema:identifier": "https://orcid.org/0000-0002-7933-2154",
+                        "schema:email": "smrTucson@email.org"
+                    }
+                ],
+                "schema:about": {"@id": "xas:485749"},
+                "schema:description": "metadata about documentation for se_na2so4",
+                "dcterms:conformsTo": [
+                    {"@id": "cdif:profile_basic_1.0"},
+                    {"@id": "cdif:profile_xasCDIF"}
+                ]
+            }
+        },
+        {
+            "@id": "#xasDict",
+            "@type": "skos:ConceptScheme",
+            "dcterms:title": "X-Ray Absorption Spectroscopy Dictionary",
+            "dcterms:description": "A SKOS vocabulary of X-ray Absorption Spectroscopy metadata."
+        },
+        {
+            "@id": "xas:monochromatorEnergyConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Monochromator Energy",
+            "skos:definition": "photon energy selected by the X-ray monochromator and delivered to the sample during an absorption scan; the incident X-ray photon energy impinging on the sample at any given point in the scan. This is the independent variable in an XAS scan.(ChatGPT)"
+        },
+        {
+            "@id": "xas:incidentIntensityConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Incidnent X-Ray intensity",
+            "skos:definition": "The measured X-ray flux hitting the sample at each monochromator energy setting. Measured by an ionization chamber (gas-filled detector) or photodiode placed before the sample. (ChatGPT)"
+        },
+        {
+            "@id": "xas:transmittedIntensityConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Transmitted X-Ray intensity",
+            "skos:altLabel": "itrans",
+            "skos:definition": "The measured X-ray flux transmitted through a sample (ChatGPT)"
+        },
+        {
+            "@id": "xas:fluorescenceAbsorptionCoefficientConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Fluorescence Absorption Coefficient",
+            "skos:altLabel": "mufluor",
+            "skos:definition": "X-ray absorption coefficient μ(E) inferred from the intensity of emitted fluorescence photons; the fluorescence yield (probability of emission) is proportional to the absorbed fraction of the incident photons. Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.(ChatGPT)."
+        },
+        {
+            "@id": "xas:absorptionCoefficientConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Absorption Coefficient",
+            "skos:altLabel": "mutrans",
+            "skos:definition": "X-ray absorption coefficient μ(E) calculated as the natural log the ratio of incident vs. tranmitted x-ray intensity, divided by the thickness of the sample.(ChatGPT)."
+        }
+    ]
+}
