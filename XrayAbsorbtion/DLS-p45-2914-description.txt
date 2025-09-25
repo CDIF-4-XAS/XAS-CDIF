@@ -1,0 +1,169 @@
+# C:\Users\smrTu\OneDrive\Documents\GithubC\CDIF\integrationPublic\hdf5Work\readHDF5.py 
+# dir = "C:/Users/smrTu/OneDrive/Documents/GithubC/CDIF/exampledata/"
+# filename = "DLS/p45/hdf5/p45-2194.nxs"
+
+
+entry/ (Group)
+    attributes: 
+      NX_class: NXentry
+entry/instrument/ (Group)
+    attributes: 
+      NX_class: NXinstrument
+entry/instrument/mandelbrot/ (Group)
+    attributes: 
+      NX_class: NXdetector
+entry/instrument/mandelbrot/count_time (Dataset); 
+    shape: (), dims: 0; dtype: float64
+    Data value[0]: 0.1
+entry/instrument/mandelbrot/data (Dataset); 
+    shape: (3, 8, 241, 301), dims: 4; dtype: float64
+    attributes: 
+      target: /entry/instrument/mandelbrot/data
+entry/instrument/mandelbrot/escape_radius (Dataset); 
+    shape: (), dims: 0; dtype: float64
+    Data value[0]: 10.0
+entry/instrument/mandelbrot/exposure_time (Dataset); 
+    shape: (), dims: 0; dtype: float64
+    Data value[0]: 0.1
+    attributes: 
+      units: seconds
+entry/instrument/mandelbrot/imaginary (Dataset); 
+    shape: (301,), dims: 1; dtype: float64
+    attributes: 
+      target: /entry/instrument/mandelbrot/imaginary
+entry/instrument/mandelbrot/max_iterations (Dataset); 
+    shape: (), dims: 0; dtype: int32
+    Data value[0]: 500
+entry/instrument/mandelbrot/name (Dataset); 
+    shape: (), dims: 0; dtype: object
+    Data value: mandelbrot
+entry/instrument/mandelbrot/real (Dataset); 
+    shape: (241,), dims: 1; dtype: float64
+    attributes: 
+      target: /entry/instrument/mandelbrot/real
+entry/instrument/mandelbrot/spectrum (Dataset); 
+    shape: (3, 8, 1000), dims: 3; dtype: float64
+    attributes: 
+      target: /entry/instrument/mandelbrot/spectrum
+entry/instrument/mandelbrot/spectrum_axis (Dataset); 
+    shape: (1000,), dims: 1; dtype: float64
+    attributes: 
+      target: /entry/instrument/mandelbrot/spectrum_axis
+entry/instrument/mandelbrot/value (Dataset); 
+    shape: (3, 8), dims: 2; dtype: float64
+    attributes: 
+      target: /entry/instrument/mandelbrot/value
+entry/instrument/stagex/ (Group)
+    attributes: 
+      NX_class: NXpositioner
+      gda_scan_role: scannable
+      gda_scannable_name: stagex
+entry/instrument/stagex/name (Dataset); 
+    shape: (), dims: 0; dtype: object
+    Data value: stagex
+entry/instrument/stagex/value (Dataset); 
+    shape: (3, 8), dims: 2; dtype: float64
+    attributes: 
+      gda_field_name: stagex
+      local_name: stagex.value
+      target: /entry/instrument/stagex/value
+entry/instrument/stagex/value_set (Dataset); 
+    shape: (8,), dims: 1; dtype: float64
+    attributes: 
+      local_name: stagex.value_set
+      target: /entry/instrument/stagex/value_set
+entry/instrument/stagey/ (Group)
+    attributes: 
+      NX_class: NXpositioner
+      gda_scan_role: scannable
+      gda_scannable_name: stagey
+entry/instrument/stagey/name (Dataset); 
+    shape: (), dims: 0; dtype: object
+    Data value: stagey
+entry/instrument/stagey/value (Dataset); 
+    shape: (3, 8), dims: 2; dtype: float64
+    attributes: 
+      gda_field_name: stagey
+      local_name: stagey.value
+      target: /entry/instrument/stagey/value
+entry/instrument/stagey/value_set (Dataset); 
+    shape: (3,), dims: 1; dtype: float64
+    attributes: 
+      local_name: stagey.value_set
+      target: /entry/instrument/stagey/value_set
+entry/mandelbrot/ (Group)
+    attributes: 
+      NX_class: NXdata
+      axes: [b'stagey_value_set' b'stagex_value_set' b'real' b'imaginary']
+      imaginary_indices: [3]
+      real_indices: [2]
+      signal: data
+      stagex_value_indices: [0 1]
+      stagex_value_set_indices: [1]
+      stagey_value_indices: [0 1]
+      stagey_value_set_indices: [0]
+entry/mandelbrot_spectrum/ (Group)
+    attributes: 
+      NX_class: NXdata
+      axes: [b'stagey_value_set' b'stagex_value_set' b'spectrum_axis']
+      signal: spectrum
+      spectrum_axis_indices: [2]
+      stagex_value_indices: [0 1]
+      stagex_value_set_indices: [1]
+      stagey_value_indices: [0 1]
+      stagey_value_set_indices: [0]
+entry/mandelbrot_value/ (Group)
+    attributes: 
+      NX_class: NXdata
+      axes: [b'stagey_value_set' b'stagex_value_set']
+      signal: value
+      stagex_value_indices: [0 1]
+      stagex_value_set_indices: [1]
+      stagey_value_indices: [0 1]
+      stagey_value_set_indices: [0]
+entry/sample/ (Group)
+    attributes: 
+      NX_class: NXsample
+entry/sample/description (Dataset); 
+    shape: (), dims: 0; dtype: object
+    Data value: No description provided.
+entry/sample/name (Dataset); 
+    shape: (), dims: 0; dtype: object
+    Data value: Unnamed Sample
+entry/solstice_scan/ (Group)
+    attributes: 
+      NX_class: NXcollection
+entry/solstice_scan/keys/ (Group)
+    attributes: 
+      NX_class: NXcollection
+entry/solstice_scan/keys/uniqueKeys (Dataset); 
+    shape: (3, 8), dims: 2; dtype: int32
+entry/solstice_scan/scanRank (Dataset); 
+    shape: (), dims: 0; dtype: int32
+    Data value[0]: 2
+entry/solstice_scan/scan_cmd (Dataset); 
+    shape: (), dims: 0; dtype: object
+    Data value: mscan(path=[grid(axes=('stagex', 'stagey'), start=(-1.4756242568370987, -0.4157894736842107), stop=(0.026753864447086828, 0.642105263157895), count=(8, 8), snake=False, roi=[rect(origin=(-1.4756242568370987, -0.4157894736842107), size=(1.5023781212841856, 1.0578947368421057))])], det=[detector('mandelbrot', 0.1, maxIterations=500, escapeRadius=10.0, columns=301, rows=241, points=1000, maxRealCoordinate=1.5, maxImaginaryCoordinate=1.2, realAxisName='stagex', imaginaryAxisName='stagey', enableNoise=False, noiseFreeExposureTime=5.0, saveImage=True, saveSpectrum=True, saveValue=True)])
+entry/solstice_scan/scan_dead_time (Dataset); 
+    shape: (1,), dims: 1; dtype: |S1024
+    Data value[0]: 00:00:10.052
+entry/solstice_scan/scan_dead_time_percent (Dataset); 
+    shape: (1,), dims: 1; dtype: |S1024
+    Data value[0]: 61.10
+entry/solstice_scan/scan_duration (Dataset); 
+    shape: (1,), dims: 1; dtype: |S1024
+    Data value[0]: 00:00:16.452
+entry/solstice_scan/scan_estimated_duration (Dataset); 
+    shape: (), dims: 0; dtype: object
+    Data value: 00:00:06.400
+entry/solstice_scan/scan_finished (Dataset); 
+    shape: (1,), dims: 1; dtype: int32
+    Data value[0]: 1
+entry/solstice_scan/scan_models (Dataset); 
+    shape: (), dims: 0; dtype: object
+    Data value: [{"@type":"GridModel","name":"Grid","fastAxisName":"stagex","slowAxisName":"stagey","boundingBox":{"@type":"BoundingBox","fastAxisName":"stage_x","fastAxisStart":-1.4756242568370987,"fastAxisLength":1.5023781212841856,"slowAxisName":"stage_y","slowAxisStart":-0.4157894736842107,"slowAxisLength":1.0578947368421057},"fastAxisPoints":8,"slowAxisPoints":8,"snake":false}]
+entry/solstice_scan/scan_shape (Dataset); 
+    shape: (2,), dims: 1; dtype: int32
+entry/user/ (Group)
+    attributes: 
+      NX_class: NXuser

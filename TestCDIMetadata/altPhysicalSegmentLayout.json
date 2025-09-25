@@ -1,0 +1,45 @@
+{
+    "has": {
+        "@type": "PhysicalSegmentLayout",
+        "isStructuredBy": {
+            "@type": "WideDataStructure",
+            "has_DataStructureComponent": [
+                {
+                    "@type": "IdentifierComponent",
+                    "isDefinedBy_InstanceVariable": "xas:monochromatorEnergy",
+                    "hasValueMapping": {
+                        "@type": "ValueMapping",
+                        "hasIndex": 1,
+                        "length": 12
+                    }
+                },
+                {
+                    "@type": "MeasureComponent",
+                    "isDefinedBy_InstanceVariable": "xas:incidentIntensity",
+                    "hasValueMapping": {
+                        "@type": "ValueMapping",
+                        "hasIndex": 3,
+                        "length": 13
+                    }
+                },
+                {
+                    "@type": "MeasureComponent",
+                    "isDefinedBy_InstanceVariable": "xas:transmittedIntensity",
+                    "hasValueMapping": {
+                        "@type": "ValueMapping",
+                        "hasIndex": 2,
+                        "length": 12
+                    }
+                }
+            ]
+        },
+        "allowsDuplicates": false,
+        "arrayBase": 1,
+        "commentPrefix": "#",
+        "hasHeader": true,
+        "headerRowCount": 27,
+        "skipInitialSpace": true,
+        "isDelimited": false,
+        "isFixedWidth": true
+    }
+}

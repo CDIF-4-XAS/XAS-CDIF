@@ -1,0 +1,43 @@
+{
+    "@context": {
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "ada": "https://ada.astromat.org/metadata/",
+        "time": "http://www.w3.org/2006/time#"
+    },
+    "@id": "xas:485749",
+    "@type": [
+        "schema:Dataset",
+        "schema:Product"
+    ], 
+    "schema:mainEntity": [
+        {
+            "@type": "schema:Thing",
+            "schema:additionalType": "MaterialSample",
+            "schema:identifier": "OREX-803224-0"
+        }
+    ],
+    "schema:measurementTechnique": {
+        "@type": "schema:DefinedTerm",
+        "schema:name": "Differential Scanning Calorimetry",
+        "schema:termCode": "DSC"
+    },
+    "ada:analysisEvent": {
+        "@type": "Event",
+        "schema:identifier": "20241111_DSC_NU_OREX-803224-0_1",
+        "schema:endDate": "2024-11-11T12:00:00+00:00",
+        "ada:analysis.instrument": {
+            "@type": "schema:Thing",
+            "schema:name": "PerkinsElmer DSC 8000",
+            "schema:identifier": "PE-DSC8000"
+        },
+        "schema:location": {
+            "@type": "schema:Place",
+            "schema:identifier": "https://ror.org/04chrp450",
+            "schema:name": "Nagoya University",
+            "schema:alternateName": "NU"
+        }
+    },
+}

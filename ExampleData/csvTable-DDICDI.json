@@ -1,0 +1,88 @@
+{
+    "@context": [
+        "https://schema.org/",
+        {
+            "ddicdi": "https://ddi-alliance.github.io/ddi-cdi/DDICDI#",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "xsd": "http://www.w3.org/2001/XMLSchema#"
+        }
+    ],
+    "@id": "#ExampleCSVDataSet",
+    "@type": "WideDataSet",
+    "physicalFileName": "example.csv",
+    "name": "Example Dataset",
+    "description": "A dataset describing example data in CSV format.",
+    "recordCount": 254,
+    "allowsDuplicates": false,
+    "has_PhysicalSegmentLayout": {
+        "@id": "#physicalSegmentLayout",
+        "@type": "PhysicalSegmentLayout",
+        "isDelimited": "true",
+        "isFixedWidth": false,
+        "delimiter": ","
+    },
+    "isStructuredBy": {
+        "@id": "#exampleWideDataStructure",
+        "@type": "ddicdi:WideDataStructure",
+        "description": "where does this information go in DDI/CDI? DelimitedTextFile, delimiter:',', headerRowCount:1, columnCount: 7",
+        "ddicdi:has": [
+            {
+                "@type": "ddicdi:RepresentedVariable",
+                "ddicdi:displayLabel": "id",
+                "name": "Identifier",
+                "ddicdi:externalDefinition": "http://example.org/property/id",
+                "ddicdi:hasIntendedDataType": "xsd:string"
+            },
+            {
+                "@type": "ddicdi:RepresentedVariable",
+                "ddicdi:displayLabel": "temperature, C",
+                "name": "Air Temperature, C",
+                "ddicdi:externalDefinition": "http://example.org/property/temperature",
+                "ddicdi:hasIntendedDataType": "xsd:decimal",
+                "ddicdi:describedUnitOfMeasure": "http://qudt.org/vocab/unit/DEG_C",
+                "ddicdi:minimumValue": -40,
+                "ddicdi:maximumValue": 60
+            },
+            {
+                "@type": "ddicdi:RepresentedVariable",
+                "ddicdi:displayLabel": "temperature, K",
+                "name": "Air Temperature, K",
+                "ddicdi:externalDefinition": "http://example.org/property/temperature",
+                "ddicdi:hasIntendedDataType": "xsd:decimal",
+                "ddicdi:describedUnitOfMeasure": "http://qudt.org/vocab/unit/DEG_K",
+                "ddicdi:minimumValue": 233,
+                "ddicdi:maximumValue": 333
+            },
+            {
+                "@type": "ddicdi:RepresentedVariable",
+                "ddicdi:displayLabel": "status",
+                "name": "Measurement Status",
+                "ddicdi:externalDefinition": "http://example.org/property/status",
+                "ddicdi:hasIntendedDataType": "http://example.org/vocab/measurementStatus"
+            },
+            {
+                "@type": "ddicdi:RepresentedVariable",
+                "ddicdi:displayLabel": "sample_type",
+                "name": "Type of Sample",
+                "ddicdi:externalDefinition": "http://example.org/property/sample_type",
+                "ddicdi:hasIntendedDataType": "http://example.org/vocab/sampleTypes"
+            },
+            {
+                "@type": "ddicdi:RepresentedVariable",
+                "ddicdi:displayLabel": "step 1 specific Heat",
+                "name": "Step Scan 1 Cp [J/g/K]",
+                "ddicdi:hasIntendedDataType": "decimal",
+                "ddicdi:describedUnitOfMeasure": "http://qudt.org/vocab/unit/J-PER-KiloGM-K",
+                "description": "Specific heat of the first scan run"
+            },
+            {
+                "@type": "ddicdi:RepresentedVariable",
+                "ddicdi:displayLabel": "step 2 specific Heat",
+                "name": "Step Scan 2 Cp [J/g/K]",
+                "ddicdi:hasIntendedDataType": "decimal",
+                "ddicdi:describedUnitOfMeasure": "http://qudt.org/vocab/unit/J-PER-KiloGM-K",
+                "description": "Specific heat of the second scan run"
+            }
+        ]
+    }
+}

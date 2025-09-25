@@ -1,0 +1,768 @@
+{
+	"@context": {
+		"skos": "http://www.w3.org/2004/02/skos/core#",
+		"Concept": "skos:Concept",
+		"ConceptScheme": "skos:ConceptScheme",
+		"prefLabel": "skos:prefLabel",
+		"altLabel": "skos:altLabel",
+		"definition": "skos:definition",
+		"broader": "skos:broader",
+		"narrower": "skos:narrower",
+		"inScheme": "skos:inScheme",
+		"notation": "skos:notation",
+		"hasTopConcept": "skos:hasTopConcept",
+		"note": "skos:note",
+		"dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+		"references": "dc:references"
+	},
+	"@graph": [
+		{
+			"@id": "http://example.org/myScheme",
+			"@type": "skos:ConceptScheme",
+			"prefLabel": "My Example Concept Scheme",
+			"hasTopConcept": [
+				{"@id": "http://example.org/concept1"},
+				{"@id": "http://example.org/concept2"},
+				{"@id": "http://example.org/concept3"}
+			]
+		},
+		{
+			"@id": "http://example.org/Absorption_Coefficient",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Absorption Coefficient",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A coefficient μ(E) calculated as the natural log the ratio of incident vs. tranmitted x-ray intensity, divided by the thickness of the sample.(ChatGPT).",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "https://dictionary.iucr.org/Absorption_coefficient is usually where I look for this sort of thing (PA)",
+				"@language": "en"
+			},
+			"references": "https://dictionary.iucr.org/Absorption_Coefficient",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Fluorescence_Absorption_Coefficient",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Fluorescence Absorption Coefficient",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A coefficient μ(E) inferred from the intensity of emitted fluorescence photons; the fluorescence yield (probability of emission) is proportional to the absorbed fraction of the incident photons. (ChatGPT).",
+				"@language": "en"
+			},
+			"references": "",
+			"note": {
+				"@value": "Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.",
+				"@language": "en"
+			},
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Transmitted_Intensity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Transmitted Intensity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The measured X-ray flux transmitted through a sample (ChatGPT)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "",
+				"@language": "en"
+			},
+			"references": "",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Incident_Intensity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Incident Intensity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The measured X-ray flux hitting the sample at each monochromator energy setting. (ChatGPT)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "Measured by an ionization chamber (gas-filled detector) or photodiode placed before the sample.",
+				"@language": "en"
+			},
+			"references": "",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Monochromator_Energy ",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Monochromator Energy ",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The photon energy selected by the X-ray monochromator and delivered to the sample during an absorption scan.(ChatGPT)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "This is the independent variable in an XAS scan. NEXUS comment is 'energy selected'",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXmonochromator/energy",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Energy_Error",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Energy Error",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "NEXUS comment is 'energy standard deviation'.  1 sigma, 2 sigma? ",
+				"@language": "en"
+			},
+			"references": "nxs: Field/NXmonochromator/energy_error",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Fluorescence_Intensity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Fluorescence Intensity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The measured count rate or photon flux emitted by a sample following absorption of incident X-rays. (ChatGPT)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "measures the total amount of light (photons) emitted by a fluorophore after it absorbs energy from excitation light. ",
+				"@language": "en"
+			},
+			"references": "",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/collimation",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "collimation",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "beamline property. From XDI dictionary 'A concise statement of how beam collimation is provided' . A collimated beam of electromagnetic radiation has parallel rays, and therefore will spread minimally as it propagates. (https://en.wikipedia.org/wiki/Collimated_beam)",
+				"@language": "en"
+			},
+			"references": "nxs:Group/NXsas/ENTRY/INSTRUMENT/COLLIMATOR",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/d_spacing",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "d_spacing",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "'spacing between crystal planes of the reflection' (NEXUS ontology)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "monochromator crystal property. 'the spacing between atomic planes within the crystal. By satisfying Bragg's Law (nλ = 2d sinθ), the monochromator selects a desired wavelength (λ) of radiation from an incident beam, where 'd' is the atomic plane spacing and 'θ' is the Bragg angle.'(Google AI overview)",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXcrystal/d_spacing",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/reflection_plane",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "reflection plane",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Miller indices (hkl) values of nominal reflection (NEXUS ontology)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "monochromator crystal property",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXcrystal/reflection",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/monochromator_type",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "monochromator type",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Type or material of monochromating substance. (NEXUS)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "monochromator crystal property; values reported in NEXUS as of 2010-11-17  {PG (Highly Oriented Pyrolytic Graphite) | Ge | Si | Cu | Fe3Si | CoFe | Cu2MnAl (Heusler) | Multilayer | Diamond.}",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXcrystal/type",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/monochromator_chemical_formula",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "monochromator chemical formula",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The chemical formula [of the monochromator material] specified using [Crystallographic Information File] CIF conventions. (NEXUS)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "monochromator crystal property. NOTE-- seems redundant with NXcrystal/type.  CIF conventions at https://www.iucr.org/resources/cif/spec/version1.1",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXcrystal/chemical_formula",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/edge_energy",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "edge_energy",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The absorption edge as used in the data acquisition software.(XDI dictionary)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "Discussed in team meeting 2025-09-08; general sense in group is that this is a known quantity specified for experiment design, not a measured result.",
+				"@language": "en"
+			},
+			"references": "XDI",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/facility_energy",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "facility_energy",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The energy of the stored current in the storage ring. (XDI)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "in XDI this is a property of the Facility, so include 'facility' prefix",
+				"@language": "en"
+			},
+			"references": "XDI, nxs:Field/NXsource/energy",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/flux_measure_method",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "flux measure method",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "description of how the [photon] flux was measured (XDI)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "property of detector, see https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md#defined-items-in-the-detector-namespace, tags for i0, it, if, ir",
+				"@language": "en"
+			},
+			"references": "XDI",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/focusing",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "focusing",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A concise statement about how beam focusing is provided. (XDI)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "",
+				"@language": "en"
+			},
+			"references": "XDI",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/harmonic_rejection",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "harmonic rejection",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A concise statement about how harmonic rejection is accomplished.(XDI)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "X-ray absorption harmonic rejection is the process of eliminating unwanted higher-energy X-ray harmonics from a beam (Google AI overview)",
+				"@language": "en"
+			},
+			"references": "XDI",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/porosity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "porosity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The fraction of the sample volume that is empty space",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "material property of sample.  Expressed as a fraction between 0 and 1, or as a percentage between 0% and 100%.",
+				"@language": "en"
+			},
+			"references": "",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/pressure",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "pressure",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "Environmental condition of sample during analysis. Need some clarification on exactly what pressure is applied--is the sample in an anvil?  a leak proof tank with pressurized fluid?",
+				"@language": "en"
+			},
+			"references": "",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/xray_source_type",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "xray source type",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "type of radiation source (NEXUS)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "one of {'Spallation Neutron Source' , 'Pulsed Reactor Neutron Source' , 'Reactor Neutron Source' , 'Synchrotron X-ray Source' , 'Pulsed Muon Source' , 'Rotating Anode X-ray' , 'Fixed Tube X-ray' , 'UV Laser' , 'Free-Electron Laser' , 'Optical Laser' , 'Ion Source' , 'UV Plasma Source' , 'Metal Jet X-ray'}  (NEXUS ontology)",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXarchive/entry/instrument/SOURCE/type",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/XAS measurement mode",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "XAS measurement mode",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Detection method used for observing the sample absorption. (NEXUS)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "property of experiment; controlled list of process being monitored to obtain the spectrum.  One of {'Total Electron Yield' , 'Partial Electron Yield' , 'Auger Electron Yield' , 'Fluorescence Yield' , 'Transmission'}",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXxas/ENTRY/DATA/mode",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/element_analyzed",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "element analyzed",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Element that is the target for observing an x-ray absorption edge.",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "Element being analyzed. Need element vocabulary, e.g. http://sweetontology.net/matrElement/Iron",
+				"@language": "en"
+			},
+			"references": "XDI",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/edge_analyzed",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "edge analyzed",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Target absorption edge.",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "The 'edge' is a sudden increase in x-ray absorption occurring when the energy of incident X-rays is just above the binding energy of the targeted electron shell of the atoms interacting with the photons. vocabulary from XDI spec: {K, L, L1, L2, L3, M, M1, M2, M3, M4, M5, N, N1, N2, N3, N4, N5, N6, N7, O, O1, O2, O3, O4, O5, O6, O7}",
+				"@language": "en"
+			},
+			"references": "XDI",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/monitor_mode",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "monitor mode",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "algorithm for aggregating data in detectors measuring excitation and sample response",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "Count to a preset value based on either clock time (timer) or received monitor counts (monitor).",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXmonitor/mode",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/monitor_preset",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "monitor preset",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "configuration of monitor mode",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "either counting time or preset count value. ",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXmonitor/preset",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/detector_type",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "detector type",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Kind of detector used to measure photon fluxes.",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "detector.i0, .it, .if, .ir – descriptions of how fluxes were measured. NEXUS examples:  He3 gas cylinder, He3 PSD, scintillator, fission chamber, proportion counter, ion chamber, ccd, pixel, image plate, CMOS.  Allow different detector types for incident, transmitted, ....?",
+				"@language": "en"
+			},
+			"references": "XDI.  same as nxs:Field/NXdetector/type",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/sample_preparation",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "sample preparation",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "the method of sample preparation. (XDI)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "",
+				"@language": "en"
+			},
+			"references": "XDI",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/sample_stoichiometry",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "sample stoichiometry",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "chemical formula for sample material",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "as with Monochromator, use CIF conventions. Note: 'Stoichiometry is the relationships between the quantities of reactants and products before, during, and following chemical reactions.'(Wikipedia).  Not sure that's the label we want for this property...",
+				"@language": "en"
+			},
+			"references": "XDI",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/sample_thickness",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "sample thickness",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "length of sample material in the direction of incident x-rays",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "is thickness measured in any particular direction (e.g. in the direction of incident x-rays)?",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXsample/thickness",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/sample_mass",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "sample mass",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "mass of the sample",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXsample/mass",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/sample_crystal_structure",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "sample crystal structure",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "Point groups describe the symmetry of a point without translations, always leaving at least one point fixed; space groups  describe the symmetry of a crystal lattice allowing translations. In three dimensions,  there are 32 crystallographic point groups, and 230 unique space groups (ChatGPT) . Various notation systems are used to classify these groups (Wikipedia). ? is there a preferred system in XAS?",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXsample/point_group | space_group",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/sample_unit_cell",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "sample unit cell",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "[Crystallographic] Unit cell parameters (lengths and angles) (NEXUS)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "'unit cell is a region that just fills space without any overlapping when translated through some subset of the vectors of a Bravais lattice.' (Ashcroft, Neil W. (1976). 'Chapter 4'. Solid State Physics. W. B. Saunders Company. p. 73)",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXsample/unit_cell",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/sample_material",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "sample material",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Kind of substance that constitutes the sample.",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "Material type encompasses state of matter. E.g. See iSamples material type vocabulary (https://vocabs.ardc.edu.au/viewById/664). ",
+				"@language": "en"
+			},
+			"references": "",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/parent_sample",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "parent sample",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "identifier for a material sample from which the analyzed sample was derived",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "",
+				"@language": "en"
+			},
+			"references": "",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Analysis_Event",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Analysis Event",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "Note-- Analysis has broad connotations; would 'Measurement Event' be better, to distinguish from 'Analysis' as scientific activity to interpret data? YES!!!!! (AG)",
+				"@language": "en"
+			},
+			"references": "",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Beamline",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Beamline",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Instrument component in an x-ray facility that delivers a precisely controlled x-ray beam from the storage ring to the experimental station where the sample is placed.",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "",
+				"@language": "en"
+			},
+			"references": "XDI",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Detector",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Detector",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "a device for detecting the presence of electromagnetic waves (Merriam-Webster)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "NEXUS has 'A detector, detector bank, or multidetector.' which is not a definition.",
+				"@language": "en"
+			},
+			"references": "nxs:BaseClass/NXdetector",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Facility",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Facility",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "[A place] that is built, installed, or established to serve a particular purpose (Merriam-Webster)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "a place that hosts instruments and other necessary components to support XAS research.  NEXUS comment is 'The neutron or x-ray storage ring/facility'",
+				"@language": "en"
+			},
+			"references": "nxs:BaseClass/NXsource",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Instrument",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Instrument",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "a measuring device for determining the present value of a quantity under observation (Merriam-Webster 3a)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "NXInstrument has 'Collection of the components of the instrument or beamline'. Not really a definition.  Does make clear that an instrument has parts. ",
+				"@language": "en"
+			},
+			"references": "nxs:BaseClass/NXinstrument",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Monochromator",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Monochromator",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "[A device that]  selects a wavelength or energy (from NEXUS)",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "A device for isolating a narrow portion of a spectrum (Merriam-Webster).  A device that transmits a selectable narrow band of wavelengths of light or other radiation chosen from a wider range of wavelengths available at the input. [Wikipedia]",
+				"@language": "en"
+			},
+			"references": "nxs:BaseClass/NXmonochromator",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		},
+		{
+			"@id": "http://example.org/Source",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Source",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A device that generates X-rays.",
+				"@language": "en"
+			},
+			"note": {
+				"@value": "",
+				"@language": "en"
+			},
+			"references": "nxs:Field/NXarchive/entry/instrument/SOURCE",
+			"inScheme": {"@id": "http://example.org/myScheme"}
+		}
+	]
+}

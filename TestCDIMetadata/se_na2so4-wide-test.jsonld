@@ -1,0 +1,155 @@
+{
+  "@context": ["https://docs.ddialliance.org/DDI-CDI/1.0/model/encoding/json-ld/ddi-cdi.jsonld",
+  {"xas":"https://xas.org/metadata/"}
+  ],
+  "DDICDIModels": [
+    {
+      "@id": "xas:xdiDataLayout",
+      "@type": "PhysicalSegmentLayout",
+      "formats": "#logicalRecord",
+      "isDelimited": false,
+      "isFixedWidth": true,
+      "hasHeader":true, 
+      "headerRowCount": 27,
+      "QUESTION":"how do document fixed width tabular data?" 
+    },
+    {
+      "@id": "xas:xdiDataStore",
+      "@type": "DataStore",
+      "has_LogicalRecord": {
+        "@id": "#logicalRecord",
+        "@type": "LogicalRecord",
+        "organizes": {
+          "@id": "xas:xdidatastructure",
+          "@type": "WideDataSet",
+          "isStructuredBy": {
+            "@type": "WideDataStructure",
+            "has_DataStructureComponent": [
+              {
+                "@type": "MeasureComponent",
+                "isDefinedBy_RepresentedVariable": "xas:monochromatorEnergy",
+                "has_ValueMappingPosition": {
+                  "@type": "ValueMappingPosition",
+                  "startChar": 8,
+                  "endChar":15
+                }
+              },
+              {
+                "@type": "IdentifierComponent",
+                "isDefinedBy_RepresentedVariable": "xas:measureDurationTime",
+                "has_ValueMappingPosition": {
+                  "@type": "ValueMappingPosition",
+                  "startChar": 000,
+                  "endChar":000
+                }
+              },
+              {
+                "@type": "MeasureComponent",
+                "isDefinedBy_RepresentedVariable": "xas:incidentIntensity",
+                "has_ValueMappingPosition": {
+                  "@type": "ValueMappingPosition",
+                  "startChar": 000,
+                  "endChar":000
+                }
+              },
+              {
+                "@type": "MeasureComponent",
+                "isDefinedBy_RepresentedVariable": "xas:transmittedIntensity",
+                "has_ValueMappingPosition": {
+                  "@type": "ValueMappingPosition",
+                  "startChar": 000,
+                  "endChar":000
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "@id": "xas:measureDurationTime",
+      "@type": "InstanceVariable",
+      "description":"missing, definition of what this variable is about (maybe even an iAdopt description",
+      "identifier":"should be URI from nexusFormat organization",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "time"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "time"
+        }
+      }
+    },
+    {
+      "@id": "xas:monochromatorEnergy",
+      "@type": "InstanceVariable",
+      "description":"missing, definition of what this variable is about (maybe even an iAdopt description",
+      "identifier":"should be URI from nexusFormat organization",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      },
+      "simpleUnitOfMeasure":"eV",
+      "name": {
+        "@type": "ObjectName",
+        "name": "energy"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "monochromator energy"
+        }
+      }
+    },
+    {
+      "@id": "xas:incidentIntensity",
+      "@type": "InstanceVariable",
+      "description":"missing, definition of what this variable is about (maybe even an iAdopt description",
+      "identifier":"should be URI from nexusFormat organization",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "i0"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "monitor intensity"
+        }
+      }
+    },
+    {
+      "@id": "xas:transmittedIntensity",
+      "@type": "InstanceVariable",
+      "description":"missing, definition of what this variable is about (maybe even an iAdopt description",
+      "identifier":"should be URI from nexusFormat organization",
+      "physicalDataType": {
+        "@type": "ControlledVocabularyEntry",
+        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+      },
+      "name": {
+        "@type": "ObjectName",
+        "name": "itrans"
+      },
+      "displayLabel": {
+        "@type": "LabelForDisplay",
+        "locationVariant": {
+          "@type": "ControlledVocabularyEntry",
+          "entryValue": "transmission intensity"
+        }
+      }
+    }
+  ]
+}

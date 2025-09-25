@@ -1,0 +1,42 @@
+"cdi:DimensionalDataStructure"},
+  "cdi:hasDimensionComponent": {
+    "@type": {"const": "cdi:DimensionComponent"},
+    "cdi:isDefinedBy_InstanceVariable": uri to link; at what level are unit of measure and physical data type defined?
+    "cdi:physicalDataType": {"type": "string"},
+    "cdi:isStructuredBy": {
+      "type": "cdi:SubstantiveValueDomain"},
+        "cdi:takesValuesFrom": {
+          "oneOf": [
+            {... "specification for a sequence here, start value step interval, end value or number of steps",
+                "startValue": {"type": "number"},
+                "stepValue": {"type": "number"} }.    },
+            {.."controlled vocabulary, enum, list, uri for the vocabulary, list or whatever",
+     ...
+    "has": {
+      "type":  "cdi:ValueMapping"},
+        "cdi:cubepath": path to get values using syntax appropriate to cube format
+        "cdi:length": {
+          "number that specifies how many values are present on this dimension",
+        "cdi:index": {
+          "the index for ordering cube coordinates in the key to identify measure values",
+           ...
+  },
+  "cdi:hasMeasureComponent": {
+    "type": "cdi:MeasureComponent"},
+        "cdi:isDefinedBy_InstanceVariable":  reference one of the variables defined in the measuredVariable section 
+        "cdi:isStructuredBy": {
+          "oneOf": [
+            { "measure values are scalar, using a primitive data type. Link With @id",
+                "@type":  "cdi:SubstantiveValueDomain",
+                ... "free text description of the value domain. Detail modeling of kinds of domains TBD..."
+            },
+            { "Measure values are structured-- e.g. vectors, tensors, arrays... link with @id",
+                "@type":"cdi:DataStructure",
+                "free text description of the data structure. Detail modeling of kinds of domains TBD..."
+...
+        "has": {
+          "type": "cdi:ValueMapping",
+            "cdi:cubepath": {
+             "depending on the encodingFormat for the dataCube, different syntax might be used. The string provided here should be what is needed to access values of this measure using tools appropriate to the particular cube format. Development of conventions here is still under way."
+            }
+

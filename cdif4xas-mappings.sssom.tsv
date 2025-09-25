@@ -1,0 +1,27 @@
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	author_id	object_source_version	mapping_date	confidence	comment
+cd4pan:instanceVariable- EnergyRefXAS	Instance variable RefXAS Energy	rdf:type	cdif:InstanceVariable	InstanceVariable	semapv:ManualMappingCuration	orcid:0000-0001-9121-8643		6/6/2025	1	
+cd4pan:instanceVariable-Energy-XDI	Instance variable XDI Energy	rdf:type	cdif:InstanceVariable	InstanceVariable	semapv:ManualMappingCuration	orcid:0000-0001-9121-8643		6/6/2025	1	
+cd4pan:instanceVariable-Energy-NeXus	Instance variable NeXus Energy	rdf:type	cdif:InstanceVariable	InstanceVariable	semapv:ManualMappingCuration	orcid:0000-0001-9121-8643		6/6/2025	1	
+cd4pan:representiveVariable-Energy	Representive variable Energy	rdf:type	cdif:RepresentedVariable	RepresentedVariable	semapv:ManualMappingCuration	orcid:0000-0001-9121-8643		6/6/2025	1	
+cd4pan:instanceVariable- EnergyRefXAS	Instance variable RefXAS Energy	cdif:Concept_uses_Concept	cd4pan:representiveVariable-Energy	RepresentedVariable Energy	semapv:ManualMappingCuration	orcid:0000-0001-9121-8643		6/6/2025	1	
+cd4pan:instanceVariable-Energy-XDI	Instance variable XDI Energy	cdif:Concept_uses_Concept	cd4pan:representiveVariable-Energy	RepresentedVariable Energy	semapv:ManualMappingCuration	orcid:0000-0001-9121-8643		6/6/2025	1	
+cd4pan:instanceVariable-Energy-NeXus	Instance variable NeXus Energy	cdif:Concept_uses_Concept	cd4pan:representiveVariable-Energy	RepresentedVariable Energy	semapv:ManualMappingCuration	orcid:0000-0001-9121-8643		6/6/2025	1	
+cd4pan:representiveVariable-Energy	Representive variable Energy	dif:RepresentedVariable-simpleUnitOfMeasure	eV	eV	semapv:ManualMappingCuration	orcid:0000-0001-9121-8645		6/6/2025		
+cd4pan:conceptualVariable-Energy	Conceptual variable Energy	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration	orcid:0000-0001-9121-8643		6/6/2025	1	
+cd4pan:representiveVariable-Energy	Representive variable Energy	cdif:Concept_uses_Concept	cd4pan:conceptualVariable-Energy	Conceptual variable Energy	semapv:ManualMappingCuration	orcid:0000-0001-9121-8643		6/6/2025	1	
+cd4pan:conceptualVariable-Energy	Conceptual variable Energy	rdf:type	sidf:electronvolt	Conceptual variable Energy	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Intensity	Conceptual variable Intensity	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Tramsmission	Conceptual variable Transmission	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Reference	Conceptual variable Reference	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Fluorescence	Conceptual variable Fluorescence	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Mu-Tramsmission	Conceptual variable Mu Transsmission	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Mu-Reference	Conceptual variable Mu Reference	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Mu-Fluorescence	Conceptual variable Mu Fluorescence	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Normalised-Tramsmission	Conceptual variable Normalised Transsmission	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Normalised-Reference	Conceptual variable Normalised Reference	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Normalised-Fluorescence	Conceptual variable Normalised Fluorescence	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Facility	Conceptual variable Facility	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Instrument	Conceptual variable Instrument	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Monochromator	Conceptual variable Monochromator	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Sample	Conceptual variable Sample	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		
+cd4pan:conceptualVariable-Element	Conceptual variable Element	rdf:type	cdif:ConceptualVariable	ConceptualVariable	semapv:ManualMappingCuration			6/20/2025		

@@ -1,0 +1,39 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xas: <https://xas.org/dictionary/> .
+
+
+xas:xasDict a skos:ConceptScheme ;
+    dcterms:title "X-Ray Absorption Spectroscopy Dictionary" ;
+    dcterms:description "A SKOS vocabulary of X-ray Absorption Spectroscopy metadata." .
+
+xas:monochromatorEnergyConcept a skos:Concept ;
+    skos:inScheme xas:xasDict ;
+    skos:prefLabel "Monochromator Energy" ;
+    skos:definition "photon energy selected by the X-ray monochromator and delivered to the sample during an absorption scan; the incident X-ray photon energy impinging on the sample at any given point in the scan. This is the independent variable in an XAS scan.(ChatGPT)" .
+
+xas:incidentIntensityConcept a skos:Concept ;
+    skos:inScheme xas:xasDict ;
+    skos:prefLabel "Incidnent X-Ray intensity" ;
+    skos:definition "The measured X-ray flux hitting the sample at each monochromator energy setting. Measured by an ionization chamber (gas-filled detector) or photodiode placed before the sample. (ChatGPT)" .
+
+xas:transmittedIntensityConcept a skos:Concept ;
+    skos:inScheme xas:xasDict ;
+    skos:prefLabel "Transmitted X-Ray intensity" ;
+    skos:altLabel "itrans" ;
+    skos:definition "The measured X-ray flux transmitted through a sample (ChatGPT)" .
+
+xas:fluorescenceAbsorptionCoefficientConcept a skos:Concept ;
+    skos:inScheme xas:xasDict ;
+    skos:prefLabel "Fluorescence Absorption Coefficient" ;
+    skos:altLabel "mufluor" ;
+    skos:definition "X-ray absorption coefficient μ(E) inferred from the intensity of emitted fluorescence photons; the fluorescence yield (probability of emission) is proportional to the absorbed fraction of the incident photons. Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.(ChatGPT)." .
+
+xas:absorptionCoefficientConcept a skos:Concept ;
+    skos:inScheme xas:xasDict ;
+    skos:prefLabel "Absorption Coefficient" ;
+    skos:altLabel "mutrans" ;
+    skos:definition "X-ray absorption coefficient μ(E) calculated as the natural log the ratio of incident vs. tranmitted x-ray intensity, divided by the thickness of the sample.(ChatGPT)." .
+
+
+		

@@ -1,0 +1,211 @@
+{
+    "@id": "",
+    "@type": [""],
+    "name": "",
+    "additionalType": [""],
+    "description": "",
+    "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "",
+        "value": "",
+        "url": ""
+    },
+    "version": "",
+    "keywords": [""],
+    "url": "",
+    "inLanguage": "",
+    "dateModified": "",
+    "datePublished": "",
+    "license": [""],
+    "conditionsOfAccess": [""],
+    "creator": {
+        "@list": [
+            {
+                "@id": "",
+                "@type": "Person",
+                "name": "",
+                "alternateName": "",
+                "affiliation": {
+                    "@id": "",
+                    "@type": "",
+                    "name": "",
+                    "alternateName": "",
+                    "description": "",
+                    "identifier": "",
+                    "sameAs": [""]
+                },
+                "description": "",
+                "identifier": {
+                    "@type": "PropertyValue",
+                    "propertyID": "",
+                    "value": "",
+                    "url": ""
+                },
+                "sameAs": [""]
+            }
+        ]
+    },
+    "contributor": [""],
+    "publisher": {"@id": ""},
+    "provider": [
+        {
+            "@id": "",
+            "@type": "Person",
+            "name": "",
+            "alternateName": "",
+            "affiliation": {
+                "@id": "",
+                "@type": "",
+                "name": "",
+                "alternateName": "",
+                "description": "",
+                "identifier": "",
+                "sameAs": [""]
+            },
+            "description": "",
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "",
+                "value": "",
+                "url": ""
+            },
+            "sameAs": [""]
+        }
+    ],
+    "funding": [
+        {
+            "@type": "MonetaryGrant",
+            "identifier": "",
+            "name": "",
+            "funder": {"@id": ""}
+        }
+    ],
+    "temporalCoverage": "",
+    "spatialCoverage": {
+        "@type": "Place",
+        "name": [""],
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 0,
+            "longitude": 0
+        },
+        "geosparql:hasGeometry": {
+            "@type": "",
+            "geosparql:asWKT": {
+                "@type": "#wktLiteral",
+                "@value": ""
+            },
+            "geosparql:crs": {"@id": ""}
+        }
+    },
+    "distribution": [
+        {
+            "@type": "DataDownload",
+            "name": "",
+            "contentUrl": "",
+            "encodingFormat": [""],
+            "spdx:checksum": {
+                "spdx:algorithm": "",
+                "spdx:checksumValue": ""
+            },
+            "provider": [
+                {
+                    "@id": "",
+                    "@type": "Person",
+                    "name": "",
+                    "alternateName": "",
+                    "affiliation": {
+                        "@id": "",
+                        "@type": "",
+                        "name": "",
+                        "alternateName": "",
+                        "description": "",
+                        "identifier": "",
+                        "sameAs": [""]
+                    },
+                    "description": "",
+                    "identifier": {
+                        "@type": "PropertyValue",
+                        "propertyID": "",
+                        "value": "",
+                        "url": ""
+                    },
+                    "sameAs": [""]
+                }
+            ]
+        }
+    ],
+    "variableMeasured": [
+        {
+            "@type": "PropertyValue",
+            "@id": "",
+            "name": "",
+            "description": "",
+            "propertyID": [""],
+            "measurementTechnique": "",
+            "unitText": "",
+            "unitCode": "",
+            "minValue": 0,
+            "maxValue": 0,
+            "url": ""
+        }
+    ],
+    "relatedLink": [
+        {
+            "@type": "LinkRole",
+            "linkRelationship": "",
+            "target": {
+                "@type": "EntryPoint",
+                "encodingType": "",
+                "name": "",
+                "url": ""
+            }
+        }
+    ],
+    "publishingPrinciples": [""],
+    "subjectOf": {
+        "@type": "DigitalDocument",
+        "@id": "",
+        "about": {
+            "type": "DigitalDocument",
+            "url": ""
+        },
+        "dcterms:conformsTo": "ex:cdif_SDO_profile_uri",
+        "maintainer": {
+            "@id": "",
+            "@type": "Person",
+            "name": "",
+            "alternateName": "",
+            "affiliation": {
+                "@id": "",
+                "@type": "",
+                "name": "",
+                "alternateName": "",
+                "description": "",
+                "identifier": "",
+                "sameAs": [""]
+            },
+            "description": "",
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "",
+                "value": "",
+                "url": ""
+            },
+            "sameAs": [""]
+        },
+        "sdDatePublished": "",
+        "includedInDataCatalog": {
+            "@id": "",
+            "@type": "DataCatalog",
+            "name": "",
+            "url": "",
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "",
+                "value": "",
+                "url": ""
+            }
+        }
+    }
+}

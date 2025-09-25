@@ -1,0 +1,429 @@
+{
+    "@context": {
+        "@vocab": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "schema": "https://schema.org/",
+        "dcterms": "http://purl.org/dc/terms/",
+        "geosparql": "http://www.opengis.net/ont/geosparql#",
+        "spdx": "http://spdx.org/rdf/terms#",
+        "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+        "time": "http://www.w3.org/2006/time#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "xas": "https://xas.org/dictionary/"
+    },
+    "@graph": [
+        {
+            "@id": "xas:fe_c3d.001",
+            "@type": [
+                "schema:Dataset",
+                "schema:Product"
+            ],
+            "schema:name": "X-ray fluorescence spectra for K edge, Iron c3d",
+            "schema:description": "metadata example based on NEXUS NXxas file.",
+            "schema:identifier": "https://doi.org/10.xxxxx/fe_c3d001",
+            "schema:contributor": [
+                {
+                    "@type": "schema:Role",
+                    "schema:roleName": "Facility",
+                    "schema:contributor": {
+                        "@type": "schema:Organization",
+                        "@id": "https://ror.org/aps",
+                        "schema:name": "APS",
+                        "schema:identifier": "https://ror.org/aps"
+                    }
+                }
+            ],
+            "schema:license": ["To be FAIR must include license/usage constraint information"],
+            "schema:distribution": [
+                {
+                    "@type": [
+                        "schema:DataDownload",
+                        "PhysicalDataSet"
+                    ],
+                    "schema:contentUrl": "https://millenia.cars.aps.anl.gov/nxxas/MultiSpectrumFiles/FeXAS.nxs",
+                    "schema:description": "HDF5 file declared to conform with NEXUS NXxas application definition; the described data is one NEXUS entry in this file, which contains 26 total spectra, each as separate NEXUS entry",
+                    "spdx:checksum": {
+                        "@type": "spdx:Checksum",
+                        "spdx:algorithm": "spdx:checksumAlgorithm_md5",
+                        "spdx:checksumValue": "0BA77A348"
+                    },
+                    "schema:contentSize": "2.6 Mb",
+                    "schema:encodingFormat": ["application/x-hdf5"],
+                    "dcterms:conformsTo": [
+                        "nexus v2024.02",
+                        "NXxas"
+                    ],
+                    "allowsDuplicates": false,
+                    "isStructuredBy": {
+                        "@type": "DimensionalDataStructure",
+                        "has_DataStructureComponent": [
+                            {
+                                "@type": "DimensionComponent",
+                                "isDefinedBy_InstanceVariable": {"@id": "xas:monochromatorEnergy"},
+                                "has": {
+                                    "@type": "ValueMapping",
+                                    "cdifq:hdf5path": "Fe_c3d.001/instrument/monochromator/energy",
+                                    "cdifq:dimension": 1,
+                                    "cdifq:shape": [443]
+                                }
+                            },
+                            {
+                                "@type": "MeasureComponent",
+                                "isDefinedBy_InstanceVariable": {"@id": "xas:incidentIntensity"},
+                                "has": {
+                                    "@type": "ValueMapping",
+                                    "cdifq:hdf5path": "Fe_c3d.001/instrument/i0/data",
+                                    "cdifq:dimension": 1,
+                                    "cdifq:shape": [443]
+                                }
+                            },
+                            {
+                                "@type": "MeasureComponent",
+                                "isDefinedBy_InstanceVariable": {"@id": "xas:fluorescenceintensity"},
+                                "has": {
+                                    "@type": "ValueMapping",
+                                    "cdifq:hdf5path": "Fe_c3d.001/instrument/ifluor/data",
+                                    "cdifq:dimension": 1,
+                                    "cdifq:shape": [443]
+                                }
+                            },
+                            {
+                                "@type": "MeasureComponent",
+                                "isDefinedBy_InstanceVariable": {"@id": "xas:mufluorescence"},
+                                "has": {
+                                    "@type": "ValueMapping",
+                                    "cdifq:hdf5path": "Fe_c3d.001/data/mufluor",
+                                    "cdifq:dimension": 1,
+                                    "cdifq:shape": [443]
+                                }
+                            },
+                            {
+                                "@type": "WideDataStructure",
+                                "@id": "xas:fec3d001RawData",
+                                "cdifq:hdf5path": "Fe_c3d.001/scan/data",
+                                "cdifq:dimension": 2,
+                                "cdifq:shape": [
+                                    443,
+                                    35
+                                ],
+                                "schema:description": "this is the raw data in an array, represented here as a 35 column table with 443 rows, one for each step in the scan. The columns are described here as components in this wide data structure. In the hdf5 file, we only have column labels in a dataset at Fe_c3d.001/scan/column_labels. Use h5dump to get the column labels: 'energy', 'tscaler', 'i0', 'i1', 'i2', 'sum_outputcounts','sum_fe_ka', 'outputcounts_mca1', 'outputcounts_mca2', 'outputcounts_mca3', 'outputcounts_mca4', 'outputcounts_mca5','outputcounts_mca6', 'outputcounts_mca7', 'fe_ka_mca1', 'fe_ka_mca2', 'fe_ka_mca3', 'fe_ka_mca4', 'fe_ka_mca5','fe_ka_mca6', 'fe_ka_mca7', 'clock_mca1', 'clock_mca2', 'clock_mca3', 'clock_mca4', 'clock_mca5', 'clock_mca6', 'clock_mca7', 'dtfactor_mca1', 'dtfactor_mca2', 'dtfactor_mca3', 'dtfactor_mca4', 'dtfactor_mca5', 'dtfactor_mca6', 'dtfactor_mca7'.  These would all need to be described as instance_variables and defined as dataStureceComponents in the scan table, only the first one is included here for brevity (and lack of information...",
+                                "has_DataStructureComponent": [
+                                    {
+                                        "@type": "identifierComponent",
+                                        "isDefinedBy_RepresentedVariable": "xas:monochromatorEnergy",
+                                        "has_ValueMappingPosition": {
+                                            "@type": "ValueMappingPosition",
+                                            "column": 0
+                                        },
+                                        "cdi:name": "energy",
+                                        "schema:description": "note, only the first of the 35 column variables is described here..."
+                                    }
+                                ]
+                            }
+                        ],
+                        "allowsDuplicates": false
+                    }
+                }
+            ],
+            "schema:keywords": [
+                {
+                    "@type": "schema:DefinedTerm",
+                    "schema:name": "K-edge",
+                    "schema:termCode": "K",
+                    "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md"
+                },
+                {
+                    "@type": "schema:DefinedTerm",
+                    "schema:name": "Iron",
+                    "schema:termCode": "Fe",
+                    "schema:identifier": "http://sweetontology.net/matrElement/Iron",
+                    "schema:inDefinedTermSet": "http://sweetontology.net/matrElement"
+                }
+            ],
+            "prov:wasGeneratedBy": {
+                "@type": [
+                    "schema:Event",
+                    "xas:AnalysisEvent",
+                    "prov:Activity"
+                ],
+                "schema:identifier": "not defined",
+                "schema:startDate": "2020-08-12 04:34:49",
+                "prov:used": [
+                    {
+                        "@type": [
+                            "schema:Thing",
+                            "prov:Entity",
+                            "xas:Beamline"
+                        ],
+                        "schema:name": "13-ID-E",
+                        "schema:identifier": "https://instruments.org/beamline/2324",
+                        "schema:additionalProperty": [
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "xas:harmonic_rejection",
+                                "schema:name": "harmonic_rejection",
+                                "schema:value": "2 Si mirrors, 3 mrad"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": [
+                            "schema:Thing",
+                            "prov:Entity",
+                            "nxs:BaseClass/NXmonochromator"
+                        ],
+                        "schema:name": "Si 311",
+                        "schema:description": "have to pull the diffracting plane from  Fe_c3d.001/instrument/monochromator/crystal/reflection which is a three element array",
+                        "schema:additionalProperty": [
+                            {
+                                "@type": "schema:PropertyValue",
+                                "schema:propertyID": "nxs:Field/NXcrystal/d_spacing",
+                                "schema:value": "1.6375",
+                                "schema:unitText": "Angstroms"
+                            }
+                        ]
+                    },
+                    {
+                        "@type": [
+                            "schema:Thing",
+                            "prov:Entity",
+                            "MaterialSample",
+                            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                        ],
+                        "schema:description": "no information",
+                        "schema:name":"FE-c3d.001"
+                    },
+                    {
+                        "@type": [
+                            "schema:DefinedTerm",
+                            "prov:Entity"
+                        ],
+                        "schema:name": "X-Ray Absorption Spectroscopy",
+                        "schema:termCode": "XAS",
+                        "schema:identifier": "http://purl.org/pan-science/PaNET/PaNET01196",
+                        "schema:inDefinedTermSet": "http://purl.org/pan-science/PaNET/PaNET.owl"
+                    }
+                ],
+                "schema:location": {
+                    "@type": "schema:Place",
+                    "schema:additionalType": "nxs:Field/NXsource",
+                    "schema:identifier": "https://ror.org/aps",
+                    "schema:name": "APS",
+                    "schema:additionalProperty": [
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "nxs:Field/NXsource/energy",
+                            "schema:value": "7.00",
+                            "schema:unitText": "GeV"
+                        },
+                        {
+                            "@type": "schema:PropertyValue",
+                            "schema:propertyID": "nxs:Field/NXsource/type",
+                            "schema:value": "undulator 36mm, 66 poles"
+                        }
+                    ]
+                }
+            },
+            "schema:variableMeasured": [
+                {
+                    "@id": "xas:monochromatorEnergy",
+                    "@type": [
+                        "InstanceVariable",
+                        "schema:PropertyValue"
+                    ],
+                    "schema:name": "energy",
+                    "schame:alternateName": [
+                        "Monochromator energy",
+                        "mono energy"
+                    ],
+                    "schema:description": "add definition of what this variable is about (maybe even an iAdopt description)",
+                    "schema:propertyID": "xas:monochromatorEnergyConcept",
+                    "schema:unitText": "eV",
+                    "schema:minValue": 7052,
+                    "schema:maxValue": 7380.83,
+                    "identifier": "should be URI from nexusFormat organization",
+                    "physicalDataType": {
+                        "@type": "ControlledVocabularyEntry",
+                        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+                    },
+                    "simpleUnitOfMeasure": "eV",
+                    "uses": "xas:monochromatorEnergyConcept",
+                    "name": {
+                        "@type": "ObjectName",
+                        "name": "energy"
+                    },
+                    "displayLabel": {
+                        "@type": "LabelForDisplay",
+                        "locationVariant": {
+                            "@type": "ControlledVocabularyEntry",
+                            "entryValue": "monochromator energy"
+                        }
+                    }
+                },
+                {
+                    "@id": "xas:incidentIntensity",
+                    "@type": [
+                        "InstanceVariable",
+                        "schema:PropertyValue"
+                    ],
+                    "schema:name": "i0",
+                    "schema:alternateName": "Monitor intensity",
+                    "schema:description": "measured incident x-ray intensity",
+                    "schema:propertyID": "xas:incidentIntensityConcept",
+                    "schema:unitText": "counts",
+                    "identifier": "should be URI from nexusFormat organization",
+                    "physicalDataType": {
+                        "@type": "ControlledVocabularyEntry",
+                        "entryValue": "https://www.w3.org/TR/xmlschema-2/#positiveInteger"
+                    },
+                    "uses": "xas:incidentIntensityConcept",
+                    "name": {
+                        "@type": "ObjectName",
+                        "name": "i0"
+                    },
+                    "displayLabel": {
+                        "@type": "LabelForDisplay",
+                        "locationVariant": {
+                            "@type": "ControlledVocabularyEntry",
+                            "entryValue": "monitor intensity"
+                        }
+                    }
+                },
+                {
+                    "@id": "xas:fluorescenceIntensity",
+                    "@type": [
+                        "InstanceVariable",
+                        "schema:PropertyValue"
+                    ],
+                    "schema:description": "measured fluoresnce intensity",
+                    "schema:propertyID": "xas:fluorescenceIntensityConcept",
+                    "schema:unitText": "counts",
+                    "schema:name": "ifluor",
+                    "schema:alternateName": "fluorescence intensity",
+                    "physicalDataType": {
+                        "@type": "ControlledVocabularyEntry",
+                        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+                    },
+                    "uses": "xas:fluorescenceIntensityConcept",
+                    "identifier": "should be URI from nexusFormat organization",
+                    "name": {
+                        "@type": "ObjectName",
+                        "name": "ifluor"
+                    },
+                    "displayLabel": {
+                        "@type": "LabelForDisplay",
+                        "locationVariant": {
+                            "@type": "ControlledVocabularyEntry",
+                            "entryValue": "fluorescence intensity"
+                        }
+                    }
+                },
+                {
+                    "@id": "xas:mufluorescence",
+                    "@type": [
+                        "InstanceVariable",
+                        "schema:PropertyValue"
+                    ],
+                    "schema:description": "The absorption coefficient μ(E) as measured indirectly from the fluorescent X-rays emitted by the sample instead of from the transmitted beam. (ChatGPT)",
+                    "schema:propertyID": "xas:fluorescenceAbsorptioncoefficientConcept",
+                    "schema:unitText": "unitless",
+                    "schema:name": "mufluor",
+                    "schema:alternateName": "mu fluorescence",
+                    "uses": "xas:fluorescenceAbsorptioncoefficientConcept",
+                    "physicalDataType": {
+                        "@type": "ControlledVocabularyEntry",
+                        "entryValue": "https://www.w3.org/TR/xmlschema-2/#decimal"
+                    },
+                    "identifier": "should be URI from nexusFormat organization",
+                    "name": {
+                        "@type": "ObjectName",
+                        "name": "mufluor"
+                    },
+                    "displayLabel": {
+                        "@type": "LabelForDisplay",
+                        "locationVariant": {
+                            "@type": "ControlledVocabularyEntry",
+                            "entryValue": "mu(μ) fluorescence"
+                        }
+                    }
+                }
+            ],
+            "schema:relatedLink": [
+                {
+                    "@type": "LinkRole",
+                    "linkRelationship": "projectProposal",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "encodingType": "text/html",
+                        "name": "name of the proposal",
+                        "url": "https://example.org/locatorForProposalText",
+                        "identifier": "identifier for proposal, could used text or schema:PropertyValue pattern"
+                    }
+                }
+            ],
+            "schema:subjectOf": {
+                "@id": "xas:metadata.fe_c3d.001",
+                "@type": "schema:Dataset",
+                "schema:dateModified": "2025-08-20",
+                "schema:creator": [
+                    {
+                        "@id": "https://ada.org/person/3479",
+                        "@type": "schema:Person",
+                        "schema:name": "Richard, Stephen M.",
+                        "schema:identifier": "https://orcid.org/0000-0002-7933-2154",
+                        "schema:email": "smrTucson@email.org"
+                    }
+                ],
+                "schema:about": {"@id": "xas:fe_c3d.001"},
+                "schema:description": "metadata about documentation for fe_c3d.001",
+                "dcterms:conformsTo": [
+                    {"@id": "CDIF_basic_1.0"},
+                    {"@id": "xas:nxxasCDIF"}
+                ]
+            }
+        },
+        {
+            "@id": "#xasDict",
+            "@type": "skos:ConceptScheme",
+            "dcterms:title": "X-Ray Absorption Spectroscopy Dictionary",
+            "dcterms:description": "A SKOS vocabulary of X-ray Absorption Spectroscopy metadata."
+        },
+        {
+            "@id": "xas:monochromatorEnergyConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Monochromator Energy",
+            "skos:definition": "photon energy selected by the X-ray monochromator and delivered to the sample during an absorption scan; the incident X-ray photon energy impinging on the sample at any given point in the scan. This is the independent variable in an XAS scan.(ChatGPT)"
+        },
+        {
+            "@id": "xas:incidentIntensityConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Incidnent X-Ray intensity",
+            "skos:definition": "The measured X-ray flux hitting the sample at each monochromator energy setting. Measured by an ionization chamber (gas-filled detector) or photodiode placed before the sample. (ChatGPT)"
+        },
+        {
+            "@id": "xas:transmittedIntensityConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Transmitted X-Ray intensity",
+            "skos:altLabel": "itrans",
+            "skos:definition": "The measured X-ray flux transmitted through a sample (ChatGPT)"
+        },
+        {
+            "@id": "xas:fluorescenceAbsorptionCoefficientConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Fluorescence Absorption Coefficient",
+            "skos:altLabel": "mufluor",
+            "skos:definition": "X-ray absorption coefficient μ(E) inferred from the intensity of emitted fluorescence photons; the fluorescence yield (probability of emission) is proportional to the absorbed fraction of the incident photons. Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.(ChatGPT)."
+        },
+        {
+            "@id": "xas:absorptionCoefficientConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Absorption Coefficient",
+            "skos:altLabel": "mutrans",
+            "skos:definition": "X-ray absorption coefficient μ(E) calculated as the natural log the ratio of incident vs. tranmitted x-ray intensity, divided by the thickness of the sample.(ChatGPT)."
+        }
+    ]
+}

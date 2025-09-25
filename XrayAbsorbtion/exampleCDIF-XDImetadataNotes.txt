@@ -1,0 +1,20 @@
+Notes:
+
+DDICDIModels section contains DDI-CDI logical record description for the wide data in the xdi file. it is in the distribution section because is specifice to a particular distribution/representation of the dataset
+
+the instanceVariables are also typed as schema:propertyValue and presented in the schema:variableMeasured section.  If a dataset is avaialble in XDI, NEXUS or other multiple formats, I'm assuming the same variables would be implemented in the data, and those would be different distributions that all point to the same variables, which are needed at the discovery level.
+
+the header information from the XDI file is in various places in the schema.org
+Facility is a contributor, also in the schama:Event analysis event section using schema:location for the analysis event
+measuremntTechnique has XAS
+
+element and edge are keywords.  there are probably other keywords that should be included. 
+
+
+I put a schema:Event as the value for prov:wasGeneratedBy, with additional type xas:AnalysisEvent (invented) to contain the information about the analysis event--instrument, facility, sample, environmental conditions.  XDI spec defines a list of parameters in their sample namespace; some apply to the sample, some apply to the experiment environment.
+
+I created/invented an 'xas:instrument'  metadata element to contain the information about beamline, detector, monochrometer.  The xas:xdiCDIF profile (in the schema:subjectOf/dcterms:conformsTo section would define the instrument properties expected, which are defined in the XDI spec. Different analytical techniques would have different instrument properties.  There's likely some existing instrument vocabulary/schema we could use instead of inventing something. 
+
+elements without a namespace prefix are assumed to be DDI, and defined in the https://docs.ddialliance.org/DDI-CDI/1.0/model/encoding/json-ld/ddi-cdi.jsonld context document. I didn't delve into this.  
+
+the sample is documented as the schema:mainEntity of the analysis event; alternative would be mainEntity of the dataset (or both?). 
