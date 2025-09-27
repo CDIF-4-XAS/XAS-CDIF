@@ -59,6 +59,7 @@
                             {
                                 "@type": "DimensionComponent",
                                 "isDefinedBy_InstanceVariable": {"@id": "xas:Monochromator_Energy_Variable"},
+                                "schema:description":"apparently the energies on this dimension are defined in three regions :[{Start, Stop, Step, K-space, Time},{-60.000, -10.000, 2.500, False, 2.00},{-10.000, 19.997, 0.100, False, 2.00},{2.291, 8.500, 0.050,True, 2.00}] from hdf5 dump",
                                 "has": {
                                     "@type": "ValueMapping",
                                     "cdifq:hdf5path": "Fe_c3d.001/instrument/monochromator/energy",
@@ -443,7 +444,7 @@
                         "@type": [
                             "schema:Thing",
                             "prov:Entity",
-                            "nxs:BaseClass/NXmonochromator"
+                            "xas:Monochromator"
                         ],
                         "schema:name": "Si 311",
                         "schema:description": "have to pull the diffracting plane from  Fe_c3d.001/instrument/monochromator/crystal/reflection which is a three element array",
