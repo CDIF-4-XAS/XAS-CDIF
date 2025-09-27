@@ -1,9 +1,7 @@
 {
   "@context": [
     "https://docs.ddialliance.org/DDI-CDI/1.0/model/encoding/json-ld/ddi-cdi.jsonld",
-    {
-      "skos": "http://www.w3.org/2004/02/skos/core#"
-    }
+    {"skos": "http://www.w3.org/2004/02/skos/core#"}
   ],
   "DDICDIModels": [
     {
@@ -69,48 +67,36 @@
       "@id": "#valueMappingPosition-idno",
       "@type": "ValueMappingPosition",
       "value": 0,
-      "indexes": [
-        "#valueMapping-idno"
-      ]
+      "indexes": ["#valueMapping-idno"]
     },
     {
       "@id": "#valueMappingPosition-pweight",
       "@type": "ValueMappingPosition",
       "value": 1,
-      "indexes": [
-        "#valueMapping-pweight"
-      ]
+      "indexes": ["#valueMapping-pweight"]
     },
     {
       "@id": "#valueMappingPosition-cntry",
       "@type": "ValueMappingPosition",
       "value": 2,
-      "indexes": [
-        "#valueMapping-cntry"
-      ]
+      "indexes": ["#valueMapping-cntry"]
     },
     {
       "@id": "#valueMappingPosition-proddate",
       "@type": "ValueMappingPosition",
       "value": 3,
-      "indexes": [
-        "#valueMapping-proddate"
-      ]
+      "indexes": ["#valueMapping-proddate"]
     },
     {
       "@id": "#valueMappingPosition-health",
       "@type": "ValueMappingPosition",
       "value": 4,
-      "indexes": [
-        "#valueMapping-health"
-      ]
+      "indexes": ["#valueMapping-health"]
     },
     {
       "@id": "#dataStore",
       "@type": "DataStore",
-      "has_LogicalRecord": [
-        "#logicalRecord"
-      ]
+      "has_LogicalRecord": ["#logicalRecord"]
     },
     {
       "@id": "#wideDataSet-7876043b-07ba-4177-8651-24da35363488",
@@ -172,9 +158,7 @@
         }
       },
       "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
-      "has_ValueMapping": [
-        "#valueMapping-idno"
-      ],
+      "has_ValueMapping": ["#valueMapping-idno"],
       "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-idno"
     },
     {
@@ -196,9 +180,7 @@
         }
       },
       "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
-      "has_ValueMapping": [
-        "#valueMapping-pweight"
-      ],
+      "has_ValueMapping": ["#valueMapping-pweight"],
       "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-pweight"
     },
     {
@@ -220,9 +202,7 @@
         }
       },
       "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
-      "has_ValueMapping": [
-        "#valueMapping-cntry"
-      ],
+      "has_ValueMapping": ["#valueMapping-cntry"],
       "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-cntry"
     },
     {
@@ -244,9 +224,7 @@
         }
       },
       "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
-      "has_ValueMapping": [
-        "#valueMapping-proddate"
-      ],
+      "has_ValueMapping": ["#valueMapping-proddate"],
       "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-proddate"
     },
     {
@@ -268,9 +246,7 @@
         }
       },
       "has_PhysicalSegmentLayout": "#physicalSegmentLayout",
-      "has_ValueMapping": [
-        "#valueMapping-health"
-      ],
+      "has_ValueMapping": ["#valueMapping-health"],
       "takesSubstantiveValuesFrom_SubstantiveValueDomain": "#substantiveValueDomain-health"
     },
     {

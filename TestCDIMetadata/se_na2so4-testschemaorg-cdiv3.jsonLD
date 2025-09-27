@@ -9,7 +9,7 @@
             "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
             "time": "http://www.w3.org/2006/time#",
             "skos": "http://www.w3.org/2004/02/skos/core#",
-            "xas": "https://xas.org/dictionary/"
+            "xas": "http://cdi4exas.org/"
         }
     ],
     "@graph": [
@@ -51,7 +51,7 @@
                         "has_DataStructureComponent": [
                             {
                                 "@type": "IdentifierComponent",
-                                "isDefinedBy_InstanceVariable": {"@id": "xas:monochromatorEnergy"},
+                                "isDefinedBy_InstanceVariable": {"@id": "xas:monochromatorEnergyVariable"},
                                 "has": {
                                     "@type": "ValueMapping",
                                     "hasIndex": 1,
@@ -60,7 +60,7 @@
                             },
                             {
                                 "@type": "MeasureComponent",
-                                "isDefinedBy_InstanceVariable": {"@id": "xas:incidentIntensity"},
+                                "isDefinedBy_InstanceVariable": {"@id": "xas:incidentIntensityVariable"},
                                 "has": {
                                     "@type": "ValueMapping",
                                     "hasIndex": 3,
@@ -69,7 +69,7 @@
                             },
                             {
                                 "@type": "MeasureComponent",
-                                "isDefinedBy_InstanceVariable": {"@id": "xas:transmittedIntensity"},
+                                "isDefinedBy_InstanceVariable": {"@id": "xas:transmittedIntensityVariable"},
                                 "has": {
                                     "@type": "ValueMapping",
                                     "hasIndex": 2,
@@ -84,7 +84,9 @@
                         "headerRowCount": 27,
                         "skipInitialSpace": true,
                         "isDelimited": false,
-                        "isFixedWidth": true
+                        "isFixedWidth": true,
+                        "cdifq:nColumns":3,
+                        "cdifq:nRows":469 
                     }
                 }
             ],
@@ -228,12 +230,12 @@
                         },
                         {
                             "@type": "schema:PropertyValue",
-                            "schema:propertyID": {"@id": "xas:stoichiometry"},
+                            "schema:propertyID": {"@id": "xas:chemical_composition"},
                             "schema:value": "Na2SeO4"
                         },
                         {
                             "@type": "schema:PropertyValue",
-                            "schema:propertyID": {"@id": "xas:samplePreparation"},
+                            "schema:propertyID": {"@id": "xas:sample_preparation"},
                             "schema:value": "powder on tape, 6 layers"
                         }
                     ]
@@ -241,54 +243,54 @@
             },
             "schema:variableMeasured": [
                 {
-                    "@id": "xas:monochromatorEnergy",
+                    "@id": "xas:monochromatorEnergyVariable",
                     "@type": [
                         "InstanceVariable",
                         "schema:PropertyValue"
                     ],
                     "schema:name": "energy",
                     "schame:alternateName": "Monochromator energy",
-                    "schema:description": "missing, definition of what this variable is about (maybe even an iAdopt description",
-                    "schema:propertyID": {"@id": "xas:monochromatorEnergyConcept"},
+                    "schema:description": "The energy selected by the X-ray monochromator and delivered to the sample during an absorption scan.",
+                    "schema:propertyID": {"@id": "xas:Monochromator_Energy"},
                     "schema:unitText": "eV",
                     "identifier": "should be URI from nexusFormat organization",
                     "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
                     "simpleUnitOfMeasure": "eV",
-                    "uses": "xas:monochromatorEnergyConcept",
+                    "uses": "xas:Monochromator_Energy",
                     "name": "energy",
                     "displayLabel": "monochromator energy"
                 },
                 {
-                    "@id": "xas:incidentIntensity",
+                    "@id": "xas:incidentIntensityVariable",
                     "@type": [
                         "InstanceVariable",
                         "schema:PropertyValue"
                     ],
                     "schema:name": "i0",
                     "schema:alternateName": "Monitor intensity",
-                    "schema:description": "missing, definition of what this variable is about (maybe even an iAdopt description)",
-                    "schema:propertyID": {"@id": "xas:incidentIntensityConcept"},
+                    "schema:description": "The measured X-ray intensity before it interacts with the sample. ",
+                    "schema:propertyID": {"@id": "xas:Incident_Intensity"},
                     "schema:unitText": "counts",
                     "identifier": "should be URI from nexusFormat organization",
                     "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-                    "uses": "xas:incidentIntensityConcept",
+                    "uses": "xas:Incident_Intensity",
                     "name": "i0",
                     "displayLabel": "monitor intensity"
                 },
                 {
-                    "@id": "xas:transmittedIntensity",
+                    "@id": "xas:transmittedIntensityVariable",
                     "@type": [
                         "InstanceVariable",
                         "schema:PropertyValue"
                     ],
                     "schema:description": "missing, definition of what this variable is about (maybe even an iAdopt description",
-                    "schema:propertyID": {"@id": "xas:transmittedIntensityConcept"},
+                    "schema:propertyID": {"@id": "xas:Transmitted_Intensity"},
                     "schema:unitText": "counts",
                     "schema:name": "itrans",
                     "schema:alternateName": "transmission intensity",
                     "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
                     "identifier": "should be URI from nexusFormat organization",
-                    "uses": "xas:transmittedIntensityConcept",
+                    "uses": "xas:Transmitted_Intensity",
                     "name": "itrans",
                     "displayLabel": "transmission intensity"
                 }
@@ -321,21 +323,21 @@
             "dcterms:description": "A SKOS vocabulary of X-ray Absorption Spectroscopy metadata."
         },
         {
-            "@id": "xas:monochromatorEnergyConcept",
+            "@id": "xas:Monochromator_Energy",
             "@type": "skos:Concept",
             "skos:inScheme": {"@id": "#xasDict"},
             "skos:prefLabel": "Monochromator Energy",
             "skos:definition": "photon energy selected by the X-ray monochromator and delivered to the sample during an absorption scan; the incident X-ray photon energy impinging on the sample at any given point in the scan. This is the independent variable in an XAS scan.(ChatGPT)"
         },
         {
-            "@id": "xas:incidentIntensityConcept",
+            "@id": "xas:Incident_Intensity",
             "@type": "skos:Concept",
             "skos:inScheme": {"@id": "#xasDict"},
             "skos:prefLabel": "Incidnent X-Ray intensity",
             "skos:definition": "The measured X-ray flux hitting the sample at each monochromator energy setting. Measured by an ionization chamber (gas-filled detector) or photodiode placed before the sample. (ChatGPT)"
         },
         {
-            "@id": "xas:transmittedIntensityConcept",
+            "@id": "xas:Transmitted_Intensity",
             "@type": "skos:Concept",
             "skos:inScheme": {"@id": "#xasDict"},
             "skos:prefLabel": "Transmitted X-Ray intensity",
@@ -343,7 +345,7 @@
             "skos:definition": "The measured X-ray flux transmitted through a sample (ChatGPT)"
         },
         {
-            "@id": "xas:fluorescenceAbsorptionCoefficientConcept",
+            "@id": "xas:Fluorescence_Absorption_Coefficient",
             "@type": "skos:Concept",
             "skos:inScheme": {"@id": "#xasDict"},
             "skos:prefLabel": "Fluorescence Absorption Coefficient",
@@ -351,7 +353,7 @@
             "skos:definition": "X-ray absorption coefficient μ(E) inferred from the intensity of emitted fluorescence photons; the fluorescence yield (probability of emission) is proportional to the absorbed fraction of the incident photons. Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.(ChatGPT)."
         },
         {
-            "@id": "xas:absorptionCoefficientConcept",
+            "@id": "xas:Absorption_Coefficient",
             "@type": "skos:Concept",
             "skos:inScheme": {"@id": "#xasDict"},
             "skos:prefLabel": "Absorption Coefficient",
