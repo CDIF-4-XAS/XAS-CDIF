@@ -59,7 +59,7 @@
                             {
                                 "@type": "DimensionComponent",
                                 "isDefinedBy_InstanceVariable": {"@id": "xas:Monochromator_Energy_Variable"},
-                                "schema:description":"apparently the energies on this dimension are defined in three regions :[{Start, Stop, Step, K-space, Time},{-60.000, -10.000, 2.500, False, 2.00},{-10.000, 19.997, 0.100, False, 2.00},{2.291, 8.500, 0.050,True, 2.00}] from hdf5 dump",
+                                "schema:description": "apparently the energies on this dimension are defined in three regions :[{Start, Stop, Step, K-space, Time},{-60.000, -10.000, 2.500, False, 2.00},{-10.000, 19.997, 0.100, False, 2.00},{2.291, 8.500, 0.050,True, 2.00}] (from hdf5 dump), for a total 443 samples",
                                 "has": {
                                     "@type": "ValueMapping",
                                     "cdifq:hdf5path": "Fe_c3d.001/instrument/monochromator/energy",
@@ -100,7 +100,7 @@
                                     "@type": "ValueMapping",
                                     "cdifq:hdf5path": "Fe_c3d.001/scan/data"
                                 },
-                                "schema:description": "this is the raw data in an array, represented here as a 35 column table with 443 rows, one for each step in the scan. The columns are described here as components in this wide data structure. In the hdf5 file, we only have column labels in a dataset at Fe_c3d.001/scan/column_labels. Use h5dump to get the column labels, don't have instance varaiables, datatypes, or definitions for these...",
+                                "schema:description": "this is the raw data in an array, represented here as a 35 column table with 443 rows, one for each step in the scan. The columns are described here as components in this wide data structure. In the hdf5 file, we only have column labels in a dataset at Fe_c3d.001/scan/column_labels. Use h5dump to get the column labels, don't have instance varaiables, datatypes, or definitions for these... Make MeasureComponents by default.",
                                 "has_DataStructureComponent": [
                                     {
                                         "@type": "identifierComponent",
@@ -399,6 +399,13 @@
                     }
                 }
             ],
+            "schema:measurementTechnique": {
+                "@type": "schema:DefinedTerm",
+                "schema:name": "X-Ray Absorption Spectroscopy",
+                "schema:termCode": "XAS",
+                "schema:identifier": "http://purl.org/pan-science/PaNET/PaNET01196",
+                "schema:inDefinedTermSet": "http://purl.org/pan-science/PaNET/PaNET.owl"
+            },
             "schema:keywords": [
                 {
                     "@type": "schema:DefinedTerm",
@@ -451,7 +458,7 @@
                         "schema:additionalProperty": [
                             {
                                 "@type": "schema:PropertyValue",
-                                "schema:propertyID": "nxs:Field/NXcrystal/d_spacing",
+                                "schema:propertyID": {"@id": "xas:d_spacing"},
                                 "schema:value": "1.6375",
                                 "schema:unitText": "Angstroms"
                             }
@@ -479,20 +486,22 @@
                     }
                 ],
                 "schema:location": {
-                    "@type": "schema:Place",
-                    "schema:additionalType": "nxs:Field/NXsource",
+                    "@type": [
+                        "schema:Place",
+                        "xas:Facility"
+                    ],
                     "schema:identifier": "https://ror.org/aps",
                     "schema:name": "APS",
                     "schema:additionalProperty": [
                         {
                             "@type": "schema:PropertyValue",
-                            "schema:propertyID": "nxs:Field/NXsource/energy",
+                            "schema:propertyID": {"@id": "xas:facility_energy"},
                             "schema:value": "7.00",
                             "schema:unitText": "GeV"
                         },
                         {
                             "@type": "schema:PropertyValue",
-                            "schema:propertyID": "nxs:Field/NXsource/type",
+                            "schema:propertyID": {"@id": "xas:xray_source_type"},
                             "schema:value": "undulator 36mm, 66 poles"
                         }
                     ]

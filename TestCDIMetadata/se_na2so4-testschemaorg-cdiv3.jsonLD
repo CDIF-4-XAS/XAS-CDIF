@@ -115,14 +115,17 @@
             "prov:wasGeneratedBy": {
                 "@type": [
                     "Event",
-                    "xas:AnalysisEvent"
+                    "xas:Analysis_Event"
                 ],
                 "schema:identifier": "20241111_DSC_NU_OREX-803224-0_1",
                 "schema:startDate": "2008-04-10T21:58:50",
-                "xas:instrument": [
+                "prov:used": [
                     {
-                        "@type": "schema:Thing",
-                        "schema:additionalType": "xas:Beamline",
+                        "@type": [
+                            "schema:Thing",
+                            "prov:Entity",
+                            "xas:Beamline"
+                        ],
                         "schema:name": "13-BM-D",
                         "schema:identifier": "should have a registry with URIs",
                         "schema:additionalProperty": [
@@ -146,8 +149,7 @@
                         ]
                     },
                     {
-                        "@type": "schema:Thing",
-                        "schema:additionalType": "xas:Monochromator",
+                        "@type": ["schema:Thing", "xas:Monochromator"],
                         "schema:name": "Si 111",
                         "schema:additionalProperty": [
                             {
@@ -159,21 +161,15 @@
                         ]
                     },
                     {
+                        "@id":"xas:Detector10cmN2",
                         "@type": "schema:Thing",
                         "schema:additionalType": "xas:Detector",
                         "schema:additionalProperty": [
                             {
                                 "@type": "schema:PropertyValue",
-                                "schema:propertyID": {"@id": "xas:detector.i0"},
-                                "schema:name": "detector mode i0",
-                                "schema:alternateName": "incident flux measurement method",
-                                "schema:value": "10cm  N2"
-                            },
-                            {
-                                "@type": "schema:PropertyValue",
-                                "schema:propertyID": {"@id": "xas:detector.it"},
-                                "schema:name": "detector mode it",
-                                "schema:alternateName": "transmitted flux measurement method",
+                                "schema:propertyID": {"@id": "xas:flux_measure_method"},
+                                "schema:name": "flux measurement method",
+                                "schema:alternateName": "detector mode",
                                 "schema:value": "10cm  N2"
                             }
                         ]
@@ -195,20 +191,19 @@
                     }
                 ],
                 "schema:location": {
-                    "@type": "schema:Place",
-                    "schema:additionalType": "xas:Facility",
+                    "@type": ["schema:Place", "xas:Facility"],
                     "schema:identifier": "https://ror.org/aps",
                     "schema:name": "APS",
                     "schema:additionalProperty": [
                         {
                             "@type": "schema:PropertyValue",
-                            "schema:propertyID": {"@id": "xas:energy"},
+                            "schema:propertyID": {"@id": "xas:facility_energy"},
                             "schema:value": "7.00",
                             "schema:unitText": "GeV"
                         },
                         {
                             "@type": "schema:PropertyValue",
-                            "schema:propertyID": {"@id": "xas:xray_source"},
+                            "schema:propertyID": {"@id": "xas:xray_source_type"},
                             "schema:value": "APS bending magnet"
                         }
                     ]
@@ -221,7 +216,7 @@
                     ],
                     "schema:name": "Na2SeO4",
                     "schema:description": "physical properties of sample: ph, eh, volume, porosity, density, concentration, resistivity, viscosity, crystal structure, opacity from xdi list...",
-                    "schema:aditionalProperty": [
+                    "schema:additionalProperty": [
                         {
                             "@type": "schema:PropertyValue",
                             "schema:propertyID": {"@id": "xas:porosity"},
@@ -271,6 +266,7 @@
                     "schema:description": "The measured X-ray intensity before it interacts with the sample. ",
                     "schema:propertyID": {"@id": "xas:Incident_Intensity"},
                     "schema:unitText": "counts",
+                    "schema:measurementTechnique":{"@id":"xas:Detector10cmN2"},
                     "identifier": "should be URI from nexusFormat organization",
                     "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
                     "uses": "xas:Incident_Intensity",
@@ -288,6 +284,7 @@
                     "schema:unitText": "counts",
                     "schema:name": "itrans",
                     "schema:alternateName": "transmission intensity",
+                    "schema:measurementTechnique":{"@id":"xas:Detector10cmN2"},
                     "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
                     "identifier": "should be URI from nexusFormat organization",
                     "uses": "xas:Transmitted_Intensity",
@@ -333,8 +330,8 @@
             "@id": "xas:Incident_Intensity",
             "@type": "skos:Concept",
             "skos:inScheme": {"@id": "#xasDict"},
-            "skos:prefLabel": "Incidnent X-Ray intensity",
-            "skos:definition": "The measured X-ray flux hitting the sample at each monochromator energy setting. Measured by an ionization chamber (gas-filled detector) or photodiode placed before the sample. (ChatGPT)"
+            "skos:prefLabel": "Incident X-Ray intensity",
+            "skos:definition": "The measured X-ray energy hitting the sample at each monochromator energy setting. Measured by an ionization chamber (gas-filled detector) or photodiode placed before the sample. (ChatGPT)"
         },
         {
             "@id": "xas:Transmitted_Intensity",
@@ -342,7 +339,7 @@
             "skos:inScheme": {"@id": "#xasDict"},
             "skos:prefLabel": "Transmitted X-Ray intensity",
             "skos:altLabel": "itrans",
-            "skos:definition": "The measured X-ray flux transmitted through a sample (ChatGPT)"
+            "skos:definition": "The measured X-ray energy transmitted through a sample (ChatGPT)"
         },
         {
             "@id": "xas:Fluorescence_Absorption_Coefficient",
