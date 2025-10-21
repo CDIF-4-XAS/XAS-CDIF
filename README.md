@@ -14,7 +14,7 @@ Framework (CDIF) recommended standards:
    document provides an overview for the mapping exercise.
    (`CDIF4XAS_Mappings_Intro.pdf`)
 
-2. XAFS Data Interchange (XDI) Format Mapping to CDIF: this document
+2. XAS Data Interchange (XDI) Format Mapping to CDIF: this document
    shows how the different metadata fields in an XDI file are mapped
    into Schema.org per the CDIF recommendations.
    (`XDISpec-FieldsCDIF-Schema.orgMapping.docx`)
@@ -24,7 +24,7 @@ Framework (CDIF) recommended standards:
    metadata.  (`se_na2so4-testschemaorg-cdiv3.jsonLD`)
 
 4. Input XDI file: this is the XDI file used as the basis of the
-   JSON-LD exammple in 3.  (`se_na2so4_rt.xdi`)
+   JSON-LD example in 3.  (`se_na2so4_rt.xdi`)
 
 5. Mapping Spreadsheet for HDF5/NeXus/NXxas: This spreadsheet
    describes the mapping from HDF5 files created according to the
