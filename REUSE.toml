@@ -1,0 +1,32 @@
+version = 1
+
+[[annotations]]
+path = "CDIF4XAS_Mappings_Intro_V1-FINAL_TEMPLATE.docx.pdf"
+SPDX-FileCopyrightText = "2025 see Authors in the document"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+
+[[annotations]]
+path = "README.md"
+SPDX-FileCopyrightText = "NONE"
+SPDX-License-Identifier = "CC0-1.0"
+
+
+[[annotations]]
+path = [
+    "se_na2so4_rt.xdi",
+]
+SPDX-FileCopyrightText = "2025 XDI Working Group"
+SPDX-License-Identifier = "CC0-1.0"
+
+
+[[annotations]]
+path = [
+    "XDISpec-FieldsCDIF-Schema.orgMapping.docx",
+    "se_na2so4-testschemaorg-cdiv3.jsonLD",
+    "XAS-CDIFImplementation.xlsx",
+    "XAS_Glossary.xlsx",
+    "XAS_Glossary_SKOS.json",
+]
+SPDX-FileCopyrightText = "2025 World Fair CDIF working group"
+SPDX-License-Identifier = "CC0-1.0"
