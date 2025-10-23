@@ -33,7 +33,7 @@ Framework (CDIF) recommended standards:
 
 6. XAS Glossary Spreadsheet: this spreadsheet provides definitions and
    other information for a draft community glossary to support this
-   mapping exercise.  (`XAS_Glossary.xslx`)
+   mapping exercise.  (`XAS_Glossary.xlsx`)
 
 7. XAS Glossary in SKOS: this files provides a machine-actionable
    version of the community glossary, to serve as an example of how
