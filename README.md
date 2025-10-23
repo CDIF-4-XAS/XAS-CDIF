@@ -12,7 +12,7 @@ Framework (CDIF) recommended standards:
 
 1. "CDIF-4-XAS: Mappings from Community Standards to CDIF": this
    document provides an overview for the mapping exercise.
-   (`CDIF4XAS_Mappings_Intro.pdf`)
+   (`CDIF4XAS_Mappings_Intro_V1-FINAL_TEMPLATE.docx.pdf`)
 
 2. XAS Data Interchange (XDI) Format Mapping to CDIF: this document
    shows how the different metadata fields in an XDI file are mapped
