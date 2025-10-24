@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17421916.svg)](https://doi.org/10.5281/zenodo.17421916)
+
 # Semantic description of XAS community standards using CDIF profile
 
 This repository provides mapping of XAS community standards to the
