@@ -1,9 +1,12 @@
 # Semantic description of XAS community standards using CDIF profile
 
-This repository provides mapping of XAS community standards to CDIF.
-Version 1.0 corresponds to the deliverable “D2: Semantic description
-of at least two XAS community standards using a CDIF profile
-(XAS-CDIF)” of the CDIF-4-XAS project.
+This repository provides mapping of XAS community standards to the
+[Cross-Domain Interoperability Framework
+(CDIF)](https://cdif.codata.org/).  Version 1.0 corresponds to the
+deliverable “D2: Semantic description of at least two XAS community
+standards using a CDIF profile (XAS-CDIF)” of the
+[CDIF-4-XAS](https://oscars-project.eu/projects/cdif-4-xas-describing-x-ray-spectroscopy-data-cross-domain-use)
+project.
 
 The package contains several files, each contributing different
 information regarding a mapping from common X-Ray Absorption
