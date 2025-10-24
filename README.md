@@ -8,10 +8,33 @@ standards using a CDIF profile (XAS-CDIF)” of the
 [CDIF-4-XAS](https://oscars-project.eu/projects/cdif-4-xas-describing-x-ray-spectroscopy-data-cross-domain-use)
 project.
 
-The package contains several files, each contributing different
-information regarding a mapping from common X-Ray Absorption
-Spectroscopy (XAS) data formats to the Cross Domain Interoperability
-Framework (CDIF) recommended standards:
+## Content
+
+The covering document and the associated spreadsheet and other
+materials present an initial attempt to take the major community
+standards used for X-Ray Absorption Spectroscopy (XAS) and map them to
+the standards recommended for cross-domain FAIR sharing of data by the
+Cross Domain Interoperability Framework (CDIF) guidelines.  The
+current standards landscape within the XAS community has been
+extensively described in the document “Overview of X-Ray Absorption
+Spectroscopy standards, vocabularies (and ontologies), data formats
+and practices”.  This document builds on the analysis presented in
+that document as a concrete exploration of how the data and metadata
+from the two most common XAS standards can be expressed in a
+CDIF-described package to facilitate use across domain, institutional,
+and application boundaries.  It is felt that a concrete application of
+the standards and guidelines involved will clearly indicate the next
+steps for implementation.
+
+While the focus of this document is technical, there are also
+implications for how other activities by domain groups and standards
+bodies can most effectively be conducted.  These implications can be
+provided as feedback to various groups, and these will be mentioned
+here.  The specific recommendations to be made to such groups do not,
+however, form part of this deliverable, but will be formulated more
+completely in other project deliverables in the future.
+
+The full package comprises the following:
 
 1. "CDIF-4-XAS: Mappings from Community Standards to CDIF": this
    document provides an overview for the mapping exercise.
@@ -42,3 +65,11 @@ Framework (CDIF) recommended standards:
    version of the community glossary, to serve as an example of how
    the glossary could be published for FAIR purposes.
    (`XAS_Glossary_SKOS.json`)
+
+## Copyright and License
+
+The covering document is Copyright 2025 by its authors.  It is is
+licensed under a [Creative Commons Attribution 4.0 International
+License](https://creativecommons.org/licenses/by/4.0/).
+
+The associated material is in the public domain.
