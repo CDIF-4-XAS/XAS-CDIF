@@ -1,0 +1,121 @@
+Mapping dataset variables for XAS data from XDI to CDIF Schema.org.  Updated for schema revisions 2025-11-20.
+
+In the XDI variables are named in the #Column.n rows in the header, and appear as column headings in a comment row just before the data section. In the CDIF metadata record, these variables are documented in three places:
+1.  as concepts.  In the long run, the intention is that there would be an external, web-accessible vocabulary service such that these would be accessible by reference. Lacking that, for the time being, these become SKOS concepts as separate graph nodes in the schema.org serialization. I've been creating a skos:ConceptScheme and including the variable concepts in that scheme. The scheme only needs to be generated once in the document, and will always be the same.
+	Example:
+	concept scheme definition
+	{
+            "@id": "#xasDict",
+            "@type": "skos:ConceptScheme",
+            "dcterms:title": "X-Ray Absorption Spectroscopy Dictionary",
+            "dcterms:description": "A SKOS vocabulary of X-ray Absorption Spectroscopy metadata."
+        }
+	Typical concept definition. This is one thats in the XAS vocabulary we defined 
+        {
+            "@id": "xas:monochromatorEnergyConcept",
+            "@type": "skos:Concept",
+            "skos:inScheme": {"@id": "#xasDict"},
+            "skos:prefLabel": "Monochromator Energy",
+            "skos:definition": "photon energy selected by the X-ray monochromator and delivered to the sample during an absorption scan; the incident X-ray photon energy impinging on the sample at any given point in the scan. This is the independent variable in an XAS scan.(ChatGPT)"
+        }
+		
+	for variables not defined in the vocabulary, use this: http://www.opengis.net/def/nil/OGC/0/missing
+
+
+2. the variable concept is referenced from the InstanceVariable definition in the schema.variableMeasured element in the serialization. Examples:
+
+			for a variable with a SKOS concept in the XAS glossary: 
+			"schema:variableMeasured": [
+                {
+                    "@id": "xas:monochromatorEnergyVariable",
+                    "@type": [
+                        "InstanceVariable",
+                        "schema:PropertyValue"
+                    ],
+                    "schema:name": "energy",
+                    "schema:alternateName": "Monochromator energy",
+                    "schema:propertyID": "xas:monochromatorEnergyConcept",
+                    "schema:unitText": "eV",
+                    "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+                    "cdi:simpleUnitOfMeasure": "eV",
+                    "cdi:uses": "xas:monochromatorEnergyConcept",
+                    "cdi:name": "energy",
+                    "cdi:displayLabel": "monochromator energy"
+                },
+
+
+		for a variable not defined in the glossary:
+			"schema:variableMeasured": [
+                {
+                    "@id": "xas:normfluorVariable",
+                    "@type": [
+                        "InstanceVariable",
+                        "schema:PropertyValue"
+                    ],
+                    "schema:name": "normfluor",
+                    "schema:propertyID": "http://www.opengis.net/def/nil/OGC/0/missing",
+                    "cdi:uses": "http://www.opengis.net/def/nil/OGC/0/missing",
+                    "cdi:name": "normfluor",
+                }, [maybe in the future we can guess the physicalDataType and/or the simpleUnitOfMeasure...]
+
+3.  In the distribution section, the cdi:TextMapping elements reference the variable in the cdi:formats property.  We can get the cdi:index from the #Column.n info in the header, but as we've observed, sometimes the 'n' values don't always correspond with the number of columns; a safer way would be to parse the # row with the column headings just before the data.  I don't see any simple way to get the cdi:length values, which are the number of characters in the fixed width column. 
+
+		"schema:distribution": {
+			"@type": [
+				"schema:DataDownload",
+				"cdi:TabularTextDataset"
+			],
+			"cdi:has_TextMapping": 
+             [
+                {
+                    "@type": "cdi:TextMapping",
+                    "cdi:formats": {"@id": "xas:monochromatorEnergyVariable"},
+                    "cdi:label":"energy",
+                    "cdi:hasRole":"Dimension" ,
+                    "cdi:index": 1,
+                    "cdi:length": 12
+                },
+                {
+                    "@type": "cdi:TextMapping",
+                    "cdi:formats": {"@id": "xas:incidentIntensityVariable"},
+                    "cdi:label":"i0" ,
+                    "cdi:hasRole": "Measure",
+                    "index": 3,
+                    "length": 13
+                },
+                {
+                    "@type": "cdi:TextMapping",
+                    "cdi:formats": {"@id": "xas:transmittedIntensityVariable"},
+                    "cdi:label": "it",
+                    "cdi:hasRole":"Measure",
+                    "cdi:index": 2,
+                    "cdi:length": 12
+                    }
+            ],
+            "allowsDuplicates": false,
+            "arrayBase": 1,
+            "commentPrefix": "#",
+            "hasHeader": true,
+            "headerRowCount": 27,
+            "skipInitialSpace": true,
+            "isDelimited": false,
+            "isFixedWidth": true
+        }
+		
+		
+		There are a number of constant values that get stuck in at the end of the 
+		"schema:distribution": {
+			"@type": [
+				"schema:DataDownload",
+				"cdi:TabularTextDataset"
+			],
+		
+		These describe the file format:
+			"allowsDuplicates": false,
+            "arrayBase": 1,
+            "commentPrefix": "#",
+            "hasHeader": true,
+            "headerRowCount": 27,
+            "skipInitialSpace": true,
+            "isDelimited": false,
+            "isFixedWidth": true
