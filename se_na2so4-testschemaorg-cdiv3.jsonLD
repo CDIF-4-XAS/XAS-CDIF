@@ -2,7 +2,7 @@
     "@context": [
         "https://docs.ddialliance.org/DDI-CDI/1.0/model/encoding/json-ld/ddi-cdi.jsonld",
         {
-            "schema": "https://schema.org/",
+            "schema": "http://schema.org/",
             "dcterms": "http://purl.org/dc/terms/",
             "geosparql": "http://www.opengis.net/ont/geosparql#",
             "spdx": "http://spdx.org/rdf/terms#",
@@ -22,6 +22,7 @@
             "schema:name": "X-ray absorption spectra for K edge, selenium in sodium selenate",
             "schema:description": "comment from xdi file: room temperature; measured at beamline 13-BM-D.  need a better description of what's in this datasset-- maybe the DCAT metadata has what we need?",
             "schema:identifier": "should have a DOI",
+            "schema:url": "https://github.com/XraySpectroscopy/XASDataLibrary/blob/master/data/Se/Se_Na2SeO4_rt_01.xdi",
             "schema:contributor": [
                 {
                     "@type": "schema:Role",
@@ -38,56 +39,48 @@
                 {
                     "@type": [
                         "schema:DataDownload",
-                        "PhysicalDataSet"
+                        "cdi:TabularTextDataset"
                     ],
                     "schema:contentUrl": "https://github.com/XraySpectroscopy/XASDataLibrary/blob/master/data/Se/Se_Na2SeO4_rt_01.xdi",
                     "schema:description": "Distribution = PhysicalDataSet text file conformant with XDI specification",
                     "schema:contentSize": "30 kb",
                     "schema:encodingFormat": ["text/plain"],
                     "dcterms:conformsTo": ["https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"],
+                    "cdi:allowsDuplicates": false,
+                    "cdi:has_TextMapping": [
+                        {
+                            "@type": "cdi:TextMapping",
+                            "cdi:formats": {"@id": "xas:monochromatorEnergyVariable"},
+                            "cdi:label": "energy",
+                            "cdi:hasRole": "Dimension",
+                            "cdi:index": 1,
+                            "cdi:length": 12
+                        },
+                        {
+                            "@type": "cdi:TextMapping",
+                            "cdi:formats": {"@id": "xas:incidentIntensityVariable"},
+                            "cdi:label": "i0",
+                            "cdi:hasRole": "Measure",
+                            "index": 3,
+                            "length": 13
+                        },
+                        {
+                            "@type": "cdi:TextMapping",
+                            "cdi:formats": {"@id": "xas:transmittedIntensityVariable"},
+                            "cdi:label": "it",
+                            "cdi:hasRole": "Measure",
+                            "cdi:index": 2,
+                            "cdi:length": 12
+                        }
+                    ],
                     "allowsDuplicates": false,
-                    "isStructuredBy": {
-                        "@type": "WideDataStructure",
-                        "has_DataStructureComponent": [
-                            {
-                                "@type": "IdentifierComponent",
-                                "isDefinedBy_InstanceVariable": {"@id": "xas:monochromatorEnergyVariable"},
-                                "has": {
-                                    "@type": "ValueMapping",
-                                    "hasIndex": 1,
-                                    "length": 12
-                                }
-                            },
-                            {
-                                "@type": "MeasureComponent",
-                                "isDefinedBy_InstanceVariable": {"@id": "xas:incidentIntensityVariable"},
-                                "has": {
-                                    "@type": "ValueMapping",
-                                    "hasIndex": 3,
-                                    "length": 13
-                                }
-                            },
-                            {
-                                "@type": "MeasureComponent",
-                                "isDefinedBy_InstanceVariable": {"@id": "xas:transmittedIntensityVariable"},
-                                "has": {
-                                    "@type": "ValueMapping",
-                                    "hasIndex": 2,
-                                    "length": 12
-                                }
-                            }
-                        ],
-                        "allowsDuplicates": false,
-                        "arrayBase": 1,
-                        "commentPrefix": "#",
-                        "hasHeader": true,
-                        "headerRowCount": 27,
-                        "skipInitialSpace": true,
-                        "isDelimited": false,
-                        "isFixedWidth": true,
-                        "cdifq:nColumns":3,
-                        "cdifq:nRows":469 
-                    }
+                    "arrayBase": 1,
+                    "commentPrefix": "#",
+                    "hasHeader": true,
+                    "headerRowCount": 27,
+                    "skipInitialSpace": true,
+                    "isDelimited": false,
+                    "isFixedWidth": true
                 }
             ],
             "schema:measurementTechnique": {
@@ -113,6 +106,7 @@
                 }
             ],
             "prov:wasGeneratedBy": {
+                "@id": "ex:provevent_246376",
                 "@type": [
                     "Event",
                     "xas:Analysis_Event"
@@ -149,7 +143,10 @@
                         ]
                     },
                     {
-                        "@type": ["schema:Thing", "xas:Monochromator"],
+                        "@type": [
+                            "schema:Thing",
+                            "xas:Monochromator"
+                        ],
                         "schema:name": "Si 111",
                         "schema:additionalProperty": [
                             {
@@ -161,9 +158,12 @@
                         ]
                     },
                     {
-                        "@id":"xas:Detector10cmN2",
-                        "@type": "schema:Thing",
-                        "schema:additionalType": "xas:Detector",
+                        "@id": "xas:Detector10cmN2",
+                        "@type": [
+                            "schema:Thing",
+                            "xas:Detector"
+                        ],
+                        "schema:name": "10cm  N2 detector",
                         "schema:additionalProperty": [
                             {
                                 "@type": "schema:PropertyValue",
@@ -191,7 +191,10 @@
                     }
                 ],
                 "schema:location": {
-                    "@type": ["schema:Place", "xas:Facility"],
+                    "@type": [
+                        "schema:Place",
+                        "xas:Facility"
+                    ],
                     "schema:identifier": "https://ror.org/aps",
                     "schema:name": "APS",
                     "schema:additionalProperty": [
@@ -266,7 +269,7 @@
                     "schema:description": "The measured X-ray intensity before it interacts with the sample. ",
                     "schema:propertyID": {"@id": "xas:Incident_Intensity"},
                     "schema:unitText": "counts",
-                    "schema:measurementTechnique":{"@id":"xas:Detector10cmN2"},
+                    "schema:measurementTechnique": {"@id": "xas:Detector10cmN2"},
                     "identifier": "should be URI from nexusFormat organization",
                     "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
                     "uses": "xas:Incident_Intensity",
@@ -284,7 +287,7 @@
                     "schema:unitText": "counts",
                     "schema:name": "itrans",
                     "schema:alternateName": "transmission intensity",
-                    "schema:measurementTechnique":{"@id":"xas:Detector10cmN2"},
+                    "schema:measurementTechnique": {"@id": "xas:Detector10cmN2"},
                     "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
                     "identifier": "should be URI from nexusFormat organization",
                     "uses": "xas:Transmitted_Intensity",
