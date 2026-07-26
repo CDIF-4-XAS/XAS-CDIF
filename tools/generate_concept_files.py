@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Emit one SKOS JSON-LD file per concept from XAS_Glossary_SKOS_v2.json.
+"""Emit one SKOS JSON-LD file per concept from XAS_Glossary_SKOS_v2_draft.json.
 
 Reads the master SKOS JSON-LD glossary and writes, for every skos:Concept in
 the @graph, a standalone per-concept JSON-LD file at
 
-    docs/concepts/{localname}.jsonld
+    XAS-CDIF-1.0_release/docs/concepts/{localname}.jsonld
 
 The localname is the last path segment of the concept's @id (e.g.
 `https://w3id.org/cdif/xas/samplepreparation` -> `samplepreparation`).
@@ -20,16 +20,16 @@ each parent so per-concept files are traversable both ways. (In the current
 v2 source no concept carries `broader`, so this is a no-op today; kept in
 place so it lights up automatically the first time hierarchy is introduced.)
 
-Existing files under docs/concepts/ whose basenames no longer correspond to
-a concept in the source are removed, so stale files don't linger after
-renames.
+Existing files under XAS-CDIF-1.0_release/docs/concepts/ whose basenames no
+longer correspond to a concept in the source are removed, so stale files
+don't linger after renames.
 
 No external Python dependencies beyond the standard library.
 
 Usage:
     python tools/generate_concept_files.py
-    python tools/generate_concept_files.py --source docs/XAS_Glossary_SKOS_v2.json
-    python tools/generate_concept_files.py --out docs/concepts
+    python tools/generate_concept_files.py --source XAS_Glossary_SKOS_v2_draft.json
+    python tools/generate_concept_files.py --out XAS-CDIF-1.0_release/docs/concepts
     python tools/generate_concept_files.py --dry-run
 """
 from __future__ import annotations
@@ -41,8 +41,8 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_SOURCE = REPO_ROOT / "docs" / "XAS_Glossary_SKOS_v2.json"
-DEFAULT_OUT = REPO_ROOT / "docs" / "concepts"
+DEFAULT_SOURCE = REPO_ROOT / "XAS_Glossary_SKOS_v2_draft.json"
+DEFAULT_OUT = REPO_ROOT / "XAS-CDIF-1.0_release" / "docs" / "concepts"
 
 
 def as_list(v):

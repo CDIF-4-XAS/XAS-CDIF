@@ -1,0 +1,52 @@
+XDI/1.0 batch validation report
+Input directory: C:\GithubC\CDIF\XAS-CDIF\exampleData
+Files scanned:   37
+
+======================================================================
+DISTRIBUTION OF ERROR COUNT PER FILE
+======================================================================
+  VALID (0 errors)              : 4 file(s)
+  1 errors                      : 30 file(s)
+  3 errors                      : 1 file(s)
+  5 errors                      : 1 file(s)
+  162 errors                    : 1 file(s)
+
+======================================================================
+FIELD ERROR DISTRIBUTION (across all files)
+======================================================================
+  $                                       :   21 files ( 56.8%)
+  scan.edge_energy                        :   14 files ( 37.8%)
+  array_labels_line                       :    2 files (  5.4%)
+  sample.temperature                      :    1 files (  2.7%)
+  scan.start_time                         :    1 files (  2.7%)
+  scan.end_time                           :    1 files (  2.7%)
+
+======================================================================
+UNIQUE FIELD-ERROR SIGNATURES
+======================================================================
+
+  signature 3cdf2936 — 18 file(s)
+    example: 262875_PtSn_OCO_Abu_1.xdi
+      $: [ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property
+
+  signature f5c0dfd0 — 12 file(s)
+    example: co_metal_rt.xdi
+      scan.edge_energy: [ERROR] <Path>: $.scan.edge_energy - <Line>: 7 - <Message>: '7709.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepte
+
+  signature da39a3ee — 4 file(s)
+    example: feo_rt1.xdi
+
+  signature 45f74afd — 2 file(s)
+    example: nonxafs_1d.xdi
+      array_labels_line: [ERROR] <Line>: 27 - <Message>: energy is declared in 'array label line' but not in column namespace.
+      scan.edge_energy: [ERROR] <Path>: $.scan.edge_energy - <Line>: 6 - <Message>: '8980.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepte
+      $: [ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property
+
+  signature 4b419c96 — 1 file(s)
+    example: Se_Na2SeO4_rt_01.xdi
+      sample.temperature: [ERROR] <Path>: $.sample.temperature - <Line>: 11 - <Message>: 'room temperature' does not match "^(?# Format: '[float] [unit]'; Accepted Un
+      scan.start_time: [ERROR] <Path>: $.scan.start_time - <Line>: 6 - <Message>: '2008-04-10 21:58:50' does not match '^(?# Format: ISO 8601 speciﬁcation for comb
+      scan.end_time: [ERROR] <Path>: $.scan.end_time - <Line>: 5 - <Message>: '2008-04-10 22:16:32' does not match '^(?# Format: ISO 8601 speciﬁcation for combin
+      $: [ERROR] <Path>: $ - <Line>: 1 - <Message>: 'version' is a required property
+
+  5 unique signature(s) across 37 file(s)

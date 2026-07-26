@@ -1,0 +1,341 @@
+{
+  "count": 37,
+  "fully_valid": 37,
+  "with_violation": 0,
+  "shacl_enabled": true,
+  "per_file": [
+    {
+      "filename": "262875_PtSn_OCO_Abu_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "262878_PtSn_OCA_Abu_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "262882_PtSn_OC_Abu_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "262885_PtSn_OCH_Abu_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "262919_PtSn_OCO_H2_Abu_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "262922_PtSn_OCA_H2_Abu_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "262926_PtSn_OC_H2_Abu_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "262929_PtSn_OCH_H2_Abu_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "263814_PtSn_OCA_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "263820_PtSn_OC_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "263824_PtSn_OCH_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "263825_PtSn_OCH_2.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "263832_PtSn_alloy_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "263838_PtSn_3_1_EG_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "263844_PtSn_OCO_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "263935_PtSn_Alloy_H2_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "263941_PtSn_EG_H2_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "b18_nxs.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "co_metal_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "cu_metal_10K.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "cu_metal_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "fe2o3_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "fe3c_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "fe_metal_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "fen_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "feo_rt1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "ni_metal_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "nonxafs_1d.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "nonxafs_2d.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "pt_metal_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "Se_Na2SeO4_rt_01.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "se_na2so4_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "se_znse_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "valid.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "valid2.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "valid_angle_dspacing.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "zn_znse_rt.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Python byte-code caches
+__pycache__/
+*.py[oc]
+
+# Bundled zip archive of collection 203 — the exampleData/*.xdi
+# files are the tracked, unpacked form.
+exampleData/*.zip
