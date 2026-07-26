@@ -1,4 +1,6 @@
 {
+    "_comment": "JSON-LD frame for the CDIF xasDocument/1.0 composite profile (https://w3id.org/cdif/xasDocument/1.0). Structures a JSON-LD input to match the shape the resolved JSON Schema expects: schema:Dataset root, embedded distribution / structure / variableMeasured / provenance / contributor blocks, and XAS-specific slots on the wasGeneratedBy activity (peer schema:instrument under prov:used, schema:object MaterialSample, schema:measurementTechnique / schema:keywords DefinedTerms). Based on the CDIF Data Description Structure profile frame, extended with the XAS-specific sub-frames enumerated below.",
+
     "@context": {
         "schema": "http://schema.org/",
         "dcterms": "http://purl.org/dc/terms/",
@@ -10,7 +12,13 @@
         "time": "http://www.w3.org/2006/time#",
         "sf": "http://www.opengis.net/ont/sf#",
         "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-        "csvw": "http://www.w3.org/ns/csvw#"
+        "cdif": "https://w3id.org/cdif/",
+        "csvw": "http://www.w3.org/ns/csvw#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "xas": "https://w3id.org/cdif/xas/",
+        "nxs": "https://manual.nexusformat.org/classes/",
+        "ex": "https://example.org/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#"
     },
 
     "@type": "schema:Dataset",
@@ -18,42 +26,27 @@
 
     "schema:name": {},
     "schema:description": {},
-    "schema:identifier": {
-        "@embed": "@always"
-    },
+    "schema:identifier": {"@embed": "@always"},
     "schema:dateModified": {},
     "schema:datePublished": {},
     "schema:version": {},
     "schema:inLanguage": {},
     "schema:url": {},
 
-    "schema:additionalType": {
-        "@embed": "@always"
-    },
-
-    "schema:sameAs": {
-        "@embed": "@always"
-    },
-
-    "schema:keywords": {
-        "@embed": "@always"
-    },
-
-    "schema:license": {
-        "@embed": "@always"
-    },
-
-    "schema:conditionsOfAccess": {
-        "@embed": "@always"
-    },
+    "schema:additionalType": {"@embed": "@always"},
+    "schema:sameAs": {"@embed": "@always"},
+    "schema:license": {"@embed": "@always"},
+    "schema:conditionsOfAccess": {"@embed": "@always"},
 
     "schema:creator": {
         "@embed": "@always",
+        "schema:name": {},
+        "schema:identifier": {"@embed": "@always"},
         "schema:affiliation": {
             "@embed": "@always",
+            "schema:name": {},
             "schema:identifier": {"@embed": "@always"}
         },
-        "schema:identifier": {"@embed": "@always"},
         "schema:contactPoint": {"@embed": "@always"}
     },
 
@@ -66,21 +59,28 @@
         "schema:sameAs": {"@embed": "@always"},
         "schema:affiliation": {
             "@embed": "@always",
+            "schema:name": {},
             "schema:identifier": {"@embed": "@always"}
         },
         "schema:identifier": {"@embed": "@always"},
         "schema:contactPoint": {"@embed": "@always"},
         "schema:roleName": {"@embed": "@always"},
-        "schema:contributor": {"@embed": "@always"}
+        "schema:contributor": {
+            "@embed": "@always",
+            "schema:name": {},
+            "schema:identifier": {"@embed": "@always"}
+        }
     },
 
     "schema:publisher": {
         "@embed": "@always",
+        "schema:name": {},
         "schema:identifier": {"@embed": "@always"}
     },
 
     "schema:provider": {
         "@embed": "@always",
+        "schema:name": {},
         "schema:identifier": {"@embed": "@always"}
     },
 
@@ -90,13 +90,30 @@
         "schema:description": {},
         "schema:funder": {
             "@embed": "@always",
+            "schema:name": {},
             "schema:identifier": {"@embed": "@always"}
         },
         "schema:identifier": {"@embed": "@always"}
     },
 
+    "_comment_keywords": "xasCore: element-symbol and element-edge DefinedTerms. schema:keywords must be a DefinedTerm (not a plain string).",
+    "schema:keywords": {
+        "@embed": "@always",
+        "schema:name": {},
+        "schema:identifier": {"@embed": "@always"},
+        "schema:termCode": {},
+        "schema:inDefinedTermSet": {"@embed": "@always"},
+        "schema:about": {}
+    },
+
+    "_comment_measurementTechnique": "xasCore: PaNET XAS DefinedTerm + NeXus acquisition-mode DefinedTerm.",
     "schema:measurementTechnique": {
-        "@embed": "@always"
+        "@embed": "@always",
+        "schema:name": {},
+        "schema:identifier": {"@embed": "@always"},
+        "schema:termCode": {},
+        "schema:inDefinedTermSet": {"@embed": "@always"},
+        "schema:about": {}
     },
 
     "schema:distribution": {
@@ -108,14 +125,13 @@
         "spdx:checksum": {"@embed": "@always"},
         "schema:provider": {
             "@embed": "@always",
+            "schema:name": {},
             "schema:identifier": {"@embed": "@always"}
         },
-        "dcterms:conformsTo": {
-            "@embed": "@always"
-        },
+        "dcterms:conformsTo": {"@embed": "@always"},
         "cdi:characterSet": {},
-        "cdi:fileSize": {},
-        "cdi:fileSizeUofM": {},
+        "cdif:fileSize": {},
+        "cdif:fileSizeUofM": {},
         "cdi:arrayBase": {},
         "csvw:commentPrefix": {},
         "csvw:delimiter": {},
@@ -127,65 +143,33 @@
         "cdi:isFixedWidth": {},
         "csvw:lineTerminators": {},
         "csvw:quoteChar": {},
-        "csvw:skipBlankRows": {},
-        "csvw:skipColumns": {},
-        "csvw:skipInitialSpace": {},
-        "csvw:skipRows": {},
-        "csvw:tableDirection": {},
-        "csvw:textDirection": {},
-        "cdi:treatConsecutiveDelimitersAsOne": {},
-        "csvw:trim": {},
-        "cdi:hasPhysicalMapping": {
+        "cdi:commentPrefix": {},
+        "cdif:hasPhysicalMapping": {
             "@embed": "@always",
-            "cdi:decimalPositions": {},
-            "cdi:defaultValue": {},
-            "cdi:format": {},
-            "cdi:isRequired": {},
-            "cdi:maximumLength": {},
-            "cdi:minimumLength": {},
-            "cdi:nullSequence": {},
-            "cdi:physicalDataType": {},
-            "cdi:scale": {},
-            "cdi:index": {},
-            "cdi:locator": {},
-            "cdi:defaultDecimalSeparator": {},
-            "cdi:defaultDigitalGroupSeparator": {},
-            "cdi:displayLabel": {},
+            "cdif:index": {},
+            "cdif:locator": {},
+            "cdif:format": {},
+            "cdif:physicalDataType": {},
             "cdi:length": {},
-            "cdi:formats_InstanceVariable": {
-                "@embed": "@always"
-            }
+            "cdi:nullSequence": {},
+            "cdi:defaultValue": {},
+            "cdi:minimumLength": {},
+            "cdi:maximumLength": {},
+            "cdif:formats_InstanceVariable": {"@embed": "@never"}
         },
-        "schema:potentialAction": {
-            "@embed": "@always",
-            "schema:target": {"@embed": "@always"},
-            "schema:result": {"@embed": "@always"},
-            "schema:object": {
-                "@embed": "@always",
-                "schema:variableMeasured": {"@embed": "@always"}
-            },
-            "schema:query-input": {
-                "@embed": "@always"
-            }
-        },
-        "schema:hasPart": {
+        "cdi:isStructuredBy": {
             "@embed": "@always",
             "schema:name": {},
-            "schema:contentUrl": {},
-            "schema:description": {},
-            "schema:encodingFormat": {},
-            "cdi:fileSize": {},
-            "cdi:fileSizeUofM": {},
-            "spdx:checksum": {"@embed": "@always"},
-            "dcterms:conformsTo": {"@embed": "@always"},
-            "cdi:hasPhysicalMapping": {
+            "schema:identifier": {"@embed": "@always"},
+            "cdi:has_DataStructureComponent": {
                 "@embed": "@always",
-                "cdi:formats_InstanceVariable": {"@embed": "@always"}
+                "cdif:isDefinedBy_RepresentedVariable": {
+                    "@embed": "@always",
+                    "cdif:name": {},
+                    "schema:name": {}
+                }
             }
-        },
-        "schema:serviceType": {},
-        "schema:termsOfService": {"@embed": "@always"},
-        "schema:documentation": {"@embed": "@always"}
+        }
     },
 
     "schema:variableMeasured": {
@@ -200,16 +184,9 @@
         "schema:minValue": {},
         "schema:maxValue": {},
         "schema:url": {},
-        "cdi:identifier": {},
-        "cdi:name": {},
-        "cdi:displayLabel": {},
-        "cdi:intendedDataType": {},
-        "cdi:physicalDataType": {},
-        "cdi:role": {},
-        "cdi:qualifies": {"@embed": "@always"},
-        "cdi:describedUnitOfMeasure": {"@embed": "@always"},
-        "cdi:simpleUnitOfMeasure": {},
-        "cdi:uses": {"@embed": "@always"}
+        "cdif:physicalDataType": {},
+        "cdif:simpleUnitOfMeasure": {"@embed": "@always"},
+        "cdif:uses": {"@embed": "@always"}
     },
 
     "schema:spatialCoverage": {
@@ -230,17 +207,7 @@
         "@embed": "@always",
         "schema:description": {},
         "time:intervalStartedBy": {},
-        "time:intervalFinishedBy": {},
-        "time:hasBeginning": {
-            "@embed": "@always",
-            "time:inTimePosition": {"@embed": "@always"},
-            "time:inXSDDate": {}
-        },
-        "time:hasEnd": {
-            "@embed": "@always",
-            "time:inTimePosition": {"@embed": "@always"},
-            "time:inXSDDate": {}
-        }
+        "time:intervalFinishedBy": {}
     },
 
     "schema:relatedLink": {
@@ -249,55 +216,116 @@
         "schema:target": {"@embed": "@always"}
     },
 
-    "schema:publishingPrinciples": {
-        "@embed": "@always"
-    },
-
+    "_comment_wasGeneratedBy": "xasCore analysis Activity (Action). Requires xas:analysisevent in schema:additionalType, peer schema:instrument entries in prov:used covering beamline/mono/detector/source, schema:object as MaterialSample, and schema:location as Place with xas:facility additionalType.",
     "prov:wasGeneratedBy": {
         "@embed": "@always",
+        "schema:additionalType": {"@embed": "@always"},
         "schema:name": {},
         "schema:description": {},
+        "schema:startDate": {},
         "schema:startTime": {},
         "schema:endTime": {},
         "schema:actionStatus": {},
         "schema:error": {},
+
         "prov:used": {
             "@embed": "@always",
             "schema:instrument": {
                 "@embed": "@always",
+                "schema:name": {},
                 "schema:identifier": {"@embed": "@always"},
-                "schema:additionalProperty": {"@embed": "@always"},
+                "schema:additionalType": {"@embed": "@always"},
+                "schema:additionalProperty": {
+                    "@embed": "@always",
+                    "schema:name": {},
+                    "schema:propertyID": {"@embed": "@always"},
+                    "schema:value": {},
+                    "schema:unitText": {},
+                    "schema:unitCode": {"@embed": "@always"}
+                },
+                "schema:model": {
+                    "@embed": "@always",
+                    "schema:name": {},
+                    "schema:identifier": {"@embed": "@always"}
+                },
                 "schema:hasPart": {
                     "@embed": "@always",
-                    "schema:additionalProperty": {"@embed": "@always"}
+                    "schema:name": {},
+                    "schema:additionalType": {"@embed": "@always"},
+                    "schema:additionalProperty": {
+                        "@embed": "@always",
+                        "schema:name": {},
+                        "schema:propertyID": {"@embed": "@always"},
+                        "schema:value": {},
+                        "schema:unitText": {}
+                    },
+                    "schema:model": {
+                        "@embed": "@always",
+                        "schema:name": {}
+                    }
                 }
             }
         },
+
+        "_comment_object": "xasCore MaterialSample: schema:object is a Product/Thing dual-typed schema:additionalType [MaterialSample, iSamples materialsample IRI]. Carries the sample name and optional physico-chemical additionalProperty entries (xas:samplepreparation, xas:temperature, xas:porosity, xas:ph, ...).",
+        "schema:object": {
+            "@embed": "@always",
+            "schema:name": {},
+            "schema:description": {},
+            "schema:identifier": {"@embed": "@always"},
+            "schema:additionalType": {"@embed": "@always"},
+            "schema:additionalProperty": {
+                "@embed": "@always",
+                "schema:name": {},
+                "schema:propertyID": {"@embed": "@always"},
+                "schema:value": {},
+                "schema:unitText": {}
+            }
+        },
+
+        "_comment_location": "xasCore beamline location: schema:location is a Place dual-typed schema:additionalType xas:facility. Optional schema:geo / geosparql:hasGeometry for beamline coordinates.",
+        "schema:location": {
+            "@embed": "@always",
+            "schema:name": {},
+            "schema:identifier": {"@embed": "@always"},
+            "schema:additionalType": {"@embed": "@always"},
+            "schema:geo": {
+                "@embed": "@always",
+                "schema:latitude": {},
+                "schema:longitude": {}
+            },
+            "geosparql:hasGeometry": {
+                "@embed": "@always",
+                "geosparql:asWKT": {"@embed": "@always"},
+                "geosparql:crs": {"@embed": "@always"}
+            }
+        },
+
+        "schema:actionProcess": {
+            "@embed": "@always",
+            "schema:name": {},
+            "schema:description": {},
+            "schema:step": {"@embed": "@always"}
+        },
         "schema:agent": {
             "@embed": "@always",
+            "schema:name": {},
             "schema:identifier": {"@embed": "@always"},
             "schema:contactPoint": {"@embed": "@always"},
             "schema:affiliation": {"@embed": "@always"}
         },
         "schema:participant": {
             "@embed": "@always",
+            "schema:name": {},
             "schema:contributor": {"@embed": "@always"}
         },
-        "schema:instrument": {
-            "@embed": "@always"
-        },
         "schema:identifier": {"@embed": "@always"},
-        "schema:object": {"@embed": "@always"},
         "schema:result": {"@embed": "@always"},
-        "schema:location": {"@embed": "@always"},
-        "schema:actionProcess": {
-            "@embed": "@always",
-            "schema:step": {"@embed": "@always"}
-        },
         "schema:additionalProperty": {"@embed": "@always"},
         "prov:generated": {"@embed": "@always"},
         "prov:wasAssociatedWith": {
             "@embed": "@always",
+            "schema:name": {},
             "schema:identifier": {"@embed": "@always"},
             "schema:contactPoint": {"@embed": "@always"},
             "schema:affiliation": {"@embed": "@always"}
@@ -319,22 +347,23 @@
         "dqv:value": {"@embed": "@always"}
     },
 
+    "_comment_subjectOf": "CatalogRecord for the dataset: dcterms:conformsTo declares the profile URIs (cdifCore/1.1, cdifDiscovery/1.1, cdifDataDescription/1.1, cdifDataStructure/1.1, xasCore/1.0, xasOptional/1.0).",
     "schema:subjectOf": {
         "@embed": "@always",
-        "@type": "schema:Dataset",
         "schema:about": {"@embed": "@always"},
+        "schema:additionalType": {"@embed": "@always"},
         "schema:sdDatePublished": {},
-        "dcterms:conformsTo": {
-            "@embed": "@always"
-        },
+        "dcterms:conformsTo": {"@embed": "@always"},
         "schema:maintainer": {
             "@embed": "@always",
+            "schema:name": {},
             "schema:identifier": {"@embed": "@always"},
             "schema:contactPoint": {"@embed": "@always"},
             "schema:affiliation": {"@embed": "@always"}
         },
         "schema:includedInDataCatalog": {
             "@embed": "@always",
+            "schema:name": {},
             "schema:identifier": {"@embed": "@always"}
         }
     }

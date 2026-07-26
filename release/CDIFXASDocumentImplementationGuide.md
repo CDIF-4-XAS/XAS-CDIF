@@ -1,6 +1,6 @@
 # CDIF XAS Document Profile Implementation Guide
 
-**Version 1.0 — DRAFT** — 2026-07-23
+**Version 1.1** — 2026-07-26
 
 **Conformance URI:** `https://w3id.org/cdif/xasDocument/1.0`
 
@@ -41,6 +41,12 @@ interpret the spectrum.
   - [Beamline-operational additionalProperty](#beamline-operational-additionalproperty)
   - [Sample physico-chemical additionalProperty](#sample-physico-chemical-additionalproperty)
 - [XAS SKOS glossary](#xas-skos-glossary)
+- [Producer resilience patterns](#producer-resilience-patterns)
+  - [Shape safety nets for name-or-identifier constraints](#shape-safety-nets-for-name-or-identifier-constraints)
+  - [Blank-node identifier materialization](#blank-node-identifier-materialization)
+  - [Array-labels-line column back-fill](#array-labels-line-column-back-fill)
+  - [XDI header-key case normalization](#xdi-header-key-case-normalization)
+  - [Datetime ISO 8601 normalization](#datetime-iso-8601-normalization)
 - [Complete examples](#complete-examples)
 - [Framing + JSON Schema validation](#framing--json-schema-validation)
 - [SHACL validation](#shacl-validation)
@@ -394,17 +400,145 @@ The glossary is served through w3id with content negotiation:
 Source: [smrgeoinfo/XAS-CDIF](https://github.com/smrgeoinfo/XAS-CDIF).
 
 
+## Producer resilience patterns
+
+Real-world XDI (and other-source) inputs commonly diverge from what the
+xasDocument profile assumes — headers absent, values in non-canonical
+form, blank-node identifiers that JSON validators reject. Producers
+generating xasDocument-conforming output benefit from a small set of
+defensive patterns that keep the document validation-clean without
+faking data. Patterns 1–5 below are extracted from the CDIF-XAS
+reference pipeline in [smrgeoinfo/cdif-xas](https://github.com/smrgeoinfo/cdif-xas)
+(branch `local-xdi-input`), where each solves a class of failure
+observed on a 37-file real-world XDI corpus.
+
+**Sentinel-value conventions used throughout:**
+
+- `"Missing"` — text placeholder for a required `schema:name` /
+  identifier-string field when the source is genuinely absent.
+- `"unknown"` — text placeholder for a required numeric / enumerated
+  field where a domain expert must supply the real value later
+  (e.g. `Mono.d_spacing` for a monochromator whose crystal cut is
+  known but whose d-spacing value wasn't captured).
+- `<http://www.opengis.net/def/nil/OGC/0/missing>` — IRI sentinel
+  (from the [OGC Rainbow](http://www.opengis.net/def/nil/OGC/0/missing)
+  nil-value vocabulary) for required URI-shape values like an absent
+  `schema:identifier` on a `DefinedTerm` or an absent Role
+  `schema:contributor`.
+
+### Shape safety nets for name-or-identifier constraints
+
+Several CDIF shapes require one of {name, identifier} to be present:
+
+| Class | Shape | If both absent |
+|-------|-------|----------------|
+| `schema:Person` | `cdifd:CDIFPersonShape` | inject `schema:name = "Missing"` |
+| `schema:Organization` | `cdifd:CDIFOrganizationShape` | inject `schema:name = "Missing"` |
+| `schema:DefinedTerm` | `cdifd:CDIFDefinedTermShape` | inject `schema:identifier = <OGC nil missing IRI>` |
+| `schema:Role` (must have `schema:contributor`) | `cdifd:CDIFRoleShape` | inject `schema:contributor = {@id: <OGC nil missing IRI>}` |
+
+Implement as post-frame passes that recursively walk the framed document,
+identify nodes by `@type`, and inject the sentinel only when both
+alternatives are absent. Real data is never overwritten.
+
+### Blank-node identifier materialization
+
+JSON-LD framing typically leaves blank-node `@id` values in the `_:xxx`
+syntax (e.g. `"@id": "_:b14"`). This is valid RDF but fails plain-JSON
+URI-format validators (e.g. Oxygen JSON validation). Rewrite each
+unique `_:xxx` to a real IRI under the `ex:` namespace:
+
+```
+_:b14  →  ex:blank/b14
+```
+
+using the `ex: https://example.org/` prefix already bound in the
+context. All references to the same blank node get the same
+substitution so subject linkage is preserved.
+
+### Array-labels-line column back-fill
+
+XDI/1.0 specifies both `# Column.N:` compound headers AND a
+whitespace-separated array-labels line immediately after `# ---`
+(header end). Real files frequently carry only the array-labels line.
+Without the `Column.N:` headers, the mapping produces no
+`cdi:Column` / `cdi:Column_N` triples, no `cdi:has_DataStructureComponent`,
+no `schema:variableMeasured` entries — which breaks the
+`cdifDataDescription/1.1` and `cdifDataStructure/1.1` conformance
+declarations.
+
+Fix: at parse time, capture the last `#`-prefixed comment line before
+the first data row. If the graph has no `cdi:Column` subject after
+header parsing, synthesize one `cdi:Column_N` per whitespace-separated
+token in that line, each carrying the token as its
+`skos:definition`. Downstream mapping produces a complete data
+structure from the array-labels alone.
+
+### XDI header-key case normalization
+
+XDI/1.0 canonicalizes header keys as capitalized-namespace +
+lowercase-field (`Facility.name`, `Beamline.name`, `Mono.d_spacing`).
+Real files often use inconsistent case (`Facility.Name`, `Beamline.Name`,
+`Mono.D_Spacing`, `Scan.Start_Time`) which never populates the
+canonical `cdi:*_name` / `cdi:Mono_d_spacing` predicates the mapping
+looks up.
+
+Fix (one line at parse time):
+
+```python
+if '.' in compound_key:
+    head, rest = compound_key.split('.', 1)
+    compound_key = head + '.' + rest.lower()
+```
+
+Keep the first segment as-is (the namespace/class name — `Beamline`,
+`Mono`, `Facility` are capitalized in the mapping's RDF vocabulary);
+lowercase everything after the first dot.
+
+### Datetime ISO 8601 normalization
+
+`Scan.start_time` and `Scan.end_time` map to schema.org datetime slots
+that require strict ISO 8601 with `T` separator. Real files carry
+these in space-separated ISO (`2008-04-10 21:58:50`), slash-date
+(`2001/06/26 22:27:31`), US m/d/y, date-only, and basic-ISO
+(`20080410T215850`) forms. Normalize at parse time (Python 3.11+
+`datetime.fromisoformat` handles the space-separated form; the other
+forms fall through to explicit `strptime` patterns). Unparseable
+values pass through unchanged so downstream validation still surfaces
+them; recognized-but-non-strict inputs no longer make the profile
+output fail SHACL date-format checks.
+
+
 ## Complete examples
 
-The `examples/` directory contains XAS document instances:
+The `examples/` directory contains XAS document instances. All are
+validated clean against `cdifXASDocumentResolvedSchema.json` and
+`xasDocumentRules.shacl` (0 errors, 0 SHACL violations) on release.
 
-- **`exampleCDIFxas.json`** — the reference XAS example maintained in mBB.
-  Passes JSON Schema and SHACL cleanly against the release artifacts.
-- **`cdif_dds_framed.jsonld`** — a real-world example derived from the
-  UKDS/Dataverse `cdif-xas` prototype, adapted to conform to this profile.
-  The transformation from the UKDS reference to this version is logged in
-  the mBB source
-  ([CHANGES-from-UKDS.md](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/blob/main/_sources/profiles/cdifCompositeProfile/xasDocument/CHANGES-from-UKDS.md)).
+- **`example_dds_framed.jsonld`** — profile-canonical reference
+  maintained in mBB. Complete xasCore + xasOptional content.
+- **`exampleCDIFxas.json`** — the earlier reference XAS example from
+  the mBB xasDocument profile block.
+- **`cdif_dds_framed.jsonld`** — a minimal Cu-metal example from the
+  reference pipeline. Small; useful for step-by-step reading.
+- **`valid.jsonld`** — same minimal Cu-metal file, kept as a
+  regression-test fixture (should always be VALID).
+- **`262875_PtSn_OCO_Abu_1.jsonld`** — real-world Diamond B18 output.
+  Exercises every producer-side resilience pattern (case-normalization,
+  case-mismatched Facility/Beamline headers back-filled from
+  `Facility.Name`/`Beamline.Name`, `Mono.d_spacing` synthesized as
+  `"unknown"`, placeholder creator, placeholder distribution URL).
+- **`Se_Na2SeO4_rt_01.jsonld`** — noncompliant XDI (capital-N
+  namespaced keys) demonstrating the case-normalization pattern —
+  real `Beamline.Name` and `Facility.Name` content flows through.
+- **`valid_angle_dspacing.jsonld`** — angle-abscissa fixture
+  demonstrating the conditional `Mono.d_spacing` rule (required only
+  when the abscissa is monochromator angle or encoder step count,
+  optional otherwise).
+
+The transformation from the original UKDS reference to the framing +
+schema shape of the profile is logged in the mBB source
+([CHANGES-from-UKDS.md](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/blob/main/_sources/profiles/cdifCompositeProfile/xasDocument/CHANGES-from-UKDS.md)).
 
 
 ## Framing + JSON Schema validation
