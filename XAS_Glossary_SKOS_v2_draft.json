@@ -298,6 +298,45 @@
         },
         {
           "@id": "https://w3id.org/cdif/xas/emissionline"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/electronyieldintensity"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/retardingvoltage"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/emissionenergy"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/emissionenergywindow"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/analyzercrystal"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/braggangle"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/bendingradius"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/rowlandradius"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/analyzergeometry"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/analyzerdiameter"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/deadtime"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/counttime"
+        },
+        {
+          "@id": "https://w3id.org/cdif/xas/intensityuncertainty"
         }
       ]
     },
@@ -2329,6 +2368,290 @@
       },
       "references": "https://w3id.org/cdif/xas/XAS_EmissionLines",
       "notation": "emissionline"
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/electronyieldintensity",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Electron yield intensity",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Intensity measured as the drain current or total electron current from electrons emitted by the sample surface, used to derive the absorption coefficient in electron-yield detection.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tey.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_tey.",
+        "@language": "en"
+      },
+      "notation": "iey"
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/electronyieldabsorptioncoefficient",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Electron yield absorption coefficient",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Absorption coefficient derived from electron yield, proportional to the ratio of the electron yield intensity and the incident beam intensity.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tey.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_tey.",
+        "@language": "en"
+      },
+      "broader": {
+        "@id": "https://w3id.org/cdif/xas/absorptioncoefficient"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/retardingvoltage",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Retarding voltage",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Retarding voltage (bias) applied to select electrons above a kinetic energy threshold, discriminating against low-energy secondary electrons in partial electron yield detection.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pey.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_pey.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/emissionenergy",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Emission energy",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Emission energy at which the spectrometer is set in high energy resolution fluorescence detected measurement.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_herfd.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/emissionenergywindow",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Emission energy window",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Lower and upper bounds of the detected emission energy window: the energy range over which fluorescence photons are accepted, whether defined by a detector channel range or a spectrometer region of interest.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_pfy.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/analyzercrystal",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Analyzer crystal",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Crystal used to energy-analyze emitted fluorescence in high energy resolution fluorescence detected measurement, distinct from the monochromator crystal that selects the incident energy.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_herfd.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/braggangle",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Bragg angle",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Bragg angle of the nominal reflection of a crystal analyzer.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_herfd.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/bendingradius",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Bending radius",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Bending radius of a spherically bent crystal analyzer. In Johann geometry this is twice the Rowland radius.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_herfd.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/rowlandradius",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Rowland radius",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Radius of the Rowland circle, on which the sample, crystal centre and detector focus all lie.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_herfd.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/analyzergeometry",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Analyzer geometry",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Type of crystal analyzer geometry, such as Johann or Johansson.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_herfd.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/analyzerdiameter",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Analyzer diameter",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Diameter of the crystal analyzer wafer.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_herfd.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/deadtime",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Dead time",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Detector dead time per energy point: the interval during which the detector cannot register further events.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_pfy.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/counttime",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Count time",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Detector live time per energy point: the interval during which the detector is actively counting.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_pfy.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/intensityuncertainty",
+      "@type": "skos:Concept",
+      "prefLabel": {
+        "@value": "Intensity uncertainty",
+        "@language": "en"
+      },
+      "definition": {
+        "@value": "Errors associated with the intensity of the spectrum.",
+        "@language": "en"
+      },
+      "inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas.html",
+      "note": {
+        "@value": "Definition adapted from the NeXus NXDL documentation in NXxas.",
+        "@language": "en"
+      }
     }
   ]
 }

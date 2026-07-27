@@ -12,10 +12,15 @@ This script emits two SSSOM mapping sets:
     xdi-to-cdifxas.sssom.tsv      XDI token      -> CDIF XAS concept
     cdifxas-to-nexus.sssom.tsv    CDIF XAS concept -> NeXus concept path
 
-Scope: the **transmission slice** -- element, edge, energy, i0/itrans,
-facility, monochromator/d-spacing and their immediate neighbours. This is
-a proof of the architecture on one vertical before scaling to the other
-detection modes.
+Scope: **all six detection modes** of the restructured NeXus NXxas
+family -- transmission, total and partial electron yield, total and
+partial fluorescence yield, and high energy resolution fluorescence
+detected -- plus the mode-independent concepts on the NXxas base.
+
+The XDI set covers transmission only, which is not an omission: XDI is a
+transmission/fluorescence-era format and defines no tokens for retarding
+voltage, emission-line selection, or crystal-analyzer geometry. Those
+concepts reach CDIF through the NeXus binding alone.
 
 ** Mappings are curated, validation is automated **
 
@@ -217,6 +222,131 @@ CDIFXAS_TO_NEXUS = [
      "application definition, so the definition itself is a narrower "
      "term of the mode concept rather than a field within it. Value list "
      "imported as cdifxas:XAS_DetectionModes."),
+
+    # -----------------------------------------------------------------------
+    # Total electron yield -- NXxas_tey
+    # -----------------------------------------------------------------------
+    ("xasmeasurementmode", "NXxas_tey", "", N, 1.0,
+     "Detection mode as application definition."),
+    ("electronyieldintensity", "NXxas_tey",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/iey:NXdetector/data", E, 1.0,
+     "Drain current / total electron current."),
+    ("electronyieldabsorptioncoefficient", "NXxas_tey",
+     "/ENTRY:NXentry/intensity", E, 1.0,
+     "Entry-level intensity in TEY is the absorption coefficient derived "
+     "from electron yield, not a raw count."),
+    ("incidentintensity", "NXxas_tey",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/i0:NXdetector/data", E, 1.0,
+     "Incident beam intensity; same concept across all modes."),
+
+    # -----------------------------------------------------------------------
+    # Total fluorescence yield -- NXxas_tfy
+    # -----------------------------------------------------------------------
+    ("xasmeasurementmode", "NXxas_tfy", "", N, 1.0,
+     "Detection mode as application definition."),
+    ("fluorescenceintensity", "NXxas_tfy",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/ifluor:NXdetector/data", E, 1.0,
+     "Total fluorescence intensity."),
+    ("fluorescenceabsorptioncoefficient", "NXxas_tfy",
+     "/ENTRY:NXentry/intensity", E, 1.0,
+     "Entry-level intensity in TFY is mu(E) proportional to If/I0, per "
+     "the definition's documentation."),
+    ("incidentintensity", "NXxas_tfy",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/i0:NXdetector/data", E, 1.0,
+     "Incident beam intensity."),
+
+    # -----------------------------------------------------------------------
+    # Partial electron yield -- NXxas_pey
+    # -----------------------------------------------------------------------
+    ("xasmeasurementmode", "NXxas_pey", "", N, 1.0,
+     "Detection mode as application definition."),
+    ("electronyieldintensity", "NXxas_pey",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/iey:NXdetector/data", E, 1.0,
+     "Electron yield above the kinetic-energy threshold."),
+    ("retardingvoltage", "NXxas_pey",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/iey:NXdetector/retarding_voltage",
+     E, 1.0,
+     "Bias selecting electrons above a kinetic energy threshold. The "
+     "distinguishing parameter of PEY versus TEY."),
+    ("incidentintensity", "NXxas_pey",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/i0:NXdetector/data", E, 1.0,
+     "Incident beam intensity."),
+
+    # -----------------------------------------------------------------------
+    # Partial fluorescence yield -- NXxas_pfy
+    # -----------------------------------------------------------------------
+    ("xasmeasurementmode", "NXxas_pfy", "", N, 1.0,
+     "Detection mode as application definition."),
+    ("emissionline", "NXxas_pfy",
+     "/ENTRY:NXentry/LINE_emission_line:NXemission_line/name", E, 1.0,
+     "Selected emission line; 432-value enumeration imported as "
+     "cdifxas:XAS_EmissionLines."),
+    ("emissionenergywindow", "NXxas_pfy",
+     "/ENTRY:NXentry/emission_energy_window", E, 1.0,
+     "Lower and upper bounds of the accepted emission energy range."),
+    ("fluorescenceintensity", "NXxas_pfy",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/ifluor:NXdetector/data", E, 1.0,
+     "Fluorescence intensity within the selected window."),
+    ("deadtime", "NXxas_pfy",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/ifluor:NXdetector/dead_time",
+     E, 1.0, "Detector dead time per energy point."),
+    ("counttime", "NXxas_pfy",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/ifluor:NXdetector/count_time",
+     E, 1.0, "Detector live time per energy point."),
+    ("incidentintensity", "NXxas_pfy",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/i0:NXdetector/data", E, 1.0,
+     "Incident beam intensity."),
+
+    # -----------------------------------------------------------------------
+    # High energy resolution fluorescence detected -- NXxas_herfd
+    # -----------------------------------------------------------------------
+    ("xasmeasurementmode", "NXxas_herfd", "", N, 1.0,
+     "Detection mode as application definition."),
+    ("emissionline", "NXxas_herfd",
+     "/ENTRY:NXentry/emission_line:NXemission_line/name", E, 1.0,
+     "Selected emission line. Note the group name differs from "
+     "NXxas_pfy's LINE_emission_line -- a parser must not assume one "
+     "spelling."),
+    ("emissionenergy", "NXxas_herfd", "/ENTRY:NXentry/emission_energy",
+     E, 1.0, "Emission energy the spectrometer is set to."),
+    ("analyzercrystal", "NXxas_herfd",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/analyzerCRYSTAL:NXcrystal",
+     E, 1.0,
+     "The energy-analyzing crystal, distinct from the monochromator "
+     "crystal that selects incident energy."),
+    ("braggangle", "NXxas_herfd",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/analyzerCRYSTAL:NXcrystal/"
+     "bragg_angle", E, 1.0, "Bragg angle of the nominal reflection."),
+    ("bendingradius", "NXxas_herfd",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/analyzerCRYSTAL:NXcrystal/"
+     "bending_radius", E, 1.0,
+     "Bending radius; twice the Rowland radius in Johann geometry."),
+    ("rowlandradius", "NXxas_herfd",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/analyzerCRYSTAL:NXcrystal/"
+     "rowland_radius", E, 1.0, "Radius of the Rowland circle."),
+    ("analyzergeometry", "NXxas_herfd",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/analyzerCRYSTAL:NXcrystal/"
+     "geometry_type", E, 1.0, "Johann or Johansson."),
+    ("analyzerdiameter", "NXxas_herfd",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/analyzerCRYSTAL:NXcrystal/"
+     "diameter", E, 1.0, "Crystal analyzer wafer diameter."),
+    ("energyresolution", "NXxas_herfd",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/analyzerCRYSTAL:NXcrystal/"
+     "energy_resolution", E, 1.0,
+     "Energy bandwidth of the crystal analyzer. Existing CDIF concept -- "
+     "in HERFD it is a property of the analyzer, not the monochromator."),
+    ("fluorescenceintensity", "NXxas_herfd",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/ifluor:NXdetector/data", E, 1.0,
+     "Fluorescence intensity at the selected emission energy."),
+    ("incidentintensity", "NXxas_herfd",
+     "/ENTRY:NXentry/INSTRUMENT:NXinstrument/i0:NXdetector/data", E, 1.0,
+     "Incident beam intensity."),
+
+    # -----------------------------------------------------------------------
+    # Mode-independent, from the NXxas base
+    # -----------------------------------------------------------------------
+    ("intensityuncertainty", "NXxas", "/ENTRY:NXentry/intensity_errors",
+     E, 1.0, "Errors on the spectrum intensity; defined on the base."),
 ]
 
 
@@ -380,7 +510,7 @@ def build_xdi_set(ref: str) -> tuple[dict, list[dict]]:
     meta = {
         "mapping_set_id": "https://w3id.org/cdif/xas/crosswalk/xdi-to-cdifxas",
         "mapping_set_title":
-            "XDI dictionary terms to CDIF XAS concepts (transmission slice)",
+            "XDI dictionary terms to CDIF XAS concepts (all detection modes)",
         "mapping_set_description":
             "One of two bindings onto the CDIF XAS concept hub. Subject "
             "IRIs are minted under CDIF w3id because the XDI specification "
@@ -415,7 +545,7 @@ def build_nexus_set(ref: str) -> tuple[dict, list[dict]]:
         "mapping_set_id":
             "https://w3id.org/cdif/xas/crosswalk/cdifxas-to-nexus",
         "mapping_set_title":
-            "CDIF XAS concepts to NeXus concept paths (transmission slice)",
+            "CDIF XAS concepts to NeXus concept paths (all detection modes)",
         "mapping_set_description":
             "One of two bindings onto the CDIF XAS concept hub. Object "
             "IRIs are PROVISIONAL: the NeXusOntology PURLs do not resolve "
@@ -448,7 +578,7 @@ def main(argv=None) -> int:
                     help="write without checking against source vocabularies")
     args = ap.parse_args(argv)
 
-    print(f"CDIF XAS crosswalk -- transmission slice")
+    print(f"CDIF XAS crosswalk -- all six detection modes")
     print(f"NeXus definitions: {REPO}@{args.ref}\n")
 
     problems: list[str] = []
