@@ -1,0 +1,38 @@
+# mapping_set_id: https://w3id.org/cdif/xas/crosswalk/cdifxas-to-nexus
+# mapping_set_title: CDIF XAS concepts to NeXus concept paths (transmission slice)
+# mapping_set_description: One of two bindings onto the CDIF XAS concept hub. Object IRIs are PROVISIONAL: the NeXusOntology PURLs do not resolve (domain unregistered) and an open PR renames every IRI, so paths are minted under CDIF w3id on a mint-now, redirect-later basis. Mappings target NeXus BASE classes wherever the concept is a property of a kind of thing rather than a requirement of the technique.
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_provider: https://github.com/smrgeoinfo/XAS-CDIF
+# creator_id:
+#   - orcid:0000-0001-6041-5302
+# mapping_tool: crosswalk/build_crosswalk.py
+# subject_source: https://w3id.org/cdif/xas/
+# object_source: https://github.com/XraySpectroscopy/nexus_definitions@main
+# object_source_note: Resolvable documentation: https://manual.nexusformat.org/classes/
+# curie_map:
+#   cdifxas: https://w3id.org/cdif/xas/
+#   xdi: https://w3id.org/cdif/xdi/
+#   nxdl: https://w3id.org/cdif/nxdl/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   semapv: https://w3id.org/semapv/vocab/
+#   orcid: https://orcid.org/
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	confidence	author_id	comment
+cdifxas:elementanalyzed	elementanalyzed	skos:exactMatch	nxdl:NXxas/ENTRY:NXentry/element:NXelement/name	name	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Element identity, first-class via the NXelement base class.
+cdifxas:edgeanalyzed	edgeanalyzed	skos:exactMatch	nxdl:NXabsorption_edge/name	name	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Edge name in IUPAC notation; 39-value enumeration imported as cdifxas:XAS_AbsorptionEdges.
+cdifxas:edgeenergy	edgeenergy	skos:exactMatch	nxdl:NXabsorption_edge/energy	energy	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Edge energy (NX_ENERGY).
+cdifxas:monochromatorenergy	monochromatorenergy	skos:exactMatch	nxdl:NXxas_trans/ENTRY:NXentry/INSTRUMENT:NXinstrument/monochromator:NXmonochromator/energy	energy	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Incident photon energy selected by the monochromator.
+cdifxas:absorptioncoefficient	absorptioncoefficient	skos:exactMatch	nxdl:NXxas_trans/ENTRY:NXentry/intensity	intensity	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	In NXxas_trans the entry-level intensity IS mu(E)t = -ln(I/I0), per the definition's own documentation.
+cdifxas:incidentintensity	incidentintensity	skos:exactMatch	nxdl:NXxas_trans/ENTRY:NXentry/INSTRUMENT:NXinstrument/i0:NXdetector/data	data	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Per-channel detector group named i0.
+cdifxas:transmittedintensity	transmittedintensity	skos:exactMatch	nxdl:NXxas_trans/ENTRY:NXentry/INSTRUMENT:NXinstrument/itrans:NXdetector/data	data	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Per-channel detector group named itrans.
+cdifxas:referenceintensity	referenceintensity	skos:exactMatch	nxdl:NXxas_trans/ENTRY:NXentry/INSTRUMENT:NXinstrument/iref:NXdetector/data	data	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Simultaneous reference channel. Note NXxas_trans ALSO defines a reference:NXsubentry for an independent reference spectrum -- a different concept that CDIF currently conflates with this one.
+cdifxas:dspacing	dspacing	skos:exactMatch	nxdl:NXxas_trans/ENTRY:NXentry/INSTRUMENT:NXinstrument/monochromator:NXmonochromator/crystal:NXcrystal/d_spacing	d_spacing	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Crystal d-spacing (NX_LENGTH).
+cdifxas:monochromatortype	monochromatortype	skos:exactMatch	nxdl:NXxas_trans/ENTRY:NXentry/INSTRUMENT:NXinstrument/monochromator:NXmonochromator/crystal:NXcrystal/type	type	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Crystal material, e.g. Si, Ge.
+cdifxas:reflectionplane	reflectionplane	skos:exactMatch	nxdl:NXxas_trans/ENTRY:NXentry/INSTRUMENT:NXinstrument/monochromator:NXmonochromator/crystal:NXcrystal/reflection	reflection	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Miller indices hkl (NX_INT[3]).
+cdifxas:facility	facility	skos:exactMatch	nxdl:NXsource/name	name	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Base class, not the application definition -- NXsource/name is the facility name wherever an NXsource appears.
+cdifxas:xraysourcetype	xraysourcetype	skos:exactMatch	nxdl:NXsource/type	type	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Base class. Insertion device / bending magnet type.
+cdifxas:probe	probe	skos:exactMatch	nxdl:NXsource/probe	probe	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Base class. Enumerated; x-ray for XAS.
+cdifxas:beamline	beamline	skos:exactMatch	nxdl:NXinstrument/name	name	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Base class. NXinstrument/name is the beamline name.
+cdifxas:temperature	temperature	skos:exactMatch	nxdl:NXsample/temperature	temperature	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Base class (NX_TEMPERATURE).
+cdifxas:samplepreparation	samplepreparation	skos:closeMatch	nxdl:NXsample/description	description	semapv:ManualMappingCuration	0.6	orcid:0000-0001-6041-5302	NXsample has no dedicated preparation field; /description is the nearest free-text home. NXsample/preparation_date covers only the date.
+cdifxas:calculated	calculated	skos:relatedMatch	nxdl:NXxas/ENTRY:NXentry/is_experimental	is_experimental	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	INVERTED POLARITY -- is_experimental is the negation of calculated. Deliberately relatedMatch, never exactMatch; a converter must flip the boolean.
+cdifxas:xasmeasurementmode	xasmeasurementmode	skos:narrowMatch	nxdl:NXxas_trans	NXxas_trans	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	In the restructured NXxas family the detection mode IS the application definition, so the definition itself is a narrower term of the mode concept rather than a field within it. Value list imported as cdifxas:XAS_DetectionModes.

@@ -1,0 +1,35 @@
+# mapping_set_id: https://w3id.org/cdif/xas/crosswalk/xdi-to-cdifxas
+# mapping_set_title: XDI dictionary terms to CDIF XAS concepts (transmission slice)
+# mapping_set_description: One of two bindings onto the CDIF XAS concept hub. Subject IRIs are minted under CDIF w3id because the XDI specification defines none. Scope is the transmission slice.
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_provider: https://github.com/smrgeoinfo/XAS-CDIF
+# creator_id:
+#   - orcid:0000-0001-6041-5302
+# mapping_tool: crosswalk/build_crosswalk.py
+# subject_source: XDI/1.0 dictionary
+# object_source: https://w3id.org/cdif/xas/
+# curie_map:
+#   cdifxas: https://w3id.org/cdif/xas/
+#   xdi: https://w3id.org/cdif/xdi/
+#   nxdl: https://w3id.org/cdif/nxdl/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   semapv: https://w3id.org/semapv/vocab/
+#   orcid: https://orcid.org/
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	confidence	author_id	comment
+xdi:Element.symbol	Element.symbol	skos:exactMatch	cdifxas:elementanalyzed	elementanalyzed	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Absorbing element symbol. [converter key: cdi:Element_symbol]
+xdi:Element.edge	Element.edge	skos:exactMatch	cdifxas:edgeanalyzed	edgeanalyzed	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Absorption edge in IUPAC notation. [converter key: cdi:Element_edge]
+xdi:Scan.edge_energy	Scan.edge_energy	skos:exactMatch	cdifxas:edgeenergy	edgeenergy	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Tabulated edge energy for the element/edge combination. [converter key: cdi:Scan_edge_energy]
+xdi:Mono.d_spacing	Mono.d_spacing	skos:exactMatch	cdifxas:dspacing	dspacing	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Monochromator crystal d-spacing. [converter key: cdi:Mono_d_spacing]
+xdi:Mono.name	Mono.name	skos:closeMatch	cdifxas:monochromatortype	monochromatortype	semapv:ManualMappingCuration	0.8	orcid:0000-0001-6041-5302	XDI Mono.name conflates crystal material and reflection (e.g. 'Si(111)'); the CDIF concept is the material type alone. [converter key: cdi:Mono_name]
+xdi:Facility.name	Facility.name	skos:exactMatch	cdifxas:facility	facility	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Name of the synchrotron facility. [converter key: cdi:Facility_name]
+xdi:Beamline.name	Beamline.name	skos:exactMatch	cdifxas:beamline	beamline	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Name of the beamline. [converter key: cdi:Beamline_name]
+xdi:Facility.xray_source	Facility.xray_source	skos:exactMatch	cdifxas:xraysourcetype	xraysourcetype	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Insertion device or bending magnet type.
+xdi:Sample.prep	Sample.prep	skos:exactMatch	cdifxas:samplepreparation	samplepreparation	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Free-text sample preparation description. [converter key: cdi:Sample_prep]
+xdi:Sample.temperature	Sample.temperature	skos:exactMatch	cdifxas:temperature	temperature	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Sample temperature during measurement.
+xdi:Detector.I0	Detector.I0	skos:relatedMatch	cdifxas:incidentintensity	incidentintensity	semapv:ManualMappingCuration	0.7	orcid:0000-0001-6041-5302	XDI Detector.I0 describes the detector hardware; the CDIF concept is the measured intensity it produces. Related, not equivalent -- the measured values come from the i0 data column. [converter key: cdi:Detector_I0]
+xdi:Detector.I1	Detector.I1	skos:relatedMatch	cdifxas:transmittedintensity	transmittedintensity	semapv:ManualMappingCuration	0.7	orcid:0000-0001-6041-5302	As Detector.I0: describes hardware, not the measured values. [converter key: cdi:Detector_I1]
+xdi:Column.energy	Column.energy	skos:exactMatch	cdifxas:monochromatorenergy	monochromatorenergy	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Data column: incident photon energy.
+xdi:Column.i0	Column.i0	skos:exactMatch	cdifxas:incidentintensity	incidentintensity	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Data column: incident beam intensity.
+xdi:Column.itrans	Column.itrans	skos:exactMatch	cdifxas:transmittedintensity	transmittedintensity	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Data column: transmitted beam intensity.
+xdi:Column.irefer	Column.irefer	skos:exactMatch	cdifxas:referenceintensity	referenceintensity	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Data column: reference-channel intensity.
+xdi:Column.mutrans	Column.mutrans	skos:exactMatch	cdifxas:absorptioncoefficient	absorptioncoefficient	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Data column: mu(E)t = -ln(itrans/i0).
