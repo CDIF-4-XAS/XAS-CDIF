@@ -1082,13 +1082,29 @@
               "type": "object",
               "properties": {
                 "@id": {
-                  "const": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"
+                  "anyOf": [
+                    {
+                      "description": "The XDI specification.",
+                      "const": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"
+                    },
+                    {
+                      "description": "A NeXus application definition, compact form, as emitted with the nxs: prefix bound to https://manual.nexusformat.org/classes/.",
+                      "type": "string",
+                      "pattern": "^nxs:applications/NX[A-Za-z0-9_]+\\.html$"
+                    },
+                    {
+                      "description": "A NeXus application definition, full form.",
+                      "type": "string",
+                      "pattern": "^https://manual\\.nexusformat\\.org/classes/applications/NX[A-Za-z0-9_]+\\.html$"
+                    }
+                  ]
                 }
               },
               "required": [
                 "@id"
               ]
-            }
+            },
+            "description": "The distribution must declare the format specification its bytes follow. XDI and NeXus are the two serializations of XAS data in scope, so either satisfies this. The '@type' constraint above is already format-neutral (tabular text or structured binary); requiring the XDI specification here contradicted it and made a conforming NeXus/HDF5 distribution impossible to describe."
           }
         },
         "required": [
