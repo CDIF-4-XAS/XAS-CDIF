@@ -64,12 +64,14 @@ single spectra whose names are lower-case (`cu_metal_rt.xdi`,
 `fe2o3_rt.xdi`, …). Also `nonxafs_1d.xdi` / `nonxafs_2d.xdi`, and
 `valid*.xdi` as validator fixtures.
 
-## Two validator findings, recorded rather than worked around
+## Why the validator rejects these files
 
 Running the XDI validator over the 18 new files rejects all 18. Neither
-cause is a defect in the files, and neither was fixed by editing them.
+cause was fixed by editing the data. One is a validator bug; the other
+is genuine non-conformance in the library.
 
-**1. The header-end regex is stricter than the specification.** The
+**1. A validator bug: the header-end regex is stricter than the
+specification.** The
 validator uses `^#\s+---(-*)$`, which *requires* whitespace between the
 comment token and the dashes. The specification defines the header-end
 line as "comment token + header-end token", where the header-end token
@@ -91,12 +93,31 @@ to insert that space, and carry a provenance comment saying so. Those
 edits were harmless — both forms parse under the corrected regex — but
 they were not necessary, and the note they carry overstates the problem.
 
-**2. `Sample.temperature` is rejected for non-numeric values.** With the
-header-end regex corrected, every remaining error is
-`sample.temperature` failing a numeric-plus-unit pattern. The library
-writes `room temperature` (163 files), `Room Temperature`, `10K`, `15K`.
-Whether XDI requires a numeric temperature is a specification question;
-what is certain is that the reference library does not supply one.
+**2. Not a validator bug: `Sample.temperature` really is
+non-conformant.** With the header-end regex corrected, every remaining
+error is `sample.temperature` failing a numeric-plus-unit pattern. The
+library writes `room temperature` (163 files), `Room Temperature`,
+`10K`, `15K`.
 
-Both belong in the validator fork, alongside the conditional
-`mono.d_spacing` fix already open upstream as PR #6 — not in the data.
+An earlier version of this file called that a second validator bug. It
+is not. The XDI dictionary is explicit:
+
+> * **Namespace:** `Sample` -- **Tag:** `temperature`
+>      * _Format_: float + units
+
+and defines *float + units* as "a float as defined above, followed by
+white space, followed by a string identifying the units", with `500 K`
+as the example. So `room temperature` does not conform, `10K` does not
+conform for want of the space, and the validator is right to say so.
+
+The fix belongs in the converter rather than in the data or the
+validator: `cdif-xas-UKDS` normalises `room temperature` and its
+spelling variants to `295.0 K` and records
+`temperature reported as "room temperature"` in the description, so the
+qualitative original is not silently replaced by a number that was
+never measured.
+
+Only the header-end fix belongs in the validator. It is open upstream as
+[PR #7](https://github.com/AAAlvesJr/XDI-Validator/pull/7), alongside
+the conditional `mono.d_spacing` fix in
+[PR #6](https://github.com/AAAlvesJr/XDI-Validator/pull/6).
