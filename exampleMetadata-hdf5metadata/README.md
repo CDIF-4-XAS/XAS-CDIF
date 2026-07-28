@@ -47,10 +47,22 @@ any of them.
 
 ## Reading the difference
 
-The interesting comparison is not the pass rate. `exampleMetadata/`
-validates completely because the RML pipeline supplies sentinel values
-for what the file omits; this one leaves the gap and fails. Which
-behaviour is right depends on what the record is for — a catalogue entry
-wants a complete document, an assessment of the source data wants to
-see what is missing. Neither pipeline is wrong, and the 29 failures here
-are a fair inventory of what these 55 XDI files do not say.
+Both directories now validate 55/55, so the pass rate says nothing. The
+difference is in what each says where a file is silent.
+
+Where `Mono.d_spacing` is absent, `exampleMetadata/` and this directory
+agree: both write `unknown`. Where `Facility.xray_source` is absent they
+do not -- `exampleMetadata/` writes `Synchrotron X-ray Source`, this one
+writes `unknown`. The first is true of every file in this corpus and is
+still an assertion none of them made; a consumer reading it cannot tell
+it from a value the beamline recorded.
+
+The same distinction shows in `reflectionplane`. `exampleMetadata/`
+writes `1,1,1` for every file, including the eight whose `Mono.name`
+says `Si(311)`. This directory reads the reflection out of `Mono.name`
+and writes `3 1 1` for those.
+
+Neither approach is wrong in general -- a catalogue that must not show
+blanks wants defaults, and an assessment of source-data quality wants
+gaps left visible. But a default that cannot be distinguished from a
+reading forecloses the second use, and a wrong default forecloses both.
