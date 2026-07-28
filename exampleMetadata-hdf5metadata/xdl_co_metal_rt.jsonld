@@ -164,6 +164,19 @@
                 ],
                 "schema:name": "Probe",
                 "schema:value": "x-ray"
+              },
+              {
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:propertyID": [
+                  {
+                    "@id": "xas:xraysourcetype"
+                  }
+                ],
+                "schema:name": "xraysourcetype",
+                "schema:value": "unknown",
+                "schema:description": "not recorded in the source file; the profile requires this property, so it is reported as unknown rather than omitted or guessed"
               }
             ]
           }

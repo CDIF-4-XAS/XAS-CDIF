@@ -9,7 +9,7 @@ so the two can be compared on identical inputs.
 | Producer | `cdif-xas-UKDS` | `usgin/hdf5metadata` |
 | Mapping | RML (`mapping_dds.ttl`) run by rmlmapper | SSSOM crosswalk + Python |
 | Runtime | FastAPI + Java + pyld | pure Python |
-| Validates against `xasDocument` | 55 / 55 | **26 / 55** |
+| Validates against `xasDocument` | 55 / 55 | **55 / 55** |
 
 **`exampleMetadata/` remains the reference output.** It is the
 production pipeline, it is reviewed, and it validates completely. This
@@ -26,29 +26,24 @@ crosswalk — there is no reference to SSSOM anywhere in `cdif-xas-UKDS`.
 So regenerating `exampleMetadata/` would have shown no change at all,
 and this is where the crosswalk work actually shows up.
 
-## What the 29 failures are
+## Sentinels for what the files omit
 
-None is a mapping error. All three causes are the profile asking for
-something the file does not contain.
+Two properties the profile requires are missing from parts of the
+corpus: the Diamond B18 series (`262875_PtSn_*` and siblings) gives
+`Mono.name` and no `Mono.d_spacing` at all, and files such as
+`feo_rt1.xdi` write a source type under neither `Facility` nor
+`Beamline`.
 
-**A monochromator peer without a d-spacing (18 files).** The profile
-requires the `xas:xraymonochromator` instrument to carry
-`xas:dspacing` with a value *and* a unit. The Diamond B18 series
-(`262875_PtSn_*` and siblings) gives `Mono.name: Si(311)` and no
-`Mono.d_spacing` at all. Nothing can supply it: the d-spacing of a
-Si(311) crystal is a known constant, but reading it out of a table
-would be asserting a number the file never recorded.
+Both are now emitted as `unknown`, with a description on each saying it
+was not recorded in the source file. An omitted property makes the
+instrument undescribable and fails validation; a guessed one is
+indistinguishable from a reading.
 
-**A source peer without a source type (rest).** The profile requires
-`xas:source` to carry both `xas:probe` and `xas:xraysourcetype`. The
-probe is derivable — XDI describes X-ray absorption and nothing else —
-but the source type has to come from `Facility.xray_source` or
-`Beamline.xray_source`, and files such as `feo_rt1.xdi` write neither.
-
-**Sample names shorter than the profile allows.** `cu_metal_10K.xdi`
-gives `Sample.name: Cu`, and the profile wants at least three
-characters. The emitter now appends the filename rather than discarding
-the file's own word.
+The sentinel is deliberately not the plausible default. `exampleMetadata/`
+writes `Synchrotron X-ray Source` for a missing source type -- true of
+every file here, and still an assertion none of them made. It also
+writes `reflectionplane: 1,1,1` for `Si(311)`, which is not true of
+any of them.
 
 ## Reading the difference
 
