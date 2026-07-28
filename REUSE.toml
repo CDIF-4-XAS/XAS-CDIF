@@ -25,7 +25,7 @@ path = [
     "XDISpec-FieldsCDIF-Schema.orgMapping.docx",
     "se_na2so4-testschemaorg-cdiv3.jsonLD",
     "XAS-CDIFImplementation.xlsx",
-    "XAS_Glossary.xlsx",
+    "archive/XAS_Glossary_deprecated.xlsx",
     "XAS_Glossary_SKOS.json",
 ]
 SPDX-FileCopyrightText = "2025 World Fair CDIF working group"

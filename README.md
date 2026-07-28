@@ -134,6 +134,7 @@ implementations can be compared on identical inputs, which is what
 |---|---|
 | `XAS-CDIF-1.0_release/` | the published 1.0 deliverable, from the GitHub tag |
 | `XAS_Glossary_SKOS.json` | the **v1** glossary. Shares a filename with the current glossary at the repository root and is not the same file — this is the superseded one |
+| `XAS_Glossary_deprecated.xlsx` | the spreadsheet the glossary was originally curated in. Nothing read it and it fell out of step with the JSON; retired 2026-07-28 |
 | `se_na2so4-testschemaorg-cdiv3.jsonLD` | hand-authored record, does not validate against the current profile |
 
 ### `tools/` — vocabulary maintenance
@@ -159,11 +160,9 @@ implementations can be compared on identical inputs, which is what
 | `XAS_detectionmodes_SKOS.json` | transmission, fluorescence, electron yield, HERFD … |
 | `XAS_edges_SKOS.json` | K, L1, L2, L3 … |
 | `XAS_emissionlines_SKOS.json` | emission lines for HERFD and PFY |
-| `XAS_Glossary.xlsx` | the spreadsheet the glossary is curated in |
 
 The glossary filename carries no version on purpose: it is the working
-copy, and it shares a prefix with `XAS_Glossary.xlsx` because the two
-are meant to say the same thing. **Snapshots keep their version** —
+copy. **Snapshots keep their version** —
 `release/XAS_Glossary_SKOS_v2.json` is the released one, and the Pages
 build publishes under that same `_v2` name because the per-concept
 files link to it. Renaming the working file therefore does not move any
@@ -229,9 +228,11 @@ Two additions were made by script rather than by hand:
 `XAS_Glossary_vs_NeXus_analysis.md` is the record of the reconciliation,
 including where the two vocabularies do not align.
 
-**`XAS_Glossary.xlsx` is the curation surface, not a build input.** No
-script reads it — the JSON is the machine-readable master, and the two
-are kept in step by hand. Nothing detects it when they drift.
+**Curation happens in the JSON.** The glossary was originally curated in
+`XAS_Glossary.xlsx`, but no script ever read that file: it had to be kept
+in step by hand, and nothing detected it when the two drifted. It is now
+`archive/XAS_Glossary_deprecated.xlsx`, and the JSON is both the master
+and the file to edit.
 
 ### Analysis and mapping documents
 
