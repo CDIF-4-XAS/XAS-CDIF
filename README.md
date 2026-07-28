@@ -136,6 +136,13 @@ implementations can be compared on identical inputs, which is what
 | `XAS_Glossary_SKOS.json` | the **v1** glossary. Shares a filename with the current glossary at the repository root and is not the same file — this is the superseded one |
 | `XAS_Glossary_deprecated.xlsx` | the spreadsheet the glossary was originally curated in. Nothing read it and it fell out of step with the JSON; retired 2026-07-28 |
 | `se_na2so4-testschemaorg-cdiv3.jsonLD` | hand-authored record, does not validate against the current profile |
+| `XAS-Nexus-CDIFImplementation.xlsx`, `XAS-XDI-CDIFImplementation.xlsx` | per-format mapping sheets, superseded by `XAS-CDIFImplementation-revised.xlsx` |
+| `XDI-CDIF-Mapping.xlsx`, `XDI-CDIF-Mapping_STikhonov.xlsx` | earlier XDI mapping drafts |
+| `XDIVariablesInCDIF.txt` | XDI variable inventory |
+| `XDISpec-FieldsCDIF-Schema.orgMapping.docx` | XDI spec fields against schema.org |
+| `CDIF4XAS_Mappings_Intro.pdf` | introduction to the mappings |
+| `Ravel_2016_*.pdf` | reference paper |
+| `PhysicalDataset.png` | diagram |
 
 ### `tools/` — vocabulary maintenance
 
@@ -267,15 +274,12 @@ and the file to edit.
 |---|---|
 | `DescriptionOfCDIF-XAS-profile.md` | the profile in prose |
 | `XAS_Glossary_vs_NeXus_analysis.md` | glossary against the NeXus definitions, including where they do not align |
-| `XAS-CDIFImplementation-revised.xlsx` | the implementation mapping |
-| `XAS-Nexus-CDIFImplementation.xlsx` | NeXus → CDIF working sheet |
-| `XAS-XDI-CDIFImplementation.xlsx` | XDI → CDIF working sheet |
-| `XDI-CDIF-Mapping.xlsx`, `XDI-CDIF-Mapping_STikhonov.xlsx` | earlier XDI mapping drafts |
-| `XDIVariablesInCDIF.txt` | XDI variable inventory |
-| `XDISpec-FieldsCDIF-Schema.orgMapping.docx` | XDI spec fields against schema.org |
-| `CDIF4XAS_Mappings_Intro.pdf` | introduction to the mappings |
-| `Ravel_2016_*.pdf` | reference paper |
-| `PhysicalDataset.png` | diagram |
+| `XAS-CDIFImplementation-revised.xlsx` | **the implementation mapping — the one working spreadsheet still maintained.** The earlier per-format sheets it supersedes are in `archive/` |
+
+Everything else that used to sit here — the superseded mapping sheets,
+the XDI spec comparison, the introductory and reference PDFs, and the
+diagram — moved to `archive/` on 2026-07-28. Nothing in the repository
+read any of them.
 
 ## Dependency summary
 
