@@ -99,6 +99,12 @@ the corpus lacked rather than repeating it. See `exampleData/README.md`.
 **Output, not source**: regenerate with the commands above rather than
 editing. 55/55 validate against `release/`.
 
+The same 55 files converted by the *other* pipeline live in
+[`hdf5metadata/exampleMetadata-xdi`](https://github.com/usgin/hdf5metadata),
+not here. Both sets validate 55/55; the two are kept so the
+implementations can be compared on identical inputs, which is what
+`cdif-xas-UKDS/CONVERGENCE-PROPOSAL.md` argues from.
+
 ### `archive/`
 
 | item | what it is |
