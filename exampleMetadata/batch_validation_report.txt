@@ -1,7 +1,7 @@
 CDIF-XAS batch validation report
-Files:                56
+Files:                55
 Fully valid:          55
-With any violation:   1
+With any violation:   0
 
 ======================================================================
 PER-FILE COUNTS
@@ -38,7 +38,6 @@ filename                                           schema    shacl
   nonxafs_2d.jsonld                                     0        0
   pt_metal_rt.jsonld                                    0        0
   Se_Na2SeO4_rt_01.jsonld                               0        0
-  se_na2so4-testschemaorg-cdiv3.jsonLD                 10        1
   se_na2so4_rt.jsonld                                   0        0
   se_znse_rt.jsonld                                     0        0
   valid.jsonld                                          0        0
@@ -67,10 +66,7 @@ filename                                           schema    shacl
 ======================================================================
 TOP AGGREGATED SCHEMA ERROR PATHS
 ======================================================================
-     9  <root>
-     1  @context
 
 ======================================================================
 TOP AGGREGATED SHACL MESSAGES
 ======================================================================
-     1  Message: A codelist must declare at least one skos:hasTopConcept.

@@ -191,7 +191,7 @@
         "schema:DefinedTerm"
       ],
       "schema:inDefinedTermSet": "nxs:Field/NXxas/ENTRY/DATA/mode",
-      "schema:name": "Transmission"
+      "schema:name": "Fluorescence"
     },
     {
       "@id": "ex:blank/b15",
