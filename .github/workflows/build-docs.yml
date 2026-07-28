@@ -8,7 +8,10 @@ name: Publish glossary docs
 
 on:
   push:
-    branches: [main]
+    # cdifxasRelease is where the vocabularies are maintained; main is
+    # 39 commits behind it. The site follows the working branch so that
+    # publishing does not wait on a merge.
+    branches: [main, cdifxasRelease]
     paths:
       - 'XAS_Glossary_SKOS.json'
       - 'XAS_edges_SKOS.json'
