@@ -8,3 +8,9 @@ exampleData/*.zip
 
 # JetBrains IDE settings — local to one developer's machine
 .idea/
+
+# Pages build output: tools/generate_glossary_html.py and
+# generate_concept_files.py write here, and CI regenerates it on every
+# deploy. Anchored to the root so the tracked archive/ copy of the 1.0
+# release is not matched.
+/XAS-CDIF-1.0_release/
