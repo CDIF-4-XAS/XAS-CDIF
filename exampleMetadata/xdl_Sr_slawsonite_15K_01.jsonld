@@ -404,7 +404,7 @@
                     "@id": "xas:reflectionplane"
                   }
                 ],
-                "schema:value": "1,1,1"
+                "schema:value": "2,2,0"
               },
               {
                 "@id": "ex:blank/b14",
