@@ -27,6 +27,7 @@ path = [
     "XAS-CDIFImplementation-revised.xlsx",
     "archive/XAS_Glossary_deprecated.xlsx",
     "XAS_Glossary_SKOS.json",
+    "archive/XAS_Glossary_SKOS.json",
 ]
 SPDX-FileCopyrightText = "2025 World Fair CDIF working group"
 SPDX-License-Identifier = "CC0-1.0"
