@@ -5,7 +5,7 @@
 # Column.4: itrans
 # Element.edge: K
 # Element.symbol: Se
-# Scan.edge_energy: 12658.0 units not reported
+# Scan.edge_energy: 12658.0
 # Mono.name: Si 111
 # Mono.d_spacing: 3.13550
 # Beamline.name: 13-BM-D
@@ -23,8 +23,7 @@
 # ///
 # room temperature
 # measured at beamline 13-BM-D
-#  header end line corrected by claude/smr 20250725
-# ---
+#----
 #   energy       time                i0           itrans
        12508.00       2.000000       121961.4       559275.4 
        12513.00       2.000000       120910.4       554974.4 
