@@ -1,7 +1,7 @@
 CDIF-XAS batch validation report
-Files:                37
-Fully valid:          37
-With any violation:   0
+Files:                56
+Fully valid:          55
+With any violation:   1
 
 ======================================================================
 PER-FILE COUNTS
@@ -38,17 +38,39 @@ filename                                           schema    shacl
   nonxafs_2d.jsonld                                     0        0
   pt_metal_rt.jsonld                                    0        0
   Se_Na2SeO4_rt_01.jsonld                               0        0
+  se_na2so4-testschemaorg-cdiv3.jsonLD                 10        1
   se_na2so4_rt.jsonld                                   0        0
   se_znse_rt.jsonld                                     0        0
   valid.jsonld                                          0        0
   valid2.jsonld                                         0        0
   valid_angle_dspacing.jsonld                           0        0
+  xdl_as2o3_roomt_scan1.jsonld                          0        0
+  xdl_Au_Foil_L1_rt_2016Foils.jsonld                    0        0
+  xdl_CdS_10K_03.jsonld                                 0        0
+  xdl_CeO2.jsonld                                       0        0
+  xdl_co_metal_rt.jsonld                                0        0
+  xdl_EuSe_eu_l3_001.jsonld                             0        0
+  xdl_Fe3O4_rt_01.jsonld                                0        0
+  xdl_Fe_metal_rt_02.jsonld                             0        0
+  xdl_FeO_rt_01.jsonld                                  0        0
+  xdl_k2cro4_rt_003.jsonld                              0        0
+  xdl_Mn3O4_rt_01.jsonld                                0        0
+  xdl_Pb_Foil_L2_rt_2016Foils.jsonld                    0        0
+  xdl_pyrite2_rt_01.jsonld                              0        0
+  xdl_Sr_slawsonite_15K_01.jsonld                       0        0
+  xdl_SrO_rt_01.jsonld                                  0        0
+  xdl_V_foil.jsonld                                     0        0
+  xdl_WO2_rt_01.jsonld                                  0        0
+  xdl_Zn_foil.jsonld                                    0        0
   zn_znse_rt.jsonld                                     0        0
 
 ======================================================================
 TOP AGGREGATED SCHEMA ERROR PATHS
 ======================================================================
+     9  <root>
+     1  @context
 
 ======================================================================
 TOP AGGREGATED SHACL MESSAGES
 ======================================================================
+     1  Message: A codelist must declare at least one skos:hasTopConcept.

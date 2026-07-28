@@ -1,6 +1,6 @@
 {
-  "count": 37,
-  "ok": 37,
+  "count": 55,
+  "ok": 55,
   "error": 0,
   "per_file": [
     {
@@ -252,6 +252,132 @@
       "filename": "valid_angle_dspacing.xdi",
       "stem": "valid_angle_dspacing",
       "output_file": "valid_angle_dspacing.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_as2o3_roomt_scan1.xdi",
+      "stem": "xdl_as2o3_roomt_scan1",
+      "output_file": "xdl_as2o3_roomt_scan1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Au_Foil_L1_rt_2016Foils.xdi",
+      "stem": "xdl_Au_Foil_L1_rt_2016Foils",
+      "output_file": "xdl_Au_Foil_L1_rt_2016Foils.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_CdS_10K_03.xdi",
+      "stem": "xdl_CdS_10K_03",
+      "output_file": "xdl_CdS_10K_03.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_CeO2.xdi",
+      "stem": "xdl_CeO2",
+      "output_file": "xdl_CeO2.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_co_metal_rt.xdi",
+      "stem": "xdl_co_metal_rt",
+      "output_file": "xdl_co_metal_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_EuSe_eu_l3_001.xdi",
+      "stem": "xdl_EuSe_eu_l3_001",
+      "output_file": "xdl_EuSe_eu_l3_001.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Fe3O4_rt_01.xdi",
+      "stem": "xdl_Fe3O4_rt_01",
+      "output_file": "xdl_Fe3O4_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Fe_metal_rt_02.xdi",
+      "stem": "xdl_Fe_metal_rt_02",
+      "output_file": "xdl_Fe_metal_rt_02.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_FeO_rt_01.xdi",
+      "stem": "xdl_FeO_rt_01",
+      "output_file": "xdl_FeO_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_k2cro4_rt_003.xdi",
+      "stem": "xdl_k2cro4_rt_003",
+      "output_file": "xdl_k2cro4_rt_003.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Mn3O4_rt_01.xdi",
+      "stem": "xdl_Mn3O4_rt_01",
+      "output_file": "xdl_Mn3O4_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Pb_Foil_L2_rt_2016Foils.xdi",
+      "stem": "xdl_Pb_Foil_L2_rt_2016Foils",
+      "output_file": "xdl_Pb_Foil_L2_rt_2016Foils.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_pyrite2_rt_01.xdi",
+      "stem": "xdl_pyrite2_rt_01",
+      "output_file": "xdl_pyrite2_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Sr_slawsonite_15K_01.xdi",
+      "stem": "xdl_Sr_slawsonite_15K_01",
+      "output_file": "xdl_Sr_slawsonite_15K_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_SrO_rt_01.xdi",
+      "stem": "xdl_SrO_rt_01",
+      "output_file": "xdl_SrO_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_V_foil.xdi",
+      "stem": "xdl_V_foil",
+      "output_file": "xdl_V_foil.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_WO2_rt_01.xdi",
+      "stem": "xdl_WO2_rt_01",
+      "output_file": "xdl_WO2_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Zn_foil.xdi",
+      "stem": "xdl_Zn_foil",
+      "output_file": "xdl_Zn_foil.jsonld",
       "status": "ok",
       "error": null
     },
