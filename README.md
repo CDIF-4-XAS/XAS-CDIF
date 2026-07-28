@@ -29,10 +29,24 @@ pipelines consume what is here and write back into it:
 
 | pipeline | repository | what it does |
 |---|---|---|
-| RML / Dataverse | [`cdif-xas-UKDS`](https://github.com/smrgeoinfo/cdif-xas) | reads `exampleData/*.xdi`, writes `exampleMetadata/` |
+| RML / Dataverse | [`smrgeoinfo/cdif-xas`](https://github.com/smrgeoinfo/cdif-xas) — **the fork**, not [`UKDSResearch/cdif-xas`](https://github.com/UKDSResearch/cdif-xas) | reads `exampleData/*.xdi`, writes `exampleMetadata/` |
 | Python / SSSOM | [`usgin/hdf5metadata`](https://github.com/usgin/hdf5metadata) | reads NeXus **and** XDI; vendors the crosswalks from here |
 
-To regenerate `exampleMetadata/`, from a checkout of `cdif-xas-UKDS`:
+**The fork is what runs, and the distinction matters.** It is ahead of
+`UKDSResearch/cdif-xas` by the CDIF 1.1 uplift and by header
+normalisations the upstream does not have — ISO datetimes, qualitative
+temperatures, unit-less energies — plus fixes to three `rr:constant`
+values in the RML mapping that were producing wrong metadata: the
+reflection plane, the monochromator crystal, and the detection mode.
+Regenerating `exampleMetadata/` from upstream would silently produce
+different, worse documents. Those commits have not been submitted
+upstream yet; see `CONVERGENCE-PROPOSAL.md` in the fork.
+
+Locally this checkout is `C:\GithubC\CDIF\cdif-xas-UKDS`, whose
+`origin` is the fork and `upstream` is `UKDSResearch/cdif-xas` — so the
+directory name says UKDS while the code that runs is the fork's.
+
+To regenerate `exampleMetadata/`, from a checkout of the fork:
 
 ```bash
 PYTHONPATH=. .venv/Scripts/python.exe tools/batch_generate_cdif.py \
