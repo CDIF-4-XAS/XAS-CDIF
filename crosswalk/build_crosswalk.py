@@ -391,12 +391,18 @@ CDIFXAS_TO_NEXUS = [
 # Validation
 # ---------------------------------------------------------------------------
 
+def iter_concepts(doc):
+    """Yield every skos:Concept in a rooted CDIF concept scheme document."""
+    stack = list(doc.get("skos:hasTopConcept", []))
+    while stack:
+        node = stack.pop()
+        yield node
+        stack.extend(node.get("skos:narrower", []))
+
+
 def load_glossary_concepts() -> set[str]:
     d = json.loads(GLOSSARY.read_text(encoding="utf-8"))
-    return {
-        n["@id"].rsplit("/", 1)[-1]
-        for n in d["@graph"] if n.get("@type") == "skos:Concept"
-    }
+    return {n["@id"].rsplit("/", 1)[-1] for n in iter_concepts(d)}
 
 
 def load_rml_keys() -> tuple[Path | None, set[str] | None]:

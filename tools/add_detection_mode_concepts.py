@@ -117,15 +117,17 @@ def main(argv=None) -> int:
     args = ap.parse_args(argv)
 
     doc = json.loads(GLOSSARY.read_text(encoding="utf-8"))
-    existing = {
-        n["@id"] for n in doc["@graph"] if n.get("@type") == "skos:Concept"
-    }
-    scheme = next(
-        (n for n in doc["@graph"] if n.get("@type") == "skos:ConceptScheme"),
-        None,
-    )
-    if scheme is None:
-        print("! no ConceptScheme found in the glossary", file=sys.stderr)
+    # The glossary is rooted on its scheme; concepts hang off hasTopConcept
+    # and nest through narrower.
+    scheme = doc
+    by_id, stack = {}, list(doc.get("skos:hasTopConcept", []))
+    while stack:
+        node = stack.pop()
+        by_id[node["@id"]] = node
+        stack.extend(node.get("skos:narrower", []))
+    existing = set(by_id)
+    if "skos:ConceptScheme" not in (doc.get("@type") or []):
+        print("! the glossary is not rooted on a ConceptScheme", file=sys.stderr)
         return 1
 
     added, skipped = [], []
@@ -137,22 +139,27 @@ def main(argv=None) -> int:
         node = {
             "@id": cid,
             "@type": "skos:Concept",
-            "prefLabel": en(label),
-            "definition": en(definition),
-            "inScheme": {"@id": SCHEME},
-            "seeAlso": MANUAL + src,
-            "note": en(
+            "skos:prefLabel": en(label),
+            "skos:definition": en(definition),
+            "skos:inScheme": {"@id": SCHEME},
+            "rdfs:seeAlso": MANUAL + src,
+            "skos:note": en(
                 f"Definition adapted from the NeXus NXDL documentation in "
                 f"{src.replace('.html', '')}."
             ),
         }
         if notation:
-            node["notation"] = notation
+            node["skos:notation"] = [notation]
         if broader:
-            node["broader"] = {"@id": CDIF + broader}
+            node["skos:broader"] = [{"@id": CDIF + broader}]
+            parent = by_id.get(CDIF + broader)
+            if parent is None:
+                print(f"! broader concept {broader} not found", file=sys.stderr)
+                return 1
+            parent.setdefault("skos:narrower", []).append(node)
         else:
-            scheme.setdefault("hasTopConcept", []).append({"@id": cid})
-        doc["@graph"].append(node)
+            scheme.setdefault("skos:hasTopConcept", []).append(node)
+        by_id[cid] = node
         added.append(local)
 
     print(f"added:   {len(added)}")
@@ -170,7 +177,7 @@ def main(argv=None) -> int:
     GLOSSARY.write_text(
         json.dumps(doc, indent=2, ensure_ascii=False), encoding="utf-8"
     )
-    total = sum(1 for n in doc["@graph"] if n.get("@type") == "skos:Concept")
+    total = len(by_id)
     print(f"\nglossary now: {total} concepts")
     return 0
 

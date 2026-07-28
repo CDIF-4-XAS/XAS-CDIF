@@ -168,29 +168,53 @@ def slug(value: str) -> str:
 # SKOS construction
 # --------------------------------------------------------------------------
 
+# Prefixes only. Alias terms (prefLabel, hasTopConcept, ...) are legal
+# JSON-LD, but the CDIF validator compacts the framed graph with the
+# document's own context, and the concept scheme schema requires
+# skos:-prefixed keys -- so aliases produce a document that expands
+# correctly and still fails validation.
 CONTEXT = {
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "Concept": "skos:Concept",
-    "ConceptScheme": "skos:ConceptScheme",
-    "Collection": "skos:Collection",
-    "prefLabel": "skos:prefLabel",
-    "altLabel": "skos:altLabel",
-    "definition": "skos:definition",
-    "broader": "skos:broader",
-    "narrower": "skos:narrower",
-    "inScheme": "skos:inScheme",
-    "member": "skos:member",
-    "notation": "skos:notation",
-    "hasTopConcept": "skos:hasTopConcept",
-    "note": "skos:note",
-    "seeAlso": {
-        "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-        "@type": "@id",
-    },
-    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
-    "references": "dc:references",
-    "source": "dc:source",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdfs:seeAlso": {"@type": "@id"},
 }
+
+CDIF_CONCEPTSCHEME_PROFILE = "https://w3id.org/cdif/conceptscheme/1.1"
+
+# The builders below write short keys; this is applied on the way out.
+SKOS_KEY = {
+    "prefLabel": "skos:prefLabel", "altLabel": "skos:altLabel",
+    "definition": "skos:definition", "note": "skos:note",
+    "notation": "skos:notation", "inScheme": "skos:inScheme",
+    "broader": "skos:broader", "narrower": "skos:narrower",
+    "member": "skos:member", "hasTopConcept": "skos:hasTopConcept",
+    "seeAlso": "rdfs:seeAlso", "references": "dcterms:references",
+    "source": "dcterms:source",
+}
+
+_ARRAY_KEYS = {"skos:notation", "skos:hasTopConcept", "skos:broader",
+               "skos:narrower", "skos:member"}
+
+
+def skosify(node):
+    """Rewrite a node's short keys to the prefixed forms the profile wants."""
+    out = {}
+    for k, v in node.items():
+        nk = SKOS_KEY.get(k, k)
+        if isinstance(v, dict):
+            v = skosify(v)
+        elif isinstance(v, list):
+            v = [skosify(x) if isinstance(x, dict) else x for x in v]
+        if nk in _ARRAY_KEYS and not isinstance(v, list):
+            v = [v]
+        out[nk] = v
+    t = out.get("@type")
+    if isinstance(t, str):
+        out["@type"] = [t]
+    return out
 
 
 def en(v: str) -> dict:
@@ -198,15 +222,26 @@ def en(v: str) -> dict:
 
 
 def build_scheme(scheme_id, title, description, concepts, source_note):
-    scheme = {
-        "@id": f"{CDIF_XAS}{scheme_id}",
+    """A rooted CDIF concept scheme document: the scheme is the root and
+    its concepts are inline, which is the shape the profile frame and
+    schema expect."""
+    uri = f"{CDIF_XAS}{scheme_id}"
+    scheme = skosify({
+        "@id": uri,
         "@type": "skos:ConceptScheme",
         "prefLabel": en(title),
         "definition": en(description),
         "note": en(source_note),
-        "hasTopConcept": [{"@id": c["@id"]} for c in concepts],
+        "hasTopConcept": [skosify(c) for c in concepts],
+    })
+    scheme["schema:subjectOf"] = {
+        "@id": f"{uri}#catalog-record",
+        "@type": ["schema:Dataset"],
+        "schema:additionalType": ["dcat:CatalogRecord"],
+        "schema:about": {"@id": uri},
+        "dcterms:conformsTo": [{"@id": CDIF_CONCEPTSCHEME_PROFILE}],
     }
-    return {"@context": CONTEXT, "@graph": [scheme] + concepts}
+    return {"@context": CONTEXT, **scheme}
 
 
 # --------------------------------------------------------------------------
@@ -457,7 +492,7 @@ def main(argv=None) -> int:
         p = args.out_dir / fname
         p.write_text(json.dumps(doc, indent=2, ensure_ascii=False),
                      encoding="utf-8")
-        n = len(doc["@graph"]) - 1
+        n = len(doc["skos:hasTopConcept"])
         print(f"  wrote {p}  ({n} concepts)")
 
     return 1 if failed else 0

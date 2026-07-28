@@ -51,11 +51,40 @@ def as_list(v):
     return [v]
 
 
+SHORT_KEY = {
+    'skos:prefLabel': 'prefLabel', 'skos:altLabel': 'altLabel',
+    'skos:definition': 'definition', 'skos:note': 'note',
+    'skos:notation': 'notation', 'skos:inScheme': 'inScheme',
+    'skos:broader': 'broader', 'skos:narrower': 'narrower',
+    'skos:hasTopConcept': 'hasTopConcept', 'rdfs:seeAlso': 'seeAlso',
+    'dcterms:references': 'references', 'dcterms:source': 'source',
+    'dcterms:description': 'description',
+}
+
+
+def _shorten(node):
+    """Rewrite conformant keys to the short names this renderer reads."""
+    out = {}
+    for k, v in node.items():
+        if isinstance(v, list):
+            v = [_shorten(x) if isinstance(x, dict) else x for x in v]
+            if len(v) == 1 and SHORT_KEY.get(k) in ('notation',):
+                v = v[0]
+        elif isinstance(v, dict):
+            v = _shorten(v)
+        out[SHORT_KEY.get(k, k)] = v
+    return out
+
+
 def load_glossary(path: Path):
     with path.open(encoding='utf-8') as f:
         doc = json.load(f)
-    scheme = next(e for e in doc['@graph'] if e.get('@type') == 'skos:ConceptScheme')
-    concepts = [e for e in doc['@graph'] if e.get('@type') == 'skos:Concept']
+    scheme = _shorten(doc)
+    concepts, stack = [], list(scheme.get('hasTopConcept', []))
+    while stack:
+        node = stack.pop()
+        concepts.append(node)
+        stack.extend(node.get('narrower', []))
     return doc, scheme, concepts
 
 

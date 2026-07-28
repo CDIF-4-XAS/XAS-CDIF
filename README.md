@@ -174,6 +174,33 @@ validates against the glossary. So a concept renamed here breaks the
 crosswalk build, which is the intended failure mode: it surfaces at
 build time rather than as silently unmapped data.
 
+All four conform to the **CDIF concept scheme profile**
+([`profile-conceptscheme`](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme)),
+and each declares it in a `schema:subjectOf` catalog record with
+`dcterms:conformsTo https://w3id.org/cdif/conceptscheme/1.1`. To check:
+
+```bash
+python ../profile-conceptscheme/FrameAndValidate.py XAS_Glossary_SKOS.json -v \
+    --schema ../metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifConceptScheme/resolvedSchema.json
+```
+
+Two things this requires that are easy to undo by accident. The
+`@context` declares **prefixes only** — no alias terms like `prefLabel`
+or `hasTopConcept` — because the validator compacts the framed graph
+with the document's own context, so aliases yield a document that
+expands correctly and still fails validation. And each document is
+**rooted on its scheme**, concepts inline under `skos:hasTopConcept`
+rather than siblings in an `@graph`.
+
+**Known defect: six emission-line URIs collide.** In
+`XAS_emissionlines_SKOS.json`, `Kb2'` and `Kb2''` both mint
+`…/xas/kb2`; the same happens for `kb4`, `kb5`, `lb7`, `lg4` and `lg8`.
+So 432 concepts occupy 427 URIs, and each colliding URI carries two
+`skos:prefLabel` values in the same language, which SKOS does not
+allow. The fix is in the URI minting in
+`tools/import_nexus_enumerations.py` and changes those concept URIs, so
+it has not been made unilaterally.
+
 ### Where the concepts come from
 
 The 104 concepts in `XAS_Glossary_SKOS.json` are **minted for

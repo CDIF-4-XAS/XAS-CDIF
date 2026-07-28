@@ -69,6 +69,19 @@ def localname_of(uri: str) -> str:
     return tail
 
 
+def iter_concepts(doc):
+    """Yield every skos:Concept in a rooted CDIF concept scheme document.
+
+    The scheme is the document root and its concepts hang off
+    skos:hasTopConcept, nesting further through skos:narrower.
+    """
+    stack = list(doc.get("skos:hasTopConcept", []))
+    while stack:
+        node = stack.pop()
+        yield node
+        stack.extend(node.get("skos:narrower", []))
+
+
 def compute_narrower(concepts):
     """Return {parent_uri: [child_uri, ...]} from the inverse of `broader`.
 
@@ -93,7 +106,7 @@ def build_concept_file(concept, context, narrower_for_this):
     preferred_order = [
         "@id",
         "@type",
-        "prefLabel",
+        "skos:prefLabel",
         "altLabel",
         "notation",
         "definition",
@@ -164,14 +177,13 @@ def main(argv=None) -> int:
 
     doc = json.loads(args.source.read_text(encoding="utf-8"))
     context = doc.get("@context")
-    graph = doc.get("@graph", [])
     if context is None:
         print("error: source is missing a top-level @context", file=sys.stderr)
         return 2
 
-    concepts = [e for e in graph if e.get("@type") == "skos:Concept"]
+    concepts = list(iter_concepts(doc))
     if not concepts:
-        print("error: no skos:Concept entries found in @graph", file=sys.stderr)
+        print("error: no concepts under skos:hasTopConcept", file=sys.stderr)
         return 2
 
     narrower = compute_narrower(concepts)
