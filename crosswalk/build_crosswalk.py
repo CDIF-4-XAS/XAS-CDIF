@@ -33,7 +33,9 @@ its source vocabulary:
   * XDI tokens are checked against the concept keys the production RML
     mapping actually reads (resources/mapping_dds.ttl in
     smrgeoinfo/cdif-xas), so the alignment cannot drift from the
-    converter
+    converter. That repository is found by looking beside this one, or
+    at $CDIF_XAS_RML. Not finding it is a validation failure, not a
+    skipped check -- pass --no-rml-check to build without it.
   * NeXus paths are checked against the live NXDL definitions
 
 That last check is the point: the XAS definitions are in flux, so a
@@ -49,6 +51,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import os
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -62,8 +65,25 @@ SEARCH_DIRS = ("contributed_definitions", "applications", "base_classes")
 HERE = Path(__file__).resolve().parent
 GLOSSARY = HERE.parent / "XAS_Glossary_SKOS_v2_draft.json"
 # Production RML mapping -- the ground truth for which XDI-derived concept
-# keys the converter actually consumes.
-RML_MAPPING = Path(r"C:/GithubC/CDIF/cdif-xas-UKDS/resources/mapping_dds.ttl")
+# keys the converter actually consumes. It lives in a separate repository,
+# so look for a checkout beside this one. $CDIF_XAS_RML overrides, and is
+# honoured even when it points at nothing so the error can name it.
+RML_CANDIDATES = (
+    "cdif-xas-UKDS/resources/mapping_dds.ttl",
+    "cdif-xas/resources/mapping_dds.ttl",
+)
+
+
+def find_rml_mapping() -> Path | None:
+    """The production RML mapping, or None if no checkout is beside us."""
+    override = os.environ.get("CDIF_XAS_RML")
+    if override:
+        return Path(override)
+    for rel in RML_CANDIDATES:
+        candidate = HERE.parent.parent / rel
+        if candidate.is_file():
+            return candidate
+    return None
 
 CURATOR = "https://orcid.org/0000-0001-6041-5302"   # S. M. Richard
 
@@ -375,13 +395,18 @@ def load_glossary_concepts() -> set[str]:
     }
 
 
-def load_rml_keys() -> set[str] | None:
-    """Concept keys the production RML mapping actually reads."""
-    if not RML_MAPPING.is_file():
-        return None
+def load_rml_keys() -> tuple[Path | None, set[str] | None]:
+    """Concept keys the production RML mapping actually reads.
+
+    Returns the path looked at (None if no candidate exists) and the keys
+    (None if it could not be read), so the caller can say what is wrong.
+    """
+    path = find_rml_mapping()
+    if path is None or not path.is_file():
+        return path, None
     import re
-    txt = RML_MAPPING.read_text(encoding="utf-8", errors="replace")
-    return set(re.findall(r"\$\['(cdi:[A-Za-z_0-9]+)'\]", txt))
+    txt = path.read_text(encoding="utf-8", errors="replace")
+    return path, set(re.findall(r"\$\['(cdi:[A-Za-z_0-9]+)'\]", txt))
 
 
 _nxdl_cache: dict[str, ET.Element | None] = {}
@@ -422,17 +447,29 @@ def nxdl_has_field(root: ET.Element, path: str) -> bool:
     )
 
 
-def validate(ref: str) -> list[str]:
+def validate(ref: str, rml_check: bool = True) -> list[str]:
     problems: list[str] = []
 
     concepts = load_glossary_concepts()
     print(f"  glossary: {len(concepts)} concepts")
 
-    rml_keys = load_rml_keys()
-    if rml_keys is None:
-        print("  ! RML mapping not found locally; skipping XDI key check")
+    rml_keys = None
+    if not rml_check:
+        print("  RML mapping: check disabled (--no-rml-check)")
     else:
-        print(f"  RML mapping: {len(rml_keys)} concept keys")
+        rml_path, rml_keys = load_rml_keys()
+        if rml_keys is None:
+            where = (f"{rml_path}" if rml_path is not None
+                     else " or ".join(RML_CANDIDATES)
+                     + f" beside {HERE.parent}")
+            problems.append(
+                f"RML mapping not readable at {where} -- the XDI key check "
+                f"cannot run. Check out smrgeoinfo/cdif-xas beside this "
+                f"repository, set $CDIF_XAS_RML, or pass --no-rml-check to "
+                f"build without the check.")
+        else:
+            print(f"  RML mapping: {len(rml_keys)} concept keys "
+                  f"({rml_path})")
 
     # Set 1
     for token, rml_key, concept, *_ in XDI_TO_CDIFXAS:
@@ -589,6 +626,9 @@ def main(argv=None) -> int:
                     help="validate only, write nothing")
     ap.add_argument("--no-validate", action="store_true",
                     help="write without checking against source vocabularies")
+    ap.add_argument("--no-rml-check", action="store_true",
+                    help="skip the XDI-key-against-mapping_dds.ttl check, "
+                         "for when no cdif-xas checkout is available")
     args = ap.parse_args(argv)
 
     print(f"CDIF XAS crosswalk -- all six detection modes")
@@ -597,7 +637,7 @@ def main(argv=None) -> int:
     problems: list[str] = []
     if not args.no_validate:
         print("Validating against source vocabularies:")
-        problems = validate(args.ref)
+        problems = validate(args.ref, rml_check=not args.no_rml_check)
         if problems:
             print(f"\n{len(problems)} problem(s):")
             for p in problems:
