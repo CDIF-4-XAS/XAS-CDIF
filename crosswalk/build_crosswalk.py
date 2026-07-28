@@ -126,6 +126,10 @@ XDI_TO_CDIFXAS = [
      "Name of the beamline."),
     ("Facility.xray_source", None, "xraysourcetype", E, 1.0,
      "Insertion device or bending magnet type."),
+    ("Beamline.xray_source", None, "xraysourcetype", E, 1.0,
+     "Not a dictionary tag -- the dictionary defines Facility.xray_source "
+     "-- but 118 of the 272 files in the XAS Data Library write it under "
+     "Beamline and only 39 under Facility. Same concept either way."),
     ("Sample.prep", "cdi:Sample_prep", "samplepreparation", E, 1.0,
      "Free-text sample preparation description."),
     ("Sample.temperature", None, "temperature", E, 1.0,
@@ -147,6 +151,15 @@ XDI_TO_CDIFXAS = [
      "Data column: reference-channel intensity."),
     ("Column.mutrans", None, "absorptioncoefficient", E, 1.0,
      "Data column: mu(E)t = -ln(itrans/i0)."),
+    ("Column.ifluor", None, "fluorescenceintensity", E, 1.0,
+     "Data column: fluorescence intensity. Present in 32 of the 272 "
+     "files in the XAS Data Library, and the only thing that "
+     "distinguishes a fluorescence measurement from a transmission one, "
+     "since XDI has no detection-mode field."),
+    ("Column.mufluor", None, "fluorescenceabsorptioncoefficient", E, 1.0,
+     "Data column: mu(E) derived from the fluorescence channel."),
+    ("Column.murefer", None, "referenceabsorptioncoefficient", E, 1.0,
+     "Data column: mu(E) derived from the reference channel."),
 ]
 
 # ---------------------------------------------------------------------------
