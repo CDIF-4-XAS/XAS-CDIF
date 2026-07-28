@@ -111,11 +111,14 @@ as the example. So `room temperature` does not conform, `10K` does not
 conform for want of the space, and the validator is right to say so.
 
 The fix belongs in the converter rather than in the data or the
-validator: `cdif-xas-UKDS` normalises `room temperature` and its
-spelling variants to `295.0 K` and records
-`temperature reported as "room temperature"` in the description, so the
-qualitative original is not silently replaced by a number that was
-never measured.
+validator, and is there. `cdif-xas-UKDS` normalises `room temperature`
+and its spelling variants to `295.0 K`, recording
+`temperature reported as "room temperature"` in the dataset
+description so the qualitative original is not silently replaced by a
+number that was never measured. It also spaces `10K` into `10 K`,
+which carries no note because only the spelling changes. Every
+`Sample.temperature` the converter emits over this corpus now matches
+the pattern the validator enforces.
 
 Only the header-end fix belongs in the validator. It is open upstream as
 [PR #7](https://github.com/AAAlvesJr/XDI-Validator/pull/7), alongside
