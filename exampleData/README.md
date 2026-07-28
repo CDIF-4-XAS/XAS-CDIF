@@ -64,6 +64,27 @@ single spectra whose names are lower-case (`cu_metal_rt.xdi`,
 `fe2o3_rt.xdi`, …). Also `nonxafs_1d.xdi` / `nonxafs_2d.xdi`, and
 `valid*.xdi` as validator fixtures.
 
+## Licensing
+
+`REUSE.toml` at the repository root annotates 36 of these 55 files:
+
+| files | source | licence |
+|---|---|---|
+| 18 `xdl_*.xdi` | XAS Data Library | public domain, recorded as CC0-1.0 |
+| 15 lower-case single spectra | `data/` in the XDI specification repository | CC0-1.0, 2025 XDI Working Group |
+| 3 `valid*.xdi` | AAAlvesJr/XDI-Validator | **MIT**, 2025 Antonio Augusto Alves Junior |
+
+The `valid*.xdi` fixtures are the exception worth knowing about: MIT
+carries an attribution condition, so they cannot be redistributed as
+freely as everything else here.
+
+**19 files are unannotated because their rights are unknown**: the 17
+Diamond B18 PtSn spectra, `Se_Na2SeO4_rt_01.xdi` and `b18_nxs.xdi`.
+They arrived with the original corpus and nothing records who holds
+rights in them. They are left unannotated on purpose — REUSE reads an
+unannotated file as unknown, which is true, whereas a guessed copyright
+line would not be. Resolving this needs whoever ran the beamtime.
+
 ## Why the validator rejects these files
 
 Running the XDI validator over the 18 new files rejects all 18. Neither

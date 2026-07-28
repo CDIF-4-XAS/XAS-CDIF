@@ -76,3 +76,16 @@ path = [
 ]
 SPDX-FileCopyrightText = "2025 World Fair CDIF working group"
 SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+# Validator fixtures from AAAlvesJr/XDI-Validator, which is MIT licensed.
+# MIT is a software licence carrying an attribution condition, so unlike
+# the rest of exampleData/ these three may not simply be reused without
+# the notice above.
+path = [
+    "exampleData/valid.xdi",
+    "exampleData/valid2.xdi",
+    "exampleData/valid_angle_dspacing.xdi",
+]
+SPDX-FileCopyrightText = "2025 Antonio Augusto Alves Junior"
+SPDX-License-Identifier = "MIT"
