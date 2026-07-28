@@ -11,6 +11,9 @@ on:
     branches: [main]
     paths:
       - 'XAS_Glossary_SKOS.json'
+      - 'XAS_edges_SKOS.json'
+      - 'XAS_emissionlines_SKOS.json'
+      - 'XAS_detectionmodes_SKOS.json'
       - 'tools/generate_glossary_html.py'
       - 'tools/generate_concept_files.py'
       - 'XAS-CDIF-1.0_release/docs/**'
@@ -45,12 +48,19 @@ jobs:
 
       - name: Copy source glossary + LICENSE alongside the site
         # Copy the working-copy SKOS JSON-LD into the published site as the
-        # canonical XAS_Glossary_SKOS_v2.json filename, and drop the repo
+        # canonical XAS_Glossary_SKOS_v2.json filename. The three value-list
+        # vocabularies go alongside it under their own names -- w3id
+        # resolves xas/edge/{x}, xas/emissionline/{x} and
+        # xas/detectionmode/{x} to a fragment of these files, so they have
+        # to be published for those URIs to work. Also drop the repo
         # LICENSE next to it. The generator's "Source" link in the header
         # points at ../XAS_Glossary_SKOS_v2.json; that resolves to
         # <pages>/XAS_Glossary_SKOS_v2.json in the deployed site.
         run: |
           cp XAS_Glossary_SKOS.json XAS-CDIF-1.0_release/docs/XAS_Glossary_SKOS_v2.json
+          cp XAS_edges_SKOS.json XAS-CDIF-1.0_release/docs/
+          cp XAS_emissionlines_SKOS.json XAS-CDIF-1.0_release/docs/
+          cp XAS_detectionmodes_SKOS.json XAS-CDIF-1.0_release/docs/
           cp LICENSE XAS-CDIF-1.0_release/docs/ || true
 
       - name: Deploy to gh-pages
