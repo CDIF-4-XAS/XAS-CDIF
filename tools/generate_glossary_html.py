@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a browsable HTML page from XAS_Glossary_SKOS_v2_draft.json.
+"""Generate a browsable HTML page from XAS_Glossary_SKOS.json.
 
 Reads the SKOS JSON-LD glossary and emits a single-file HTML page with an
 alphabetized concept index and a per-concept detail block showing:
@@ -305,8 +305,8 @@ XDI column definitions, sample properties Nexus doesn't model) exist as XAS-spec
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('--source', default='XAS_Glossary_SKOS_v2_draft.json',
-                    help='SKOS JSON-LD input (default: XAS_Glossary_SKOS_v2_draft.json — the working copy at repo root)')
+    ap.add_argument('--source', default='XAS_Glossary_SKOS.json',
+                    help='SKOS JSON-LD input (default: XAS_Glossary_SKOS.json — the working copy at repo root)')
     ap.add_argument('--out', default='XAS-CDIF-1.0_release/docs/index.html',
                     help='HTML output path (default: XAS-CDIF-1.0_release/docs/index.html)')
     args = ap.parse_args(argv)

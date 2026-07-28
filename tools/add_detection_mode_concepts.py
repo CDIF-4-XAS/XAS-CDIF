@@ -29,7 +29,7 @@ import json
 import sys
 from pathlib import Path
 
-GLOSSARY = Path(__file__).resolve().parent.parent / "XAS_Glossary_SKOS_v2_draft.json"
+GLOSSARY = Path(__file__).resolve().parent.parent / "XAS_Glossary_SKOS.json"
 CDIF = "https://w3id.org/cdif/xas/"
 SCHEME = CDIF + "CDIF4XAS_Reference_Concepts"
 MANUAL = "https://manual.nexusformat.org/classes/contributed_definitions/"

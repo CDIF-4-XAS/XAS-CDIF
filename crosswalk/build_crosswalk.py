@@ -29,14 +29,18 @@ is not inferable), so the mapping rows below are hand-authored. What IS
 automated is checking that every subject and object actually exists in
 its source vocabulary:
 
-  * CDIF XAS concepts are checked against XAS_Glossary_SKOS_v2_draft.json
+  * CDIF XAS concepts are checked against XAS_Glossary_SKOS.json
   * XDI tokens are checked against the concept keys the production RML
     mapping actually reads (resources/mapping_dds.ttl in
-    smrgeoinfo/cdif-xas), so the alignment cannot drift from the
+    (Github) smrgeoinfo/cdif-xas), so the alignment cannot drift from the
     converter. That repository is found by looking beside this one, or
     at $CDIF_XAS_RML. Not finding it is a validation failure, not a
     skipped check -- pass --no-rml-check to build without it.
-  * NeXus paths are checked against the live NXDL definitions
+  * NeXus paths are checked against the live NXDL definitions;
+    as of 2026-07-28 when this note was writted, the definitions are under
+    review and revisions for a new NXxas profile; the current working
+    repository is https://github.com/XraySpectroscopy/nexus_definitions, which
+    is forked from https://github.com/nexusformat/definitions
 
 That last check is the point: the XAS definitions are in flux, so a
 renamed or moved field surfaces here as a validation failure rather than
@@ -63,7 +67,7 @@ RAW = "https://raw.githubusercontent.com/{repo}/{ref}/{path}"
 SEARCH_DIRS = ("contributed_definitions", "applications", "base_classes")
 
 HERE = Path(__file__).resolve().parent
-GLOSSARY = HERE.parent / "XAS_Glossary_SKOS_v2_draft.json"
+GLOSSARY = HERE.parent / "XAS_Glossary_SKOS.json"
 # Production RML mapping -- the ground truth for which XDI-derived concept
 # keys the converter actually consumes. It lives in a separate repository,
 # so look for a checkout beside this one. $CDIF_XAS_RML overrides, and is

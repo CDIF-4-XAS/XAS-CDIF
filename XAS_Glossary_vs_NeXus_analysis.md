@@ -1,7 +1,7 @@
 # CDIF XAS Glossary ↔ NeXus definitions — gap analysis
 
 **Date:** 2026-07-27
-**Glossary analysed:** `XAS_Glossary_SKOS_v2_draft.json` (89 `skos:Concept`,
+**Glossary analysed:** `XAS_Glossary_SKOS.json` (89 `skos:Concept`,
 scheme `.../CDIF4XAS_Reference_Concepts`)
 **NeXus source:** <https://github.com/XraySpectroscopy/nexus_definitions>
 branch `main` — the XAS community's working fork, 44 commits ahead of

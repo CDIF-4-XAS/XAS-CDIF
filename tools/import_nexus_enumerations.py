@@ -7,7 +7,7 @@ Generates three standalone SKOS concept schemes from the NeXus definitions:
   XAS_emissionlines_SKOS.json   x-ray emission lines  (NXemission_line/name)
   XAS_detectionmodes_SKOS.json  XAS detection modes   (union, see below)
 
-Why separate schemes rather than adding to XAS_Glossary_SKOS_v2_draft.json:
+Why separate schemes rather than adding to XAS_Glossary_SKOS.json:
 the three lists total ~478 concepts against a 89-concept glossary, and the
 publishing pipeline emits one file per concept. A property glossary and a
 value list are different kinds of artifact; keeping them apart avoids

@@ -1,7 +1,7 @@
 name: Publish glossary docs
 
 # Regenerates the browsable glossary HTML plus the per-concept SKOS JSON-LD
-# files from the working-copy XAS_Glossary_SKOS_v2_draft.json, and deploys
+# files from the working-copy XAS_Glossary_SKOS.json, and deploys
 # the site to GitHub Pages (gh-pages branch). Runs on every push to main
 # that changes the draft, either generator, or the published-docs folder,
 # plus workflow_dispatch for manual runs.
@@ -10,7 +10,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'XAS_Glossary_SKOS_v2_draft.json'
+      - 'XAS_Glossary_SKOS.json'
       - 'tools/generate_glossary_html.py'
       - 'tools/generate_concept_files.py'
       - 'XAS-CDIF-1.0_release/docs/**'
@@ -50,7 +50,7 @@ jobs:
         # points at ../XAS_Glossary_SKOS_v2.json; that resolves to
         # <pages>/XAS_Glossary_SKOS_v2.json in the deployed site.
         run: |
-          cp XAS_Glossary_SKOS_v2_draft.json XAS-CDIF-1.0_release/docs/XAS_Glossary_SKOS_v2.json
+          cp XAS_Glossary_SKOS.json XAS-CDIF-1.0_release/docs/XAS_Glossary_SKOS_v2.json
           cp LICENSE XAS-CDIF-1.0_release/docs/ || true
 
       - name: Deploy to gh-pages

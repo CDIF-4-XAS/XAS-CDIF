@@ -133,7 +133,7 @@ implementations can be compared on identical inputs, which is what
 | item | what it is |
 |---|---|
 | `XAS-CDIF-1.0_release/` | the published 1.0 deliverable, from the GitHub tag |
-| `XAS_Glossary_SKOS.json` | the v1 glossary, superseded by `XAS_Glossary_SKOS_v2_draft.json` |
+| `XAS_Glossary_SKOS.json` | the **v1** glossary. Shares a filename with the current glossary at the repository root and is not the same file — this is the superseded one |
 | `se_na2so4-testschemaorg-cdiv3.jsonLD` | hand-authored record, does not validate against the current profile |
 
 ### `tools/` — vocabulary maintenance
@@ -155,11 +155,19 @@ implementations can be compared on identical inputs, which is what
 
 | file | role |
 |---|---|
-| `XAS_Glossary_SKOS_v2_draft.json` | **the concept hub.** Every crosswalk subject resolves here; `build_crosswalk.py` validates against it |
+| `XAS_Glossary_SKOS.json` | **the concept hub.** Every crosswalk subject resolves here; `build_crosswalk.py` validates against it |
 | `XAS_detectionmodes_SKOS.json` | transmission, fluorescence, electron yield, HERFD … |
 | `XAS_edges_SKOS.json` | K, L1, L2, L3 … |
 | `XAS_emissionlines_SKOS.json` | emission lines for HERFD and PFY |
 | `XAS_Glossary.xlsx` | the spreadsheet the glossary is curated in |
+
+The glossary filename carries no version on purpose: it is the working
+copy, and it shares a prefix with `XAS_Glossary.xlsx` because the two
+are meant to say the same thing. **Snapshots keep their version** —
+`release/XAS_Glossary_SKOS_v2.json` is the released one, and the Pages
+build publishes under that same `_v2` name because the per-concept
+files link to it. Renaming the working file therefore does not move any
+published URL.
 
 These are the shared dependency. `hdf5metadata` does not read them
 directly — it consumes the crosswalks, which `build_crosswalk.py`
@@ -169,7 +177,7 @@ build time rather than as silently unmapped data.
 
 ### Where the concepts come from
 
-The 104 concepts in `XAS_Glossary_SKOS_v2_draft.json` are **minted for
+The 104 concepts in `XAS_Glossary_SKOS.json` are **minted for
 this project**, in one scheme,
 `https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts`. Nothing
 upstream is being re-published: they were assembled by reconciling the
@@ -244,7 +252,7 @@ are kept in step by hand. Nothing detects it when they drift.
 ## Dependency summary
 
 ```
-XAS_Glossary_SKOS_v2_draft.json          (concepts)
+XAS_Glossary_SKOS.json          (concepts)
         │  validated against
         ▼
 crosswalk/build_crosswalk.py  ──────►  crosswalk/*.sssom.tsv

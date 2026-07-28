@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit one SKOS JSON-LD file per concept from XAS_Glossary_SKOS_v2_draft.json.
+"""Emit one SKOS JSON-LD file per concept from XAS_Glossary_SKOS.json.
 
 Reads the master SKOS JSON-LD glossary and writes, for every skos:Concept in
 the @graph, a standalone per-concept JSON-LD file at
@@ -28,7 +28,7 @@ No external Python dependencies beyond the standard library.
 
 Usage:
     python tools/generate_concept_files.py
-    python tools/generate_concept_files.py --source XAS_Glossary_SKOS_v2_draft.json
+    python tools/generate_concept_files.py --source XAS_Glossary_SKOS.json
     python tools/generate_concept_files.py --out XAS-CDIF-1.0_release/docs/concepts
     python tools/generate_concept_files.py --dry-run
 """
@@ -41,7 +41,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_SOURCE = REPO_ROOT / "XAS_Glossary_SKOS_v2_draft.json"
+DEFAULT_SOURCE = REPO_ROOT / "XAS_Glossary_SKOS.json"
 DEFAULT_OUT = REPO_ROOT / "XAS-CDIF-1.0_release" / "docs" / "concepts"
 
 
