@@ -167,6 +167,64 @@ validates against the glossary. So a concept renamed here breaks the
 crosswalk build, which is the intended failure mode: it surfaces at
 build time rather than as silently unmapped data.
 
+### Where the concepts come from
+
+The 104 concepts in `XAS_Glossary_SKOS_v2_draft.json` are **minted for
+this project**, in one scheme,
+`https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts`. Nothing
+upstream is being re-published: they were assembled by reconciling the
+XDI dictionary, the NeXus `NXxas` family and the XAS mapping
+spreadsheets into a single technique vocabulary that both bindings can
+resolve against.
+
+**The definitions are sourced, not invented.** Provenance is carried on
+the concepts themselves:
+
+| property | on | pointing at |
+|---|---|---|
+| `references` | 90 of 104 | 97 DOIs, the XDI dictionary and other GitHub sources, the IUCr dictionary, `docs.xrayabsorption.org`, Wikipedia |
+| `seeAlso` | 50 | `manual.nexusformat.org` — the resolvable NeXus documentation |
+| `foaf:focus` | 36 | NeXusOntology PURLs under `purl.org/nexusformat/definitions/` |
+| `notation` | 27 | the short token (`i0`, `mutrans`) the formats actually use |
+
+14 concepts cite nothing. That is the gap to close first if the glossary
+is published.
+
+**`foaf:focus` is a known problem.** Those PURLs do not resolve — the
+`purl.org/nexusformat` domain was never registered, and an open PR
+renames every IRI besides. `build_crosswalk.py` refuses to use them for
+exactly that reason and mints `nxdl:` under CDIF w3id instead, so the
+glossary asserts identity against IRIs the crosswalk treats as
+unusable. Both cannot be right. Until the NeXus side settles, `seeAlso`
+to the manual is the link that works.
+
+The same mint-now-redirect-later reasoning produced all three CDIF
+namespaces — `cdifxas:`, `xdi:` and `nxdl:`. XDI defines no IRIs at all
+and NeXus has none that resolve, so stable URIs had to come from
+somewhere; w3id can be redirected to an official vocabulary later
+without breaking anything already deployed. The rationale is written out
+in the `CURIE_MAP` comment in `crosswalk/build_crosswalk.py`.
+
+Two additions were made by script rather than by hand:
+
+- `tools/add_detection_mode_concepts.py` added 14 detection-mode
+  concepts, with definitions taken from the NXDL `<doc>` text of the
+  corresponding fields and a `source` note on each, so the glossary and
+  NeXus say the same thing rather than two similar things.
+- `tools/import_nexus_enumerations.py` generates the three value-list
+  schemes (`XAS_edges_SKOS.json`, `XAS_emissionlines_SKOS.json`,
+  `XAS_detectionmodes_SKOS.json`) from NXDL enumerations. It
+  deliberately does **not** write into the glossary: ~478 values against
+  ~100 properties, and the publishing pipeline emits one file per
+  concept. A property glossary and a value list are different artifacts.
+
+`XAS_Glossary_vs_NeXus_analysis.md` is the record of the reconciliation,
+including where the two vocabularies do not align.
+
+**`XAS_Glossary.xlsx` is the curation surface, not a build input.** No
+script reads it — the JSON is the machine-readable master, and the two
+are kept in step by hand. Nothing detects it when they drift.
+
 ### Analysis and mapping documents
 
 | file | content |
