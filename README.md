@@ -30,7 +30,7 @@ pipelines consume what is here and write back into it:
 | pipeline | repository | what it does |
 |---|---|---|
 | RML / Dataverse | [`smrgeoinfo/cdif-xas`](https://github.com/smrgeoinfo/cdif-xas) — **the fork**, not [`UKDSResearch/cdif-xas`](https://github.com/UKDSResearch/cdif-xas) | reads `exampleData/*.xdi`, writes `exampleMetadata/` |
-| Python / SSSOM | [`usgin/hdf5metadata`](https://github.com/usgin/hdf5metadata) | reads NeXus **and** XDI; vendors the crosswalks from here |
+| Python / SSSOM | [`usgin/hdf5metadata`](https://github.com/usgin/hdf5metadata) | reads NeXus **and** XDI; keeps its own copies of the crosswalks from here |
 
 **The fork is what runs, and the distinction matters.** It is ahead of
 `UKDSResearch/cdif-xas` by the CDIF 1.1 uplift and by header
@@ -84,9 +84,16 @@ here; the SHACL is regenerated with `tools/validate_shacl.py --emit-shapes`.
 
 | file | direction | consumed by |
 |---|---|---|
-| `cdifxas-to-nexus.sssom.tsv` | CDIF XAS concept → NeXus path | `hdf5metadata` (vendored copy) |
-| `xdi-to-cdifxas.sssom.tsv` | XDI key → CDIF XAS concept | `hdf5metadata` (vendored copy) |
+| `cdifxas-to-nexus.sssom.tsv` | CDIF XAS concept → NeXus path | `hdf5metadata`, which keeps a copy |
+| `xdi-to-cdifxas.sssom.tsv` | XDI key → CDIF XAS concept | `hdf5metadata`, which keeps a copy |
 | `build_crosswalk.py` | builds both, and validates them | — |
+
+**These files are the master copies.** `hdf5metadata` does not read them
+from here at run time — it ships duplicates under
+`src/hdf5metadata/data/`, so that it works offline and so a given
+release is pinned to a known crosswalk revision. The cost is that the
+copies can fall behind; `python -m hdf5metadata.map.crosswalk --refresh`
+re-downloads them.
 
 `build_crosswalk.py` is the authority: the mappings are curated in
 Python tables inside it and the TSVs are output. It checks every subject
@@ -96,7 +103,9 @@ typo fails the build rather than producing a row that silently never
 matches.
 
 **Editing a crosswalk means editing `build_crosswalk.py` and
-re-running it**, then re-vendoring into `hdf5metadata/src/hdf5metadata/data/`.
+re-running it** — the TSVs are its output, so an edit made directly to a
+TSV is overwritten by the next build. Then copy the regenerated files
+into `hdf5metadata/src/hdf5metadata/data/`, or run `--refresh` there.
 
 ### `exampleData/` — 55 XDI test files
 
@@ -181,7 +190,7 @@ XAS_Glossary_SKOS_v2_draft.json          (concepts)
         │  validated against
         ▼
 crosswalk/build_crosswalk.py  ──────►  crosswalk/*.sssom.tsv
-                                              │  vendored into
+                                              │  copied into
                                               ▼
                                     hdf5metadata/src/hdf5metadata/data/
 
