@@ -10601,7 +10601,7 @@
       }
     },
     {
-      "@id": "https://w3id.org/cdif/xas/emissionline/kb2",
+      "@id": "https://w3id.org/cdif/xas/emissionline/kb2_",
       "@type": [
         "skos:Concept"
       ],
@@ -10627,7 +10627,7 @@
       }
     },
     {
-      "@id": "https://w3id.org/cdif/xas/emissionline/kb2",
+      "@id": "https://w3id.org/cdif/xas/emissionline/kb2__",
       "@type": [
         "skos:Concept"
       ],
@@ -10679,7 +10679,7 @@
       }
     },
     {
-      "@id": "https://w3id.org/cdif/xas/emissionline/kb4",
+      "@id": "https://w3id.org/cdif/xas/emissionline/kb4_",
       "@type": [
         "skos:Concept"
       ],
@@ -10705,7 +10705,7 @@
       }
     },
     {
-      "@id": "https://w3id.org/cdif/xas/emissionline/kb4",
+      "@id": "https://w3id.org/cdif/xas/emissionline/kb4__",
       "@type": [
         "skos:Concept"
       ],
@@ -10757,7 +10757,7 @@
       }
     },
     {
-      "@id": "https://w3id.org/cdif/xas/emissionline/kb5",
+      "@id": "https://w3id.org/cdif/xas/emissionline/kb5_",
       "@type": [
         "skos:Concept"
       ],
@@ -10783,7 +10783,7 @@
       }
     },
     {
-      "@id": "https://w3id.org/cdif/xas/emissionline/kb5",
+      "@id": "https://w3id.org/cdif/xas/emissionline/kb5__",
       "@type": [
         "skos:Concept"
       ],
@@ -11043,7 +11043,7 @@
       }
     },
     {
-      "@id": "https://w3id.org/cdif/xas/emissionline/lb7",
+      "@id": "https://w3id.org/cdif/xas/emissionline/lb7_",
       "@type": [
         "skos:Concept"
       ],
@@ -11277,7 +11277,7 @@
       }
     },
     {
-      "@id": "https://w3id.org/cdif/xas/emissionline/lg4",
+      "@id": "https://w3id.org/cdif/xas/emissionline/lg4_",
       "@type": [
         "skos:Concept"
       ],
@@ -11381,7 +11381,7 @@
       }
     },
     {
-      "@id": "https://w3id.org/cdif/xas/emissionline/lg8",
+      "@id": "https://w3id.org/cdif/xas/emissionline/lg8_",
       "@type": [
         "skos:Concept"
       ],

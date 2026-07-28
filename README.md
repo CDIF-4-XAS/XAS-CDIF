@@ -192,14 +192,14 @@ expands correctly and still fails validation. And each document is
 **rooted on its scheme**, concepts inline under `skos:hasTopConcept`
 rather than siblings in an `@graph`.
 
-**Known defect: six emission-line URIs collide.** In
-`XAS_emissionlines_SKOS.json`, `Kb2'` and `Kb2''` both mint
-`…/xas/kb2`; the same happens for `kb4`, `kb5`, `lb7`, `lg4` and `lg8`.
-So 432 concepts occupy 427 URIs, and each colliding URI carries two
-`skos:prefLabel` values in the same language, which SKOS does not
-allow. The fix is in the URI minting in
-`tools/import_nexus_enumerations.py` and changes those concept URIs, so
-it has not been made unilaterally.
+**Prime marks are part of an emission-line name.** `slug()` in
+`tools/import_nexus_enumerations.py` used to strip them, so `Kb2'` and
+`Kb2''` both minted `…/xas/emissionline/kb2` — and likewise for `kb4`,
+`kb5`, `lb7`, `lg4` and `lg8`. Six URIs each carried two distinct lines,
+with two same-language `skos:prefLabel` values, which SKOS does not
+allow. Primes now become underscores, so those nine concepts are
+`kb2_`, `kb2__`, `lb7_` and so on, and all 432 concepts have their own
+URI. Nothing outside the file referenced the old forms.
 
 ### Where the concepts come from
 

@@ -159,8 +159,13 @@ def clean_math(s: str) -> str:
 
 
 def slug(value: str) -> str:
-    """Enum value -> URI-safe local name. 'L2,3' -> 'l2-3', 'K-L3' -> 'k-l3'."""
-    s = value.lower().replace(",", "-").replace(" ", "")
+    """Enum value -> URI-safe local name. 'L2,3' -> 'l2-3', 'K-L3' -> 'k-l3'.
+
+    Prime marks become underscores rather than being dropped. They
+    distinguish real emission lines, so stripping them gave Kb2' and Kb2''
+    the same URI; six pairs collided that way.
+    """
+    s = value.lower().replace(",", "-").replace(" ", "").replace("'", "_")
     return re.sub(r"[^a-z0-9._-]", "", s)
 
 
