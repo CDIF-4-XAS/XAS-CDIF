@@ -42,6 +42,78 @@
           "@id": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"
         }
       ],
+      "cdi:isStructuredBy": [
+        {
+          "@id": "ex:DV/valid_angle_dspacing/structure/1",
+          "@type": [
+            "cdi:DimensionalDataStructure"
+          ],
+          "schema:name": "valid_angle_dspacing structure 1",
+          "schema:description": "shared by 1 of 1 entries",
+          "cdi:has_DataStructureComponent": [
+            {
+              "@id": "ex:DV/valid_angle_dspacing/1/dsc/absorptioncoefficient",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/valid_angle_dspacing/rv/absorptioncoefficient",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "absorptioncoefficient",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "absorptioncoefficient"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/valid_angle_dspacing/1/pm/absorptioncoefficient",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:2",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/valid_angle_dspacing/1/iv/absorptioncoefficient"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/valid_angle_dspacing/1/dsc/angle",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/valid_angle_dspacing/rv/angle",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "angle",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "angle"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/valid_angle_dspacing/1/pm/angle",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:1",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/valid_angle_dspacing/1/iv/angle"
+                }
+              }
+            }
+          ]
+        }
+      ],
       "schema:hasPart": [
         {
           "@id": "https://w3id.org/cdif/testing/valid_angle_dspacing/valid_angle_dspacing",
@@ -367,78 +439,6 @@
       "cdif:physicalDataType": "xsd:decimal",
       "cdif:uses": [
         "https://w3id.org/cdif/testing/valid_angle_dspacing/rv/angle"
-      ]
-    }
-  ],
-  "cdi:isStructuredBy": [
-    {
-      "@id": "ex:DV/valid_angle_dspacing/structure/1",
-      "@type": [
-        "cdi:DimensionalDataStructure"
-      ],
-      "schema:name": "valid_angle_dspacing structure 1",
-      "schema:description": "shared by 1 of 1 entries",
-      "cdi:has_DataStructureComponent": [
-        {
-          "@id": "ex:DV/valid_angle_dspacing/1/dsc/absorptioncoefficient",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/valid_angle_dspacing/rv/absorptioncoefficient",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "absorptioncoefficient",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "absorptioncoefficient"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/valid_angle_dspacing/1/pm/absorptioncoefficient",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:2",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/valid_angle_dspacing/1/iv/absorptioncoefficient"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/valid_angle_dspacing/1/dsc/angle",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/valid_angle_dspacing/rv/angle",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "angle",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "angle"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/valid_angle_dspacing/1/pm/angle",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:1",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/valid_angle_dspacing/1/iv/angle"
-            }
-          }
-        }
       ]
     }
   ],

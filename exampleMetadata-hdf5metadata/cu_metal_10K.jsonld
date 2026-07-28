@@ -42,6 +42,78 @@
           "@id": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"
         }
       ],
+      "cdi:isStructuredBy": [
+        {
+          "@id": "ex:DV/cu_metal_10K/structure/1",
+          "@type": [
+            "cdi:DimensionalDataStructure"
+          ],
+          "schema:name": "cu_metal_10K structure 1",
+          "schema:description": "shared by 1 of 1 entries",
+          "cdi:has_DataStructureComponent": [
+            {
+              "@id": "ex:DV/cu_metal_10K/1/dsc/absorptioncoefficient",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/cu_metal_10K/rv/absorptioncoefficient",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "absorptioncoefficient",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "absorptioncoefficient"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/cu_metal_10K/1/pm/absorptioncoefficient",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:2",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/cu_metal_10K/1/iv/absorptioncoefficient"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/cu_metal_10K/1/dsc/monochromatorenergy",
+              "@type": [
+                "cdi:DimensionComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/cu_metal_10K/rv/monochromatorenergy",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "monochromator energy",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "monochromator energy"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/cu_metal_10K/1/pm/monochromatorenergy",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:1",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/cu_metal_10K/1/iv/monochromatorenergy"
+                }
+              }
+            }
+          ]
+        }
+      ],
       "schema:hasPart": [
         {
           "@id": "https://w3id.org/cdif/testing/cu_metal_10K/cu_metal_10K",
@@ -367,78 +439,6 @@
       "cdif:physicalDataType": "xsd:decimal",
       "cdif:uses": [
         "https://w3id.org/cdif/testing/cu_metal_10K/rv/monochromatorenergy"
-      ]
-    }
-  ],
-  "cdi:isStructuredBy": [
-    {
-      "@id": "ex:DV/cu_metal_10K/structure/1",
-      "@type": [
-        "cdi:DimensionalDataStructure"
-      ],
-      "schema:name": "cu_metal_10K structure 1",
-      "schema:description": "shared by 1 of 1 entries",
-      "cdi:has_DataStructureComponent": [
-        {
-          "@id": "ex:DV/cu_metal_10K/1/dsc/absorptioncoefficient",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/cu_metal_10K/rv/absorptioncoefficient",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "absorptioncoefficient",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "absorptioncoefficient"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/cu_metal_10K/1/pm/absorptioncoefficient",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:2",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/cu_metal_10K/1/iv/absorptioncoefficient"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/cu_metal_10K/1/dsc/monochromatorenergy",
-          "@type": [
-            "cdi:DimensionComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/cu_metal_10K/rv/monochromatorenergy",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "monochromator energy",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "monochromator energy"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/cu_metal_10K/1/pm/monochromatorenergy",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:1",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/cu_metal_10K/1/iv/monochromatorenergy"
-            }
-          }
-        }
       ]
     }
   ],

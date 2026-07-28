@@ -42,6 +42,138 @@
           "@id": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"
         }
       ],
+      "cdi:isStructuredBy": [
+        {
+          "@id": "ex:DV/nonxafs_1d/structure/1",
+          "@type": [
+            "cdi:DimensionalDataStructure"
+          ],
+          "schema:name": "nonxafs_1d structure 1",
+          "schema:description": "shared by 1 of 1 entries",
+          "cdi:has_DataStructureComponent": [
+            {
+              "@id": "ex:DV/nonxafs_1d/1/dsc/absorptioncoefficient",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/nonxafs_1d/rv/absorptioncoefficient",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "absorptioncoefficient",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "absorptioncoefficient"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/nonxafs_1d/1/pm/absorptioncoefficient",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:4",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/nonxafs_1d/1/iv/absorptioncoefficient"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/nonxafs_1d/1/dsc/incidentintensity",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/nonxafs_1d/rv/incidentintensity",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "incident intensity",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "incident intensity"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/nonxafs_1d/1/pm/incidentintensity",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:2",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/nonxafs_1d/1/iv/incidentintensity"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/nonxafs_1d/1/dsc/monochromatorenergy",
+              "@type": [
+                "cdi:DimensionComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/nonxafs_1d/rv/monochromatorenergy",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "monochromator energy",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "monochromator energy"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/nonxafs_1d/1/pm/monochromatorenergy",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:1",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/nonxafs_1d/1/iv/monochromatorenergy"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/nonxafs_1d/1/dsc/transmittedintensity",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/nonxafs_1d/rv/transmittedintensity",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "transmitted intensity",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "transmitted intensity"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/nonxafs_1d/1/pm/transmittedintensity",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:3",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/nonxafs_1d/1/iv/transmittedintensity"
+                }
+              }
+            }
+          ]
+        }
+      ],
       "schema:hasPart": [
         {
           "@id": "https://w3id.org/cdif/testing/nonxafs_1d/nonxafs_1d",
@@ -397,138 +529,6 @@
       "cdif:physicalDataType": "xsd:decimal",
       "cdif:uses": [
         "https://w3id.org/cdif/testing/nonxafs_1d/rv/transmittedintensity"
-      ]
-    }
-  ],
-  "cdi:isStructuredBy": [
-    {
-      "@id": "ex:DV/nonxafs_1d/structure/1",
-      "@type": [
-        "cdi:DimensionalDataStructure"
-      ],
-      "schema:name": "nonxafs_1d structure 1",
-      "schema:description": "shared by 1 of 1 entries",
-      "cdi:has_DataStructureComponent": [
-        {
-          "@id": "ex:DV/nonxafs_1d/1/dsc/absorptioncoefficient",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/nonxafs_1d/rv/absorptioncoefficient",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "absorptioncoefficient",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "absorptioncoefficient"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/nonxafs_1d/1/pm/absorptioncoefficient",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:4",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/nonxafs_1d/1/iv/absorptioncoefficient"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/nonxafs_1d/1/dsc/incidentintensity",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/nonxafs_1d/rv/incidentintensity",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "incident intensity",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "incident intensity"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/nonxafs_1d/1/pm/incidentintensity",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:2",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/nonxafs_1d/1/iv/incidentintensity"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/nonxafs_1d/1/dsc/monochromatorenergy",
-          "@type": [
-            "cdi:DimensionComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/nonxafs_1d/rv/monochromatorenergy",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "monochromator energy",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "monochromator energy"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/nonxafs_1d/1/pm/monochromatorenergy",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:1",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/nonxafs_1d/1/iv/monochromatorenergy"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/nonxafs_1d/1/dsc/transmittedintensity",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/nonxafs_1d/rv/transmittedintensity",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "transmitted intensity",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "transmitted intensity"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/nonxafs_1d/1/pm/transmittedintensity",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:3",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/nonxafs_1d/1/iv/transmittedintensity"
-            }
-          }
-        }
       ]
     }
   ],

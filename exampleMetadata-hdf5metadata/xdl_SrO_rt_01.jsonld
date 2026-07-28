@@ -42,6 +42,168 @@
           "@id": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"
         }
       ],
+      "cdi:isStructuredBy": [
+        {
+          "@id": "ex:DV/xdl_SrO_rt_01/structure/1",
+          "@type": [
+            "cdi:DimensionalDataStructure"
+          ],
+          "schema:name": "xdl_SrO_rt_01 structure 1",
+          "schema:description": "shared by 1 of 1 entries",
+          "cdi:has_DataStructureComponent": [
+            {
+              "@id": "ex:DV/xdl_SrO_rt_01/1/dsc/absorptioncoefficient",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/absorptioncoefficient",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "absorptioncoefficient",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "absorptioncoefficient"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/xdl_SrO_rt_01/1/pm/absorptioncoefficient",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:2",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/xdl_SrO_rt_01/1/iv/absorptioncoefficient"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/xdl_SrO_rt_01/1/dsc/fluorescenceabsorptioncoefficient",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/fluorescenceabsorptioncoefficient",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "fluorescence absorptioncoefficient",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "fluorescence absorptioncoefficient"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/xdl_SrO_rt_01/1/pm/fluorescenceabsorptioncoefficient",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:3",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/xdl_SrO_rt_01/1/iv/fluorescenceabsorptioncoefficient"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/xdl_SrO_rt_01/1/dsc/incidentintensity",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/incidentintensity",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "incident intensity",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "incident intensity"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/xdl_SrO_rt_01/1/pm/incidentintensity",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:5",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/xdl_SrO_rt_01/1/iv/incidentintensity"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/xdl_SrO_rt_01/1/dsc/monochromatorenergy",
+              "@type": [
+                "cdi:DimensionComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/monochromatorenergy",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "monochromator energy",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "monochromator energy"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/xdl_SrO_rt_01/1/pm/monochromatorenergy",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:1",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/xdl_SrO_rt_01/1/iv/monochromatorenergy"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/xdl_SrO_rt_01/1/dsc/referenceabsorptioncoefficient",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/referenceabsorptioncoefficient",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "reference absorptioncoefficient",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "reference absorptioncoefficient"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/xdl_SrO_rt_01/1/pm/referenceabsorptioncoefficient",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:4",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/xdl_SrO_rt_01/1/iv/referenceabsorptioncoefficient"
+                }
+              }
+            }
+          ]
+        }
+      ],
       "schema:hasPart": [
         {
           "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/xdl_SrO_rt_01",
@@ -412,168 +574,6 @@
       "cdif:physicalDataType": "xsd:decimal",
       "cdif:uses": [
         "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/referenceabsorptioncoefficient"
-      ]
-    }
-  ],
-  "cdi:isStructuredBy": [
-    {
-      "@id": "ex:DV/xdl_SrO_rt_01/structure/1",
-      "@type": [
-        "cdi:DimensionalDataStructure"
-      ],
-      "schema:name": "xdl_SrO_rt_01 structure 1",
-      "schema:description": "shared by 1 of 1 entries",
-      "cdi:has_DataStructureComponent": [
-        {
-          "@id": "ex:DV/xdl_SrO_rt_01/1/dsc/absorptioncoefficient",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/absorptioncoefficient",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "absorptioncoefficient",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "absorptioncoefficient"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/xdl_SrO_rt_01/1/pm/absorptioncoefficient",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:2",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/xdl_SrO_rt_01/1/iv/absorptioncoefficient"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/xdl_SrO_rt_01/1/dsc/fluorescenceabsorptioncoefficient",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/fluorescenceabsorptioncoefficient",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "fluorescence absorptioncoefficient",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "fluorescence absorptioncoefficient"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/xdl_SrO_rt_01/1/pm/fluorescenceabsorptioncoefficient",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:3",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/xdl_SrO_rt_01/1/iv/fluorescenceabsorptioncoefficient"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/xdl_SrO_rt_01/1/dsc/incidentintensity",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/incidentintensity",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "incident intensity",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "incident intensity"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/xdl_SrO_rt_01/1/pm/incidentintensity",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:5",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/xdl_SrO_rt_01/1/iv/incidentintensity"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/xdl_SrO_rt_01/1/dsc/monochromatorenergy",
-          "@type": [
-            "cdi:DimensionComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/monochromatorenergy",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "monochromator energy",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "monochromator energy"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/xdl_SrO_rt_01/1/pm/monochromatorenergy",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:1",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/xdl_SrO_rt_01/1/iv/monochromatorenergy"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/xdl_SrO_rt_01/1/dsc/referenceabsorptioncoefficient",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/xdl_SrO_rt_01/rv/referenceabsorptioncoefficient",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "reference absorptioncoefficient",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "reference absorptioncoefficient"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/xdl_SrO_rt_01/1/pm/referenceabsorptioncoefficient",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:4",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/xdl_SrO_rt_01/1/iv/referenceabsorptioncoefficient"
-            }
-          }
-        }
       ]
     }
   ],

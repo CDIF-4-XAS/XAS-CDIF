@@ -42,6 +42,228 @@
           "@id": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"
         }
       ],
+      "cdi:isStructuredBy": [
+        {
+          "@id": "ex:DV/263941_PtSn_EG_H2_1/structure/1",
+          "@type": [
+            "cdi:DimensionalDataStructure"
+          ],
+          "schema:name": "263941_PtSn_EG_H2_1 structure 1",
+          "schema:description": "shared by 1 of 1 entries",
+          "cdi:has_DataStructureComponent": [
+            {
+              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/absorptioncoefficient",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/absorptioncoefficient",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "absorptioncoefficient",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "absorptioncoefficient"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/absorptioncoefficient",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:5",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/absorptioncoefficient"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/incidentintensity",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/incidentintensity",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "incident intensity",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "incident intensity"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/incidentintensity",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:2",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/incidentintensity"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/monochromatorenergy",
+              "@type": [
+                "cdi:DimensionComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/monochromatorenergy",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "monochromator energy",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "monochromator energy"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/monochromatorenergy",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:1",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/monochromatorenergy"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/referenceintensity",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/referenceintensity",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "reference intensity",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "reference intensity"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/referenceintensity",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:4",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/referenceintensity"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/transmittedintensity",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/transmittedintensity",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "transmitted intensity",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "transmitted intensity"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/transmittedintensity",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:3",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/transmittedintensity"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/lnitiref",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/lnitiref",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "lnitiref",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "lnitiref"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/lnitiref",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:6",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/lnitiref"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/time",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/time",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "time",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "time"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/time",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:7",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/time"
+                }
+              }
+            }
+          ]
+        }
+      ],
       "schema:hasPart": [
         {
           "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/263941_PtSn_EG_H2_1",
@@ -401,228 +623,6 @@
       "cdif:physicalDataType": "xsd:decimal",
       "cdif:uses": [
         "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/time"
-      ]
-    }
-  ],
-  "cdi:isStructuredBy": [
-    {
-      "@id": "ex:DV/263941_PtSn_EG_H2_1/structure/1",
-      "@type": [
-        "cdi:DimensionalDataStructure"
-      ],
-      "schema:name": "263941_PtSn_EG_H2_1 structure 1",
-      "schema:description": "shared by 1 of 1 entries",
-      "cdi:has_DataStructureComponent": [
-        {
-          "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/absorptioncoefficient",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/absorptioncoefficient",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "absorptioncoefficient",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "absorptioncoefficient"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/absorptioncoefficient",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:5",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/absorptioncoefficient"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/incidentintensity",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/incidentintensity",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "incident intensity",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "incident intensity"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/incidentintensity",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:2",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/incidentintensity"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/monochromatorenergy",
-          "@type": [
-            "cdi:DimensionComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/monochromatorenergy",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "monochromator energy",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "monochromator energy"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/monochromatorenergy",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:1",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/monochromatorenergy"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/referenceintensity",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/referenceintensity",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "reference intensity",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "reference intensity"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/referenceintensity",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:4",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/referenceintensity"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/transmittedintensity",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/transmittedintensity",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "transmitted intensity",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "transmitted intensity"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/transmittedintensity",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:3",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/transmittedintensity"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/lnitiref",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/lnitiref",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "lnitiref",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "lnitiref"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/lnitiref",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:6",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/lnitiref"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/263941_PtSn_EG_H2_1/1/dsc/time",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/263941_PtSn_EG_H2_1/rv/time",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "time",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "time"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/263941_PtSn_EG_H2_1/1/pm/time",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:7",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/263941_PtSn_EG_H2_1/1/iv/time"
-            }
-          }
-        }
       ]
     }
   ],

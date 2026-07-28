@@ -42,6 +42,108 @@
           "@id": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"
         }
       ],
+      "cdi:isStructuredBy": [
+        {
+          "@id": "ex:DV/xdl_Fe_metal_rt_02/structure/1",
+          "@type": [
+            "cdi:DimensionalDataStructure"
+          ],
+          "schema:name": "xdl_Fe_metal_rt_02 structure 1",
+          "schema:description": "shared by 1 of 1 entries",
+          "cdi:has_DataStructureComponent": [
+            {
+              "@id": "ex:DV/xdl_Fe_metal_rt_02/1/dsc/incidentintensity",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/xdl_Fe_metal_rt_02/rv/incidentintensity",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "incident intensity",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "incident intensity"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/xdl_Fe_metal_rt_02/1/pm/incidentintensity",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:2",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/xdl_Fe_metal_rt_02/1/iv/incidentintensity"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/xdl_Fe_metal_rt_02/1/dsc/monochromatorenergy",
+              "@type": [
+                "cdi:DimensionComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/xdl_Fe_metal_rt_02/rv/monochromatorenergy",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "monochromator energy",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "monochromator energy"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/xdl_Fe_metal_rt_02/1/pm/monochromatorenergy",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:1",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/xdl_Fe_metal_rt_02/1/iv/monochromatorenergy"
+                }
+              }
+            },
+            {
+              "@id": "ex:DV/xdl_Fe_metal_rt_02/1/dsc/transmittedintensity",
+              "@type": [
+                "cdi:MeasureComponent"
+              ],
+              "cdif:isDefinedBy_RepresentedVariable": {
+                "@id": "https://w3id.org/cdif/testing/xdl_Fe_metal_rt_02/rv/transmittedintensity",
+                "@type": [
+                  "cdi:RepresentedVariable"
+                ],
+                "schema:name": "transmitted intensity",
+                "cdif:name": {
+                  "@type": [
+                    "cdi:ObjectName"
+                  ],
+                  "cdif:name": "transmitted intensity"
+                }
+              },
+              "cdif:hasPhysicalMapping": {
+                "@id": "ex:DV/xdl_Fe_metal_rt_02/1/pm/transmittedintensity",
+                "@type": [
+                  "cdif:LocatorMapping"
+                ],
+                "cdif:locator": "#column:3",
+                "cdif:physicalDataType": "xsd:decimal",
+                "cdif:formats_InstanceVariable": {
+                  "@id": "ex:DV/xdl_Fe_metal_rt_02/1/iv/transmittedintensity"
+                }
+              }
+            }
+          ]
+        }
+      ],
       "schema:hasPart": [
         {
           "@id": "https://w3id.org/cdif/testing/xdl_Fe_metal_rt_02/xdl_Fe_metal_rt_02",
@@ -374,108 +476,6 @@
       "cdif:physicalDataType": "xsd:decimal",
       "cdif:uses": [
         "https://w3id.org/cdif/testing/xdl_Fe_metal_rt_02/rv/transmittedintensity"
-      ]
-    }
-  ],
-  "cdi:isStructuredBy": [
-    {
-      "@id": "ex:DV/xdl_Fe_metal_rt_02/structure/1",
-      "@type": [
-        "cdi:DimensionalDataStructure"
-      ],
-      "schema:name": "xdl_Fe_metal_rt_02 structure 1",
-      "schema:description": "shared by 1 of 1 entries",
-      "cdi:has_DataStructureComponent": [
-        {
-          "@id": "ex:DV/xdl_Fe_metal_rt_02/1/dsc/incidentintensity",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/xdl_Fe_metal_rt_02/rv/incidentintensity",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "incident intensity",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "incident intensity"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/xdl_Fe_metal_rt_02/1/pm/incidentintensity",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:2",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/xdl_Fe_metal_rt_02/1/iv/incidentintensity"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/xdl_Fe_metal_rt_02/1/dsc/monochromatorenergy",
-          "@type": [
-            "cdi:DimensionComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/xdl_Fe_metal_rt_02/rv/monochromatorenergy",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "monochromator energy",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "monochromator energy"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/xdl_Fe_metal_rt_02/1/pm/monochromatorenergy",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:1",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/xdl_Fe_metal_rt_02/1/iv/monochromatorenergy"
-            }
-          }
-        },
-        {
-          "@id": "ex:DV/xdl_Fe_metal_rt_02/1/dsc/transmittedintensity",
-          "@type": [
-            "cdi:MeasureComponent"
-          ],
-          "cdif:isDefinedBy_RepresentedVariable": {
-            "@id": "https://w3id.org/cdif/testing/xdl_Fe_metal_rt_02/rv/transmittedintensity",
-            "@type": [
-              "cdi:RepresentedVariable"
-            ],
-            "schema:name": "transmitted intensity",
-            "cdif:name": {
-              "@type": [
-                "cdi:ObjectName"
-              ],
-              "cdif:name": "transmitted intensity"
-            }
-          },
-          "cdif:hasPhysicalMapping": {
-            "@id": "ex:DV/xdl_Fe_metal_rt_02/1/pm/transmittedintensity",
-            "@type": [
-              "cdif:LocatorMapping"
-            ],
-            "cdif:locator": "#column:3",
-            "cdif:physicalDataType": "xsd:decimal",
-            "cdif:formats_InstanceVariable": {
-              "@id": "ex:DV/xdl_Fe_metal_rt_02/1/iv/transmittedintensity"
-            }
-          }
-        }
       ]
     }
   ],
