@@ -232,6 +232,14 @@ CDIFXAS_TO_NEXUS = [
     ("monochromatortype", "NXxas_trans",
      "/ENTRY:NXentry/INSTRUMENT:NXinstrument/monochromator:NXmonochromator/"
      "crystal:NXcrystal/type", E, 1.0, "Crystal material, e.g. Si, Ge."),
+    ("monochromatorchemicalformula", "NXcrystal", "/chemical_formula",
+     E, 1.0,
+     "Base class: NXcrystal/chemical_formula is the crystal's CIF formula "
+     "wherever an NXcrystal appears. Distinct from monochromatortype, "
+     "which is NXcrystal/type -- the Athena/GSECARS files write the "
+     "formula and omit the type, and were previously being read into "
+     "monochromatortype through the legacy table, which said 'crystal "
+     "material rather than a monochromator type' in its own comment."),
     ("reflectionplane", "NXxas_trans",
      "/ENTRY:NXentry/INSTRUMENT:NXinstrument/monochromator:NXmonochromator/"
      "crystal:NXcrystal/reflection", E, 1.0, "Miller indices hkl (NX_INT[3])."),
