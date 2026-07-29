@@ -11,6 +11,11 @@
     },
     "foaf:focus": {
       "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
     }
   },
   "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts",
@@ -59,15 +64,22 @@
             "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
           },
           "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tey.html",
-          "skos:note": {
-            "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_tey.",
-            "@language": "en"
-          },
+          "skos:note": [
+            {
+              "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_tey.",
+              "@language": "en"
+            },
+            {
+              "@value": "Dimensionless: proportional to a current ratio. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+              "@language": "en"
+            }
+          ],
           "skos:broader": [
             {
               "@id": "https://w3id.org/cdif/xas/absorptioncoefficient"
             }
-          ]
+          ],
+          "qudt:hasUnit": "unit:UNITLESS"
         }
       ]
     },
@@ -87,10 +99,16 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "The fluorescence intensity is proportional to the absorbed fraction of the incident intensity. Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "The fluorescence intensity is proportional to the absorbed fraction of the incident intensity. Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.",
+          "@language": "en"
+        },
+        {
+          "@value": "Dimensionless: log of an intensity ratio. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
         "https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
@@ -98,7 +116,8 @@
       ],
       "skos:notation": [
         "mufluor"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS"
     },
     {
       "@id": "https://w3id.org/cdif/xas/transmittedintensity",
@@ -573,14 +592,21 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "Material property of sample.  Expressed as a fraction between 0 and 1, or as a percentage between 0% and 100%..  See also  https://doi.org/10.1351/goldbook.P04762.",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "Material property of sample.  Expressed as a fraction between 0 and 1, or as a percentage between 0% and 100%..  See also  https://doi.org/10.1351/goldbook.P04762.",
+          "@language": "en"
+        },
+        {
+          "@value": "Dimensionless: a volume fraction. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "https://doi.org/10.1351/goldbook.P04762",
         "https://doi.org/10.5281/zenodo.14920226"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS"
     },
     {
       "@id": "https://w3id.org/cdif/xas/pressure",
@@ -1246,17 +1272,24 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "XDI Column.murefer: absorption coefficient computed from the reference-channel intensity.",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "XDI Column.murefer: absorption coefficient computed from the reference-channel intensity.",
+          "@language": "en"
+        },
+        {
+          "@value": "Dimensionless: log of an intensity ratio, ln(it/iref). Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
         "https://doi.org/10.5281/zenodo.14920226"
       ],
       "skos:notation": [
         "murefer"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS"
     },
     {
       "@id": "https://w3id.org/cdif/xas/normalizedtransmissionabsorptioncoefficient",
@@ -1274,17 +1307,24 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "XDI Column.normtrans: normalized mu transmission.",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "XDI Column.normtrans: normalized mu transmission.",
+          "@language": "en"
+        },
+        {
+          "@value": "Dimensionless: rescaled to unit edge step. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
         "https://doi.org/10.5281/zenodo.14920226"
       ],
       "skos:notation": [
         "normtrans"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS"
     },
     {
       "@id": "https://w3id.org/cdif/xas/normalizedfluorescenceabsorptioncoefficient",
@@ -1302,17 +1342,24 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "XDI Column.normfluor: normalized mu fluorescence.",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "XDI Column.normfluor: normalized mu fluorescence.",
+          "@language": "en"
+        },
+        {
+          "@value": "Dimensionless: rescaled to unit edge step. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
         "https://doi.org/10.5281/zenodo.14920226"
       ],
       "skos:notation": [
         "normfluor"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS"
     },
     {
       "@id": "https://w3id.org/cdif/xas/normalizedreferenceabsorptioncoefficient",
@@ -1330,17 +1377,24 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "XDI Column.normrefer: normalized mu reference.",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "XDI Column.normrefer: normalized mu reference.",
+          "@language": "en"
+        },
+        {
+          "@value": "Dimensionless: rescaled to unit edge step. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
         "https://doi.org/10.5281/zenodo.14920226"
       ],
       "skos:notation": [
         "normrefer"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS"
     },
     {
       "@id": "https://w3id.org/cdif/xas/wavenumber",
@@ -1387,10 +1441,16 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "XDI Column.chi: EXAFS oscillatory function chi(k).",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "XDI Column.chi: EXAFS oscillatory function chi(k).",
+          "@language": "en"
+        },
+        {
+          "@value": "Dimensionless: chi(k) is a fractional modulation of the absorption. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "Ravel, B., & Newville, M. (2005). ATHENA, ARTEMIS, HEPHAESTUS: data analysis for X-ray absorption spectroscopy using IFEFFIT. Journal of Synchrotron Radiation, 12(4), 537-541.",
         "https://en.wikipedia.org/wiki/Extended_X-ray_absorption_fine_structure",
@@ -1398,7 +1458,8 @@
       ],
       "skos:notation": [
         "chi"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS"
     },
     {
       "@id": "https://w3id.org/cdif/xas/filteredchimagnitude",
@@ -1416,17 +1477,24 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "XDI Column.chi_mag: magnitude of Fourier-filtered chi(k).",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "XDI Column.chi_mag: magnitude of Fourier-filtered chi(k).",
+          "@language": "en"
+        },
+        {
+          "@value": "Dimensionless: Fourier-filtered chi(k), back-transformed to k space. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
         "https://doi.org/10.5281/zenodo.14920226"
       ],
       "skos:notation": [
         "chi_mag"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS"
     },
     {
       "@id": "https://w3id.org/cdif/xas/filteredchiphase",
@@ -1472,17 +1540,24 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "XDI Column.chi_re: real part of Fourier-filtered chi(k).",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "XDI Column.chi_re: real part of Fourier-filtered chi(k).",
+          "@language": "en"
+        },
+        {
+          "@value": "Dimensionless: Fourier-filtered chi(k), back-transformed to k space. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
         "https://doi.org/10.5281/zenodo.14920226"
       ],
       "skos:notation": [
         "chi_re"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS"
     },
     {
       "@id": "https://w3id.org/cdif/xas/filteredchiimaginary",
@@ -1500,17 +1575,24 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "XDI Column.chi_im: imaginary part of Fourier-filtered chi(k).",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "XDI Column.chi_im: imaginary part of Fourier-filtered chi(k).",
+          "@language": "en"
+        },
+        {
+          "@value": "Dimensionless: Fourier-filtered chi(k), back-transformed to k space. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
         "https://doi.org/10.5281/zenodo.14920226"
       ],
       "skos:notation": [
         "chi_im"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS"
     },
     {
       "@id": "https://w3id.org/cdif/xas/radialdistance",
@@ -2037,7 +2119,12 @@
       "dcterms:references": [
         "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
         "https://doi.org/10.5281/zenodo.14920226"
-      ]
+      ],
+      "qudt:hasUnit": "unit:UNITLESS",
+      "skos:note": {
+        "@value": "Dimensionless: a ratio relative to the incident beam. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+        "@language": "en"
+      }
     },
     {
       "@id": "https://w3id.org/cdif/xas/ph",
