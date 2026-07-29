@@ -86,14 +86,23 @@ here; the SHACL is regenerated with `tools/validate_shacl.py --emit-shapes`.
 |---|---|---|
 | `cdifxas-to-nexus.sssom.tsv` | CDIF XAS concept → NeXus path | `hdf5metadata`, which keeps a copy |
 | `xdi-to-cdifxas.sssom.tsv` | XDI key → CDIF XAS concept | `hdf5metadata`, which keeps a copy |
-| `build_crosswalk.py` | builds both, and validates them | — |
+| `cdifxas-units.tsv` | CDIF XAS concept → QUDT unit | `hdf5metadata`, which keeps a copy |
+| `build_crosswalk.py` | builds all three, and validates them | — |
 
 **These files are the master copies.** `hdf5metadata` does not read them
 from here at run time — it ships duplicates under
 `src/hdf5metadata/data/`, so that it works offline and so a given
 release is pinned to a known crosswalk revision. The cost is that the
 copies can fall behind; `python -m hdf5metadata.map.crosswalk --refresh`
-re-downloads them.
+re-downloads all three.
+
+`cdifxas-units.tsv` is the odd one out: not SSSOM, and not curated in
+the script. It is read straight from the glossary's `qudt:hasUnit`
+statements, because "this concept is dimensionless" is a fact about the
+concept rather than an alignment between two vocabularies. Twelve
+concepts carry one; `absorptioncoefficient` deliberately does not, since
+its definition divides by sample thickness while every file stores the
+dimensionless product.
 
 `build_crosswalk.py` is the authority: the mappings are curated in
 Python tables inside it and the TSVs are output. It checks every subject
