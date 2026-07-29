@@ -156,6 +156,11 @@ XDI_TO_CDIFXAS = [
      "Beamline and only 39 under Facility. Same concept either way."),
     ("Sample.prep", "cdi:Sample_prep", "samplepreparation", E, 1.0,
      "Free-text sample preparation description."),
+    ("Sample.preparation", None, "samplepreparation", E, 1.0,
+     "Not a dictionary tag -- the dictionary defines Sample.prep -- but "
+     "files write it, and the value is the same free text. Without this "
+     "row the description is silently dropped: xdl_CeO2.xdi's 'powder on "
+     "tape' reached nothing. Same reasoning as Beamline.xray_source."),
     ("Sample.temperature", None, "temperature", E, 1.0,
      "Sample temperature during measurement."),
     ("Detector.I0", "cdi:Detector_I0", "incidentintensity", R, 0.7,
