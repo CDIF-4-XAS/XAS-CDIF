@@ -259,10 +259,14 @@ CDIFXAS_TO_NEXUS = [
      "Base class. NXinstrument/name is the beamline name."),
     ("temperature", "NXsample", "/temperature", E, 1.0,
      "Base class (NX_TEMPERATURE)."),
-    ("samplepreparation", "NXsample", "/description", C, 0.6,
-     "NXsample has no dedicated preparation field; /description is the "
-     "nearest free-text home. NXsample/preparation_date covers only the "
-     "date."),
+    ("sampledescription", "NXsample", "/description", E, 1.0,
+     "Free-text description of the sample. samplepreparation used to "
+     "claim this field as a closeMatch for want of anywhere better; it "
+     "no longer does, since one field mapping into two concepts would "
+     "write the same value twice. NeXus has no preparation field at all "
+     "-- NXsample/preparation_date covers only the date -- so "
+     "samplepreparation has no NeXus row and reaches CDIF through the "
+     "XDI binding alone."),
     ("calculated", "NXxas", "/ENTRY:NXentry/is_experimental", R, 1.0,
      "INVERTED POLARITY -- is_experimental is the negation of calculated. "
      "Deliberately relatedMatch, never exactMatch; a converter must flip "

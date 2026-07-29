@@ -210,7 +210,7 @@ URI. Nothing outside the file referenced the old forms.
 
 ### Where the concepts come from
 
-The 104 concepts in `XAS_Glossary_SKOS.json` are **minted for
+The 105 concepts in `XAS_Glossary_SKOS.json` are **minted for
 this project**, in one scheme,
 `https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts`. Nothing
 upstream is being re-published: they were assembled by reconciling the
@@ -223,13 +223,13 @@ the concepts themselves:
 
 | property | on | pointing at |
 |---|---|---|
-| `references` | 90 of 104 | 97 DOIs, the XDI dictionary and other GitHub sources, the IUCr dictionary, `docs.xrayabsorption.org`, Wikipedia |
+| `references` | 90 of 105 | 97 DOIs, the XDI dictionary and other GitHub sources, the IUCr dictionary, `docs.xrayabsorption.org`, Wikipedia |
 | `seeAlso` | 50 | `manual.nexusformat.org` — the resolvable NeXus documentation |
 | `foaf:focus` | 36 | NeXusOntology PURLs under `purl.org/nexusformat/definitions/` |
 | `notation` | 27 | the short token (`i0`, `mutrans`) the formats actually use |
 
-14 concepts cite nothing. That is the gap to close first if the glossary
-is published.
+15 concepts cite nothing. That is the gap to close first if the
+glossary is published.
 
 **`foaf:focus` is a known problem.** Those PURLs do not resolve — the
 `purl.org/nexusformat` domain was never registered, and an open PR
