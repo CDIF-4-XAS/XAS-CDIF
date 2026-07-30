@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/dspacing",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "D spacing",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "Spacing between crystal planes of the monochromator's crystalline material that reflect x-rays.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "monochromator crystal property. 'The spacing between atomic planes within the crystal. By satisfying Bragg's Law (nλ = 2d sinθ), the monochromator selects a desired wavelength (λ) of radiation from an incident beam, where 'd' is the atomic plane spacing and 'θ' is the Bragg angle.'(Google AI overview). The perpendicular distance between two successive planes on a family (hkl). (https://dictionary.iucr.org/Interplanar_spacing)",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-d-spacing-field",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXcrystal/d_spacing"
+  },
+  "references": [
+    "https://dictionary.iucr.org/Interplanar_spacing",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

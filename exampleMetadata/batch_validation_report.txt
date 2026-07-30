@@ -1,0 +1,72 @@
+CDIF-XAS batch validation report
+Files:                55
+Fully valid:          55
+With any violation:   0
+
+======================================================================
+PER-FILE COUNTS
+======================================================================
+filename                                           schema    shacl
+  262875_PtSn_OCO_Abu_1.jsonld                          0        0
+  262878_PtSn_OCA_Abu_1.jsonld                          0        0
+  262882_PtSn_OC_Abu_1.jsonld                           0        0
+  262885_PtSn_OCH_Abu_1.jsonld                          0        0
+  262919_PtSn_OCO_H2_Abu_1.jsonld                       0        0
+  262922_PtSn_OCA_H2_Abu_1.jsonld                       0        0
+  262926_PtSn_OC_H2_Abu_1.jsonld                        0        0
+  262929_PtSn_OCH_H2_Abu_1.jsonld                       0        0
+  263814_PtSn_OCA_1.jsonld                              0        0
+  263820_PtSn_OC_1.jsonld                               0        0
+  263824_PtSn_OCH_1.jsonld                              0        0
+  263825_PtSn_OCH_2.jsonld                              0        0
+  263832_PtSn_alloy_1.jsonld                            0        0
+  263838_PtSn_3_1_EG_1.jsonld                           0        0
+  263844_PtSn_OCO_1.jsonld                              0        0
+  263935_PtSn_Alloy_H2_1.jsonld                         0        0
+  263941_PtSn_EG_H2_1.jsonld                            0        0
+  b18_nxs.jsonld                                        0        0
+  co_metal_rt.jsonld                                    0        0
+  cu_metal_10K.jsonld                                   0        0
+  cu_metal_rt.jsonld                                    0        0
+  fe2o3_rt.jsonld                                       0        0
+  fe3c_rt.jsonld                                        0        0
+  fe_metal_rt.jsonld                                    0        0
+  fen_rt.jsonld                                         0        0
+  feo_rt1.jsonld                                        0        0
+  ni_metal_rt.jsonld                                    0        0
+  nonxafs_1d.jsonld                                     0        0
+  nonxafs_2d.jsonld                                     0        0
+  pt_metal_rt.jsonld                                    0        0
+  Se_Na2SeO4_rt_01.jsonld                               0        0
+  se_na2so4_rt.jsonld                                   0        0
+  se_znse_rt.jsonld                                     0        0
+  valid.jsonld                                          0        0
+  valid2.jsonld                                         0        0
+  valid_angle_dspacing.jsonld                           0        0
+  xdl_as2o3_roomt_scan1.jsonld                          0        0
+  xdl_Au_Foil_L1_rt_2016Foils.jsonld                    0        0
+  xdl_CdS_10K_03.jsonld                                 0        0
+  xdl_CeO2.jsonld                                       0        0
+  xdl_co_metal_rt.jsonld                                0        0
+  xdl_EuSe_eu_l3_001.jsonld                             0        0
+  xdl_Fe3O4_rt_01.jsonld                                0        0
+  xdl_Fe_metal_rt_02.jsonld                             0        0
+  xdl_FeO_rt_01.jsonld                                  0        0
+  xdl_k2cro4_rt_003.jsonld                              0        0
+  xdl_Mn3O4_rt_01.jsonld                                0        0
+  xdl_Pb_Foil_L2_rt_2016Foils.jsonld                    0        0
+  xdl_pyrite2_rt_01.jsonld                              0        0
+  xdl_Sr_slawsonite_15K_01.jsonld                       0        0
+  xdl_SrO_rt_01.jsonld                                  0        0
+  xdl_V_foil.jsonld                                     0        0
+  xdl_WO2_rt_01.jsonld                                  0        0
+  xdl_Zn_foil.jsonld                                    0        0
+  zn_znse_rt.jsonld                                     0        0
+
+======================================================================
+TOP AGGREGATED SCHEMA ERROR PATHS
+======================================================================
+
+======================================================================
+TOP AGGREGATED SHACL MESSAGES
+======================================================================

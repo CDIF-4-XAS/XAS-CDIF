@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/instrument",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Instrument",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "A device or a combination of devices used to carry out an analytical process.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "The analytical process encompasses all steps from the introduction of the sample or the test portion to the production of the result. An analytical instrument may carry out single or multiple analytical procedures. In the latter case it may be selective, i.e. designed to carry out any requested combination of procedures within the set, on each specimen. (https://doi.org/10.1351/goldbook.A00333) NXInstrument has 'Collection of the components of the instrument or beamline'.  Does make clear that an instrument has parts.",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXinstrument.html",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXinstrument"
+  },
+  "references": [
+    "https://doi.org/10.1351/goldbook.A00333",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

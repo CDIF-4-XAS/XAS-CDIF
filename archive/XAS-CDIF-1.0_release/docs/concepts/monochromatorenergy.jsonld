@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/monochromatorenergy",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Monochromator energy",
+    "@language": "en"
+  },
+  "notation": "energy",
+  "definition": {
+    "@value": "The energy selected by the X-ray monochromator and delivered to the sample during an absorption scan.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "This is the independent variable in an XAS scan. NEXUS comment is 'energy selected'. An energy monochromator is a critical component that selects a specific, monochromatic X-ray energy from an X-ray beam.  Notes: Typically a Bragg crystal monochromator is used. This energy is continuously tunable and determines the energy at which absorption measurements are performed, enabling precise probing of core-level electronic transitions near an element’s absorption edge. In XAS, monochromator energy is critical for scanning across absorption edges to extract fine structural information such as XANES and EXAFS. The energy is selected using Bragg’s Law: lambda = 2d*sin(theta) $$ where lambda is the X-ray wavelength, dd is the crystal lattice spacing, and theta is the angle of incidence. The Incident Energy variable reports the measured energy delivered to the sample. (International Tables for Crystallography, Vol. I, Chapter 3.4 )",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-energy-field",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXmonochromator/energy"
+  },
+  "references": "https://doi.org/10.5281/zenodo.14920226"
+}
