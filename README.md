@@ -30,7 +30,7 @@ pipelines consume what is here and write back into it:
 | pipeline | repository | what it does |
 |---|---|---|
 | RML / Dataverse | [`smrgeoinfo/cdif-xas`](https://github.com/smrgeoinfo/cdif-xas) — **the fork**, not [`UKDSResearch/cdif-xas`](https://github.com/UKDSResearch/cdif-xas) | reads `exampleData/*.xdi`, writes `exampleMetadata/` |
-| Python / SSSOM | [`usgin/hdf5metadata`](https://github.com/usgin/hdf5metadata) | reads NeXus **and** XDI; keeps its own copies of the crosswalks from here |
+| Python / SSSOM | [`usgin/cdifnexmetadata`](https://github.com/usgin/cdifnexmetadata) | reads NeXus **and** XDI; keeps its own copies of the crosswalks from here |
 
 **The fork is what runs, and the distinction matters.** It is ahead of
 `UKDSResearch/cdif-xas` by the CDIF 1.1 uplift and by header
@@ -84,16 +84,16 @@ here; the SHACL is regenerated with `tools/validate_shacl.py --emit-shapes`.
 
 | file | direction | consumed by |
 |---|---|---|
-| `cdifxas-to-nexus.sssom.tsv` | CDIF XAS concept → NeXus path | `hdf5metadata`, which keeps a copy |
-| `xdi-to-cdifxas.sssom.tsv` | XDI key → CDIF XAS concept | `hdf5metadata`, which keeps a copy |
-| `cdifxas-units.tsv` | CDIF XAS concept → QUDT unit | `hdf5metadata`, which keeps a copy |
+| `cdifxas-to-nexus.sssom.tsv` | CDIF XAS concept → NeXus path | `cdifnexmetadata`, which keeps a copy |
+| `xdi-to-cdifxas.sssom.tsv` | XDI key → CDIF XAS concept | `cdifnexmetadata`, which keeps a copy |
+| `cdifxas-units.tsv` | CDIF XAS concept → QUDT unit | `cdifnexmetadata`, which keeps a copy |
 | `build_crosswalk.py` | builds all three, and validates them | — |
 
-**These files are the master copies.** `hdf5metadata` does not read them
+**These files are the master copies.** `cdifnexmetadata` does not read them
 from here at run time — it ships duplicates under
-`src/hdf5metadata/data/`, so that it works offline and so a given
+`src/cdifnexmetadata/data/`, so that it works offline and so a given
 release is pinned to a known crosswalk revision. The cost is that the
-copies can fall behind; `python -m hdf5metadata.map.crosswalk --refresh`
+copies can fall behind; `python -m cdifnexmetadata.map.crosswalk --refresh`
 re-downloads all three.
 
 `cdifxas-units.tsv` is the odd one out: not SSSOM, and not curated in
@@ -114,7 +114,7 @@ matches.
 **Editing a crosswalk means editing `build_crosswalk.py` and
 re-running it** — the TSVs are its output, so an edit made directly to a
 TSV is overwritten by the next build. Then copy the regenerated files
-into `hdf5metadata/src/hdf5metadata/data/`, or run `--refresh` there.
+into `cdifnexmetadata/src/cdifnexmetadata/data/`, or run `--refresh` there.
 
 ### `exampleData/` — 55 XDI test files
 
@@ -159,7 +159,7 @@ See "Which physical-mapping subclass, and what goes in it" in
 editing. 55/55 validate against `release/`.
 
 The same 55 files converted by the *other* pipeline live in
-[`hdf5metadata/exampleMetadata-xdi`](https://github.com/usgin/hdf5metadata),
+[`cdifnexmetadata/exampleMetadata-xdi`](https://github.com/usgin/cdifnexmetadata),
 not here. Both sets validate 55/55; the two are kept so the
 implementations can be compared on identical inputs, which is what
 `cdif-xas-UKDS/CONVERGENCE-PROPOSAL.md` argues from.
@@ -211,7 +211,7 @@ build publishes under that same `_v2` name because the per-concept
 files link to it. Renaming the working file therefore does not move any
 published URL.
 
-These are the shared dependency. `hdf5metadata` does not read them
+These are the shared dependency. `cdifnexmetadata` does not read them
 directly — it consumes the crosswalks, which `build_crosswalk.py`
 validates against the glossary. So a concept renamed here breaks the
 crosswalk build, which is the intended failure mode: it surfaces at
@@ -326,7 +326,7 @@ XAS_Glossary_SKOS.json          (concepts)
 crosswalk/build_crosswalk.py  ──────►  crosswalk/*.sssom.tsv
                                               │  copied into
                                               ▼
-                                    hdf5metadata/src/hdf5metadata/data/
+                                    cdifnexmetadata/src/cdifnexmetadata/data/
 
 metadataBuildingBlocks/_sources/…/xasDocument  ──►  release/
                                                        │  validation target for
