@@ -236,10 +236,55 @@ The Data Description profile adds:
 
 The Data Structure profile adds:
 
-- `cdi:isStructuredBy` on the DataDownload: a `cdi:DataStructure` (Wide,
-  Long, or Cube) with `cdi:has_DataStructureComponent` entries.
-- `cdif:hasPhysicalMapping` on the DataDownload: byte-level layout for a
-  distribution's payload.
+- `cdi:isStructuredBy`: a `cdi:DataStructure` (Wide, Long, or Cube) with
+  `cdi:has_DataStructureComponent` entries. **Where it goes depends on
+  what it describes** — see below.
+- `cdif:hasPhysicalMapping` on each DataStructureComponent: where that
+  component's values sit, as a `cdif:LocatorMapping` carrying
+  `cdif:locator` and a `cdif:formats_InstanceVariable` back-reference.
+
+#### Where `cdi:isStructuredBy` belongs
+
+A structure describes the layout of one set of data, so it is asserted
+about exactly that:
+
+- **A distribution holding one dataset** — on the `schema:DataDownload`.
+  The distribution is then the whole of the data, and its structure is
+  the data's structure. A single-entry NeXus file and any XDI file take
+  this form, and they carry no `schema:hasPart` at all: with one dataset
+  the distribution's dataset *is* the dataset, so a part would repeat
+  its name, identifier, url, description and keywords under a second
+  `@id`.
+- **A distribution holding several datasets** — on each part, not on the
+  distribution. An HDF5 file with 26 `NXentry` groups is 26 datasets in
+  one container, and they need not share a layout. Asserting one
+  structure of the whole distribution would say something of the file
+  that is true of only some of its parts.
+
+Where several parts share a layout, state the structure inline on the
+first and reference it by `@id` from the others. An `@id` reference
+denotes the same node, so a consumer resolving it still finds the
+components, and the layout is stated once.
+
+#### Parts are datasets as well as media objects
+
+A part of a distribution is a `schema:MediaObject` — it is an
+addressable chunk of one file. Where that chunk is a dataset in its own
+right, with its own variables, acquisition and structure, type it as
+**both**:
+
+```json
+"@type": ["schema:MediaObject", "schema:Dataset"]
+```
+
+Asserting `schema:Dataset` brings the CDIF core Dataset requirements
+with it: the part needs its own `schema:identifier`, `schema:url` or
+`schema:distribution`, `schema:dateModified`, and licence information.
+Those are properties of a dataset, and a part claiming to be one should
+carry them — a catalogue harvesting parts as datasets cannot index what
+it cannot identify. `schema:description` and `schema:keywords` are
+recommended for the same reason, and should describe *that part* rather
+than repeat the container's summary.
 
 See the [CDIF Data Structure IG](https://cross-domain-interoperability-framework.github.io/profile-datastructure/CDIFDataStructureImplementationGuide.html).
 
@@ -326,9 +371,33 @@ conform to the XDI specification:
 ]
 ```
 
-`cdi:isStructuredBy` and `cdif:hasPhysicalMapping` on that distribution
-supply the column-to-variable mapping expected by the Data Structure
-profile.
+`cdi:isStructuredBy` on that distribution, with
+`cdif:hasPhysicalMapping` on each of its components, supplies the
+column-to-variable mapping expected by the Data Structure profile. An
+XDI file holds one spectrum, so the structure belongs to the
+distribution; see "Where `cdi:isStructuredBy` belongs" above for the
+multi-dataset case.
+
+### Units on a variable (`schema:unitText`, `schema:unitCode`)
+
+The two are different claims and should not be used interchangeably.
+
+- `schema:unitText` is **what the file recorded** — the string carried by
+  a NeXus `units` attribute or an XDI header. Write it only when the
+  source actually says so. An empty string asserts that the unit *is*
+  the empty string, which a consumer cannot distinguish from a unit
+  nobody recorded.
+- `schema:unitCode` is **what the concept is**, as an IRI, and is
+  appropriate where the file is silent but the quantity's definition is
+  not. An absorption coefficient expressed as a ratio is dimensionless
+  whatever the file says; no XAS format records that, because to a
+  practitioner it goes without saying.
+
+Writing neither is the correct output for a quantity in arbitrary units
+— detector intensities are counts, which are neither dimensionless nor
+expressible in a unit vocabulary. The three states a consumer must tell
+apart are *the file says eV*, *the concept is dimensionless*, and
+*nobody knows*; using an empty string collapses the last two.
 
 ### Measurement technique (`schema:measurementTechnique`)
 
