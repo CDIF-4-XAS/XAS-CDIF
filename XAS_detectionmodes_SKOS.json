@@ -1,0 +1,302 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes",
+  "@type": [
+    "skos:ConceptScheme"
+  ],
+  "skos:prefLabel": {
+    "@value": "XAS detection modes",
+    "@language": "en"
+  },
+  "skos:definition": {
+    "@value": "Detection methods used to observe sample absorption in an XAS measurement. Value list for the CDIF XAS concept 'xasmeasurementmode'. This list is the union of the upstream NeXus NXxas mode enumeration and the per-mode application definitions in the XAS community fork: the fork adds HERFD and splits total from partial fluorescence yield, but drops Auger electron yield.",
+    "@language": "en"
+  },
+  "skos:note": {
+    "@value": "Generated from NeXus application definitions at XraySpectroscopy/nexus_definitions@main and the upstream NXxas mode enumeration.",
+    "@language": "en"
+  },
+  "skos:hasTopConcept": [
+    {
+      "@id": "https://w3id.org/cdif/xas/detectionmode/transmission",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "Transmission",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "trans",
+          "@language": "en"
+        }
+      ],
+      "skos:definition": {
+        "@value": "The absorption coefficient is obtained from the Beer-Lambert law, mu(E)t = -ln(I/I0), where I is the transmitted and I0 the incident beam intensity.",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "transmission"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_trans.html",
+      "skos:note": {
+        "@value": "Corresponds to NeXus application definition NXxas_trans.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/detectionmode/totalelectronyield",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "Total electron yield",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "TEY",
+          "@language": "en"
+        }
+      ],
+      "skos:definition": {
+        "@value": "The spectrum is measured by collecting all secondary electrons emitted from the sample surface; the drain current is proportional to the absorption coefficient.",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "totalelectronyield"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tey.html",
+      "skos:note": {
+        "@value": "Corresponds to NeXus application definition NXxas_tey.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/detectionmode/partialelectronyield",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "Partial electron yield",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "PEY",
+          "@language": "en"
+        }
+      ],
+      "skos:definition": {
+        "@value": "The spectrum is measured by collecting electrons above a kinetic energy threshold, using a retarding voltage to discriminate against low-energy secondary electrons.",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "partialelectronyield"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pey.html",
+      "skos:note": {
+        "@value": "Corresponds to NeXus application definition NXxas_pey.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/detectionmode/augerelectronyield",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "Auger electron yield",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "AEY",
+          "@language": "en"
+        }
+      ],
+      "skos:definition": {
+        "@value": "The spectrum is measured by collecting Auger electrons of a selected kinetic energy.",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "augerelectronyield"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
+        }
+      ],
+      "skos:note": {
+        "@value": "Present in the upstream NeXus NXxas mode enumeration but with no application definition in the XAS fork.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/detectionmode/totalfluorescenceyield",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "Total fluorescence yield",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "TFY",
+          "@language": "en"
+        }
+      ],
+      "skos:definition": {
+        "@value": "The absorption coefficient is proportional to the ratio of total fluorescence intensity to incident beam intensity.",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "totalfluorescenceyield"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tfy.html",
+      "skos:note": {
+        "@value": "Corresponds to NeXus application definition NXxas_tfy.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/detectionmode/partialfluorescenceyield",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "Partial fluorescence yield",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "PFY",
+          "@language": "en"
+        }
+      ],
+      "skos:definition": {
+        "@value": "The absorption coefficient is obtained from fluorescence intensity measured over a selected emission-energy window or detector channels.",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "partialfluorescenceyield"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html",
+      "skos:note": {
+        "@value": "Corresponds to NeXus application definition NXxas_pfy.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/detectionmode/herfd",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "High energy resolution fluorescence detected",
+        "@language": "en"
+      },
+      "skos:altLabel": [
+        {
+          "@value": "HERFD",
+          "@language": "en"
+        }
+      ],
+      "skos:definition": {
+        "@value": "The spectrum is measured with crystal analyzers selecting a narrow emission energy, giving sharper spectral features than conventional fluorescence detection.",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "herfd"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html",
+      "skos:note": {
+        "@value": "Corresponds to NeXus application definition NXxas_herfd.",
+        "@language": "en"
+      }
+    }
+  ],
+  "schema:subjectOf": {
+    "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes#catalog-record",
+    "@type": [
+      "schema:Dataset"
+    ],
+    "schema:additionalType": [
+      "dcat:CatalogRecord"
+    ],
+    "schema:about": {
+      "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes"
+    },
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/conceptscheme/1.1"
+      }
+    ]
+  }
+}

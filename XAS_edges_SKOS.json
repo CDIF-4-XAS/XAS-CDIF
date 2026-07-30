@@ -1,0 +1,1065 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges",
+  "@type": [
+    "skos:ConceptScheme"
+  ],
+  "skos:prefLabel": {
+    "@value": "X-ray absorption edges",
+    "@language": "en"
+  },
+  "skos:definition": {
+    "@value": "Absorption edge identifiers in IUPAC notation, giving the core-vacancy state of the absorbing atom. Value list for the CDIF XAS concept 'edgeanalyzed'.",
+    "@language": "en"
+  },
+  "skos:note": {
+    "@value": "Generated from NeXus contributed_definitions/NXabsorption_edge.nxdl.xml at XraySpectroscopy/nexus_definitions@main.",
+    "@language": "en"
+  },
+  "skos:hasTopConcept": [
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/k",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "K edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "K"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge K in IUPAC notation; core-vacancy state 1s-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/l1",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "L1 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "L1"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge L1 in IUPAC notation; core-vacancy state 2s-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/l2",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "L2 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "L2"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge L2 in IUPAC notation; core-vacancy state 2p1/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/l3",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "L3 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "L3"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge L3 in IUPAC notation; core-vacancy state 2p3/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/l2-3",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "L2,3 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "L2,3"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge L2,3 in IUPAC notation.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/m1",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "M1 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "M1"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge M1 in IUPAC notation; core-vacancy state 3s-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/m2",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "M2 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "M2"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge M2 in IUPAC notation; core-vacancy state 3p1/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/m3",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "M3 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "M3"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge M3 in IUPAC notation; core-vacancy state 3p3/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/m2-3",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "M2,3 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "M2,3"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge M2,3 in IUPAC notation.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/m4",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "M4 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "M4"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge M4 in IUPAC notation; core-vacancy state 3d3/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/m5",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "M5 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "M5"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge M5 in IUPAC notation; core-vacancy state 3d5/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/m4-5",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "M4,5 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "M4,5"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge M4,5 in IUPAC notation.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/n1",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "N1 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "N1"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge N1 in IUPAC notation; core-vacancy state 4s-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/n2",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "N2 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "N2"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge N2 in IUPAC notation; core-vacancy state 4p1/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/n3",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "N3 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "N3"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge N3 in IUPAC notation; core-vacancy state 4p3/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/n2-3",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "N2,3 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "N2,3"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge N2,3 in IUPAC notation.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/n4",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "N4 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "N4"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge N4 in IUPAC notation; core-vacancy state 4d3/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/n5",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "N5 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "N5"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge N5 in IUPAC notation; core-vacancy state 4d5/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/n4-5",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "N4,5 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "N4,5"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge N4,5 in IUPAC notation.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/n6",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "N6 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "N6"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge N6 in IUPAC notation; core-vacancy state 4f5/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/n7",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "N7 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "N7"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge N7 in IUPAC notation; core-vacancy state 4f7/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/n6-7",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "N6,7 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "N6,7"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge N6,7 in IUPAC notation.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/o1",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "O1 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "O1"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge O1 in IUPAC notation; core-vacancy state 5s-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/o2",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "O2 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "O2"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge O2 in IUPAC notation; core-vacancy state 5p1/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/o3",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "O3 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "O3"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge O3 in IUPAC notation; core-vacancy state 5p3/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/o2-3",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "O2,3 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "O2,3"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge O2,3 in IUPAC notation.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/o4",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "O4 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "O4"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge O4 in IUPAC notation; core-vacancy state 5d3/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/o5",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "O5 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "O5"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge O5 in IUPAC notation; core-vacancy state 5d5/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/o4-5",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "O4,5 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "O4,5"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge O4,5 in IUPAC notation.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/o6",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "O6 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "O6"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge O6 in IUPAC notation; core-vacancy state 5f5/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/o7",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "O7 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "O7"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge O7 in IUPAC notation; core-vacancy state 5f7/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/o6-7",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "O6,7 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "O6,7"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge O6,7 in IUPAC notation.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/p1",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "P1 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "P1"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge P1 in IUPAC notation; core-vacancy state 6s-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/p2",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "P2 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "P2"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge P2 in IUPAC notation; core-vacancy state 6p1/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/p3",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "P3 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "P3"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge P3 in IUPAC notation; core-vacancy state 6p3/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/p2-3",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "P2,3 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "P2,3"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge P2,3 in IUPAC notation.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/p4",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "P4 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "P4"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge P4 in IUPAC notation; core-vacancy state 6d3/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/p5",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "P5 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "P5"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge P5 in IUPAC notation; core-vacancy state 6d5/2-1.",
+        "@language": "en"
+      }
+    },
+    {
+      "@id": "https://w3id.org/cdif/xas/edge/p4-5",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "P4,5 edge",
+        "@language": "en"
+      },
+      "skos:notation": [
+        "P4,5"
+      ],
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+      },
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+        }
+      ],
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXabsorption_edge.html",
+      "skos:definition": {
+        "@value": "Absorption edge P4,5 in IUPAC notation.",
+        "@language": "en"
+      }
+    }
+  ],
+  "schema:subjectOf": {
+    "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges#catalog-record",
+    "@type": [
+      "schema:Dataset"
+    ],
+    "schema:additionalType": [
+      "dcat:CatalogRecord"
+    ],
+    "schema:about": {
+      "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
+    },
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/conceptscheme/1.1"
+      }
+    ]
+  }
+}

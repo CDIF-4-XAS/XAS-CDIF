@@ -1,7 +1,7 @@
 version = 1
 
 [[annotations]]
-path = "CDIF4XAS_Mappings_Intro_V1-FINAL_TEMPLATE.docx.pdf"
+path = "archive/CDIF4XAS_Mappings_Intro.pdf"
 SPDX-FileCopyrightText = "2025 see Authors in the document"
 SPDX-License-Identifier = "CC-BY-4.0"
 
@@ -13,20 +13,79 @@ SPDX-License-Identifier = "CC0-1.0"
 
 
 [[annotations]]
+# Reference data from the XDI specification repository,
+# XraySpectroscopy/XAS-Data-Interchange (data/). Some carry an added
+# space in the header-end line; see exampleData/README.md.
 path = [
-    "se_na2so4_rt.xdi",
+    "exampleData/co_metal_rt.xdi",
+    "exampleData/cu_metal_10K.xdi",
+    "exampleData/cu_metal_rt.xdi",
+    "exampleData/fe2o3_rt.xdi",
+    "exampleData/fe3c_rt.xdi",
+    "exampleData/fe_metal_rt.xdi",
+    "exampleData/fen_rt.xdi",
+    "exampleData/feo_rt1.xdi",
+    "exampleData/ni_metal_rt.xdi",
+    "exampleData/nonxafs_1d.xdi",
+    "exampleData/nonxafs_2d.xdi",
+    "exampleData/pt_metal_rt.xdi",
+    "exampleData/se_na2so4_rt.xdi",
+    "exampleData/se_znse_rt.xdi",
+    "exampleData/zn_znse_rt.xdi",
 ]
 SPDX-FileCopyrightText = "2025 XDI Working Group"
 SPDX-License-Identifier = "CC0-1.0"
 
 
 [[annotations]]
+# XraySpectroscopy/XASDataLibrary waives all rights and places its
+# contents in the public domain in its own License.txt, naming no
+# holder. CC0-1.0 is the SPDX identifier for that intent.
 path = [
-    "XDISpec-FieldsCDIF-Schema.orgMapping.docx",
-    "se_na2so4-testschemaorg-cdiv3.jsonLD",
-    "XAS-CDIFImplementation.xlsx",
-    "XAS_Glossary.xlsx",
+    "exampleData/xdl_Au_Foil_L1_rt_2016Foils.xdi",
+    "exampleData/xdl_CdS_10K_03.xdi",
+    "exampleData/xdl_CeO2.xdi",
+    "exampleData/xdl_EuSe_eu_l3_001.xdi",
+    "exampleData/xdl_Fe3O4_rt_01.xdi",
+    "exampleData/xdl_FeO_rt_01.xdi",
+    "exampleData/xdl_Fe_metal_rt_02.xdi",
+    "exampleData/xdl_Mn3O4_rt_01.xdi",
+    "exampleData/xdl_Pb_Foil_L2_rt_2016Foils.xdi",
+    "exampleData/xdl_SrO_rt_01.xdi",
+    "exampleData/xdl_Sr_slawsonite_15K_01.xdi",
+    "exampleData/xdl_V_foil.xdi",
+    "exampleData/xdl_WO2_rt_01.xdi",
+    "exampleData/xdl_Zn_foil.xdi",
+    "exampleData/xdl_as2o3_roomt_scan1.xdi",
+    "exampleData/xdl_co_metal_rt.xdi",
+    "exampleData/xdl_k2cro4_rt_003.xdi",
+    "exampleData/xdl_pyrite2_rt_01.xdi",
+]
+SPDX-FileCopyrightText = "XAS Data Library authors (https://github.com/XraySpectroscopy/XASDataLibrary)"
+SPDX-License-Identifier = "CC0-1.0"
+
+
+[[annotations]]
+path = [
+    "archive/XDISpec-FieldsCDIF-Schema.orgMapping.docx",
+    "archive/se_na2so4-testschemaorg-cdiv3.jsonLD",
+    "XAS-CDIFImplementation-revised.xlsx",
+    "archive/XAS_Glossary_deprecated.xlsx",
     "XAS_Glossary_SKOS.json",
+    "archive/XAS_Glossary_SKOS.json",
 ]
 SPDX-FileCopyrightText = "2025 World Fair CDIF working group"
 SPDX-License-Identifier = "CC0-1.0"
+
+[[annotations]]
+# Validator fixtures from AAAlvesJr/XDI-Validator, which is MIT licensed.
+# MIT is a software licence carrying an attribution condition, so unlike
+# the rest of exampleData/ these three may not simply be reused without
+# the notice above.
+path = [
+    "exampleData/valid.xdi",
+    "exampleData/valid2.xdi",
+    "exampleData/valid_angle_dspacing.xdi",
+]
+SPDX-FileCopyrightText = "2025 Antonio Augusto Alves Junior"
+SPDX-License-Identifier = "MIT"

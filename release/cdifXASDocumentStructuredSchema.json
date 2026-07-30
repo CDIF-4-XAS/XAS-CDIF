@@ -1,0 +1,26 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "title": "CDIF XAS document profile",
+    "description": "CDIF document-level profile for X-ray Absorption Spectroscopy datasets. Composes the four base CDIF 1.1 profiles (core, discovery, data description, data structure) with the two XAS extensions (xasCore mandatory, xasOptional recommended) so a conforming document is discoverable, describes its measured variables, describes its physical/tabular structure, and carries the XAS-specific metadata that lets a domain client interpret the spectrum.",
+    "allOf": [
+        {
+            "$ref": "../../../profiles/cdifProfile/cdifCore/cdifCoreSchema.json"
+        },
+        {
+            "$ref": "../../../profiles/cdifProfile/cdifDiscovery/cdifDiscoverySchema.json"
+        },
+        {
+            "$ref": "../../../profiles/cdifProfile/cdifDataDescription/cdifDataDescriptionSchema.json"
+        },
+        {
+            "$ref": "../../../profiles/cdifProfile/cdifDataStructure/cdifDataStructureSchema.json"
+        },
+        {
+            "$ref": "../../../xasProperties/xasCore/xasCoreSchema.json"
+        },
+        {
+            "$ref": "../../../xasProperties/xasOptional/xasOptionalSchema.json"
+        }
+    ]
+}

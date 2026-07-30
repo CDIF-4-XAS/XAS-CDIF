@@ -1,0 +1,75 @@
+name: Publish glossary docs
+
+# Regenerates the browsable glossary HTML plus the per-concept SKOS JSON-LD
+# files from the working-copy XAS_Glossary_SKOS.json, and deploys
+# the site to GitHub Pages (gh-pages branch). Runs on every push to main
+# that changes the draft, either generator, or the published-docs folder,
+# plus workflow_dispatch for manual runs.
+
+on:
+  push:
+    # cdifxasRelease is where the vocabularies are maintained; main is
+    # 39 commits behind it. The site follows the working branch so that
+    # publishing does not wait on a merge.
+    branches: [main, cdifxasRelease]
+    paths:
+      - 'XAS_Glossary_SKOS.json'
+      - 'XAS_edges_SKOS.json'
+      - 'XAS_emissionlines_SKOS.json'
+      - 'XAS_detectionmodes_SKOS.json'
+      - 'tools/generate_glossary_html.py'
+      - 'tools/generate_concept_files.py'
+      - 'XAS-CDIF-1.0_release/docs/**'
+      - '.github/workflows/build-docs.yml'
+  workflow_dispatch:
+
+# Ensure one Pages deploy at a time; queue rather than cancel.
+concurrency:
+  group: publish-glossary-docs
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # peaceiris/actions-gh-pages pushes to gh-pages
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate glossary HTML
+        run: python tools/generate_glossary_html.py
+
+      - name: Generate per-concept SKOS JSON-LD files
+        run: python tools/generate_concept_files.py
+
+      - name: Copy source glossary + LICENSE alongside the site
+        # Copy the working-copy SKOS JSON-LD into the published site as the
+        # canonical XAS_Glossary_SKOS_v2.json filename. The three value-list
+        # vocabularies go alongside it under their own names -- w3id
+        # resolves xas/edge/{x}, xas/emissionline/{x} and
+        # xas/detectionmode/{x} to a fragment of these files, so they have
+        # to be published for those URIs to work. Also drop the repo
+        # LICENSE next to it. The generator's "Source" link in the header
+        # points at ../XAS_Glossary_SKOS_v2.json; that resolves to
+        # <pages>/XAS_Glossary_SKOS_v2.json in the deployed site.
+        run: |
+          cp XAS_Glossary_SKOS.json XAS-CDIF-1.0_release/docs/XAS_Glossary_SKOS_v2.json
+          cp XAS_edges_SKOS.json XAS-CDIF-1.0_release/docs/
+          cp XAS_emissionlines_SKOS.json XAS-CDIF-1.0_release/docs/
+          cp XAS_detectionmodes_SKOS.json XAS-CDIF-1.0_release/docs/
+          cp LICENSE XAS-CDIF-1.0_release/docs/ || true
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./XAS-CDIF-1.0_release/docs
+          keep_files: false
+          commit_message: "Publish glossary docs from ${{ github.sha }}"
