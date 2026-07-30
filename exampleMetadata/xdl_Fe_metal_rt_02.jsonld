@@ -101,8 +101,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 13,
+          "cdi:minimumLength": 13,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/xdl_Fe_metal_rt_02/iv/Column_1"
@@ -130,7 +130,7 @@
             "cdif:TextMapping"
           ],
           "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:minimumLength": 14,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/xdl_Fe_metal_rt_02/iv/Column_3"

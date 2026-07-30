@@ -117,8 +117,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 12,
+          "cdi:minimumLength": 12,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/xdl_pyrite2_rt_01/iv/Column_1"
@@ -145,8 +145,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 13,
+          "cdi:minimumLength": 13,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/xdl_pyrite2_rt_01/iv/Column_3"

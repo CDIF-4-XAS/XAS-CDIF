@@ -118,8 +118,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 16,
+          "cdi:minimumLength": 16,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/cu_metal_10K/iv/Column_2"

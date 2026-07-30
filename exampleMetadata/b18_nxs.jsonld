@@ -169,7 +169,7 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
+          "cdi:maximumLength": 20,
           "cdi:minimumLength": 15,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
@@ -183,8 +183,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 10,
+          "cdi:minimumLength": 9,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/b18_nxs/iv/Column_2"
@@ -197,8 +197,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 10,
+          "cdi:minimumLength": 9,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/b18_nxs/iv/Column_3"
@@ -211,8 +211,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 10,
+          "cdi:minimumLength": 9,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/b18_nxs/iv/Column_4"
@@ -225,8 +225,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 20,
+          "cdi:minimumLength": 16,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/b18_nxs/iv/Column_5"
@@ -239,8 +239,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 22,
+          "cdi:minimumLength": 17,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/b18_nxs/iv/Column_6"
@@ -253,8 +253,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 11,
+          "cdi:minimumLength": 8,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/b18_nxs/iv/Column_7"

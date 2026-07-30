@@ -114,8 +114,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 13,
+          "cdi:minimumLength": 13,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/xdl_CdS_10K_03/iv/Column_1"
@@ -129,7 +129,7 @@
             "cdif:TextMapping"
           ],
           "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:minimumLength": 14,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/xdl_CdS_10K_03/iv/Column_2"
@@ -143,7 +143,7 @@
             "cdif:TextMapping"
           ],
           "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:minimumLength": 14,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/xdl_CdS_10K_03/iv/Column_3"
@@ -156,7 +156,7 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
+          "cdi:maximumLength": 16,
           "cdi:minimumLength": 15,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {

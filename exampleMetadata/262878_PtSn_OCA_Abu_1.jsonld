@@ -169,8 +169,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 10,
+          "cdi:minimumLength": 9,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/262878_PtSn_OCA_Abu_1/iv/Column_1"
@@ -183,8 +183,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 10,
+          "cdi:minimumLength": 9,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/262878_PtSn_OCA_Abu_1/iv/Column_2"
@@ -197,8 +197,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 10,
+          "cdi:minimumLength": 9,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/262878_PtSn_OCA_Abu_1/iv/Column_3"
@@ -211,8 +211,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 10,
+          "cdi:minimumLength": 9,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/262878_PtSn_OCA_Abu_1/iv/Column_4"
@@ -225,8 +225,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 10,
+          "cdi:minimumLength": 5,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/262878_PtSn_OCA_Abu_1/iv/Column_5"
@@ -239,8 +239,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 11,
+          "cdi:minimumLength": 7,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/262878_PtSn_OCA_Abu_1/iv/Column_6"
@@ -253,8 +253,8 @@
           "@type": [
             "cdif:TextMapping"
           ],
-          "cdi:maximumLength": 15,
-          "cdi:minimumLength": 15,
+          "cdi:maximumLength": 9,
+          "cdi:minimumLength": 5,
           "cdif:format": "decimal",
           "cdif:formats_InstanceVariable": {
             "@id": "ex:DV/262878_PtSn_OCA_Abu_1/iv/Column_7"
