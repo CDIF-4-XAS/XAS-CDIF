@@ -1,11 +1,11 @@
 {
   "@context": {
-    "@vocab": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "schema": "http://schema.org/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "spdx": "http://spdx.org/rdf/terms#",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://w3id.org/cdif/",
     "time": "http://www.w3.org/2006/time#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "xas": "https://w3id.org/cdif/xas/",
@@ -111,66 +111,70 @@
           "@id": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"
         }
       ],
-      "allowsDuplicates": false,
-      "isStructuredBy": {
+      "cdi:allowsDuplicates": false,
+      "cdi:isStructuredBy": {
         "@type": [
           "cdi:WideDataStructure"
         ],
-        "has_DataStructureComponent": [
+        "cdi:has_DataStructureComponent": [
           {
             "@type": [
               "cdi:IdentifierComponent"
             ],
-            "isDefinedBy_InstanceVariable": {
+            "cdif:isDefinedBy_RepresentedVariable": {
+              "@id": "xas:monochromatorenergy",
+              "cdif:name": "monochromator energy"
+            },
+            "cdi:isDefinedBy_InstanceVariable": {
               "@id": "xas:monochromatorenergy"
             },
-            "has": {
+            "cdi:has": {
               "@type": [
                 "cdi:ValueMapping"
               ],
-              "hasIndex": 1,
-              "length": 12
+              "cdi:hasIndex": 1,
+              "cdi:length": 12
             }
           },
           {
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "isDefinedBy_InstanceVariable": {
+            "cdi:isDefinedBy_InstanceVariable": {
               "@id": "xas:incidentintensity"
             },
-            "has": {
+            "cdi:has": {
               "@type": [
                 "cdi:ValueMapping"
               ],
-              "hasIndex": 3,
-              "length": 13
+              "cdi:hasIndex": 3,
+              "cdi:length": 13
             }
           },
           {
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "isDefinedBy_InstanceVariable": {
+            "cdi:isDefinedBy_InstanceVariable": {
               "@id": "xas:transmittedintensity"
             },
-            "has": {
+            "cdi:has": {
               "@type": [
                 "cdi:ValueMapping"
               ],
-              "hasIndex": 2,
-              "length": 12
+              "cdi:hasIndex": 2,
+              "cdi:length": 12
             }
           }
         ],
-        "allowsDuplicates": false,
-        "arrayBase": 1,
-        "commentPrefix": "#",
-        "hasHeader": true,
-        "headerRowCount": 27,
-        "skipInitialSpace": true,
-        "isDelimited": false,
-        "isFixedWidth": true
+        "cdi:allowsDuplicates": false,
+        "cdi:arrayBase": 1,
+        "cdi:commentPrefix": "#",
+        "cdi:hasHeader": true,
+        "cdi:headerRowCount": 27,
+        "cdi:skipInitialSpace": true,
+        "cdi:isDelimited": false,
+        "cdi:isFixedWidth": true
       }
     }
   ],
@@ -710,12 +714,12 @@
         }
       ],
       "schema:unitText": "eV",
-      "identifier": "should be URI from nexusFormat organization",
-      "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "simpleUnitOfMeasure": "eV",
-      "uses": "xas:monochromatorenergy",
-      "name": "energy",
-      "displayLabel": "monochromator energy"
+      "cdi:identifier": "should be URI from nexusFormat organization",
+      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:simpleUnitOfMeasure": "eV",
+      "cdi:uses": "xas:monochromatorenergy",
+      "cdi:name": "energy",
+      "cdi:displayLabel": "monochromator energy"
     },
     {
       "@id": "xas:incidentintensity",
@@ -734,11 +738,11 @@
         }
       ],
       "schema:unitText": "counts",
-      "identifier": "should be URI from nexusFormat organization",
-      "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "uses": "xas:incidentintensity",
-      "name": "i0",
-      "displayLabel": "monitor intensity"
+      "cdi:identifier": "should be URI from nexusFormat organization",
+      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:uses": "xas:incidentintensity",
+      "cdi:name": "i0",
+      "cdi:displayLabel": "monitor intensity"
     },
     {
       "@id": "xas:transmittedintensity",
@@ -757,27 +761,27 @@
       "schema:alternateName": [
         "transmission intensity"
       ],
-      "physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "identifier": "should be URI from nexusFormat organization",
-      "uses": "xas:transmittedintensity",
-      "name": "itrans",
-      "displayLabel": "transmission intensity"
+      "cdi:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
+      "cdi:identifier": "should be URI from nexusFormat organization",
+      "cdi:uses": "xas:transmittedintensity",
+      "cdi:name": "itrans",
+      "cdi:displayLabel": "transmission intensity"
     }
   ],
-  "relatedLink": [
+  "cdi:relatedLink": [
     {
       "@type": [
         "schema:LinkRole"
       ],
-      "linkRelationship": "projectProposal",
-      "target": {
+      "cdi:linkRelationship": "projectProposal",
+      "cdi:target": {
         "@type": [
           "schema:EntryPoint"
         ],
-        "encodingType": "text/html",
-        "name": "name of the proposal",
-        "url": "https://example.org/locatorForProposalText",
-        "identifier": "identifier for proposal, could used text or schema:PropertyValue pattern"
+        "cdi:encodingType": "text/html",
+        "cdi:name": "name of the proposal",
+        "cdi:url": "https://example.org/locatorForProposalText",
+        "cdi:identifier": "identifier for proposal, could used text or schema:PropertyValue pattern"
       }
     }
   ],
