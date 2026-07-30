@@ -125,6 +125,33 @@ by greedy set cover over edge, beamline, facility, detection mode,
 monochromator, temperature regime and absorber Z — so they add variety
 the corpus lacked rather than repeating it. See `exampleData/README.md`.
 
+### How a column is located, in both sets
+
+Both pipelines describe where a variable's values sit, and the two
+example sets agree on the convention:
+
+- **`cdif:TextMapping`** for a column in a text file, carrying
+  `cdif:index` — the 1-based column — plus `cdi:minimumLength` and
+  `cdi:maximumLength` measured over the data rows.
+- **`cdif:LocatorMapping`** for a path into a container, carrying
+  `cdif:locator`. Used for NeXus, where the path is only actionable
+  through a reader such as h5py.
+
+The two lengths are the field width **including the padding in front of
+the value**, because that is what a fixed-width reader slices on: in
+`       12508.00` the value is 8 characters and the field is 15. Where
+minimum and maximum are equal the file really is fixed-width; where they
+differ it is whitespace-separated and a reader must tokenise.
+
+That distinction is not decorative. **21 of the 55 files in
+`exampleData/` are fixed-width and 34 are not**, so neither claim holds
+for the corpus as a whole and the widths have to be measured per file.
+The two implementations derive them independently and agree —
+`se_na2so4_rt.xdi` comes out at 15 characters for every column in both.
+
+See "Which physical-mapping subclass, and what goes in it" in
+`release/CDIFXASDocumentImplementationGuide.md`.
+
 ### `exampleMetadata/` — generated CDIF-XAS
 
 55 JSON-LD documents plus batch generation and validation reports.

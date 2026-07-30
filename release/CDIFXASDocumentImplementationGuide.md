@@ -266,6 +266,54 @@ first and reference it by `@id` from the others. An `@id` reference
 denotes the same node, so a consumer resolving it still finds the
 components, and the layout is stated once.
 
+#### Which physical-mapping subclass, and what goes in it
+
+`cdif:hasPhysicalMapping` says how to find a component's values. Which
+subclass is right depends on how the values are addressed in the file,
+not on which format it is:
+
+| the values are addressed by | subclass | carries |
+|---|---|---|
+| a position in a line of text | `cdif:TextMapping` | `cdif:index`, and the field width |
+| a path into a container | `cdif:LocatorMapping` | `cdif:locator` |
+
+A text column is a position, so `cdif:index` — the 1-based column —
+**always** applies, and a locator does not: a column number is not a
+path, and writing one would send a reader looking for something that is
+not there. A NeXus location is the other way round: `/entry/data/mutrans`
+is only actionable through a reader that can open the container, such as
+h5py, and there is no column to index.
+
+**State the field width from what the file shows, not from what the
+format allows.** Give `cdi:minimumLength` and `cdi:maximumLength`
+measured over the data rows:
+
+- **equal** — every row puts the field in the same character range, so
+  the file is genuinely fixed-width and a reader can slice on it.
+- **a range** — the field varies, so the file is whitespace-separated
+  and a reader must tokenise.
+
+Measure to the **end of the field**, not the length of the token. A
+fixed-width layout pads on the left, so in
+
+```
+       12508.00       2.000000       121961.4
+```
+
+the first value is 8 characters and the first field is 15. 15 is the
+number a reader slices on; 8 tells it nothing it can use.
+
+XDI is worth the warning here. The specification describes
+whitespace-separated columns, and producers differ: of the 55 files in
+the CDIF-4-XAS reference corpus, 21 are fixed-width by the test above
+and 34 are not. A profile-wide claim either way would be wrong for most
+of the corpus, which is why the rule is to measure per file.
+
+The profile has no start-position property, so index plus width is the
+whole of what can be said. `cdi:decimalPositions`, `cdi:nullSequence`
+and `cdi:numberPattern` are available on the same node where a producer
+knows them.
+
 #### Parts are datasets as well as media objects
 
 A part of a distribution is a `schema:MediaObject` — it is an
