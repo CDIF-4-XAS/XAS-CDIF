@@ -257,7 +257,6 @@
           "@id": "xas:monochromatorenergy"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/nonxafs_1d/rv/Column_1"
       ]
@@ -274,7 +273,6 @@
           "@id": "xas:incidentintensity"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/nonxafs_1d/rv/Column_2"
       ]
@@ -291,7 +289,6 @@
           "@id": "xas:transmittedintensity"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/nonxafs_1d/rv/Column_3"
       ]
@@ -308,7 +305,6 @@
           "@id": "xas:absorptioncoefficient"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/nonxafs_1d/rv/Column_4"
       ]

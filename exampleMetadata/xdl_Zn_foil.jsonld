@@ -307,7 +307,7 @@
           "@id": "xas:monochromatorenergy"
         }
       ],
-      "schema:unitText": "13IDE:En:Energy.VAL",
+      "schema:unitText": "eV",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_Zn_foil/rv/Column_1"
       ]
@@ -324,7 +324,7 @@
           "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
         }
       ],
-      "schema:unitText": "13IDE:En:E_RBV.VAL",
+      "schema:unitText": "eV",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_Zn_foil/rv/Column_2"
       ]
@@ -341,7 +341,7 @@
           "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
         }
       ],
-      "schema:unitText": "13IDE:scaler1.T",
+      "schema:unitText": "counts",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_Zn_foil/rv/Column_3"
       ]
@@ -358,7 +358,7 @@
           "@id": "xas:incidentintensity"
         }
       ],
-      "schema:unitText": "13IDE:scaler1_calc2.VAL",
+      "schema:unitText": "counts",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_Zn_foil/rv/Column_4"
       ]
@@ -375,7 +375,7 @@
           "@id": "xas:transmittedintensity"
         }
       ],
-      "schema:unitText": "13IDE:scaler1_calc3.VAL",
+      "schema:unitText": "counts",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_Zn_foil/rv/Column_5"
       ]

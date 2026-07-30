@@ -243,7 +243,6 @@
           "@id": "xas:absorptioncoefficient"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/valid/rv/Column_2"
       ]

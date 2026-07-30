@@ -270,7 +270,6 @@
           "@id": "xas:incidentintensity"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_CeO2/rv/Column_2"
       ]
@@ -287,7 +286,6 @@
           "@id": "xas:transmittedintensity"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_CeO2/rv/Column_3"
       ]

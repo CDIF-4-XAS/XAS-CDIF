@@ -338,7 +338,6 @@
           "@id": "xas:monochromatorenergy"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/262919_PtSn_OCO_H2_Abu_1/rv/Column_1"
       ]
@@ -355,7 +354,6 @@
           "@id": "xas:incidentintensity"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/262919_PtSn_OCO_H2_Abu_1/rv/Column_2"
       ]
@@ -372,7 +370,6 @@
           "@id": "xas:transmittedintensity"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/262919_PtSn_OCO_H2_Abu_1/rv/Column_3"
       ]
@@ -389,7 +386,6 @@
           "@id": "xas:referenceintensity"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/262919_PtSn_OCO_H2_Abu_1/rv/Column_4"
       ]
@@ -406,7 +402,6 @@
           "@id": "xas:absorptioncoefficient"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/262919_PtSn_OCO_H2_Abu_1/rv/Column_5"
       ]
@@ -423,7 +418,6 @@
           "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/262919_PtSn_OCO_H2_Abu_1/rv/Column_6"
       ]
@@ -440,7 +434,6 @@
           "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
         }
       ],
-      "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/262919_PtSn_OCO_H2_Abu_1/rv/Column_7"
       ]
