@@ -248,6 +248,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "energy",
+      "schema:propertyID": [
+        {
+          "@id": "xas:monochromatorenergy"
+        }
+      ],
       "schema:unitText": "eV",
       "cdif:uses": [
         "https://example.org/struct/DV/ni_metal_rt/rv/Column_1"
@@ -260,6 +265,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "mutrans",
+      "schema:propertyID": [
+        {
+          "@id": "xas:absorptioncoefficient"
+        }
+      ],
       "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/ni_metal_rt/rv/Column_2"
@@ -272,6 +282,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "i0",
+      "schema:propertyID": [
+        {
+          "@id": "xas:incidentintensity"
+        }
+      ],
       "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/ni_metal_rt/rv/Column_3"

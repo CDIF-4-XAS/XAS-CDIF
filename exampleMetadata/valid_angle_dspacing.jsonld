@@ -233,6 +233,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "mutrans",
+      "schema:propertyID": [
+        {
+          "@id": "xas:absorptioncoefficient"
+        }
+      ],
       "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/valid_angle_dspacing/rv/Column_2"

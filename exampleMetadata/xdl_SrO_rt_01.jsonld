@@ -286,6 +286,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "energy",
+      "schema:propertyID": [
+        {
+          "@id": "xas:monochromatorenergy"
+        }
+      ],
       "schema:unitText": "eV",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_SrO_rt_01/rv/Column_1"
@@ -298,6 +303,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "mutrans",
+      "schema:propertyID": [
+        {
+          "@id": "xas:absorptioncoefficient"
+        }
+      ],
       "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_SrO_rt_01/rv/Column_2"
@@ -310,6 +320,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "mufluor",
+      "schema:propertyID": [
+        {
+          "@id": "xas:fluorescenceabsorptioncoefficient"
+        }
+      ],
       "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_SrO_rt_01/rv/Column_3"
@@ -322,6 +337,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "murefer",
+      "schema:propertyID": [
+        {
+          "@id": "xas:referenceabsorptioncoefficient"
+        }
+      ],
       "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_SrO_rt_01/rv/Column_4"
@@ -334,6 +354,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "i0",
+      "schema:propertyID": [
+        {
+          "@id": "xas:incidentintensity"
+        }
+      ],
       "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_SrO_rt_01/rv/Column_5"

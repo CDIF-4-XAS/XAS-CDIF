@@ -275,6 +275,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "energy",
+      "schema:propertyID": [
+        {
+          "@id": "xas:monochromatorenergy"
+        }
+      ],
       "schema:unitText": "13BMA:E:Energy.VAL",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_V_foil/rv/Column_1"
@@ -299,6 +304,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "i0",
+      "schema:propertyID": [
+        {
+          "@id": "xas:incidentintensity"
+        }
+      ],
       "schema:unitText": "13BMD:scaler1_calc2.VAL",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_V_foil/rv/Column_3"
@@ -311,6 +321,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "itrans",
+      "schema:propertyID": [
+        {
+          "@id": "xas:transmittedintensity"
+        }
+      ],
       "schema:unitText": "13BMD:scaler1_calc3.VAL",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_V_foil/rv/Column_4"
