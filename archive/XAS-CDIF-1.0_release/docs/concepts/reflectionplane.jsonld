@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/reflectionplane",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Reflection plane",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "Miller indices (hkl) of the reflecting plane used by the monochromator crystal.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "Monochromator crystal property.  It’s not a physical surface, but a mathematical construct based on the periodic arrangement of atoms. A classic example of a reflection plane in crystallography is the (100) plane in a cubic crystal system.    Miller index: (100),     Interpretation: This plane intersects the x-axis at 1 unit, and is parallel to both the y- and z-axes (i.e., it never intersects them).     Physical meaning: It represents a set of atomic layers perpendicular to the x-axis, spaced at regular intervals.  Examples of Crystals used for X-ray monochromators: Si(111), Si(220), Si(311), Ge(111) https://www.iucr.org/__data/assets/pdf_file/0004/60637/IUCr2011-XAFS-Tutorial_-Ascone.pdf",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-reflection-field",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXcrystal/reflection"
+  },
+  "references": [
+    "https://www.iucr.org/__data/assets/pdf_file/0004/60637/IUCr2011-XAFS-Tutorial_-Ascone.pdf",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

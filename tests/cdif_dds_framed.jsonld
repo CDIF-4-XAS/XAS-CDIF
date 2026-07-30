@@ -1,0 +1,425 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://w3id.org/cdif/",
+    "ex": "https://example.org/",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "xas": "https://ada.astromat.org/metadata/xas/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "ex:dataset/DV/BYSPHH",
+  "@type": [
+    "schema:Dataset"
+  ],
+  "schema:contributor": [
+    {
+      "@type": [
+        "schema:Role"
+      ],
+      "schema:contributor": {
+        "@type": [
+          "schema:Organization"
+        ],
+        "schema:name": "APS"
+      },
+      "schema:roleName": "Facility"
+    }
+  ],
+  "schema:dateModified": "2026-06-24",
+  "schema:description": "Se_Na2SeO4_rt_01.xdi",
+  "schema:distribution": [
+    {
+      "@type": [
+        "cdi:PhysicalDataSet",
+        "cdi:TabularTextDataSet",
+        "schema:DataDownload"
+      ],
+      "cdi:arrayBase": 1,
+      "cdi:commentPrefix": "#",
+      "cdi:hasHeader": true,
+      "cdi:isDelimited": false,
+      "cdi:isFixedWidth": true,
+      "cdi:isStructuredBy": {
+        "@id": "ex:struct/DV/BYSPHH",
+        "@type": [
+          "cdi:WideDataStructure"
+        ],
+        "cdi:has_DataStructureComponent": [
+          {
+            "@id": "ex:struct/DV/BYSPHH/comp/Column_1",
+            "@type": [
+              "cdi:MeasureComponent"
+            ],
+            "cdif:isDefinedBy_RepresentedVariable": {
+              "@id": "ex:struct/DV/BYSPHH/rv/Column_1",
+              "cdif:name": "energy"
+            }
+          },
+          {
+            "@id": "ex:struct/DV/BYSPHH/comp/Column_2",
+            "@type": [
+              "cdi:MeasureComponent"
+            ],
+            "cdif:isDefinedBy_RepresentedVariable": {
+              "@id": "ex:struct/DV/BYSPHH/rv/Column_2",
+              "cdif:name": "time"
+            }
+          },
+          {
+            "@id": "ex:struct/DV/BYSPHH/comp/Column_3",
+            "@type": [
+              "cdi:MeasureComponent"
+            ],
+            "cdif:isDefinedBy_RepresentedVariable": {
+              "@id": "ex:struct/DV/BYSPHH/rv/Column_3",
+              "cdif:name": "i0"
+            }
+          },
+          {
+            "@id": "ex:struct/DV/BYSPHH/comp/Column_4",
+            "@type": [
+              "cdi:MeasureComponent"
+            ],
+            "cdif:isDefinedBy_RepresentedVariable": {
+              "@id": "ex:struct/DV/BYSPHH/rv/Column_4",
+              "cdif:name": "itrans"
+            }
+          }
+        ]
+      },
+      "cdi:skipInitialSpace": true,
+      "dcterms:conformsTo": [
+        {
+          "@id": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/spec.md"
+        }
+      ],
+      "schema:contentSize": "29783",
+      "schema:contentUrl": "http://localhost:8080/api/access/datafile/29",
+      "schema:description": "Se_Na2SeO4_rt_01.xdi",
+      "schema:encodingFormat": [
+        "application/octet-stream"
+      ],
+      "cdif:hasPhysicalMapping": [
+        {
+          "cdi:maximumLength": 15,
+          "cdi:minimumLength": 15,
+          "cdif:format": "decimal",
+          "cdif:formats_InstanceVariable": {
+            "@id": "ex:DV/BYSPHH/iv/Column_1"
+          },
+          "cdif:index": 1,
+          "cdif:physicalDataType": "decimal"
+        },
+        {
+          "cdi:maximumLength": 15,
+          "cdi:minimumLength": 15,
+          "cdif:format": "decimal",
+          "cdif:formats_InstanceVariable": {
+            "@id": "ex:DV/BYSPHH/iv/Column_2"
+          },
+          "cdif:index": 2,
+          "cdif:physicalDataType": "decimal"
+        },
+        {
+          "cdi:maximumLength": 15,
+          "cdi:minimumLength": 15,
+          "cdif:format": "decimal",
+          "cdif:formats_InstanceVariable": {
+            "@id": "ex:DV/BYSPHH/iv/Column_3"
+          },
+          "cdif:index": 3,
+          "cdif:physicalDataType": "decimal"
+        },
+        {
+          "cdi:maximumLength": 15,
+          "cdi:minimumLength": 15,
+          "cdif:format": "decimal",
+          "cdif:formats_InstanceVariable": {
+            "@id": "ex:DV/BYSPHH/iv/Column_4"
+          },
+          "cdif:index": 4,
+          "cdif:physicalDataType": "decimal"
+        }
+      ]
+    }
+  ],
+  "schema:identifier": "http://localhost:8080/citation?persistentId=perma:DV/BYSPHH",
+  "schema:keywords": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+      "schema:name": "K-edge",
+      "schema:termCode": "K",
+      "schema:about": "Element.edge"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:termCode": "Se",
+      "schema:about": "Element.symbol"
+    },
+    "Earth and Environmental Sciences"
+  ],
+  "schema:license": [
+    "http://creativecommons.org/publicdomain/zero/1.0"
+  ],
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:inDefinedTermSet": "nxs:Field/NXxas/ENTRY/DATA/mode",
+      "schema:name": "Transmission"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "http://purl.org/pan-science/PaNET/PaNET01196",
+      "schema:inDefinedTermSet": "http://purl.org/pan-science/PaNET/PaNET.owl",
+      "schema:name": "X-Ray Absorption Spectroscopy",
+      "schema:termCode": "XAS"
+    }
+  ],
+  "schema:name": "Se_Na2SeO4_rt_01",
+  "schema:sameAs": [
+    "https://github.com/CDIF-4-XAS/XAS-CDIF/blob/main/se_na2so4_rt.xdi"
+  ],
+  "schema:subjectOf": {
+    "@id": "ex:dataset/DV/BYSPHH/metadata",
+    "@type": [
+      "schema:Dataset"
+    ],
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/core/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_description/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_structure/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/discovery/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/xasCore/1.0"
+      }
+    ],
+    "schema:about": {
+      "@id": "ex:dataset/DV/BYSPHH"
+    },
+    "schema:additionalType": [
+      "dcat:CatalogRecord"
+    ]
+  },
+  "schema:url": "http://localhost:8080/api/access/datafile/29",
+  "schema:variableMeasured": [
+    {
+      "@id": "ex:DV/BYSPHH/iv/Column_1",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:alternateName": [
+        "mono energy"
+      ],
+      "schema:description": "mono energy",
+      "schema:name": "energy",
+      "schema:propertyID": [
+        "xas:mono energy"
+      ],
+      "schema:unitText": "eV",
+      "cdif:uses": [
+        "https://example.org/struct/DV/BYSPHH/rv/Column_1"
+      ]
+    },
+    {
+      "@id": "ex:DV/BYSPHH/iv/Column_2",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:alternateName": [
+        "time"
+      ],
+      "schema:description": "time",
+      "schema:name": "time",
+      "schema:propertyID": [
+        "xas:time"
+      ],
+      "schema:unitText": "",
+      "cdif:uses": [
+        "https://example.org/struct/DV/BYSPHH/rv/Column_2"
+      ]
+    },
+    {
+      "@id": "ex:DV/BYSPHH/iv/Column_3",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:alternateName": [
+        "monitor intensity"
+      ],
+      "schema:description": "monitor intensity",
+      "schema:name": "i0",
+      "schema:propertyID": [
+        "xas:monitor intensity"
+      ],
+      "schema:unitText": "",
+      "cdif:uses": [
+        "https://example.org/struct/DV/BYSPHH/rv/Column_3"
+      ]
+    },
+    {
+      "@id": "ex:DV/BYSPHH/iv/Column_4",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:alternateName": [
+        "transmission intensity"
+      ],
+      "schema:description": "transmission intensity",
+      "schema:name": "itrans",
+      "schema:propertyID": [
+        "xas:transmission intensity"
+      ],
+      "schema:unitText": "",
+      "cdif:uses": [
+        "https://example.org/struct/DV/BYSPHH/rv/Column_4"
+      ]
+    }
+  ],
+  "schema:version": "5",
+  "prov:wasGeneratedBy": [
+    {
+      "@id": "xas:provevent",
+      "@type": [
+        "schema:Event",
+        "prov:Activity"
+      ],
+      "schema:additionalProperty": [
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "xas:edge_energy"
+            }
+          ],
+          "schema:value": "12658.0",
+          "schema:name": "edge_energy",
+          "schema:description": "When setting up an XAS scan, the analyst tells the acquisition software which absorption edge they're targeting (e.g., Fe K-edge at 7112 eV, Cu K-edge at 8979 eV). The software uses this value to define the scan energy range — typically scanning from some energy below the edge to some energy above it, with denser energy point spacing near the edge and coarser spacing further away. The edge energy value determines where the scan is centered and how the energy grid is constructed. (from Claude)"
+        }
+      ],
+      "schema:startDate": "2008-04-10T21:58:50",
+      "prov:used": [
+        {
+          "schema:instrument": [
+            {
+              "schema:additionalProperty": [
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:collimation"
+                    }
+                  ],
+                  "schema:value": "none",
+                  "schema:name": "collimation"
+                },
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:focusing"
+                    }
+                  ],
+                  "schema:value": "no",
+                  "schema:name": "focusing"
+                },
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:harmonic_rejection"
+                    }
+                  ],
+                  "schema:value": "Rh-coated mirror, detuned ",
+                  "schema:name": "harmonic_rejection"
+                }
+              ],
+              "schema:identifier": "xas:Beamline/13-BM-D",
+              "schema:name": "Beamline/13-BM-D"
+            },
+            {
+              "schema:additionalProperty": [
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:I0"
+                    }
+                  ],
+                  "schema:value": "10cm  N2",
+                  "schema:name": "I0 detector"
+                },
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:I1"
+                    }
+                  ],
+                  "schema:value": "10cm  N2 (?)",
+                  "schema:name": "I1 detector"
+                }
+              ],
+              "schema:identifier": "xas:Detector",
+              "schema:name": "Detector"
+            },
+            {
+              "schema:additionalProperty": [
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:d_spacing"
+                    }
+                  ],
+                  "schema:value": "3.13550",
+                  "schema:name": "d_spacing"
+                }
+              ],
+              "schema:identifier": "xas:Mono/Si 111",
+              "schema:name": "Mono/Si 111"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
