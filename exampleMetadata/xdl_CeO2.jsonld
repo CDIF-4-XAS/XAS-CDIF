@@ -312,7 +312,21 @@
           "schema:Product",
           "schema:Thing"
         ],
-        "schema:additionalProperty": [],
+        "schema:additionalProperty": [
+          {
+            "@id": "ex:blank/b29",
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:name": "Sample preparation",
+            "schema:propertyID": [
+              {
+                "@id": "xas:samplepreparation"
+              }
+            ],
+            "schema:value": "powder on tape"
+          }
+        ],
         "schema:additionalType": [
           {
             "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"

@@ -292,6 +292,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "counttime",
+      "schema:propertyID": [
+        {
+          "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
+        }
+      ],
       "schema:unitText": "13BMD:scaler1.TP",
       "cdif:uses": [
         "https://example.org/struct/DV/xdl_V_foil/rv/Column_2"

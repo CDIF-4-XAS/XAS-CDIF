@@ -418,6 +418,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "lnitiref",
+      "schema:propertyID": [
+        {
+          "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
+        }
+      ],
       "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/262878_PtSn_OCA_Abu_1/rv/Column_6"
@@ -430,6 +435,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "time",
+      "schema:propertyID": [
+        {
+          "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
+        }
+      ],
       "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/262878_PtSn_OCA_Abu_1/rv/Column_7"

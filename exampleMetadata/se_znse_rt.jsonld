@@ -292,6 +292,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "time",
+      "schema:propertyID": [
+        {
+          "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
+        }
+      ],
       "schema:unitText": "",
       "cdif:uses": [
         "https://example.org/struct/DV/se_znse_rt/rv/Column_2"

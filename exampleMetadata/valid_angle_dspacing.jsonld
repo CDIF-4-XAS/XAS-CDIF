@@ -221,6 +221,11 @@
         "schema:PropertyValue"
       ],
       "schema:name": "angle",
+      "schema:propertyID": [
+        {
+          "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
+        }
+      ],
       "schema:unitText": "deg",
       "cdif:uses": [
         "https://example.org/struct/DV/valid_angle_dspacing/rv/Column_1"
