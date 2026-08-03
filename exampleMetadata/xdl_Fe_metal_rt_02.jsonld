@@ -330,7 +330,7 @@
         ],
         "schema:name": "Fe foil  Room Temperature"
       },
-      "schema:startDate": "2001-08-09T14:04:00",
+      "schema:startTime": "2001-08-09T14:04:00",
       "prov:used": [
         {
           "@id": "ex:blank/b19",

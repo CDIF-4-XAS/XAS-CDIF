@@ -304,6 +304,7 @@
           "@id": "xas:analysisevent"
         }
       ],
+      "schema:endTime": "2016-07-05T17:47:22",
       "schema:object": {
         "@id": "ex:blank/b24",
         "@type": [
@@ -346,7 +347,7 @@
         ],
         "schema:name": "Pb"
       },
-      "schema:startDate": "2016-07-05T17:40:57",
+      "schema:startTime": "2016-07-05T17:40:57",
       "prov:used": [
         {
           "@id": "ex:blank/b16",

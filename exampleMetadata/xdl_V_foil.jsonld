@@ -350,6 +350,7 @@
           "@id": "xas:analysisevent"
         }
       ],
+      "schema:endTime": "2005-07-23T17:02:30",
       "schema:object": {
         "@id": "ex:blank/b25",
         "@type": [
@@ -379,7 +380,7 @@
         ],
         "schema:name": "V foil"
       },
-      "schema:startDate": "2005-07-23T16:45:48",
+      "schema:startTime": "2005-07-23T16:45:48",
       "prov:used": [
         {
           "@id": "ex:blank/b17",

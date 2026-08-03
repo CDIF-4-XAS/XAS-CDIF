@@ -347,7 +347,7 @@
         ],
         "schema:name": "Fe metal foil"
       },
-      "schema:startDate": "2002-03-16T19:49:43",
+      "schema:startTime": "2002-03-16T19:49:43",
       "prov:used": [
         {
           "@id": "ex:blank/b19",

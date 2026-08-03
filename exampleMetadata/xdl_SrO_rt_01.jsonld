@@ -416,7 +416,7 @@
         ],
         "schema:name": "strontium oxide"
       },
-      "schema:startDate": "1995-06-14T19:09:21",
+      "schema:startTime": "1995-06-14T19:09:21",
       "prov:used": [
         {
           "@id": "ex:blank/b21",

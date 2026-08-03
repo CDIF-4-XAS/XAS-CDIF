@@ -347,7 +347,7 @@
         ],
         "schema:name": "Fe2O3"
       },
-      "schema:startDate": "2002-03-16T14:48:54",
+      "schema:startTime": "2002-03-16T14:48:54",
       "prov:used": [
         {
           "@id": "ex:blank/b19",

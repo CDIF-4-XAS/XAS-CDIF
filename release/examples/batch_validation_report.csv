@@ -1,0 +1,7 @@
+filename,schema_errors,shacl_violations,ok,parse_error
+262875_PtSn_OCO_Abu_1.jsonld,0,0,True,
+cdif_dds_framed.jsonld,0,0,True,
+example_dds_framed.jsonld,0,0,True,
+Se_Na2SeO4_rt_01.jsonld,0,0,True,
+valid.jsonld,0,0,True,
+valid_angle_dspacing.jsonld,0,0,True,

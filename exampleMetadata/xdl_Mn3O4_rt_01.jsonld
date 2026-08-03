@@ -373,7 +373,7 @@
         ],
         "schema:name": "Mn3O4  haussmanite"
       },
-      "schema:startDate": "1995-06-20T04:30:44",
+      "schema:startTime": "1995-06-20T04:30:44",
       "prov:used": [
         {
           "@id": "ex:blank/b20",

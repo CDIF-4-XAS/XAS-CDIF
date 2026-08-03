@@ -390,7 +390,7 @@
         ],
         "schema:name": "Na2SeO4"
       },
-      "schema:startDate": "2008-04-10T21:58:50",
+      "schema:startTime": "2008-04-10T21:58:50",
       "prov:used": [
         {
           "@id": "ex:blank/b20",

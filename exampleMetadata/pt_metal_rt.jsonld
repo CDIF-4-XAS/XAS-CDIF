@@ -390,7 +390,7 @@
         ],
         "schema:name": "Pt metal foil"
       },
-      "schema:startDate": "2001-06-27T04:10:45",
+      "schema:startTime": "2001-06-27T04:10:45",
       "prov:used": [
         {
           "@id": "ex:blank/b20",

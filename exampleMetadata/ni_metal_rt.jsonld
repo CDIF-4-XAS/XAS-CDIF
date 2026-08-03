@@ -347,7 +347,7 @@
         ],
         "schema:name": "Ni metal foil"
       },
-      "schema:startDate": "2001-06-26T21:46:07",
+      "schema:startTime": "2001-06-26T21:46:07",
       "prov:used": [
         {
           "@id": "ex:blank/b19",

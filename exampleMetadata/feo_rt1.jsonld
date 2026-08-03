@@ -303,7 +303,7 @@
         ],
         "schema:name": "FeO"
       },
-      "schema:startDate": "2001-08-10T11:10:00",
+      "schema:startTime": "2001-08-10T11:10:00",
       "prov:used": [
         {
           "@id": "ex:blank/b19",

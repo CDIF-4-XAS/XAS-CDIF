@@ -304,6 +304,7 @@
           "@id": "xas:analysisevent"
         }
       ],
+      "schema:endTime": "2014-04-02T09:58:34",
       "schema:object": {
         "@id": "ex:blank/b24",
         "@type": [
@@ -346,7 +347,7 @@
         ],
         "schema:name": "pyrite"
       },
-      "schema:startDate": "2014-04-02T09:49:46",
+      "schema:startTime": "2014-04-02T09:49:46",
       "prov:used": [
         {
           "@id": "ex:blank/b16",

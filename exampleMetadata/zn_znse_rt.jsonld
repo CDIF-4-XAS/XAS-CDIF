@@ -390,7 +390,7 @@
         ],
         "schema:name": "ZnSe"
       },
-      "schema:startDate": "2008-04-10T17:00:26",
+      "schema:startTime": "2008-04-10T17:00:26",
       "prov:used": [
         {
           "@id": "ex:blank/b20",

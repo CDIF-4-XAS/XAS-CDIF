@@ -373,7 +373,7 @@
         ],
         "schema:name": "As2O3 arsenious oxide"
       },
-      "schema:startDate": "1997-01-19T14:12:16",
+      "schema:startTime": "1997-01-19T14:12:16",
       "prov:used": [
         {
           "@id": "ex:blank/b20",

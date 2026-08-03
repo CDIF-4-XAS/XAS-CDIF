@@ -226,7 +226,7 @@
         "prov:Activity"
       ],
       "schema:identifier": "20241111_DSC_NU_OREX-803224-0_1",
-      "schema:startDate": "2008-04-10T21:58:50",
+      "schema:startTime": "2008-04-10T21:58:50",
       "prov:used": [
         {
           "schema:instrument": {

@@ -1078,6 +1078,7 @@
           },
           "dcterms:conformsTo": {
             "type": "array",
+            "description": "The distribution must declare the format specification its bytes follow. XDI and NeXus are the two serializations of XAS data in scope, so either satisfies this. The '@type' constraint above is already format-neutral (tabular text or structured binary); requiring the XDI specification here contradicted it and made a conforming NeXus/HDF5 distribution impossible to describe.",
             "contains": {
               "type": "object",
               "properties": {
@@ -1103,8 +1104,7 @@
               "required": [
                 "@id"
               ]
-            },
-            "description": "The distribution must declare the format specification its bytes follow. XDI and NeXus are the two serializations of XAS data in scope, so either satisfies this. The '@type' constraint above is already format-neutral (tabular text or structured binary); requiring the XDI specification here contradicted it and made a conforming NeXus/HDF5 distribution impossible to describe."
+            }
           }
         },
         "required": [
@@ -2615,9 +2615,13 @@
                           }
                         }
                       },
-                      "schema:startDate": {
+                      "schema:startTime": {
                         "type": "string",
                         "description": "Date/time the XAS analysis started"
+                      },
+                      "schema:endTime": {
+                        "type": "string",
+                        "description": "Date/time the XAS analysis finished"
                       },
                       "prov:used": {
                         "type": "array",

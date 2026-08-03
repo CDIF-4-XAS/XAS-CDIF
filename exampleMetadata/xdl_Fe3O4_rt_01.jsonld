@@ -330,7 +330,7 @@
         ],
         "schema:name": "Fe3O4 powder  Room Temperature"
       },
-      "schema:startDate": "2002-03-16T19:08:35",
+      "schema:startTime": "2002-03-16T19:08:35",
       "prov:used": [
         {
           "@id": "ex:blank/b19",

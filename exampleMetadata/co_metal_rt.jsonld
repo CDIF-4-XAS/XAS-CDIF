@@ -347,7 +347,7 @@
         ],
         "schema:name": "Co metal foil"
       },
-      "schema:startDate": "2001-06-26T21:21:20",
+      "schema:startTime": "2001-06-26T21:21:20",
       "prov:used": [
         {
           "@id": "ex:blank/b19",

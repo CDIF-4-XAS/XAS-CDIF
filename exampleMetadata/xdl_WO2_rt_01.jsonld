@@ -304,6 +304,7 @@
           "@id": "xas:analysisevent"
         }
       ],
+      "schema:endTime": "2008-04-12T04:02:26",
       "schema:object": {
         "@id": "ex:blank/b24",
         "@type": [
@@ -346,7 +347,7 @@
         ],
         "schema:name": "WO2"
       },
-      "schema:startDate": "2008-04-12T03:48:03",
+      "schema:startTime": "2008-04-12T03:48:03",
       "prov:used": [
         {
           "@id": "ex:blank/b16",

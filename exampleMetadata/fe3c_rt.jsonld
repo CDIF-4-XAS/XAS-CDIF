@@ -347,7 +347,7 @@
         ],
         "schema:name": "Fe3C"
       },
-      "schema:startDate": "2002-03-16T18:27:34",
+      "schema:startTime": "2002-03-16T18:27:34",
       "prov:used": [
         {
           "@id": "ex:blank/b19",

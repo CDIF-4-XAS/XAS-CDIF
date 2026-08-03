@@ -1,0 +1,62 @@
+{
+  "count": 6,
+  "fully_valid": 6,
+  "with_violation": 0,
+  "shacl_enabled": true,
+  "per_file": [
+    {
+      "filename": "262875_PtSn_OCO_Abu_1.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "cdif_dds_framed.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "example_dds_framed.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "Se_Na2SeO4_rt_01.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "valid.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    },
+    {
+      "filename": "valid_angle_dspacing.jsonld",
+      "schema_errors": 0,
+      "shacl_violations": 0,
+      "schema_error_list": [],
+      "shacl_violation_list": [],
+      "ok": true,
+      "parse_error": null
+    }
+  ]
+}

@@ -366,7 +366,7 @@
         ],
         "schema:name": "Cu"
       },
-      "schema:startDate": "2001-06-26T22:27:31",
+      "schema:startTime": "2001-06-26T22:27:31",
       "prov:used": [
         {
           "@id": "ex:blank/b18",

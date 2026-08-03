@@ -347,7 +347,7 @@
         ],
         "schema:name": "FeN"
       },
-      "schema:startDate": "2002-03-16T17:50:01",
+      "schema:startTime": "2002-03-16T17:50:01",
       "prov:used": [
         {
           "@id": "ex:blank/b19",

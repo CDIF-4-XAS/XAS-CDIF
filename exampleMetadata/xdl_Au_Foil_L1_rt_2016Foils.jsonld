@@ -304,6 +304,7 @@
           "@id": "xas:analysisevent"
         }
       ],
+      "schema:endTime": "2016-07-05T18:36:26",
       "schema:object": {
         "@id": "ex:blank/b24",
         "@type": [
@@ -346,7 +347,7 @@
         ],
         "schema:name": "Au"
       },
-      "schema:startDate": "2016-07-05T18:29:20",
+      "schema:startTime": "2016-07-05T18:29:20",
       "prov:used": [
         {
           "@id": "ex:blank/b16",

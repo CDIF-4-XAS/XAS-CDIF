@@ -358,11 +358,34 @@ activity that has:
 - `@type`: `["schema:Action", "prov:Activity"]`
 - `schema:additionalType`: `[{"@id": "xas:analysisevent"}]`
 - `schema:object`: the material sample being analyzed (see [Sample entity](#sample-entity-schemaobject))
-- `schema:startDate` (recommended): ISO 8601 timestamp of the acquisition
+- `schema:startTime` (recommended), and `schema:endTime` where the source
+  records one: ISO 8601 timestamps of the acquisition
 - `prov:used`: an array of instrument wrappers (see [Instrument entities](#instrument-entities))
 - `schema:additionalProperty` (recommended): `xas:edgeenergy` value of the
   measured edge, plus other analysis-scale properties like
   `xas:calibrationmethod`
+
+#### When the measurement happened, and where that goes
+
+Use `schema:startTime` and `schema:endTime` on the activity, **not
+`schema:startDate`**: schema.org gives `startDate` to `Event` and
+`CreativeWork`, and this subject is a `schema:Action`. The
+`cdifProvActivity` shape asks for `startTime` and `endTime` by name.
+
+**Do not put the acquisition time in `schema:temporalCoverage` on the
+dataset.** `temporalCoverage` says what period the data is *about*, and
+a spectrum is not about a period — an absorption edge is a property of a
+material. A document that declares its acquisition date as coverage will
+be returned by a date-range search for data covering that day, which is
+a different question from "what was measured that day". The dataset in
+these documents carries no `temporalCoverage` at all; the profile allows
+it (`sh:minCount 0`) for the cases where a dataset genuinely does cover
+an interval.
+
+`schema:dateModified` on the root dataset is a third distinct thing:
+when the dataset was last updated **in the form available through the
+distribution**. It is not the acquisition time and not the time the
+metadata was generated.
 
 ### Instrument entities
 

@@ -373,7 +373,7 @@
         ],
         "schema:name": "CdS greenockite"
       },
-      "schema:startDate": "1995-06-16T15:35:58",
+      "schema:startTime": "1995-06-16T15:35:58",
       "prov:used": [
         {
           "@id": "ex:blank/b20",

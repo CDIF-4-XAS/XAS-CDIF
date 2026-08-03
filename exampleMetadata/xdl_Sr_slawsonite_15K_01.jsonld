@@ -373,7 +373,7 @@
         ],
         "schema:name": "slawsonite"
       },
-      "schema:startDate": "1997-03-18T12:50:19",
+      "schema:startTime": "1997-03-18T12:50:19",
       "prov:used": [
         {
           "@id": "ex:blank/b17",

@@ -222,7 +222,6 @@
         "schema:additionalType": {"@embed": "@always"},
         "schema:name": {},
         "schema:description": {},
-        "schema:startDate": {},
         "schema:startTime": {},
         "schema:endTime": {},
         "schema:actionStatus": {},

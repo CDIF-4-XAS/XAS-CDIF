@@ -394,6 +394,7 @@
           "@id": "xas:analysisevent"
         }
       ],
+      "schema:endTime": "2016-03-21T11:46:36",
       "schema:object": {
         "@id": "ex:blank/b26",
         "@type": [
@@ -423,7 +424,7 @@
         ],
         "schema:name": "Zn foil"
       },
-      "schema:startDate": "2016-03-21T11:36:21",
+      "schema:startTime": "2016-03-21T11:36:21",
       "prov:used": [
         {
           "@id": "ex:blank/b18",

@@ -373,7 +373,7 @@
         ],
         "schema:name": "K2CrO4"
       },
-      "schema:startDate": "1997-04-17T22:36:29",
+      "schema:startTime": "1997-04-17T22:36:29",
       "prov:used": [
         {
           "@id": "ex:blank/b20",
