@@ -387,6 +387,45 @@ when the dataset was last updated **in the form available through the
 distribution**. It is not the acquisition time and not the time the
 metadata was generated.
 
+Emit all three in ISO 8601. Note that neither the JSON Schema nor the
+SHACL enforces this — both say "ISO8601 date-time" in prose and require
+only a string, so a value like `2020-08-10 09:18:48` (a space, not a
+`T`) validates cleanly and still throws in a consumer that parses it as
+a datetime. NeXus files commonly write exactly that.
+
+#### A file holding several datasets
+
+Where a distribution has `schema:hasPart` entries, **each part SHOULD
+carry its own `prov:wasGeneratedBy`** with its own `schema:startTime` /
+`schema:endTime`. The file-level activity then spans the whole file,
+which answers "when did this batch run" — a different question from
+"when was this spectrum taken". A NeXus file of 26 entries acquired over
+three days needs both.
+
+The part's activity SHOULD name its instruments by `@id` rather than
+repeating them. A scan series uses one beamline, so 26 inline copies
+would assert 26 beamlines; a reference denotes the one node the
+file-level activity describes in full:
+
+```json
+"prov:wasGeneratedBy": [{
+    "@id": "ex:FeXAS/FeFoil.001/acquisition",
+    "@type": ["schema:Action", "prov:Activity"],
+    "schema:additionalType": [{"@id": "xas:analysisevent"}],
+    "schema:startTime": "2020-08-10T09:18:48",
+    "schema:endTime": "2020-08-10T09:22:32",
+    "prov:used": [{"@id": "ex:FeXAS/used/beamline"}]
+}]
+```
+
+`prov:used` is not optional here even when the instruments are stated
+elsewhere: the `cdifProvActivity` shape requires at least one on **any**
+activity reached through `prov:wasGeneratedBy`, and a part's activity is
+reached exactly that way.
+
+Every XDI file holds one spectrum, so an XDI-only producer never meets
+this case.
+
 ### Instrument entities
 
 The `prov:used` array on the analysis activity is the **peer prov:used
