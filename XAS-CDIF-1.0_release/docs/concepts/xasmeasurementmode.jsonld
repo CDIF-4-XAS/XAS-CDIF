@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/xasmeasurementmode",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "XAS measurement mode",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "Detection method used for observing the sample absorption.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "Property of experiment; controlled list of process being monitored to obtain the spectrum.  One of {'Total Electron Yield' , 'Partial Electron Yield' , 'Auger Electron Yield' , 'Fluorescence Yield' , 'Transmission'}.",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/applications/NXxas.html#nxxas-entry-data-mode-field",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXxas/ENTRY/DATA/mode"
+  },
+  "references": "https://doi.org/10.5281/zenodo.14920226"
+}

@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/calibrationmethod",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Detector calibration method",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "Information detailing how raw detector signals were mathematically mapped into final pixel coordinates or energy bins, identifies the mathematical models used to correct spatial or geometric distortions (such as polynomial equations) and provides a reference link or file path to the exact coefficients and calibration logs used during data processing. (edited from Google AI)",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXdetector.html#nxdetector-calibration-method-group",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Group/NXdetector/calibration_method"
+  },
+  "references": "https://doi.org/10.5281/zenodo.14920226"
+}

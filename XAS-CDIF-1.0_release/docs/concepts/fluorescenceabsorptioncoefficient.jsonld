@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/fluorescenceabsorptioncoefficient",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Fluorescence absorption coefficient",
+    "@language": "en"
+  },
+  "notation": "mufluor",
+  "definition": {
+    "@value": "The fluorescence absorption coefficient is calculated as the natural log of the ratio of emitted fluorescence intensity over transmitted x-ray intensity, divided by the thickness of the sample.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "The fluorescence intensity is proportional to the absorbed fraction of the incident intensity. Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

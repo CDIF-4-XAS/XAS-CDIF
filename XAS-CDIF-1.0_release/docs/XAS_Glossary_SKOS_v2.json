@@ -1,0 +1,2310 @@
+{
+	"@context": {
+		"skos": "http://www.w3.org/2004/02/skos/core#",
+		"foaf": "http://xmlns.com/foaf/0.1/",
+		"Concept": "skos:Concept",
+		"ConceptScheme": "skos:ConceptScheme",
+		"prefLabel": "skos:prefLabel",
+		"altLabel": "skos:altLabel",
+		"definition": "skos:definition",
+		"broader": "skos:broader",
+		"narrower": "skos:narrower",
+		"inScheme": "skos:inScheme",
+		"notation": "skos:notation",
+		"hasTopConcept": "skos:hasTopConcept",
+		"note": "skos:note",
+		"seeAlso": {
+			"@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+			"@type": "@id"
+		},
+		"foaf:focus": {
+			"@type": "@id"
+		},
+		"dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+		"references": "dc:references"
+	},
+	"@graph": [
+		{
+			"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts",
+			"@type": "skos:ConceptScheme",
+			"prefLabel": "Concepts for X-ray absorption spectroscopy",
+			"hasTopConcept": [
+				{
+					"@id": "https://w3id.org/cdif/xas/absorptioncoefficient"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/fluorescenceabsorptioncoefficient"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/transmittedintensity"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/incidentintensity"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/referenceintensity"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/monochromatorenergy"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/energyerror"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/fluorescenceintensity"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/calculated"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/collimation"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/dspacing"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/reflectionplane"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/monochromatortype"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/monochromatorchemicalformula"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/edgeenergy"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/facilityenergy"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/fluxmeasuremethod"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/focusing"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/harmonicrejection"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/porosity"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/pressure"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/xraysourcetype"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/elementanalyzed"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/edgeanalyzed"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/monitormode"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/monitorpreset"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/detectortype"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/samplepreparation"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/samplechemicalcomposition"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/samplethickness"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/samplemass"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/samplecrystalstructure"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/sampleunitcell"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/samplematerial"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/parentsample"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/sampleanalysisevent"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/beamline"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/xraydetector"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/synchrotonfacility"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/instrument"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/xraymonochromator"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/source"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/monochromatorangle"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/referenceabsorptioncoefficient"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/normalizedtransmissionabsorptioncoefficient"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/normalizedfluorescenceabsorptioncoefficient"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/normalizedreferenceabsorptioncoefficient"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/wavenumber"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/exafsfunction"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/filteredchimagnitude"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/filteredchiphase"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/filteredchireal"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/filteredchiimaginary"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/radialdistance"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/ftchimagnitude"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/ftchiphase"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/ftchireal"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/ftchiimaginary"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/analysisevent"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/facility"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/facilitycurrent"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/detectori0"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/detectorit"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/installedoptions"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/concentration"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/density"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/eh"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/electricfield"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/electrochemicalpotential"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/energyrange"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/energyresolution"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/flux"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/magneticfield"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/magneticmoment"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/opacity"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/ph"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/resistivity"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/scanmode"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/spotsize"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/temperature"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/viscosity"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/volume"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/website"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/probe"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/pointgroup"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/calibrationmethod"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/experimentdocumentation"
+				},
+				{
+					"@id": "https://w3id.org/cdif/xas/xraymonitor"
+				}
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/absorptioncoefficient",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Absorption coefficient",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A coefficient μ(E) calculated as the natural log of the ratio of incident over transmitted x-ray intensity, divided by the thickness of the sample.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://dictionary.iucr.org/Absorption_Coefficient",
+			"notation": "mutrans"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/fluorescenceabsorptioncoefficient",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Fluorescence absorption coefficient",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The fluorescence absorption coefficient is calculated as the natural log of the ratio of emitted fluorescence intensity over transmitted x-ray intensity, divided by the thickness of the sample.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "The fluorescence intensity is proportional to the absorbed fraction of the incident intensity. Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "mufluor"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/transmittedintensity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Transmitted intensity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The measured X-ray intensity transmitted through a sample.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "The the change in x-ray intensity depends on the distance the x-ray beams travels through the sample.",
+				"@language": "en"
+			},
+			"references": [
+				"https://www.esrf.fr/files/live/sites/www/files/events/conferences/2016/Summer%20school%202016/Summerschool%202016%20-%20Pascarelli.pdf",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "itrans"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/incidentintensity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Incident intensity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The measured X-ray intensity before it interacts with the sample.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Measured by an ionization chamber (gas-filled detector) or photodiode placed before the sample.  (X-Ray Absorption Spectroscopy of Semiconductors [book] Chapter 1: Introduction to X-Ray Absorption Spectroscopy, First Online: 01 January 2014 pp 1–26)",
+				"@language": "en"
+			},
+			"references": [
+				"https://doi.org/10.1007/978-3-662-44362-0",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "i0"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/referenceintensity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Reference intensity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "measured x-ray intensity after passing through a reference sample with know absorption characteristics.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Use to calibrate monochromator energy, check for drift in incident energry.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "irefer"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/monochromatorenergy",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Monochromator energy",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The energy selected by the X-ray monochromator and delivered to the sample during an absorption scan.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "This is the independent variable in an XAS scan. NEXUS comment is 'energy selected'. An energy monochromator is a critical component that selects a specific, monochromatic X-ray energy from an X-ray beam.  Notes: Typically a Bragg crystal monochromator is used. This energy is continuously tunable and determines the energy at which absorption measurements are performed, enabling precise probing of core-level electronic transitions near an element’s absorption edge. In XAS, monochromator energy is critical for scanning across absorption edges to extract fine structural information such as XANES and EXAFS. The energy is selected using Bragg’s Law: lambda = 2d*sin(theta) $$ where lambda is the X-ray wavelength, dd is the crystal lattice spacing, and theta is the angle of incidence. The Incident Energy variable reports the measured energy delivered to the sample. (International Tables for Crystallography, Vol. I, Chapter 3.4 )",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"notation": "energy",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXmonochromator/energy"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-energy-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/energyerror",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Energy error",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The difference between the intended energy selected by a monochromator and the actual energy measured at the sample (the incident intensity)",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "NEXUS comment is 'energy standard deviation' (nxs: Field/NXmonochromator/energy_error), or 'uncertaities associated to energy' (from https://github.com/nexusformat/definitions/issues/820); note this is apparently different from our definition here.",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXmonochromator/energy_error"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-energy-error-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/fluorescenceintensity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Fluorescence intensity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A measured X-ray intensity emitted by a sample, following absorption of incident X-rays, due to fluorescence decay phenomena.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Fluorescence is a physical phenomena.  When X-rays are absorbed by a sample, they create excited electronic states.  These states can decay, and one of the decay proceses is flourescence.  When excited electrons decay in an atom by fluorescence, they emitt light, in this case, is X-ray light. (https://www.lehigh.edu/imi/teched/GlassCSC/SuppReading/Tutorials.pdf)",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://en.wikipedia.org/wiki/X-ray_fluorescence",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "ifluor"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/calculated",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Calculated",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Boolean value, true if the property value is derived by calculations after the measurement event.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/collimation",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Collimation",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Technique used to limit the incident x-ray beam to the required dimensions and angular spread.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "beamline property, describe the arrangement of absorbers used for collimation (https://doi.org/10.1351/goldbook.C01154). From XDI dictionary 'A concise statement of how beam collimation is provided' . A collimated beam of electromagnetic radiation has parallel rays, and therefore will spread minimally as it propagates. (https://en.wikipedia.org/wiki/Collimated_beam). Collimators are divided according to shape, energy, spatial resolution and sensitivity of collimator. This is determined by the thickness of collimator, hole density, and thickness of partitions.   According to shape collimators can be: --- multi-hole collimator with parallel holes: collimator with thousands of holes, which are in a parallel axis with detector. Detector image has the same size. This is the most often used collimator. --- divergent collimator:  collimator with holes diverging towards the radiation source. It allows to gain bigger picture than surface of crystal, but it is smaller sensitivity and spatial resolution-It takes up an area larger than the area of the detector. --- convergent collimator: collimator with holes converging to radiation source. That´s what we get enlarged picture of little organ with an increased sensitivity and a spatilal resolution-It spreads a small area of the object over a larger area of the detector. --- pinhole collimator:  funnel-shaped collimator with diametr hole 3-5 mm. It provides enlarged picture wit the highest positional resolution, but there is low sensitivity (extends examination time). It is extended time of examination. It is inteded for observation of small organs (for example, thyroid gland, testicles). --- fan beam collimator: this type has focus in transversal direction while it is parallel in axial direction; has more than 50% higher spatial resolution than parallel type. It is used in cerebral computer tomography.   Thickness of the collimator varies in line with the energy of the emmiter. A low energy collimator paired with a high energy emmiter would leak photons an cause blur in the signal (https://www.wikilectures.eu/w/Collimator,  https://doi.org/10.1351/goldbook.C01155)",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://en.wikipedia.org/wiki/Collimated_beam",
+				"https://doi.org/10.1351/goldbook.C01154",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/BaseClass/NXcollimator"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXcollimator.html"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/dspacing",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "D spacing",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Spacing between crystal planes of the monochromator's crystalline material that reflect x-rays.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "monochromator crystal property. 'The spacing between atomic planes within the crystal. By satisfying Bragg's Law (nλ = 2d sinθ), the monochromator selects a desired wavelength (λ) of radiation from an incident beam, where 'd' is the atomic plane spacing and 'θ' is the Bragg angle.'(Google AI overview). The perpendicular distance between two successive planes on a family (hkl). (https://dictionary.iucr.org/Interplanar_spacing)",
+				"@language": "en"
+			},
+			"references": [
+				"https://dictionary.iucr.org/Interplanar_spacing",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXcrystal/d_spacing"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-d-spacing-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/reflectionplane",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Reflection plane",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Miller indices (hkl) of the reflecting plane used by the monochromator crystal.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Monochromator crystal property.  It’s not a physical surface, but a mathematical construct based on the periodic arrangement of atoms. A classic example of a reflection plane in crystallography is the (100) plane in a cubic crystal system.    Miller index: (100),     Interpretation: This plane intersects the x-axis at 1 unit, and is parallel to both the y- and z-axes (i.e., it never intersects them).     Physical meaning: It represents a set of atomic layers perpendicular to the x-axis, spaced at regular intervals.  Examples of Crystals used for X-ray monochromators: Si(111), Si(220), Si(311), Ge(111) https://www.iucr.org/__data/assets/pdf_file/0004/60637/IUCr2011-XAFS-Tutorial_-Ascone.pdf",
+				"@language": "en"
+			},
+			"references": [
+				"https://www.iucr.org/__data/assets/pdf_file/0004/60637/IUCr2011-XAFS-Tutorial_-Ascone.pdf",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXcrystal/reflection"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-reflection-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/monochromatortype",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Monochromator type",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Type or material of monochromating substance.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "monochromator crystal property; values reported in NEXUS as of 2010-11-17  {PG (Highly Oriented Pyrolytic Graphite) | Ge | Si | Cu | Fe3Si | CoFe | Cu2MnAl (Heusler) | Multilayer | Diamond.}",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXcrystal/type"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-type-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/monochromatorchemicalformula",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Monochromator chemical formula",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The chemical formula [of the monochromator material] specified using [Crystallographic Information File] CIF conventions.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Mochromator crystal property. NOTE-- seems redundant with NXcrystal/type.  CIF conventions at https://www.iucr.org/resources/cif/spec/version1.1",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXcrystal/chemical_formula"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-chemical-formula-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/edgeenergy",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Edge energy",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The absorption edge as used in the data acquisition software.(XDI dictionary)",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "An absorption edge is the energy at which there is a sharp rise (discontinuity) in the (linear) absorption coefficient of X-rays by an element, which occurs when the energy of the photon corresponds to the energy of a shell of the atom (K, LI, LII, LIII, etc. corresponding to the creation of electron holes in the 1s, 2s, 2p1/2, 2p3/2 etc. atomic subshells).  Associated with this transition is the absorption threshold (q.v.) characterized by the corresponding energy E0. (https://doi.org/10.1351/goldbook.08767, https://dictionary.iucr.org/Absorption_edge).  Discussed in team meeting 2025-09-08; general sense in group is that this is a known quantity specified for experiment design, not a measured result.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.1351/goldbook.08767",
+				"https://dictionary.iucr.org/Absorption_edge",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/facilityenergy",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Facility energy",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The energy of the current stored in the synchrotron storage ring. (XDI)",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "in XDI this is a property of the Facility, so include 'facility' prefix. The beam energy is the product of the ring current (particle flux, typically electrons) and the particle energy.  The beam energy is reported in Joules, particle energe typically in electron volts. Have to look at example data to determine how this is being used.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsource/energy"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-energy-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/fluxmeasuremethod",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Flux measure method",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Description of how the flux was measured.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Property of detector, see https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md#defined-items-in-the-detector-namespace, tags for i0, it, if, ir",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/focusing",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Focusing",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A concise statement about how beam focusing is provided. (XDI)",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/harmonicrejection",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Harmonic rejection",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A statement explaining how unwanted higher-energy X-ray harmonics are removed from the probe beam.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "X-ray absorption harmonic rejection is the process of eliminating unwanted higher-energy X-ray harmonics from a beam (Google AI overview). Harmonics are x-rays that have a frequency that is a positive integer multiple of the desired probe frequency.  The requirement of a high spectral purity of the X-ray beam to be delivered to the sample makes it essenstial to reduce the harmonic content of the beam. https://www.diamond.ac.uk/Instruments/Spectroscopy/I20/XAS_XES_Branchline/Specification.html",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/porosity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Porosity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The fraction of the sample volume that is empty space (pore space)",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Material property of sample.  Expressed as a fraction between 0 and 1, or as a percentage between 0% and 100%..  See also  https://doi.org/10.1351/goldbook.P04762.",
+				"@language": "en"
+			},
+			"references": [
+				"https://doi.org/10.1351/goldbook.P04762",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/pressure",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Pressure",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Normal force acting on a surface divided by the area of that surface. ",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Environmental condition of sample during analysis. For a mixture of gases the contribution by each constituent is called the 'partial pressure'.  https://doi.org/10.1351/goldbook.P04819",
+				"@language": "en"
+			},
+			"references": [
+				" https://doi.org/10.1351/goldbook.P04819",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsample/pressure"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-pressure-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/xraysourcetype",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "X-ray source type",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Type of radiation source.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "One of {'Spallation Neutron Source' , 'Pulsed Reactor Neutron Source' , 'Reactor Neutron Source' , 'Synchrotron X-ray Source' , 'Pulsed Muon Source' , 'Rotating Anode X-ray' , 'Fixed Tube X-ray' , 'UV Laser' , 'Free-Electron Laser' , 'Optical Laser' , 'Ion Source' , 'UV Plasma Source' , 'Metal Jet X-ray'}  Another possible type is 'APS (Advanced Photon Source) bending magnet', which would appear to be a subclass of 'Synchrotron X-ray Source'.",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsource/type"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-type-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/xasmeasurementmode",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "XAS measurement mode",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Detection method used for observing the sample absorption.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Property of experiment; controlled list of process being monitored to obtain the spectrum.  One of {'Total Electron Yield' , 'Partial Electron Yield' , 'Auger Electron Yield' , 'Fluorescence Yield' , 'Transmission'}.",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXxas/ENTRY/DATA/mode"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/applications/NXxas.html#nxxas-entry-data-mode-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/elementanalyzed",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Element analyzed",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Element that is the target for observing an x-ray absorption edge.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Element being analyzed.  A species of atoms; all atoms with the same number of protons in the atomic nucleus. (https://doi.org/10.1351/goldbook.C01022). Suggest using SWEET  vocabulary:http://sweetontology.net/matrElement/  for values",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.1351/goldbook.C01022",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/edgeanalyzed",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Edge analyzed",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Target absorption edge.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "The 'edge' is a sudden increase in x-ray absorption occurring when the energy of incident X-rays is just above the binding energy of the targeted electron shell of the atoms interacting with the photons. vocabulary from XDI spec: {K, L, L1, L2, L3, M, M1, M2, M3, M4, M5, N, N1, N2, N3, N4, N5, N6, N7, O, O1, O2, O3, O4, O5, O6, O7}.  Used in XDI and NeXus to refer to the shell of the atom where the electron hole is created (K, L, etc).   The absorption edge is defined as K, L, L1, etc.  That indicates the electronic energy levels involved in the absorption. The edge_energy tells us how much is the value of the energy of the electronic energy levels involved in that particular absorption edge.  see https://xrayabsorption.org/xraytable/",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/monitormode",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Monitor mode",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Algorithm for aggregating data in detectors measuring excitation and sample response",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Count to a preset value based on either clock time (timer) or received monitor counts (monitor).",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXmonitor/mode"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXmonitor.html#nxmonitor-mode-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/monitorpreset",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Monitor preset",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Configuration of monitor mode",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Either counting time or preset count value. ",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXmonitor/preset"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXmonitor.html#nxmonitor-preset-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/detectortype",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Detector type",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Kind of detector used to measure X-ray intensities.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "property of detector instrument; description of how x-ray intensity is measured. NEXUS examples:  He3 gas cylinder, He3 PSD, scintillator, fission chamber, proportion counter, ion chamber, ccd, pixel, image plate, CMOS. ",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/samplepreparation",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample preparation",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The method of sample preparation.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/samplechemicalcomposition",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample chemical composition",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Chemical formula for sample material",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "As with Monochromator, use CIF conventions. Note: 'Stoichiometry is the relationships between the quantities of reactants and products before, during, and following chemical reactions.'(Wikipedia).  Not sure that's the label we want for this property...Recommend renaming 'sample chemical composition'.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/samplethickness",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample thickness",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Length of sample material in the direction of incident x-rays.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsample/thickness"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-thickness-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/samplemass",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample mass",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Mass of the sample.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsample/mass"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-mass-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/samplecrystalstructure",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample crystal structure",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Crystallographic point or space group that characterizes the crystal structure of the sample.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "A 3-D pattern of points consisting of atoms that obeys the conditions of periodicity and discreteness expressed by a set of symmetry operations (https://dictionary.iucr.org/Crystal_structure). Point groups describe the symmetry of a point without translations, always leaving at least one point fixed; space groups  describe the symmetry of a crystal lattice allowing translations. In three dimensions,  there are 32 crystallographic point groups, and 230 unique space groups (ChatGPT) . Various notation systems are used to classify these groups (Wikipedia).",
+				"@language": "en"
+			},
+			"references": [
+				"https://doi.org/10.1007/978-3-642-13281-0",
+				"https://dictionary.iucr.org/Unit_cell",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsample/unit_cell"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-unit-cell-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/sampleunitcell",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample unit cell",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "[Crystallographic] Unit cell parameters (lengths and angles) (NEXUS)",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "'unit cell is a region that just fills space without any overlapping when translated through some subset of the vectors of a Bravais lattice.' (Ashcroft, Neil W. (1976). 'Chapter 4'. Solid State Physics. W. B. Saunders Company. p. 73)",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsample/unit_cell"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-unit-cell-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/samplematerial",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample material",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Type of substance that constitutes the sample.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Material type encompasses state of matter. E.g. See iSamples material type vocabulary (https://vocabs.ardc.edu.au/viewById/664).  See also https://doi.org/10.1351/goldbook.12297",
+				"@language": "en"
+			},
+			"references": [
+				"https://doi.org/10.1351/goldbook.12297",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/parentsample",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Parent sample",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Identifier for a material sample from which the analyzed sample was derived.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "A composite or aggregate sample might have multiple parent samples.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/sampleanalysisevent",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample analysis event",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "An event in which one or more properties of a prepared material sample are measured.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Note, label as 'sample analysis event' to distinguish from 'Analysis' as scientific activity to interpret data.  'A detailed examination or study of something so as to determine its nature, structure, or essential features.' (Oxford English Dictionary)",
+				"@language": "en"
+			},
+			"references": [
+				"https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/beamline",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Beamline",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Part of a facility that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "Beamlines are the facilities at which crystallographers and other researchers get access to the tunable and high-intense X-ray beams they need for their research. http://csrri.iit.edu/~howard/itp/itpmacro.html",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"http://csrri.iit.edu/~howard/itp/itpmacro.html",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/BaseClass/NXbeam"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXbeam.html"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/xraydetector",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "X-ray detector",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A device for detecting the presence of X-Rays and measureing their intensity.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "NEXUS has 'A detector, detector bank, or multidetector.' which is not a definition.",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/BaseClass/NXdetector"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXdetector.html"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/synchrotonfacility",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Synchrotron facility",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Installation that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "A place that hosts instruments and other necessary components to support XAS research.  NEXUS comment is 'The neutron or x-ray storage ring/facility'",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/BaseClass/NXsource"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/instrument",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Instrument",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A device or a combination of devices used to carry out an analytical process.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "The analytical process encompasses all steps from the introduction of the sample or the test portion to the production of the result. An analytical instrument may carry out single or multiple analytical procedures. In the latter case it may be selective, i.e. designed to carry out any requested combination of procedures within the set, on each specimen. (https://doi.org/10.1351/goldbook.A00333) NXInstrument has 'Collection of the components of the instrument or beamline'.  Does make clear that an instrument has parts.",
+				"@language": "en"
+			},
+			"references": [
+				"https://doi.org/10.1351/goldbook.A00333",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/BaseClass/NXinstrument"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXinstrument.html"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/xraymonochromator",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "X-ray monochromator",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Device used to eliminate X-rays of energies other than those in a narrow energy or wavelength band.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "A device for isolating a narrow portion of a spectrum (Merriam-Webster).  A device that transmits a selectable narrow band of wavelengths of light or other radiation chosen from a wider range of wavelengths available at the input. [Wikipedia] see also https://doi.org/10.1351/goldbook.09304.",
+				"@language": "en"
+			},
+			"references": [
+				"https://en.wikipedia.org/wiki/Crystal_monochromator",
+				"https://doi.org/10.1351/goldbook.09304",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/BaseClass/NXmonochromator"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/source",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Source",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A device that generates X-rays or other types of radiation used to probe a sample.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "E.g. storage ring (synchrotron), x-ray tube.",
+				"@language": "en"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/BaseClass/NXsource"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/monochromatorangle",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Monochromator angle",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The Bragg angle of the monochromator crystal, related to selected photon energy via Bragg's law nλ = 2d sin(θ).",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.angle: mono angle (degrees / radians / steps).",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "angle"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/referenceabsorptioncoefficient",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Reference absorption coefficient",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Absorption coefficient µ(E) of the reference channel, calculated from ln(it / iref).",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.murefer: absorption coefficient computed from the reference-channel intensity.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "murefer"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/normalizedtransmissionabsorptioncoefficient",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Normalized transmission absorption coefficient",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The normalized transmission-mode absorption coefficient µ(E), rescaled to unit edge-step so spectra can be compared across samples.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.normtrans: normalized mu transmission.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "normtrans"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/normalizedfluorescenceabsorptioncoefficient",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Normalized fluorescence absorption coefficient",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The normalized fluorescence-yield absorption coefficient µ(E), rescaled to unit edge-step.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.normfluor: normalized mu fluorescence.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "normfluor"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/normalizedreferenceabsorptioncoefficient",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Normalized reference absorption coefficient",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The normalized reference-channel absorption coefficient µ(E), rescaled to unit edge-step.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.normrefer: normalized mu reference.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "normrefer"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/wavenumber",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Wavenumber",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The photoelectron wavenumber (k) represents the spatial frequency of the emitted photoelectron wave, calculated from the kinetic energy above the absorption edge.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.k: photoelectron wavenumber (typically inverse Angstroms).",
+				"@language": "en"
+			},
+			"references": [
+				"Bunker, G. (2010). Introduction to X-ray Absorption Fine Structure Spectroscopy. Cambridge University Press.",
+				"https://en.wikipedia.org/wiki/Wavenumber",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "k"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/exafsfunction",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "EXAFS function chi(k)",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A function representing the Extended X-ray Absorption Fine Structure (EXAFS) oscillations in k-space  It represents the modulation of the X-ray absorption coefficient (isolated and normalized) due to the scattering of a photoelectron wave by neighboring atoms, expressed as a function of the photoelectron wavevector (k).",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.chi: EXAFS oscillatory function chi(k).",
+				"@language": "en"
+			},
+			"references": [
+				"Ravel, B., & Newville, M. (2005). ATHENA, ARTEMIS, HEPHAESTUS: data analysis for X-ray absorption spectroscopy using IFEFFIT. Journal of Synchrotron Radiation, 12(4), 537-541.",
+				"https://en.wikipedia.org/wiki/Extended_X-ray_absorption_fine_structure",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "chi"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/filteredchimagnitude",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Filtered chi magnitude",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Magnitude of the Fourier-filtered Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(k). Fourier filtering isolates contributions from specific R-space shells before transforming back to k-space.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.chi_mag: magnitude of Fourier-filtered chi(k).",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "chi_mag"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/filteredchiphase",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Filtered chi phase",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Phase of the Fourier-filtered Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(k) in k-space.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.chi_pha: phase of Fourier-filtered chi(k).",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "chi_pha"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/filteredchireal",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Filtered chi real",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Real part of the Fourier-filtered Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(k) in k-space.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.chi_re: real part of Fourier-filtered chi(k).",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "chi_re"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/filteredchiimaginary",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Filtered chi imaginary",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Imaginary part of the Fourier-filtered Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(k) in k-space.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.chi_im: imaginary part of Fourier-filtered chi(k).",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "chi_im"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/radialdistance",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Radial distance",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The R-space (radial distance space) coordinate of the Extended X-ray Absorption Fine Structure (EXAFS) oscillations, obtained by performing the Fourier transform of chi(k) in k-space. Peaks in |chi(R)| correspond to backscattering shells around the absorbing atom.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.r: radial distance from absorbing atom (typically Angstroms).",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://en.wikipedia.org/wiki/Extended_X-ray_absorption_fine_structure",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "r"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/ftchimagnitude",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Fourier-transformed chi magnitude",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Magnitude of the Fourier-transformed Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(R) in R-space, obtained without applying corrections for phase shifts.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.chir_mag: magnitude of Fourier transform of chi(k), i.e. |chi(r)|.",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://en.wikipedia.org/wiki/Fourier_transform",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "chir_mag"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/ftchiphase",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Fourier-transformed chi phase",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Phase of the Fourier-transformed Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(R) in R-space, obtained without applying corrections for phase shifts.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.chir_pha: phase of Fourier transform of chi(k).",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://en.wikipedia.org/wiki/Fourier_transform",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "chir_pha"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/ftchireal",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Fourier-transformed chi real",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Real part of the Fourier-transformed Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(R) in R-space, obtained without applying corrections for phase shifts.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.chir_re: real part of Fourier transform of chi(k).",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://en.wikipedia.org/wiki/Fourier_transform",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "chir_re"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/ftchiimaginary",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Fourier-transformed chi imaginary",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Imaginary part of the Fourier-transformed Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(R) in R-space, obtained without applying corrections for phase shifts.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"note": {
+				"@value": "XDI Column.chir_im: imaginary part of Fourier transform of chi(k).",
+				"@language": "en"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://en.wikipedia.org/wiki/Fourier_transform",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "chir_im"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/analysisevent",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "XAS analysis event",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The execution of an X-ray absorption spectroscopy experiment, which is essentially a scan on energy (transmitted, fluorescent...) versus incoming/absorbed beam.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Application/NXxas"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/applications/NXxas.html"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/facility",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Facility",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "A synchrotron, X-ray free electron laser, or laboratory facility where XAS measurements are performed.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/facilitycurrent",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Facility current",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Accelerator, X-ray tube, or storage ring current; property of a facility",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsource/current"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-current-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/detectori0",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Detector method for incident flux",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The detection method used to measure the incident X-ray flux i0 (a monitor before the sample) — e.g. an ionization chamber filled with a specific gas mixture.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "detector.i0"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/detectorit",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Detector method for transmitted flux",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The detection method used to measure the transmitted X-ray flux it downstream of the sample — e.g. an ionization chamber filled with a specific gas mixture.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"notation": "detector.it"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/installedoptions",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Installed options",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Description of optional equipment installed on the base instrument for this measurement (e.g. sample cells, in-situ environment components).",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/concentration",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample concentration",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Concentration of a component in the composition of a sample",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsample/concentration"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-concentration-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/density",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample density",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Density of sample",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsample/density"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-density-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/eh",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample redox potential (Eh)",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Redox potential Eh of the sample environment.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/electricfield",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample electric field",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Electric field applied to sample during analysis. Represented with x, y, z voltage components.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsample/electric_field"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-electric-field-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/electrochemicalpotential",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample electrochemical potential",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Applied electrochemical potential at the sample during measurement.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/energyrange",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Beamline energy range",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The range of X-ray photon energies deliverable at the beamline.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/energyresolution",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Energy resolution",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The ability of a spectrometer to distinguish between two closely spaced X-ray photon energies.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/flux",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Beamline flux",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The total number of photons or particles passing through a given area per second: Source intensity/area (example: s-1 cm-2).  Distinct from photon flux -- the total number of photons (intensity) traveling down the beamline per second (photons per s). Photon flux might be labeled Beamline flux.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsource/flux"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-flux-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/magneticfield",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample magnetic field",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "magnetic_field.value is a link to e.g. magnetic_field_env.sensor1.value",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Group/NXsample/magnetic_field"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-magnetic-field-group"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/magneticmoment",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample magnetic moment",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Magnetic moment measured on the sample.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/opacity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample opacity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Opacity of the sample material relative to the incident X-ray beam.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/ph",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample pH",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "pH of the sample environment (if a liquid or a wet cell).",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/resistivity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample resistivity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Electrical resistivity of the sample.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/scanmode",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Beamline scan mode",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "The way in which XAS spectra are collected from the sample — e.g. continuous scan, step-scan, or energy-dispersive measurement mode.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/spotsize",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Beam spot size",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Transverse size of the X-ray beam at the sample position.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/temperature",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample temperature",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Sample temperature. This could be a scanned variable",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			],
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsample/temperature"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-temperature-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/viscosity",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample viscosity",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Viscosity of the sample if a liquid.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/volume",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample volume",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Volume of the sample material analyzed.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": [
+				"https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+				"https://doi.org/10.5281/zenodo.14920226"
+			]
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/website",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Beamline website",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Web URL for beamline information or documentation.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/probe",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Probe",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "type of radiation probe. Eenumerated list: {neutron, photon, x-ray, muon, electron, ultraviolet, visible light, positron, proton} Default is x-ray for XAS.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsource/probe"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-probe-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/pointgroup",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Sample point group",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Crystallographic point group, deprecated if space_group present",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Field/NXsample/point_group"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-point-group-field"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/calibrationmethod",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Detector calibration method",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Information detailing how raw detector signals were mathematically mapped into final pixel coordinates or energy bins, identifies the mathematical models used to correct spatial or geometric distortions (such as polynomial equations) and provides a reference link or file path to the exact coefficients and calibration logs used during data processing. (edited from Google AI)",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Group/NXdetector/calibration_method"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXdetector.html#nxdetector-calibration-method-group"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/experimentdocumentation",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "Experiment documentation",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "Description of the full experiment (document in pdf, latex, ...)",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/Group/NXentry/experiment_documentation"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-experiment-documentation-group"
+		},
+		{
+			"@id": "https://w3id.org/cdif/xas/xraymonitor",
+			"@type": "skos:Concept",
+			"prefLabel": {
+				"@value": "X-ray monitor",
+				"@language": "en"
+			},
+			"definition": {
+				"@value": "An instrument that acquires data to characterize the incident x-ray beam.",
+				"@language": "en"
+			},
+			"inScheme": {
+				"@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+			},
+			"references": "https://doi.org/10.5281/zenodo.14920226",
+			"foaf:focus": {
+				"@id": "http://purl.org/nexusformat/definitions/BaseClass/NXmonitor"
+			},
+			"seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXmonitor.html"
+		}
+	]
+}

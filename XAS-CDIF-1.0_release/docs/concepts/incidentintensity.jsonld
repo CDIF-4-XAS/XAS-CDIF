@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/incidentintensity",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Incident intensity",
+    "@language": "en"
+  },
+  "notation": "i0",
+  "definition": {
+    "@value": "The measured X-ray intensity before it interacts with the sample.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "Measured by an ionization chamber (gas-filled detector) or photodiode placed before the sample.  (X-Ray Absorption Spectroscopy of Semiconductors [book] Chapter 1: Introduction to X-Ray Absorption Spectroscopy, First Online: 01 January 2014 pp 1–26)",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "references": [
+    "https://doi.org/10.1007/978-3-662-44362-0",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

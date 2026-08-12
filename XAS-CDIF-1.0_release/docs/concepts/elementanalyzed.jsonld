@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/elementanalyzed",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Element analyzed",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "Element that is the target for observing an x-ray absorption edge.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "Element being analyzed.  A species of atoms; all atoms with the same number of protons in the atomic nucleus. (https://doi.org/10.1351/goldbook.C01022). Suggest using SWEET  vocabulary:http://sweetontology.net/matrElement/  for values",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "https://doi.org/10.1351/goldbook.C01022",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

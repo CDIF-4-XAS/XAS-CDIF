@@ -1,0 +1,47 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/edgeanalyzed",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Edge analyzed",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "Target absorption edge.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "The 'edge' is a sudden increase in x-ray absorption occurring when the energy of incident X-rays is just above the binding energy of the targeted electron shell of the atoms interacting with the photons. vocabulary from XDI spec: {K, L, L1, L2, L3, M, M1, M2, M3, M4, M5, N, N1, N2, N3, N4, N5, N6, N7, O, O1, O2, O3, O4, O5, O6, O7}.  Used in XDI and NeXus to refer to the shell of the atom where the electron hole is created (K, L, etc).   The absorption edge is defined as K, L, L1, etc.  That indicates the electronic energy levels involved in the absorption. The edge_energy tells us how much is the value of the energy of the electronic energy levels involved in that particular absorption edge.  see https://xrayabsorption.org/xraytable/",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

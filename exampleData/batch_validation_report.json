@@ -1,0 +1,670 @@
+{
+  "input_dir": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData",
+  "file_count": 37,
+  "error_count_distribution": {
+    "1": 30,
+    "0": 4,
+    "3": 1,
+    "162": 1,
+    "5": 1
+  },
+  "field_error_frequency": {
+    "$": 21,
+    "scan.edge_energy": 14,
+    "array_labels_line": 2,
+    "sample.temperature": 1,
+    "scan.start_time": 1,
+    "scan.end_time": 1
+  },
+  "unique_signatures": {
+    "3cdf2936": {
+      "fields": [
+        "$"
+      ],
+      "example_file": "262875_PtSn_OCO_Abu_1.xdi",
+      "file_count": 18
+    },
+    "f5c0dfd0": {
+      "fields": [
+        "scan.edge_energy"
+      ],
+      "example_file": "co_metal_rt.xdi",
+      "file_count": 12
+    },
+    "da39a3ee": {
+      "fields": [],
+      "example_file": "feo_rt1.xdi",
+      "file_count": 4
+    },
+    "45f74afd": {
+      "fields": [
+        "array_labels_line",
+        "scan.edge_energy",
+        "$"
+      ],
+      "example_file": "nonxafs_1d.xdi",
+      "file_count": 2
+    },
+    "4b419c96": {
+      "fields": [
+        "sample.temperature",
+        "scan.start_time",
+        "scan.end_time",
+        "$"
+      ],
+      "example_file": "Se_Na2SeO4_rt_01.xdi",
+      "file_count": 1
+    }
+  },
+  "per_file": [
+    {
+      "filename": "262875_PtSn_OCO_Abu_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\262875_PtSn_OCO_Abu_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "262878_PtSn_OCA_Abu_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\262878_PtSn_OCA_Abu_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "262882_PtSn_OC_Abu_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\262882_PtSn_OC_Abu_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "262885_PtSn_OCH_Abu_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\262885_PtSn_OCH_Abu_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "262919_PtSn_OCO_H2_Abu_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\262919_PtSn_OCO_H2_Abu_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "262922_PtSn_OCA_H2_Abu_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\262922_PtSn_OCA_H2_Abu_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "262926_PtSn_OC_H2_Abu_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\262926_PtSn_OC_H2_Abu_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "262929_PtSn_OCH_H2_Abu_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\262929_PtSn_OCH_H2_Abu_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "263814_PtSn_OCA_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\263814_PtSn_OCA_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "263820_PtSn_OC_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\263820_PtSn_OC_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "263824_PtSn_OCH_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\263824_PtSn_OCH_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "263825_PtSn_OCH_2.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\263825_PtSn_OCH_2.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "263832_PtSn_alloy_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\263832_PtSn_alloy_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "263838_PtSn_3_1_EG_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\263838_PtSn_3_1_EG_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "263844_PtSn_OCO_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\263844_PtSn_OCO_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "263935_PtSn_Alloy_H2_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\263935_PtSn_Alloy_H2_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "263941_PtSn_EG_H2_1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\263941_PtSn_EG_H2_1.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "b18_nxs.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\b18_nxs.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "3cdf2936",
+      "field_errors": {
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "co_metal_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\co_metal_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 7 - <Message>: '7709.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "cu_metal_10K.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\cu_metal_10K.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 25 - <Message>: '8980.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "cu_metal_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\cu_metal_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 8 - <Message>: '8980.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "fe2o3_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\fe2o3_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 7 - <Message>: '7112. units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "fe3c_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\fe3c_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 7 - <Message>: '7112. units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "fe_metal_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\fe_metal_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 7 - <Message>: '7112. units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "fen_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\fen_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 7 - <Message>: '7112. units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "feo_rt1.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\feo_rt1.xdi",
+      "valid": true,
+      "error_count": 0,
+      "signature_id": "da39a3ee",
+      "field_errors": {}
+    },
+    {
+      "filename": "ni_metal_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\ni_metal_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 7 - <Message>: '8333.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "nonxafs_1d.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\nonxafs_1d.xdi",
+      "valid": false,
+      "error_count": 3,
+      "signature_id": "45f74afd",
+      "field_errors": {
+        "array_labels_line": [
+          "[ERROR] <Line>: 27 - <Message>: energy is declared in 'array label line' but not in column namespace."
+        ],
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 6 - <Message>: '8980.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ],
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "nonxafs_2d.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\nonxafs_2d.xdi",
+      "valid": false,
+      "error_count": 162,
+      "signature_id": "45f74afd",
+      "field_errors": {
+        "array_labels_line": [
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 81 - <Message>: 1 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 213 - <Message>: 10 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 81 - <Message>: 1 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 219 - <Message>: 20 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 81 - <Message>: 1 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 225 - <Message>: 30 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 81 - <Message>: 1 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 231 - <Message>: 40 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 81 - <Message>: 1 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 237 - <Message>: 50 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 81 - <Message>: 1 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 243 - <Message>: 60 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 81 - <Message>: 1 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 249 - <Message>: 70 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 81 - <Message>: 1 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 255 - <Message>: 80 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 81 - <Message>: 1 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 90 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 141 - <Message>: 2 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: 00 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 141 - <Message>: 2 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 213 - <Message>: 10 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 141 - <Message>: 2 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 219 - <Message>: 20 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 141 - <Message>: 2 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 225 - <Message>: 30 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 141 - <Message>: 2 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 231 - <Message>: 40 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 141 - <Message>: 2 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 237 - <Message>: 50 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 141 - <Message>: 2 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 243 - <Message>: 60 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 141 - <Message>: 2 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 249 - <Message>: 70 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 141 - <Message>: 2 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 255 - <Message>: 80 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 141 - <Message>: 2 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 90 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 201 - <Message>: 3 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: 00 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 201 - <Message>: 3 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 213 - <Message>: 10 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 201 - <Message>: 3 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 219 - <Message>: 20 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 201 - <Message>: 3 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 225 - <Message>: 30 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 201 - <Message>: 3 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 231 - <Message>: 40 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 201 - <Message>: 3 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 237 - <Message>: 50 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 201 - <Message>: 3 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 243 - <Message>: 60 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 201 - <Message>: 3 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 249 - <Message>: 70 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 201 - <Message>: 3 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 255 - <Message>: 80 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 201 - <Message>: 3 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 90 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 4 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: 00 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 4 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 213 - <Message>: 10 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 4 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 219 - <Message>: 20 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 4 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 225 - <Message>: 30 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 4 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 231 - <Message>: 40 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 4 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 237 - <Message>: 50 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 4 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 243 - <Message>: 60 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 4 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 249 - <Message>: 70 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 4 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 255 - <Message>: 80 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 4 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 261 - <Message>: 90 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: outer is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: value is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: 5 is declared in 'array label line' but not in column namespace.",
+          "[ERROR] <Line>: 267 - <Message>: 00 is declared in 'array label line' but not in column namespace."
+        ],
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 8 - <Message>: '8980.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ],
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'element' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "pt_metal_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\pt_metal_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 8 - <Message>: '11563.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "Se_Na2SeO4_rt_01.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\Se_Na2SeO4_rt_01.xdi",
+      "valid": false,
+      "error_count": 5,
+      "signature_id": "4b419c96",
+      "field_errors": {
+        "sample.temperature": [
+          "[ERROR] <Path>: $.sample.temperature - <Line>: 11 - <Message>: 'room temperature' does not match \"^(?# Format: '[float] [unit]'; Accepted Units: K, C)([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(K|C)$\""
+        ],
+        "scan.start_time": [
+          "[ERROR] <Path>: $.scan.start_time - <Line>: 6 - <Message>: '2008-04-10 21:58:50' does not match '^(?# Format: ISO 8601 speci\ufb01cation for combined dates and times - [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS][timezone]; Examples: 2007-04-05T14:30:22+02:00, 2007-04-05T14:30:22+CEST)[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9])(:([0-5][0-9]))?((\\\\+|-)?(((0[0-9]|1[0-2]):([0-9][0-5])))|([A-Za-z]+))?$'"
+        ],
+        "scan.end_time": [
+          "[ERROR] <Path>: $.scan.end_time - <Line>: 5 - <Message>: '2008-04-10 22:16:32' does not match '^(?# Format: ISO 8601 speci\ufb01cation for combined dates and times - [YYYY]-[MM]-[DD]T[HH]:[MM]:[SS][timezone]; Examples: 2007-04-05T14:30:22+02:00, 2007-04-05T14:30:22+CEST)[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|1[0-9]|2[0-9]|3[0-1])T(0[0-9]|1[0-9]|2[0-3]):([0-5][0-9])(:([0-5][0-9]))?((\\\\+|-)?(((0[0-9]|1[0-2]):([0-9][0-5])))|([A-Za-z]+))?$'"
+        ],
+        "$": [
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'version' is a required property",
+          "[ERROR] <Path>: $ - <Line>: 1 - <Message>: 'subversion' is a required property"
+        ]
+      }
+    },
+    {
+      "filename": "se_na2so4_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\se_na2so4_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 8 - <Message>: '12658.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "se_znse_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\se_znse_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 8 - <Message>: '12658.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    },
+    {
+      "filename": "valid.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\valid.xdi",
+      "valid": true,
+      "error_count": 0,
+      "signature_id": "da39a3ee",
+      "field_errors": {}
+    },
+    {
+      "filename": "valid2.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\valid2.xdi",
+      "valid": true,
+      "error_count": 0,
+      "signature_id": "da39a3ee",
+      "field_errors": {}
+    },
+    {
+      "filename": "valid_angle_dspacing.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\valid_angle_dspacing.xdi",
+      "valid": true,
+      "error_count": 0,
+      "signature_id": "da39a3ee",
+      "field_errors": {}
+    },
+    {
+      "filename": "zn_znse_rt.xdi",
+      "path": "C:\\GithubC\\CDIF\\XAS-CDIF\\exampleData\\zn_znse_rt.xdi",
+      "valid": false,
+      "error_count": 1,
+      "signature_id": "f5c0dfd0",
+      "field_errors": {
+        "scan.edge_energy": [
+          "[ERROR] <Path>: $.scan.edge_energy - <Line>: 8 - <Message>: '9659.0 units not reported' does not match '^(?# Format: [float] [unit]; Accepted Units: eV. keV, 1/\u00c5 )([+-]?(?=\\\\.\\\\d|\\\\d)(?:\\\\d+)?(?:\\\\.?\\\\d*))(?:[Ee]([+-]?\\\\d+))?\\\\s+(eV|keV|1/\u00c5)$'"
+        ]
+      }
+    }
+  ]
+}

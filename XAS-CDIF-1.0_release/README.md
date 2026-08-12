@@ -68,23 +68,6 @@ The full package comprises the following:
    the glossary could be published for FAIR purposes.
    (`XAS_Glossary_SKOS.json`)
 
-8. XAS Glossary in SKOS (v2, Nexus-backed): revised glossary with URIs
-   under `https://w3id.org/cdif/xas/` and `foaf:focus` links from each
-   applicable concept to its NeXus ontology class. (`XAS_Glossary_SKOS_v2.json`)
-
-## Browsable glossary
-
-A human-readable HTML view of the SKOS glossary is published to GitHub
-Pages via the [`build-docs.yml`](.github/workflows/build-docs.yml)
-workflow. The generated `docs/index.html` lists every concept with its
-prefLabel, definition, notation, references, seeAlso, broader/narrower
-navigation, and `foaf:focus` link back to the corresponding Nexus class.
-Rebuild locally with:
-
-```bash
-python tools/generate_glossary_html.py
-```
-
 ## Copyright and License
 
 The covering document is Copyright 2025 by its authors.  It is is
