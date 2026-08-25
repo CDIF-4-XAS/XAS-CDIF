@@ -303,7 +303,7 @@ python tools/import_nexus_enumerations.py
 | 1 | Import the three enumerations | **Done** — as `skos:ConceptScheme`, not `skos:Collection` |
 | 2 | Hand-write ~10 PFY/HERFD/PEY concepts | **Done** — all 10, plus 4 more |
 | 3 | Add `exactMatch`/`closeMatch` | **Done** — as SSSOM (§4), not inline |
-| 4 | Make XDI provenance explicit | **Partly** — mapping set uses `xdi:`; concepts not relocated |
+| 4 | Move unhomed concepts to an `xdi:` namespace | **Withdrawn** — premise was false, see below |
 | 5 | Adopt the subclass hierarchy as `skos:broader` | **Not done** — see §8 |
 
 Two deviations are deliberate:
@@ -315,12 +315,41 @@ have made them internal to a scheme they are not part of.
 
 **Rec 3 — SSSOM, not inline.** See §4.
 
-**Rec 4 is genuinely partial.** `xdi-to-cdifxas.sssom.tsv` uses an
-`xdi:` prefix on the subject side, so XDI provenance *is* explicit and
-traceable. But the XDI-derived concepts themselves still live under
-`https://w3id.org/cdif/xas/`; they were not relocated to an `xdi:`
-namespace. Whether that satisfies the recommendation depends on whether
-the goal was traceability (achieved) or namespace separation (not).
+**Rec 4 was withdrawn on 2026-08-25, because its premise was false.**
+
+It proposed moving nine "genuinely unhomed" concepts to an `xdi:`
+namespace, on the grounds that they are XDI-derived. Checked against the
+XDI dictionary — which defines exactly 29 tokens — **eight of the nine
+appear nowhere in it.** Only `fluxmeasuremethod` has an XDI origin,
+generalising the four `Detector.i0/it/if/ir` descriptions.
+
+The glossary already records their real source: all nine carry
+`dcterms:references` to
+[doi:10.5281/zenodo.14920226](https://doi.org/10.5281/zenodo.14920226),
+the XAS standards-and-vocabularies survey. They are survey-derived, not
+specification-derived, and their provenance was never actually hidden.
+
+Moving them would also be a breaking change. Six —
+`installedoptions`, `scanmode`, `calibrationmethod`, `website`,
+`monochromatorangle` and `experimentdocumentation` — are `enum` members
+constraining `schema:propertyID` in the xasDocument profile schema:
+
+```json
+"enum": [ "xas:edgeenergy", "xas:calibrationmethod",
+          "xas:experimentdocumentation", "xas:installedoptions" ]
+```
+
+Renaming them changes the schema, the SHACL bundle, all seven release
+examples and the RML mapping's `propertyIRI` construction, and
+invalidates any document already emitting the old CURIEs.
+
+What remains true from §3 of the analysis is the part about crosswalks:
+these concepts have no NeXus counterpart, which is why they are absent
+from `cdifxas-to-nexus.sssom.tsv`. They are equally absent from
+`xdi-to-cdifxas.sssom.tsv` — necessarily, since a mapping needs an XDI
+token to map from and there is none. The concepts the XAS profile leans
+on most for operational metadata are precisely the ones neither source
+vocabulary defines.
 
 ---
 
