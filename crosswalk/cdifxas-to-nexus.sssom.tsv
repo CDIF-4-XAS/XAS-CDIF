@@ -7,7 +7,7 @@
 #   - orcid:0000-0001-6041-5302
 # mapping_tool: crosswalk/build_crosswalk.py
 # subject_source: https://w3id.org/cdif/xas/
-# object_source: https://github.com/XraySpectroscopy/nexus_definitions@main
+# object_source: https://github.com/XraySpectroscopy/nexus_definitions@89971f3922664b5c3fc5eb9929b2fbf5252dcefd
 # object_source_note: Resolvable documentation: https://manual.nexusformat.org/classes/
 # curie_map:
 #   cdifxas: https://w3id.org/cdif/xas/

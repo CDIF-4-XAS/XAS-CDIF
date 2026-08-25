@@ -22,7 +22,7 @@
     "@language": "en"
   },
   "skos:note": {
-    "@value": "Generated from NeXus contributed_definitions/NXemission_line.nxdl.xml at XraySpectroscopy/nexus_definitions@main: https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXemission_line.nxdl.xml",
+    "@value": "Generated from NeXus contributed_definitions/NXemission_line.nxdl.xml at XraySpectroscopy/nexus_definitions@89971f3922664b5c3fc5eb9929b2fbf5252dcefd: https://github.com/XraySpectroscopy/nexus_definitions/blob/89971f3922664b5c3fc5eb9929b2fbf5252dcefd/contributed_definitions/NXemission_line.nxdl.xml",
     "@language": "en"
   },
   "skos:hasTopConcept": [

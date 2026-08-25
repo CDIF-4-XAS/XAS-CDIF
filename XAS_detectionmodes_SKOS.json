@@ -22,7 +22,7 @@
     "@language": "en"
   },
   "skos:note": {
-    "@value": "Generated from NeXus application definitions at XraySpectroscopy/nexus_definitions@main (https://github.com/XraySpectroscopy/nexus_definitions/tree/main/contributed_definitions) and the upstream NXxas mode enumeration.",
+    "@value": "Generated from NeXus application definitions at XraySpectroscopy/nexus_definitions@89971f3922664b5c3fc5eb9929b2fbf5252dcefd (https://github.com/XraySpectroscopy/nexus_definitions/tree/89971f3922664b5c3fc5eb9929b2fbf5252dcefd/contributed_definitions) and the upstream NXxas mode enumeration.",
     "@language": "en"
   },
   "skos:hasTopConcept": [
@@ -57,7 +57,7 @@
         }
       ],
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_trans, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_trans.nxdl.xml",
+        "@value": "Corresponds to NeXus application definition NXxas_trans, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/89971f3922664b5c3fc5eb9929b2fbf5252dcefd/contributed_definitions/NXxas_trans.nxdl.xml",
         "@language": "en"
       }
     },
@@ -92,7 +92,7 @@
         }
       ],
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_tey, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_tey.nxdl.xml",
+        "@value": "Corresponds to NeXus application definition NXxas_tey, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/89971f3922664b5c3fc5eb9929b2fbf5252dcefd/contributed_definitions/NXxas_tey.nxdl.xml",
         "@language": "en"
       }
     },
@@ -127,7 +127,7 @@
         }
       ],
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_pey, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_pey.nxdl.xml",
+        "@value": "Corresponds to NeXus application definition NXxas_pey, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/89971f3922664b5c3fc5eb9929b2fbf5252dcefd/contributed_definitions/NXxas_pey.nxdl.xml",
         "@language": "en"
       }
     },
@@ -197,7 +197,7 @@
         }
       ],
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_tfy, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_tfy.nxdl.xml",
+        "@value": "Corresponds to NeXus application definition NXxas_tfy, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/89971f3922664b5c3fc5eb9929b2fbf5252dcefd/contributed_definitions/NXxas_tfy.nxdl.xml",
         "@language": "en"
       }
     },
@@ -232,7 +232,7 @@
         }
       ],
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_pfy, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_pfy.nxdl.xml",
+        "@value": "Corresponds to NeXus application definition NXxas_pfy, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/89971f3922664b5c3fc5eb9929b2fbf5252dcefd/contributed_definitions/NXxas_pfy.nxdl.xml",
         "@language": "en"
       }
     },
@@ -267,7 +267,7 @@
         }
       ],
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_herfd, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_herfd.nxdl.xml",
+        "@value": "Corresponds to NeXus application definition NXxas_herfd, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/89971f3922664b5c3fc5eb9929b2fbf5252dcefd/contributed_definitions/NXxas_herfd.nxdl.xml",
         "@language": "en"
       }
     }

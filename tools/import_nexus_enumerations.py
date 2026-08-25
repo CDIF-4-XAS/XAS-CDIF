@@ -47,6 +47,18 @@ NXDL_NS = "http://definition.nexusformat.org/nxdl/3.1"
 NS = {"n": NXDL_NS}
 
 REPO = "XraySpectroscopy/nexus_definitions"
+
+# The NeXus fork is pinned to a commit, not tracked on main. It is a
+# contributed-status fork with competing branches, described in
+# XAS_Glossary_vs_NeXus_analysis.md as unstable; tracking main would let a
+# published vocabulary change underneath its own provenance statement, and
+# the skos:note on each generated scheme cites this ref as the source.
+#
+# To move to a newer fork state: bump this SHA, regenerate, and read the
+# diff -- a change here is a vocabulary change, not a refresh.
+# 89971f39 is 2026-07-03, the state the enumerations were built from.
+PINNED_REF = "89971f3922664b5c3fc5eb9929b2fbf5252dcefd"
+
 RAW = "https://raw.githubusercontent.com/{repo}/{ref}/{path}"
 # NXxas moved from applications/ to contributed_definitions/ once already;
 # search all three rather than assuming.
@@ -473,7 +485,7 @@ def import_detection_modes(ref: str) -> dict:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--ref", default="main",
+    ap.add_argument("--ref", default=PINNED_REF,
                     help="git ref in the definitions repo (default: main). "
                          "Pin a SHA for reproducibility.")
     ap.add_argument("--out-dir", type=Path, default=Path("."),

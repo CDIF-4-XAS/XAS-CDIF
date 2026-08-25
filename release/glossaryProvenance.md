@@ -458,14 +458,27 @@ correctly *not* a top concept today; what should change is that
 instead of referencing it by `@id`. Any hierarchy work should use
 `@id` references throughout.
 
-### Pin the NeXus fork reference
+### Pinning the NeXus fork reference — done 2026-08-25
 
-The enumerations cite `XraySpectroscopy/nexus_definitions@main`. For a
-release artifact that should be a commit SHA — the fork is unstable by
-its own description, with competing branches, and `main` will move
-under a published vocabulary. It was `89971f39` (2026-07-03) when the
-enumerations were last regenerated. Pinning changes what "regenerate"
-means, so it is a decision rather than a fix.
+Both generators pin the fork to a commit rather than tracking `main`:
+
+```python
+PINNED_REF = "89971f3922664b5c3fc5eb9929b2fbf5252dcefd"   # 2026-07-03
+```
+
+The fork is contributed-status with competing branches, described in the
+gap analysis as unstable. Tracking `main` would let a published
+vocabulary change underneath its own provenance statement — the
+`skos:note` on each generated scheme cites this ref as its source, so the
+citation has to name something that cannot move.
+
+To adopt a newer fork state: bump `PINNED_REF` in
+`tools/import_nexus_enumerations.py` and `crosswalk/build_crosswalk.py`,
+regenerate, and **read the diff**. A change there is a vocabulary change,
+not a refresh. `--ref` still overrides for a one-off check.
+
+Pinning changed no content: all three vocabularies are byte-identical
+once the ref string is normalised (39 / 432 / 7 concepts, unchanged).
 
 ### `Scan.number` — deferred
 
