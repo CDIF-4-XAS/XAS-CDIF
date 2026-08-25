@@ -8,10 +8,13 @@ name: Publish glossary docs
 
 on:
   push:
-    # cdifxasRelease is where the vocabularies are maintained; main is
-    # 39 commits behind it. The site follows the working branch so that
-    # publishing does not wait on a merge.
-    branches: [main, cdifxasRelease]
+    # The vocabularies are maintained on the release branch, and main is
+    # far behind it; the site follows the working branch so publishing does
+    # not wait on a merge. Both names are listed because the branch is
+    # called cdifxasRelease in the smrgeoinfo fork (which serves Pages) and
+    # cdifxasRelease1.1 in CDIF-4-XAS (where development happens). A push to
+    # either must be able to rebuild the site.
+    branches: [main, cdifxasRelease, cdifxasRelease1.1]
     paths:
       - 'XAS_Glossary_SKOS.json'
       - 'XAS_edges_SKOS.json'
