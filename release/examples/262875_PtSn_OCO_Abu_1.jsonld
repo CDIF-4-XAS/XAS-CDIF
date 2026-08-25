@@ -430,48 +430,58 @@
             "schema:Thing",
             "prov:Entity"
           ],
-          "schema:instrument": {
-            "@id": "ex:blank/b7",
-            "@type": [
-              "schema:Product",
-              "schema:Thing"
-            ],
-            "schema:additionalProperty": [
-              {
-                "@id": "ex:blank/b9",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:name": "focusing",
-                "schema:propertyID": [
-                  {
-                    "@id": "xas:focusing"
-                  }
-                ],
-                "schema:value": "Pitch:  2.3; Height: -6.4; Yaw: -1.6; Bend:  0.8;"
-              },
-              {
-                "@id": "ex:blank/b10",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:name": "harmonic rejection",
-                "schema:propertyID": [
-                  {
-                    "@id": "xas:harmonicrejection"
-                  }
-                ],
-                "schema:value": "out; Y: 37.8; Pitch:  0.3; Coating: Pt"
-              }
-            ],
-            "schema:additionalType": [
-              {
-                "@id": "xas:beamline"
-              }
-            ],
-            "schema:identifier": "xas:Beamline/B18-CORE XAS Date: Wed, 27 Jul 2016 22:00:52 BST",
-            "schema:name": "Beamline/B18-CORE XAS Date: Wed, 27 Jul 2016 22:00:52 BST"
-          }
+          "schema:instrument": [
+            {
+              "@id": "ex:blank/b7",
+              "@type": [
+                "schema:Product",
+                "schema:Thing",
+                "prov:Entity"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ex:blank/b9",
+                  "@type": [
+                    "schema:PropertyValue",
+                    "prov:Entity"
+                  ],
+                  "schema:name": "focusing",
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:focusing"
+                    }
+                  ],
+                  "schema:value": "Pitch:  2.3; Height: -6.4; Yaw: -1.6; Bend:  0.8;"
+                },
+                {
+                  "@id": "ex:blank/b10",
+                  "@type": [
+                    "schema:PropertyValue",
+                    "prov:Entity"
+                  ],
+                  "schema:name": "harmonic rejection",
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:harmonicrejection"
+                    }
+                  ],
+                  "schema:value": "out; Y: 37.8; Pitch:  0.3; Coating: Pt"
+                }
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:beamline"
+                },
+                {
+                  "@id": "wd:Q3099911"
+                }
+              ],
+              "schema:identifier": [
+                "xas:Beamline/B18-CORE XAS Date: Wed, 27 Jul 2016 22:00:52 BST"
+              ],
+              "schema:name": "Beamline/B18-CORE XAS Date: Wed, 27 Jul 2016 22:00:52 BST"
+            }
+          ]
         },
         {
           "@id": "ex:blank/b22",
@@ -479,21 +489,29 @@
             "schema:Thing",
             "prov:Entity"
           ],
-          "schema:instrument": {
-            "@id": "ex:blank/b11",
-            "@type": [
-              "schema:Product",
-              "schema:Thing"
-            ],
-            "schema:additionalProperty": [],
-            "schema:additionalType": [
-              {
-                "@id": "xas:xraymonitor"
-              }
-            ],
-            "schema:identifier": "xas:Detector",
-            "schema:name": "Detector"
-          }
+          "schema:instrument": [
+            {
+              "@id": "ex:blank/b11",
+              "@type": [
+                "schema:Product",
+                "schema:Thing",
+                "prov:Entity"
+              ],
+              "schema:additionalProperty": [],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:xraymonitor"
+                },
+                {
+                  "@id": "wd:Q3099911"
+                }
+              ],
+              "schema:identifier": [
+                "xas:Detector"
+              ],
+              "schema:name": "Detector"
+            }
+          ]
         },
         {
           "@id": "ex:blank/b23",
@@ -501,62 +519,73 @@
             "schema:Thing",
             "prov:Entity"
           ],
-          "schema:instrument": {
-            "@id": "ex:blank/b15",
-            "@type": [
-              "schema:Product",
-              "schema:Thing"
-            ],
-            "schema:additionalProperty": [
-              {
-                "@id": "ex:blank/b16",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:name": "d-spacing",
-                "schema:propertyID": [
-                  {
-                    "@id": "xas:dspacing"
-                  }
-                ],
-                "schema:unitText": "Angstrom",
-                "schema:value": "unknown"
-              },
-              {
-                "@id": "ex:blank/b17",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:name": "reflection plane",
-                "schema:propertyID": [
-                  {
-                    "@id": "xas:reflectionplane"
-                  }
-                ],
-                "schema:value": "1,1,1"
-              },
-              {
-                "@id": "ex:blank/b18",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:name": "crystal type",
-                "schema:propertyID": [
-                  {
-                    "@id": "xas:monochromatortype"
-                  }
-                ],
-                "schema:value": "Si"
-              }
-            ],
-            "schema:additionalType": [
-              {
-                "@id": "xas:xraymonochromator"
-              }
-            ],
-            "schema:identifier": "xas:Mono/Si(311)",
-            "schema:name": "Mono/Si(311)"
-          }
+          "schema:instrument": [
+            {
+              "@id": "ex:blank/b15",
+              "@type": [
+                "schema:Product",
+                "schema:Thing",
+                "prov:Entity"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ex:blank/b16",
+                  "@type": [
+                    "schema:PropertyValue",
+                    "prov:Entity"
+                  ],
+                  "schema:name": "d-spacing",
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:dspacing"
+                    }
+                  ],
+                  "schema:unitText": "Angstrom",
+                  "schema:value": "unknown"
+                },
+                {
+                  "@id": "ex:blank/b17",
+                  "@type": [
+                    "schema:PropertyValue",
+                    "prov:Entity"
+                  ],
+                  "schema:name": "reflection plane",
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:reflectionplane"
+                    }
+                  ],
+                  "schema:value": "1,1,1"
+                },
+                {
+                  "@id": "ex:blank/b18",
+                  "@type": [
+                    "schema:PropertyValue",
+                    "prov:Entity"
+                  ],
+                  "schema:name": "crystal type",
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:monochromatortype"
+                    }
+                  ],
+                  "schema:value": "Si"
+                }
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:xraymonochromator"
+                },
+                {
+                  "@id": "wd:Q3099911"
+                }
+              ],
+              "schema:identifier": [
+                "xas:Mono/Si(311)"
+              ],
+              "schema:name": "Mono/Si(311)"
+            }
+          ]
         },
         {
           "@id": "ex:blank/b24",
@@ -564,47 +593,55 @@
             "schema:Thing",
             "prov:Entity"
           ],
-          "schema:instrument": {
-            "@id": "ex:blank/b25",
-            "@type": [
-              "schema:Product",
-              "schema:Thing"
-            ],
-            "schema:additionalProperty": [
-              {
-                "@id": "ex:blank/b26",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:name": "Probe",
-                "schema:propertyID": [
-                  {
-                    "@id": "xas:probe"
-                  }
-                ],
-                "schema:value": "x-ray"
-              },
-              {
-                "@id": "ex:blank/b27",
-                "@type": [
-                  "schema:PropertyValue"
-                ],
-                "schema:name": "X-ray source type",
-                "schema:propertyID": [
-                  {
-                    "@id": "xas:xraysourcetype"
-                  }
-                ],
-                "schema:value": "Synchrotron X-ray Source"
-              }
-            ],
-            "schema:additionalType": [
-              {
-                "@id": "xas:source"
-              }
-            ],
-            "schema:name": "X-ray source"
-          }
+          "schema:instrument": [
+            {
+              "@id": "ex:blank/b25",
+              "@type": [
+                "schema:Product",
+                "schema:Thing",
+                "prov:Entity"
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ex:blank/b26",
+                  "@type": [
+                    "schema:PropertyValue",
+                    "prov:Entity"
+                  ],
+                  "schema:name": "Probe",
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:probe"
+                    }
+                  ],
+                  "schema:value": "x-ray"
+                },
+                {
+                  "@id": "ex:blank/b27",
+                  "@type": [
+                    "schema:PropertyValue",
+                    "prov:Entity"
+                  ],
+                  "schema:name": "X-ray source type",
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:xraysourcetype"
+                    }
+                  ],
+                  "schema:value": "Synchrotron X-ray Source"
+                }
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:source"
+                },
+                {
+                  "@id": "wd:Q3099911"
+                }
+              ],
+              "schema:name": "X-ray source"
+            }
+          ]
         }
       ]
     }
