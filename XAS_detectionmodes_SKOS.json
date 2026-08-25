@@ -5,11 +5,7 @@
     "schema": "http://schema.org/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "foaf": "http://xmlns.com/foaf/0.1/",
     "rdfs:seeAlso": {
-      "@type": "@id"
-    },
-    "foaf:focus": {
       "@type": "@id"
     }
   },
@@ -26,7 +22,7 @@
     "@language": "en"
   },
   "skos:note": {
-    "@value": "Generated from NeXus application definitions at XraySpectroscopy/nexus_definitions@main and the upstream NXxas mode enumeration.",
+    "@value": "Generated from NeXus application definitions at XraySpectroscopy/nexus_definitions@main (https://github.com/XraySpectroscopy/nexus_definitions/tree/main/contributed_definitions) and the upstream NXxas mode enumeration.",
     "@language": "en"
   },
   "skos:hasTopConcept": [
@@ -60,9 +56,8 @@
           "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_trans.html",
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_trans.",
+        "@value": "Corresponds to NeXus application definition NXxas_trans, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_trans.nxdl.xml",
         "@language": "en"
       }
     },
@@ -96,9 +91,8 @@
           "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tey.html",
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_tey.",
+        "@value": "Corresponds to NeXus application definition NXxas_tey, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_tey.nxdl.xml",
         "@language": "en"
       }
     },
@@ -132,9 +126,8 @@
           "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pey.html",
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_pey.",
+        "@value": "Corresponds to NeXus application definition NXxas_pey, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_pey.nxdl.xml",
         "@language": "en"
       }
     },
@@ -203,9 +196,8 @@
           "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tfy.html",
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_tfy.",
+        "@value": "Corresponds to NeXus application definition NXxas_tfy, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_tfy.nxdl.xml",
         "@language": "en"
       }
     },
@@ -239,9 +231,8 @@
           "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html",
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_pfy.",
+        "@value": "Corresponds to NeXus application definition NXxas_pfy, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_pfy.nxdl.xml",
         "@language": "en"
       }
     },
@@ -275,9 +266,8 @@
           "@id": "https://w3id.org/cdif/xas/xasmeasurementmode"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html",
       "skos:note": {
-        "@value": "Corresponds to NeXus application definition NXxas_herfd.",
+        "@value": "Corresponds to NeXus application definition NXxas_herfd, defined at https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXxas_herfd.nxdl.xml",
         "@language": "en"
       }
     }

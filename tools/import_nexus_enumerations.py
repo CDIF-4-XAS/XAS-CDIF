@@ -53,7 +53,13 @@ RAW = "https://raw.githubusercontent.com/{repo}/{ref}/{path}"
 SEARCH_DIRS = ("contributed_definitions", "applications", "base_classes")
 
 CDIF_XAS = "https://w3id.org/cdif/xas/"
-MANUAL = "https://manual.nexusformat.org/classes/"
+# manual.nexusformat.org documents UPSTREAM NeXus. Every class imported here
+# is fork-only (NXabsorption_edge, NXemission_line, the six NXxas_* modes),
+# so a manual URL for them is well-formed and permanently 404 -- 477 dead
+# links across the three generated files before this was fixed. Point at the
+# fork's own NXDL instead, which is what the enumeration was actually read
+# from, and let skos:note carry it rather than rdfs:seeAlso.
+BLOB = "https://github.com/{repo}/blob/{ref}/{directory}/{cls}.nxdl.xml"
 
 
 # --------------------------------------------------------------------------
@@ -284,7 +290,6 @@ def import_edges(ref: str) -> dict | None:
             "notation": v,
             "inScheme": {"@id": scheme},
             "broader": {"@id": f"{CDIF_XAS}edgeanalyzed"},
-            "seeAlso": f"{MANUAL}{directory}/NXabsorption_edge.html",
         }
         if v in config:
             c["definition"] = en(
@@ -305,7 +310,8 @@ def import_edges(ref: str) -> dict | None:
         "CDIF XAS concept 'edgeanalyzed'.",
         concepts,
         f"Generated from NeXus {directory}/NXabsorption_edge.nxdl.xml "
-        f"at {REPO}@{ref}.",
+        f"at {REPO}@{ref}: "
+        + BLOB.format(repo=REPO, ref=ref, directory=directory, cls="NXabsorption_edge"),
     )
 
 
@@ -340,7 +346,6 @@ def import_emission_lines(ref: str) -> dict | None:
             "notation": v,
             "inScheme": {"@id": scheme},
             "broader": {"@id": f"{CDIF_XAS}emissionline"},
-            "seeAlso": f"{MANUAL}{directory}/NXemission_line.html",
         }
         if v in sieg:
             siegbahn, latin = sieg[v]
@@ -363,7 +368,8 @@ def import_emission_lines(ref: str) -> dict | None:
         "defined. Value list for the CDIF XAS concept 'emissionline'.",
         concepts,
         f"Generated from NeXus {directory}/NXemission_line.nxdl.xml "
-        f"at {REPO}@{ref}.",
+        f"at {REPO}@{ref}: "
+        + BLOB.format(repo=REPO, ref=ref, directory=directory, cls="NXemission_line"),
     )
 
 
@@ -428,9 +434,11 @@ def import_detection_modes(ref: str) -> dict:
             found = find_definition(appdef, ref)
             if found:
                 _, directory = found
-                c["seeAlso"] = f"{MANUAL}{directory}/{appdef}.html"
+                blob = BLOB.format(repo=REPO, ref=ref, directory=directory,
+                                   cls=appdef)
                 c["note"] = en(
-                    f"Corresponds to NeXus application definition {appdef}."
+                    f"Corresponds to NeXus application definition {appdef}, "
+                    f"defined at {blob}"
                 )
                 resolved += 1
             else:
@@ -458,6 +466,7 @@ def import_detection_modes(ref: str) -> dict:
         "partial fluorescence yield, but drops Auger electron yield.",
         concepts,
         f"Generated from NeXus application definitions at {REPO}@{ref} "
+        f"(https://github.com/{REPO}/tree/{ref}/contributed_definitions) "
         f"and the upstream NXxas mode enumeration.",
     )
 

@@ -5,11 +5,7 @@
     "schema": "http://schema.org/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "foaf": "http://xmlns.com/foaf/0.1/",
     "rdfs:seeAlso": {
-      "@type": "@id"
-    },
-    "foaf:focus": {
       "@type": "@id"
     }
   },
@@ -26,7 +22,7 @@
     "@language": "en"
   },
   "skos:note": {
-    "@value": "Generated from NeXus contributed_definitions/NXemission_line.nxdl.xml at XraySpectroscopy/nexus_definitions@main.",
+    "@value": "Generated from NeXus contributed_definitions/NXemission_line.nxdl.xml at XraySpectroscopy/nexus_definitions@main: https://github.com/XraySpectroscopy/nexus_definitions/blob/main/contributed_definitions/NXemission_line.nxdl.xml",
     "@language": "en"
   },
   "skos:hasTopConcept": [
@@ -50,7 +46,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kα3",
@@ -86,7 +81,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kα2",
@@ -122,7 +116,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kα1",
@@ -158,7 +151,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-M1 in IUPAC notation.",
         "@language": "en"
@@ -184,7 +176,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kβ3",
@@ -220,7 +211,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kβ1",
@@ -256,7 +246,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kβ5''",
@@ -292,7 +281,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kβ5'",
@@ -328,7 +316,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-N1 in IUPAC notation.",
         "@language": "en"
@@ -354,7 +341,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kβ2''",
@@ -390,7 +376,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kβ2'",
@@ -426,7 +411,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kβ4x",
@@ -462,7 +446,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Kβ4'",
@@ -498,7 +481,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-N6 in IUPAC notation.",
         "@language": "en"
@@ -524,7 +506,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-N7 in IUPAC notation.",
         "@language": "en"
@@ -550,7 +531,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-O in IUPAC notation.",
         "@language": "en"
@@ -576,7 +556,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-O1 in IUPAC notation.",
         "@language": "en"
@@ -602,7 +581,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-O2 in IUPAC notation.",
         "@language": "en"
@@ -628,7 +606,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-O3 in IUPAC notation.",
         "@language": "en"
@@ -654,7 +631,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-O4 in IUPAC notation.",
         "@language": "en"
@@ -680,7 +656,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-O5 in IUPAC notation.",
         "@language": "en"
@@ -706,7 +681,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-O6 in IUPAC notation.",
         "@language": "en"
@@ -732,7 +706,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-O7 in IUPAC notation.",
         "@language": "en"
@@ -758,7 +731,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-P in IUPAC notation.",
         "@language": "en"
@@ -784,7 +756,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-P1 in IUPAC notation.",
         "@language": "en"
@@ -810,7 +781,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-P2 in IUPAC notation.",
         "@language": "en"
@@ -836,7 +806,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-P3 in IUPAC notation.",
         "@language": "en"
@@ -862,7 +831,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-P4 in IUPAC notation.",
         "@language": "en"
@@ -888,7 +856,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line K-P5 in IUPAC notation.",
         "@language": "en"
@@ -914,7 +881,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-L2 in IUPAC notation.",
         "@language": "en"
@@ -940,7 +906,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-L3 in IUPAC notation.",
         "@language": "en"
@@ -966,7 +931,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-M1 in IUPAC notation.",
         "@language": "en"
@@ -992,7 +956,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ4",
@@ -1028,7 +991,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ3",
@@ -1064,7 +1026,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ10",
@@ -1100,7 +1061,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ9",
@@ -1136,7 +1096,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-N1 in IUPAC notation.",
         "@language": "en"
@@ -1162,7 +1121,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lγ2",
@@ -1198,7 +1156,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lγ3",
@@ -1234,7 +1191,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-N4 in IUPAC notation.",
         "@language": "en"
@@ -1260,7 +1216,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-N5 in IUPAC notation.",
         "@language": "en"
@@ -1286,7 +1241,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-N6 in IUPAC notation.",
         "@language": "en"
@@ -1312,7 +1266,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-N6,7 in IUPAC notation.",
         "@language": "en"
@@ -1338,7 +1291,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-N7 in IUPAC notation.",
         "@language": "en"
@@ -1364,7 +1316,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-O1 in IUPAC notation.",
         "@language": "en"
@@ -1390,7 +1341,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lγ4'",
@@ -1426,7 +1376,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lγ4",
@@ -1462,7 +1411,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-O4 in IUPAC notation.",
         "@language": "en"
@@ -1488,7 +1436,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-O4,5 in IUPAC notation.",
         "@language": "en"
@@ -1514,7 +1461,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-O5 in IUPAC notation.",
         "@language": "en"
@@ -1540,7 +1486,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-O6 in IUPAC notation.",
         "@language": "en"
@@ -1566,7 +1511,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-O7 in IUPAC notation.",
         "@language": "en"
@@ -1592,7 +1536,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-P1 in IUPAC notation.",
         "@language": "en"
@@ -1618,7 +1561,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-P2 in IUPAC notation.",
         "@language": "en"
@@ -1644,7 +1586,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-P2,3 in IUPAC notation.",
         "@language": "en"
@@ -1670,7 +1611,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-P3 in IUPAC notation.",
         "@language": "en"
@@ -1696,7 +1636,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-P4 in IUPAC notation.",
         "@language": "en"
@@ -1722,7 +1661,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L1-P5 in IUPAC notation.",
         "@language": "en"
@@ -1748,7 +1686,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-L3 in IUPAC notation.",
         "@language": "en"
@@ -1774,7 +1711,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lη",
@@ -1810,7 +1746,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-M2 in IUPAC notation.",
         "@language": "en"
@@ -1836,7 +1771,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ17",
@@ -1872,7 +1806,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ1",
@@ -1908,7 +1841,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-M5 in IUPAC notation.",
         "@language": "en"
@@ -1934,7 +1866,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lγ5",
@@ -1970,7 +1901,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-N2 in IUPAC notation.",
         "@language": "en"
@@ -1996,7 +1926,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-N3 in IUPAC notation.",
         "@language": "en"
@@ -2022,7 +1951,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lγ1",
@@ -2058,7 +1986,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-N5 in IUPAC notation.",
         "@language": "en"
@@ -2084,7 +2011,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-N6 in IUPAC notation.",
         "@language": "en"
@@ -2110,7 +2036,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lv",
@@ -2146,7 +2071,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-N7 in IUPAC notation.",
         "@language": "en"
@@ -2172,7 +2096,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lγ8",
@@ -2208,7 +2131,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-O2 in IUPAC notation.",
         "@language": "en"
@@ -2234,7 +2156,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-O3 in IUPAC notation.",
         "@language": "en"
@@ -2260,7 +2181,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lγ6",
@@ -2296,7 +2216,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-O5 in IUPAC notation.",
         "@language": "en"
@@ -2322,7 +2241,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-O6 in IUPAC notation.",
         "@language": "en"
@@ -2348,7 +2266,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-O7 in IUPAC notation.",
         "@language": "en"
@@ -2374,7 +2291,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-P1 in IUPAC notation.",
         "@language": "en"
@@ -2400,7 +2316,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-P2 in IUPAC notation.",
         "@language": "en"
@@ -2426,7 +2341,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-P2,3 in IUPAC notation.",
         "@language": "en"
@@ -2452,7 +2366,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-P3 in IUPAC notation.",
         "@language": "en"
@@ -2478,7 +2391,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-P4 in IUPAC notation.",
         "@language": "en"
@@ -2504,7 +2416,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-P5 in IUPAC notation.",
         "@language": "en"
@@ -2530,7 +2441,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L2-Q1 in IUPAC notation.",
         "@language": "en"
@@ -2556,7 +2466,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Ll",
@@ -2592,7 +2501,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lt",
@@ -2628,7 +2536,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Ls",
@@ -2664,7 +2571,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lα2",
@@ -2700,7 +2606,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lα1",
@@ -2736,7 +2641,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ6",
@@ -2772,7 +2676,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-N2 in IUPAC notation.",
         "@language": "en"
@@ -2798,7 +2701,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-N3 in IUPAC notation.",
         "@language": "en"
@@ -2824,7 +2726,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ15",
@@ -2860,7 +2761,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ2",
@@ -2896,7 +2796,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-N6 in IUPAC notation.",
         "@language": "en"
@@ -2922,7 +2821,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lu",
@@ -2958,7 +2856,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-N7 in IUPAC notation.",
         "@language": "en"
@@ -2984,7 +2881,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ7",
@@ -3020,7 +2916,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-O2 in IUPAC notation.",
         "@language": "en"
@@ -3046,7 +2941,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-O3 in IUPAC notation.",
         "@language": "en"
@@ -3072,7 +2966,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-O4 in IUPAC notation.",
         "@language": "en"
@@ -3098,7 +2991,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Lβ5",
@@ -3134,7 +3026,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-O5 in IUPAC notation.",
         "@language": "en"
@@ -3160,7 +3051,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-O6 in IUPAC notation.",
         "@language": "en"
@@ -3186,7 +3076,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-O7 in IUPAC notation.",
         "@language": "en"
@@ -3212,7 +3101,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-P1 in IUPAC notation.",
         "@language": "en"
@@ -3238,7 +3126,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-P2 in IUPAC notation.",
         "@language": "en"
@@ -3264,7 +3151,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-P2,3 in IUPAC notation.",
         "@language": "en"
@@ -3290,7 +3176,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-P3 in IUPAC notation.",
         "@language": "en"
@@ -3316,7 +3201,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-P4 in IUPAC notation.",
         "@language": "en"
@@ -3342,7 +3226,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-P4,5 in IUPAC notation.",
         "@language": "en"
@@ -3368,7 +3251,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-P5 in IUPAC notation.",
         "@language": "en"
@@ -3394,7 +3276,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line L3-Q1 in IUPAC notation.",
         "@language": "en"
@@ -3420,7 +3301,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-M2 in IUPAC notation.",
         "@language": "en"
@@ -3446,7 +3326,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-M3 in IUPAC notation.",
         "@language": "en"
@@ -3472,7 +3351,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-M4 in IUPAC notation.",
         "@language": "en"
@@ -3498,7 +3376,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-M5 in IUPAC notation.",
         "@language": "en"
@@ -3524,7 +3401,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-N1 in IUPAC notation.",
         "@language": "en"
@@ -3550,7 +3426,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-N2 in IUPAC notation.",
         "@language": "en"
@@ -3576,7 +3451,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-N3 in IUPAC notation.",
         "@language": "en"
@@ -3602,7 +3476,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-N4 in IUPAC notation.",
         "@language": "en"
@@ -3628,7 +3501,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-N5 in IUPAC notation.",
         "@language": "en"
@@ -3654,7 +3526,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-N6 in IUPAC notation.",
         "@language": "en"
@@ -3680,7 +3551,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-N7 in IUPAC notation.",
         "@language": "en"
@@ -3706,7 +3576,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-O1 in IUPAC notation.",
         "@language": "en"
@@ -3732,7 +3601,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-O2 in IUPAC notation.",
         "@language": "en"
@@ -3758,7 +3626,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-O3 in IUPAC notation.",
         "@language": "en"
@@ -3784,7 +3651,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-O4 in IUPAC notation.",
         "@language": "en"
@@ -3810,7 +3676,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-O5 in IUPAC notation.",
         "@language": "en"
@@ -3836,7 +3701,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-O6 in IUPAC notation.",
         "@language": "en"
@@ -3862,7 +3726,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-O7 in IUPAC notation.",
         "@language": "en"
@@ -3888,7 +3751,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-P1 in IUPAC notation.",
         "@language": "en"
@@ -3914,7 +3776,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-P2 in IUPAC notation.",
         "@language": "en"
@@ -3940,7 +3801,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-P3 in IUPAC notation.",
         "@language": "en"
@@ -3966,7 +3826,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-P4 in IUPAC notation.",
         "@language": "en"
@@ -3992,7 +3851,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M1-P5 in IUPAC notation.",
         "@language": "en"
@@ -4018,7 +3876,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-M3 in IUPAC notation.",
         "@language": "en"
@@ -4044,7 +3901,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-M4 in IUPAC notation.",
         "@language": "en"
@@ -4070,7 +3926,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-M5 in IUPAC notation.",
         "@language": "en"
@@ -4096,7 +3951,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-N1 in IUPAC notation.",
         "@language": "en"
@@ -4122,7 +3976,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-N2 in IUPAC notation.",
         "@language": "en"
@@ -4148,7 +4001,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-N3 in IUPAC notation.",
         "@language": "en"
@@ -4174,7 +4026,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-N4 in IUPAC notation.",
         "@language": "en"
@@ -4200,7 +4051,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-N5 in IUPAC notation.",
         "@language": "en"
@@ -4226,7 +4076,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-N6 in IUPAC notation.",
         "@language": "en"
@@ -4252,7 +4101,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-N7 in IUPAC notation.",
         "@language": "en"
@@ -4278,7 +4126,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-O1 in IUPAC notation.",
         "@language": "en"
@@ -4304,7 +4151,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-O2 in IUPAC notation.",
         "@language": "en"
@@ -4330,7 +4176,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-O3 in IUPAC notation.",
         "@language": "en"
@@ -4356,7 +4201,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-O4 in IUPAC notation.",
         "@language": "en"
@@ -4382,7 +4226,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-O5 in IUPAC notation.",
         "@language": "en"
@@ -4408,7 +4251,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-O6 in IUPAC notation.",
         "@language": "en"
@@ -4434,7 +4276,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-O7 in IUPAC notation.",
         "@language": "en"
@@ -4460,7 +4301,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-P1 in IUPAC notation.",
         "@language": "en"
@@ -4486,7 +4326,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-P2 in IUPAC notation.",
         "@language": "en"
@@ -4512,7 +4351,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-P3 in IUPAC notation.",
         "@language": "en"
@@ -4538,7 +4376,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-P4 in IUPAC notation.",
         "@language": "en"
@@ -4564,7 +4401,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M2-P5 in IUPAC notation.",
         "@language": "en"
@@ -4590,7 +4426,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-M4 in IUPAC notation.",
         "@language": "en"
@@ -4616,7 +4451,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-M5 in IUPAC notation.",
         "@language": "en"
@@ -4642,7 +4476,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-N1 in IUPAC notation.",
         "@language": "en"
@@ -4668,7 +4501,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-N2 in IUPAC notation.",
         "@language": "en"
@@ -4694,7 +4526,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-N3 in IUPAC notation.",
         "@language": "en"
@@ -4720,7 +4551,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-N4 in IUPAC notation.",
         "@language": "en"
@@ -4746,7 +4576,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Mγ",
@@ -4782,7 +4611,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-N6 in IUPAC notation.",
         "@language": "en"
@@ -4808,7 +4636,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-N7 in IUPAC notation.",
         "@language": "en"
@@ -4834,7 +4661,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-O1 in IUPAC notation.",
         "@language": "en"
@@ -4860,7 +4686,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-O2 in IUPAC notation.",
         "@language": "en"
@@ -4886,7 +4711,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-O3 in IUPAC notation.",
         "@language": "en"
@@ -4912,7 +4736,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-O4 in IUPAC notation.",
         "@language": "en"
@@ -4938,7 +4761,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-O5 in IUPAC notation.",
         "@language": "en"
@@ -4964,7 +4786,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-O6 in IUPAC notation.",
         "@language": "en"
@@ -4990,7 +4811,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-O7 in IUPAC notation.",
         "@language": "en"
@@ -5016,7 +4836,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-P1 in IUPAC notation.",
         "@language": "en"
@@ -5042,7 +4861,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-P2 in IUPAC notation.",
         "@language": "en"
@@ -5068,7 +4886,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-P3 in IUPAC notation.",
         "@language": "en"
@@ -5094,7 +4911,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-P4 in IUPAC notation.",
         "@language": "en"
@@ -5120,7 +4936,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-P5 in IUPAC notation.",
         "@language": "en"
@@ -5146,7 +4961,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M3-Q1 in IUPAC notation.",
         "@language": "en"
@@ -5172,7 +4986,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-M5 in IUPAC notation.",
         "@language": "en"
@@ -5198,7 +5011,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-N1 in IUPAC notation.",
         "@language": "en"
@@ -5224,7 +5036,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-N2 in IUPAC notation.",
         "@language": "en"
@@ -5250,7 +5061,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-N3 in IUPAC notation.",
         "@language": "en"
@@ -5276,7 +5086,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-N4 in IUPAC notation.",
         "@language": "en"
@@ -5302,7 +5111,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-N5 in IUPAC notation.",
         "@language": "en"
@@ -5328,7 +5136,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Mβ",
@@ -5364,7 +5171,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-N7 in IUPAC notation.",
         "@language": "en"
@@ -5390,7 +5196,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-O1 in IUPAC notation.",
         "@language": "en"
@@ -5416,7 +5221,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-O2 in IUPAC notation.",
         "@language": "en"
@@ -5442,7 +5246,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-O3 in IUPAC notation.",
         "@language": "en"
@@ -5468,7 +5271,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-O4 in IUPAC notation.",
         "@language": "en"
@@ -5494,7 +5296,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-O5 in IUPAC notation.",
         "@language": "en"
@@ -5520,7 +5321,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-O6 in IUPAC notation.",
         "@language": "en"
@@ -5546,7 +5346,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-O7 in IUPAC notation.",
         "@language": "en"
@@ -5572,7 +5371,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-P1 in IUPAC notation.",
         "@language": "en"
@@ -5598,7 +5396,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-P2 in IUPAC notation.",
         "@language": "en"
@@ -5624,7 +5421,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-P3 in IUPAC notation.",
         "@language": "en"
@@ -5650,7 +5446,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-P4 in IUPAC notation.",
         "@language": "en"
@@ -5676,7 +5471,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M4-P5 in IUPAC notation.",
         "@language": "en"
@@ -5702,7 +5496,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-N1 in IUPAC notation.",
         "@language": "en"
@@ -5728,7 +5521,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-N2 in IUPAC notation.",
         "@language": "en"
@@ -5754,7 +5546,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-N3 in IUPAC notation.",
         "@language": "en"
@@ -5780,7 +5571,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-N4 in IUPAC notation.",
         "@language": "en"
@@ -5806,7 +5596,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-N5 in IUPAC notation.",
         "@language": "en"
@@ -5832,7 +5621,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Mα2",
@@ -5868,7 +5656,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Mα1",
@@ -5904,7 +5691,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-O1 in IUPAC notation.",
         "@language": "en"
@@ -5930,7 +5716,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-O2 in IUPAC notation.",
         "@language": "en"
@@ -5956,7 +5741,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-O3 in IUPAC notation.",
         "@language": "en"
@@ -5982,7 +5766,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-O4 in IUPAC notation.",
         "@language": "en"
@@ -6008,7 +5791,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-O5 in IUPAC notation.",
         "@language": "en"
@@ -6034,7 +5816,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-O6 in IUPAC notation.",
         "@language": "en"
@@ -6060,7 +5841,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-O7 in IUPAC notation.",
         "@language": "en"
@@ -6086,7 +5866,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-P1 in IUPAC notation.",
         "@language": "en"
@@ -6112,7 +5891,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-P2 in IUPAC notation.",
         "@language": "en"
@@ -6138,7 +5916,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-P3 in IUPAC notation.",
         "@language": "en"
@@ -6164,7 +5941,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-P4 in IUPAC notation.",
         "@language": "en"
@@ -6190,7 +5966,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line M5-P5 in IUPAC notation.",
         "@language": "en"
@@ -6216,7 +5991,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:altLabel": [
         {
           "@value": "Mζ",
@@ -6252,7 +6026,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-N2 in IUPAC notation.",
         "@language": "en"
@@ -6278,7 +6051,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-N3 in IUPAC notation.",
         "@language": "en"
@@ -6304,7 +6076,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-N4 in IUPAC notation.",
         "@language": "en"
@@ -6330,7 +6101,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-N5 in IUPAC notation.",
         "@language": "en"
@@ -6356,7 +6126,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-N6 in IUPAC notation.",
         "@language": "en"
@@ -6382,7 +6151,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-N7 in IUPAC notation.",
         "@language": "en"
@@ -6408,7 +6176,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-O1 in IUPAC notation.",
         "@language": "en"
@@ -6434,7 +6201,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-O2 in IUPAC notation.",
         "@language": "en"
@@ -6460,7 +6226,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-O3 in IUPAC notation.",
         "@language": "en"
@@ -6486,7 +6251,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-O4 in IUPAC notation.",
         "@language": "en"
@@ -6512,7 +6276,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-O5 in IUPAC notation.",
         "@language": "en"
@@ -6538,7 +6301,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-O6 in IUPAC notation.",
         "@language": "en"
@@ -6564,7 +6326,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-O7 in IUPAC notation.",
         "@language": "en"
@@ -6590,7 +6351,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-P1 in IUPAC notation.",
         "@language": "en"
@@ -6616,7 +6376,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-P2 in IUPAC notation.",
         "@language": "en"
@@ -6642,7 +6401,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-P3 in IUPAC notation.",
         "@language": "en"
@@ -6668,7 +6426,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-P4 in IUPAC notation.",
         "@language": "en"
@@ -6694,7 +6451,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N1-P5 in IUPAC notation.",
         "@language": "en"
@@ -6720,7 +6476,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-N3 in IUPAC notation.",
         "@language": "en"
@@ -6746,7 +6501,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-N4 in IUPAC notation.",
         "@language": "en"
@@ -6772,7 +6526,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-N5 in IUPAC notation.",
         "@language": "en"
@@ -6798,7 +6551,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-N6 in IUPAC notation.",
         "@language": "en"
@@ -6824,7 +6576,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-N7 in IUPAC notation.",
         "@language": "en"
@@ -6850,7 +6601,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-O1 in IUPAC notation.",
         "@language": "en"
@@ -6876,7 +6626,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-O2 in IUPAC notation.",
         "@language": "en"
@@ -6902,7 +6651,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-O3 in IUPAC notation.",
         "@language": "en"
@@ -6928,7 +6676,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-O4 in IUPAC notation.",
         "@language": "en"
@@ -6954,7 +6701,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-O5 in IUPAC notation.",
         "@language": "en"
@@ -6980,7 +6726,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-O6 in IUPAC notation.",
         "@language": "en"
@@ -7006,7 +6751,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-O7 in IUPAC notation.",
         "@language": "en"
@@ -7032,7 +6776,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-P1 in IUPAC notation.",
         "@language": "en"
@@ -7058,7 +6801,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-P2 in IUPAC notation.",
         "@language": "en"
@@ -7084,7 +6826,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-P3 in IUPAC notation.",
         "@language": "en"
@@ -7110,7 +6851,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-P4 in IUPAC notation.",
         "@language": "en"
@@ -7136,7 +6876,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N2-P5 in IUPAC notation.",
         "@language": "en"
@@ -7162,7 +6901,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-N4 in IUPAC notation.",
         "@language": "en"
@@ -7188,7 +6926,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-N5 in IUPAC notation.",
         "@language": "en"
@@ -7214,7 +6951,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-N6 in IUPAC notation.",
         "@language": "en"
@@ -7240,7 +6976,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-N7 in IUPAC notation.",
         "@language": "en"
@@ -7266,7 +7001,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-O1 in IUPAC notation.",
         "@language": "en"
@@ -7292,7 +7026,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-O2 in IUPAC notation.",
         "@language": "en"
@@ -7318,7 +7051,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-O3 in IUPAC notation.",
         "@language": "en"
@@ -7344,7 +7076,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-O4 in IUPAC notation.",
         "@language": "en"
@@ -7370,7 +7101,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-O5 in IUPAC notation.",
         "@language": "en"
@@ -7396,7 +7126,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-O6 in IUPAC notation.",
         "@language": "en"
@@ -7422,7 +7151,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-O7 in IUPAC notation.",
         "@language": "en"
@@ -7448,7 +7176,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-P1 in IUPAC notation.",
         "@language": "en"
@@ -7474,7 +7201,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-P2 in IUPAC notation.",
         "@language": "en"
@@ -7500,7 +7226,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-P3 in IUPAC notation.",
         "@language": "en"
@@ -7526,7 +7251,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-P4 in IUPAC notation.",
         "@language": "en"
@@ -7552,7 +7276,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N3-P5 in IUPAC notation.",
         "@language": "en"
@@ -7578,7 +7301,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-N5 in IUPAC notation.",
         "@language": "en"
@@ -7604,7 +7326,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-N6 in IUPAC notation.",
         "@language": "en"
@@ -7630,7 +7351,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-N7 in IUPAC notation.",
         "@language": "en"
@@ -7656,7 +7376,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-O1 in IUPAC notation.",
         "@language": "en"
@@ -7682,7 +7401,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-O2 in IUPAC notation.",
         "@language": "en"
@@ -7708,7 +7426,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-O3 in IUPAC notation.",
         "@language": "en"
@@ -7734,7 +7451,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-O4 in IUPAC notation.",
         "@language": "en"
@@ -7760,7 +7476,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-O5 in IUPAC notation.",
         "@language": "en"
@@ -7786,7 +7501,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-O6 in IUPAC notation.",
         "@language": "en"
@@ -7812,7 +7526,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-O7 in IUPAC notation.",
         "@language": "en"
@@ -7838,7 +7551,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-P1 in IUPAC notation.",
         "@language": "en"
@@ -7864,7 +7576,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-P2 in IUPAC notation.",
         "@language": "en"
@@ -7890,7 +7601,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-P3 in IUPAC notation.",
         "@language": "en"
@@ -7916,7 +7626,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-P4 in IUPAC notation.",
         "@language": "en"
@@ -7942,7 +7651,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N4-P5 in IUPAC notation.",
         "@language": "en"
@@ -7968,7 +7676,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-N6 in IUPAC notation.",
         "@language": "en"
@@ -7994,7 +7701,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-N7 in IUPAC notation.",
         "@language": "en"
@@ -8020,7 +7726,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-O1 in IUPAC notation.",
         "@language": "en"
@@ -8046,7 +7751,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-O2 in IUPAC notation.",
         "@language": "en"
@@ -8072,7 +7776,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-O3 in IUPAC notation.",
         "@language": "en"
@@ -8098,7 +7801,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-O4 in IUPAC notation.",
         "@language": "en"
@@ -8124,7 +7826,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-O5 in IUPAC notation.",
         "@language": "en"
@@ -8150,7 +7851,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-O6 in IUPAC notation.",
         "@language": "en"
@@ -8176,7 +7876,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-O7 in IUPAC notation.",
         "@language": "en"
@@ -8202,7 +7901,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-P1 in IUPAC notation.",
         "@language": "en"
@@ -8228,7 +7926,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-P2 in IUPAC notation.",
         "@language": "en"
@@ -8254,7 +7951,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-P3 in IUPAC notation.",
         "@language": "en"
@@ -8280,7 +7976,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-P4 in IUPAC notation.",
         "@language": "en"
@@ -8306,7 +8001,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N5-P5 in IUPAC notation.",
         "@language": "en"
@@ -8332,7 +8026,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-N7 in IUPAC notation.",
         "@language": "en"
@@ -8358,7 +8051,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-O1 in IUPAC notation.",
         "@language": "en"
@@ -8384,7 +8076,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-O2 in IUPAC notation.",
         "@language": "en"
@@ -8410,7 +8101,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-O3 in IUPAC notation.",
         "@language": "en"
@@ -8436,7 +8126,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-O4 in IUPAC notation.",
         "@language": "en"
@@ -8462,7 +8151,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-O5 in IUPAC notation.",
         "@language": "en"
@@ -8488,7 +8176,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-O6 in IUPAC notation.",
         "@language": "en"
@@ -8514,7 +8201,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-O7 in IUPAC notation.",
         "@language": "en"
@@ -8540,7 +8226,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-P1 in IUPAC notation.",
         "@language": "en"
@@ -8566,7 +8251,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-P2 in IUPAC notation.",
         "@language": "en"
@@ -8592,7 +8276,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-P3 in IUPAC notation.",
         "@language": "en"
@@ -8618,7 +8301,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-P4 in IUPAC notation.",
         "@language": "en"
@@ -8644,7 +8326,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N6-P5 in IUPAC notation.",
         "@language": "en"
@@ -8670,7 +8351,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-O1 in IUPAC notation.",
         "@language": "en"
@@ -8696,7 +8376,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-O2 in IUPAC notation.",
         "@language": "en"
@@ -8722,7 +8401,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-O3 in IUPAC notation.",
         "@language": "en"
@@ -8748,7 +8426,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-O4 in IUPAC notation.",
         "@language": "en"
@@ -8774,7 +8451,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-O5 in IUPAC notation.",
         "@language": "en"
@@ -8800,7 +8476,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-O6 in IUPAC notation.",
         "@language": "en"
@@ -8826,7 +8501,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-O7 in IUPAC notation.",
         "@language": "en"
@@ -8852,7 +8526,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-P1 in IUPAC notation.",
         "@language": "en"
@@ -8878,7 +8551,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-P2 in IUPAC notation.",
         "@language": "en"
@@ -8904,7 +8576,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-P3 in IUPAC notation.",
         "@language": "en"
@@ -8930,7 +8601,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-P4 in IUPAC notation.",
         "@language": "en"
@@ -8956,7 +8626,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line N7-P5 in IUPAC notation.",
         "@language": "en"
@@ -8982,7 +8651,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-O2 in IUPAC notation.",
         "@language": "en"
@@ -9008,7 +8676,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-O3 in IUPAC notation.",
         "@language": "en"
@@ -9034,7 +8701,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-O4 in IUPAC notation.",
         "@language": "en"
@@ -9060,7 +8726,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-O5 in IUPAC notation.",
         "@language": "en"
@@ -9086,7 +8751,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-O6 in IUPAC notation.",
         "@language": "en"
@@ -9112,7 +8776,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-O7 in IUPAC notation.",
         "@language": "en"
@@ -9138,7 +8801,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-P1 in IUPAC notation.",
         "@language": "en"
@@ -9164,7 +8826,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-P2 in IUPAC notation.",
         "@language": "en"
@@ -9190,7 +8851,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-P3 in IUPAC notation.",
         "@language": "en"
@@ -9216,7 +8876,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-P4 in IUPAC notation.",
         "@language": "en"
@@ -9242,7 +8901,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O1-P5 in IUPAC notation.",
         "@language": "en"
@@ -9268,7 +8926,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O2-O3 in IUPAC notation.",
         "@language": "en"
@@ -9294,7 +8951,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O2-O4 in IUPAC notation.",
         "@language": "en"
@@ -9320,7 +8976,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O2-O5 in IUPAC notation.",
         "@language": "en"
@@ -9346,7 +9001,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O2-O6 in IUPAC notation.",
         "@language": "en"
@@ -9372,7 +9026,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O2-O7 in IUPAC notation.",
         "@language": "en"
@@ -9398,7 +9051,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O2-P1 in IUPAC notation.",
         "@language": "en"
@@ -9424,7 +9076,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O2-P2 in IUPAC notation.",
         "@language": "en"
@@ -9450,7 +9101,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O2-P3 in IUPAC notation.",
         "@language": "en"
@@ -9476,7 +9126,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O2-P4 in IUPAC notation.",
         "@language": "en"
@@ -9502,7 +9151,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O2-P5 in IUPAC notation.",
         "@language": "en"
@@ -9528,7 +9176,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O3-O4 in IUPAC notation.",
         "@language": "en"
@@ -9554,7 +9201,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O3-O5 in IUPAC notation.",
         "@language": "en"
@@ -9580,7 +9226,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O3-O6 in IUPAC notation.",
         "@language": "en"
@@ -9606,7 +9251,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O3-O7 in IUPAC notation.",
         "@language": "en"
@@ -9632,7 +9276,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O3-P1 in IUPAC notation.",
         "@language": "en"
@@ -9658,7 +9301,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O3-P2 in IUPAC notation.",
         "@language": "en"
@@ -9684,7 +9326,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O3-P3 in IUPAC notation.",
         "@language": "en"
@@ -9710,7 +9351,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O3-P4 in IUPAC notation.",
         "@language": "en"
@@ -9736,7 +9376,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O3-P5 in IUPAC notation.",
         "@language": "en"
@@ -9762,7 +9401,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O4-O5 in IUPAC notation.",
         "@language": "en"
@@ -9788,7 +9426,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O4-O6 in IUPAC notation.",
         "@language": "en"
@@ -9814,7 +9451,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O4-O7 in IUPAC notation.",
         "@language": "en"
@@ -9840,7 +9476,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O4-P1 in IUPAC notation.",
         "@language": "en"
@@ -9866,7 +9501,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O4-P2 in IUPAC notation.",
         "@language": "en"
@@ -9892,7 +9526,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O4-P3 in IUPAC notation.",
         "@language": "en"
@@ -9918,7 +9551,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O4-P4 in IUPAC notation.",
         "@language": "en"
@@ -9944,7 +9576,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O4-P5 in IUPAC notation.",
         "@language": "en"
@@ -9970,7 +9601,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O5-O6 in IUPAC notation.",
         "@language": "en"
@@ -9996,7 +9626,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O5-O7 in IUPAC notation.",
         "@language": "en"
@@ -10022,7 +9651,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O5-P1 in IUPAC notation.",
         "@language": "en"
@@ -10048,7 +9676,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O5-P2 in IUPAC notation.",
         "@language": "en"
@@ -10074,7 +9701,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O5-P3 in IUPAC notation.",
         "@language": "en"
@@ -10100,7 +9726,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O5-P4 in IUPAC notation.",
         "@language": "en"
@@ -10126,7 +9751,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O5-P5 in IUPAC notation.",
         "@language": "en"
@@ -10152,7 +9776,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O6-O7 in IUPAC notation.",
         "@language": "en"
@@ -10178,7 +9801,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O6-P4 in IUPAC notation.",
         "@language": "en"
@@ -10204,7 +9826,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O6-P5 in IUPAC notation.",
         "@language": "en"
@@ -10230,7 +9851,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O7-P4 in IUPAC notation.",
         "@language": "en"
@@ -10256,7 +9876,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line O7-P5 in IUPAC notation.",
         "@language": "en"
@@ -10282,7 +9901,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line P1-P2 in IUPAC notation.",
         "@language": "en"
@@ -10308,7 +9926,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line P1-P3 in IUPAC notation.",
         "@language": "en"
@@ -10334,7 +9951,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line P1-P4 in IUPAC notation.",
         "@language": "en"
@@ -10360,7 +9976,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line P1-P5 in IUPAC notation.",
         "@language": "en"
@@ -10386,7 +10001,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line P2-P3 in IUPAC notation.",
         "@language": "en"
@@ -10412,7 +10026,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line P2-P4 in IUPAC notation.",
         "@language": "en"
@@ -10438,7 +10051,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line P2-P5 in IUPAC notation.",
         "@language": "en"
@@ -10464,7 +10076,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line P3-P4 in IUPAC notation.",
         "@language": "en"
@@ -10490,7 +10101,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line P3-P5 in IUPAC notation.",
         "@language": "en"
@@ -10516,7 +10126,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Ka1 in IUPAC notation.",
         "@language": "en"
@@ -10542,7 +10151,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Ka2 in IUPAC notation.",
         "@language": "en"
@@ -10568,7 +10176,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Ka3 in IUPAC notation.",
         "@language": "en"
@@ -10594,7 +10201,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Kb1 in IUPAC notation.",
         "@language": "en"
@@ -10620,7 +10226,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Kb2' in IUPAC notation.",
         "@language": "en"
@@ -10646,7 +10251,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Kb2'' in IUPAC notation.",
         "@language": "en"
@@ -10672,7 +10276,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Kb3 in IUPAC notation.",
         "@language": "en"
@@ -10698,7 +10301,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Kb4' in IUPAC notation.",
         "@language": "en"
@@ -10724,7 +10326,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Kb4'' in IUPAC notation.",
         "@language": "en"
@@ -10750,7 +10351,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Kb4x in IUPAC notation.",
         "@language": "en"
@@ -10776,7 +10376,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Kb5' in IUPAC notation.",
         "@language": "en"
@@ -10802,7 +10401,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Kb5'' in IUPAC notation.",
         "@language": "en"
@@ -10828,7 +10426,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line La1 in IUPAC notation.",
         "@language": "en"
@@ -10854,7 +10451,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line La2 in IUPAC notation.",
         "@language": "en"
@@ -10880,7 +10476,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb1 in IUPAC notation.",
         "@language": "en"
@@ -10906,7 +10501,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb2 in IUPAC notation.",
         "@language": "en"
@@ -10932,7 +10526,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb3 in IUPAC notation.",
         "@language": "en"
@@ -10958,7 +10551,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb4 in IUPAC notation.",
         "@language": "en"
@@ -10984,7 +10576,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb5 in IUPAC notation.",
         "@language": "en"
@@ -11010,7 +10601,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb6 in IUPAC notation.",
         "@language": "en"
@@ -11036,7 +10626,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb7 in IUPAC notation.",
         "@language": "en"
@@ -11062,7 +10651,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb7' in IUPAC notation.",
         "@language": "en"
@@ -11088,7 +10676,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb9 in IUPAC notation.",
         "@language": "en"
@@ -11114,7 +10701,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb10 in IUPAC notation.",
         "@language": "en"
@@ -11140,7 +10726,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb15 in IUPAC notation.",
         "@language": "en"
@@ -11166,7 +10751,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lb17 in IUPAC notation.",
         "@language": "en"
@@ -11192,7 +10776,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lg1 in IUPAC notation.",
         "@language": "en"
@@ -11218,7 +10801,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lg2 in IUPAC notation.",
         "@language": "en"
@@ -11244,7 +10826,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lg3 in IUPAC notation.",
         "@language": "en"
@@ -11270,7 +10851,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lg4 in IUPAC notation.",
         "@language": "en"
@@ -11296,7 +10876,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lg4' in IUPAC notation.",
         "@language": "en"
@@ -11322,7 +10901,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lg5 in IUPAC notation.",
         "@language": "en"
@@ -11348,7 +10926,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lg6 in IUPAC notation.",
         "@language": "en"
@@ -11374,7 +10951,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lg8 in IUPAC notation.",
         "@language": "en"
@@ -11400,7 +10976,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lg8' in IUPAC notation.",
         "@language": "en"
@@ -11426,7 +11001,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Ln in IUPAC notation.",
         "@language": "en"
@@ -11452,7 +11026,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Ll in IUPAC notation.",
         "@language": "en"
@@ -11478,7 +11051,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Ls in IUPAC notation.",
         "@language": "en"
@@ -11504,7 +11076,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lt in IUPAC notation.",
         "@language": "en"
@@ -11530,7 +11101,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lu in IUPAC notation.",
         "@language": "en"
@@ -11556,7 +11126,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Lv in IUPAC notation.",
         "@language": "en"
@@ -11582,7 +11151,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Ma1 in IUPAC notation.",
         "@language": "en"
@@ -11608,7 +11176,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Ma2 in IUPAC notation.",
         "@language": "en"
@@ -11634,7 +11201,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Mb in IUPAC notation.",
         "@language": "en"
@@ -11660,7 +11226,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Mg in IUPAC notation.",
         "@language": "en"
@@ -11686,7 +11251,6 @@
           "@id": "https://w3id.org/cdif/xas/emissionline"
         }
       ],
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXemission_line.html",
       "skos:definition": {
         "@value": "X-ray emission line Mz in IUPAC notation.",
         "@language": "en"
