@@ -11,6 +11,8 @@ exampleData/*.zip
 
 # Pages build output: tools/generate_glossary_html.py and
 # generate_concept_files.py write here, and CI regenerates it on every
-# deploy. Anchored to the root so the tracked archive/ copy of the 1.0
-# release is not matched.
-/XAS-CDIF-1.0_release/
+# deploy. This used to be /XAS-CDIF-1.0_release/, which collided with the
+# tracked archive/ copy of the published 1.0 deliverable -- generated
+# output for the CURRENT glossary sat in a directory named for the 1.0
+# release, and the two were repeatedly mistaken for each other.
+/build/

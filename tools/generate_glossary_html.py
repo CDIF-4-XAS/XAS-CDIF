@@ -6,7 +6,7 @@ alphabetized concept index and a per-concept detail block showing:
 prefLabel, definition, notation, note, references, seeAlso, broader,
 narrower (computed from broader inverse), and foaf:focus.
 
-Output: XAS-CDIF-1.0_release/docs/index.html
+Output: build/docs/index.html
 
 No external Python dependencies beyond the standard library.
 """
@@ -336,8 +336,8 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--source', default='XAS_Glossary_SKOS.json',
                     help='SKOS JSON-LD input (default: XAS_Glossary_SKOS.json — the working copy at repo root)')
-    ap.add_argument('--out', default='XAS-CDIF-1.0_release/docs/index.html',
-                    help='HTML output path (default: XAS-CDIF-1.0_release/docs/index.html)')
+    ap.add_argument('--out', default='build/docs/index.html',
+                    help='HTML output path (default: build/docs/index.html)')
     args = ap.parse_args(argv)
 
     src = Path(args.source)

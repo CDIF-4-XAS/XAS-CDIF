@@ -19,7 +19,7 @@ on:
       - 'XAS_detectionmodes_SKOS.json'
       - 'tools/generate_glossary_html.py'
       - 'tools/generate_concept_files.py'
-      - 'XAS-CDIF-1.0_release/docs/**'
+      - 'build/docs/**'
       - '.github/workflows/build-docs.yml'
   workflow_dispatch:
 
@@ -60,16 +60,16 @@ jobs:
         # points at ../XAS_Glossary_SKOS_v2.json; that resolves to
         # <pages>/XAS_Glossary_SKOS_v2.json in the deployed site.
         run: |
-          cp XAS_Glossary_SKOS.json XAS-CDIF-1.0_release/docs/XAS_Glossary_SKOS_v2.json
-          cp XAS_edges_SKOS.json XAS-CDIF-1.0_release/docs/
-          cp XAS_emissionlines_SKOS.json XAS-CDIF-1.0_release/docs/
-          cp XAS_detectionmodes_SKOS.json XAS-CDIF-1.0_release/docs/
-          cp LICENSE XAS-CDIF-1.0_release/docs/ || true
+          cp XAS_Glossary_SKOS.json build/docs/XAS_Glossary_SKOS_v2.json
+          cp XAS_edges_SKOS.json build/docs/
+          cp XAS_emissionlines_SKOS.json build/docs/
+          cp XAS_detectionmodes_SKOS.json build/docs/
+          cp LICENSE build/docs/ || true
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./XAS-CDIF-1.0_release/docs
+          publish_dir: ./build/docs
           keep_files: false
           commit_message: "Publish glossary docs from ${{ github.sha }}"
