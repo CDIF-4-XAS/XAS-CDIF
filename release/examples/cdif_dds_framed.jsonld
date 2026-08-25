@@ -293,7 +293,7 @@
           },
           "MaterialSample"
         ],
-        "schema:name": "Cu"
+        "schema:name": "Cu_"
       },
       "schema:startTime": "1992-09-15T01:52:53",
       "prov:used": [
