@@ -195,12 +195,17 @@ Neither converter goes from file to CDIF in one step. Both parse the
 source into a concept-keyed intermediate and then transform *that* into
 CDIF, which is why the two can be compared field by field at all.
 
+**Both structures are documented in
+[`intermediateFormats.md`](intermediateFormats.md)**, which is also the
+place to start for adding an input format — another NeXus application
+definition included.
+
 | | Path A (`cdifnexmetadata`) | Path B (`cdif-xas`) |
 |---|---|---|
 | intermediate | `ConceptRecord` / `MappingResult` | `resources/cdif_skos.json` |
 | keyed on | CDIF XAS **glossary** concept URIs (`xas:facility`) | XDI-flavoured names (`cdi:Facility_name`) |
 | form | Python objects, **in memory** | a JSON file **on disk** |
-| inspectable? | not without writing code | yes — open the file |
+| inspectable? | `--dump-concepts` | yes — open the file |
 | produced by | `map/` | `/cdif` (a side effect of that endpoint) |
 | consumed by | `emit.py` | `rmlmapper`, per `mapping_dds.ttl` |
 
@@ -213,13 +218,11 @@ recorded beside the value. Path B keys on `cdi:Facility_name` — concept
 and binding fused — which is workable for one input format and is the
 reason that path reads XDI only.
 
-**Whether you can see it.** Path B's intermediate is a file you can
-open, diff, or hand to something else; it is also state, and a stale one
-is a real failure mode. Path A's never leaves the process: there is no
-`--dump-concepts` flag and nothing writes it, so inspecting it means
-importing `map_xdi` and reading the `MappingResult`. `MappingResult.
-to_dict()` is JSON-serialisable and used in tests, so exposing it would
-be small — but today it is not exposed.
+**Whether it is state.** Path B's intermediate is a file on disk, which
+makes it easy to open and diff and also makes a stale one a real failure
+mode: `/map` reads whatever is there. Path A's lives in the process and
+is written only when asked, with `--dump-concepts`, so there is nothing
+to go stale.
 
 ---
 

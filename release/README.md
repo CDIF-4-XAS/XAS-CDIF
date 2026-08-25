@@ -32,6 +32,9 @@ A conforming XAS document declares all six URIs in
 - **[xasToCdifWorkflows.md](xasToCdifWorkflows.md)** — the two implementations
   that produce conforming documents (NeXus/HDF5 and XDI), how to run each,
   and which to integrate into a workflow system.
+- **[intermediateFormats.md](intermediateFormats.md)** — the concept-keyed
+  intermediate each converter builds before emitting CDIF, and what a new
+  input format (another NeXus application definition, say) has to produce.
 - **[glossaryProvenance.md](glossaryProvenance.md)** — where the XAS
   vocabularies come from, how they were built, what is generated versus
   curated, the SSSOM crosswalks, and open items.
