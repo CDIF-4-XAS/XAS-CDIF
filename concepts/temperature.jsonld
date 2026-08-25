@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/temperature",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Sample temperature",
+    "@language": "en"
+  },
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXsample/temperature"
+  },
+  "dcterms:references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ],
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-temperature-field",
+  "skos:definition": {
+    "@value": "Sample temperature. This could be a scanned variable",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  }
+}

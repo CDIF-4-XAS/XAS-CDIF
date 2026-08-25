@@ -1,0 +1,41 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/calibrationmethod",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Detector calibration method",
+    "@language": "en"
+  },
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Group/NXdetector/calibration_method"
+  },
+  "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXdetector.html#nxdetector-calibration-method-group",
+  "skos:definition": {
+    "@value": "Information detailing how raw detector signals were mathematically mapped into final pixel coordinates or energy bins, identifies the mathematical models used to correct spatial or geometric distortions (such as polynomial equations) and provides a reference link or file path to the exact coefficients and calibration logs used during data processing. (edited from Google AI)",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  }
+}

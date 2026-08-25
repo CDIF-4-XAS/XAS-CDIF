@@ -1,0 +1,45 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/energyerror",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Energy error",
+    "@language": "en"
+  },
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXmonochromator/energy_error"
+  },
+  "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-energy-error-field",
+  "skos:definition": {
+    "@value": "The difference between the intended energy selected by a monochromator and the actual energy measured at the sample (the incident intensity)",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": {
+    "@value": "NEXUS comment is 'energy standard deviation' (nxs: Field/NXmonochromator/energy_error), or 'uncertaities associated to energy' (from https://github.com/nexusformat/definitions/issues/820); note this is apparently different from our definition here.",
+    "@language": "en"
+  }
+}

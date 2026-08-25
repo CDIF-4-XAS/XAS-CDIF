@@ -1,0 +1,45 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/monochromatorchemicalformula",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Monochromator chemical formula",
+    "@language": "en"
+  },
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXcrystal/chemical_formula"
+  },
+  "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-chemical-formula-field",
+  "skos:definition": {
+    "@value": "The chemical formula [of the monochromator material] specified using [Crystallographic Information File] CIF conventions.",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": {
+    "@value": "Mochromator crystal property. NOTE-- seems redundant with NXcrystal/type.  CIF conventions at https://www.iucr.org/resources/cif/spec/version1.1",
+    "@language": "en"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/referencesample",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Reference sample",
+    "@language": "en"
+  },
+  "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
+  "skos:definition": {
+    "@value": "The reference material measured simultaneously with the specimen, used for energy calibration and scan-to-scan alignment. Typically a foil or powder of known composition (e.g. 'Cd foil', 'GaAs powder'). Distinct from the reference element symbol, which identifies only the absorbing element of that material.",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:notation": [
+    "Sample.reference"
+  ],
+  "skos:note": {
+    "@value": "Minted 2026-08-25 for the XDI extension header Sample.reference, which appears in 10 of the 55 files in the example corpus but is not in the XDI dictionary. Recorded as source 'dat' in archive/XDI-CDIF-Mapping.xlsx.",
+    "@language": "en"
+  }
+}

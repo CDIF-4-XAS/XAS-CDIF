@@ -1,0 +1,55 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/exafsfunction",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "EXAFS function chi(k)",
+    "@language": "en"
+  },
+  "dcterms:references": [
+    "Ravel, B., & Newville, M. (2005). ATHENA, ARTEMIS, HEPHAESTUS: data analysis for X-ray absorption spectroscopy using IFEFFIT. Journal of Synchrotron Radiation, 12(4), 537-541.",
+    "https://en.wikipedia.org/wiki/Extended_X-ray_absorption_fine_structure",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ],
+  "qudt:hasUnit": "unit:UNITLESS",
+  "skos:definition": {
+    "@value": "A function representing the Extended X-ray Absorption Fine Structure (EXAFS) oscillations in k-space  It represents the modulation of the X-ray absorption coefficient (isolated and normalized) due to the scattering of a photoelectron wave by neighboring atoms, expressed as a function of the photoelectron wavevector (k).",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:notation": [
+    "chi"
+  ],
+  "skos:note": [
+    {
+      "@value": "XDI Column.chi: EXAFS oscillatory function chi(k).",
+      "@language": "en"
+    },
+    {
+      "@value": "Dimensionless: chi(k) is a fractional modulation of the absorption. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+      "@language": "en"
+    }
+  ]
+}

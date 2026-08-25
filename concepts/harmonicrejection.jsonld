@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/harmonicrejection",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Harmonic rejection",
+    "@language": "en"
+  },
+  "dcterms:references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ],
+  "skos:definition": {
+    "@value": "A statement explaining how unwanted higher-energy X-ray harmonics are removed from the probe beam.",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": {
+    "@value": "X-ray absorption harmonic rejection is the process of eliminating unwanted higher-energy X-ray harmonics from a beam (Google AI overview). Harmonics are x-rays that have a frequency that is a positive integer multiple of the desired probe frequency.  The requirement of a high spectral purity of the X-ray beam to be delivered to the sample makes it essenstial to reduce the harmonic content of the beam. https://www.diamond.ac.uk/Instruments/Spectroscopy/I20/XAS_XES_Branchline/Specification.html",
+    "@language": "en"
+  }
+}

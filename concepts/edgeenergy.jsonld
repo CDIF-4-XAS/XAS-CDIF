@@ -1,0 +1,46 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/edgeenergy",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Edge energy",
+    "@language": "en"
+  },
+  "dcterms:references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "https://doi.org/10.1351/goldbook.08767",
+    "https://dictionary.iucr.org/Absorption_edge",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ],
+  "skos:definition": {
+    "@value": "The absorption edge as used in the data acquisition software.(XDI dictionary)",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": {
+    "@value": "An absorption edge is the energy at which there is a sharp rise (discontinuity) in the (linear) absorption coefficient of X-rays by an element, which occurs when the energy of the photon corresponds to the energy of a shell of the atom (K, LI, LII, LIII, etc. corresponding to the creation of electron holes in the 1s, 2s, 2p1/2, 2p3/2 etc. atomic subshells).  Associated with this transition is the absorption threshold (q.v.) characterized by the corresponding energy E0. (https://doi.org/10.1351/goldbook.08767, https://dictionary.iucr.org/Absorption_edge).  Discussed in team meeting 2025-09-08; general sense in group is that this is a known quantity specified for experiment design, not a measured result.",
+    "@language": "en"
+  }
+}

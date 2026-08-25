@@ -1,0 +1,49 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/beamline",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Beamline",
+    "@language": "en"
+  },
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXbeam"
+  },
+  "dcterms:references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "http://csrri.iit.edu/~howard/itp/itpmacro.html",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ],
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXbeam.html",
+  "skos:definition": {
+    "@value": "Part of a facility that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": {
+    "@value": "Beamlines are the facilities at which crystallographers and other researchers get access to the tunable and high-intense X-ray beams they need for their research. http://csrri.iit.edu/~howard/itp/itpmacro.html",
+    "@language": "en"
+  }
+}

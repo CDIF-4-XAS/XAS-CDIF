@@ -1,0 +1,45 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/xraysourcetype",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "X-ray source type",
+    "@language": "en"
+  },
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXsource/type"
+  },
+  "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-type-field",
+  "skos:definition": {
+    "@value": "Type of radiation source.",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": {
+    "@value": "One of {'Spallation Neutron Source' , 'Pulsed Reactor Neutron Source' , 'Reactor Neutron Source' , 'Synchrotron X-ray Source' , 'Pulsed Muon Source' , 'Rotating Anode X-ray' , 'Fixed Tube X-ray' , 'UV Laser' , 'Free-Electron Laser' , 'Optical Laser' , 'Ion Source' , 'UV Plasma Source' , 'Metal Jet X-ray'}  Another possible type is 'APS (Advanced Photon Source) bending magnet', which would appear to be a subclass of 'Synchrotron X-ray Source'.",
+    "@language": "en"
+  }
+}

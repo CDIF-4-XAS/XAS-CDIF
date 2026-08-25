@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/facilityenergy",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Facility energy",
+    "@language": "en"
+  },
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXsource/energy"
+  },
+  "dcterms:references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ],
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-energy-field",
+  "skos:definition": {
+    "@value": "The energy of the current stored in the synchrotron storage ring. (XDI)",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": {
+    "@value": "in XDI this is a property of the Facility, so include 'facility' prefix. The beam energy is the product of the ring current (particle flux, typically electrons) and the particle energy.  The beam energy is reported in Joules, particle energe typically in electron volts. Have to look at example data to determine how this is being used.",
+    "@language": "en"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/porosity",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Porosity",
+    "@language": "en"
+  },
+  "dcterms:references": [
+    "https://doi.org/10.1351/goldbook.P04762",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ],
+  "qudt:hasUnit": "unit:UNITLESS",
+  "skos:definition": {
+    "@value": "The fraction of the sample volume that is empty space (pore space)",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": [
+    {
+      "@value": "Material property of sample.  Expressed as a fraction between 0 and 1, or as a percentage between 0% and 100%..  See also  https://doi.org/10.1351/goldbook.P04762.",
+      "@language": "en"
+    },
+    {
+      "@value": "Dimensionless: a volume fraction. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+      "@language": "en"
+    }
+  ]
+}

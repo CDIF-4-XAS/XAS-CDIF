@@ -1,0 +1,53 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/electronyieldabsorptioncoefficient",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Electron yield absorption coefficient",
+    "@language": "en"
+  },
+  "qudt:hasUnit": "unit:UNITLESS",
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tey.html",
+  "skos:broader": [
+    {
+      "@id": "https://w3id.org/cdif/xas/absorptioncoefficient"
+    }
+  ],
+  "skos:definition": {
+    "@value": "Absorption coefficient derived from electron yield, proportional to the ratio of the electron yield intensity and the incident beam intensity.",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": [
+    {
+      "@value": "Definition adapted from the NeXus NXDL documentation in NXxas_tey.",
+      "@language": "en"
+    },
+    {
+      "@value": "Dimensionless: proportional to a current ratio. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+      "@language": "en"
+    }
+  ]
+}

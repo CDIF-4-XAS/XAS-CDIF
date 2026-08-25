@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/radialdistance",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Radial distance",
+    "@language": "en"
+  },
+  "dcterms:references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "https://en.wikipedia.org/wiki/Extended_X-ray_absorption_fine_structure",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ],
+  "skos:definition": {
+    "@value": "The R-space (radial distance space) coordinate of the Extended X-ray Absorption Fine Structure (EXAFS) oscillations, obtained by performing the Fourier transform of chi(k) in k-space. Peaks in |chi(R)| correspond to backscattering shells around the absorbing atom.",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:notation": [
+    "r"
+  ],
+  "skos:note": {
+    "@value": "XDI Column.r: radial distance from absorbing atom (typically Angstroms).",
+    "@language": "en"
+  }
+}

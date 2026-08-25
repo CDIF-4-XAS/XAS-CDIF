@@ -1,0 +1,41 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/sampledescription",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Sample description",
+    "@language": "en"
+  },
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html",
+  "skos:definition": {
+    "@value": "Free-text description of the sample. Broader than sample preparation: it may record the sample's form, dimensions, provenance or identity as well as how it was prepared.",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": {
+    "@value": "Grounded in the NeXus NXDL documentation for NXsample/description, 'Description of the sample'. Minted 2026-07-28 because the glossary had no general free-text sample concept, which forced samplepreparation into a closeMatch against that field. XDI has no counterpart tag; its Sample.prep text maps to samplepreparation.",
+    "@language": "en"
+  }
+}

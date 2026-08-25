@@ -1,0 +1,55 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/fluorescenceabsorptioncoefficient",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "Fluorescence absorption coefficient",
+    "@language": "en"
+  },
+  "dcterms:references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ],
+  "qudt:hasUnit": "unit:UNITLESS",
+  "skos:definition": {
+    "@value": "The fluorescence absorption coefficient is calculated as the natural log of the ratio of emitted fluorescence intensity over transmitted x-ray intensity, divided by the thickness of the sample.",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:notation": [
+    "mufluor"
+  ],
+  "skos:note": [
+    {
+      "@value": "The fluorescence intensity is proportional to the absorbed fraction of the incident intensity. Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.",
+      "@language": "en"
+    },
+    {
+      "@value": "Dimensionless: log of an intensity ratio. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell 'dimensionless' from 'unit not recorded'.",
+      "@language": "en"
+    }
+  ]
+}

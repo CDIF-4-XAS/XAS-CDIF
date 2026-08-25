@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "rdfs:seeAlso": {
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "qudt:hasUnit": {
+      "@type": "@id"
+    }
+  },
+  "@id": "https://w3id.org/cdif/xas/dspacing",
+  "@type": [
+    "skos:Concept"
+  ],
+  "skos:prefLabel": {
+    "@value": "D spacing",
+    "@language": "en"
+  },
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXcrystal/d_spacing"
+  },
+  "dcterms:references": [
+    "https://dictionary.iucr.org/Interplanar_spacing",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ],
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-d-spacing-field",
+  "skos:definition": {
+    "@value": "Spacing between crystal planes of the monochromator's crystalline material that reflect x-rays.",
+    "@language": "en"
+  },
+  "skos:inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "skos:note": {
+    "@value": "monochromator crystal property. 'The spacing between atomic planes within the crystal. By satisfying Bragg's Law (nλ = 2d sinθ), the monochromator selects a desired wavelength (λ) of radiation from an incident beam, where 'd' is the atomic plane spacing and 'θ' is the Bragg angle.'(Google AI overview). The perpendicular distance between two successive planes on a family (hkl). (https://dictionary.iucr.org/Interplanar_spacing)",
+    "@language": "en"
+  }
+}

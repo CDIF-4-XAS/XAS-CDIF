@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concepts for X-ray absorption spectroscopy</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #666;
+  --accent: #245a8a;
+  --accent-bg: #e8f0f8;
+  --border: #d0d7de;
+  --code-bg: #f6f8fa;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.5;
+}
+header {
+  background: var(--accent);
+  color: white;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+header h1 { margin: 0 0 0.25rem 0; font-size: 1.6rem; }
+header .meta { opacity: 0.9; font-size: 0.9rem; }
+header a { color: #cfe3f5; }
+main {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 0;
+  min-height: calc(100vh - 60px);
+}
+nav.toc {
+  background: #fafbfc;
+  border-right: 1px solid var(--border);
+  padding: 1.25rem 1rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+  position: sticky;
+  top: 0;
+  font-size: 0.9rem;
+}
+nav.toc h2 { margin: 0 0 0.75rem 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+nav.toc ul { list-style: none; padding: 0; margin: 0; }
+nav.toc li { margin: 0.15rem 0; }
+nav.toc a { color: var(--fg); text-decoration: none; }
+nav.toc a:hover { color: var(--accent); text-decoration: underline; }
+.content { padding: 1.5rem 2.5rem; max-width: 900px; }
+.intro { border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+.intro dl { display: grid; grid-template-columns: 130px 1fr; gap: 0.25rem 1rem; margin: 0.5rem 0 0 0; }
+.intro dt { color: var(--muted); font-weight: 600; }
+section.concept {
+  padding: 1.25rem 0 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 60px;
+}
+section.concept:last-child { border-bottom: none; }
+section.concept h3 { margin: 0 0 0.5rem 0; font-size: 1.15rem; color: var(--accent); }
+section.concept .uri { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.85rem; color: var(--muted); word-break: break-all; }
+section.concept dl { display: grid; grid-template-columns: 110px 1fr; gap: 0.35rem 1rem; margin: 0.75rem 0 0 0; }
+section.concept dt { color: var(--muted); font-weight: 600; }
+section.concept dd { margin: 0; }
+section.concept .notation-badge {
+  display: inline-block;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.05rem 0.4rem;
+  border-radius: 3px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+}
+a.ref { color: var(--accent); text-decoration: none; word-break: break-all; }
+a.ref:hover { text-decoration: underline; }
+a.concept-link { color: var(--accent); text-decoration: none; }
+a.concept-link:hover { text-decoration: underline; }
+.filter { margin: 0 0 1rem 0; }
+.filter input {
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+@media (max-width: 800px) {
+  main { grid-template-columns: 1fr; }
+  nav.toc { position: static; max-height: none; border-right: none; border-bottom: 1px solid var(--border); }
+  .content { padding: 1rem; }
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Concepts for X-ray absorption spectroscopy</h1>
+<div class="meta">
+Concept scheme URI: <a href="https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts">https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts</a> ·
+106 concepts ·
+Source: <code>XAS_Glossary_SKOS.json</code> ·
+Generated 2026-08-25 20:12 UTC
+</div>
+</header>
+<main>
+<nav class="toc">
+<h2>Concepts</h2>
+<div class="filter"><input id="filter-input" type="search" placeholder="Filter…" autocomplete="off"></div>
+<ul>
+<li><a href="#absorptioncoefficient">Absorption coefficient</a> <code>[mutrans]</code></li>
+<li><a href="#analyzercrystal">Analyzer crystal</a></li>
+<li><a href="#analyzerdiameter">Analyzer diameter</a></li>
+<li><a href="#analyzergeometry">Analyzer geometry</a></li>
+<li><a href="#spotsize">Beam spot size</a></li>
+<li><a href="#beamline">Beamline</a></li>
+<li><a href="#energyrange">Beamline energy range</a></li>
+<li><a href="#flux">Beamline flux</a></li>
+<li><a href="#scanmode">Beamline scan mode</a></li>
+<li><a href="#website">Beamline website</a></li>
+<li><a href="#bendingradius">Bending radius</a></li>
+<li><a href="#braggangle">Bragg angle</a></li>
+<li><a href="#calculated">Calculated</a></li>
+<li><a href="#collimation">Collimation</a></li>
+<li><a href="#counttime">Count time</a></li>
+<li><a href="#dspacing">D spacing</a></li>
+<li><a href="#deadtime">Dead time</a></li>
+<li><a href="#calibrationmethod">Detector calibration method</a></li>
+<li><a href="#detectori0">Detector method for incident flux</a> <code>[detector.i0]</code></li>
+<li><a href="#detectorit">Detector method for transmitted flux</a> <code>[detector.it]</code></li>
+<li><a href="#detectortype">Detector type</a></li>
+<li><a href="#edgeanalyzed">Edge analyzed</a></li>
+<li><a href="#edgeenergy">Edge energy</a></li>
+<li><a href="#electronyieldabsorptioncoefficient">Electron yield absorption coefficient</a></li>
+<li><a href="#electronyieldintensity">Electron yield intensity</a> <code>[iey]</code></li>
+<li><a href="#elementanalyzed">Element analyzed</a></li>
+<li><a href="#emissionenergy">Emission energy</a></li>
+<li><a href="#emissionenergywindow">Emission energy window</a></li>
+<li><a href="#emissionline">Emission line</a> <code>[emissionline]</code></li>
+<li><a href="#energyerror">Energy error</a></li>
+<li><a href="#energyresolution">Energy resolution</a></li>
+<li><a href="#exafsfunction">EXAFS function chi(k)</a> <code>[chi]</code></li>
+<li><a href="#experimentdocumentation">Experiment documentation</a></li>
+<li><a href="#facility">Facility</a></li>
+<li><a href="#facilitycurrent">Facility current</a></li>
+<li><a href="#facilityenergy">Facility energy</a></li>
+<li><a href="#filteredchiimaginary">Filtered chi imaginary</a> <code>[chi_im]</code></li>
+<li><a href="#filteredchimagnitude">Filtered chi magnitude</a> <code>[chi_mag]</code></li>
+<li><a href="#filteredchiphase">Filtered chi phase</a> <code>[chi_pha]</code></li>
+<li><a href="#filteredchireal">Filtered chi real</a> <code>[chi_re]</code></li>
+<li><a href="#fluorescenceabsorptioncoefficient">Fluorescence absorption coefficient</a> <code>[mufluor]</code></li>
+<li><a href="#fluorescenceintensity">Fluorescence intensity</a> <code>[ifluor]</code></li>
+<li><a href="#fluxmeasuremethod">Flux measure method</a></li>
+<li><a href="#focusing">Focusing</a></li>
+<li><a href="#ftchiimaginary">Fourier-transformed chi imaginary</a> <code>[chir_im]</code></li>
+<li><a href="#ftchimagnitude">Fourier-transformed chi magnitude</a> <code>[chir_mag]</code></li>
+<li><a href="#ftchiphase">Fourier-transformed chi phase</a> <code>[chir_pha]</code></li>
+<li><a href="#ftchireal">Fourier-transformed chi real</a> <code>[chir_re]</code></li>
+<li><a href="#harmonicrejection">Harmonic rejection</a></li>
+<li><a href="#incidentintensity">Incident intensity</a> <code>[i0]</code></li>
+<li><a href="#installedoptions">Installed options</a></li>
+<li><a href="#instrument">Instrument</a></li>
+<li><a href="#intensityuncertainty">Intensity uncertainty</a></li>
+<li><a href="#monitormode">Monitor mode</a></li>
+<li><a href="#monitorpreset">Monitor preset</a></li>
+<li><a href="#monochromatorangle">Monochromator angle</a> <code>[angle]</code></li>
+<li><a href="#monochromatorchemicalformula">Monochromator chemical formula</a></li>
+<li><a href="#monochromatorenergy">Monochromator energy</a> <code>[energy]</code></li>
+<li><a href="#monochromatortype">Monochromator type</a></li>
+<li><a href="#normalizedfluorescenceabsorptioncoefficient">Normalized fluorescence absorption coefficient</a> <code>[normfluor]</code></li>
+<li><a href="#normalizedreferenceabsorptioncoefficient">Normalized reference absorption coefficient</a> <code>[normrefer]</code></li>
+<li><a href="#normalizedtransmissionabsorptioncoefficient">Normalized transmission absorption coefficient</a> <code>[normtrans]</code></li>
+<li><a href="#parentsample">Parent sample</a></li>
+<li><a href="#porosity">Porosity</a></li>
+<li><a href="#pressure">Pressure</a></li>
+<li><a href="#probe">Probe</a></li>
+<li><a href="#radialdistance">Radial distance</a> <code>[r]</code></li>
+<li><a href="#referenceabsorptioncoefficient">Reference absorption coefficient</a> <code>[murefer]</code></li>
+<li><a href="#referenceintensity">Reference intensity</a> <code>[irefer]</code></li>
+<li><a href="#referencesample">Reference sample</a> <code>[Sample.reference]</code></li>
+<li><a href="#reflectionplane">Reflection plane</a></li>
+<li><a href="#retardingvoltage">Retarding voltage</a></li>
+<li><a href="#rowlandradius">Rowland radius</a></li>
+<li><a href="#sampleanalysisevent">Sample analysis event</a></li>
+<li><a href="#samplechemicalcomposition">Sample chemical composition</a></li>
+<li><a href="#concentration">Sample concentration</a></li>
+<li><a href="#samplecrystalstructure">Sample crystal structure</a></li>
+<li><a href="#density">Sample density</a></li>
+<li><a href="#sampledescription">Sample description</a></li>
+<li><a href="#electricfield">Sample electric field</a></li>
+<li><a href="#electrochemicalpotential">Sample electrochemical potential</a></li>
+<li><a href="#magneticfield">Sample magnetic field</a></li>
+<li><a href="#magneticmoment">Sample magnetic moment</a></li>
+<li><a href="#samplemass">Sample mass</a></li>
+<li><a href="#samplematerial">Sample material</a></li>
+<li><a href="#opacity">Sample opacity</a></li>
+<li><a href="#ph">Sample pH</a></li>
+<li><a href="#pointgroup">Sample point group</a></li>
+<li><a href="#samplepreparation">Sample preparation</a></li>
+<li><a href="#eh">Sample redox potential (Eh)</a></li>
+<li><a href="#resistivity">Sample resistivity</a></li>
+<li><a href="#temperature">Sample temperature</a></li>
+<li><a href="#samplethickness">Sample thickness</a></li>
+<li><a href="#sampleunitcell">Sample unit cell</a></li>
+<li><a href="#viscosity">Sample viscosity</a></li>
+<li><a href="#volume">Sample volume</a></li>
+<li><a href="#source">Source</a></li>
+<li><a href="#synchrotonfacility">Synchrotron facility</a></li>
+<li><a href="#transmittedintensity">Transmitted intensity</a> <code>[itrans]</code></li>
+<li><a href="#wavenumber">Wavenumber</a> <code>[k]</code></li>
+<li><a href="#xraydetector">X-ray detector</a></li>
+<li><a href="#xraymonitor">X-ray monitor</a></li>
+<li><a href="#xraymonochromator">X-ray monochromator</a></li>
+<li><a href="#xraysourcetype">X-ray source type</a></li>
+<li><a href="#analysisevent">XAS analysis event</a></li>
+<li><a href="#xasmeasurementmode">XAS measurement mode</a></li>
+</ul>
+</nav>
+<div class="content">
+<section class="intro">
+<h2 style="margin-top:0">About this vocabulary</h2>
+<p>SKOS controlled vocabulary of concepts used in CDIF X-ray Absorption Spectroscopy metadata records.
+Concepts that correspond to a class in the
+<a class="ref" href="https://github.com/nexusformat/NeXusOntology" target="_blank" rel="noreferrer">NeXus ontology</a>
+carry a <code>foaf:focus</code> link for the Nexus class URI; note that these URIs do not resolve but the
+identified <code>owl:Class</code> entities are defined in the NeXus ontology. Others (physics concepts,
+XDI column definitions, sample properties Nexus doesn't model) exist as XAS-specific extensions.</p>
+<dl>
+<dt>Namespace</dt><dd><a class="ref" href="https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts">https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts</a></dd>
+<dt>Concepts</dt><dd>106</dd>
+<dt>Source</dt><dd><a class="ref" href="XAS_Glossary_SKOS.json">XAS_Glossary_SKOS.json</a></dd>
+</dl>
+</section>
+<section id="absorptioncoefficient" class="concept">
+<h3>Absorption coefficient<span class="notation-badge">mutrans</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/absorptioncoefficient</div>
+<dl>
+<dt>Definition</dt><dd>A coefficient μ(E) calculated as the natural log of the ratio of incident over transmitted x-ray intensity, divided by the thickness of the sample.</dd>
+<dt>Narrower</dt><dd><a class="concept-link" href="#electronyieldabsorptioncoefficient">Electron yield absorption coefficient</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://dictionary.iucr.org/Absorption_Coefficient" target="_blank" rel="noreferrer">https://dictionary.iucr.org/Absorption_Coefficient</a></dd>
+</dl></section>
+<section id="analyzercrystal" class="concept">
+<h3>Analyzer crystal</h3>
+<div class="uri">https://w3id.org/cdif/xas/analyzercrystal</div>
+<dl>
+<dt>Definition</dt><dd>Crystal used to energy-analyze emitted fluorescence in high energy resolution fluorescence detected measurement, distinct from the monochromator crystal that selects the incident energy.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_herfd.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html</a></dd>
+</dl></section>
+<section id="analyzerdiameter" class="concept">
+<h3>Analyzer diameter</h3>
+<div class="uri">https://w3id.org/cdif/xas/analyzerdiameter</div>
+<dl>
+<dt>Definition</dt><dd>Diameter of the crystal analyzer wafer.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_herfd.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html</a></dd>
+</dl></section>
+<section id="analyzergeometry" class="concept">
+<h3>Analyzer geometry</h3>
+<div class="uri">https://w3id.org/cdif/xas/analyzergeometry</div>
+<dl>
+<dt>Definition</dt><dd>Type of crystal analyzer geometry, such as Johann or Johansson.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_herfd.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html</a></dd>
+</dl></section>
+<section id="spotsize" class="concept">
+<h3>Beam spot size</h3>
+<div class="uri">https://w3id.org/cdif/xas/spotsize</div>
+<dl>
+<dt>Definition</dt><dd>Transverse size of the X-ray beam at the sample position.</dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="beamline" class="concept">
+<h3>Beamline</h3>
+<div class="uri">https://w3id.org/cdif/xas/beamline</div>
+<dl>
+<dt>Definition</dt><dd>Part of a facility that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.</dd>
+<dt>Note</dt><dd>Beamlines are the facilities at which crystallographers and other researchers get access to the tunable and high-intense X-ray beams they need for their research. http://csrri.iit.edu/~howard/itp/itpmacro.html</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXbeam" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXbeam</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="http://csrri.iit.edu/~howard/itp/itpmacro.html" target="_blank" rel="noreferrer">http://csrri.iit.edu/~howard/itp/itpmacro.html</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXbeam.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXbeam.html</a></dd>
+</dl></section>
+<section id="energyrange" class="concept">
+<h3>Beamline energy range</h3>
+<div class="uri">https://w3id.org/cdif/xas/energyrange</div>
+<dl>
+<dt>Definition</dt><dd>The range of X-ray photon energies deliverable at the beamline.</dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="flux" class="concept">
+<h3>Beamline flux</h3>
+<div class="uri">https://w3id.org/cdif/xas/flux</div>
+<dl>
+<dt>Definition</dt><dd>The total number of photons or particles passing through a given area per second: Source intensity/area (example: s-1 cm-2).  Distinct from photon flux -- the total number of photons (intensity) traveling down the beamline per second (photons per s). Photon flux might be labeled Beamline flux.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsource/flux" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsource/flux</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-flux-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-flux-field</a></dd>
+</dl></section>
+<section id="scanmode" class="concept">
+<h3>Beamline scan mode</h3>
+<div class="uri">https://w3id.org/cdif/xas/scanmode</div>
+<dl>
+<dt>Definition</dt><dd>The way in which XAS spectra are collected from the sample — e.g. continuous scan, step-scan, or energy-dispersive measurement mode.</dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="website" class="concept">
+<h3>Beamline website</h3>
+<div class="uri">https://w3id.org/cdif/xas/website</div>
+<dl>
+<dt>Definition</dt><dd>Web URL for beamline information or documentation.</dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="bendingradius" class="concept">
+<h3>Bending radius</h3>
+<div class="uri">https://w3id.org/cdif/xas/bendingradius</div>
+<dl>
+<dt>Definition</dt><dd>Bending radius of a spherically bent crystal analyzer. In Johann geometry this is twice the Rowland radius.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_herfd.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html</a></dd>
+</dl></section>
+<section id="braggangle" class="concept">
+<h3>Bragg angle</h3>
+<div class="uri">https://w3id.org/cdif/xas/braggangle</div>
+<dl>
+<dt>Definition</dt><dd>Bragg angle of the nominal reflection of a crystal analyzer.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_herfd.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html</a></dd>
+</dl></section>
+<section id="calculated" class="concept">
+<h3>Calculated</h3>
+<div class="uri">https://w3id.org/cdif/xas/calculated</div>
+<dl>
+<dt>Definition</dt><dd>Boolean value, true if the property value is derived by calculations after the measurement event.</dd>
+<dt>References</dt><dd><a class="ref" href="https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf" target="_blank" rel="noreferrer">https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="collimation" class="concept">
+<h3>Collimation</h3>
+<div class="uri">https://w3id.org/cdif/xas/collimation</div>
+<dl>
+<dt>Definition</dt><dd>Technique used to limit the incident x-ray beam to the required dimensions and angular spread.</dd>
+<dt>Note</dt><dd>beamline property, describe the arrangement of absorbers used for collimation (https://doi.org/10.1351/goldbook.C01154). From XDI dictionary &#x27;A concise statement of how beam collimation is provided&#x27; . A collimated beam of electromagnetic radiation has parallel rays, and therefore will spread minimally as it propagates. (https://en.wikipedia.org/wiki/Collimated_beam). Collimators are divided according to shape, energy, spatial resolution and sensitivity of collimator. This is determined by the thickness of collimator, hole density, and thickness of partitions.   According to shape collimators can be: --- multi-hole collimator with parallel holes: collimator with thousands of holes, which are in a parallel axis with detector. Detector image has the same size. This is the most often used collimator. --- divergent collimator:  collimator with holes diverging towards the radiation source. It allows to gain bigger picture than surface of crystal, but it is smaller sensitivity and spatial resolution-It takes up an area larger than the area of the detector. --- convergent collimator: collimator with holes converging to radiation source. That´s what we get enlarged picture of little organ with an increased sensitivity and a spatilal resolution-It spreads a small area of the object over a larger area of the detector. --- pinhole collimator:  funnel-shaped collimator with diametr hole 3-5 mm. It provides enlarged picture wit the highest positional resolution, but there is low sensitivity (extends examination time). It is extended time of examination. It is inteded for observation of small organs (for example, thyroid gland, testicles). --- fan beam collimator: this type has focus in transversal direction while it is parallel in axial direction; has more than 50% higher spatial resolution than parallel type. It is used in cerebral computer tomography.   Thickness of the collimator varies in line with the energy of the emmiter. A low energy collimator paired with a high energy emmiter would leak photons an cause blur in the signal (https://www.wikilectures.eu/w/Collimator,  https://doi.org/10.1351/goldbook.C01155)</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXcollimator" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXcollimator</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://en.wikipedia.org/wiki/Collimated_beam" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Collimated_beam</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.1351/goldbook.C01154" target="_blank" rel="noreferrer">https://doi.org/10.1351/goldbook.C01154</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXcollimator.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXcollimator.html</a></dd>
+</dl></section>
+<section id="counttime" class="concept">
+<h3>Count time</h3>
+<div class="uri">https://w3id.org/cdif/xas/counttime</div>
+<dl>
+<dt>Definition</dt><dd>Detector live time per energy point: the interval during which the detector is actively counting.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_pfy.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html</a></dd>
+</dl></section>
+<section id="dspacing" class="concept">
+<h3>D spacing</h3>
+<div class="uri">https://w3id.org/cdif/xas/dspacing</div>
+<dl>
+<dt>Definition</dt><dd>Spacing between crystal planes of the monochromator&#x27;s crystalline material that reflect x-rays.</dd>
+<dt>Note</dt><dd>monochromator crystal property. &#x27;The spacing between atomic planes within the crystal. By satisfying Bragg&#x27;s Law (nλ = 2d sinθ), the monochromator selects a desired wavelength (λ) of radiation from an incident beam, where &#x27;d&#x27; is the atomic plane spacing and &#x27;θ&#x27; is the Bragg angle.&#x27;(Google AI overview). The perpendicular distance between two successive planes on a family (hkl). (https://dictionary.iucr.org/Interplanar_spacing)</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXcrystal/d_spacing" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXcrystal/d_spacing</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://dictionary.iucr.org/Interplanar_spacing" target="_blank" rel="noreferrer">https://dictionary.iucr.org/Interplanar_spacing</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-d-spacing-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-d-spacing-field</a></dd>
+</dl></section>
+<section id="deadtime" class="concept">
+<h3>Dead time</h3>
+<div class="uri">https://w3id.org/cdif/xas/deadtime</div>
+<dl>
+<dt>Definition</dt><dd>Detector dead time per energy point: the interval during which the detector cannot register further events.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_pfy.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html</a></dd>
+</dl></section>
+<section id="calibrationmethod" class="concept">
+<h3>Detector calibration method</h3>
+<div class="uri">https://w3id.org/cdif/xas/calibrationmethod</div>
+<dl>
+<dt>Definition</dt><dd>Information detailing how raw detector signals were mathematically mapped into final pixel coordinates or energy bins, identifies the mathematical models used to correct spatial or geometric distortions (such as polynomial equations) and provides a reference link or file path to the exact coefficients and calibration logs used during data processing. (edited from Google AI)</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Group/NXdetector/calibration_method" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Group/NXdetector/calibration_method</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXdetector.html#nxdetector-calibration-method-group" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXdetector.html#nxdetector-calibration-method-group</a></dd>
+</dl></section>
+<section id="detectori0" class="concept">
+<h3>Detector method for incident flux<span class="notation-badge">detector.i0</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/detectori0</div>
+<dl>
+<dt>Definition</dt><dd>The detection method used to measure the incident X-ray flux i0 (a monitor before the sample) — e.g. an ionization chamber filled with a specific gas mixture.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="detectorit" class="concept">
+<h3>Detector method for transmitted flux<span class="notation-badge">detector.it</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/detectorit</div>
+<dl>
+<dt>Definition</dt><dd>The detection method used to measure the transmitted X-ray flux it downstream of the sample — e.g. an ionization chamber filled with a specific gas mixture.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="detectortype" class="concept">
+<h3>Detector type</h3>
+<div class="uri">https://w3id.org/cdif/xas/detectortype</div>
+<dl>
+<dt>Definition</dt><dd>Kind of detector used to measure X-ray intensities.</dd>
+<dt>Note</dt><dd>property of detector instrument; description of how x-ray intensity is measured. NEXUS examples:  He3 gas cylinder, He3 PSD, scintillator, fission chamber, proportion counter, ion chamber, ccd, pixel, image plate, CMOS. </dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="edgeanalyzed" class="concept">
+<h3>Edge analyzed</h3>
+<div class="uri">https://w3id.org/cdif/xas/edgeanalyzed</div>
+<dl>
+<dt>Definition</dt><dd>Target absorption edge.</dd>
+<dt>Note</dt><dd>The &#x27;edge&#x27; is a sudden increase in x-ray absorption occurring when the energy of incident X-rays is just above the binding energy of the targeted electron shell of the atoms interacting with the photons. vocabulary from XDI spec: {K, L, L1, L2, L3, M, M1, M2, M3, M4, M5, N, N1, N2, N3, N4, N5, N6, N7, O, O1, O2, O3, O4, O5, O6, O7}.  Used in XDI and NeXus to refer to the shell of the atom where the electron hole is created (K, L, etc).   The absorption edge is defined as K, L, L1, etc.  That indicates the electronic energy levels involved in the absorption. The edge_energy tells us how much is the value of the energy of the electronic energy levels involved in that particular absorption edge.  see https://xrayabsorption.org/xraytable/</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://w3id.org/cdif/xas/XAS_AbsorptionEdges" target="_blank" rel="noreferrer">https://w3id.org/cdif/xas/XAS_AbsorptionEdges</a></dd>
+</dl></section>
+<section id="edgeenergy" class="concept">
+<h3>Edge energy</h3>
+<div class="uri">https://w3id.org/cdif/xas/edgeenergy</div>
+<dl>
+<dt>Definition</dt><dd>The absorption edge as used in the data acquisition software.(XDI dictionary)</dd>
+<dt>Note</dt><dd>An absorption edge is the energy at which there is a sharp rise (discontinuity) in the (linear) absorption coefficient of X-rays by an element, which occurs when the energy of the photon corresponds to the energy of a shell of the atom (K, LI, LII, LIII, etc. corresponding to the creation of electron holes in the 1s, 2s, 2p1/2, 2p3/2 etc. atomic subshells).  Associated with this transition is the absorption threshold (q.v.) characterized by the corresponding energy E0. (https://doi.org/10.1351/goldbook.08767, https://dictionary.iucr.org/Absorption_edge).  Discussed in team meeting 2025-09-08; general sense in group is that this is a known quantity specified for experiment design, not a measured result.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.1351/goldbook.08767" target="_blank" rel="noreferrer">https://doi.org/10.1351/goldbook.08767</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://dictionary.iucr.org/Absorption_edge" target="_blank" rel="noreferrer">https://dictionary.iucr.org/Absorption_edge</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="electronyieldabsorptioncoefficient" class="concept">
+<h3>Electron yield absorption coefficient</h3>
+<div class="uri">https://w3id.org/cdif/xas/electronyieldabsorptioncoefficient</div>
+<dl>
+<dt>Definition</dt><dd>Absorption coefficient derived from electron yield, proportional to the ratio of the electron yield intensity and the incident beam intensity.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_tey.</dd>
+<dt>Broader</dt><dd><a class="concept-link" href="#absorptioncoefficient">Absorption coefficient</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tey.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tey.html</a></dd>
+</dl></section>
+<section id="electronyieldintensity" class="concept">
+<h3>Electron yield intensity<span class="notation-badge">iey</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/electronyieldintensity</div>
+<dl>
+<dt>Definition</dt><dd>Intensity measured as the drain current or total electron current from electrons emitted by the sample surface, used to derive the absorption coefficient in electron-yield detection.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_tey.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tey.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_tey.html</a></dd>
+</dl></section>
+<section id="elementanalyzed" class="concept">
+<h3>Element analyzed</h3>
+<div class="uri">https://w3id.org/cdif/xas/elementanalyzed</div>
+<dl>
+<dt>Definition</dt><dd>Element that is the target for observing an x-ray absorption edge.</dd>
+<dt>Note</dt><dd>Element being analyzed.  A species of atoms; all atoms with the same number of protons in the atomic nucleus. (https://doi.org/10.1351/goldbook.C01022). Suggest using SWEET  vocabulary:http://sweetontology.net/matrElement/  for values</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.1351/goldbook.C01022" target="_blank" rel="noreferrer">https://doi.org/10.1351/goldbook.C01022</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="emissionenergy" class="concept">
+<h3>Emission energy</h3>
+<div class="uri">https://w3id.org/cdif/xas/emissionenergy</div>
+<dl>
+<dt>Definition</dt><dd>Emission energy at which the spectrometer is set in high energy resolution fluorescence detected measurement.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_herfd.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html</a></dd>
+</dl></section>
+<section id="emissionenergywindow" class="concept">
+<h3>Emission energy window</h3>
+<div class="uri">https://w3id.org/cdif/xas/emissionenergywindow</div>
+<dl>
+<dt>Definition</dt><dd>Lower and upper bounds of the detected emission energy window: the energy range over which fluorescence photons are accepted, whether defined by a detector channel range or a spectrometer region of interest.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_pfy.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pfy.html</a></dd>
+</dl></section>
+<section id="emissionline" class="concept">
+<h3>Emission line<span class="notation-badge">emissionline</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/emissionline</div>
+<dl>
+<dt>Definition</dt><dd>X-ray emission line observed when a core vacancy is filled, identified by the initial and final edge. Used to specify the detected emission in partial fluorescence yield and high energy resolution fluorescence detected measurements.</dd>
+<dt>References</dt><dd><a class="ref" href="https://w3id.org/cdif/xas/XAS_EmissionLines" target="_blank" rel="noreferrer">https://w3id.org/cdif/xas/XAS_EmissionLines</a></dd>
+</dl></section>
+<section id="energyerror" class="concept">
+<h3>Energy error</h3>
+<div class="uri">https://w3id.org/cdif/xas/energyerror</div>
+<dl>
+<dt>Definition</dt><dd>The difference between the intended energy selected by a monochromator and the actual energy measured at the sample (the incident intensity)</dd>
+<dt>Note</dt><dd>NEXUS comment is &#x27;energy standard deviation&#x27; (nxs: Field/NXmonochromator/energy_error), or &#x27;uncertaities associated to energy&#x27; (from https://github.com/nexusformat/definitions/issues/820); note this is apparently different from our definition here.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXmonochromator/energy_error" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXmonochromator/energy_error</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-energy-error-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-energy-error-field</a></dd>
+</dl></section>
+<section id="energyresolution" class="concept">
+<h3>Energy resolution</h3>
+<div class="uri">https://w3id.org/cdif/xas/energyresolution</div>
+<dl>
+<dt>Definition</dt><dd>The ability of a spectrometer to distinguish between two closely spaced X-ray photon energies.</dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="exafsfunction" class="concept">
+<h3>EXAFS function chi(k)<span class="notation-badge">chi</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/exafsfunction</div>
+<dl>
+<dt>Definition</dt><dd>A function representing the Extended X-ray Absorption Fine Structure (EXAFS) oscillations in k-space  It represents the modulation of the X-ray absorption coefficient (isolated and normalized) due to the scattering of a photoelectron wave by neighboring atoms, expressed as a function of the photoelectron wavevector (k).</dd>
+<dt>Note</dt><dd>XDI Column.chi: EXAFS oscillatory function chi(k).</dd>
+<dt>References</dt><dd>Ravel, B., &amp; Newville, M. (2005). ATHENA, ARTEMIS, HEPHAESTUS: data analysis for X-ray absorption spectroscopy using IFEFFIT. Journal of Synchrotron Radiation, 12(4), 537-541.</dd>
+<dt>References</dt><dd><a class="ref" href="https://en.wikipedia.org/wiki/Extended_X-ray_absorption_fine_structure" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Extended_X-ray_absorption_fine_structure</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="experimentdocumentation" class="concept">
+<h3>Experiment documentation</h3>
+<div class="uri">https://w3id.org/cdif/xas/experimentdocumentation</div>
+<dl>
+<dt>Definition</dt><dd>Description of the full experiment (document in pdf, latex, ...)</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Group/NXentry/experiment_documentation" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Group/NXentry/experiment_documentation</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-experiment-documentation-group" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-experiment-documentation-group</a></dd>
+</dl></section>
+<section id="facility" class="concept">
+<h3>Facility</h3>
+<div class="uri">https://w3id.org/cdif/xas/facility</div>
+<dl>
+<dt>Definition</dt><dd>A synchrotron, X-ray free electron laser, or laboratory facility where XAS measurements are performed.</dd>
+<dt>References</dt><dd><a class="ref" href="https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf" target="_blank" rel="noreferrer">https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="facilitycurrent" class="concept">
+<h3>Facility current</h3>
+<div class="uri">https://w3id.org/cdif/xas/facilitycurrent</div>
+<dl>
+<dt>Definition</dt><dd>Accelerator, X-ray tube, or storage ring current; property of a facility</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsource/current" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsource/current</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf" target="_blank" rel="noreferrer">https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-current-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-current-field</a></dd>
+</dl></section>
+<section id="facilityenergy" class="concept">
+<h3>Facility energy</h3>
+<div class="uri">https://w3id.org/cdif/xas/facilityenergy</div>
+<dl>
+<dt>Definition</dt><dd>The energy of the current stored in the synchrotron storage ring. (XDI)</dd>
+<dt>Note</dt><dd>in XDI this is a property of the Facility, so include &#x27;facility&#x27; prefix. The beam energy is the product of the ring current (particle flux, typically electrons) and the particle energy.  The beam energy is reported in Joules, particle energe typically in electron volts. Have to look at example data to determine how this is being used.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsource/energy" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsource/energy</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-energy-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-energy-field</a></dd>
+</dl></section>
+<section id="filteredchiimaginary" class="concept">
+<h3>Filtered chi imaginary<span class="notation-badge">chi_im</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/filteredchiimaginary</div>
+<dl>
+<dt>Definition</dt><dd>Imaginary part of the Fourier-filtered Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(k) in k-space.</dd>
+<dt>Note</dt><dd>XDI Column.chi_im: imaginary part of Fourier-filtered chi(k).</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="filteredchimagnitude" class="concept">
+<h3>Filtered chi magnitude<span class="notation-badge">chi_mag</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/filteredchimagnitude</div>
+<dl>
+<dt>Definition</dt><dd>Magnitude of the Fourier-filtered Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(k). Fourier filtering isolates contributions from specific R-space shells before transforming back to k-space.</dd>
+<dt>Note</dt><dd>XDI Column.chi_mag: magnitude of Fourier-filtered chi(k).</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="filteredchiphase" class="concept">
+<h3>Filtered chi phase<span class="notation-badge">chi_pha</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/filteredchiphase</div>
+<dl>
+<dt>Definition</dt><dd>Phase of the Fourier-filtered Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(k) in k-space.</dd>
+<dt>Note</dt><dd>XDI Column.chi_pha: phase of Fourier-filtered chi(k).</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="filteredchireal" class="concept">
+<h3>Filtered chi real<span class="notation-badge">chi_re</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/filteredchireal</div>
+<dl>
+<dt>Definition</dt><dd>Real part of the Fourier-filtered Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(k) in k-space.</dd>
+<dt>Note</dt><dd>XDI Column.chi_re: real part of Fourier-filtered chi(k).</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="fluorescenceabsorptioncoefficient" class="concept">
+<h3>Fluorescence absorption coefficient<span class="notation-badge">mufluor</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/fluorescenceabsorptioncoefficient</div>
+<dl>
+<dt>Definition</dt><dd>The fluorescence absorption coefficient is calculated as the natural log of the ratio of emitted fluorescence intensity over transmitted x-ray intensity, divided by the thickness of the sample.</dd>
+<dt>Note</dt><dd>The fluorescence intensity is proportional to the absorbed fraction of the incident intensity. Fluorescence is preferred for dilute samples (trace element studies, biological samples, catalysts, geological samples), because the emitted fluorescence is element-specific.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf" target="_blank" rel="noreferrer">https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="fluorescenceintensity" class="concept">
+<h3>Fluorescence intensity<span class="notation-badge">ifluor</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/fluorescenceintensity</div>
+<dl>
+<dt>Definition</dt><dd>A measured X-ray intensity emitted by a sample, following absorption of incident X-rays, due to fluorescence decay phenomena.</dd>
+<dt>Note</dt><dd>Fluorescence is a physical phenomena.  When X-rays are absorbed by a sample, they create excited electronic states.  These states can decay, and one of the decay proceses is flourescence.  When excited electrons decay in an atom by fluorescence, they emitt light, in this case, is X-ray light. (https://www.lehigh.edu/imi/teched/GlassCSC/SuppReading/Tutorials.pdf)</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://en.wikipedia.org/wiki/X-ray_fluorescence" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/X-ray_fluorescence</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="fluxmeasuremethod" class="concept">
+<h3>Flux measure method</h3>
+<div class="uri">https://w3id.org/cdif/xas/fluxmeasuremethod</div>
+<dl>
+<dt>Definition</dt><dd>Description of how the flux was measured.</dd>
+<dt>Note</dt><dd>Property of detector, see https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md#defined-items-in-the-detector-namespace, tags for i0, it, if, ir</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="focusing" class="concept">
+<h3>Focusing</h3>
+<div class="uri">https://w3id.org/cdif/xas/focusing</div>
+<dl>
+<dt>Definition</dt><dd>A concise statement about how beam focusing is provided. (XDI)</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="ftchiimaginary" class="concept">
+<h3>Fourier-transformed chi imaginary<span class="notation-badge">chir_im</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/ftchiimaginary</div>
+<dl>
+<dt>Definition</dt><dd>Imaginary part of the Fourier-transformed Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(R) in R-space, obtained without applying corrections for phase shifts.</dd>
+<dt>Note</dt><dd>XDI Column.chir_im: imaginary part of Fourier transform of chi(k).</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://en.wikipedia.org/wiki/Fourier_transform" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Fourier_transform</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="ftchimagnitude" class="concept">
+<h3>Fourier-transformed chi magnitude<span class="notation-badge">chir_mag</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/ftchimagnitude</div>
+<dl>
+<dt>Definition</dt><dd>Magnitude of the Fourier-transformed Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(R) in R-space, obtained without applying corrections for phase shifts.</dd>
+<dt>Note</dt><dd>XDI Column.chir_mag: magnitude of Fourier transform of chi(k), i.e. |chi(r)|.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://en.wikipedia.org/wiki/Fourier_transform" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Fourier_transform</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="ftchiphase" class="concept">
+<h3>Fourier-transformed chi phase<span class="notation-badge">chir_pha</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/ftchiphase</div>
+<dl>
+<dt>Definition</dt><dd>Phase of the Fourier-transformed Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(R) in R-space, obtained without applying corrections for phase shifts.</dd>
+<dt>Note</dt><dd>XDI Column.chir_pha: phase of Fourier transform of chi(k).</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://en.wikipedia.org/wiki/Fourier_transform" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Fourier_transform</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="ftchireal" class="concept">
+<h3>Fourier-transformed chi real<span class="notation-badge">chir_re</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/ftchireal</div>
+<dl>
+<dt>Definition</dt><dd>Real part of the Fourier-transformed Extended X-ray Absorption Fine Structure (EXAFS) oscillations chi(R) in R-space, obtained without applying corrections for phase shifts.</dd>
+<dt>Note</dt><dd>XDI Column.chir_re: real part of Fourier transform of chi(k).</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://en.wikipedia.org/wiki/Fourier_transform" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Fourier_transform</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="harmonicrejection" class="concept">
+<h3>Harmonic rejection</h3>
+<div class="uri">https://w3id.org/cdif/xas/harmonicrejection</div>
+<dl>
+<dt>Definition</dt><dd>A statement explaining how unwanted higher-energy X-ray harmonics are removed from the probe beam.</dd>
+<dt>Note</dt><dd>X-ray absorption harmonic rejection is the process of eliminating unwanted higher-energy X-ray harmonics from a beam (Google AI overview). Harmonics are x-rays that have a frequency that is a positive integer multiple of the desired probe frequency.  The requirement of a high spectral purity of the X-ray beam to be delivered to the sample makes it essenstial to reduce the harmonic content of the beam. https://www.diamond.ac.uk/Instruments/Spectroscopy/I20/XAS_XES_Branchline/Specification.html</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="incidentintensity" class="concept">
+<h3>Incident intensity<span class="notation-badge">i0</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/incidentintensity</div>
+<dl>
+<dt>Definition</dt><dd>The measured X-ray intensity before it interacts with the sample.</dd>
+<dt>Note</dt><dd>Measured by an ionization chamber (gas-filled detector) or photodiode placed before the sample.  (X-Ray Absorption Spectroscopy of Semiconductors [book] Chapter 1: Introduction to X-Ray Absorption Spectroscopy, First Online: 01 January 2014 pp 1–26)</dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.1007/978-3-662-44362-0" target="_blank" rel="noreferrer">https://doi.org/10.1007/978-3-662-44362-0</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="installedoptions" class="concept">
+<h3>Installed options</h3>
+<div class="uri">https://w3id.org/cdif/xas/installedoptions</div>
+<dl>
+<dt>Definition</dt><dd>Description of optional equipment installed on the base instrument for this measurement (e.g. sample cells, in-situ environment components).</dd>
+<dt>References</dt><dd><a class="ref" href="https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf" target="_blank" rel="noreferrer">https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="instrument" class="concept">
+<h3>Instrument</h3>
+<div class="uri">https://w3id.org/cdif/xas/instrument</div>
+<dl>
+<dt>Definition</dt><dd>A device or a combination of devices used to carry out an analytical process.</dd>
+<dt>Note</dt><dd>The analytical process encompasses all steps from the introduction of the sample or the test portion to the production of the result. An analytical instrument may carry out single or multiple analytical procedures. In the latter case it may be selective, i.e. designed to carry out any requested combination of procedures within the set, on each specimen. (https://doi.org/10.1351/goldbook.A00333) NXInstrument has &#x27;Collection of the components of the instrument or beamline&#x27;.  Does make clear that an instrument has parts.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXinstrument" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXinstrument</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.1351/goldbook.A00333" target="_blank" rel="noreferrer">https://doi.org/10.1351/goldbook.A00333</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXinstrument.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html</a></dd>
+</dl></section>
+<section id="intensityuncertainty" class="concept">
+<h3>Intensity uncertainty</h3>
+<div class="uri">https://w3id.org/cdif/xas/intensityuncertainty</div>
+<dl>
+<dt>Definition</dt><dd>Errors associated with the intensity of the spectrum.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas.html</a></dd>
+</dl></section>
+<section id="monitormode" class="concept">
+<h3>Monitor mode</h3>
+<div class="uri">https://w3id.org/cdif/xas/monitormode</div>
+<dl>
+<dt>Definition</dt><dd>Algorithm for aggregating data in detectors measuring excitation and sample response</dd>
+<dt>Note</dt><dd>Count to a preset value based on either clock time (timer) or received monitor counts (monitor).</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXmonitor/mode" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXmonitor/mode</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXmonitor.html#nxmonitor-mode-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXmonitor.html#nxmonitor-mode-field</a></dd>
+</dl></section>
+<section id="monitorpreset" class="concept">
+<h3>Monitor preset</h3>
+<div class="uri">https://w3id.org/cdif/xas/monitorpreset</div>
+<dl>
+<dt>Definition</dt><dd>Configuration of monitor mode</dd>
+<dt>Note</dt><dd>Either counting time or preset count value. </dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXmonitor/preset" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXmonitor/preset</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXmonitor.html#nxmonitor-preset-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXmonitor.html#nxmonitor-preset-field</a></dd>
+</dl></section>
+<section id="monochromatorangle" class="concept">
+<h3>Monochromator angle<span class="notation-badge">angle</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/monochromatorangle</div>
+<dl>
+<dt>Definition</dt><dd>The Bragg angle of the monochromator crystal, related to selected photon energy via Bragg&#x27;s law nλ = 2d sin(θ).</dd>
+<dt>Note</dt><dd>XDI Column.angle: mono angle (degrees / radians / steps).</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="monochromatorchemicalformula" class="concept">
+<h3>Monochromator chemical formula</h3>
+<div class="uri">https://w3id.org/cdif/xas/monochromatorchemicalformula</div>
+<dl>
+<dt>Definition</dt><dd>The chemical formula [of the monochromator material] specified using [Crystallographic Information File] CIF conventions.</dd>
+<dt>Note</dt><dd>Mochromator crystal property. NOTE-- seems redundant with NXcrystal/type.  CIF conventions at https://www.iucr.org/resources/cif/spec/version1.1</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXcrystal/chemical_formula" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXcrystal/chemical_formula</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-chemical-formula-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-chemical-formula-field</a></dd>
+</dl></section>
+<section id="monochromatorenergy" class="concept">
+<h3>Monochromator energy<span class="notation-badge">energy</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/monochromatorenergy</div>
+<dl>
+<dt>Definition</dt><dd>The energy selected by the X-ray monochromator and delivered to the sample during an absorption scan.</dd>
+<dt>Note</dt><dd>This is the independent variable in an XAS scan. NEXUS comment is &#x27;energy selected&#x27;. An energy monochromator is a critical component that selects a specific, monochromatic X-ray energy from an X-ray beam.  Notes: Typically a Bragg crystal monochromator is used. This energy is continuously tunable and determines the energy at which absorption measurements are performed, enabling precise probing of core-level electronic transitions near an element’s absorption edge. In XAS, monochromator energy is critical for scanning across absorption edges to extract fine structural information such as XANES and EXAFS. The energy is selected using Bragg’s Law: lambda = 2d*sin(theta) $$ where lambda is the X-ray wavelength, dd is the crystal lattice spacing, and theta is the angle of incidence. The Incident Energy variable reports the measured energy delivered to the sample. (International Tables for Crystallography, Vol. I, Chapter 3.4 )</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXmonochromator/energy" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXmonochromator/energy</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-energy-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-energy-field</a></dd>
+</dl></section>
+<section id="monochromatortype" class="concept">
+<h3>Monochromator type</h3>
+<div class="uri">https://w3id.org/cdif/xas/monochromatortype</div>
+<dl>
+<dt>Definition</dt><dd>Type or material of monochromating substance.</dd>
+<dt>Note</dt><dd>monochromator crystal property; values reported in NEXUS as of 2010-11-17  {PG (Highly Oriented Pyrolytic Graphite) | Ge | Si | Cu | Fe3Si | CoFe | Cu2MnAl (Heusler) | Multilayer | Diamond.}</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXcrystal/type" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXcrystal/type</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-type-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-type-field</a></dd>
+</dl></section>
+<section id="normalizedfluorescenceabsorptioncoefficient" class="concept">
+<h3>Normalized fluorescence absorption coefficient<span class="notation-badge">normfluor</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/normalizedfluorescenceabsorptioncoefficient</div>
+<dl>
+<dt>Definition</dt><dd>The normalized fluorescence-yield absorption coefficient µ(E), rescaled to unit edge-step.</dd>
+<dt>Note</dt><dd>XDI Column.normfluor: normalized mu fluorescence.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="normalizedreferenceabsorptioncoefficient" class="concept">
+<h3>Normalized reference absorption coefficient<span class="notation-badge">normrefer</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/normalizedreferenceabsorptioncoefficient</div>
+<dl>
+<dt>Definition</dt><dd>The normalized reference-channel absorption coefficient µ(E), rescaled to unit edge-step.</dd>
+<dt>Note</dt><dd>XDI Column.normrefer: normalized mu reference.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="normalizedtransmissionabsorptioncoefficient" class="concept">
+<h3>Normalized transmission absorption coefficient<span class="notation-badge">normtrans</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/normalizedtransmissionabsorptioncoefficient</div>
+<dl>
+<dt>Definition</dt><dd>The normalized transmission-mode absorption coefficient µ(E), rescaled to unit edge-step so spectra can be compared across samples.</dd>
+<dt>Note</dt><dd>XDI Column.normtrans: normalized mu transmission.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="parentsample" class="concept">
+<h3>Parent sample</h3>
+<div class="uri">https://w3id.org/cdif/xas/parentsample</div>
+<dl>
+<dt>Definition</dt><dd>Identifier for a material sample from which the analyzed sample was derived.</dd>
+<dt>Note</dt><dd>A composite or aggregate sample might have multiple parent samples.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="porosity" class="concept">
+<h3>Porosity</h3>
+<div class="uri">https://w3id.org/cdif/xas/porosity</div>
+<dl>
+<dt>Definition</dt><dd>The fraction of the sample volume that is empty space (pore space)</dd>
+<dt>Note</dt><dd>Material property of sample.  Expressed as a fraction between 0 and 1, or as a percentage between 0% and 100%..  See also  https://doi.org/10.1351/goldbook.P04762.</dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.1351/goldbook.P04762" target="_blank" rel="noreferrer">https://doi.org/10.1351/goldbook.P04762</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="pressure" class="concept">
+<h3>Pressure</h3>
+<div class="uri">https://w3id.org/cdif/xas/pressure</div>
+<dl>
+<dt>Definition</dt><dd>Normal force acting on a surface divided by the area of that surface. </dd>
+<dt>Note</dt><dd>Environmental condition of sample during analysis. For a mixture of gases the contribution by each constituent is called the &#x27;partial pressure&#x27;.  https://doi.org/10.1351/goldbook.P04819</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/pressure" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/pressure</a></dd>
+<dt>References</dt><dd> https://doi.org/10.1351/goldbook.P04819</dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-pressure-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-pressure-field</a></dd>
+</dl></section>
+<section id="probe" class="concept">
+<h3>Probe</h3>
+<div class="uri">https://w3id.org/cdif/xas/probe</div>
+<dl>
+<dt>Definition</dt><dd>type of radiation probe. Eenumerated list: {neutron, photon, x-ray, muon, electron, ultraviolet, visible light, positron, proton} Default is x-ray for XAS.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsource/probe" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsource/probe</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-probe-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-probe-field</a></dd>
+</dl></section>
+<section id="radialdistance" class="concept">
+<h3>Radial distance<span class="notation-badge">r</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/radialdistance</div>
+<dl>
+<dt>Definition</dt><dd>The R-space (radial distance space) coordinate of the Extended X-ray Absorption Fine Structure (EXAFS) oscillations, obtained by performing the Fourier transform of chi(k) in k-space. Peaks in |chi(R)| correspond to backscattering shells around the absorbing atom.</dd>
+<dt>Note</dt><dd>XDI Column.r: radial distance from absorbing atom (typically Angstroms).</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://en.wikipedia.org/wiki/Extended_X-ray_absorption_fine_structure" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Extended_X-ray_absorption_fine_structure</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="referenceabsorptioncoefficient" class="concept">
+<h3>Reference absorption coefficient<span class="notation-badge">murefer</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/referenceabsorptioncoefficient</div>
+<dl>
+<dt>Definition</dt><dd>Absorption coefficient µ(E) of the reference channel, calculated from ln(it / iref).</dd>
+<dt>Note</dt><dd>XDI Column.murefer: absorption coefficient computed from the reference-channel intensity.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="referenceintensity" class="concept">
+<h3>Reference intensity<span class="notation-badge">irefer</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/referenceintensity</div>
+<dl>
+<dt>Definition</dt><dd>measured x-ray intensity after passing through a reference sample with know absorption characteristics.</dd>
+<dt>Note</dt><dd>Use to calibrate monochromator energy, check for drift in incident energry.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="referencesample" class="concept">
+<h3>Reference sample<span class="notation-badge">Sample.reference</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/referencesample</div>
+<dl>
+<dt>Definition</dt><dd>The reference material measured simultaneously with the specimen, used for energy calibration and scan-to-scan alignment. Typically a foil or powder of known composition (e.g. &#x27;Cd foil&#x27;, &#x27;GaAs powder&#x27;). Distinct from the reference element symbol, which identifies only the absorbing element of that material.</dd>
+<dt>Note</dt><dd>Minted 2026-08-25 for the XDI extension header Sample.reference, which appears in 10 of the 55 files in the example corpus but is not in the XDI dictionary. Recorded as source &#x27;dat&#x27; in archive/XDI-CDIF-Mapping.xlsx.</dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="reflectionplane" class="concept">
+<h3>Reflection plane</h3>
+<div class="uri">https://w3id.org/cdif/xas/reflectionplane</div>
+<dl>
+<dt>Definition</dt><dd>Miller indices (hkl) of the reflecting plane used by the monochromator crystal.</dd>
+<dt>Note</dt><dd>Monochromator crystal property.  It’s not a physical surface, but a mathematical construct based on the periodic arrangement of atoms. A classic example of a reflection plane in crystallography is the (100) plane in a cubic crystal system.    Miller index: (100),     Interpretation: This plane intersects the x-axis at 1 unit, and is parallel to both the y- and z-axes (i.e., it never intersects them).     Physical meaning: It represents a set of atomic layers perpendicular to the x-axis, spaced at regular intervals.  Examples of Crystals used for X-ray monochromators: Si(111), Si(220), Si(311), Ge(111) https://www.iucr.org/__data/assets/pdf_file/0004/60637/IUCr2011-XAFS-Tutorial_-Ascone.pdf</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXcrystal/reflection" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXcrystal/reflection</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://www.iucr.org/__data/assets/pdf_file/0004/60637/IUCr2011-XAFS-Tutorial_-Ascone.pdf" target="_blank" rel="noreferrer">https://www.iucr.org/__data/assets/pdf_file/0004/60637/IUCr2011-XAFS-Tutorial_-Ascone.pdf</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-reflection-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-reflection-field</a></dd>
+</dl></section>
+<section id="retardingvoltage" class="concept">
+<h3>Retarding voltage</h3>
+<div class="uri">https://w3id.org/cdif/xas/retardingvoltage</div>
+<dl>
+<dt>Definition</dt><dd>Retarding voltage (bias) applied to select electrons above a kinetic energy threshold, discriminating against low-energy secondary electrons in partial electron yield detection.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_pey.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pey.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_pey.html</a></dd>
+</dl></section>
+<section id="rowlandradius" class="concept">
+<h3>Rowland radius</h3>
+<div class="uri">https://w3id.org/cdif/xas/rowlandradius</div>
+<dl>
+<dt>Definition</dt><dd>Radius of the Rowland circle, on which the sample, crystal centre and detector focus all lie.</dd>
+<dt>Note</dt><dd>Definition adapted from the NeXus NXDL documentation in NXxas_herfd.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/contributed_definitions/NXxas_herfd.html</a></dd>
+</dl></section>
+<section id="sampleanalysisevent" class="concept">
+<h3>Sample analysis event</h3>
+<div class="uri">https://w3id.org/cdif/xas/sampleanalysisevent</div>
+<dl>
+<dt>Definition</dt><dd>An event in which one or more properties of a prepared material sample are measured.</dd>
+<dt>Note</dt><dd>Note, label as &#x27;sample analysis event&#x27; to distinguish from &#x27;Analysis&#x27; as scientific activity to interpret data.  &#x27;A detailed examination or study of something so as to determine its nature, structure, or essential features.&#x27; (Oxford English Dictionary)</dd>
+<dt>References</dt><dd><a class="ref" href="https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf" target="_blank" rel="noreferrer">https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="samplechemicalcomposition" class="concept">
+<h3>Sample chemical composition</h3>
+<div class="uri">https://w3id.org/cdif/xas/samplechemicalcomposition</div>
+<dl>
+<dt>Definition</dt><dd>Chemical formula for sample material</dd>
+<dt>Note</dt><dd>As with Monochromator, use CIF conventions. Note: &#x27;Stoichiometry is the relationships between the quantities of reactants and products before, during, and following chemical reactions.&#x27;(Wikipedia).  Not sure that&#x27;s the label we want for this property...Recommend renaming &#x27;sample chemical composition&#x27;.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="concentration" class="concept">
+<h3>Sample concentration</h3>
+<div class="uri">https://w3id.org/cdif/xas/concentration</div>
+<dl>
+<dt>Definition</dt><dd>Concentration of a component in the composition of a sample</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/concentration" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/concentration</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-concentration-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-concentration-field</a></dd>
+</dl></section>
+<section id="samplecrystalstructure" class="concept">
+<h3>Sample crystal structure</h3>
+<div class="uri">https://w3id.org/cdif/xas/samplecrystalstructure</div>
+<dl>
+<dt>Definition</dt><dd>Crystallographic point or space group that characterizes the crystal structure of the sample.</dd>
+<dt>Note</dt><dd>A 3-D pattern of points consisting of atoms that obeys the conditions of periodicity and discreteness expressed by a set of symmetry operations (https://dictionary.iucr.org/Crystal_structure). Point groups describe the symmetry of a point without translations, always leaving at least one point fixed; space groups  describe the symmetry of a crystal lattice allowing translations. In three dimensions,  there are 32 crystallographic point groups, and 230 unique space groups (ChatGPT) . Various notation systems are used to classify these groups (Wikipedia).</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/unit_cell" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/unit_cell</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.1007/978-3-642-13281-0" target="_blank" rel="noreferrer">https://doi.org/10.1007/978-3-642-13281-0</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://dictionary.iucr.org/Unit_cell" target="_blank" rel="noreferrer">https://dictionary.iucr.org/Unit_cell</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-unit-cell-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-unit-cell-field</a></dd>
+</dl></section>
+<section id="density" class="concept">
+<h3>Sample density</h3>
+<div class="uri">https://w3id.org/cdif/xas/density</div>
+<dl>
+<dt>Definition</dt><dd>Density of sample</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/density" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/density</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-density-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-density-field</a></dd>
+</dl></section>
+<section id="sampledescription" class="concept">
+<h3>Sample description</h3>
+<div class="uri">https://w3id.org/cdif/xas/sampledescription</div>
+<dl>
+<dt>Definition</dt><dd>Free-text description of the sample. Broader than sample preparation: it may record the sample&#x27;s form, dimensions, provenance or identity as well as how it was prepared.</dd>
+<dt>Note</dt><dd>Grounded in the NeXus NXDL documentation for NXsample/description, &#x27;Description of the sample&#x27;. Minted 2026-07-28 because the glossary had no general free-text sample concept, which forced samplepreparation into a closeMatch against that field. XDI has no counterpart tag; its Sample.prep text maps to samplepreparation.</dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html</a></dd>
+</dl></section>
+<section id="electricfield" class="concept">
+<h3>Sample electric field</h3>
+<div class="uri">https://w3id.org/cdif/xas/electricfield</div>
+<dl>
+<dt>Definition</dt><dd>Electric field applied to sample during analysis. Represented with x, y, z voltage components.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/electric_field" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/electric_field</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-electric-field-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-electric-field-field</a></dd>
+</dl></section>
+<section id="electrochemicalpotential" class="concept">
+<h3>Sample electrochemical potential</h3>
+<div class="uri">https://w3id.org/cdif/xas/electrochemicalpotential</div>
+<dl>
+<dt>Definition</dt><dd>Applied electrochemical potential at the sample during measurement.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="magneticfield" class="concept">
+<h3>Sample magnetic field</h3>
+<div class="uri">https://w3id.org/cdif/xas/magneticfield</div>
+<dl>
+<dt>Definition</dt><dd>magnetic_field.value is a link to e.g. magnetic_field_env.sensor1.value</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Group/NXsample/magnetic_field" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Group/NXsample/magnetic_field</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-magnetic-field-group" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-magnetic-field-group</a></dd>
+</dl></section>
+<section id="magneticmoment" class="concept">
+<h3>Sample magnetic moment</h3>
+<div class="uri">https://w3id.org/cdif/xas/magneticmoment</div>
+<dl>
+<dt>Definition</dt><dd>Magnetic moment measured on the sample.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="samplemass" class="concept">
+<h3>Sample mass</h3>
+<div class="uri">https://w3id.org/cdif/xas/samplemass</div>
+<dl>
+<dt>Definition</dt><dd>Mass of the sample.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/mass" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/mass</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-mass-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-mass-field</a></dd>
+</dl></section>
+<section id="samplematerial" class="concept">
+<h3>Sample material</h3>
+<div class="uri">https://w3id.org/cdif/xas/samplematerial</div>
+<dl>
+<dt>Definition</dt><dd>Type of substance that constitutes the sample.</dd>
+<dt>Note</dt><dd>Material type encompasses state of matter. E.g. See iSamples material type vocabulary (https://vocabs.ardc.edu.au/viewById/664).  See also https://doi.org/10.1351/goldbook.12297</dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.1351/goldbook.12297" target="_blank" rel="noreferrer">https://doi.org/10.1351/goldbook.12297</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="opacity" class="concept">
+<h3>Sample opacity</h3>
+<div class="uri">https://w3id.org/cdif/xas/opacity</div>
+<dl>
+<dt>Definition</dt><dd>Opacity of the sample material relative to the incident X-ray beam.</dd>
+<dt>Note</dt><dd>Dimensionless: a ratio relative to the incident beam. Stated here because the file formats do not record a unit for this quantity, so a consumer cannot otherwise tell &#x27;dimensionless&#x27; from &#x27;unit not recorded&#x27;.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="ph" class="concept">
+<h3>Sample pH</h3>
+<div class="uri">https://w3id.org/cdif/xas/ph</div>
+<dl>
+<dt>Definition</dt><dd>pH of the sample environment (if a liquid or a wet cell).</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="pointgroup" class="concept">
+<h3>Sample point group</h3>
+<div class="uri">https://w3id.org/cdif/xas/pointgroup</div>
+<dl>
+<dt>Definition</dt><dd>Crystallographic point group, deprecated if space_group present</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/point_group" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/point_group</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-point-group-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-point-group-field</a></dd>
+</dl></section>
+<section id="samplepreparation" class="concept">
+<h3>Sample preparation</h3>
+<div class="uri">https://w3id.org/cdif/xas/samplepreparation</div>
+<dl>
+<dt>Definition</dt><dd>The method of sample preparation.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="eh" class="concept">
+<h3>Sample redox potential (Eh)</h3>
+<div class="uri">https://w3id.org/cdif/xas/eh</div>
+<dl>
+<dt>Definition</dt><dd>Redox potential Eh of the sample environment.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="resistivity" class="concept">
+<h3>Sample resistivity</h3>
+<div class="uri">https://w3id.org/cdif/xas/resistivity</div>
+<dl>
+<dt>Definition</dt><dd>Electrical resistivity of the sample.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="temperature" class="concept">
+<h3>Sample temperature</h3>
+<div class="uri">https://w3id.org/cdif/xas/temperature</div>
+<dl>
+<dt>Definition</dt><dd>Sample temperature. This could be a scanned variable</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/temperature" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/temperature</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-temperature-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-temperature-field</a></dd>
+</dl></section>
+<section id="samplethickness" class="concept">
+<h3>Sample thickness</h3>
+<div class="uri">https://w3id.org/cdif/xas/samplethickness</div>
+<dl>
+<dt>Definition</dt><dd>Length of sample material in the direction of incident x-rays.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/thickness" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/thickness</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-thickness-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-thickness-field</a></dd>
+</dl></section>
+<section id="sampleunitcell" class="concept">
+<h3>Sample unit cell</h3>
+<div class="uri">https://w3id.org/cdif/xas/sampleunitcell</div>
+<dl>
+<dt>Definition</dt><dd>[Crystallographic] Unit cell parameters (lengths and angles) (NEXUS)</dd>
+<dt>Note</dt><dd>&#x27;unit cell is a region that just fills space without any overlapping when translated through some subset of the vectors of a Bravais lattice.&#x27; (Ashcroft, Neil W. (1976). &#x27;Chapter 4&#x27;. Solid State Physics. W. B. Saunders Company. p. 73)</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/unit_cell" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/unit_cell</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-unit-cell-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-unit-cell-field</a></dd>
+</dl></section>
+<section id="viscosity" class="concept">
+<h3>Sample viscosity</h3>
+<div class="uri">https://w3id.org/cdif/xas/viscosity</div>
+<dl>
+<dt>Definition</dt><dd>Viscosity of the sample if a liquid.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="volume" class="concept">
+<h3>Sample volume</h3>
+<div class="uri">https://w3id.org/cdif/xas/volume</div>
+<dl>
+<dt>Definition</dt><dd>Volume of the sample material analyzed.</dd>
+<dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="source" class="concept">
+<h3>Source</h3>
+<div class="uri">https://w3id.org/cdif/xas/source</div>
+<dl>
+<dt>Definition</dt><dd>A device that generates X-rays or other types of radiation used to probe a sample.</dd>
+<dt>Note</dt><dd>E.g. storage ring (synchrotron), x-ray tube.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXsource" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXsource</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsource.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsource.html</a></dd>
+</dl></section>
+<section id="synchrotonfacility" class="concept">
+<h3>Synchrotron facility</h3>
+<div class="uri">https://w3id.org/cdif/xas/synchrotonfacility</div>
+<dl>
+<dt>Definition</dt><dd>Installation that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.</dd>
+<dt>Note</dt><dd>A place that hosts instruments and other necessary components to support XAS research.  NEXUS comment is &#x27;The neutron or x-ray storage ring/facility&#x27;</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXsource" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXsource</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsource.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsource.html</a></dd>
+</dl></section>
+<section id="transmittedintensity" class="concept">
+<h3>Transmitted intensity<span class="notation-badge">itrans</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/transmittedintensity</div>
+<dl>
+<dt>Definition</dt><dd>The measured X-ray intensity transmitted through a sample.</dd>
+<dt>Note</dt><dd>The the change in x-ray intensity depends on the distance the x-ray beams travels through the sample.</dd>
+<dt>References</dt><dd><a class="ref" href="https://www.esrf.fr/files/live/sites/www/files/events/conferences/2016/Summer%20school%202016/Summerschool%202016%20-%20Pascarelli.pdf" target="_blank" rel="noreferrer">https://www.esrf.fr/files/live/sites/www/files/events/conferences/2016/Summer%20school%202016/Summerschool%202016%20-%20Pascarelli.pdf</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="wavenumber" class="concept">
+<h3>Wavenumber<span class="notation-badge">k</span></h3>
+<div class="uri">https://w3id.org/cdif/xas/wavenumber</div>
+<dl>
+<dt>Definition</dt><dd>The photoelectron wavenumber (k) represents the spatial frequency of the emitted photoelectron wave, calculated from the kinetic energy above the absorption edge.</dd>
+<dt>Note</dt><dd>XDI Column.k: photoelectron wavenumber (typically inverse Angstroms).</dd>
+<dt>References</dt><dd>Bunker, G. (2010). Introduction to X-ray Absorption Fine Structure Spectroscopy. Cambridge University Press.</dd>
+<dt>References</dt><dd><a class="ref" href="https://en.wikipedia.org/wiki/Wavenumber" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Wavenumber</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+</dl></section>
+<section id="xraydetector" class="concept">
+<h3>X-ray detector</h3>
+<div class="uri">https://w3id.org/cdif/xas/xraydetector</div>
+<dl>
+<dt>Definition</dt><dd>A device for detecting the presence of X-Rays and measureing their intensity.</dd>
+<dt>Note</dt><dd>NEXUS has &#x27;A detector, detector bank, or multidetector.&#x27; which is not a definition.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXdetector" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXdetector</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXdetector.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXdetector.html</a></dd>
+</dl></section>
+<section id="xraymonitor" class="concept">
+<h3>X-ray monitor</h3>
+<div class="uri">https://w3id.org/cdif/xas/xraymonitor</div>
+<dl>
+<dt>Definition</dt><dd>An instrument that acquires data to characterize the incident x-ray beam.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXmonitor" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXmonitor</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXmonitor.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXmonitor.html</a></dd>
+</dl></section>
+<section id="xraymonochromator" class="concept">
+<h3>X-ray monochromator</h3>
+<div class="uri">https://w3id.org/cdif/xas/xraymonochromator</div>
+<dl>
+<dt>Definition</dt><dd>Device used to eliminate X-rays of energies other than those in a narrow energy or wavelength band.</dd>
+<dt>Note</dt><dd>A device for isolating a narrow portion of a spectrum (Merriam-Webster).  A device that transmits a selectable narrow band of wavelengths of light or other radiation chosen from a wider range of wavelengths available at the input. [Wikipedia] see also https://doi.org/10.1351/goldbook.09304.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXmonochromator" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXmonochromator</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://en.wikipedia.org/wiki/Crystal_monochromator" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Crystal_monochromator</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.1351/goldbook.09304" target="_blank" rel="noreferrer">https://doi.org/10.1351/goldbook.09304</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html</a></dd>
+</dl></section>
+<section id="xraysourcetype" class="concept">
+<h3>X-ray source type</h3>
+<div class="uri">https://w3id.org/cdif/xas/xraysourcetype</div>
+<dl>
+<dt>Definition</dt><dd>Type of radiation source.</dd>
+<dt>Note</dt><dd>One of {&#x27;Spallation Neutron Source&#x27; , &#x27;Pulsed Reactor Neutron Source&#x27; , &#x27;Reactor Neutron Source&#x27; , &#x27;Synchrotron X-ray Source&#x27; , &#x27;Pulsed Muon Source&#x27; , &#x27;Rotating Anode X-ray&#x27; , &#x27;Fixed Tube X-ray&#x27; , &#x27;UV Laser&#x27; , &#x27;Free-Electron Laser&#x27; , &#x27;Optical Laser&#x27; , &#x27;Ion Source&#x27; , &#x27;UV Plasma Source&#x27; , &#x27;Metal Jet X-ray&#x27;}  Another possible type is &#x27;APS (Advanced Photon Source) bending magnet&#x27;, which would appear to be a subclass of &#x27;Synchrotron X-ray Source&#x27;.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsource/type" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsource/type</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-type-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-type-field</a></dd>
+</dl></section>
+<section id="analysisevent" class="concept">
+<h3>XAS analysis event</h3>
+<div class="uri">https://w3id.org/cdif/xas/analysisevent</div>
+<dl>
+<dt>Definition</dt><dd>The execution of an X-ray absorption spectroscopy experiment, which is essentially a scan on energy (transmitted, fluorescent...) versus incoming/absorbed beam.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Application/NXxas" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Application/NXxas</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf" target="_blank" rel="noreferrer">https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/applications/NXxas.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/applications/NXxas.html</a></dd>
+</dl></section>
+<section id="xasmeasurementmode" class="concept">
+<h3>XAS measurement mode</h3>
+<div class="uri">https://w3id.org/cdif/xas/xasmeasurementmode</div>
+<dl>
+<dt>Definition</dt><dd>Detection method used for observing the sample absorption.</dd>
+<dt>Note</dt><dd>Property of experiment; controlled list of process being monitored to obtain the spectrum.  One of {&#x27;Total Electron Yield&#x27; , &#x27;Partial Electron Yield&#x27; , &#x27;Auger Electron Yield&#x27; , &#x27;Fluorescence Yield&#x27; , &#x27;Transmission&#x27;}.</dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXxas/ENTRY/DATA/mode" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXxas/ENTRY/DATA/mode</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
+<dt>References</dt><dd><a class="ref" href="https://w3id.org/cdif/xas/XAS_DetectionModes" target="_blank" rel="noreferrer">https://w3id.org/cdif/xas/XAS_DetectionModes</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/applications/NXxas.html#nxxas-entry-data-mode-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/applications/NXxas.html#nxxas-entry-data-mode-field</a></dd>
+</dl></section>
+</div>
+</main>
+<script>
+document.getElementById('filter-input').addEventListener('input', (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('nav.toc li').forEach(li => {
+    const text = li.textContent.toLowerCase();
+    li.style.display = !q || text.includes(q) ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>
