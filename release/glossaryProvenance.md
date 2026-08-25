@@ -79,7 +79,7 @@ came from. Across the glossary those references resolve to:
 | `dictionary.iucr.org` | 4 |
 | others (`w3id.org`, `esrf.fr`, `iucr.org`, `csrri.iit.edu`) | 6 |
 
-90 of 105 concepts carry at least one reference; 68 carry a
+91 of 105 concepts carry at least one reference; 68 carry a
 `skos:note`, 27 a `skos:notation` (the XDI token), and 11 a
 `qudt:hasUnit`.
 
@@ -154,7 +154,7 @@ concept it enumerates values for, without exception (39/39, 432/432,
 | detection modes | `cdifxas:xasmeasurementmode` |
 
 So the value lists *are* hierarchically attached to the glossary. The
-flatness noted in §8 is within the glossary's own 104 top concepts, not
+flatness noted in §8 is within the glossary's own 105 top concepts, not
 between the glossary and its value lists.
 
 ---
@@ -415,7 +415,7 @@ vocabulary defines.
 
 ### Concept hierarchy (Rec 5)
 
-The glossary is **flat**: 104 top concepts, no `skos:broader`, and a
+The glossary is **flat**: 105 top concepts, no `skos:broader`, and a
 single `skos:narrower` on `absorptioncoefficient`. The gap analysis
 proposed adopting the NXxas subclass hierarchy —
 `absorptioncoefficient` generalising the transmission / TFY / PFY /
