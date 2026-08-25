@@ -10,7 +10,7 @@ Verified against the repository on 2026-08-25.
 
 ## 1. What the glossary is
 
-`XAS_Glossary_SKOS.json` — **105 SKOS concepts** describing X-ray
+`XAS_Glossary_SKOS.json` — **106 SKOS concepts** describing X-ray
 absorption spectroscopy: measurement quantities, instrument components,
 sample properties and processing results.
 
@@ -165,11 +165,23 @@ between the glossary and its value lists.
 bindings, expressed in **SSSOM** (Simple Standard for Sharing
 Ontological Mappings).
 
-| File | Rows | Direction |
-|---|--:|---|
-| `xdi-to-cdifxas.sssom.tsv` | 22 | XDI token → CDIF concept |
-| `cdifxas-to-nexus.sssom.tsv` | 52 | CDIF concept → NeXus path |
-| `cdifxas-units.tsv` | 12 | CDIF concept → QUDT unit |
+| File | Rows | Direction | `object_source` |
+|---|--:|---|---|
+| `xdi-to-cdifxas.sssom.tsv` | 31 | XDI token → CDIF XAS concept | `w3id.org/cdif/xas/` |
+| `xdi-to-cdif.sssom.tsv` | 4 | XDI header → schema.org property | `schema.org` |
+| `cdifxas-to-nexus.sssom.tsv` | 52 | CDIF concept → NeXus path | `w3id.org/cdif/nxdl/` |
+| `cdifxas-units.tsv` | 12 | CDIF concept → QUDT unit | — |
+
+**Three sets, not two, and the split is by `object_source`.** Some XDI
+headers carry bibliographic and rights metadata that CDIF models with
+schema.org — `Publication.DOI` → `schema:identifier`,
+`Publication.authors` → `schema:author`, `Publication.affiliation` →
+`schema:affiliation` (closeMatch: XDI has one free-text string for the
+whole author list, schema:affiliation attaches to a Person), and
+`Spectrum.license` → `schema:license`. Putting these in the XAS set
+would have made its declared `object_source` false, and minting an XAS
+concept for "the DOI of the paper" would duplicate `schema:identifier`
+for no gain.
 
 ### Why SSSOM rather than inline `skos:exactMatch`
 
@@ -271,10 +283,10 @@ Nothing below is hand-edited; all are derived from the master glossary.
 
 | Artifact | Generator | Count |
 |---|---|--:|
-| `XAS-CDIF-1.0_release/docs/concepts/{localname}.jsonld` | `tools/generate_concept_files.py` | 105 |
+| `XAS-CDIF-1.0_release/docs/concepts/{localname}.jsonld` | `tools/generate_concept_files.py` | 106 |
 | `XAS-CDIF-1.0_release/docs/index.html` | `tools/generate_glossary_html.py` | 1 |
 | the three enumerations | `tools/import_nexus_enumerations.py` | 478 |
-| the two SSSOM sets | `crosswalk/build_crosswalk.py` | 74 |
+| the three SSSOM sets | `crosswalk/build_crosswalk.py` | 87 |
 
 Per-concept files are self-contained, so
 `https://w3id.org/cdif/xas/{localname}` can dereference to a single
@@ -437,6 +449,19 @@ its own description, with competing branches, and `main` will move
 under a published vocabulary. It was `89971f39` (2026-07-03) when the
 enumerations were last regenerated. Pinning changes what "regenerate"
 means, so it is a decision rather than a fix.
+
+### `Scan.number` — deferred
+
+`Scan.number` is the one XDI extension header in the mapping spreadsheet
+left unmapped. It is a scan ordinal, presumably appended to a base
+identifier to make a unique id within a dataset holding a set of scans.
+Every XDI file in the example corpus holds a single spectrum, so the case
+never arises here and nothing would exercise the mapping.
+
+Worth noting rather than forgetting: XDI's dictionary already defines
+`Column.N` for exactly this "N-th thing in a set" pattern, so if
+scan-set datasets appear, `Scan.number` is the natural discriminator for
+`schema:identifier` on each part.
 
 ### Contribution flowing the other way
 

@@ -189,6 +189,75 @@ XDI_TO_CDIFXAS = [
      "Data column: mu(E) derived from the fluorescence channel."),
     ("Column.murefer", None, "referenceabsorptioncoefficient", E, 1.0,
      "Data column: mu(E) derived from the reference channel."),
+
+    # --- Headers observed in XDI DATA but absent from the dictionary ------
+    # XDI permits extension headers, and the project mapping spreadsheet
+    # (archive/XDI-CDIF-Mapping.xlsx) marks these `dat` rather than `xdi`
+    # for exactly that reason. The concepts were already in the glossary
+    # and in the profile schema; only the mapping row was missing, so a
+    # reader of the crosswalk could not tell that these CDIF concepts have
+    # an XDI origin at all.
+    ("Beamline.energy_range", None, "energyrange", E, 1.0,
+     "Not a dictionary tag -- an extension header seen in XDI data. "
+     "Energy range scanned."),
+    ("Beamline.energy_resolution", None, "energyresolution", E, 1.0,
+     "Not a dictionary tag -- an extension header seen in XDI data. "
+     "Energy resolution of the beamline optics."),
+    ("Beamline.flux", None, "flux", E, 1.0,
+     "Not a dictionary tag -- an extension header seen in XDI data. "
+     "Incident photon flux."),
+    ("Beamline.scan_mode", None, "scanmode", E, 1.0,
+     "Not a dictionary tag -- an extension header seen in XDI data. "
+     "How the monochromator was driven through the scan."),
+    ("Beamline.spot_size", None, "spotsize", E, 1.0,
+     "Not a dictionary tag -- an extension header seen in XDI data. "
+     "Transverse beam size at the sample."),
+    ("Beamline.website", None, "website", E, 1.0,
+     "Not a dictionary tag -- an extension header seen in XDI data. "
+     "Beamline documentation URL."),
+    ("Beamline.detector", None, "detectortype", E, 1.0,
+     "Not a dictionary tag -- an extension header from the project "
+     "mapping spreadsheet; unattested in the 55-file example corpus. "
+     "Maps to the existing detectortype concept rather than minting a "
+     "second detector term."),
+    ("Sample.formula", None, "samplechemicalcomposition", E, 1.0,
+     "Not a dictionary tag -- an extension header in 19 of the 55 example "
+     "files, carrying values like 'Na2SeO4'. That is the existing "
+     "samplechemicalcomposition concept, not a new one. The dictionary's "
+     "own Sample.stoichiometry is unattested in the corpus."),
+    ("Sample.reference", None, "referencesample", E, 1.0,
+     "Not a dictionary tag -- an extension header in 10 of the 55 example "
+     "files, carrying values like 'GaAs powder' and 'Cd foil'. The "
+     "reference MATERIAL, distinct from the dictionary's Element.reference "
+     "(the reference element symbol). Concept minted for this mapping."),
+]
+
+# ---------------------------------------------------------------------------
+# Mapping set 3: XDI token -> standard CDIF / schema.org property
+# ---------------------------------------------------------------------------
+# These XDI headers carry bibliographic and rights metadata, which CDIF
+# already models with schema.org. They do NOT belong in set 1: that set
+# declares object_source https://w3id.org/cdif/xas/, and minting an XAS
+# concept for "the DOI of the paper" would duplicate schema:identifier
+# for no gain. A separate set keeps "which vocabulary does this map into"
+# answerable from the header.
+#
+# All four are source `dat` in archive/XDI-CDIF-Mapping.xlsx -- extension
+# headers seen in data, not dictionary tags.
+#
+# Columns: xdi_token, cdif_property, predicate, confidence, comment
+XDI_TO_CDIF = [
+    ("Publication.DOI", "schema:identifier", E, 1.0,
+     "DOI of the publication reporting the measurement. A schema:identifier "
+     "on the citation, not on the dataset -- the dataset has its own."),
+    ("Publication.authors", "schema:author", E, 1.0,
+     "Author list of the reporting publication."),
+    ("Publication.affiliation", "schema:affiliation", C, 0.8,
+     "Author affiliation. closeMatch, not exact: XDI carries one free-text "
+     "string for the whole author list, whereas schema:affiliation attaches "
+     "to an individual schema:Person."),
+    ("Spectrum.license", "schema:license", E, 1.0,
+     "Licence under which the spectrum is released."),
 ]
 
 # ---------------------------------------------------------------------------
@@ -603,6 +672,44 @@ def build_xdi_set(ref: str) -> tuple[dict, list[dict]]:
     return meta, rows
 
 
+def build_cdif_set() -> tuple[dict, list[dict]]:
+    """XDI tokens that map onto standard CDIF/schema.org, not onto XAS
+    concepts. Kept apart from set 1 so each set has one honest
+    object_source."""
+    rows = []
+    for token, prop, pred, conf, comment in XDI_TO_CDIF:
+        rows.append({
+            "subject_id": f"xdi:{token}",
+            "subject_label": token,
+            "predicate_id": pred,
+            "object_id": prop,
+            "object_label": prop.split(":")[-1],
+            "mapping_justification": MANUAL,
+            "confidence": conf,
+            "author_id": f"orcid:{CURATOR.rsplit('/', 1)[-1]}",
+            "comment": comment,
+        })
+    meta = {
+        "mapping_set_id": "https://w3id.org/cdif/xas/crosswalk/xdi-to-cdif",
+        "mapping_set_title":
+            "XDI extension headers to standard CDIF properties",
+        "mapping_set_description":
+            "Bibliographic and rights headers seen in XDI data that CDIF "
+            "models with schema.org rather than with an XAS concept. Held "
+            "separately from xdi-to-cdifxas so that each set has a single "
+            "object_source. Subjects are extension headers (source 'dat' in "
+            "the project mapping spreadsheet), not XDI/1.0 dictionary tags.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "mapping_provider": "https://github.com/smrgeoinfo/XAS-CDIF",
+        "creator_id": [f"orcid:{CURATOR.rsplit('/', 1)[-1]}"],
+        "mapping_tool": "crosswalk/build_crosswalk.py",
+        "subject_source": "XDI extension headers (observed in data)",
+        "object_source": "http://schema.org/",
+        "curie_map": {**CURIE_MAP, "schema": "http://schema.org/"},
+    }
+    return meta, rows
+
+
 def build_nexus_set(ref: str) -> tuple[dict, list[dict]]:
     rows = []
     for concept, defn, path, pred, conf, comment in CDIFXAS_TO_NEXUS:
@@ -722,8 +829,11 @@ def main(argv=None) -> int:
 
     meta1, rows1 = build_xdi_set(args.ref)
     meta2, rows2 = build_nexus_set(args.ref)
+    meta3, rows3 = build_cdif_set()
     write_set(HERE / "xdi-to-cdifxas.sssom.tsv", meta1, rows1)
     write_set(HERE / "cdifxas-to-nexus.sssom.tsv", meta2, rows2)
+    write_set(HERE / "xdi-to-cdif.sssom.tsv", meta3, rows3)
+    print(f"  wrote xdi-to-cdif.sssom.tsv        ({len(rows3)} mappings)")
     print(f"  wrote xdi-to-cdifxas.sssom.tsv     ({len(rows1)} mappings)")
     print(f"  wrote cdifxas-to-nexus.sssom.tsv   ({len(rows2)} mappings)")
     n_units = write_units(HERE / "cdifxas-units.tsv")

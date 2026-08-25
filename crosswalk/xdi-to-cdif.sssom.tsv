@@ -1,0 +1,23 @@
+# mapping_set_id: https://w3id.org/cdif/xas/crosswalk/xdi-to-cdif
+# mapping_set_title: XDI extension headers to standard CDIF properties
+# mapping_set_description: Bibliographic and rights headers seen in XDI data that CDIF models with schema.org rather than with an XAS concept. Held separately from xdi-to-cdifxas so that each set has a single object_source. Subjects are extension headers (source 'dat' in the project mapping spreadsheet), not XDI/1.0 dictionary tags.
+# license: https://creativecommons.org/licenses/by/4.0/
+# mapping_provider: https://github.com/smrgeoinfo/XAS-CDIF
+# creator_id:
+#   - orcid:0000-0001-6041-5302
+# mapping_tool: crosswalk/build_crosswalk.py
+# subject_source: XDI extension headers (observed in data)
+# object_source: http://schema.org/
+# curie_map:
+#   cdifxas: https://w3id.org/cdif/xas/
+#   xdi: https://w3id.org/cdif/xdi/
+#   nxdl: https://w3id.org/cdif/nxdl/
+#   skos: http://www.w3.org/2004/02/skos/core#
+#   semapv: https://w3id.org/semapv/vocab/
+#   orcid: https://orcid.org/
+#   schema: http://schema.org/
+subject_id	subject_label	predicate_id	object_id	object_label	mapping_justification	confidence	author_id	comment
+xdi:Publication.DOI	Publication.DOI	skos:exactMatch	schema:identifier	identifier	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	DOI of the publication reporting the measurement. A schema:identifier on the citation, not on the dataset -- the dataset has its own.
+xdi:Publication.authors	Publication.authors	skos:exactMatch	schema:author	author	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Author list of the reporting publication.
+xdi:Publication.affiliation	Publication.affiliation	skos:closeMatch	schema:affiliation	affiliation	semapv:ManualMappingCuration	0.8	orcid:0000-0001-6041-5302	Author affiliation. closeMatch, not exact: XDI carries one free-text string for the whole author list, whereas schema:affiliation attaches to an individual schema:Person.
+xdi:Spectrum.license	Spectrum.license	skos:exactMatch	schema:license	license	semapv:ManualMappingCuration	1.0	orcid:0000-0001-6041-5302	Licence under which the spectrum is released.
