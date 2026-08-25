@@ -323,11 +323,40 @@ XDI dictionary — which defines exactly 29 tokens — **eight of the nine
 appear nowhere in it.** Only `fluxmeasuremethod` has an XDI origin,
 generalising the four `Detector.i0/it/if/ir` descriptions.
 
-The glossary already records their real source: all nine carry
-`dcterms:references` to
-[doi:10.5281/zenodo.14920226](https://doi.org/10.5281/zenodo.14920226),
-the XAS standards-and-vocabularies survey. They are survey-derived, not
-specification-derived, and their provenance was never actually hidden.
+Their real source is the **project's own mapping spreadsheets**, now in
+`archive/` — the third source named in the scheme description (§2).
+`XDI-CDIF-Mapping.xlsx` carries a `source` column separating `xdi` (61
+rows, from the dictionary) from `dat` (14 rows, observed as extension
+headers in real XDI data files, which the format permits and the
+dictionary does not enumerate):
+
+| concept | recorded origin |
+|---|---|
+| `fluxmeasuremethod` | `xdi` — generalises `detector.i0/if/ir/it` |
+| `monochromatorangle` | `xdi` — `angle` |
+| `scanmode` | `dat` — `Beamline.scan_mode` |
+| `website` | `dat` — `Beamline.website` |
+| `xasmeasurementmode` | upstream NeXus `NXxas/ENTRY/DATA/mode` |
+| `installedoptions`, `calibrationmethod` | project-defined; no NeXus URI recorded |
+| `monitormode`, `monitorpreset` | source column blank |
+
+"XDI-derived" was half right in a way a dictionary check cannot see:
+`scanmode` and `website` come from XDI **data**, not from the XDI
+specification.
+
+The `dcterms:references` to
+[doi:10.5281/zenodo.14920226](https://doi.org/10.5281/zenodo.14920226)
+that all nine carry is a **related reference, not a definition**. The
+landscape report is a narrative survey; it defines none of the nine
+(verified against the PDF text — eight score zero hits, and it does not
+discuss token-level terms at all).
+
+**This is the weakest link in the provenance chain.** The definitive
+origin now lives only in retired spreadsheets that no tool reads and
+that the glossary itself describes as superseded. If a concept's origin
+is ever disputed, `archive/XDI-CDIF-Mapping.xlsx` and
+`archive/XAS_Glossary_deprecated.xlsx` are the record — worth knowing
+before they are cleaned up.
 
 Moving them would also be a breaking change. Six —
 `installedoptions`, `scanmode`, `calibrationmethod`, `website`,
