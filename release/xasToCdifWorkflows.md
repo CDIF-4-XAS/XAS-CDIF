@@ -94,7 +94,7 @@ obvious assumption.
 
 ### Bundled crosswalks
 
-The three crosswalk files under `src/cdifnexmetadata/data/` are *copies*
+The four crosswalk files under `src/cdifnexmetadata/data/` are *copies*
 of the ones in this repository's `crosswalk/`, refreshed with:
 
 ```bash
