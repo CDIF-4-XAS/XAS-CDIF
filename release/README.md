@@ -29,6 +29,9 @@ A conforming XAS document declares all six URIs in
 - **[cdifXASDocumentResolvedSchema.json](cdifXASDocumentResolvedSchema.json)** — JSON Schema with all `$ref`s inlined for standalone use.
 - **[xasDocumentRules.shacl](xasDocumentRules.shacl)** — aggregated SHACL shapes from all six composed components (~2000 triples). Aggregated by `metadataBuildingBlocks/tools/validate_shacl.py --emit-shapes`.
 - **[cdifXASDocument-frame.jsonld](cdifXASDocument-frame.jsonld)** — JSON-LD frame for extracting the Dataset node from a graph before JSON Schema validation.
+- **[xasToCdifWorkflows.md](xasToCdifWorkflows.md)** — the two implementations
+  that produce conforming documents (NeXus/HDF5 and XDI), how to run each,
+  and which to integrate into a workflow system.
 - **[glossaryProvenance.md](glossaryProvenance.md)** — where the XAS
   vocabularies come from, how they were built, what is generated versus
   curated, the SSSOM crosswalks, and open items.
