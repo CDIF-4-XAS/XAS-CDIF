@@ -325,8 +325,6 @@ accident of which crosswalk was written first; writing the second one is
 what exposed it, and the fix is a technique-neutral namespace in the
 glossary rather than a duplicate here.
 
-(The TSV header still says "four", predating the `temperature` row.)
-
 `docs/NXsas.md` in that repository covers what NXsas is and how real
 files depart from the definition.
 
