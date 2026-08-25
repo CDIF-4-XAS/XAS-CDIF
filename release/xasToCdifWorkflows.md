@@ -1,11 +1,10 @@
 # XAS data to CDIF metadata — the two workflows
 
-How a raw XAS dataset becomes a metadata record conforming to
-`cdif/xasDocument/1.0`. There are **two independent implementations**.
+How a metadata record is generated from a raw XAS dataset. The metadata record conforms to `cdif/xasDocument/1.0`. There are **two independent implementations**.
 They share no code — only the target profile.
 
-They are **not** split by input format. `cdifnexmetadata` reads both
-NeXus/HDF5 and XDI; `cdif-xas` reads XDI only. What separates them is
+ [cdifnexmetadata](https://github.com/usgin/cdifnexmetadata/tree/main) reads both
+NeXus/HDF5 and XDI; [cdif-xas](https://github.com/UKDSResearch/cdif-xas) reads XDI only. What separates them is
 *method*: a Python emitter versus a declarative RML mapping executed by a
 Java tool, packaged as a CLI versus an HTTP service.
 
@@ -17,12 +16,17 @@ of 2026-08-25.
 ## The shape of it
 
 ```
+                          concept-keyed intermediate
   NeXus .nxs ─┐
-              ├─▶ cdifnexmetadata ─┐   Python, CLI
-  XDI .xdi ─┬─┘   (h5py + numpy)   │
-            │                      ├─▶ CDIF JSON-LD ─▶ frame ─▶ validate
-            └─▶ cdif-xas ──────────┘   RML + Java, HTTP    │
-                (rmlmapper)                                │
+              ├─▶ cdifnexmetadata ─▶ ConceptRecord ──────┐
+  XDI .xdi ─┬─┘   Python, CLI        in memory,          │
+            │                        glossary-keyed      │
+            │                                            ├─▶ CDIF JSON-LD ─▶ frame ─▶ validate
+            │                                            │
+            └─▶ cdif-xas ────────▶ cdif_skos.json ───────┘
+                api/cdi.py           on disk, XDI-keyed,
+                RML + Java, HTTP     then rmlmapper
+
                                           JSON Schema + SHACL from
                                              XAS-CDIF/release/
 ```
@@ -70,27 +74,36 @@ Java, no Docker, no network at runtime.**
 
 ### How it works
 
-Four stages inside one process:
+**It does not emit CDIF straight from the file.** Reading and emitting
+are separated by a concept-keyed intermediate, exactly as Path B is —
+see [Both paths pivot on an intermediate](#both-paths-pivot-on-an-intermediate).
 
 | stage | module | what it does |
 |---|---|---|
-| 1. read | `map/` (`xdi.py`, `crosswalk.py`) | walk the HDF5 tree / parse XDI headers |
-| 2. normalise | `map/normalise.py` | ISO datetimes, qualitative temperatures, unit-less energies, header aliases |
-| 3. emit | `emit.py` | build the CDIF JSON-LD graph |
-| 4. validate | `validate.py` | frame, then JSON Schema + SHACL |
+| 1. read | `inspect/` (`nexus.py`, `xdi.py`) | walk the HDF5 tree / parse XDI headers |
+| 2. map | `map/` (`concepts.py`, `xdi.py`, `crosswalk.py`) | **source fields → `ConceptRecord`**, keyed on CDIF XAS glossary concept URIs |
+| 3. normalise | `map/normalise.py` | ISO datetimes, qualitative temperatures, unit-less energies, header aliases |
+| 4. emit | `emit.py` | `ConceptRecord` → the CDIF JSON-LD graph |
+| 5. validate | `validate.py` | frame, then JSON Schema + SHACL |
 
-Stage 4 is optional and off by default; the profile artifacts are located
+Stage 5 is optional and off by default; the profile artifacts are located
 by pattern under `--profile-dir`, or the `HDF5METADATA_PROFILE_DIR`
 environment variable (the name predates the `hdf5metadata` →
 `cdifnexmetadata` rename).
 
-**Concept resolution** goes through a crosswalk keyed on the CDIF XAS
-concept hub, so a NeXus path and an XDI token that mean the same thing
-land on the same `https://w3id.org/cdif/xas/{localname}` IRI. Adding a
-technique is a crosswalk edit; adding an input format is a parser. See
-that repo's `README.md` §"How it works" and `STATUS.md`, which is written
-as a cold-start entry point and records decisions that contradict the
-obvious assumption.
+Stage 2 is the hinge. A `ConceptRecord` is keyed on
+`https://w3id.org/cdif/xas/{localname}` — the glossary in this
+repository — so a NeXus path and an XDI token meaning the same thing
+land on the same key, and each value carries the field it came from, the
+SSSOM predicate that licensed the mapping, and its confidence. `emit.py`
+is the only CDIF-aware module and never sees a NeXus path or an XDI
+header. That is what makes a new input format a parser rather than a
+pipeline, and a new technique a crosswalk edit rather than a code
+change.
+
+See that repo's `README.md` §"How it works" and `STATUS.md`, which is
+written as a cold-start entry point and records decisions that
+contradict the obvious assumption.
 
 ### Bundled crosswalks
 
@@ -150,11 +163,20 @@ is a ~1900-line RML mapping executed by `rmlmapper`.
 
 | stage | component | what it does |
 |---|---|---|
-| 1. parse | `api/cdi.py` | XDI headers → intermediate JSON |
-| 2. pre-check | `api/xdi_precheck.py` | surface spec violations before mapping |
-| 3. map | `rmlmapper` + `resources/mapping_dds.ttl` | JSON → RDF/JSON-LD |
-| 4. frame | `api/FrameAndValidate.py` | graph → the tree the schema describes |
-| 5. validate | same | JSON Schema, then SHACL |
+| 1. parse | `api/cdi.py` | XDI headers → an RDF/SKOS graph |
+| 2. serialise | `api/cdif.py`, via `/cdif` | **graph → `resources/cdif_skos.json`**, the intermediate on disk |
+| 3. pre-check | `api/xdi_precheck.py` | surface spec violations before mapping |
+| 4. map | `rmlmapper` + `resources/mapping_dds.ttl` | `cdif_skos.json` → RDF/JSON-LD |
+| 5. frame | `api/FrameAndValidate.py` | graph → the tree the schema describes |
+| 6. validate | same | JSON Schema, then SHACL |
+
+**`/map` reads `cdif_skos.json` off disk, and `/cdif` is what writes
+it.** The RML mapping names the file in its own `rml:logicalSource`
+rather than taking a source argument, so `rmlmapper` is invoked with a
+mapping and an output and nothing else. The two endpoints therefore
+chain in one direction only, and a stale `cdif_skos.json` means `/map`
+silently processes the previous run's data — the batch tools sequence
+them correctly, but anyone calling the endpoints directly has to.
 
 Exposed as HTTP endpoints — `/cdif` (end to end), `/map`, `/frame`,
 `/validate` — and as the three `tools/batch_*.py` scripts.
@@ -164,6 +186,40 @@ emitted means editing the mapping, not Python. `api/Mapper.py` adds
 post-framing repairs that JSON-LD framing alone cannot express (collapsing
 reference-only slots, materialising blank-node identifiers, ensuring a
 Person carries a name or identifier).
+
+---
+
+## Both paths pivot on an intermediate
+
+Neither converter goes from file to CDIF in one step. Both parse the
+source into a concept-keyed intermediate and then transform *that* into
+CDIF, which is why the two can be compared field by field at all.
+
+| | Path A (`cdifnexmetadata`) | Path B (`cdif-xas`) |
+|---|---|---|
+| intermediate | `ConceptRecord` / `MappingResult` | `resources/cdif_skos.json` |
+| keyed on | CDIF XAS **glossary** concept URIs (`xas:facility`) | XDI-flavoured names (`cdi:Facility_name`) |
+| form | Python objects, **in memory** | a JSON file **on disk** |
+| inspectable? | not without writing code | yes — open the file |
+| produced by | `map/` | `/cdif` (a side effect of that endpoint) |
+| consumed by | `emit.py` | `rmlmapper`, per `mapping_dds.ttl` |
+
+Two differences matter when integrating.
+
+**What the key is.** Path A keys on the glossary, so the concept and the
+format it arrived in are separate: a NeXus path and an XDI token that
+mean the same thing produce the same key, and the source field is
+recorded beside the value. Path B keys on `cdi:Facility_name` — concept
+and binding fused — which is workable for one input format and is the
+reason that path reads XDI only.
+
+**Whether you can see it.** Path B's intermediate is a file you can
+open, diff, or hand to something else; it is also state, and a stale one
+is a real failure mode. Path A's never leaves the process: there is no
+`--dump-concepts` flag and nothing writes it, so inspecting it means
+importing `map_xdi` and reading the `MappingResult`. `MappingResult.
+to_dict()` is JSON-serialisable and used in tests, so exposing it would
+be small — but today it is not exposed.
 
 ---
 
