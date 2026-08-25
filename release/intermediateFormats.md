@@ -269,18 +269,70 @@ declares — so a folder of mixed techniques needs no per-file
 configuration. A new application definition is therefore a crosswalk TSV
 whose objects are NXDL paths, and nothing else.
 
-`cdifsas-to-nexus.sssom.tsv` exists as proof: small-angle scattering was
-added against `NXsas` as a crosswalk with no code change at all. Pass it
-with `--crosswalk` and an `NXsas` file yields concepts, variables and a
-data structure. See `docs/NXsas.md` in that repository for what it took,
-including why four technique-neutral concepts (facility, beamline, probe,
-source type) still carry `cdifxas:` CURIEs.
+`cdifsas-to-nexus.sssom.tsv` exists as proof: small-angle scattering
+(`NXsas` — a different application definition from `NXxas`, not a
+misspelling of it) was added as a crosswalk with no code change at all.
+Pass it with `--crosswalk` and an `NXsas` file yields concepts, variables
+and a data structure.
 
-Note that a file declaring a definition no bundled crosswalk covers still
-produces a document — base-class mappings apply to any definition, so
-facility, beamline, probe and the like are still found. `crosswalk_reason`
-in the dump says so explicitly. That is a thin document, not a failure,
-and the distinction is only visible in the intermediate.
+#### Writing the crosswalk
+
+Subjects are concept CURIEs, objects are NXDL paths:
+
+```
+cdifsas:detectordistance  ->  nxdl:NXsas/ENTRY:NXentry/INSTRUMENT:NXinstrument/DETECTOR:NXdetector/distance
+cdifsas:wavelength        ->  nxdl:NXmonochromator/wavelength
+```
+
+- The first segment after `nxdl:` is the **application definition**
+  (`NXsas`) or a **base class** (`NXmonochromator`).
+- Middle segments are `PLACEHOLDER:NXclass`. Matching is on the *class*;
+  the placeholder name is the NXDL's own and is a hint, not a
+  requirement, because real writers rarely use it.
+- The last segment is the field name.
+
+The two row kinds behave differently, and this is the part worth knowing
+before writing any:
+
+**An application-definition row** is rooted at the entry, so its path
+leads with a `:NXentry` segment. It applies only to files declaring that
+definition.
+
+**A base-class row** is relative to an instance of the class and does not
+lead with `:NXentry`. It applies to **any** definition — which is why a
+file declaring something no crosswalk covers still yields facility,
+beamline, probe and source type. That classification is structural, not
+by name: testing `startswith("NXxas")` instead would silently class every
+non-XAS definition as a base class and apply `NXsas` paths to XAS files.
+
+Map more than one path to the same concept where writers disagree; the
+first that resolves wins. `cdifsas:scatteringintensity` has two rows,
+one for `DETECTOR:NXdetector/data` and one for `DATA:NXdata/data`.
+
+Map only what the file contains. `Q`, the scattering vector, has no row
+because a raw `NXsas` file does not carry it — it is computed from
+wavelength, distance and pixel geometry, and a row for it would map
+something that does not exist.
+
+If a concept is technique-neutral, **reuse the existing CURIE rather than
+re-minting it**. The SAS crosswalk keeps five `cdifxas:` subjects
+unchanged — `facility`, `beamline`, `probe`, `xraysourcetype` and
+`temperature` — none of which is an XAS concept. SSSOM identifies
+concepts rather than namespaces, so re-minting them under `cdifsas:`
+would assert that a SAS facility and an XAS facility are different
+things. They are not. That they sit in an XAS-flavoured namespace is an
+accident of which crosswalk was written first; writing the second one is
+what exposed it, and the fix is a technique-neutral namespace in the
+glossary rather than a duplicate here.
+
+(The TSV header still says "four", predating the `temperature` row.)
+
+`docs/NXsas.md` in that repository covers what NXsas is and how real
+files depart from the definition.
+
+A file whose definition no crosswalk covers is therefore a thin document
+rather than a failure, and `crosswalk_reason` in the dump is the only
+place that says which happened.
 
 ### Check your work by reading the intermediate
 
