@@ -1249,7 +1249,7 @@ cdifd:xasFacilityNode a sh:NodeShape ;
       SELECT DISTINCT ?this
         WHERE {
           ?this a schema:Place .
-          ?this schema:additionalType "xas:facility" .
+          ?this schema:additionalType xas:facility .
           }""" ] .
 
 cdifd:xasGeneratedByNode a sh:NodeShape ;
@@ -1301,7 +1301,7 @@ cdifd:xasSampleNode a sh:NodeShape ;
       PREFIX schema: <http://schema.org/>
       SELECT DISTINCT ?this
         WHERE {
-          ?this schema:additionalType "MaterialSample".
+          ?this schema:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> .
           }""" ] .
 
 <https://cdif.org/validation/0.1/skos#ConceptShape> a sh:NodeShape ;

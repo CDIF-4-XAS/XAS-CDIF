@@ -2334,239 +2334,7 @@
                             "description": "Where the activity occurred",
                             "anyOf": [
                               {
-                                "description": "Spatial Extent description for CDIF discovery profile.  Note required prefix declaration for geoSparql ( http://www.opengis.net/ont/geosparql#) and OGC simple features (sf: http://www.opengis.net/ont/sf#)",
-                                "type": "object",
-                                "properties": {
-                                  "@type": {
-                                    "default": "schema:Place",
-                                    "type": "array",
-                                    "items": {
-                                      "type": "string"
-                                    },
-                                    "contains": {
-                                      "const": "schema:Place"
-                                    },
-                                    "minItems": 1
-                                  },
-                                  "schema:additionalType": {
-                                    "description": "Domain-specific type classifications for this place (e.g. facility type,laboratory classification, feature type).",
-                                    "type": "array",
-                                    "items": {
-                                      "anyOf": [
-                                        {
-                                          "type": "string"
-                                        },
-                                        {
-                                          "$ref": "#/$defs/DefinedTerm"
-                                        },
-                                        {
-                                          "type": "object",
-                                          "additionalProperties": false,
-                                          "required": [
-                                            "@id"
-                                          ],
-                                          "properties": {
-                                            "@id": {
-                                              "type": "string",
-                                              "description": "reference to a term defined elsewhere"
-                                            }
-                                          }
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "schema:name": {
-                                    "description": "A place name for the location, either as a string or a DefinedTerm from a gazetteer.",
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "$ref": "#/$defs/DefinedTerm"
-                                      }
-                                    ]
-                                  },
-                                  "schema:identifier": {
-                                    "description": "Formal identifier for this place (e.g. ROR identifier for a facility).",
-                                    "anyOf": [
-                                      {
-                                        "type": "string"
-                                      },
-                                      {
-                                        "$ref": "#/$defs/Identifier"
-                                      }
-                                    ]
-                                  },
-                                  "schema:alternateName": {
-                                    "description": "Alternate or abbreviated name(s) for this place.",
-                                    "type": "array",
-                                    "items": {
-                                      "anyOf": [
-                                        {
-                                          "type": "string"
-                                        },
-                                        {
-                                          "$ref": "#/$defs/DefinedTerm"
-                                        }
-                                      ]
-                                    }
-                                  },
-                                  "schema:geo": {
-                                    "description": "Either a bounding box or a point location.",
-                                    "anyOf": [
-                                      {
-                                        "type": "object",
-                                        "description": "A point location. Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location.",
-                                        "properties": {
-                                          "@type": {
-                                            "default": "schema:GeoCoordinates",
-                                            "type": "array",
-                                            "items": {
-                                              "type": "string"
-                                            },
-                                            "contains": {
-                                              "const": "schema:GeoCoordinates"
-                                            },
-                                            "minItems": 1
-                                          },
-                                          "schema:latitude": {
-                                            "type": "number",
-                                            "minimum": -90,
-                                            "maximum": 90
-                                          },
-                                          "schema:longitude": {
-                                            "type": "number",
-                                            "minimum": -180,
-                                            "maximum": 180
-                                          }
-                                        },
-                                        "required": [
-                                          "@type",
-                                          "schema:latitude",
-                                          "schema:longitude"
-                                        ]
-                                      },
-                                      {
-                                        "type": "object",
-                                        "description": "A schema:GeoShape bounding box. The geometry is described with a set of latitude/longitude pairs (in that order).The documentation for schema:GeoShape states 'Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points.'",
-                                        "properties": {
-                                          "@type": {
-                                            "default": "schema:GeoShape",
-                                            "type": "array",
-                                            "items": {
-                                              "type": "string"
-                                            },
-                                            "contains": {
-                                              "const": "schema:GeoShape"
-                                            },
-                                            "minItems": 1
-                                          },
-                                          "schema:box": {
-                                            "type": "string",
-                                            "description": "A GeoShape box defines an area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. A space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian."
-                                          }
-                                        },
-                                        "required": [
-                                          "@type",
-                                          "schema:box"
-                                        ]
-                                      },
-                                      {
-                                        "type": "object",
-                                        "description": "A schema:GeoShape curvilinear trace, for resource related to a linear trace like a ship track or airplane flight line",
-                                        "properties": {
-                                          "@type": {
-                                            "default": "schema:GeoShape",
-                                            "type": "array",
-                                            "items": {
-                                              "type": "string"
-                                            },
-                                            "contains": {
-                                              "const": "schema:GeoShape"
-                                            },
-                                            "minItems": 1
-                                          },
-                                          "schema:line": {
-                                            "type": "string",
-                                            "description": "A GeoShape box defines a curvilinear geometry as a string of latitude-longitude coordinates. A space should be used to separate the latitude and longitude values. The coordinate point pairs are also separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian. e.g. '39.33 120.77 40.44 123.96 41.00 121.34' "
-                                          }
-                                        },
-                                        "required": [
-                                          "@type",
-                                          "schema:line"
-                                        ]
-                                      }
-                                    ]
-                                  },
-                                  "geosparql:hasGeometry": {
-                                    "type": "object",
-                                    "description": "Optional geographic extent using wkt geometry, see Ocean InfoHub (https://book.oceaninfohub.org/thematics/spatial/README.html#simple-geosparql-wkt). Other geometry schemes might be specified in a specific domain profile, e.g. for atmospheric, subsurface data, or local coordinate systems. NOTE that the location specified here should be the same as the schema.org point or contained within the specified bounding box.",
-                                    "properties": {
-                                      "@type": {
-                                        "type": "array",
-                                        "items": {
-                                          "type": "string"
-                                        },
-                                        "minItems": 1,
-                                        "description": "MUST be sf: (<http://www.opengis.net/ont/sf#>) SimpleFeature geometry type. See https://opengeospatial.github.io/ogc-geosparql/geosparql11/sf_geometries.ttl"
-                                      },
-                                      "geosparql:asWKT": {
-                                        "type": "object",
-                                        "properties": {
-                                          "@type": {
-                                            "type": "array",
-                                            "items": {
-                                              "type": "string"
-                                            },
-                                            "contains": {
-                                              "const": "geosparql:wktLiteral"
-                                            },
-                                            "minItems": 1
-                                          },
-                                          "@value": {
-                                            "type": "string",
-                                            "description": "a WKT geometry description string, e.g. 'POINT(-76 -18)'"
-                                          }
-                                        }
-                                      },
-                                      "geosparql:crs": {
-                                        "type": "object",
-                                        "required": [
-                                          "@id"
-                                        ],
-                                        "additionalProperties": false,
-                                        "properties": {
-                                          "@id": {
-                                            "type": "string",
-                                            "description": "identifier string for coordinate reference system, e.g., 'CRS84'"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "anyOf": [
-                                  {
-                                    "required": [
-                                      "schema:name"
-                                    ]
-                                  },
-                                  {
-                                    "required": [
-                                      "schema:identifier"
-                                    ]
-                                  },
-                                  {
-                                    "required": [
-                                      "schema:geo"
-                                    ]
-                                  },
-                                  {
-                                    "required": [
-                                      "geosparql:hasGeometry"
-                                    ]
-                                  }
-                                ]
+                                "$ref": "#/$defs/SpatialExtent"
                               },
                               {
                                 "type": "string"
@@ -3443,29 +3211,20 @@
                       },
                       "schema:location": {
                         "title": "definitions a Facility location, type schema:Place",
-                        "type": "object",
-                        "properties": {
-                          "@id": {
-                            "type": "string"
+                        "description": "The facility where XAS data was acquired: a synchrotron, X-ray free electron laser, or laboratory.\nExtends the core CDIF spatialExtent (schema:Place) rather than redeclaring it. A facility is an ordinary CDIF place that happens to be classified as a facility, so it should be described by the same block as any other place; the only thing this block adds is the requirement that schema:additionalType classify it.\nRedeclaring meant this block described four of spatialExtent's properties and silently ignored the rest: schema:geo, geosparql: hasGeometry and schema:alternateName were accepted on a facility but never validated, so a facility whose coordinates were an unparseable string passed. Composing the core block instead constrains them.\ngeochemBuildingBlocks composes the same core block for its laboratory building block, so both profiles now describe this kind of place the same way. They still differ on the classification term -- that block uses a NeXus base class where this one uses xas:facility -- which is a separate question from where the place structure comes from.",
+                        "allOf": [
+                          {
+                            "$ref": "#/$defs/SpatialExtent"
                           },
-                          "@type": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "contains": {
-                              "const": "schema:Place"
-                            },
-                            "minItems": 1
-                          },
-                          "schema:additionalType": {
-                            "type": "array",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "string"
-                                },
-                                {
+                          {
+                            "type": "object",
+                            "properties": {
+                              "@id": {
+                                "type": "string"
+                              },
+                              "schema:additionalType": {
+                                "description": "Must classify the place as an XAS facility. The value is a sealed reference ({\"@id\": ...}) per the CDIF convention for a term defined elsewhere; the core block also permits a bare string or an inline DefinedTerm for other classifications carried alongside this one.",
+                                "contains": {
                                   "type": "object",
                                   "additionalProperties": false,
                                   "required": [
@@ -3473,50 +3232,26 @@
                                   ],
                                   "properties": {
                                     "@id": {
-                                      "type": "string"
+                                      "const": "xas:facility"
                                     }
                                   }
-                                }
-                              ]
-                            },
-                            "contains": {
-                              "type": "object",
-                              "additionalProperties": false,
-                              "required": [
-                                "@id"
-                              ],
-                              "properties": {
-                                "@id": {
-                                  "const": "xas:facility"
-                                }
-                              }
-                            },
-                            "minItems": 1
-                          },
-                          "schema:identifier": {
-                            "anyOf": [
-                              {
-                                "type": "string"
+                                },
+                                "minItems": 1
                               },
-                              {
-                                "$ref": "#/$defs/Identifier"
+                              "schema:additionalProperty": {
+                                "description": "Facility-scope properties that are not places, e.g. storage-ring energy or current. Not offered by the core block, which describes a location rather than an operating machine.",
+                                "type": "array",
+                                "items": {
+                                  "$ref": "#/$defs/AdditionalProperty"
+                                }
                               }
+                            },
+                            "required": [
+                              "@type",
+                              "schema:additionalType",
+                              "schema:name"
                             ]
-                          },
-                          "schema:name": {
-                            "type": "string"
-                          },
-                          "schema:additionalProperty": {
-                            "type": "array",
-                            "items": {
-                              "$ref": "#/$defs/AdditionalProperty"
-                            }
                           }
-                        },
-                        "required": [
-                          "@type",
-                          "schema:additionalType",
-                          "schema:name"
                         ]
                       },
                       "schema:object": {
@@ -5451,239 +5186,7 @@
       "description": "Geographic extent of resource content.",
       "type": "array",
       "items": {
-        "description": "Spatial Extent description for CDIF discovery profile.  Note required prefix declaration for geoSparql ( http://www.opengis.net/ont/geosparql#) and OGC simple features (sf: http://www.opengis.net/ont/sf#)",
-        "type": "object",
-        "properties": {
-          "@type": {
-            "default": "schema:Place",
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "contains": {
-              "const": "schema:Place"
-            },
-            "minItems": 1
-          },
-          "schema:additionalType": {
-            "description": "Domain-specific type classifications for this place (e.g. facility type,laboratory classification, feature type).",
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "$ref": "#/$defs/DefinedTerm"
-                },
-                {
-                  "type": "object",
-                  "additionalProperties": false,
-                  "required": [
-                    "@id"
-                  ],
-                  "properties": {
-                    "@id": {
-                      "type": "string",
-                      "description": "reference to a term defined elsewhere"
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          "schema:name": {
-            "description": "A place name for the location, either as a string or a DefinedTerm from a gazetteer.",
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/$defs/DefinedTerm"
-              }
-            ]
-          },
-          "schema:identifier": {
-            "description": "Formal identifier for this place (e.g. ROR identifier for a facility).",
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/$defs/Identifier"
-              }
-            ]
-          },
-          "schema:alternateName": {
-            "description": "Alternate or abbreviated name(s) for this place.",
-            "type": "array",
-            "items": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "$ref": "#/$defs/DefinedTerm"
-                }
-              ]
-            }
-          },
-          "schema:geo": {
-            "description": "Either a bounding box or a point location.",
-            "anyOf": [
-              {
-                "type": "object",
-                "description": "A point location. Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location.",
-                "properties": {
-                  "@type": {
-                    "default": "schema:GeoCoordinates",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:GeoCoordinates"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:latitude": {
-                    "type": "number",
-                    "minimum": -90,
-                    "maximum": 90
-                  },
-                  "schema:longitude": {
-                    "type": "number",
-                    "minimum": -180,
-                    "maximum": 180
-                  }
-                },
-                "required": [
-                  "@type",
-                  "schema:latitude",
-                  "schema:longitude"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "A schema:GeoShape bounding box. The geometry is described with a set of latitude/longitude pairs (in that order).The documentation for schema:GeoShape states 'Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points.'",
-                "properties": {
-                  "@type": {
-                    "default": "schema:GeoShape",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:GeoShape"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:box": {
-                    "type": "string",
-                    "description": "A GeoShape box defines an area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. A space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian."
-                  }
-                },
-                "required": [
-                  "@type",
-                  "schema:box"
-                ]
-              },
-              {
-                "type": "object",
-                "description": "A schema:GeoShape curvilinear trace, for resource related to a linear trace like a ship track or airplane flight line",
-                "properties": {
-                  "@type": {
-                    "default": "schema:GeoShape",
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:GeoShape"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:line": {
-                    "type": "string",
-                    "description": "A GeoShape box defines a curvilinear geometry as a string of latitude-longitude coordinates. A space should be used to separate the latitude and longitude values. The coordinate point pairs are also separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian. e.g. '39.33 120.77 40.44 123.96 41.00 121.34' "
-                  }
-                },
-                "required": [
-                  "@type",
-                  "schema:line"
-                ]
-              }
-            ]
-          },
-          "geosparql:hasGeometry": {
-            "type": "object",
-            "description": "Optional geographic extent using wkt geometry, see Ocean InfoHub (https://book.oceaninfohub.org/thematics/spatial/README.html#simple-geosparql-wkt). Other geometry schemes might be specified in a specific domain profile, e.g. for atmospheric, subsurface data, or local coordinate systems. NOTE that the location specified here should be the same as the schema.org point or contained within the specified bounding box.",
-            "properties": {
-              "@type": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "minItems": 1,
-                "description": "MUST be sf: (<http://www.opengis.net/ont/sf#>) SimpleFeature geometry type. See https://opengeospatial.github.io/ogc-geosparql/geosparql11/sf_geometries.ttl"
-              },
-              "geosparql:asWKT": {
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "geosparql:wktLiteral"
-                    },
-                    "minItems": 1
-                  },
-                  "@value": {
-                    "type": "string",
-                    "description": "a WKT geometry description string, e.g. 'POINT(-76 -18)'"
-                  }
-                }
-              },
-              "geosparql:crs": {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "identifier string for coordinate reference system, e.g., 'CRS84'"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "anyOf": [
-          {
-            "required": [
-              "schema:name"
-            ]
-          },
-          {
-            "required": [
-              "schema:identifier"
-            ]
-          },
-          {
-            "required": [
-              "schema:geo"
-            ]
-          },
-          {
-            "required": [
-              "geosparql:hasGeometry"
-            ]
-          }
-        ]
+        "$ref": "#/$defs/SpatialExtent"
       }
     },
     "schema:temporalCoverage": {
@@ -7415,6 +6918,241 @@
       "required": [
         "@type",
         "schema:name"
+      ]
+    },
+    "SpatialExtent": {
+      "description": "Spatial Extent description for CDIF discovery profile.  Note required prefix declaration for geoSparql ( http://www.opengis.net/ont/geosparql#) and OGC simple features (sf: http://www.opengis.net/ont/sf#)",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "default": "schema:Place",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:Place"
+          },
+          "minItems": 1
+        },
+        "schema:additionalType": {
+          "description": "Domain-specific type classifications for this place (e.g. facility type,laboratory classification, feature type).",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/DefinedTerm"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "@id"
+                ],
+                "properties": {
+                  "@id": {
+                    "type": "string",
+                    "description": "reference to a term defined elsewhere"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "schema:name": {
+          "description": "A place name for the location, either as a string or a DefinedTerm from a gazetteer.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/DefinedTerm"
+            }
+          ]
+        },
+        "schema:identifier": {
+          "description": "Formal identifier for this place (e.g. ROR identifier for a facility).",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/Identifier"
+            }
+          ]
+        },
+        "schema:alternateName": {
+          "description": "Alternate or abbreviated name(s) for this place.",
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/DefinedTerm"
+              }
+            ]
+          }
+        },
+        "schema:geo": {
+          "description": "Either a bounding box or a point location.",
+          "anyOf": [
+            {
+              "type": "object",
+              "description": "A point location. Point locations are recommended for data that is associated with specific sample locations, particularly if these are widely spaced such that an enclosing bounding box would be a misleading representation of the spatial location. Be aware that some client applications might only index or display bounding box extents or a single point location.",
+              "properties": {
+                "@type": {
+                  "default": "schema:GeoCoordinates",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:GeoCoordinates"
+                  },
+                  "minItems": 1
+                },
+                "schema:latitude": {
+                  "type": "number",
+                  "minimum": -90,
+                  "maximum": 90
+                },
+                "schema:longitude": {
+                  "type": "number",
+                  "minimum": -180,
+                  "maximum": 180
+                }
+              },
+              "required": [
+                "@type",
+                "schema:latitude",
+                "schema:longitude"
+              ]
+            },
+            {
+              "type": "object",
+              "description": "A schema:GeoShape bounding box. The geometry is described with a set of latitude/longitude pairs (in that order).The documentation for schema:GeoShape states 'Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points.'",
+              "properties": {
+                "@type": {
+                  "default": "schema:GeoShape",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:GeoShape"
+                  },
+                  "minItems": 1
+                },
+                "schema:box": {
+                  "type": "string",
+                  "description": "A GeoShape box defines an area on the surface of the earth defined by point locations of the southwest corner and northeast corner of the rectangle in latitude-longitude coordinates. A space should be used to separate the latitude and longitude values. The two corner coordinate points are separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian."
+                }
+              },
+              "required": [
+                "@type",
+                "schema:box"
+              ]
+            },
+            {
+              "type": "object",
+              "description": "A schema:GeoShape curvilinear trace, for resource related to a linear trace like a ship track or airplane flight line",
+              "properties": {
+                "@type": {
+                  "default": "schema:GeoShape",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "schema:GeoShape"
+                  },
+                  "minItems": 1
+                },
+                "schema:line": {
+                  "type": "string",
+                  "description": "A GeoShape box defines a curvilinear geometry as a string of latitude-longitude coordinates. A space should be used to separate the latitude and longitude values. The coordinate point pairs are also separated by a space. 'East longitude' means positive longitude values are east of the prime (Greenwich) meridian. e.g. '39.33 120.77 40.44 123.96 41.00 121.34' "
+                }
+              },
+              "required": [
+                "@type",
+                "schema:line"
+              ]
+            }
+          ]
+        },
+        "geosparql:hasGeometry": {
+          "type": "object",
+          "description": "Optional geographic extent using wkt geometry, see Ocean InfoHub (https://book.oceaninfohub.org/thematics/spatial/README.html#simple-geosparql-wkt). Other geometry schemes might be specified in a specific domain profile, e.g. for atmospheric, subsurface data, or local coordinate systems. NOTE that the location specified here should be the same as the schema.org point or contained within the specified bounding box.",
+          "properties": {
+            "@type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "description": "MUST be sf: (<http://www.opengis.net/ont/sf#>) SimpleFeature geometry type. See https://opengeospatial.github.io/ogc-geosparql/geosparql11/sf_geometries.ttl"
+            },
+            "geosparql:asWKT": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "geosparql:wktLiteral"
+                  },
+                  "minItems": 1
+                },
+                "@value": {
+                  "type": "string",
+                  "description": "a WKT geometry description string, e.g. 'POINT(-76 -18)'"
+                }
+              }
+            },
+            "geosparql:crs": {
+              "type": "object",
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string",
+                  "description": "identifier string for coordinate reference system, e.g., 'CRS84'"
+                }
+              }
+            }
+          }
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "schema:name"
+          ]
+        },
+        {
+          "required": [
+            "schema:identifier"
+          ]
+        },
+        {
+          "required": [
+            "schema:geo"
+          ]
+        },
+        {
+          "required": [
+            "geosparql:hasGeometry"
+          ]
+        }
       ]
     },
     "CdifInstanceVariable": {
