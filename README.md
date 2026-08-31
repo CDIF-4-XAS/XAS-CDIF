@@ -67,7 +67,6 @@ The conformance target. Everything a validator needs.
 | file | content |
 |---|---|
 | `cdifXASDocumentResolvedSchema.json` | JSON Schema, all `$ref`s inlined — **the validation target** |
-| `cdifXASDocumentStructuredSchema.json` | the same with `$ref`s preserved |
 | `cdifXASDocument-frame.jsonld` | JSON-LD frame; validation frames before checking |
 | `xasDocumentRules.shacl` | SHACL shapes aggregated from all six composed profiles |
 | `CDIFXASDocumentImplementationGuide.md` | classes, properties, XAS-specific requirements |

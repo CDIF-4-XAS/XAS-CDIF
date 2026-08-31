@@ -25,8 +25,7 @@ A conforming XAS document declares all six URIs in
 ## Files
 
 - **[CDIFXASDocumentImplementationGuide.md](CDIFXASDocumentImplementationGuide.md)** — full implementation guide (classes, properties, XAS-specific requirements).
-- **[cdifXASDocumentStructuredSchema.json](cdifXASDocumentStructuredSchema.json)** — JSON Schema (Draft 2020-12) with `$ref`s preserved. Regenerable from the mBB source.
-- **[cdifXASDocumentResolvedSchema.json](cdifXASDocumentResolvedSchema.json)** — JSON Schema with all `$ref`s inlined for standalone use.
+- **[cdifXASDocumentResolvedSchema.json](cdifXASDocumentResolvedSchema.json)** — JSON Schema (Draft 2020-12) with all `$ref`s inlined for standalone use. This is the validation target. (The structured form, with `$ref`s preserved, is kept in the [mBB source](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/_sources/profiles/cdifCompositeProfile/xasDocument) as `xasDocumentSchema.json`; it is not shipped here because its relative `$ref`s resolve only inside the building-blocks tree.)
 - **[xasDocumentRules.shacl](xasDocumentRules.shacl)** — aggregated SHACL shapes from all six composed components (~2000 triples). Aggregated by `metadataBuildingBlocks/tools/validate_shacl.py --emit-shapes`.
 - **[cdifXASDocument-frame.jsonld](cdifXASDocument-frame.jsonld)** — JSON-LD frame for extracting the Dataset node from a graph before JSON Schema validation.
 - **[xasToCdifWorkflows.md](xasToCdifWorkflows.md)** — the two implementations
@@ -61,9 +60,10 @@ python FrameAndValidate.py examples/exampleCDIFxas.json --validate
 # Just frame and save output
 python FrameAndValidate.py examples/exampleCDIFxas.json -o framed.json
 
-# Override the schema
+# Pass the schema explicitly (auto-detected by default, since it is the
+# only *Schema*.json in this directory)
 python FrameAndValidate.py input.jsonld --validate \
-    --schema cdifXASDocumentStructuredSchema.json
+    --schema cdifXASDocumentResolvedSchema.json
 ```
 
 The JSON Schema validates one dataset record at a time. If your source is a

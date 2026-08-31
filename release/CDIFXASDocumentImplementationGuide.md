@@ -106,7 +106,7 @@ The XAS extension model is documented in the mBB source at
 [`_sources/xasProperties/`](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/_sources/xasProperties)
 and summarized below. Naming, cardinalities, and required-vs-optional
 distinctions are the authoritative source of truth in the release-repo
-JSON Schema (`cdifXASDocumentStructuredSchema.json`) and SHACL rules
+JSON Schema (`cdifXASDocumentResolvedSchema.json`) and SHACL rules
 (`xasDocumentRules.shacl`).
 
 An XAS document describes:
@@ -729,7 +729,7 @@ python FrameAndValidate.py examples/exampleCDIFxas.json --validate
 The script frames the input against `cdifXASDocument-frame.jsonld` (which
 extracts the Dataset node from `@graph` bundles and standardizes the
 key ordering) and then runs the JSON Schema check against
-`cdifXASDocumentStructuredSchema.json`.
+`cdifXASDocumentResolvedSchema.json`.
 
 Requirements: `pyld`, `jsonschema` (`pip install pyld jsonschema`).
 
