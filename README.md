@@ -30,7 +30,7 @@ pipelines consume what is here and write back into it:
 | pipeline | repository | what it does |
 |---|---|---|
 | RML / Dataverse | [`smrgeoinfo/cdif-xas`](https://github.com/smrgeoinfo/cdif-xas) — **the fork**, not [`UKDSResearch/cdif-xas`](https://github.com/UKDSResearch/cdif-xas) | reads `exampleData/*.xdi`, writes `exampleMetadata/` |
-| Python / SSSOM | [`usgin/cdifnexmetadata`](https://github.com/usgin/cdifnexmetadata) | reads NeXus **and** XDI; keeps its own copies of the crosswalks from here |
+| Python / SSSOM | [`CDIF-4-XAS/cdifnexmetadata`](https://github.com/CDIF-4-XAS/cdifnexmetadata) | reads NeXus **and** XDI; keeps its own copies of the crosswalks from here |
 
 **The fork is what runs, and the distinction matters.** It is ahead of
 `UKDSResearch/cdif-xas` by the CDIF 1.1 uplift and by header
@@ -158,7 +158,7 @@ See "Which physical-mapping subclass, and what goes in it" in
 editing. 55/55 validate against `release/`.
 
 The same 55 files converted by the *other* pipeline live in
-[`cdifnexmetadata/exampleMetadata-xdi`](https://github.com/usgin/cdifnexmetadata),
+[`cdifnexmetadata/exampleMetadata-xdi`](https://github.com/CDIF-4-XAS/cdifnexmetadata),
 not here. Both sets validate 55/55; the two are kept so the
 implementations can be compared on identical inputs, which is what
 `cdif-xas-UKDS/CONVERGENCE-PROPOSAL.md` argues from.

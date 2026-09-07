@@ -3,7 +3,7 @@
 How a metadata record is generated from a raw XAS dataset. The metadata record conforms to `cdif/xasDocument/1.0`. There are **two independent implementations**.
 They share no code — only the target profile.
 
- [cdifnexmetadata](https://github.com/usgin/cdifnexmetadata/tree/main) reads both
+ [cdifnexmetadata](https://github.com/CDIF-4-XAS/cdifnexmetadata/tree/main) reads both
 NeXus/HDF5 and XDI; [cdif-xas](https://github.com/UKDSResearch/cdif-xas) reads XDI only. What separates them is
 *method*: a Python emitter versus a declarative RML mapping executed by a
 Java tool, packaged as a CLI versus an HTTP service.
@@ -48,7 +48,7 @@ integrate](#which-one-to-integrate).
 
 ## Path A — NeXus/HDF5 *and* XDI → CDIF (`cdifnexmetadata`)
 
-**Repo:** <https://github.com/usgin/cdifnexmetadata> · Python package,
+**Repo:** <https://github.com/CDIF-4-XAS/cdifnexmetadata> · Python package,
 CLI · MIT/REUSE-compliant
 
 **Inputs:** NeXus `.nxs` (HDF5, NXxas and relatives), and `.xdi`.
@@ -56,7 +56,7 @@ CLI · MIT/REUSE-compliant
 ### Install and run
 
 ```bash
-git clone https://github.com/usgin/cdifnexmetadata
+git clone https://github.com/CDIF-4-XAS/cdifnexmetadata
 cd cdifnexmetadata
 uv sync --all-extras            # --all-extras pulls the validation stack
 
