@@ -1473,7 +1473,8 @@ cdifd:metadataProfileProperty a sh:PropertyShape ;
     sh:message "provide identifiers for specifications used in this record to provide guidance for machine agents processing the metadata record" ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
-    sh:path dcterms:conformsTo .
+    sh:path dcterms:conformsTo ;
+    sh:severity sh:Warning .
 
 cdifd:metadataSubjectProperty a sh:PropertyShape ;
     sh:message "link to the target of the metadata node using the about property" ;
@@ -1518,7 +1519,7 @@ cdifd:resourceIdentifierProperty a sh:PropertyShape ;
                                     sh:path schema:url ] ] [ sh:property [ sh:datatype xsd:string ;
                                     sh:message "The identifer string; include applicable prefix (e.g. doi:, ark:, http:, isbn:)" ;
                                     sh:path schema:value ] ] ) ;
-                sh:property [ sh:datatype xsd:string ;
+                sh:property [ sh:or ( [ sh:datatype xsd:string ] [ sh:nodeKind sh:IRI ] ) ;
                         sh:message "If specifying an identifier via the PropertyValue, the scheme (authority, domain) within which the identifier is assigned and unique must be identifed, either by name or preferably using a URI. See https://registry.identifiers.org/registry" ;
                         sh:path schema:propertyID ;
                         sh:severity sh:Warning ] ] ) ;
