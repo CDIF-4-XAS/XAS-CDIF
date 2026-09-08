@@ -17,6 +17,7 @@
         "skos": "http://www.w3.org/2004/02/skos/core#",
         "xas": "https://w3id.org/cdif/xas/",
         "nxs": "https://manual.nexusformat.org/classes/",
+        "wd": "https://www.wikidata.org/entity/",
         "ex": "https://example.org/",
         "xsd": "http://www.w3.org/2001/XMLSchema#"
     },
