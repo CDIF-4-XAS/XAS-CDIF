@@ -7282,9 +7282,16 @@
         "cdif:uses": {
           "type": "array",
           "items": {
-            "$ref": "#/$defs/cdifConceptOrTermOrString"
+            "anyOf": [
+              {
+                "$ref": "#/$defs/cdifConceptOrTermOrString"
+              },
+              {
+                "$ref": "#/$defs/CdifRepresentedVariable"
+              }
+            ]
           },
-          "description": "Essentially the same as schema:propertyID. References to the concept(s) that this variable measures or represents. Concepts only -- to point at the RepresentedVariable that supplies the represented-variable-level properties, use cdif:isDefinedBy_RepresentedVariable. Splitting the two targets follows the CDIF convention of disambiguating the polymorphic DDI-CDI role names by target, so each JSON key has a single value type; it also keeps cdif:uses type-compatible with canonical cdi:uses on InstanceVariable, which is valued by a Concept."
+          "description": "Essentially the same as schema:propertyID. References the concept(s) that this variable measures or represents and, under the Data Structure profile, the RepresentedVariable it instantiates. The RepresentedVariable branch is not new behaviour: it is what the rest of CDIF already documents and enforces. description.md calls cdif:uses \"concepts (or, under the Data Structure profile, the RepresentedVariable)\"; agents.md describes the InstanceVariable as \"a pointer (via cdif:uses) into a richer RepresentedVariable\"; the six NoDuplicate*Shape rules in cdifDataStructure traverse cdif:uses to reach that RepresentedVariable; and RepresentedVariableMustBeInstantiatedShape requires the link to exist. Only this schema said Concepts-only, and it was the outlier -- documents conforming to those rules could not be expressed here. A bare {@id} always matched via cdifConceptOrTerm; the branch is needed for the embedded form, because framing inlines a node whose @id is defined in the same document. cdif:isDefinedBy_RepresentedVariable remains the way to say that this InstanceVariable DEFERS its represented-variable-level properties to that RepresentedVariable; it is reference-only and carries the exclusivity rule. The cost is that cdif:uses no longer has a single value type, so it is a partial exception to the CDIF convention of disambiguating polymorphic DDI-CDI role names by target, and no longer strictly type-compatible with canonical cdi:uses, which is valued by a Concept."
         },
         "cdif:isDefinedBy_RepresentedVariable": {
           "$ref": "#/$defs/ObjectReference",
@@ -7410,98 +7417,6 @@
           }
         }
       ]
-    },
-    "ObjectReference": {
-      "title": "Object Reference",
-      "description": "A reference to a node defined elsewhere, by its @id.",
-      "type": "object",
-      "properties": {
-        "@id": {
-          "type": "string",
-          "description": "resolvable @id of the referenced node"
-        }
-      },
-      "required": [
-        "@id"
-      ],
-      "additionalProperties": false
-    },
-    "CdifPhysicalMapping": {
-      "title": "Physical Mapping Type",
-      "description": "Defines implementation-specific properties for the representation of a variable in a dataset. Aligned with CDIF 2026 schema using DDI-CDI flat per-column mapping structure.",
-      "type": "object",
-      "properties": {
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "enum": [
-              "cdif:PhysicalMapping",
-              "cdif:TextMapping",
-              "cdif:LocatorMapping"
-            ]
-          },
-          "minItems": 1,
-          "description": "Must include a physical-mapping family type. A plain physical mapping uses cdif:PhysicalMapping; the cdifTextMapping / cdifLocatorMapping specializations narrow this to cdif:TextMapping / cdif:LocatorMapping respectively (they compose this schema via allOf, so the base accepts any of the family rather than requiring the cdif:PhysicalMapping token)."
-        },
-        "cdif:index": {
-          "type": "integer",
-          "minimum": 0,
-          "description": "Non-negative integer that orders the fields in the data structure (column number)."
-        },
-        "cdif:format": {
-          "type": "string",
-          "description": "A format for number expressed as a string, or date format like YYYY/MM or MM-DD-YY."
-        },
-        "cdif:physicalDataType": {
-          "$ref": "#/$defs/cdifConceptOrTermOrString",
-          "description": "identifier or name for the data type concept."
-        },
-        "cdi:numberPattern": {
-          "type": "string",
-          "description": "Number format pattern for the field (PhysicalMapping.numberPattern). Text-format properties (column width, decimal/digit-group separators, display label) live on cdifTextMapping."
-        },
-        "cdi:nullSequence": {
-          "type": "string",
-          "description": "The value of this property becomes the null annotation for the described column."
-        },
-        "cdi:defaultValue": {
-          "type": "string",
-          "description": "A default string indicating the value to substitute for an empty string."
-        },
-        "cdi:scale": {
-          "type": "integer"
-        },
-        "cdi:decimalPositions": {
-          "type": "integer"
-        },
-        "cdi:minimumLength": {
-          "type": "integer"
-        },
-        "cdi:maximumLength": {
-          "type": "integer"
-        },
-        "cdi:isRequired": {
-          "type": "boolean",
-          "default": false
-        },
-        "cdif:formats_InstanceVariable": {
-          "type": "object",
-          "required": [
-            "@id"
-          ],
-          "additionalProperties": false,
-          "description": "Reference to a variable defined in schema:variableMeasured.",
-          "properties": {
-            "@id": {
-              "type": "string",
-              "description": "This should be a reference to a variable defined in the schema:variableMeasured section."
-            }
-          }
-        }
-      }
     },
     "CdifRepresentedVariable": {
       "title": "DDI-CDI Represented Variable",
@@ -8555,6 +8470,98 @@
         "@type"
       ]
     },
+    "ObjectReference": {
+      "title": "Object Reference",
+      "description": "A reference to a node defined elsewhere, by its @id.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "resolvable @id of the referenced node"
+        }
+      },
+      "required": [
+        "@id"
+      ],
+      "additionalProperties": false
+    },
+    "CdifPhysicalMapping": {
+      "title": "Physical Mapping Type",
+      "description": "Defines implementation-specific properties for the representation of a variable in a dataset. Aligned with CDIF 2026 schema using DDI-CDI flat per-column mapping structure.",
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "enum": [
+              "cdif:PhysicalMapping",
+              "cdif:TextMapping",
+              "cdif:LocatorMapping"
+            ]
+          },
+          "minItems": 1,
+          "description": "Must include a physical-mapping family type. A plain physical mapping uses cdif:PhysicalMapping; the cdifTextMapping / cdifLocatorMapping specializations narrow this to cdif:TextMapping / cdif:LocatorMapping respectively (they compose this schema via allOf, so the base accepts any of the family rather than requiring the cdif:PhysicalMapping token)."
+        },
+        "cdif:index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Non-negative integer that orders the fields in the data structure (column number)."
+        },
+        "cdif:format": {
+          "type": "string",
+          "description": "A format for number expressed as a string, or date format like YYYY/MM or MM-DD-YY."
+        },
+        "cdif:physicalDataType": {
+          "$ref": "#/$defs/cdifConceptOrTermOrString",
+          "description": "identifier or name for the data type concept."
+        },
+        "cdi:numberPattern": {
+          "type": "string",
+          "description": "Number format pattern for the field (PhysicalMapping.numberPattern). Text-format properties (column width, decimal/digit-group separators, display label) live on cdifTextMapping."
+        },
+        "cdi:nullSequence": {
+          "type": "string",
+          "description": "The value of this property becomes the null annotation for the described column."
+        },
+        "cdi:defaultValue": {
+          "type": "string",
+          "description": "A default string indicating the value to substitute for an empty string."
+        },
+        "cdi:scale": {
+          "type": "integer"
+        },
+        "cdi:decimalPositions": {
+          "type": "integer"
+        },
+        "cdi:minimumLength": {
+          "type": "integer"
+        },
+        "cdi:maximumLength": {
+          "type": "integer"
+        },
+        "cdi:isRequired": {
+          "type": "boolean",
+          "default": false
+        },
+        "cdif:formats_InstanceVariable": {
+          "type": "object",
+          "required": [
+            "@id"
+          ],
+          "additionalProperties": false,
+          "description": "Reference to a variable defined in schema:variableMeasured.",
+          "properties": {
+            "@id": {
+              "type": "string",
+              "description": "This should be a reference to a variable defined in the schema:variableMeasured section."
+            }
+          }
+        }
+      }
+    },
     "AdditionalProperty": {
       "type": "object",
       "title": "additionalProperty PropertyValue",
@@ -8934,91 +8941,47 @@
         "cdif:has_Statistics"
       ]
     },
-    "Statistics": {
-      "title": "Statistics",
-      "description": "A named bundle of one or more Statistic value objects for an instance variable, optionally weighted, optionally broken down by Category.",
+    "CdifCodelistConcept": {
+      "description": "A SKOS Concept constrained for CDIF codelist use. Must have a resolvable @id, skos:inScheme, skos:notation, and skos:prefLabel. Becasue JSON-LD is an open-world implementation, any other skos properties may be included.",
       "type": "object",
       "properties": {
         "@id": {
           "type": "string",
-          "description": "Identifier for this Statistics node."
+          "description": "Globally unique, resolvable URI for this concept."
         },
-        "@type": {
+        "skos:inScheme": {
+          "description": "The concept scheme this concept belongs to. Required for CDIF codelist concepts.",
           "type": "array",
           "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "cdi:Statistics"
-          },
-          "minItems": 1
-        },
-        "cdi:typeOfStatistic": {
-          "$ref": "#/$defs/cdifConceptOrTermOrString",
-          "description": "Controlled-vocabulary entry naming the kind of statistic — e.g. mean, median, count, sum, stdDev."
-        },
-        "cdi:statistic": {
-          "type": "array",
-          "description": "Ordered list of Statistic value objects carried by this bundle. Order is significant — consumers MAY rely on array position.",
-          "items": {
-            "title": "Statistic",
-            "description": "DDI-CDI Statistic dataType — a single computed value (mean, count, median, etc.). A value object with no identity; appears inline inside a cdi:statistic array.",
             "type": "object",
+            "additionalProperties": false,
             "properties": {
-              "cdi:computationBase": {
-                "type": "string",
-                "enum": [
-                  "MissingOnly",
-                  "Total",
-                  "ValidOnly"
-                ],
-                "description": "The cases included in determining the statistic — Total (all cases, valid and missing), ValidOnly (valid values only), MissingOnly (invalid cases only)."
-              },
-              "cdi:content": {
-                "type": "number",
-                "description": "The value of the statistic expressed as a real number."
-              },
-              "cdi:isWeighted": {
-                "type": "boolean",
-                "default": false,
-                "description": "True if the statistic was computed using a weighting variable."
-              },
-              "cdi:typeOfNumericValue": {
-                "type": "string",
-                "description": "The type of numeric value carried in cdi:content — decimal, float, or double."
+              "@id": {
+                "type": "string"
               }
-            }
-          },
-          "minItems": 1
-        },
-        "cdi:hasWeight": {
-          "description": "The InstanceVariable whose values were used as weights when computing the Statistic entries (inline cdifInstanceVariable node or an @id-reference).",
-          "anyOf": [
-            {
-              "$ref": "#/$defs/CdifInstanceVariable"
             },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
-            }
-          ]
+            "required": [
+              "@id"
+            ]
+          }
         },
-        "cdif:appliesTo": {
+        "skos:prefLabel": {
+          "description": "Preferred lexical label for this concept. A single string,\na single language-tagged value, or an array of language-tagged values.\nEach language should appear at most once.\n\n**Uniqueness rule.** Each language should appear at most once in the\nset of prefLabel values. Two prefLabel values with duplicate `@language`\ntags are non-conformant. Consumers may reject or arbitrarily pick one.\n\n**Relationship to skos:altLabel.** Alternate labels (acronyms,\nspelling variants, obsolete names) go on `skos:altLabel`, NOT on\n`prefLabel`. A concept has exactly one preferred label per language.\n",
+          "type": "string"
+        },
+        "skos:notation": {
+          "description": "Classification code for this concept within a scheme.",
+          "type": "string"
+        },
+        "skos:definition": {
+          "description": "Formal definition of this concept. Optional for CDIF codelist concepts. A plain string.",
+          "type": "string"
+        },
+        "skos:narrower": {
+          "description": "Narrower (child) concepts. If present, each inline concept must also declare skos:broader pointing back to the parent concept. Both skos:narrower and skos:broader must be explicit in CDIF codelists.",
           "type": "array",
-          "description": "CDIF addition (not in canonical DDI-CDI): the InstanceVariable(s) this Statistics bundle summarizes — the per-bundle \"what these numbers describe\" link. Used **only** when this Statistics bundle sits inside a StatisticsCollection that indexes more than one variable, to disambiguate which variable each bundle describes. It MUST NOT appear on a Statistics bundle attached at Dataset level via `cdif:statistics`; per-variable stats belong under `schema:variableMeasured[i].cdif:isDescribedBy_StatisticsCollection` (the direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy` association).",
           "items": {
             "anyOf": [
-              {
-                "$ref": "#/$defs/CdifInstanceVariable"
-              },
               {
                 "type": "object",
                 "additionalProperties": false,
@@ -9030,165 +8993,44 @@
                 "required": [
                   "@id"
                 ]
+              },
+              {
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/CdifCodelistConcept"
+                  },
+                  {
+                    "required": [
+                      "skos:broader"
+                    ]
+                  }
+                ]
               }
             ]
-          },
-          "minItems": 1
+          }
         },
-        "cdif:has_CategoryStatistics": {
+        "skos:broader": {
+          "description": "Broader (parent) concepts. Required on any concept that appears as a skos:narrower value of another concept. CDIF requires both directions to be explicit for hierarchy traversal.",
           "type": "array",
-          "description": "CategoryStatistics entries breaking this Statistics bundle down by Category. cdif: namespaced and target-suffixed because the DDI-CDI cdi:has association is polymorphic.",
           "items": {
-            "$ref": "#/$defs/CategoryStatistics"
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "@id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@id"
+            ]
           }
         }
       },
       "required": [
-        "@type",
-        "cdi:statistic"
-      ]
-    },
-    "CategoryStatistics": {
-      "title": "CategoryStatistics",
-      "description": "Statistics for a specific Category of an instance variable within a data set.",
-      "type": "object",
-      "properties": {
-        "@id": {
-          "type": "string",
-          "description": "Identifier for this CategoryStatistics node."
-        },
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "contains": {
-            "const": "cdi:CategoryStatistics"
-          },
-          "minItems": 1
-        },
-        "cdi:for": {
-          "description": "The Category this CategoryStatistics is for (inline Category node or an @id-reference).",
-          "anyOf": [
-            {
-              "title": "Category",
-              "description": "Minimal Category shape used as a CategoryStatistics target. CDIF simplifies the DDI-CDI InternationalString / LabelForDisplay / ObjectName valued properties to plain strings carried under the cdif: namespace. A full CDIF treatment of categories lives in cdifEnumerationDomain / SKOS Concept.",
-              "type": "object",
-              "properties": {
-                "@id": {
-                  "type": "string"
-                },
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "cdi:Category"
-                  },
-                  "minItems": 1
-                },
-                "cdif:name": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "description": "Human-understandable name(s). CDIF-simplified from DDI-CDI Category.name (ObjectName) to plain strings."
-                },
-                "cdif:descriptiveText": {
-                  "type": "string",
-                  "description": "Short natural-language account of the category. CDIF-simplified from DDI-CDI Category.descriptiveText (InternationalString)."
-                },
-                "cdif:definition": {
-                  "type": "string",
-                  "description": "Natural-language definition of the category. CDIF-simplified from DDI-CDI Category.definition (InternationalString)."
-                },
-                "cdif:displayLabel": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "description": "Human-readable display label(s). CDIF-simplified from DDI-CDI Category.displayLabel (LabelForDisplay)."
-                }
-              }
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
-            }
-          ]
-        },
-        "cdi:typeOfStatistic": {
-          "$ref": "#/$defs/cdifConceptOrTermOrString",
-          "description": "Controlled-vocabulary entry naming the kind of statistic."
-        },
-        "cdi:statistic": {
-          "type": "array",
-          "description": "Per-category Statistic value objects.",
-          "items": {
-            "title": "Statistic",
-            "description": "DDI-CDI Statistic dataType — a single computed value (mean, count, median, etc.). A value object with no identity; appears inline inside a cdi:statistic array.",
-            "type": "object",
-            "properties": {
-              "cdi:computationBase": {
-                "type": "string",
-                "enum": [
-                  "MissingOnly",
-                  "Total",
-                  "ValidOnly"
-                ],
-                "description": "The cases included in determining the statistic — Total (all cases, valid and missing), ValidOnly (valid values only), MissingOnly (invalid cases only)."
-              },
-              "cdi:content": {
-                "type": "number",
-                "description": "The value of the statistic expressed as a real number."
-              },
-              "cdi:isWeighted": {
-                "type": "boolean",
-                "default": false,
-                "description": "True if the statistic was computed using a weighting variable."
-              },
-              "cdi:typeOfNumericValue": {
-                "type": "string",
-                "description": "The type of numeric value carried in cdi:content — decimal, float, or double."
-              }
-            }
-          },
-          "minItems": 1
-        },
-        "cdi:hasWeight": {
-          "description": "The InstanceVariable whose values were used as weights (inline cdifInstanceVariable node or an @id-reference).",
-          "anyOf": [
-            {
-              "$ref": "#/$defs/CdifInstanceVariable"
-            },
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
-            }
-          ]
-        }
-      },
-      "required": [
-        "@type",
-        "cdi:for",
-        "cdi:statistic"
+        "@id",
+        "skos:inScheme",
+        "skos:prefLabel",
+        "skos:notation"
       ]
     },
     "Concept": {
@@ -9535,47 +9377,91 @@
         "skos:inScheme"
       ]
     },
-    "CdifCodelistConcept": {
-      "description": "A SKOS Concept constrained for CDIF codelist use. Must have a resolvable @id, skos:inScheme, skos:notation, and skos:prefLabel. Becasue JSON-LD is an open-world implementation, any other skos properties may be included.",
+    "Statistics": {
+      "title": "Statistics",
+      "description": "A named bundle of one or more Statistic value objects for an instance variable, optionally weighted, optionally broken down by Category.",
       "type": "object",
       "properties": {
         "@id": {
           "type": "string",
-          "description": "Globally unique, resolvable URI for this concept."
+          "description": "Identifier for this Statistics node."
         },
-        "skos:inScheme": {
-          "description": "The concept scheme this concept belongs to. Required for CDIF codelist concepts.",
+        "@type": {
           "type": "array",
           "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ]
-          }
+            "type": "string"
+          },
+          "contains": {
+            "const": "cdi:Statistics"
+          },
+          "minItems": 1
         },
-        "skos:prefLabel": {
-          "description": "Preferred lexical label for this concept. A single string,\na single language-tagged value, or an array of language-tagged values.\nEach language should appear at most once.\n\n**Uniqueness rule.** Each language should appear at most once in the\nset of prefLabel values. Two prefLabel values with duplicate `@language`\ntags are non-conformant. Consumers may reject or arbitrarily pick one.\n\n**Relationship to skos:altLabel.** Alternate labels (acronyms,\nspelling variants, obsolete names) go on `skos:altLabel`, NOT on\n`prefLabel`. A concept has exactly one preferred label per language.\n",
-          "type": "string"
+        "cdi:typeOfStatistic": {
+          "$ref": "#/$defs/cdifConceptOrTermOrString",
+          "description": "Controlled-vocabulary entry naming the kind of statistic — e.g. mean, median, count, sum, stdDev."
         },
-        "skos:notation": {
-          "description": "Classification code for this concept within a scheme.",
-          "type": "string"
-        },
-        "skos:definition": {
-          "description": "Formal definition of this concept. Optional for CDIF codelist concepts. A plain string.",
-          "type": "string"
-        },
-        "skos:narrower": {
-          "description": "Narrower (child) concepts. If present, each inline concept must also declare skos:broader pointing back to the parent concept. Both skos:narrower and skos:broader must be explicit in CDIF codelists.",
+        "cdi:statistic": {
           "type": "array",
+          "description": "Ordered list of Statistic value objects carried by this bundle. Order is significant — consumers MAY rely on array position.",
+          "items": {
+            "title": "Statistic",
+            "description": "DDI-CDI Statistic dataType — a single computed value (mean, count, median, etc.). A value object with no identity; appears inline inside a cdi:statistic array.",
+            "type": "object",
+            "properties": {
+              "cdi:computationBase": {
+                "type": "string",
+                "enum": [
+                  "MissingOnly",
+                  "Total",
+                  "ValidOnly"
+                ],
+                "description": "The cases included in determining the statistic — Total (all cases, valid and missing), ValidOnly (valid values only), MissingOnly (invalid cases only)."
+              },
+              "cdi:content": {
+                "type": "number",
+                "description": "The value of the statistic expressed as a real number."
+              },
+              "cdi:isWeighted": {
+                "type": "boolean",
+                "default": false,
+                "description": "True if the statistic was computed using a weighting variable."
+              },
+              "cdi:typeOfNumericValue": {
+                "type": "string",
+                "description": "The type of numeric value carried in cdi:content — decimal, float, or double."
+              }
+            }
+          },
+          "minItems": 1
+        },
+        "cdi:hasWeight": {
+          "description": "The InstanceVariable whose values were used as weights when computing the Statistic entries (inline cdifInstanceVariable node or an @id-reference).",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CdifInstanceVariable"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            }
+          ]
+        },
+        "cdif:appliesTo": {
+          "type": "array",
+          "description": "CDIF addition (not in canonical DDI-CDI): the InstanceVariable(s) this Statistics bundle summarizes — the per-bundle \"what these numbers describe\" link. Used **only** when this Statistics bundle sits inside a StatisticsCollection that indexes more than one variable, to disambiguate which variable each bundle describes. It MUST NOT appear on a Statistics bundle attached at Dataset level via `cdif:statistics`; per-variable stats belong under `schema:variableMeasured[i].cdif:isDescribedBy_StatisticsCollection` (the direct JSON mapping of the DDI-CDI `InstanceVariable.isDescribedBy` association).",
           "items": {
             "anyOf": [
+              {
+                "$ref": "#/$defs/CdifInstanceVariable"
+              },
               {
                 "type": "object",
                 "additionalProperties": false,
@@ -9587,44 +9473,165 @@
                 "required": [
                   "@id"
                 ]
-              },
-              {
-                "allOf": [
-                  {
-                    "$ref": "#/$defs/CdifCodelistConcept"
-                  },
-                  {
-                    "required": [
-                      "skos:broader"
-                    ]
-                  }
-                ]
               }
             ]
-          }
+          },
+          "minItems": 1
         },
-        "skos:broader": {
-          "description": "Broader (parent) concepts. Required on any concept that appears as a skos:narrower value of another concept. CDIF requires both directions to be explicit for hierarchy traversal.",
+        "cdif:has_CategoryStatistics": {
           "type": "array",
+          "description": "CategoryStatistics entries breaking this Statistics bundle down by Category. cdif: namespaced and target-suffixed because the DDI-CDI cdi:has association is polymorphic.",
           "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/$defs/CategoryStatistics"
           }
         }
       },
       "required": [
-        "@id",
-        "skos:inScheme",
-        "skos:prefLabel",
-        "skos:notation"
+        "@type",
+        "cdi:statistic"
+      ]
+    },
+    "CategoryStatistics": {
+      "title": "CategoryStatistics",
+      "description": "Statistics for a specific Category of an instance variable within a data set.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "Identifier for this CategoryStatistics node."
+        },
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "cdi:CategoryStatistics"
+          },
+          "minItems": 1
+        },
+        "cdi:for": {
+          "description": "The Category this CategoryStatistics is for (inline Category node or an @id-reference).",
+          "anyOf": [
+            {
+              "title": "Category",
+              "description": "Minimal Category shape used as a CategoryStatistics target. CDIF simplifies the DDI-CDI InternationalString / LabelForDisplay / ObjectName valued properties to plain strings carried under the cdif: namespace. A full CDIF treatment of categories lives in cdifEnumerationDomain / SKOS Concept.",
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "contains": {
+                    "const": "cdi:Category"
+                  },
+                  "minItems": 1
+                },
+                "cdif:name": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Human-understandable name(s). CDIF-simplified from DDI-CDI Category.name (ObjectName) to plain strings."
+                },
+                "cdif:descriptiveText": {
+                  "type": "string",
+                  "description": "Short natural-language account of the category. CDIF-simplified from DDI-CDI Category.descriptiveText (InternationalString)."
+                },
+                "cdif:definition": {
+                  "type": "string",
+                  "description": "Natural-language definition of the category. CDIF-simplified from DDI-CDI Category.definition (InternationalString)."
+                },
+                "cdif:displayLabel": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Human-readable display label(s). CDIF-simplified from DDI-CDI Category.displayLabel (LabelForDisplay)."
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            }
+          ]
+        },
+        "cdi:typeOfStatistic": {
+          "$ref": "#/$defs/cdifConceptOrTermOrString",
+          "description": "Controlled-vocabulary entry naming the kind of statistic."
+        },
+        "cdi:statistic": {
+          "type": "array",
+          "description": "Per-category Statistic value objects.",
+          "items": {
+            "title": "Statistic",
+            "description": "DDI-CDI Statistic dataType — a single computed value (mean, count, median, etc.). A value object with no identity; appears inline inside a cdi:statistic array.",
+            "type": "object",
+            "properties": {
+              "cdi:computationBase": {
+                "type": "string",
+                "enum": [
+                  "MissingOnly",
+                  "Total",
+                  "ValidOnly"
+                ],
+                "description": "The cases included in determining the statistic — Total (all cases, valid and missing), ValidOnly (valid values only), MissingOnly (invalid cases only)."
+              },
+              "cdi:content": {
+                "type": "number",
+                "description": "The value of the statistic expressed as a real number."
+              },
+              "cdi:isWeighted": {
+                "type": "boolean",
+                "default": false,
+                "description": "True if the statistic was computed using a weighting variable."
+              },
+              "cdi:typeOfNumericValue": {
+                "type": "string",
+                "description": "The type of numeric value carried in cdi:content — decimal, float, or double."
+              }
+            }
+          },
+          "minItems": 1
+        },
+        "cdi:hasWeight": {
+          "description": "The InstanceVariable whose values were used as weights (inline cdifInstanceVariable node or an @id-reference).",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CdifInstanceVariable"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "@id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "@type",
+        "cdi:for",
+        "cdi:statistic"
       ]
     },
     "IdentifierComponent": {
