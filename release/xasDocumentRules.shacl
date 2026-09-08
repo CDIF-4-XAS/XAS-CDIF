@@ -724,23 +724,6 @@ cdifd:XasCoreConformsToShape a sh:NodeShape ;
             }
         """ ] .
 
-cdifd:XasOptionalConformsToShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:hasValue <https://w3id.org/cdif/xasOptional/1.0> ;
-            sh:message "A record that uses optional XAS fields should declare conformance to the CDIF XAS optional tier (https://w3id.org/cdif/xasOptional/1.0)" ;
-            sh:path dcterms:conformsTo ;
-            sh:severity sh:Warning ] ;
-    sh:target [ a sh:SPARQLTarget ;
-            sh:select """
-            PREFIX schema: <http://schema.org/>
-            SELECT ?this
-            WHERE {
-            ?this a schema:Dataset ;
-             schema:about ?parent ;
-             schema:additionalType "dcat:CatalogRecord" .
-            }
-        """ ] .
-
 cdifd:cdifCategoryStatisticShape a sh:NodeShape ;
     sh:property [ sh:message "A cdi:CategoryStatistics must carry a cdi:for reference to the Category it applies to." ;
             sh:minCount 1 ;

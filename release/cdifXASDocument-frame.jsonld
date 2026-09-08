@@ -342,7 +342,7 @@
         "dqv:value": {"@embed": "@always"}
     },
 
-    "_comment_subjectOf": "CatalogRecord for the dataset: dcterms:conformsTo declares the profile URIs (cdifCore/1.1, cdifDiscovery/1.1, cdifDataDescription/1.1, cdifDataStructure/1.1, xasCore/1.0, xasOptional/1.0).",
+    "_comment_subjectOf": "CatalogRecord for the dataset: dcterms:conformsTo declares the profile URIs (cdifCore/1.1, cdifDiscovery/1.1, cdifDataDescription/1.1, cdifDataStructure/1.1, xasCore/1.0). xasOptional/1.0 is deliberately absent: that module declares no required content, so conformance to it is vacuous and undetectable.",
     "schema:subjectOf": {
         "@embed": "@always",
         "schema:about": {"@embed": "@always"},

@@ -87,15 +87,18 @@ root Dataset, and that record declares conformance to all six URIs:
         { "@id": "https://w3id.org/cdif/discovery/1.1" },
         { "@id": "https://w3id.org/cdif/data_description/1.1" },
         { "@id": "https://w3id.org/cdif/data_structure/1.1" },
-        { "@id": "https://w3id.org/cdif/xasCore/1.0" },
-        { "@id": "https://w3id.org/cdif/xasOptional/1.0" }
+        { "@id": "https://w3id.org/cdif/xasCore/1.0" }
     ]
 }
 ```
 
-The `xasOptional/1.0` line is present even when the document uses none of
-its optional content — the URI declares "these vocabularies are
-understood," not "at least one is used."
+`xasOptional/1.0` is deliberately **not** declared. The xasOptional module
+adds no required content — every property it contributes is optional — so
+conformance to it is satisfied vacuously by any document, and
+`detect_conformance` has no rule that can check such a claim. Declaring it
+asserted something neither meaningful nor verifiable, so the requirement was
+removed from the schema and the advisory removed from the shapes. The module
+itself remains: it documents and permits the optional XAS fields.
 
 
 ## Model overview

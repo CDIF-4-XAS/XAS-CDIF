@@ -231,9 +231,6 @@
       },
       {
         "@id": "https://w3id.org/cdif/xasCore/1.0"
-      },
-      {
-        "@id": "https://w3id.org/cdif/xasOptional/1.0"
       }
     ],
     "schema:about": {

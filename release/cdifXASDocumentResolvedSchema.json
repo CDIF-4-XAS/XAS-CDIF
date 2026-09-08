@@ -6277,56 +6277,6 @@
           }
         }
       }
-    },
-    {
-      "if": {
-        "required": [
-          "schema:variableMeasured"
-        ]
-      },
-      "then": {
-        "required": [
-          "schema:subjectOf"
-        ],
-        "properties": {
-          "schema:subjectOf": {
-            "required": [
-              "dcterms:conformsTo"
-            ],
-            "properties": {
-              "dcterms:conformsTo": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "required": [
-                    "@id"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "@id": {
-                      "type": "string",
-                      "description": "uri for specifications that this metadata record conforms to"
-                    }
-                  }
-                },
-                "minItems": 1,
-                "contains": {
-                  "type": "object",
-                  "required": [
-                    "@id"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "@id": {
-                      "const": "https://w3id.org/cdif/xasOptional/1.0"
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
     }
   ],
   "$defs": {
