@@ -64,12 +64,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/Se_Na2SeO4_rt_01/rv/Column_1",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "energy"
+              "cdif:name": [
+                "energy"
+              ]
             }
           },
           {
@@ -77,12 +79,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/Se_Na2SeO4_rt_01/rv/Column_2",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "itrans"
+              "cdif:name": [
+                "itrans"
+              ]
             }
           },
           {
@@ -90,12 +94,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/Se_Na2SeO4_rt_01/rv/Column_3",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "i0"
+              "cdif:name": [
+                "i0"
+              ]
             }
           }
         ]

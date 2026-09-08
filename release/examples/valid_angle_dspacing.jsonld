@@ -64,12 +64,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/valid_angle_dspacing/rv/Column_1",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "angle"
+              "cdif:name": [
+                "angle"
+              ]
             }
           },
           {
@@ -77,12 +79,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/valid_angle_dspacing/rv/Column_2",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "mutrans"
+              "cdif:name": [
+                "mutrans"
+              ]
             }
           }
         ]

@@ -64,12 +64,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/valid/rv/Column_1",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "energy"
+              "cdif:name": [
+                "energy"
+              ]
             }
           },
           {
@@ -77,12 +79,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/valid/rv/Column_2",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "mutrans"
+              "cdif:name": [
+                "mutrans"
+              ]
             }
           }
         ]

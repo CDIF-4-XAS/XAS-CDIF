@@ -85,7 +85,10 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
+              "@type": [
+                "cdi:RepresentedVariable"
+              ],
               "@id": "ex:struct/DV/BYSPHH/rv/Column_1",
               "cdif:name": [
                 "energy"
@@ -97,7 +100,10 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
+              "@type": [
+                "cdi:RepresentedVariable"
+              ],
               "@id": "ex:struct/DV/BYSPHH/rv/Column_2",
               "cdif:name": [
                 "time"
@@ -109,7 +115,10 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
+              "@type": [
+                "cdi:RepresentedVariable"
+              ],
               "@id": "ex:struct/DV/BYSPHH/rv/Column_3",
               "cdif:name": [
                 "i0"
@@ -121,7 +130,10 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
+              "@type": [
+                "cdi:RepresentedVariable"
+              ],
               "@id": "ex:struct/DV/BYSPHH/rv/Column_4",
               "cdif:name": [
                 "itrans"

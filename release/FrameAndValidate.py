@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: 96557dd2e8920337b2ca0d5853e550ec49f34d0708c5ecadaea020e6d4b7967e
+# src-sha256: f8b9c91835c80508dc4093e02fa5fafee95f7910c9045bfb0c7ba857ab2aa968
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -57,6 +57,11 @@ ARRAY_PROPERTIES = [
     'schema:query-input',
     'schema:participant',
     'schema:additionalProperty',
+    # cdif:name is type: array in all 41 places it is constrained across every
+    # resolved schema, and a string in none -- so restoring it is unambiguous.
+    # It went unnoticed while the component's variable link was collapsed to a
+    # bare {@id} by REFERENCE_ONLY_KEYS: the name never survived to be validated.
+    'cdif:name',
     # An activity commonly uses several instruments in one role, so the
     # profiles pin prov:used's schema:instrument wrapper to an array.
     # Framing collapses a one-instrument list back to a bare object and
@@ -224,9 +229,10 @@ REFERENCE_ONLY_KEYS = (
     # else -- because the represented-variable-level properties are defined
     # once on the RepresentedVariable and deliberately not duplicated. The
     # RV node itself is reached through the data structure's components, so
-    # collapsing the framing-embedded copy is non-lossy. (The same key on
-    # cdifDataStructureComponent may legitimately be inline; that node is not
-    # framed through this path.)
+    # collapsing the framing-embedded copy is non-lossy. This is the
+    # InstanceVariable's property only. The component's equivalent is now named
+    # cdif:isDefinedBy_Variable and may legitimately be inline, so it must NOT
+    # be added here; the two used to share this name and no longer do.
     'cdif:isDefinedBy_RepresentedVariable',
 )
 

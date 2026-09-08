@@ -64,12 +64,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_1",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "energy"
+              "cdif:name": [
+                "energy"
+              ]
             }
           },
           {
@@ -77,12 +79,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_2",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "i0"
+              "cdif:name": [
+                "i0"
+              ]
             }
           },
           {
@@ -90,12 +94,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_3",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "itrans"
+              "cdif:name": [
+                "itrans"
+              ]
             }
           },
           {
@@ -103,12 +109,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_4",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "irefer"
+              "cdif:name": [
+                "irefer"
+              ]
             }
           },
           {
@@ -116,12 +124,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_5",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "mutrans"
+              "cdif:name": [
+                "mutrans"
+              ]
             }
           },
           {
@@ -129,12 +139,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_6",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "lnitiref"
+              "cdif:name": [
+                "lnitiref"
+              ]
             }
           },
           {
@@ -142,12 +154,14 @@
             "@type": [
               "cdi:MeasureComponent"
             ],
-            "cdif:isDefinedBy_RepresentedVariable": {
+            "cdif:isDefinedBy_Variable": {
               "@id": "ex:struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_7",
               "@type": [
-                "cdi:InstanceVariable"
+                "cdi:RepresentedVariable"
               ],
-              "cdif:name": "time"
+              "cdif:name": [
+                "time"
+              ]
             }
           }
         ]
