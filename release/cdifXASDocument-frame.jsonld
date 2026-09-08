@@ -162,12 +162,7 @@
             "schema:name": {},
             "schema:identifier": {"@embed": "@always"},
             "cdi:has_DataStructureComponent": {
-                "@embed": "@always",
-                "cdif:isDefinedBy_RepresentedVariable": {
-                    "@embed": "@always",
-                    "cdif:name": {},
-                    "schema:name": {}
-                }
+                "@embed": "@always"
             }
         }
     },

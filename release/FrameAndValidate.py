@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: 868e73dbf607d25b054e4ed12c9a32dcdd5c07d93b214e137c20ef98f4180bf9
+# src-sha256: 96557dd2e8920337b2ca0d5853e550ec49f34d0708c5ecadaea020e6d4b7967e
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -529,7 +529,14 @@ def remove_nulls_and_normalize(obj, parent_key=None):
         # a single object. Keyed on parent_key (not the catalog-record marker,
         # whose schema:additionalType form varies: 'dcat:CatalogRecord' vs
         # {'@id': 'dcat:CatalogRecord'}).
-        if parent_key != 'schema:subjectOf':
+        # ...and not on a DefinedTerm. The XAS profile identifies the absorption
+        # edge and target element with a keywords `contains` whose schema:about
+        # is a const STRING ("element.edge" / "element.symbol"); wrapping it made
+        # every XAS record miss both, so the profile's two defining terms went
+        # unrecognised. No CDIF schema wants an array here -- the ones that do
+        # (profile-manifest's hasPart items, CDIF-graph's MediaObject) are never
+        # DefinedTerms.
+        if parent_key != 'schema:subjectOf' and 'schema:DefinedTerm' not in type_list:
             about = result.get('schema:about')
             if about is not None and not isinstance(about, list):
                 result['schema:about'] = [about]
@@ -570,6 +577,19 @@ def remove_nulls_and_normalize(obj, parent_key=None):
             ident = result.get('schema:identifier')
             if isinstance(ident, list) and len(ident) == 1:
                 result['schema:identifier'] = ident[0]
+
+        # ...but an array on an instrument, where the schema pins
+        # schema:instrument/items/properties/schema:identifier to type: array
+        # ("Formal identifier(s)" -- a device can carry a PID, a serial number
+        # and an inventory number at once). schema:identifier cannot go in
+        # ARRAY_PROPERTIES, which is keyed on name alone, because the agent case
+        # directly above needs the opposite; so key off the parent property.
+        # Sub-parts in schema:hasPart are anyOf, not array, and parent_key is
+        # 'schema:hasPart' there, so this correctly leaves them alone.
+        if parent_key == 'schema:instrument':
+            ident = result.get('schema:identifier')
+            if ident is not None and not isinstance(ident, list):
+                result['schema:identifier'] = [ident]
 
         return result
 
