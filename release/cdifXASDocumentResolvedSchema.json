@@ -6546,18 +6546,8 @@
         },
         {
           "type": "object",
-          "description": "DCAT Relationship surface added on top of the schema.org labeled link construct.",
+          "description": "DCAT Relationship surface added on top of the schema.org labeled link construct. This block is an allOf of labeledLink and this surface, so a \"@type\" with contains: dcat:Relationship here applied to EVERY cdifReference -- alongside labeledLink's contains: schema:CreativeWork -- making the two co-types mandatory and the block unsatisfiable for an ordinary labeled link. schema:license recommends exactly such a link (\"recommend using schema:CreativeWork to provide a label (name) for the license\"), and every example that followed that advice failed. The co-type mandate is therefore gone: @type is governed solely by labeledLink, which already requires schema:CreativeWork and permits dcat:Relationship alongside it. This matches rules.shacl, where cdifReferenceShape targets dcat:Relationship as a class -- the relation rules apply to nodes that declare it, rather than forcing every labeled link to.",
           "properties": {
-            "@type": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "contains": {
-                "const": "dcat:Relationship"
-              },
-              "minItems": 1
-            },
             "dcat:hadRole": {
               "$ref": "#/$defs/cdifConceptOrTermOrString",
               "description": "Role of the related resource as a SKOS Concept (DCAT canonical role slot)."
