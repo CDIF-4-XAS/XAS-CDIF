@@ -16,3 +16,7 @@ exampleData/*.zip
 # output for the CURRENT glossary sat in a directory named for the 1.0
 # release, and the two were repeatedly mistaken for each other.
 /build/
+
+# A .pyc outside __pycache__/ (e.g. carried along in a file move)
+# is not caught by the rule above.
+*.pyc
