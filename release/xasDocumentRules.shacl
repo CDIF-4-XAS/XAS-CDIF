@@ -105,6 +105,7 @@ cdifd:CDIFCatalogRecordShape a sh:NodeShape ;
     sh:message "The target of the metadata record (about)." ;
     sh:nodeKind sh:IRI ;
     sh:property cdifd:catalogRecordTypeProperty,
+        cdifd:metadataConformsToPresent,
         cdifd:metadataProfileProperty,
         cdifd:metadataSubjectProperty ;
     sh:target [ a sh:SPARQLTarget ;
@@ -141,23 +142,6 @@ cdifd:CDIFCodelistConceptShape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:path skos:prefLabel ] ;
     sh:targetClass skos:Concept .
-
-cdifd:CDIFCodelistConformsToShape a sh:NodeShape ;
-    sh:property [ a sh:PropertyShape ;
-            sh:hasValue <https://w3id.org/cdif/codelist/1.1> ;
-            sh:message "A subjectOf catalog record on a CDIF codelist must include dcterms:conformsTo <https://w3id.org/cdif/codelist/1.1>." ;
-            sh:minCount 1 ;
-            sh:path dcterms:conformsTo ] ;
-    sh:target [ a sh:SPARQLTarget ;
-            sh:prefixes cdifd: ;
-            sh:select """
-                PREFIX schema: <http://schema.org/>
-                PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-                SELECT ?this WHERE {
-                    ?dataset schema:subjectOf ?this .
-                    ?dataset a skos:ConceptScheme .
-                }
-            """ ] .
 
 cdifd:CDIFCodelistShape a sh:NodeShape ;
     sh:message "A CDIF codelist must have a resolvable IRI as @id.",
@@ -218,6 +202,26 @@ cdifd:CDIFDataDownloadShape a sh:NodeShape ;
             sh:pattern "^[a-zA-Z][a-zA-Z0-9+.-]*:[^\\s]*$" ] ;
     sh:targetClass schema:DataDownload .
 
+cdifd:CDIFDataStructureConformsToShape a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:hasValue <https://w3id.org/cdif/data_structure/1.1> ;
+            sh:message "A catalog record on a dataset using CDIF data structure properties should include dcterms:conformsTo <https://w3id.org/cdif/data_structure/1.1>." ;
+            sh:minCount 1 ;
+            sh:path dcterms:conformsTo ;
+            sh:severity sh:Warning ] ;
+    sh:target [ a sh:SPARQLTarget ;
+            sh:prefixes cdifd: ;
+            sh:select """
+			PREFIX schema: <http://schema.org/>
+			PREFIX dcat: <http://www.w3.org/ns/dcat#>
+			SELECT ?this WHERE {
+				?subject schema:subjectOf ?this .
+				?subject a schema:Dataset .
+				?this schema:additionalType ?at .
+				FILTER( ?at = dcat:CatalogRecord || STR(?at) = "dcat:CatalogRecord" )
+			}
+		""" ] .
+
 cdifd:CDIFDatasetMandatoryShape a sh:NodeShape ;
     sh:message "A Dataset must have an @id that is a URI (IRI)" ;
     sh:nodeKind sh:IRI ;
@@ -256,6 +260,27 @@ cdifd:CDIFDatasetMandatoryShape a sh:NodeShape ;
               FILTER NOT EXISTS { ?dsrc dcterms:source ?this . }
             }
           """ ] .
+
+cdifd:CDIFDiscoveryConformsToShape a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:hasValue <https://w3id.org/cdif/discovery/1.1> ;
+            sh:message "A catalog record on a dataset using CDIF discovery properties should include dcterms:conformsTo <https://w3id.org/cdif/discovery/1.1>." ;
+            sh:minCount 1 ;
+            sh:path dcterms:conformsTo ;
+            sh:severity sh:Warning ] ;
+    sh:target [ a sh:SPARQLTarget ;
+            sh:prefixes cdifd: ;
+            sh:select """
+    		PREFIX schema: <http://schema.org/>
+    		PREFIX dcat: <http://www.w3.org/ns/dcat#>
+    		PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    		SELECT ?this WHERE {
+    			?subject schema:subjectOf ?this .
+    			?subject a schema:Dataset .
+    			?this schema:additionalType ?at .
+    			FILTER( ?at = dcat:CatalogRecord || STR(?at) = "dcat:CatalogRecord" )
+    		}
+    	""" ] .
 
 cdifd:CDIFIdentifierShape a sh:NodeShape ;
     sh:message "identifier rules. for an identifier, the property ID is expected to specify an identifier scheme.Get values from https://registry.identifiers.org/registry/ for interoperability",
@@ -380,7 +405,7 @@ cdifd:CDIFLabeledLinkShape a sh:NodeShape ;
 
 cdifd:CDIFOrganizationShape a sh:NodeShape ;
     sh:message "Organization must have an @id IRI, a name or an identifier that is a string" ;
-    sh:or ( [ sh:property cdifd:nameProperty ] [ sh:property [ sh:message "an organization should have an identifier that is a URI; use of ORCID is strongly encouraged" ;
+    sh:or ( [ sh:nodeKind sh:IRI ] [ sh:property cdifd:nameProperty ] [ sh:property [ sh:message "an organization should have an identifier that is a URI; use of ORCID is strongly encouraged" ;
                         sh:minCount 1 ;
                         sh:nodeKind sh:IRIOrLiteral ;
                         sh:path schema:identifier ] ] ) ;
@@ -771,12 +796,24 @@ cdifd:cdifDataStructure_WideDataStructureShape a sh:NodeShape ;
     sh:targetClass cdi:WideDataStructure .
 
 cdifd:cdifDataStructure_inlineStructureShape a sh:NodeShape ;
-    sh:sparql [ sh:message "A distribution's cdi:isStructuredBy must resolve to a structure that carries cdi:has_DataStructureComponent. The components may be written inline or on a node identified by @id elsewhere in the same document -- in RDF both denote the same node, and this rule is satisfied either way. What it rejects is a reference to a structure that is never defined." ;
+    sh:sparql [ sh:message "A distribution's cdi:isStructuredBy must resolve to a structure that carries cdi:has_DataStructureComponent. The components may be written inline or on a node identified by @id elsewhere in the same document -- in RDF both denote the same node, and this rule is satisfied either way. What it rejects is a reference to a structure that is never defined. Exempt: a plain cdi:DataStructure whose content is a key (cdi:has_ForeignKey or cdi:has_PrimaryKey), since cdif:ForeignKey and cdif:PrimaryKey compose variables through cdi:ComponentPosition wrappers and imply no components. The exemption does NOT extend to the Dimensional, Long and Wide variants: each names a data layout, and a layout listing no components describes nothing." ;
             sh:select """
 			SELECT $this WHERE {
 				$this <http://schema.org/distribution> ?dist .
 				?dist <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy> ?s .
 				FILTER NOT EXISTS { ?s <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent> ?c }
+				FILTER NOT EXISTS {
+					{ ?s <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_ForeignKey> ?k }
+					UNION
+					{ ?s <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_PrimaryKey> ?k }
+					FILTER NOT EXISTS {
+						?s a ?t .
+						FILTER (?t IN (
+							<http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/DimensionalDataStructure>,
+							<http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/LongDataStructure>,
+							<http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/WideDataStructure>))
+					}
+				}
 			}
 		""" ;
             sh:severity sh:Violation ] ;
@@ -1154,12 +1191,6 @@ cdifd:maintainerOrProviderContactPointShape a sh:NodeShape ;
             }
         """ ] .
 
-cdifd:metadataConformsToPresent a sh:PropertyShape ;
-    sh:message "a catalog record must declare at least one dcterms:conformsTo IRI identifying the conventions its serialization follows" ;
-    sh:minCount 1 ;
-    sh:nodeKind sh:IRI ;
-    sh:path dcterms:conformsTo .
-
 cdifd:physicalMappingShape a sh:NodeShape ;
     sh:message "Physical mapping nodes should link to their corresponding variable definition." ;
     sh:property [ sh:message "A physical mapping should reference the variable it formats (cdif:formats_InstanceVariable)." ;
@@ -1184,7 +1215,7 @@ cdifd:qualityMeasurementNode a sh:NodeShape ;
             sh:path dqv:isMeasurementOf ],
         [ sh:message "a dataquality measurement must report a result value" ;
             sh:minCount 1 ;
-            sh:or ( [ sh:datatype xsd:string ] [ sh:class schema:DefinedTerm ] ) ;
+            sh:or ( [ sh:datatype xsd:string ] [ sh:datatype xsd:decimal ] [ sh:datatype xsd:integer ] [ sh:datatype xsd:double ] [ sh:class schema:DefinedTerm ] ) ;
             sh:path dqv:value ] ;
     sh:target [ a sh:SPARQLTarget ;
             sh:select """
@@ -1514,6 +1545,12 @@ cdifd:keywordsProperty a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:path schema:keywords ;
     sh:severity sh:Warning .
+
+cdifd:metadataConformsToPresent a sh:PropertyShape ;
+    sh:message "a catalog record must declare at least one dcterms:conformsTo IRI identifying the conventions its serialization follows" ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:path dcterms:conformsTo .
 
 cdifd:metadataProfileProperty a sh:PropertyShape ;
     sh:hasValue <https://w3id.org/cdif/core/1.1> ;
