@@ -284,6 +284,18 @@ cdifd:CDIFDiscoveryConformsToShape a sh:NodeShape ;
     		}
     	""" ] .
 
+cdifd:CDIFEntryPointShape a sh:NodeShape ;
+    sh:message "A schema:EntryPoint must say where it points: schema:url for a fixed address, or schema:urlTemplate for a parameterised one." ;
+    sh:or ( [ sh:property [ sh:minCount 1 ;
+                        sh:path schema:url ] ] [ sh:property [ sh:minCount 1 ;
+                        sh:path schema:urlTemplate ] ] ) ;
+    sh:property [ a sh:PropertyShape ;
+            sh:datatype xsd:string ;
+            sh:message "If a schema:EntryPoint carries schema:url, it must resolve over http(s)." ;
+            sh:path schema:url ;
+            sh:pattern "^https?://[^\\s]+$" ] ;
+    sh:targetClass schema:EntryPoint .
+
 cdifd:CDIFIdentifierShape a sh:NodeShape ;
     sh:message "identifier rules. for an identifier, the property ID is expected to specify an identifier scheme.Get values from https://registry.identifiers.org/registry/ for interoperability",
         "identifier rules. the context of an identifier, the PropertyValue provides the identifier value string-- either as a schema:value or a url. The value can be either a full URI or identifier token part of URI if a url is provided. url value must be a resolvable URI that identifies the resource." ;
@@ -405,6 +417,19 @@ cdifd:CDIFLabeledLinkShape a sh:NodeShape ;
             sh:pattern "^https?:\\/\\/[^\\s]+$" ] ;
     sh:targetClass schema:CreativeWork .
 
+cdifd:CDIFLinkRoleShape a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:message "A schema:LinkRole should carry a schema:target naming what is linked to." ;
+            sh:minCount 1 ;
+            sh:path schema:target ;
+            sh:severity sh:Warning ],
+        [ a sh:PropertyShape ;
+            sh:message "A schema:LinkRole should carry a schema:linkRelationship saying how the target relates to the subject." ;
+            sh:minCount 1 ;
+            sh:path schema:linkRelationship ;
+            sh:severity sh:Warning ] ;
+    sh:targetClass schema:LinkRole .
+
 cdifd:CDIFOrganizationShape a sh:NodeShape ;
     sh:message "Organization must have an @id IRI, a name or an identifier that is a string" ;
     sh:or ( [ sh:nodeKind sh:IRI ] [ sh:property cdifd:nameProperty ] [ sh:property [ sh:message "an organization should have an identifier that is a URI; use of ORCID is strongly encouraged" ;
@@ -424,10 +449,10 @@ cdifd:CDIFPersonShape a sh:NodeShape ;
     sh:targetClass schema:Person .
 
 cdifd:CDIFRelationShape a sh:NodeShape ;
-    sh:message "A cdif:Relation must carry a resolvable schema:url. dcterms:relation (URI of the related resource) and dcat:hadRole (SKOS-typed role) are recommended when the relation distinguishes the related resource from its presentation URL or carries an explicit role." ;
+    sh:message "A relation link must carry a resolvable schema:url. dcterms:relation (URI of the related resource) and dcat:hadRole (SKOS-typed role) are recommended when the relation distinguishes the related resource from its presentation URL or carries an explicit role." ;
     sh:property [ a sh:PropertyShape ;
             sh:datatype xsd:string ;
-            sh:message "cdif:Relation must have at least one schema:url that resolves over http(s)." ;
+            sh:message "A relation link must have at least one schema:url that resolves over http(s)." ;
             sh:minCount 1 ;
             sh:path schema:url ;
             sh:pattern "^https?://[^\\s]+$" ],
@@ -621,8 +646,8 @@ cdifd:InstanceVariableRepresentedVariableExclusivityShape a sh:NodeShape ;
             sh:message "cdi:measures is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
             sh:path cdi:measures ],
         [ sh:maxCount 0 ;
-            sh:message "cdi:externalDefinition is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
-            sh:path cdi:externalDefinition ],
+            sh:message "cdif:externalDefinition is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
+            sh:path <https://w3id.org/cdif/externalDefinition> ],
         [ sh:maxCount 0 ;
             sh:message "cdif:uses_Concept is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
             sh:path <https://w3id.org/cdif/uses_Concept> ],
