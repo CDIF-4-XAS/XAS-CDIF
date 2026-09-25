@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: f8b9c91835c80508dc4093e02fa5fafee95f7910c9045bfb0c7ba857ab2aa968
+# src-sha256: acb0971b79fa3480340fa2de382566ab3a7f0cd32fc09cd92bfa47f9f642ffa0
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -234,6 +234,21 @@ REFERENCE_ONLY_KEYS = (
     # cdif:isDefinedBy_Variable and may legitimately be inline, so it must NOT
     # be added here; the two used to share this name and no longer do.
     'cdif:isDefinedBy_RepresentedVariable',
+    # Sealed {@id} in cdifPhysicalMapping -- its own description reads
+    # "Reference to a variable defined in schema:variableMeasured", so the
+    # target is always present elsewhere and collapsing the framing-embedded
+    # copy is non-lossy.
+    'cdif:formats_InstanceVariable',
+    # A key names variables that are declared once (in schema:variableMeasured)
+    # and referenced from each ComponentPosition, so the framing-embedded copy
+    # is never the only copy. Safe under a name-keyed collapse because every
+    # definition of this name permits a bare reference: the three CDIF sites
+    # (cdifKey, and ForeignKey / PrimaryKey in cdifDataStructure) are now
+    # objectReference-only, and the eleven canonical ddiProperties sites are
+    # anyOf[inline, ddicdiDataTypes#/$defs/id-reference], whose id-reference is
+    # exactly {@id}. This was NOT safe before 2026-09-24, when two CDIF sites
+    # still admitted an inline variable that a collapse would have destroyed.
+    'cdi:indexes',
 )
 
 # Keys the (bare-structure) schema requires as arrays but framing collapses to a
@@ -281,6 +296,23 @@ def normalize_bare_structure(obj):
             out[k] = v
         return out
     return obj
+
+
+def _normalize_structure_subtrees(obj):
+    """Apply normalize_bare_structure to every cdi:isStructuredBy value, leaving
+    the rest of a Dataset / manifest / data-description document untouched."""
+    if isinstance(obj, list):
+        return [_normalize_structure_subtrees(x) for x in obj]
+    if isinstance(obj, dict):
+        out = {}
+        for k, v in obj.items():
+            if k == 'cdi:isStructuredBy':
+                out[k] = normalize_bare_structure(v)
+            else:
+                out[k] = _normalize_structure_subtrees(v)
+        return out
+    return obj
+
 
 
 def _is_catalog_record(item):
@@ -658,11 +690,20 @@ def frame_cdif_document(doc_path, frame_path=None):
     print("Post-processing output...")
     result = remove_nulls_and_normalize(result)
 
+    # Originally gated on a structure-rooted document, because the same keys are
+    # typed differently on Dataset / manifest / data-description docs. That held
+    # only while the profile frames were dropping cdi:isStructuredBy from
+    # dataset-rooted documents, so the grammar never appeared in one. With the
+    # frames fixed it does, and inside it cdi:qualifies is type: array on an
+    # AttributeComponent exactly as in a bare structure, while compaction still
+    # flattens the single-valued case.
     # Step 6: For bare DataStructure documents only, apply structure-specific
     # normalizations (reference collapse + array wrapping) that must NOT run on
     # Dataset / manifest / data-description docs (same keys, different types).
     if _is_structure_rooted(doc):
         result = normalize_bare_structure(result)
+    else:
+        result = _normalize_structure_subtrees(result)
 
     return result
 
