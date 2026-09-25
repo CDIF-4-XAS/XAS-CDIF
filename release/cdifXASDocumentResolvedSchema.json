@@ -7257,10 +7257,105 @@
               },
               {
                 "$ref": "#/$defs/CdifRepresentedVariable"
+              },
+              {
+                "title": "DDI-CDI Descriptor Variable",
+                "type": "object",
+                "description": "Variable that provides codes for variable identification in the context of a data structure. Descriptor Variables hold values which reference the logical variables in the data set, indicating which one the associated value in the corresponding Reference Variable is a measure/value for. Descriptor Variables are presentational variables found only in Long Data Sets.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "cdi:DescriptorVariable"
+                    },
+                    "minItems": 1
+                  },
+                  "@id": {
+                    "type": "string",
+                    "description": "Identifier for this DescriptorVariable node"
+                  },
+                  "cdif:hasValuesFrom": {
+                    "type": "object",
+                    "description": "A cdi:DescriptorValueDomain enumerating the codes that can appear in the descriptor column, each paired (via cdif:isDefinedBy) with the RepresentedVariable that the code names.",
+                    "properties": {
+                      "@type": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "contains": {
+                          "const": "cdi:DescriptorValueDomain"
+                        },
+                        "minItems": 1
+                      },
+                      "@id": {
+                        "type": "string",
+                        "description": "Identifier for this DescriptorValueDomain node"
+                      },
+                      "cdif:takesValuesFrom": {
+                        "type": "array",
+                        "description": "Ordered list of descriptor entries. Each entry has a cdif:value (the code as it appears in the descriptor column) and a cdif:isDefinedBy pointer to the RepresentedVariable that the code names.",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "cdif:value": {
+                              "type": "string",
+                              "description": "The code value as it appears in the descriptor column."
+                            },
+                            "cdif:isDefinedBy": {
+                              "anyOf": [
+                                {
+                                  "$ref": "#/$defs/CdifRepresentedVariable"
+                                },
+                                {
+                                  "type": "object",
+                                  "additionalProperties": false,
+                                  "description": "object reference via URI or URI fragment to a RepresentedVariable defined elsewhere in the document",
+                                  "properties": {
+                                    "@id": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "@id"
+                                  ]
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "cdif:value",
+                            "cdif:isDefinedBy"
+                          ]
+                        },
+                        "minItems": 1
+                      }
+                    },
+                    "required": [
+                      "@type",
+                      "cdif:takesValuesFrom"
+                    ]
+                  },
+                  "cdif:name": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "description": "Human understandable name (linguistic signifier, word, phrase, or mnemonic). May follow ISO/IEC 11179-5 naming principles, and have context provided to specify usage."
+                  }
+                },
+                "required": [
+                  "@type",
+                  "cdif:hasValuesFrom"
+                ]
               }
             ]
           },
-          "description": "Essentially the same as schema:propertyID. References the concept(s) that this variable measures or represents and, under the Data Structure profile, the RepresentedVariable it instantiates. The RepresentedVariable branch is not new behaviour: it is what the rest of CDIF already documents and enforces. description.md calls cdif:uses \"concepts (or, under the Data Structure profile, the RepresentedVariable)\"; agents.md describes the InstanceVariable as \"a pointer (via cdif:uses) into a richer RepresentedVariable\"; the six NoDuplicate*Shape rules in cdifDataStructure traverse cdif:uses to reach that RepresentedVariable; and RepresentedVariableMustBeInstantiatedShape requires the link to exist. Only this schema said Concepts-only, and it was the outlier -- documents conforming to those rules could not be expressed here. A bare {@id} always matched via cdifConceptOrTerm; the branch is needed for the embedded form, because framing inlines a node whose @id is defined in the same document. cdif:isDefinedBy_RepresentedVariable remains the way to say that this InstanceVariable DEFERS its represented-variable-level properties to that RepresentedVariable; it is reference-only and carries the exclusivity rule. The cost is that cdif:uses no longer has a single value type, so it is a partial exception to the CDIF convention of disambiguating polymorphic DDI-CDI role names by target, and no longer strictly type-compatible with canonical cdi:uses, which is valued by a Concept."
+          "description": "Essentially the same as schema:propertyID. References the concept(s) that this variable measures or represents and, under the Data Structure profile, the RepresentedVariable it instantiates -- or, for the descriptor column of a long data set, the cdi:DescriptorVariable that supplies its codes. The DescriptorVariable branch was added 2026-09-25: it is not a RepresentedVariable subclass, so JSON Schema needs it listed explicitly, and without it a long structure's descriptor column had no legal cdif:uses target. Nothing caught that in the raw examples, because a bare {@id} matches the reference branch of cdifConceptOrTerm whatever it points at; only framing resolves the target and exposes its real @type. The RepresentedVariable branch is not new behaviour: it is what the rest of CDIF already documents and enforces. description.md calls cdif:uses \"concepts (or, under the Data Structure profile, the RepresentedVariable)\"; agents.md describes the InstanceVariable as \"a pointer (via cdif:uses) into a richer RepresentedVariable\"; the six NoDuplicate*Shape rules in cdifDataStructure traverse cdif:uses to reach that RepresentedVariable; and RepresentedVariableMustBeInstantiatedShape requires the link to exist. Only this schema said Concepts-only, and it was the outlier -- documents conforming to those rules could not be expressed here. A bare {@id} always matched via cdifConceptOrTerm; the branch is needed for the embedded form, because framing inlines a node whose @id is defined in the same document. cdif:isDefinedBy_RepresentedVariable remains the way to say that this InstanceVariable DEFERS its represented-variable-level properties to that RepresentedVariable; it is reference-only and carries the exclusivity rule. The cost is that cdif:uses no longer has a single value type, so it is a partial exception to the CDIF convention of disambiguating polymorphic DDI-CDI role names by target, and no longer strictly type-compatible with canonical cdi:uses, which is valued by a Concept."
         },
         "cdif:isDefinedBy_RepresentedVariable": {
           "$ref": "#/$defs/ObjectReference",
