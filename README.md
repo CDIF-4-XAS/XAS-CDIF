@@ -12,15 +12,72 @@ project.
 
 ## This working copy
 
-This is `smrgeoinfo/XAS-CDIF`, a fork of
-[`CDIF-4-XAS/XAS-CDIF`](https://github.com/CDIF-4-XAS/XAS-CDIF), on the
-**`cdifxasRelease`** branch.
+Work happens on the **`cdifxasRelease1.1`** branch, which exists in both
+[`CDIF-4-XAS/XAS-CDIF`](https://github.com/CDIF-4-XAS/XAS-CDIF) — the
+canonical repository — and `smrgeoinfo/XAS-CDIF`, a fork of it. As of
+2026-09-27 the two are at the same commit.
 
-**That branch has not been pushed back to `CDIF-4-XAS/XAS-CDIF`.** The
-content has moved well beyond the 1.0 deliverable: a `xasDocument/1.0`
+The content has moved well beyond the 1.0 deliverable: a `xasDocument/1.0`
 release profile, a rebuilt glossary, machine-readable crosswalks, and a
 55-file test corpus with generated metadata. The published 1.0 files are
-preserved in `archive/XAS-CDIF-1.0_release/`.
+preserved in `archive/XAS-CDIF-1.0_release/`. `cdifxasRelease1.1` is **not
+yet tagged or released** — the only tag in the repository is `1.0` — so it
+is a working branch rather than a published state, pending sign-off from
+the XAS team.
+
+### Remotes, and why there are two
+
+```
+origin    https://github.com/CDIF-4-XAS/XAS-CDIF.git   (fetch)
+origin    https://github.com/smrgeoinfo/XAS-CDIF.git   (push)
+origin    https://github.com/CDIF-4-XAS/XAS-CDIF.git   (push)
+upstream  https://github.com/CDIF-4-XAS/XAS-CDIF.git   (fetch + push)
+```
+
+`origin` **fetches from `CDIF-4-XAS`** and **pushes to both**, so one
+`git push origin` keeps the fork and the canonical repository in step.
+(Until 2026-09-27 `origin` fetched from the fork instead, which meant a
+commit pushed directly to `CDIF-4-XAS` by anyone else was invisible to
+`git pull`.)
+
+The fork exists because Pages could not be enabled on the organisation
+repository at the time. That is still the case for the current account:
+`CDIF-4-XAS/XAS-CDIF` has **no Pages site** (the API returns 404) and
+enabling one needs `admin`, which the account does not have (`admin:
+false`, `push: true`).
+
+### What publishes the site, and the one thing to know before moving it
+
+`.github/workflows/build-docs.yml` regenerates the glossary HTML and the
+per-concept SKOS files, then deploys `build/docs` to `gh-pages` with
+`peaceiris/actions-gh-pages`. That action pushes with `GITHUB_TOKEN`, so
+it targets **whichever repository the run belongs to** — and because the
+source commit reaches both, both repositories used to build and deploy
+independently. The published trees were byte-identical (measured
+2026-09-27: same tree hash, zero files differing) while the two
+`gh-pages` histories shared no ancestry, which looks like a divergence and
+is not one. A job guard now names the single publishing repository.
+
+The fork publishes today, and the w3id rules depend on that:
+`XAS_PAGES` in `perma-id/w3id.org` `ids/cdif/.htaccess` resolves
+`w3id.org/cdif/xas/*` — including the glossary's own scheme URI
+`xas/CDIF4XAS_Reference_Concepts` — to
+`https://smrgeoinfo.github.io/XAS-CDIF`. It is the only one of the 18
+bases in that file pointing at a personal account rather than an
+organisation, which is worth fixing.
+
+**Moving publication to the organisation, in this order:**
+
+1. Enable Pages on `CDIF-4-XAS` from `gh-pages` (needs `admin` there).
+2. Confirm the files actually serve at
+   `https://cdif-4-xas.github.io/XAS-CDIF/`.
+3. Change the one repository name in the `build-docs.yml` job guard.
+4. *Then* repoint `XAS_PAGES`, by PR against `perma-id/w3id.org`.
+
+Doing (4) first points a 303 at a site that does not exist. A stale
+redirect is better than a broken one: it serves correct-looking content
+from the old location, which is why the fork's Pages should stay enabled
+until the new redirect is live.
 
 ## Where the code lives
 

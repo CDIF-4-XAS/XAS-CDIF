@@ -211,6 +211,58 @@ mapping needs an XDI token to map from, and there is none.
 
 ---
 
+## 3a. What was acted on (2026-09-27)
+
+Four of the concepts above were **deprecated** in the glossary, with
+`owl:deprecated`, `dcterms:isReplacedBy` and a history note. They are retained,
+not removed: records published before the change still cite them.
+
+| deprecated | replaced by |
+|---|---|
+| `xas:beamline` | `NXinstrument` base class |
+| `xas:xraysourcetype` | `NXsource/type` field |
+| `xas:probe` | `NXsource/probe` field |
+| `xas:temperature` | `NXsample/temperature` field |
+
+`xas:beamline` also had its own NeXus pointer **corrected**, from `NXbeam` to
+`NXinstrument`. `NXbeam` describes the properties of the beam at a point in the
+instrument; a beamline is the assembly that delivers it. The table in §3 above
+already said `NXinstrument/name`, and `cdifnexmetadata`'s SSSOM binding says the
+same ("NXinstrument/name is the beamline name"), so the glossary's `foaf:focus`
+and `rdfs:seeAlso` were the outliers rather than the authority.
+
+### `xas:facility` was deliberately NOT deprecated
+
+§3 maps it to `NXsource/name`, which is right **as a property crosswalk** — the
+facility's name does belong in that field. It is not a licence to use the
+`NXsource` *class* as the facility's classification, and the two are different
+axes:
+
+- `xas:facility` is defined as "a synchrotron, X-ray free electron laser, **or
+  laboratory** facility where XAS measurements are performed".
+- NeXus describes `NXsource` as "the neutron or x-ray storage ring/facility".
+
+A laboratory XAS setup has no storage ring, so classifying it `NXsource` would be
+wrong. The concept that *does* correspond to `NXsource` is the narrower
+`xas:synchrotonfacility`, which already carried that pointer — and the two are now
+related by `skos:narrower` / `skos:broader` rather than sitting parallel as
+apparent duplicates.
+
+The same distinction applies to the SSSOM tables in `cdifnexmetadata`: they map
+CDIF concept keys onto NeXus *paths*, which is a different question from which IRI
+classifies a node. Neither needed changing.
+
+### In the CDIF profiles, both spellings validate
+
+`metadataBuildingBlocks` accepts the NeXus form (preferred) **and** the retired
+`xas:` term at seven constraint sites. A hard swap would have broken 73 files in
+`cdifnexmetadata` — including `emit.py` and the concept maps of a package on PyPI
+— and 68 here, while `cdifnexmetadata`'s own tests stayed green because they
+assert the old tokens. The `xas:` alternatives can be dropped once those two emit
+the NeXus form: a handful of hard-coded classification literals in `emit.py`, 66
+`.jsonld` fixtures and three test modules there; ~68 published artifacts here,
+which sync from `metadataBuildingBlocks` rather than being hand-edited.
+
 ## 4. In NeXus, missing from CDIF — candidate new concepts
 
 Highest value, roughly in priority order:
