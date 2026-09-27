@@ -36,6 +36,26 @@ permissions:
 
 jobs:
   build-deploy:
+    # ONE repository publishes. peaceiris/actions-gh-pages pushes with
+    # secrets.GITHUB_TOKEN, which targets whichever repo the run belongs to -- so
+    # without this guard the site is built twice. The source commit reaches both
+    # repos (the local `origin` has two push URLs, the fork and CDIF-4-XAS), each
+    # runs this workflow, and each deploys to its own gh-pages. The two histories
+    # then look divergent while the published trees are byte-identical: measured
+    # 2026-09-27, both tips had tree d24587d2 with zero files differing, the fork
+    # 13 commits deep and CDIF-4-XAS 3.
+    #
+    # The fork is named here because it is what actually serves the site today
+    # (CDIF-4-XAS has no Pages site -- the API returns 404) and because the w3id
+    # rule XAS_PAGES in perma-id/w3id.org ids/cdif/.htaccess resolves
+    # w3id.org/cdif/xas/* to https://smrgeoinfo.github.io/XAS-CDIF.
+    #
+    # To move publishing to the organisation: enable Pages on CDIF-4-XAS from
+    # gh-pages (needs admin there), confirm the files serve, change this one
+    # string, and only then repoint XAS_PAGES. A redirect moved before the site
+    # exists gives a 303 to a 404, which is worse than a 303 to a slightly stale
+    # file.
+    if: github.repository == 'smrgeoinfo/XAS-CDIF'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
