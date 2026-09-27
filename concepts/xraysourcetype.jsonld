@@ -16,7 +16,8 @@
     "unit": "http://qudt.org/vocab/unit/",
     "qudt:hasUnit": {
       "@type": "@id"
-    }
+    },
+    "owl": "http://www.w3.org/2002/07/owl#"
   },
   "@id": "https://w3id.org/cdif/xas/xraysourcetype",
   "@type": [
@@ -29,7 +30,11 @@
   "foaf:focus": {
     "@id": "http://purl.org/nexusformat/definitions/Field/NXsource/type"
   },
+  "dcterms:isReplacedBy": {
+    "@id": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-type-field"
+  },
   "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
+  "owl:deprecated": true,
   "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-type-field",
   "skos:definition": {
     "@value": "Type of radiation source.",
@@ -38,8 +43,14 @@
   "skos:inScheme": {
     "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
   },
-  "skos:note": {
-    "@value": "One of {'Spallation Neutron Source' , 'Pulsed Reactor Neutron Source' , 'Reactor Neutron Source' , 'Synchrotron X-ray Source' , 'Pulsed Muon Source' , 'Rotating Anode X-ray' , 'Fixed Tube X-ray' , 'UV Laser' , 'Free-Electron Laser' , 'Optical Laser' , 'Ion Source' , 'UV Plasma Source' , 'Metal Jet X-ray'}  Another possible type is 'APS (Advanced Photon Source) bending magnet', which would appear to be a subclass of 'Synchrotron X-ray Source'.",
-    "@language": "en"
-  }
+  "skos:note": [
+    {
+      "@value": "One of {'Spallation Neutron Source' , 'Pulsed Reactor Neutron Source' , 'Reactor Neutron Source' , 'Synchrotron X-ray Source' , 'Pulsed Muon Source' , 'Rotating Anode X-ray' , 'Fixed Tube X-ray' , 'UV Laser' , 'Free-Electron Laser' , 'Optical Laser' , 'Ion Source' , 'UV Plasma Source' , 'Metal Jet X-ray'}  Another possible type is 'APS (Advanced Photon Source) bending magnet', which would appear to be a subclass of 'Synchrotron X-ray Source'.",
+      "@language": "en"
+    },
+    {
+      "@value": "Deprecated 2026-09-27. This concept is not specific to X-ray absorption spectroscopy, so it is superseded by the NeXus term named in dcterms:isReplacedBy. The concept is retained, not removed: records published before the change still cite it. CDIF profiles accept both spellings during the transition.",
+      "@language": "en"
+    }
+  ]
 }

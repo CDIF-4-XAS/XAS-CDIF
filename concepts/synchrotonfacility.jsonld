@@ -16,7 +16,8 @@
     "unit": "http://qudt.org/vocab/unit/",
     "qudt:hasUnit": {
       "@type": "@id"
-    }
+    },
+    "owl": "http://www.w3.org/2002/07/owl#"
   },
   "@id": "https://w3id.org/cdif/xas/synchrotonfacility",
   "@type": [
@@ -31,6 +32,11 @@
   },
   "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
   "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html",
+  "skos:broader": [
+    {
+      "@id": "https://w3id.org/cdif/xas/facility"
+    }
+  ],
   "skos:definition": {
     "@value": "Installation that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.",
     "@language": "en"

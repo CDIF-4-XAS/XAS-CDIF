@@ -16,7 +16,8 @@
     "unit": "http://qudt.org/vocab/unit/",
     "qudt:hasUnit": {
       "@type": "@id"
-    }
+    },
+    "owl": "http://www.w3.org/2002/07/owl#"
   },
   "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts",
   "@type": [
@@ -678,15 +679,25 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "One of {'Spallation Neutron Source' , 'Pulsed Reactor Neutron Source' , 'Reactor Neutron Source' , 'Synchrotron X-ray Source' , 'Pulsed Muon Source' , 'Rotating Anode X-ray' , 'Fixed Tube X-ray' , 'UV Laser' , 'Free-Electron Laser' , 'Optical Laser' , 'Ion Source' , 'UV Plasma Source' , 'Metal Jet X-ray'}  Another possible type is 'APS (Advanced Photon Source) bending magnet', which would appear to be a subclass of 'Synchrotron X-ray Source'.",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "One of {'Spallation Neutron Source' , 'Pulsed Reactor Neutron Source' , 'Reactor Neutron Source' , 'Synchrotron X-ray Source' , 'Pulsed Muon Source' , 'Rotating Anode X-ray' , 'Fixed Tube X-ray' , 'UV Laser' , 'Free-Electron Laser' , 'Optical Laser' , 'Ion Source' , 'UV Plasma Source' , 'Metal Jet X-ray'}  Another possible type is 'APS (Advanced Photon Source) bending magnet', which would appear to be a subclass of 'Synchrotron X-ray Source'.",
+          "@language": "en"
+        },
+        {
+          "@value": "Deprecated 2026-09-27. This concept is not specific to X-ray absorption spectroscopy, so it is superseded by the NeXus term named in dcterms:isReplacedBy. The concept is retained, not removed: records published before the change still cite it. CDIF profiles accept both spellings during the transition.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
       "foaf:focus": {
         "@id": "http://purl.org/nexusformat/definitions/Field/NXsource/type"
       },
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-type-field"
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-type-field",
+      "owl:deprecated": true,
+      "dcterms:isReplacedBy": {
+        "@id": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-type-field"
+      }
     },
     {
       "@id": "https://w3id.org/cdif/xas/xasmeasurementmode",
@@ -1102,19 +1113,33 @@
       "skos:inScheme": {
         "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
       },
-      "skos:note": {
-        "@value": "Beamlines are the facilities at which crystallographers and other researchers get access to the tunable and high-intense X-ray beams they need for their research. http://csrri.iit.edu/~howard/itp/itpmacro.html",
-        "@language": "en"
-      },
+      "skos:note": [
+        {
+          "@value": "Beamlines are the facilities at which crystallographers and other researchers get access to the tunable and high-intense X-ray beams they need for their research. http://csrri.iit.edu/~howard/itp/itpmacro.html",
+          "@language": "en"
+        },
+        {
+          "@value": "Corrected 2026-09-27: this concept previously pointed at NXbeam. NXbeam describes the properties of the beam at a point in the instrument, whereas a beamline is the assembly of components that delivers it -- NXinstrument. The CDIF XAS profile and the cdifnexmetadata SSSOM binding both already mapped this concept onto NXinstrument, so the glossary pointer was the outlier.",
+          "@language": "en"
+        },
+        {
+          "@value": "Deprecated 2026-09-27. This concept is not specific to X-ray absorption spectroscopy, so it is superseded by the NeXus term named in dcterms:isReplacedBy. The concept is retained, not removed: records published before the change still cite it. CDIF profiles accept both spellings during the transition.",
+          "@language": "en"
+        }
+      ],
       "dcterms:references": [
         "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
         "http://csrri.iit.edu/~howard/itp/itpmacro.html",
         "https://doi.org/10.5281/zenodo.14920226"
       ],
       "foaf:focus": {
-        "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXbeam"
+        "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXinstrument"
       },
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXbeam.html"
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXinstrument.html",
+      "owl:deprecated": true,
+      "dcterms:isReplacedBy": {
+        "@id": "https://manual.nexusformat.org/classes/base_classes/NXinstrument.html"
+      }
     },
     {
       "@id": "https://w3id.org/cdif/xas/xraydetector",
@@ -1141,32 +1166,6 @@
         "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXdetector"
       },
       "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXdetector.html"
-    },
-    {
-      "@id": "https://w3id.org/cdif/xas/synchrotonfacility",
-      "@type": [
-        "skos:Concept"
-      ],
-      "skos:prefLabel": {
-        "@value": "Synchrotron facility",
-        "@language": "en"
-      },
-      "skos:definition": {
-        "@value": "Installation that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.",
-        "@language": "en"
-      },
-      "skos:inScheme": {
-        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
-      },
-      "skos:note": {
-        "@value": "A place that hosts instruments and other necessary components to support XAS research.  NEXUS comment is 'The neutron or x-ray storage ring/facility'",
-        "@language": "en"
-      },
-      "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
-      "foaf:focus": {
-        "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXsource"
-      },
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html"
     },
     {
       "@id": "https://w3id.org/cdif/xas/instrument",
@@ -1808,6 +1807,39 @@
       "dcterms:references": [
         "https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf",
         "https://doi.org/10.5281/zenodo.14920226"
+      ],
+      "skos:narrower": [
+        {
+          "@id": "https://w3id.org/cdif/xas/synchrotonfacility",
+          "@type": [
+            "skos:Concept"
+          ],
+          "skos:prefLabel": {
+            "@value": "Synchrotron facility",
+            "@language": "en"
+          },
+          "skos:definition": {
+            "@value": "Installation that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.",
+            "@language": "en"
+          },
+          "skos:inScheme": {
+            "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+          },
+          "skos:note": {
+            "@value": "A place that hosts instruments and other necessary components to support XAS research.  NEXUS comment is 'The neutron or x-ray storage ring/facility'",
+            "@language": "en"
+          },
+          "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
+          "foaf:focus": {
+            "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXsource"
+          },
+          "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html",
+          "skos:broader": [
+            {
+              "@id": "https://w3id.org/cdif/xas/facility"
+            }
+          ]
+        }
       ]
     },
     {
@@ -2252,7 +2284,17 @@
       "foaf:focus": {
         "@id": "http://purl.org/nexusformat/definitions/Field/NXsample/temperature"
       },
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-temperature-field"
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-temperature-field",
+      "owl:deprecated": true,
+      "dcterms:isReplacedBy": {
+        "@id": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-temperature-field"
+      },
+      "skos:note": [
+        {
+          "@value": "Deprecated 2026-09-27. This concept is not specific to X-ray absorption spectroscopy, so it is superseded by the NeXus term named in dcterms:isReplacedBy. The concept is retained, not removed: records published before the change still cite it. CDIF profiles accept both spellings during the transition.",
+          "@language": "en"
+        }
+      ]
     },
     {
       "@id": "https://w3id.org/cdif/xas/viscosity",
@@ -2334,7 +2376,17 @@
       "foaf:focus": {
         "@id": "http://purl.org/nexusformat/definitions/Field/NXsource/probe"
       },
-      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-probe-field"
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-probe-field",
+      "owl:deprecated": true,
+      "dcterms:isReplacedBy": {
+        "@id": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-probe-field"
+      },
+      "skos:note": [
+        {
+          "@value": "Deprecated 2026-09-27. This concept is not specific to X-ray absorption spectroscopy, so it is superseded by the NeXus term named in dcterms:isReplacedBy. The concept is retained, not removed: records published before the change still cite it. CDIF profiles accept both spellings during the transition.",
+          "@language": "en"
+        }
+      ]
     },
     {
       "@id": "https://w3id.org/cdif/xas/pointgroup",

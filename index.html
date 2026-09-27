@@ -106,7 +106,7 @@ a.concept-link:hover { text-decoration: underline; }
 Concept scheme URI: <a href="https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts">https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts</a> ·
 106 concepts ·
 Source: <code>XAS_Glossary_SKOS.json</code> ·
-Generated 2026-08-25 20:22 UTC
+Generated 2026-09-27 20:08 UTC
 </div>
 </header>
 <main>
@@ -282,11 +282,11 @@ XDI column definitions, sample properties Nexus doesn't model) exist as XAS-spec
 <dl>
 <dt>Definition</dt><dd>Part of a facility that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.</dd>
 <dt>Note</dt><dd>Beamlines are the facilities at which crystallographers and other researchers get access to the tunable and high-intense X-ray beams they need for their research. http://csrri.iit.edu/~howard/itp/itpmacro.html</dd>
-<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXbeam" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXbeam</a></dd>
+<dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXinstrument" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXinstrument</a></dd>
 <dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
 <dt>References</dt><dd><a class="ref" href="http://csrri.iit.edu/~howard/itp/itpmacro.html" target="_blank" rel="noreferrer">http://csrri.iit.edu/~howard/itp/itpmacro.html</a></dd>
 <dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
-<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXbeam.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXbeam.html</a></dd>
+<dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXinstrument.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html</a></dd>
 </dl></section>
 <section id="energyrange" class="concept">
 <h3>Beamline energy range</h3>
@@ -527,6 +527,7 @@ XDI column definitions, sample properties Nexus doesn't model) exist as XAS-spec
 <div class="uri">https://w3id.org/cdif/xas/facility</div>
 <dl>
 <dt>Definition</dt><dd>A synchrotron, X-ray free electron laser, or laboratory facility where XAS measurements are performed.</dd>
+<dt>Narrower</dt><dd><a class="concept-link" href="#synchrotonfacility">Synchrotron facility</a></dd>
 <dt>References</dt><dd><a class="ref" href="https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf" target="_blank" rel="noreferrer">https://docs.xrayabsorption.org/NXxas/Q2XAFS2024_data.pdf</a></dd>
 <dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
 </dl></section>
@@ -829,6 +830,7 @@ XDI column definitions, sample properties Nexus doesn't model) exist as XAS-spec
 <div class="uri">https://w3id.org/cdif/xas/probe</div>
 <dl>
 <dt>Definition</dt><dd>type of radiation probe. Eenumerated list: {neutron, photon, x-ray, muon, electron, ultraviolet, visible light, positron, proton} Default is x-ray for XAS.</dd>
+<dt>Note</dt><dd>Deprecated 2026-09-27. This concept is not specific to X-ray absorption spectroscopy, so it is superseded by the NeXus term named in dcterms:isReplacedBy. The concept is retained, not removed: records published before the change still cite it. CDIF profiles accept both spellings during the transition.</dd>
 <dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsource/probe" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsource/probe</a></dd>
 <dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
 <dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-probe-field" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-probe-field</a></dd>
@@ -1063,6 +1065,7 @@ XDI column definitions, sample properties Nexus doesn't model) exist as XAS-spec
 <div class="uri">https://w3id.org/cdif/xas/temperature</div>
 <dl>
 <dt>Definition</dt><dd>Sample temperature. This could be a scanned variable</dd>
+<dt>Note</dt><dd>Deprecated 2026-09-27. This concept is not specific to X-ray absorption spectroscopy, so it is superseded by the NeXus term named in dcterms:isReplacedBy. The concept is retained, not removed: records published before the change still cite it. CDIF profiles accept both spellings during the transition.</dd>
 <dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/Field/NXsample/temperature" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/Field/NXsample/temperature</a></dd>
 <dt>References</dt><dd><a class="ref" href="https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md" target="_blank" rel="noreferrer">https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md</a></dd>
 <dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
@@ -1120,6 +1123,7 @@ XDI column definitions, sample properties Nexus doesn't model) exist as XAS-spec
 <dt>Definition</dt><dd>Installation that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.</dd>
 <dt>Note</dt><dd>A place that hosts instruments and other necessary components to support XAS research.  NEXUS comment is &#x27;The neutron or x-ray storage ring/facility&#x27;</dd>
 <dt>foaf:focus</dt><dd><a class="ref" href="http://purl.org/nexusformat/definitions/BaseClass/NXsource" target="_blank" rel="noreferrer">http://purl.org/nexusformat/definitions/BaseClass/NXsource</a></dd>
+<dt>Broader</dt><dd><a class="concept-link" href="#facility">Facility</a></dd>
 <dt>References</dt><dd><a class="ref" href="https://doi.org/10.5281/zenodo.14920226" target="_blank" rel="noreferrer">https://doi.org/10.5281/zenodo.14920226</a></dd>
 <dt>See also</dt><dd><a class="ref" href="https://manual.nexusformat.org/classes/base_classes/NXsource.html" target="_blank" rel="noreferrer">https://manual.nexusformat.org/classes/base_classes/NXsource.html</a></dd>
 </dl></section>

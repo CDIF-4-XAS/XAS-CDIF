@@ -16,7 +16,8 @@
     "unit": "http://qudt.org/vocab/unit/",
     "qudt:hasUnit": {
       "@type": "@id"
-    }
+    },
+    "owl": "http://www.w3.org/2002/07/owl#"
   },
   "@id": "https://w3id.org/cdif/xas/beamline",
   "@type": [
@@ -27,14 +28,18 @@
     "@language": "en"
   },
   "foaf:focus": {
-    "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXbeam"
+    "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXinstrument"
+  },
+  "dcterms:isReplacedBy": {
+    "@id": "https://manual.nexusformat.org/classes/base_classes/NXinstrument.html"
   },
   "dcterms:references": [
     "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
     "http://csrri.iit.edu/~howard/itp/itpmacro.html",
     "https://doi.org/10.5281/zenodo.14920226"
   ],
-  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXbeam.html",
+  "owl:deprecated": true,
+  "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXinstrument.html",
   "skos:definition": {
     "@value": "Part of a facility that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.",
     "@language": "en"
@@ -42,8 +47,18 @@
   "skos:inScheme": {
     "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
   },
-  "skos:note": {
-    "@value": "Beamlines are the facilities at which crystallographers and other researchers get access to the tunable and high-intense X-ray beams they need for their research. http://csrri.iit.edu/~howard/itp/itpmacro.html",
-    "@language": "en"
-  }
+  "skos:note": [
+    {
+      "@value": "Beamlines are the facilities at which crystallographers and other researchers get access to the tunable and high-intense X-ray beams they need for their research. http://csrri.iit.edu/~howard/itp/itpmacro.html",
+      "@language": "en"
+    },
+    {
+      "@value": "Corrected 2026-09-27: this concept previously pointed at NXbeam. NXbeam describes the properties of the beam at a point in the instrument, whereas a beamline is the assembly of components that delivers it -- NXinstrument. The CDIF XAS profile and the cdifnexmetadata SSSOM binding both already mapped this concept onto NXinstrument, so the glossary pointer was the outlier.",
+      "@language": "en"
+    },
+    {
+      "@value": "Deprecated 2026-09-27. This concept is not specific to X-ray absorption spectroscopy, so it is superseded by the NeXus term named in dcterms:isReplacedBy. The concept is retained, not removed: records published before the change still cite it. CDIF profiles accept both spellings during the transition.",
+      "@language": "en"
+    }
+  ]
 }

@@ -16,7 +16,8 @@
     "unit": "http://qudt.org/vocab/unit/",
     "qudt:hasUnit": {
       "@type": "@id"
-    }
+    },
+    "owl": "http://www.w3.org/2002/07/owl#"
   },
   "@id": "https://w3id.org/cdif/xas/facility",
   "@type": [
@@ -36,5 +37,38 @@
   },
   "skos:inScheme": {
     "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
-  }
+  },
+  "skos:narrower": [
+    {
+      "@id": "https://w3id.org/cdif/xas/synchrotonfacility",
+      "@type": [
+        "skos:Concept"
+      ],
+      "skos:prefLabel": {
+        "@value": "Synchrotron facility",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "Installation that delivers a high-intensity, tunable X-ray beam from an electron storage ring (synchrotron) to an experimental station where a sample is placed for analysis.",
+        "@language": "en"
+      },
+      "skos:inScheme": {
+        "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+      },
+      "skos:note": {
+        "@value": "A place that hosts instruments and other necessary components to support XAS research.  NEXUS comment is 'The neutron or x-ray storage ring/facility'",
+        "@language": "en"
+      },
+      "dcterms:references": "https://doi.org/10.5281/zenodo.14920226",
+      "foaf:focus": {
+        "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXsource"
+      },
+      "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html",
+      "skos:broader": [
+        {
+          "@id": "https://w3id.org/cdif/xas/facility"
+        }
+      ]
+    }
+  ]
 }

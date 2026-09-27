@@ -16,7 +16,8 @@
     "unit": "http://qudt.org/vocab/unit/",
     "qudt:hasUnit": {
       "@type": "@id"
-    }
+    },
+    "owl": "http://www.w3.org/2002/07/owl#"
   },
   "@id": "https://w3id.org/cdif/xas/temperature",
   "@type": [
@@ -29,10 +30,14 @@
   "foaf:focus": {
     "@id": "http://purl.org/nexusformat/definitions/Field/NXsample/temperature"
   },
+  "dcterms:isReplacedBy": {
+    "@id": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-temperature-field"
+  },
   "dcterms:references": [
     "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
     "https://doi.org/10.5281/zenodo.14920226"
   ],
+  "owl:deprecated": true,
   "rdfs:seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-temperature-field",
   "skos:definition": {
     "@value": "Sample temperature. This could be a scanned variable",
@@ -40,5 +45,11 @@
   },
   "skos:inScheme": {
     "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
-  }
+  },
+  "skos:note": [
+    {
+      "@value": "Deprecated 2026-09-27. This concept is not specific to X-ray absorption spectroscopy, so it is superseded by the NeXus term named in dcterms:isReplacedBy. The concept is retained, not removed: records published before the change still cite it. CDIF profiles accept both spellings during the transition.",
+      "@language": "en"
+    }
+  ]
 }
