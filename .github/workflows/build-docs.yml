@@ -45,17 +45,30 @@ jobs:
     # 2026-09-27, both tips had tree d24587d2 with zero files differing, the fork
     # 13 commits deep and CDIF-4-XAS 3.
     #
-    # The fork is named here because it is what actually serves the site today
-    # (CDIF-4-XAS has no Pages site -- the API returns 404) and because the w3id
-    # rule XAS_PAGES in perma-id/w3id.org ids/cdif/.htaccess resolves
-    # w3id.org/cdif/xas/* to https://smrgeoinfo.github.io/XAS-CDIF.
+    # The organisation is named here, as of 2026-09-30. The fork was named until
+    # then because it was the only repo serving the site and the w3id rule
+    # XAS_PAGES pointed at it. Both of those changed:
     #
-    # To move publishing to the organisation: enable Pages on CDIF-4-XAS from
-    # gh-pages (needs admin there), confirm the files serve, change this one
-    # string, and only then repoint XAS_PAGES. A redirect moved before the site
-    # exists gives a 303 to a 404, which is worse than a 303 to a slightly stale
-    # file.
-    if: github.repository == 'smrgeoinfo/XAS-CDIF'
+    #   - Pages was enabled on CDIF-4-XAS from gh-pages on 2026-09-29 and serves
+    #     the same bytes -- the index, all three value-list vocabularies and
+    #     per-concept files return 200, and the glossary, the edges vocabulary
+    #     and concepts/facility.jsonld are byte-identical between the two sites.
+    #   - perma-id/w3id.org#6767 merged 2026-09-29 (93b9432b7) and the live
+    #     redirects moved: all ten XAS identifier families now resolve through
+    #     cdif-4-xas.github.io. Checked by
+    #     validation/tools/check_w3id_redirects.py, which as of that date no
+    #     longer accepts the old base at all.
+    #
+    # The ORDER mattered, and is worth keeping if this ever moves again: enable
+    # Pages, confirm it serves, repoint XAS_PAGES, and only then flip this string.
+    # A redirect moved before its target serves gives a 303 to a 404, which is
+    # worse than a 303 to a slightly stale file; and flipping this string first
+    # freezes whichever repo w3id is still pointing at.
+    #
+    # The fork's gh-pages is now frozen at its last build. Harmless while the
+    # trees match, and nothing resolves to it, but it will go stale the next time
+    # the glossary changes -- so do not treat it as a live mirror.
+    if: github.repository == 'CDIF-4-XAS/XAS-CDIF'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
