@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: 2a0e51ccf75d14e902951e98331c60bd2554e33f37c21fb918ba7bcd1ce9ce22
+# src-sha256: 55515662a0261bf4903a20d0c0925945000c7451d32e8f7ac5a7b9787c79b4fc
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -87,6 +87,12 @@ ARRAY_PROPERTIES = [
     'cdif:uses',
     'cdif:recommendedDataType',
     'cdif:isComposedOf',
+    # type: array at all three of its sites in cdifDataStructure (DataStructure,
+    # DimensionalDataStructure, WideDataStructure), so a structure carrying ONE
+    # foreign key framed to a bare object and failed its own schema. Note
+    # cdif:has_PrimaryKey is deliberately NOT here: it is a $ref to a single
+    # object, so wrapping it would break the case this fixes.
+    'cdif:has_ForeignKey',
     'cdif:has_Statistics',
     'cdif:has_CategoryStatistics',
     'cdif:appliesTo',
@@ -953,6 +959,74 @@ def report_conformance_consistency(report):
     return agree
 
 
+# A root-level anyOf/oneOf failure reports "<the entire instance> is not valid
+# under any of the given schemas" -- jsonschema interpolates the whole document
+# into the message and names no property, so the one line you get says nothing
+# about what to fix. Every CDIF union branches on @type, and most of this
+# register's class targets are anyOf [inline class, {@id} reference], so this is
+# the DEFAULT shape of a failure here, not an edge case. It is also why
+# audit/test tooling has to discount anyOf messages as evidence: the whole
+# instance is in the string, so any token you search for "matches".
+#
+# The useful errors are in error.context -- the sub-errors each branch produced.
+# Report the deepest of those by path, because path depth is how far a branch got
+# before failing, and the branch that got furthest is nearly always the intended
+# one.
+
+def _leaf_errors(error):
+    """Flatten an error tree to the sub-errors that have no sub-errors of their own."""
+    if not error.context:
+        return [error]
+    out = []
+    for sub in error.context:
+        out.extend(_leaf_errors(sub))
+    return out
+
+
+def _is_discriminator(err):
+    """True for a branch-selection failure -- a const/enum on @type.
+
+    These are not defects, they are the other branches declining the instance, so
+    they are ranked last. They are still reported when nothing else is available,
+    because sometimes @type really is the thing that is wrong.
+    """
+    return (err.validator in ('const', 'enum', 'contains')
+            and err.absolute_path and str(err.absolute_path[-1]) == '@type')
+
+
+def explain_error(error, limit=3):
+    """Lines naming a property and a path for one validation error.
+
+    Returns the top-level message unchanged when it is already specific.
+    """
+    leaves = _leaf_errors(error)
+    if len(leaves) == 1 and leaves[0] is error:
+        path = '/'.join(str(p) for p in error.absolute_path)
+        return [f"  - /{path}: {error.message}"]
+
+    # Dedupe first: sibling branches of a union differ in their @type pin but
+    # share the rest, so the same real defect is reported once per branch -- 15
+    # leaves collapsing to 3 distinct ones is typical.
+    seen, unique = set(), []
+    for e in leaves:
+        key = (tuple(str(x) for x in e.absolute_path), e.validator, e.message)
+        if key not in seen:
+            seen.add(key)
+            unique.append(e)
+    leaves = unique
+    leaves.sort(key=lambda e: (_is_discriminator(e), -len(e.absolute_path)))
+    lines = [f"  - /{'/'.join(str(p) for p in error.absolute_path)}: "
+             f"no branch of {error.validator} accepted this node; "
+             f"closest {min(limit, len(leaves))} of {len(leaves)} branch errors:"]
+    for e in leaves[:limit]:
+        path = '/'.join(str(p) for p in e.absolute_path)
+        msg = e.message
+        if len(msg) > 300:
+            msg = msg[:300] + ' ...'
+        lines.append(f"      /{path}: [{e.validator}] {msg}")
+    return lines
+
+
 def validate_against_schema(framed, schema_path):
     """Validate framed document against JSON Schema"""
     print(f"Loading schema: {schema_path}")
@@ -1061,8 +1135,8 @@ Examples:
                 print("Validation FAILED")
                 print("\nErrors:")
                 for error in result['errors']:
-                    path = '/'.join(str(p) for p in error.absolute_path) if error.absolute_path else '/'
-                    print(f"  - /{path}: {error.message}")
+                    for line in explain_error(error):
+                        print(line)
                 sys.exit(1)
 
             # Deferred to here so a schema failure reports its errors first
