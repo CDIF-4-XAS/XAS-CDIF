@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: 7298d993a2a7f6997886e5b55ad74d8c1fdfdb851653dc467f3efacbd57611a9
+# src-sha256: 2a0e51ccf75d14e902951e98331c60bd2554e33f37c21fb918ba7bcd1ce9ce22
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -80,7 +80,7 @@ ARRAY_PROPERTIES = [
     'cdi:hasPhysicalMapping',
     'cdi:uses',
     'cdi:physicalDataType',
-    'cdi:function',
+    'cdif:function',
     'cdi:takesSentinelValuesFrom',
     'cdi:statistic',
     'cdif:hasPhysicalMapping',
@@ -200,7 +200,7 @@ def is_bare_id_reference(obj):
 # These run ONLY on documents rooted directly on a DDI-CDI data-structure type
 # (the cdi:has_DataStructureComponent grammar), never on Dataset / manifest /
 # data-description docs, where the same keys are typed differently (e.g.
-# cdi:qualifies is an array here but a single object in cdifDataDescription).
+# cdif:qualifies is an array here but a single object in cdifDataDescription).
 STRUCTURE_ROOT_TYPES = frozenset({
     'DataStructure', 'DimensionalDataStructure',
     'LongDataStructure', 'WideDataStructure',
@@ -211,7 +211,7 @@ STRUCTURE_ROOT_TYPES = frozenset({
 # back to a bare {@id} because the full node is retained at its own slot (or is
 # an external resource) and the tightened schemas type these slots as {@id}-only
 # references. The collapse runs on EVERY doc type (see remove_nulls_and_normalize),
-# not just bare-structure docs -- cdi:qualifies also appears in dataset-rooted
+# not just bare-structure docs -- cdif:qualifies also appears in dataset-rooted
 # data-description docs, and schema:about (manifest part -> documented file) /
 # schema:result (activity -> produced entity) are reference slots on manifest /
 # provenance / dataset docs.
@@ -223,7 +223,7 @@ STRUCTURE_ROOT_TYPES = frozenset({
 # authoring error -- fix the example to a bare {@id} or a full Reference with
 # @type + schema:url -- not something the harness should silently collapse.)
 REFERENCE_ONLY_KEYS = (
-    'cdi:qualifies', 'cdi:refersTo',
+    'cdif:qualifies', 'cdi:refersTo',
     'schema:about', 'schema:result',
     # On an InstanceVariable this is an objectReference -- @id and nothing
     # else -- because the represented-variable-level properties are defined
@@ -253,7 +253,7 @@ REFERENCE_ONLY_KEYS = (
 
 # Keys the (bare-structure) schema requires as arrays but framing collapses to a
 # scalar / single object when there is exactly one value.
-STRUCTURE_ARRAY_KEYS = ('cdif:name', 'cdi:qualifies', 'cdi:semantic')
+STRUCTURE_ARRAY_KEYS = ('cdif:name', 'cdif:qualifies', 'cdif:semantic')
 
 
 def _collapse_to_id_ref(value):
@@ -281,7 +281,7 @@ def _is_structure_rooted(doc):
 
 def normalize_bare_structure(obj):
     """Recursive normalizations for bare DataStructure documents: collapse
-    framing-inlined component references (cdi:qualifies / cdi:refersTo) back to
+    framing-inlined component references (cdif:qualifies / cdi:refersTo) back to
     bare {@id}, and wrap single-valued STRUCTURE_ARRAY_KEYS into arrays."""
     if isinstance(obj, list):
         return [normalize_bare_structure(x) for x in obj]
@@ -706,7 +706,7 @@ def frame_cdif_document(doc_path, frame_path=None):
     # typed differently on Dataset / manifest / data-description docs. That held
     # only while the profile frames were dropping cdi:isStructuredBy from
     # dataset-rooted documents, so the grammar never appeared in one. With the
-    # frames fixed it does, and inside it cdi:qualifies is type: array on an
+    # frames fixed it does, and inside it cdif:qualifies is type: array on an
     # AttributeComponent exactly as in a bare structure, while compaction still
     # flattens the single-valued case.
     # Step 6: For bare DataStructure documents only, apply structure-specific
