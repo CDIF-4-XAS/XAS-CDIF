@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: d4f0b3b167edbe3b756553720a8196f3f09a5e206a9bc375f34eeec94cad5be8
+# src-sha256: c961ed199d12a9f0d7fddfebe8fb15b15f6bb78dfc190b00079392a6e22cf6e3
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -825,6 +825,13 @@ def frame_cdif_document(doc_path, frame_path=None):
     return result
 
 
+# Files the schema globs match but which are not schemas. conformance-schema-map
+# .json contains "schema" in its name, so '*schema*.json' matched it and counted
+# it as a candidate: a directory holding ONE real schema plus the map looked
+# ambiguous and auto-detection refused a schema it should have found.
+NOT_A_SCHEMA = frozenset({'conformance-schema-map.json'})
+
+
 def _auto_default(patterns, label):
     """Return the single file in SCRIPT_DIR matching any of the glob patterns,
     or None if there is not exactly one (caller then requires an explicit arg)."""
@@ -832,6 +839,8 @@ def _auto_default(patterns, label):
     seen = set()
     for pat in patterns:
         for p in sorted(SCRIPT_DIR.glob(pat)):
+            if p.name in NOT_A_SCHEMA:
+                continue
             if p.name not in seen:
                 seen.add(p.name)
                 hits.append(p)
@@ -841,6 +850,77 @@ def _auto_default(patterns, label):
 
 
 FRAME_PATTERNS = ['*-frame.jsonld', '*frame*.jsonld']
+
+# A release repo ships exactly one schema, so _auto_default resolves it and the
+# selection below never runs. A MIRROR of the validation tools ships several
+# (discovery, data_description, complete), and there _auto_default correctly
+# refuses to guess -- leaving no schema at all, which is why cdif-umlmodel's
+# examples failed under every copy of this script and its sync regression gate
+# could prove nothing: with no baseline pass, nothing could regress.
+#
+# conformance-schema-map.json already states which schema serves which profile;
+# it was written for ConformanceValidate and nothing here read it. When several
+# schemas sit beside this script, the record's own declared conformance picks
+# one.
+CONFORMANCE_MAP_NAME = 'conformance-schema-map.json'
+
+# Most inclusive first. A record declaring discovery + data_description + more
+# is validated against the composite that subsumes them, not against whichever
+# subset schema happened to sort first. Validating a complete record against the
+# discovery schema would pass while checking a fraction of it.
+SCHEMA_PRECEDENCE = ('complete', 'data_description', 'datadescription', 'discovery')
+
+
+def _schema_from_conformance(input_path):
+    """A schema beside this script chosen by the input's declared conformance.
+
+    Returns None when the map is absent, the record declares nothing, or no
+    declared profile maps to a schema that exists here -- the caller then still
+    reports that an explicit --schema is needed.
+    """
+    map_path = SCRIPT_DIR / CONFORMANCE_MAP_NAME
+    if not map_path.exists():
+        return None
+    try:
+        with open(map_path, 'r', encoding='utf-8') as f:
+            mapping = json.load(f)
+        with open(input_path, 'r', encoding='utf-8') as f:
+            doc = json.load(f)
+    except Exception:
+        return None
+    # _declared_conformance is defined further down and takes the parsed doc.
+    declared = _declared_conformance(doc) if isinstance(doc, dict) else set()
+    if not declared:
+        return None
+
+    # Normalize as the map's own comment promises: trailing slash and the
+    # datadescription / data_description spellings are not significant.
+    def norm(u):
+        return u.rstrip('/').replace('datadescription', 'data_description')
+
+    by_uri = {norm(k): v for k, v in mapping.items()
+              if isinstance(v, dict) and v.get('schema')}
+    candidates = []
+    for uri in sorted(declared):
+        entry = by_uri.get(norm(uri))
+        if not entry:
+            continue
+        p = SCRIPT_DIR / entry['schema']
+        if p.exists() and p not in candidates:
+            candidates.append(p)
+    if not candidates:
+        return None
+    if len(candidates) > 1:
+        def rank(p):
+            low = p.name.lower()
+            for i, token in enumerate(SCHEMA_PRECEDENCE):
+                if token in low:
+                    return i
+            return len(SCHEMA_PRECEDENCE)
+        candidates.sort(key=rank)
+    print(f"Selected schema from declared conformance: {candidates[0].name}",
+          file=sys.stderr)
+    return str(candidates[0])
 
 
 def _local_name(token):
@@ -1174,7 +1254,9 @@ Examples:
     overclaimed = []
 
     # Resolve auto-detected defaults when not given explicitly.
-    schema_path = args.schema or _auto_default(['*Schema*.json', '*schema*.json'], 'schema')
+    schema_path = (args.schema
+                   or _auto_default(['*Schema*.json', '*schema*.json'], 'schema')
+                   or _schema_from_conformance(args.input))
     frame_path = args.frame or _select_frame(args.input)
 
     try:
@@ -1209,8 +1291,29 @@ Examples:
 
         if args.validate:
             if not schema_path:
-                print("Error: no schema given and could not auto-detect a single "
-                      "*Schema*.json beside this script; pass --schema.", file=sys.stderr)
+                # Say which of the two routes failed. "pass --schema" alone left
+                # the reader to discover that several schemas were present and
+                # that declared conformance is consulted when they are.
+                found = sorted({p.name
+                                for pat in ('*Schema*.json', '*schema*.json')
+                                for p in SCRIPT_DIR.glob(pat)
+                                if p.name not in NOT_A_SCHEMA})
+                print("Error: no schema given and none could be resolved; pass "
+                      "--schema.", file=sys.stderr)
+                if len(found) > 1:
+                    print("  %d schemas sit beside this script, so there is no "
+                          "single default: %s" % (len(found), ", ".join(found)),
+                          file=sys.stderr)
+                    if (SCRIPT_DIR / CONFORMANCE_MAP_NAME).exists():
+                        print("  %s was consulted and matched nothing: the record "
+                              "declares no dcterms:conformsTo, or none of the "
+                              "profiles it declares maps to a schema present here "
+                              "(provenance, manifest, data_structure and core map "
+                              "to SHACL shapes only)." % CONFORMANCE_MAP_NAME,
+                              file=sys.stderr)
+                elif not found:
+                    print("  no *Schema*.json found beside this script at all.",
+                          file=sys.stderr)
                 sys.exit(2)
             # Among the validation tests: does the record's declared
             # conformsTo agree with what its content actually supports?
