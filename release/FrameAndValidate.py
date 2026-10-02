@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: 55515662a0261bf4903a20d0c0925945000c7451d32e8f7ac5a7b9787c79b4fc
+# src-sha256: d4f0b3b167edbe3b756553720a8196f3f09a5e206a9bc375f34eeec94cad5be8
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -117,6 +117,105 @@ ARRAY_PROPERTIES = [
     'skos:editorialNote',
     'skos:historyNote',
     'skos:example',
+
+    # --- 2026-10-01 sweep -------------------------------------------------
+    # Every property below is `type: array` at EVERY site that declares it in
+    # metadataBuildingBlocks/_sources (93 schema.yaml files, archive excluded),
+    # and was absent from this list. JSON-LD compaction flattens any
+    # single-valued array, so each one failed its own schema the first time a
+    # document happened to carry exactly one value -- which is how
+    # cdif:has_ForeignKey was found, by accident rather than by a check.
+    #
+    # Demonstrated rather than assumed: reducing
+    # exampleCDIFDataStructureMinimal.json to ONE cdi:has_DataStructureComponent
+    # framed it to a bare object and failed validation with
+    # "cdi:has_DataStructureComponent: [type]". The mechanism is compaction, not
+    # anything property-specific, so it applies uniformly to the rest.
+    #
+    # Properties that are an array in some schemas and a scalar in others are
+    # DELIBERATELY EXCLUDED -- 44 of them, including cdi:name, cdi:displayLabel,
+    # schema:identifier and skos:notation. This list is keyed on name alone, so
+    # wrapping those would break their scalar sites; they need parent_key /
+    # type_list keying instead. Do not "finish the sweep" by adding them.
+    'bios:computationalTool',
+    'bios:labEquipment',
+    'bios:parameterValue',
+    'bios:reagent',
+    'cdi:availableLanguage',
+    'cdi:commonalityCode',
+    'cdi:copyright',
+    'cdi:corrections',
+    'cdi:entityProduced',
+    'cdi:entityUsed',
+    'cdi:entryReference',
+    'cdi:entryValue',
+    'cdi:excludes',
+    'cdi:explanatoryNotes',
+    'cdi:futureNotes',
+    'cdi:groups',
+    'cdi:hasContact',
+    'cdi:hasInternal',
+    'cdi:hasRulingBy',
+    'cdi:hasSource',
+    'cdi:hasSubActivity',
+    'cdi:hasSubStep',
+    'cdi:hasTarget',
+    'cdi:has_Category',
+    'cdi:has_CategoryPosition',
+    'cdi:has_ClassificationIndexEntry',
+    'cdi:has_ClassificationIndexEntryPosition',
+    'cdi:has_ClassificationItem',
+    'cdi:has_ClassificationItemPosition',
+    'cdi:has_Code',
+    'cdi:has_CodePosition',
+    'cdi:has_ComponentPosition',
+    'cdi:has_DataPoint',
+    'cdi:has_DataStructureComponent',
+    'cdi:has_DimensionComponent',
+    'cdi:has_ForeignKey',
+    'cdi:has_InstanceVariable',
+    'cdi:has_InstanceVariableMap',
+    'cdi:has_Key',
+    'cdi:has_LogicalRecord',
+    'cdi:has_LogicalRecordRelationship',
+    'cdi:has_PhysicalMapping',
+    'cdi:has_PhysicalMappingPosition',
+    'cdi:has_Step',
+    'cdi:isBasedOn',
+    'cdi:isBoundedBy',
+    'cdi:isComposedOf',
+    'cdi:isIndexedBy',
+    'cdi:isPredecessorOf',
+    'cdi:isSuccessorOf',
+    'cdi:line',
+    'cdi:lineTerminator',
+    'cdi:mappingLabel',
+    'cdi:maps',
+    'cdi:operatesOn',
+    'cdi:organizes',
+    'cdi:performs',
+    'cdi:produces',
+    'cdi:qualifies',
+    'cdi:receives',
+    'cdi:recommendedDataType',
+    'cdi:standard',
+    'cdi:updateChanges',
+    'cdi:uses_InstanceValue',
+    'cdi:variableFunction',
+    'cdif:has_Concept',
+    'cdif:isDefinedBy_Concept',
+    'cdif:semantic',
+    'oas:content',
+    'oas:enum',
+    'oas:parameters',
+    'oas:response',
+    'prov:generated',
+    'prov:wasAssociatedWith',
+    'prov:wasInformedBy',
+    'schema:category',
+    'schema:hasDefinedTerm',
+    'schema:step',
+    'skos:member',
 ]
 
 # Properties that are arrays only in specific contexts (not globally) are handled
