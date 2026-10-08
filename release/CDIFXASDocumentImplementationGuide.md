@@ -555,16 +555,16 @@ the columns of an XDI data array. Documented `xas:` propertyIDs:
 
 Carried on the beamline instrument entity. Recommended `xas:` propertyIDs:
 
-`flux`, `spot_size`, `website`, `energy_range`, `energy_resolution`,
-`scan_mode`, `collimation`, `focusing`, `harmonicrejection`.
+`flux`, `spotsize`, `website`, `energyrange`, `energyresolution`,
+`scanmode`, `collimation`, `focusing`, `harmonicrejection`.
 
 ### Sample physico-chemical additionalProperty
 
 Carried on the `schema:object` sample. Recommended `xas:` propertyIDs:
 
 `temperature`, `pressure`, `ph`, `eh`, `concentration`, `density`,
-`viscosity`, `porosity`, `opacity`, `resistivity`, `magnetic_field`,
-`magnetic_moment`, `electric_field`, `electrochemical_potential`,
+`viscosity`, `porosity`, `opacity`, `resistivity`, `magneticfield`,
+`magneticmoment`, `electricfield`, `electrochemicalpotential`,
 `volume`.
 
 
