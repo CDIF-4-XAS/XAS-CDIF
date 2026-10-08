@@ -1,0 +1,20 @@
+# title: CDIF XAS concept placement in CDIF JSON-LD
+# description: Where cdifnexmetadata places the value of each CDIF XAS concept. Derived from CONCEPT_SLOTS in emit.py, not curated; regenerate with crosswalk/build_placement.py.
+# derived_from: https://github.com/CDIF-4-XAS/cdifnexmetadata/blob/0c149eafdccaec0c758ad5a4d91be5f27de105fd/src/cdifnexmetadata/emit.py
+# mapping_tool: crosswalk/build_placement.py
+# path_notation: from the root Dataset; [x] selects the array item whose schema:additionalType is x; ' ; ' separates two places
+# unlisted_concepts: emitted as a PropertyValue in prov:wasGeneratedBy[xas:analysisevent]/schema:additionalProperty
+subject_id	subject_label	target	jsonld_path	value_form	property_id	name
+cdifxas:beamline	Beamline	instrument	prov:wasGeneratedBy[xas:analysisevent]/prov:used/schema:instrument[xas:beamline]/schema:name	name		beamline
+cdifxas:dspacing	D spacing	monochromator	prov:wasGeneratedBy[xas:analysisevent]/prov:used/schema:instrument[xas:xraymonochromator]/schema:additionalProperty	PropertyValue	xas:dspacing	monochromator d-spacing
+cdifxas:edgeanalyzed	Edge analyzed	keyword	schema:keywords	DefinedTerm		absorption edge
+cdifxas:edgeenergy	Edge energy	activity	prov:wasGeneratedBy[xas:analysisevent]/schema:additionalProperty	PropertyValue	xas:edgeenergy	edge energy
+cdifxas:elementanalyzed	Element analyzed	keyword	schema:keywords	DefinedTerm		element analyzed
+cdifxas:facility	Facility	facility	schema:contributor[schema:roleName=Facility]/schema:contributor/schema:name ; prov:wasGeneratedBy[xas:analysisevent]/schema:location/schema:name	name		facility
+cdifxas:monochromatortype	Monochromator type	monochromator	prov:wasGeneratedBy[xas:analysisevent]/prov:used/schema:instrument[xas:xraymonochromator]/schema:additionalProperty	PropertyValue	xas:monochromatortype	monochromator crystal
+cdifxas:probe	Probe	source	prov:wasGeneratedBy[xas:analysisevent]/prov:used/schema:instrument[xas:source]/schema:additionalProperty	PropertyValue	xas:probe	Probe
+cdifxas:reflectionplane	Reflection plane	monochromator	prov:wasGeneratedBy[xas:analysisevent]/prov:used/schema:instrument[xas:xraymonochromator]/schema:additionalProperty	PropertyValue	xas:reflectionplane	reflection plane
+cdifxas:samplepreparation	Sample preparation	sample	prov:wasGeneratedBy[xas:analysisevent]/schema:object/schema:additionalProperty	PropertyValue	xas:samplepreparation	sample preparation
+cdifxas:temperature	Sample temperature	sample	prov:wasGeneratedBy[xas:analysisevent]/schema:object/schema:additionalProperty	PropertyValue	xas:temperature	sample temperature
+cdifxas:xasmeasurementmode	XAS measurement mode	technique	schema:measurementTechnique	DefinedTerm		detection mode
+cdifxas:xraysourcetype	X-ray source type	source	prov:wasGeneratedBy[xas:analysisevent]/prov:used/schema:instrument[xas:source]/schema:additionalProperty	PropertyValue	xas:xraysourcetype	X-ray source type

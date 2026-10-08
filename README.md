@@ -149,7 +149,12 @@ here; the SHACL is regenerated with `tools/validate_shacl.py --emit-shapes`.
 | `xdi-to-cdifxas.sssom.tsv` | XDI key → CDIF XAS concept | `cdifnexmetadata`, which keeps a copy |
 | `xdi-to-schemaorg.sssom.tsv` | XDI extension header → schema.org property | `cdifnexmetadata`, which keeps a copy |
 | `cdifxas-units.tsv` | CDIF XAS concept → QUDT unit | `cdifnexmetadata`, which keeps a copy |
-| `build_crosswalk.py` | builds all four, and validates them | — |
+| `cdifxas-placement.tsv` | CDIF XAS concept → place in CDIF JSON-LD | readers; derived from `cdifnexmetadata`'s `emit.py` |
+| `build_crosswalk.py` | builds the first four, and validates them | — |
+| `build_placement.py` | builds `cdifxas-placement.tsv` from `emit.py` | — |
+
+[`crosswalk/README.md`](crosswalk/README.md) describes each file, its
+columns, and how to rebuild it.
 
 `xdi-to-schemaorg.sssom.tsv` holds the bibliographic and rights headers seen in
 XDI data that CDIF models with schema.org rather than with an XAS concept.
@@ -218,6 +223,68 @@ The two implementations derive them independently and agree —
 
 See "Which physical-mapping subclass, and what goes in it" in
 `release/CDIFXASDocumentImplementationGuide.md`.
+
+### How a concept is placed in the JSON-LD, in both sets
+
+Getting from a source field to a document takes two steps, and only the
+first is a crosswalk:
+
+```
+XDI token / NeXus path  --SSSOM-->  cdifxas: concept  --code-->  place in CDIF JSON-LD
+```
+
+The second step — which object a concept's value goes on — is **not
+curated in any table**. The profile defines the places, and each
+converter writes its own rules for filling them in code.
+`crosswalk/cdifxas-placement.tsv` records one converter's rules as a
+table, but it is derived from that code, not a source for it.
+
+**What the profile requires.** The XAS-specific sections of
+`release/CDIFXASDocumentImplementationGuide.md` say what each entity
+carries. Most concepts become a `schema:PropertyValue` whose
+`schema:propertyID` is the concept itself, e.g.
+`{"@id": "xas:edgeenergy"}`, on one of these objects:
+
+| JSON-LD object | concepts placed there (examples) |
+|---|---|
+| acquisition activity in `prov:wasGeneratedBy`, `schema:additionalProperty` | `edgeenergy`, `calibrationmethod` |
+| `prov:used` wrapper with additionalType `xas:source` | `xraysourcetype`, `probe` |
+| `prov:used` wrapper with additionalType `xas:xraymonochromator` | `dspacing`, `monochromatortype`, `reflectionplane` |
+| `prov:used` wrapper with additionalType `xas:beamline` | the beamline name; optionally `flux`, `spotsize`, `scanmode`, … |
+| the sample, as the activity's `schema:object` | `temperature`, `samplepreparation`, … |
+| root `schema:keywords` | `elementanalyzed`, `edgeanalyzed`, as `DefinedTerm`s |
+| root `schema:measurementTechnique` | `xasmeasurementmode` |
+| `schema:variableMeasured` | data-array columns: `energy`, `i0`, `mutrans`, … |
+
+Because the propertyID *is* the concept's local name, both converters
+must spell it exactly as the glossary does. The profile lists the same
+names in its own enumerations, so a tidier spelling yields a document
+that cannot validate.
+
+**Where each converter encodes it:**
+
+- **RML** — `resources/mapping_dds.ttl` in `smrgeoinfo/cdif-xas`. It
+  does not read the SSSOM files. Each output property is its own
+  triples map with the concept typed in as a constant: for instance
+  `TriplesMap_scan_edge_energy` builds a `PropertyValue` with
+  `rr:constant xas:edgeenergy` as its propertyID, and reads the value
+  from the intermediate key `cdi:Scan_edge_energy`.
+  `xdi-to-cdifxas.sssom.tsv` *describes* this mapping rather than
+  driving it, and `build_crosswalk.py` keeps the two consistent by
+  checking every XDI key in the SSSOM against the keys this mapping
+  reads.
+- **`cdifnexmetadata`** — the SSSOM files take a field to a concept
+  (`map/xdi.py`, `map/concepts.py`). Then the `CONCEPT_SLOTS` table in
+  `emit.py` takes each concept to a place in the document.
+  A concept missing from that table is still emitted, as an
+  `additionalProperty` on the acquisition activity, with a warning.
+  `crosswalk/build_placement.py` reads `CONCEPT_SLOTS` and writes it out
+  as `crosswalk/cdifxas-placement.tsv`.
+
+So the placement is written down twice, in two forms, and nothing checks
+that the two agree. Validating against `release/` catches a value placed
+where the profile forbids it, but not a value placed in a different
+permitted spot by each converter.
 
 ### `exampleMetadata/` — generated CDIF-XAS
 
