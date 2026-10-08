@@ -72,7 +72,7 @@ documents](#related-documents)).
 ## How to declare conformance
 
 Every valid XAS document places a `schema:subjectOf` catalog record on the
-root Dataset, and that record declares conformance to all six URIs:
+root Dataset, and that record declares conformance to these five URIs:
 
 ```json
 "schema:subjectOf": {
@@ -244,7 +244,7 @@ The Data Structure profile adds:
   what it describes** — see below.
 - `cdif:hasPhysicalMapping` on each DataStructureComponent: where that
   component's values sit, as a `cdif:LocatorMapping` carrying
-  `cdif:locator` and a `cdif:formats_InstanceVariable` back-reference.
+  `cdi:locator` and a `cdif:formats_InstanceVariable` back-reference.
 
 #### Where `cdi:isStructuredBy` belongs
 
@@ -278,7 +278,7 @@ not on which format it is:
 | the values are addressed by | subclass | carries |
 |---|---|---|
 | a position in a line of text | `cdif:TextMapping` | `cdif:index`, and the field width |
-| a path into a container | `cdif:LocatorMapping` | `cdif:locator` |
+| a path into a container | `cdif:LocatorMapping` | `cdi:locator` |
 
 A text column is a position, so `cdif:index` — the 1-based column —
 **always** applies, and a locator does not: a column number is not a
@@ -432,28 +432,57 @@ this case.
 ### Instrument entities
 
 The `prov:used` array on the analysis activity is the **peer prov:used
-instrument model**: one wrapper per instrument, each carrying a single
-`schema:instrument`. Every wrapper has:
+instrument model**: one wrapper per instrument, each carrying its
+`schema:instrument` as a one-item array. Every wrapper has:
 
 ```json
 {
-    "schema:instrument": {
-        "@type": ["schema:Thing", "schema:Product"],
-        "schema:additionalType": [ { "@id": "xas:<component-URI>" } ],
+    "@type": ["schema:Thing", "prov:Entity"],
+    "schema:instrument": [ {
+        "@type": ["schema:Thing", "schema:Product", "prov:Entity"],
+        "schema:additionalType": [
+            { "@id": "xas:<component-URI>" },
+            { "@id": "wd:Q3099911" }
+        ],
         "schema:name": "...",
         "schema:additionalProperty": [ ... ]
-    }
+    } ]
 }
 ```
+
+Two parts of this are easy to miss, and a document fails without them:
+
+- `prov:Entity` on the instrument's own `@type`, not only on the wrapper,
+  because the instrument is what the activity used (`prov:used` has range
+  `prov:Entity`).
+- `wd:Q3099911` (Wikidata "scientific instrument") in
+  `schema:additionalType`, beside the component type. `xasInstrument`
+  requires it on every instrument. Declare
+  `wd: https://www.wikidata.org/entity/`.
 
 Required component wrappers (`schema:additionalType` `@id` value):
 
 | Component | `xas:` additionalType | Required additionalProperty |
 |-----------|-----------------------|-----------------------------|
-| X-ray source | `xas:source` | `xas:xraysourcetype`, `xas:probe` |
-| Beamline | `xas:beamline` | *(none required at xasCore; xasOptional adds `xas:collimation`, `xas:focusing`, `xas:harmonicrejection`)* |
+| X-ray source | `xas:source` | source type and probe (see below) |
+| Beamline | `nxs:base_classes/NXinstrument.html` (retired: `xas:beamline`) | *(none required at xasCore; xasOptional adds `xas:collimation`, `xas:focusing`, `xas:harmonicrejection`)* |
 | Monochromator | `xas:xraymonochromator` | `xas:dspacing`, `xas:monochromatortype`, `xas:reflectionplane` |
 | X-ray monitor / detector | `xas:xraymonitor` | *(none required at xasCore; xasOptional adds detector-configuration entries)* |
+
+**Retired terms.** On 2026-09-27 four technique-neutral terms were
+retired onto NeXus base classes (`nxs:` =
+`https://manual.nexusformat.org/classes/`). Both spellings validate;
+prefer the NeXus form:
+
+| retired | preferred |
+|---|---|
+| `xas:beamline` | `nxs:base_classes/NXinstrument.html` |
+| `xas:xraysourcetype` | `nxs:base_classes/NXsource.html#nxsource-type-field` |
+| `xas:probe` | `nxs:base_classes/NXsource.html#nxsource-probe-field` |
+| `xas:temperature` | `nxs:base_classes/NXsample.html#nxsample-temperature-field` |
+
+So the X-ray source's required entries are its type and its probe, each
+under either propertyID. `xas:facility` was not retired.
 
 The exact XAS local names are documented in the
 [XAS SKOS glossary](#xas-skos-glossary). NeXus-ontology `nxs:Field/NX*/*`

@@ -189,7 +189,7 @@
     "cdif:hasPhysicalMapping": {
       "@embed": "@always",
       "cdif:index": {},
-      "cdif:locator": {},
+      "cdi:locator": {},
       "cdif:format": {},
       "cdif:physicalDataType": {},
       "cdi:length": {},

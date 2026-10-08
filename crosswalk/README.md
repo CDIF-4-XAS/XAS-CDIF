@@ -80,6 +80,13 @@ In `jsonld_path`, `[x]` selects the array item whose
 `schema:additionalType` is `x`. A concept with no row is not dropped: it
 is emitted as a `PropertyValue` on the acquisition activity.
 
+The table shows what `emit.py` emits, which includes four terms the
+profile has retired: `xas:beamline`, `xas:xraysourcetype`, `xas:probe`
+and `xas:temperature`. Since 2026-09-27 the profile prefers NeXus
+base-class terms for these and still accepts the old ones; the list is
+in the main README, under "How a concept is placed in the JSON-LD". When
+`emit.py` switches, a rebuild picks the change up.
+
 Two limits on what this table covers:
 
 - **Only `cdifnexmetadata`.** The RML converter

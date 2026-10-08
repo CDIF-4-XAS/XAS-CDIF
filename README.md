@@ -206,7 +206,7 @@ example sets agree on the convention:
   `cdif:index` — the 1-based column — plus `cdi:minimumLength` and
   `cdi:maximumLength` measured over the data rows.
 - **`cdif:LocatorMapping`** for a path into a container, carrying
-  `cdif:locator`. Used for NeXus, where the path is only actionable
+  `cdi:locator`. Used for NeXus, where the path is only actionable
   through a reader such as h5py.
 
 The two lengths are the field width **including the padding in front of
@@ -261,6 +261,24 @@ must spell it exactly as the glossary does. The profile lists the same
 names in its own enumerations, so a tidier spelling yields a document
 that cannot validate.
 
+**Four of these terms are retired.** On 2026-09-27 the profile moved
+four technique-neutral concepts onto NeXus base classes
+(`nxs:` = `https://manual.nexusformat.org/classes/`):
+
+| retired | preferred |
+|---|---|
+| `xas:beamline` | `nxs:base_classes/NXinstrument.html` |
+| `xas:xraysourcetype` | `nxs:base_classes/NXsource.html#nxsource-type-field` |
+| `xas:probe` | `nxs:base_classes/NXsource.html#nxsource-probe-field` |
+| `xas:temperature` | `nxs:base_classes/NXsample.html#nxsample-temperature-field` |
+
+Both spellings validate, and both converters still emit the retired
+ones, so the table above and `crosswalk/cdifxas-placement.tsv` show
+them. The `xas:` forms can be dropped from the profile only once both
+converters emit the NeXus terms. `xas:facility` was deliberately not
+retired. The record is in `metadataBuildingBlocks`,
+`_sources/profiles/cdifCompositeProfile/xasDocument/CHANGES-from-UKDS.md`.
+
 **Where each converter encodes it:**
 
 - **RML** — `resources/mapping_dds.ttl` in `smrgeoinfo/cdif-xas`. It
@@ -290,11 +308,23 @@ permitted spot by each converter.
 
 55 JSON-LD documents plus batch generation and validation reports.
 **Output, not source**: regenerate with the commands above rather than
-editing. 55/55 validate against `release/`.
+editing. 55/55 validate against `release/` as of 2026-10-08, checked
+with `release/FrameAndValidate.py` against the resolved schema and
+frame in `release/`. The fork's own `batch_validate_cdif.py` agrees
+(schema and SHACL, `batch_validation_report.txt`).
+
+That claim goes stale whenever `release/` is re-synced from
+`metadataBuildingBlocks`. When checked on 2026-10-08, the documents
+generated on 2026-08-03 all failed, against both the freshly synced
+schema and the one before it: the profile required every instrument to carry `prov:Entity` in
+`@type` and `wd:Q3099911` ("scientific instrument") in
+`schema:additionalType`, and the RML mapping emitted neither. Revalidate
+after a sync, not just after a regeneration.
 
 The same 55 files converted by the *other* pipeline live in
 [`cdifnexmetadata/exampleMetadata-xdi`](https://github.com/CDIF-4-XAS/cdifnexmetadata),
-not here. Both sets validate 55/55; the two are kept so the
+not here. Both sets validate 55/55, checked the same way on the same
+date; the two are kept so the
 implementations can be compared on identical inputs, which is what
 `cdif-xas-UKDS/CONVERGENCE-PROPOSAL.md` argues from.
 
