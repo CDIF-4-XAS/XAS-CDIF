@@ -435,7 +435,7 @@
                   "schema:name": "X-ray source",
                   "schema:propertyID": [
                     {
-                      "@id": "xas:xraysourcetype"
+                      "@id": "nxs:base_classes/NXsource.html#nxsource-type-field"
                     }
                   ],
                   "schema:value": "Synchrotron X-ray Source"
@@ -447,7 +447,7 @@
                   "schema:name": "Probe",
                   "schema:propertyID": [
                     {
-                      "@id": "xas:probe"
+                      "@id": "nxs:base_classes/NXsource.html#nxsource-probe-field"
                     }
                   ],
                   "schema:value": "x-ray"
@@ -467,7 +467,7 @@
               ],
               "schema:additionalType": [
                 {
-                  "@id": "xas:beamline"
+                  "@id": "nxs:base_classes/NXinstrument.html"
                 },
                 {
                   "@id": "wd:Q3099911"
