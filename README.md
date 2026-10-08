@@ -41,10 +41,9 @@ commit pushed directly to `CDIF-4-XAS` by anyone else was invisible to
 `git pull`.)
 
 The fork exists because Pages could not be enabled on the organisation
-repository at the time. That is still the case for the current account:
-`CDIF-4-XAS/XAS-CDIF` has **no Pages site** (the API returns 404) and
-enabling one needs `admin`, which the account does not have (`admin:
-false`, `push: true`).
+repository at the time. It no longer publishes: Pages was enabled on
+`CDIF-4-XAS/XAS-CDIF` on 2026-09-29, and the site has been served from
+there since (see below).
 
 ### What publishes the site, and the one thing to know before moving it
 
@@ -56,28 +55,34 @@ source commit reaches both, both repositories used to build and deploy
 independently. The published trees were byte-identical (measured
 2026-09-27: same tree hash, zero files differing) while the two
 `gh-pages` histories shared no ancestry, which looks like a divergence and
-is not one. A job guard now names the single publishing repository.
+is not one. A job guard now names the single publishing repository:
+`CDIF-4-XAS/XAS-CDIF`, since 2026-09-30.
 
-The fork publishes today, and the w3id rules depend on that:
+The organisation publishes today, and the w3id rules depend on that:
 `XAS_PAGES` in `perma-id/w3id.org` `ids/cdif/.htaccess` resolves
 `w3id.org/cdif/xas/*` — including the glossary's own scheme URI
 `xas/CDIF4XAS_Reference_Concepts` — to
-`https://smrgeoinfo.github.io/XAS-CDIF`. It is the only one of the 18
-bases in that file pointing at a personal account rather than an
-organisation, which is worth fixing.
+`https://cdif-4-xas.github.io/XAS-CDIF`. It used to point at the fork
+(`smrgeoinfo.github.io`), the only one of the 18 bases in that file on a
+personal account; `perma-id/w3id.org#6767` moved it, merged 2026-09-29.
+All ten XAS identifier families now resolve through the organisation,
+which `validation/tools/check_w3id_redirects.py` checks.
 
-**Moving publication to the organisation, in this order:**
+The fork's `gh-pages` is frozen at its last build. Nothing resolves to
+it, and it will go stale the next time the glossary changes, so do not
+treat it as a live mirror.
 
-1. Enable Pages on `CDIF-4-XAS` from `gh-pages` (needs `admin` there).
-2. Confirm the files actually serve at
-   `https://cdif-4-xas.github.io/XAS-CDIF/`.
-3. Change the one repository name in the `build-docs.yml` job guard.
-4. *Then* repoint `XAS_PAGES`, by PR against `perma-id/w3id.org`.
+**If publication ever moves again, in this order:**
 
-Doing (4) first points a 303 at a site that does not exist. A stale
-redirect is better than a broken one: it serves correct-looking content
-from the old location, which is why the fork's Pages should stay enabled
-until the new redirect is live.
+1. Enable Pages on the new repository from `gh-pages`.
+2. Confirm the files actually serve there.
+3. Repoint `XAS_PAGES`, by PR against `perma-id/w3id.org`.
+4. *Then* change the one repository name in the `build-docs.yml` job
+   guard.
+
+Repointing w3id before the target serves gives a 303 to a 404, which is
+worse than a 303 to a slightly stale file; changing the guard first
+freezes whichever site w3id is still pointing at.
 
 ## Where the code lives
 
@@ -142,15 +147,21 @@ here; the SHACL is regenerated with `tools/validate_shacl.py --emit-shapes`.
 |---|---|---|
 | `cdifxas-to-nexus.sssom.tsv` | CDIF XAS concept → NeXus path | `cdifnexmetadata`, which keeps a copy |
 | `xdi-to-cdifxas.sssom.tsv` | XDI key → CDIF XAS concept | `cdifnexmetadata`, which keeps a copy |
+| `xdi-to-cdif.sssom.tsv` | XDI extension header → schema.org property | `cdifnexmetadata`, which keeps a copy |
 | `cdifxas-units.tsv` | CDIF XAS concept → QUDT unit | `cdifnexmetadata`, which keeps a copy |
-| `build_crosswalk.py` | builds all three, and validates them | — |
+| `build_crosswalk.py` | builds all four, and validates them | — |
+
+`xdi-to-cdif.sssom.tsv` holds the bibliographic and rights headers seen in
+XDI data that CDIF models with schema.org rather than with an XAS concept.
+It is kept apart from `xdi-to-cdifxas` so each set has a single
+`object_source`.
 
 **These files are the master copies.** `cdifnexmetadata` does not read them
 from here at run time — it ships duplicates under
 `src/cdifnexmetadata/data/`, so that it works offline and so a given
 release is pinned to a known crosswalk revision. The cost is that the
 copies can fall behind; `python -m cdifnexmetadata.map.crosswalk --refresh`
-re-downloads all three.
+re-downloads all four.
 
 `cdifxas-units.tsv` is the odd one out: not SSSOM, and not curated in
 the script. It is read straight from the glossary's `qudt:hasUnit`

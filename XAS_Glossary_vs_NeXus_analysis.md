@@ -205,9 +205,11 @@ would break the schema, the SHACL bundle, every release example and the
 RML mapping.
 
 What remains true: **no NeXus crosswalk target exists** for these, which
-is why they are absent from `cdifxas-to-nexus.sssom.tsv`. They are
+is why they are absent from `cdifxas-to-nexus.sssom.tsv`. Most are
 equally absent from `xdi-to-cdifxas.sssom.tsv`, and necessarily so — a
-mapping needs an XDI token to map from, and there is none.
+mapping needs an XDI token to map from, and there is none. The
+exceptions are `scanmode` and `website`, whose extension headers
+`Beamline.scan_mode` and `Beamline.website` were mapped on 2026-08-25.
 
 ---
 
