@@ -147,11 +147,11 @@ here; the SHACL is regenerated with `tools/validate_shacl.py --emit-shapes`.
 |---|---|---|
 | `cdifxas-to-nexus.sssom.tsv` | CDIF XAS concept → NeXus path | `cdifnexmetadata`, which keeps a copy |
 | `xdi-to-cdifxas.sssom.tsv` | XDI key → CDIF XAS concept | `cdifnexmetadata`, which keeps a copy |
-| `xdi-to-cdif.sssom.tsv` | XDI extension header → schema.org property | `cdifnexmetadata`, which keeps a copy |
+| `xdi-to-schemaorg.sssom.tsv` | XDI extension header → schema.org property | `cdifnexmetadata`, which keeps a copy |
 | `cdifxas-units.tsv` | CDIF XAS concept → QUDT unit | `cdifnexmetadata`, which keeps a copy |
 | `build_crosswalk.py` | builds all four, and validates them | — |
 
-`xdi-to-cdif.sssom.tsv` holds the bibliographic and rights headers seen in
+`xdi-to-schemaorg.sssom.tsv` holds the bibliographic and rights headers seen in
 XDI data that CDIF models with schema.org rather than with an XAS concept.
 It is kept apart from `xdi-to-cdifxas` so each set has a single
 `object_source`.

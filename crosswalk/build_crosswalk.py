@@ -674,7 +674,7 @@ def build_xdi_set(ref: str) -> tuple[dict, list[dict]]:
             "IRIs are minted under CDIF w3id because the XDI specification "
             "defines none. Scope is the transmission slice.",
         "license": "https://creativecommons.org/licenses/by/4.0/",
-        "mapping_provider": "https://github.com/smrgeoinfo/XAS-CDIF",
+        "mapping_provider": "https://github.com/CDIF-4-XAS/XAS-CDIF",
         "creator_id": [f"orcid:{CURATOR.rsplit('/', 1)[-1]}"],
         "mapping_tool": "crosswalk/build_crosswalk.py",
         "subject_source": "XDI/1.0 dictionary",
@@ -702,7 +702,7 @@ def build_cdif_set() -> tuple[dict, list[dict]]:
             "comment": comment,
         })
     meta = {
-        "mapping_set_id": "https://w3id.org/cdif/xas/crosswalk/xdi-to-cdif",
+        "mapping_set_id": "https://w3id.org/cdif/xas/crosswalk/xdi-to-schemaorg",
         "mapping_set_title":
             "XDI extension headers to standard CDIF properties",
         "mapping_set_description":
@@ -712,7 +712,7 @@ def build_cdif_set() -> tuple[dict, list[dict]]:
             "object_source. Subjects are extension headers (source 'dat' in "
             "the project mapping spreadsheet), not XDI/1.0 dictionary tags.",
         "license": "https://creativecommons.org/licenses/by/4.0/",
-        "mapping_provider": "https://github.com/smrgeoinfo/XAS-CDIF",
+        "mapping_provider": "https://github.com/CDIF-4-XAS/XAS-CDIF",
         "creator_id": [f"orcid:{CURATOR.rsplit('/', 1)[-1]}"],
         "mapping_tool": "crosswalk/build_crosswalk.py",
         "subject_source": "XDI extension headers (observed in data)",
@@ -751,7 +751,7 @@ def build_nexus_set(ref: str) -> tuple[dict, list[dict]]:
             "wherever the concept is a property of a kind of thing rather "
             "than a requirement of the technique.",
         "license": "https://creativecommons.org/licenses/by/4.0/",
-        "mapping_provider": "https://github.com/smrgeoinfo/XAS-CDIF",
+        "mapping_provider": "https://github.com/CDIF-4-XAS/XAS-CDIF",
         "creator_id": [f"orcid:{CURATOR.rsplit('/', 1)[-1]}"],
         "mapping_tool": "crosswalk/build_crosswalk.py",
         "subject_source": "https://w3id.org/cdif/xas/",
@@ -844,8 +844,8 @@ def main(argv=None) -> int:
     meta3, rows3 = build_cdif_set()
     write_set(HERE / "xdi-to-cdifxas.sssom.tsv", meta1, rows1)
     write_set(HERE / "cdifxas-to-nexus.sssom.tsv", meta2, rows2)
-    write_set(HERE / "xdi-to-cdif.sssom.tsv", meta3, rows3)
-    print(f"  wrote xdi-to-cdif.sssom.tsv        ({len(rows3)} mappings)")
+    write_set(HERE / "xdi-to-schemaorg.sssom.tsv", meta3, rows3)
+    print(f"  wrote xdi-to-schemaorg.sssom.tsv   ({len(rows3)} mappings)")
     print(f"  wrote xdi-to-cdifxas.sssom.tsv     ({len(rows1)} mappings)")
     print(f"  wrote cdifxas-to-nexus.sssom.tsv   ({len(rows2)} mappings)")
     n_units = write_units(HERE / "cdifxas-units.tsv")

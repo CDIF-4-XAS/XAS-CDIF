@@ -2,7 +2,7 @@
 # mapping_set_title: CDIF XAS concepts to NeXus concept paths (all detection modes)
 # mapping_set_description: One of two bindings onto the CDIF XAS concept hub. Object IRIs are PROVISIONAL: the NeXusOntology PURLs do not resolve (domain unregistered) and an open PR renames every IRI, so paths are minted under CDIF w3id on a mint-now, redirect-later basis. Mappings target NeXus BASE classes wherever the concept is a property of a kind of thing rather than a requirement of the technique.
 # license: https://creativecommons.org/licenses/by/4.0/
-# mapping_provider: https://github.com/smrgeoinfo/XAS-CDIF
+# mapping_provider: https://github.com/CDIF-4-XAS/XAS-CDIF
 # creator_id:
 #   - orcid:0000-0001-6041-5302
 # mapping_tool: crosswalk/build_crosswalk.py

@@ -168,7 +168,7 @@ Ontological Mappings).
 | File | Rows | Direction | `object_source` |
 |---|--:|---|---|
 | `xdi-to-cdifxas.sssom.tsv` | 31 | XDI token → CDIF XAS concept | `w3id.org/cdif/xas/` |
-| `xdi-to-cdif.sssom.tsv` | 4 | XDI header → schema.org property | `schema.org` |
+| `xdi-to-schemaorg.sssom.tsv` | 4 | XDI header → schema.org property | `schema.org` |
 | `cdifxas-to-nexus.sssom.tsv` | 52 | CDIF concept → NeXus path | `w3id.org/cdif/nxdl/` |
 | `cdifxas-units.tsv` | 12 | CDIF concept → QUDT unit | — |
 

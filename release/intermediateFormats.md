@@ -156,7 +156,7 @@ serialization target is not a concept.
 }
 ```
 
-Populated only by the XDI binding, from `xdi-to-cdif.sssom.tsv`. A NeXus
+Populated only by the XDI binding, from `xdi-to-schemaorg.sssom.tsv`. A NeXus
 file carries no bibliographic fields, so a NeXus parser can ignore this.
 
 ---
