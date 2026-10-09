@@ -20,3 +20,6 @@ exampleData/*.zip
 # A .pyc outside __pycache__/ (e.g. carried along in a file move)
 # is not caught by the rule above.
 *.pyc
+
+# Local working notes
+/exampleData/new 3.txt
