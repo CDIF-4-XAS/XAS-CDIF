@@ -4,7 +4,8 @@ How a metadata record is generated from a raw XAS dataset. The metadata record c
 They share no code — only the target profile.
 
  [cdifnexmetadata](https://github.com/CDIF-4-XAS/cdifnexmetadata/tree/main) reads both
-NeXus/HDF5 and XDI; [cdif-xas](https://github.com/UKDSResearch/cdif-xas) reads XDI only. What separates them is
+NeXus/HDF5 and XDI; [cdif-xas](https://github.com/smrgeoinfo/cdif-xas) (the smrgeoinfo fork of
+[UKDSResearch/cdif-xas](https://github.com/UKDSResearch/cdif-xas); the fork is what runs) reads XDI only. What separates them is
 *method*: a Python emitter versus a declarative RML mapping executed by a
 Java tool, packaged as a CLI versus an HTTP service.
 
@@ -123,9 +124,9 @@ load-bearing — `Sample.formula` (19 of the 55 example files) and
 
 ### Bundled corpora
 
-`exampleData/` (20), `exampleMetadata-NEXUS/` (14),
-`exampleMetadata-xdi/` (56) — generated output kept for regression
-comparison.
+`exampleData/` (19 source files), and the documents generated from
+them and from the XAS-CDIF XDI corpus — `exampleMetadata-NEXUS/` (11)
+and `exampleMetadata-xdi/` (55) — kept for regression comparison.
 
 ---
 

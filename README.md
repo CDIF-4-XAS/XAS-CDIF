@@ -215,8 +215,8 @@ the value**, because that is what a fixed-width reader slices on: in
 minimum and maximum are equal the file really is fixed-width; where they
 differ it is whitespace-separated and a reader must tokenise.
 
-That distinction is not decorative. **21 of the 55 files in
-`exampleData/` are fixed-width and 34 are not**, so neither claim holds
+That distinction is not decorative. **20 of the 55 files in
+`exampleData/` are fixed-width and 35 are not**, so neither claim holds
 for the corpus as a whole and the widths have to be measured per file.
 The two implementations derive them independently and agree —
 `se_na2so4_rt.xdi` comes out at 15 characters for every column in both.
@@ -351,7 +351,7 @@ implementations can be compared on identical inputs, which is what
 | `generate_concept_files.py` | per-concept files from the glossary |
 | `generate_glossary_html.py` | the browsable glossary |
 | `add_detection_mode_concepts.py` | detection-mode concepts |
-| `import_nexus_enumerations.py` | pulls enumerated values from NXDL into the glossary |
+| `import_nexus_enumerations.py` | pulls enumerated values from NXDL into the three value-list vocabularies (not the glossary) |
 
 ### `tests/`
 
@@ -371,8 +371,8 @@ implementations can be compared on identical inputs, which is what
 The glossary filename carries no version on purpose: it is the working
 copy. **Snapshots keep their version** —
 `release/XAS_Glossary_SKOS_v2.json` is the released one, and the Pages
-build publishes under that same `_v2` name because the per-concept
-files link to it. Renaming the working file therefore does not move any
+build publishes under that same `_v2` name because the w3id rule for
+`https://w3id.org/cdif/xas/` (requested as JSON-LD) redirects to it. Renaming the working file therefore does not move any
 published URL.
 
 These are the shared dependency. `cdifnexmetadata` does not read them
@@ -410,7 +410,7 @@ URI. Nothing outside the file referenced the old forms.
 
 ### Where the concepts come from
 
-The 105 concepts in `XAS_Glossary_SKOS.json` are **minted for
+The 106 concepts in `XAS_Glossary_SKOS.json` are **minted for
 this project**, in one scheme,
 `https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts`. Nothing
 upstream is being re-published: they were assembled by reconciling the
@@ -423,10 +423,10 @@ the concepts themselves:
 
 | property | on | pointing at |
 |---|---|---|
-| `references` | 90 of 105 | 97 DOIs, the XDI dictionary and other GitHub sources, the IUCr dictionary, `docs.xrayabsorption.org`, Wikipedia |
-| `seeAlso` | 50 | `manual.nexusformat.org` — the resolvable NeXus documentation |
+| `references` | 91 of 106 | 99 `doi.org` links (11 distinct DOIs), the XDI dictionary and other GitHub sources, the IUCr dictionary, `docs.xrayabsorption.org`, Wikipedia |
+| `seeAlso` | 51 | `manual.nexusformat.org` — the resolvable NeXus documentation |
 | `foaf:focus` | 36 | NeXusOntology PURLs under `purl.org/nexusformat/definitions/` |
-| `notation` | 27 | the short token (`i0`, `mutrans`) the formats actually use |
+| `notation` | 28 | the short token (`i0`, `mutrans`) the formats actually use |
 
 15 concepts cite nothing. That is the gap to close first if the
 glossary is published.

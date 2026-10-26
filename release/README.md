@@ -16,11 +16,14 @@ conformance URI.
 | [CDIF Discovery](https://w3id.org/cdif/discovery/1.1) | `cdif/discovery/1.1` | Optional discovery content (spatial, temporal, etc.) |
 | [CDIF Data Description](https://w3id.org/cdif/data_description/1.1) | `cdif/data_description/1.1` | Measured variables and their semantics |
 | [CDIF Data Structure](https://w3id.org/cdif/data_structure/1.1) | `cdif/data_structure/1.1` | Physical / logical / tabular data structure |
-| [XAS Core](https://w3id.org/cdif/xasCore/1.0) | `cdif/xasCore/1.0` | XAS-mandatory instrument + sample metadata |
-| [XAS Optional](https://w3id.org/cdif/xasOptional/1.0) | `cdif/xasOptional/1.0` | XAS-recommended metadata (calibration, edge, etc.) |
+| [XAS Core](https://w3id.org/cdif/xasCore/1.0) | `cdif/xasCore/1.0` | XAS-mandatory analysis activity, instruments and measurement technique; sample shape |
+| [XAS Optional](https://w3id.org/cdif/xasOptional/1.0) | `cdif/xasOptional/1.0` | XAS-recommended propertyIDs for data columns, beamline, sample and analysis activity; no requirements |
 
-A conforming XAS document declares all six URIs in
-`schema:subjectOf.dcterms:conformsTo`.
+A conforming XAS document declares five of these URIs in
+`schema:subjectOf.dcterms:conformsTo` — all but `xasOptional/1.0`, which
+adds no requirements and so is not declared. A document whose
+distribution has `schema:hasPart` entries also declares
+`https://w3id.org/cdif/manifest/1.1`.
 
 ## Files
 
@@ -42,14 +45,20 @@ A conforming XAS document declares all six URIs in
 
 ## Examples
 
-The `examples/` directory contains XAS document instances that conform to
-the profile:
+The `examples/` directory contains seven XAS document instances. All pass
+the JSON Schema and have no SHACL violations:
 
-- **`exampleCDIFxas.json`** — the reference XAS example from mBB. Passes JSON
-  Schema and SHACL cleanly.
+- **`exampleCDIFxas.json`** and **`example_dds_framed.jsonld`** — the
+  reference examples from mBB, copied by the release sync.
 - **`cdif_dds_framed.jsonld`** — the UKDS/Dataverse-derived example (originally
   from [UKDSResearch/cdif-xas](https://github.com/UKDSResearch/cdif-xas)),
   adapted to conform (see the change log kept alongside the file in mBB).
+- **`valid.jsonld`**, **`valid_angle_dspacing.jsonld`**,
+  **`262875_PtSn_OCO_Abu_1.jsonld`** and **`Se_Na2SeO4_rt_01.jsonld`** —
+  output of the reference XDI pipeline.
+
+The implementation guide's "Complete examples" section says what each one
+is for.
 
 ## Framing + JSON Schema validation
 
@@ -81,19 +90,22 @@ targets the `xasDocument` composite.
 
 Release artifacts are built from the metadataBuildingBlocks composite at
 [`_sources/profiles/cdifCompositeProfile/xasDocument`](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/_sources/profiles/cdifCompositeProfile/xasDocument).
-Regenerate them with:
+Refresh them from a metadataBuildingBlocks checkout on `main`, with this
+repository checked out beside it:
 
 ```bash
 # In the metadataBuildingBlocks repo:
-python tools/resolve_schema.py --file _sources/profiles/cdifCompositeProfile/xasDocument/schema.yaml \
-    -o _sources/profiles/cdifCompositeProfile/xasDocument/resolvedSchema.json
-python tools/regenerate_schema_json.py
-python tools/validate_shacl.py _sources/profiles/cdifCompositeProfile/xasDocument \
-    --emit-shapes _sources/profiles/cdifCompositeProfile/xasDocument/rules.shacl
+python tools/sync_release_repos.py --repo XAS-CDIF/release          # dry run
+python tools/sync_release_repos.py --apply --repo XAS-CDIF/release
 ```
+
+The sync copies the resolved schema and the mBB examples and emits
+`xasDocumentRules.shacl`. It does not touch the frame, the implementation
+guide or the release-only examples: copy `frame.jsonld` to
+`cdifXASDocument-frame.jsonld` by hand when it changes.
 
 ## Status
 
-**Draft.** The Implementation Guide is a scaffold — sections marked
-"[TODO — XAS-specific content]" need domain-expert content before this is
-ready for a 1.0 release tag.
+The schema, SHACL and frame match metadataBuildingBlocks `main`, and the
+implementation guide was checked against them on 2026-10-26. The guide's
+closing status note lists what is still open.

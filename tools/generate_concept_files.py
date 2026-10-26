@@ -16,9 +16,9 @@ Each per-concept file is self-contained:
     where the RDF is *served from*, not what the concept *is called*.
 
 If a concept has a `broader` link, the inverse `narrower` is materialized on
-each parent so per-concept files are traversable both ways. (In the current
-v2 source no concept carries `broader`, so this is a no-op today; kept in
-place so it lights up automatically the first time hierarchy is introduced.)
+each parent so per-concept files are traversable both ways. (Two concepts
+carry `broader` as of 2026-09-27: electronyieldabsorptioncoefficient and
+synchrotonfacility.)
 
 Existing files under build/docs/concepts/ whose basenames no
 longer correspond to a concept in the source are removed, so stale files

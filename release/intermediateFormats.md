@@ -322,8 +322,16 @@ concepts rather than namespaces, so re-minting them under `cdifsas:`
 would assert that a SAS facility and an XAS facility are different
 things. They are not. That they sit in an XAS-flavoured namespace is an
 accident of which crosswalk was written first; writing the second one is
-what exposed it, and the fix is a technique-neutral namespace in the
-glossary rather than a duplicate here.
+what exposed it, and the fix is a technique-neutral term rather than a
+duplicate here.
+
+That fix has since been made for four of the five. On 2026-09-27
+`beamline`, `probe`, `xraysourcetype` and `temperature` were deprecated
+in the glossary in favour of NeXus base-class terms
+(`dcterms:isReplacedBy`, e.g. `NXinstrument.html` for `beamline`), and
+the xasDocument profile accepts either spelling. `facility` was kept.
+The crosswalks still key these values on the `cdifxas:` subjects, which
+remain valid CURIEs for the deprecated concepts.
 
 `docs/NXsas.md` in that repository covers what NXsas is and how real
 files depart from the definition.

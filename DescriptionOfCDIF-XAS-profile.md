@@ -47,6 +47,7 @@ the profiles the document conforms to:
 
 ```json
 "schema:subjectOf": {
+    "@id": "<an IRI for the catalog record>",
     "@type": ["schema:Dataset"],
     "schema:additionalType": [{"@id": "dcat:CatalogRecord"}],
     "schema:about": {"@id": "<the root Dataset @id>"},
@@ -151,7 +152,7 @@ It has various properties (besides the regular name and description):
 
 The structure of the data in XDI and NeXus files is quite different, even though the target content is closely related. The data structure is defined in the `schema:distribution` (`schema:DataDownload`) section, because it is specific to the particular data delivery file format. The distribution's `dcterms:conformsTo` names the format: the XDI specification, or the NeXus application definition (e.g. `nxs:applications/NXxas.html`).
 
-Each component of the structure is defined by a represented variable, and the distribution's `cdif:hasPhysicalMapping` says where its values are. Each mapping points back to the instance variable it formats with `cdif:formats_InstanceVariable`, and states `cdif:physicalDataType`, the datatype used to represent the values.
+Each component of the structure is defined by a represented variable, and the distribution's `cdif:hasPhysicalMapping` says where its values are. Each mapping points back to the instance variable it formats with `cdif:formats_InstanceVariable`, and states `cdif:physicalDataType`, the datatype used to represent the values: a name such as `decimal` or an identifier such as `xsd:decimal`. The schema accepts either; the RML converter writes the first and cdifnexmetadata the second.
 
 * **XDI** files are described using a `cdi:WideDataStructure`, with one component per column in the data section of the XDI file, each a `cdi:MeasureComponent` linked to its variable with `cdif:isDefinedBy_Variable`. The information in the header section of the XDI file is all accounted for in other elements in the JSON-LD document. The free text comments section of the XDI file (between `#////` and `#----`) should be copied to the dataset description (with whitespace removed). Each column is located with a `cdif:TextMapping`:
 
@@ -166,7 +167,7 @@ Each component of the structure is defined by a represented variable, and the di
   }
   ```
 
-  `cdif:index` is the 1-based column. The two lengths are the field width measured over the data rows, **including** the padding in front of the value. Where they are equal the file is genuinely fixed-width and a reader can slice on the widths: the column with index 3 starts after the widths of columns 1 and 2. Where they differ the file is whitespace-separated and a reader must tokenise. Do not assume either: 21 of the 55 files in `exampleData/` are fixed-width and 34 are not. The distribution also carries `cdi:arrayBase`, `cdi:isFixedWidth`, `cdi:isDelimited`, `cdi:commentPrefix` and `cdi:hasHeader`.
+  `cdif:index` is the 1-based column. The two lengths are the field width measured over the data rows, **including** the padding in front of the value. Where they are equal the file is genuinely fixed-width and a reader can slice on the widths: the column with index 3 starts after the widths of columns 1 and 2. Where they differ the file is whitespace-separated and a reader must tokenise. Do not assume either: 20 of the 55 files in `exampleData/` are fixed-width and 35 are not. The distribution also carries `cdi:arrayBase`, `cdi:isFixedWidth`, `cdi:isDelimited`, `cdi:commentPrefix` and `cdi:hasHeader`.
 
 * **NeXus** files use the HDF5 file format. This is a binary format that requires HDF5 software tools to extract information. Python code to use data in this format can be implemented using the h5py package (https://docs.h5py.org/en/stable/), and there are various pre-compiled tools for working with HDF5 files at https://support.hdfgroup.org/documentation/hdf5/latest/\_view\_tools\_command.html. The ability to access and use these tools is a prerequisite for using NeXus data. The content of NeXus files is specified by NeXus application definitions (https://manual.nexusformat.org/classes/applications/). This profile follows the restructured `NXxas` family, which defines transmission, total and partial electron yield, total and partial fluorescence yield, and HERFD detection; the crosswalk in `crosswalk/cdifxas-to-nexus.sssom.tsv` maps each glossary concept to its NeXus field. Spectral data in NeXus files is stored in HDF5 datasets as one-dimensional arrays, one for the incident energy and one for each measured response. The structure is a `cdi:DimensionalDataStructure`, and each component's values are located with a `cdif:LocatorMapping` carrying the HDF5 path:
 
