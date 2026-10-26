@@ -2,19 +2,19 @@ name: Publish glossary docs
 
 # Regenerates the browsable glossary HTML plus the per-concept SKOS JSON-LD
 # files from the working-copy XAS_Glossary_SKOS.json, and deploys
-# the site to GitHub Pages (gh-pages branch). Runs on every push to main
-# that changes the draft, either generator, or the published-docs folder,
-# plus workflow_dispatch for manual runs.
+# the site to GitHub Pages (gh-pages branch). Runs on every push to a
+# listed branch that changes a vocabulary, either generator or this
+# workflow, plus workflow_dispatch for manual runs.
 
 on:
   push:
     # The vocabularies are maintained on the release branch, and main is
     # far behind it; the site follows the working branch so publishing does
-    # not wait on a merge. Both names are listed because the branch is
-    # called cdifxasRelease in the smrgeoinfo fork (which serves Pages) and
-    # cdifxasRelease1.1 in CDIF-4-XAS (where development happens). A push to
-    # either must be able to rebuild the site.
-    branches: [main, cdifxasRelease, cdifxasRelease1.1]
+    # not wait on a merge. The branch is cdifxasRelease1.1 in both
+    # CDIF-4-XAS and the smrgeoinfo fork; only CDIF-4-XAS deploys (see the
+    # job guard below). Once the release branch is merged, narrow this to
+    # main so two branches do not take turns deploying.
+    branches: [main, cdifxasRelease1.1]
     paths:
       - 'XAS_Glossary_SKOS.json'
       - 'XAS_edges_SKOS.json'
@@ -79,28 +79,31 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Generate glossary HTML
-        run: python tools/generate_glossary_html.py
-
-      - name: Generate per-concept SKOS JSON-LD files
-        run: python tools/generate_concept_files.py
-
       - name: Copy source glossary + LICENSE alongside the site
-        # Copy the working-copy SKOS JSON-LD into the published site as the
-        # canonical XAS_Glossary_SKOS_v2.json filename. The three value-list
-        # vocabularies go alongside it under their own names -- w3id
-        # resolves xas/edge/{x}, xas/emissionline/{x} and
-        # xas/detectionmode/{x} to a fragment of these files, so they have
-        # to be published for those URIs to work. Also drop the repo
-        # LICENSE next to it. The generator's "Source" link in the header
-        # points at ../XAS_Glossary_SKOS_v2.json; that resolves to
-        # <pages>/XAS_Glossary_SKOS_v2.json in the deployed site.
+        # Copy the working-copy SKOS JSON-LD into the published site as
+        # XAS_Glossary_SKOS_v2.json: the w3id rule for
+        # https://w3id.org/cdif/xas/ with Accept: application/ld+json
+        # redirects to that name. The three value-list vocabularies go
+        # alongside it under their own names -- w3id resolves
+        # xas/edge/{x}, xas/emissionline/{x} and xas/detectionmode/{x} to a
+        # fragment of these files, so they have to be published for those
+        # URIs to work. Also drop the repo LICENSE next to it.
         run: |
+          mkdir -p build/docs
           cp XAS_Glossary_SKOS.json build/docs/XAS_Glossary_SKOS_v2.json
           cp XAS_edges_SKOS.json build/docs/
           cp XAS_emissionlines_SKOS.json build/docs/
           cp XAS_detectionmodes_SKOS.json build/docs/
           cp LICENSE build/docs/ || true
+
+      - name: Generate glossary HTML
+        # From the published copy, not the working file: the page's "Source"
+        # link is the input's filename, and the working name
+        # (XAS_Glossary_SKOS.json) is not published, so it was a 404.
+        run: python tools/generate_glossary_html.py --source build/docs/XAS_Glossary_SKOS_v2.json
+
+      - name: Generate per-concept SKOS JSON-LD files
+        run: python tools/generate_concept_files.py
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
