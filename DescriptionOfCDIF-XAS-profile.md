@@ -16,7 +16,7 @@ The "[Dictionary of XAS Data Interchange Metadata](https://github.com/XraySpectr
 * Element.edge: The absorption edge measured.
 * Mono.d\_spacing: The d-spacing of the monochromator.
 
-Element symbol and element edge are considered properties of the analysis event because a given instrument in a given configuration can analyze for different elements and edges. They are implemented as keywords (see section 4); a `schema:about` property on each keyword identifies the XDI field it carries, and the profile requires it.
+Element symbol and element edge are considered properties of the analysis event because a given instrument in a given configuration can analyze for different elements and edges. They are implemented as keywords (see section 4); a `schema:about` property on each keyword identifies the XDI field it carries. The profile recommends these keywords but does not require them.
 
 Mono.d\_spacing is a property of the monochromator component in the XAS analysis instrument. It is implemented as an additionalProperty (`xas:dspacing`) of the monochromator, which is one of the instruments listed in the `prov:wasGeneratedBy/prov:used` list.
 
@@ -90,7 +90,7 @@ The physical data type of the values is stated on the physical mapping (section 
 
 ## 2\. Analysis Event
 
-Describe the data acquisition event. In this version, we are focused on the acquisition of data at synchrotron beamlines. Data processing to produce final data products is a subsequent provenance step, which would be described in a separate JSON object in the `prov:wasGeneratedBy` array (TBD).
+Describe the data acquisition event. In this version, we are focused on the acquisition of data at synchrotron beamlines. Data processing to produce final data products is a subsequent provenance step, described as a separate activity in the same `prov:wasGeneratedBy` array. The profile requires at least one activity to be the analysis event below, and places no XAS requirements on the others.
 
 The event is a `schema:Action` that is also a `prov:Activity`, classified with `xas:analysisevent`:
 
@@ -185,7 +185,7 @@ Each component of the structure is defined by a represented variable, and the di
 
 ## 4\. Other information
 
-* Measurement technique. `schema:measurementTechnique` is required, with two `schema:DefinedTerm` entries: the XAS technique from PaNET, and the detection mode:
+* Measurement technique. `schema:measurementTechnique` is required, with two `schema:DefinedTerm` entries: the XAS technique from PaNET (the schema's default, the same in every XAS document), and the detection mode (`":unav"` as its name when the source does not record it):
 
   ```json
   "schema:measurementTechnique": [
@@ -215,7 +215,7 @@ Each component of the structure is defined by a represented variable, and the di
 
   An identifier for the proposal can be added to the target as text or with the `schema:PropertyValue` pattern.
 
-* Keywords. Put the target element and the target edge in keywords, each a `schema:DefinedTerm` tagged with `schema:about` to say which XDI field it carries:
+* Keywords. Recommended, not required: the profile places no XAS requirement on `schema:keywords`, and plain-string keywords are accepted. For discovery by element and edge, put the target element and the target edge in keywords, each a `schema:DefinedTerm` tagged with `schema:about` to say which XDI field it carries:
 
   ```json
   "schema:keywords": [

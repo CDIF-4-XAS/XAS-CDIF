@@ -1,6 +1,6 @@
 # CDIF XAS Document Profile Implementation Guide
 
-**Version 1.1** — 2026-07-26
+**Version 1.1** — 2026-10-26
 
 **Conformance URI:** `https://w3id.org/cdif/xasDocument/1.0`
 
@@ -34,12 +34,14 @@ interpret the spectrum.
   - [Instrument entities](#instrument-entities)
   - [Sample entity (`schema:object`)](#sample-entity-schemaobject)
   - [Distribution (`schema:distribution`)](#distribution-schemadistribution)
+  - [Units on a variable (`schema:unitText`, `schema:unitCode`)](#units-on-a-variable-schemaunittext-schemaunitcode)
   - [Measurement technique (`schema:measurementTechnique`)](#measurement-technique-schemameasurementtechnique)
   - [Element and edge keywords (`schema:keywords`)](#element-and-edge-keywords-schemakeywords)
 - [XAS-optional content](#xas-optional-content)
   - [Data-array `variableMeasured`](#data-array-variablemeasured)
   - [Beamline-operational additionalProperty](#beamline-operational-additionalproperty)
   - [Sample physico-chemical additionalProperty](#sample-physico-chemical-additionalproperty)
+  - [Analysis-activity additionalProperty](#analysis-activity-additionalproperty)
 - [XAS SKOS glossary](#xas-skos-glossary)
 - [Producer resilience patterns](#producer-resilience-patterns)
   - [Shape safety nets for name-or-identifier constraints](#shape-safety-nets-for-name-or-identifier-constraints)
@@ -61,7 +63,7 @@ interpret the spectrum.
 | CDIF Discovery | `cdif/discovery/1.1` | Optional discovery (creator, contributor, spatial/temporal coverage, keywords, etc.) |
 | CDIF Data Description | `cdif/data_description/1.1` | `schema:variableMeasured` (measured variables and their semantics) |
 | CDIF Data Structure | `cdif/data_structure/1.1` | `cdi:isStructuredBy` (physical / logical / tabular structure) |
-| XAS Core | `cdif/xasCore/1.0` | XAS-mandatory instrument, sample, activity, technique, keywords |
+| XAS Core | `cdif/xasCore/1.0` | XAS-mandatory analysis activity, instruments, technique; sample shape |
 | XAS Optional | `cdif/xasOptional/1.0` | XAS-recommended: data-array variables, beamline-operational and sample physico-chemical additionalProperty vocabularies |
 
 Full JSON Schema, SHACL rules, JSON-LD frame, and example documents for
@@ -92,6 +94,11 @@ root Dataset, and that record declares conformance to these five URIs:
 }
 ```
 
+A document whose distribution has `schema:hasPart` entries (see [Where
+`cdi:isStructuredBy` belongs](#where-cdiisstructuredby-belongs)) is a
+manifest and MUST also declare `https://w3id.org/cdif/manifest/1.1`; the
+schema requires it whenever any distribution has parts.
+
 `xasOptional/1.0` is deliberately **not** declared. The xasOptional module
 adds no required content — every property it contributes is optional — so
 conformance to it is satisfied vacuously by any document, and
@@ -117,15 +124,16 @@ An XAS document describes:
 1. **A dataset** (`schema:Dataset` root) — discoverable metadata (name,
    identifier, license, access), the same shape any CDIF document uses.
 2. **Its measured variables** — `schema:variableMeasured` items describing
-   what was recorded (energy, i0, itrans, etc.) with their propertyIDs
-   pointing at XAS SKOS concepts.
+   what was recorded (monochromator energy, incident intensity,
+   transmitted intensity, etc.) with their propertyIDs pointing at XAS
+   SKOS concepts.
 3. **Its physical structure** — via `cdi:isStructuredBy` and
    `cdif:hasPhysicalMapping` on the distribution, tying each column to a
    RepresentedVariable and InstanceVariable so the file can be parsed
    deterministically.
 4. **How it was generated** — a `prov:wasGeneratedBy` activity of type
    `xas:analysisevent` whose `prov:used` array lists the beamline, X-ray
-   source, monochromator, and monitor as peer instruments.
+   source and monochromator as peer instruments.
 5. **What was analyzed** — a `schema:object` sample entity typed as
    `MaterialSample` with iSample additionalType and (optionally)
    physico-chemical additionalProperty entries.
@@ -145,11 +153,12 @@ extensions to add typing. The XAS profile uses these primary types:
 
 - `schema:Dataset` — the root
 - `schema:Action` + `prov:Activity` — the XAS analysis event
-- `schema:Thing` + `schema:Product` — instruments
+- `schema:Thing` + `schema:Product` + `prov:Entity` — instruments
 - `schema:Thing` + `schema:Product` — samples (with additional
   `MaterialSample` via `schema:additionalType`)
 - `schema:PropertyValue` — additional-property carriers
-- `schema:DataDownload` + `cdi:PhysicalDataSet` — distributions
+- `schema:DataDownload` + `cdi:PhysicalDataSet` (or
+  `cdi:TabularTextDataSet` / `cdi:StructuredDataSet`) — distributions
 
 ### Object reference
 
@@ -176,7 +185,7 @@ Examples:
 
 ```json
 "schema:additionalType": [
-    { "@id": "xas:beamline" },
+    { "@id": "nxs:base_classes/NXinstrument.html" },
     "instrument-nickname"
 ]
 
@@ -210,15 +219,16 @@ to extract the Dataset from a graph before validating.
 | `cdi` | `http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/` | DDI-CDI data structure |
 | `cdif` | `https://w3id.org/cdif/` | CDIF-specific structural predicates (hasPhysicalMapping, etc.) |
 | `spdx` | `http://spdx.org/rdf/terms#` | Checksum |
-| `csvw` | `http://www.w3.org/ns/csvw#` | tabular structure detail |
 | `xas` | `https://w3id.org/cdif/xas/` | XAS SKOS glossary (concept URIs) |
 | `nxs` | `https://manual.nexusformat.org/classes/` | NeXus ontology (NXsource, NXcrystal, NXmonitor) |
+| `wd` | `https://www.wikidata.org/entity/` | Wikidata (`wd:Q3099911`, scientific instrument) |
 | `skos` | `http://www.w3.org/2004/02/skos/core#` | SKOS |
 | `geosparql` | `http://www.opengis.net/ont/geosparql#` | spatial |
 | `time` | `http://www.w3.org/2006/time#` | temporal |
 
-The full context is served at `https://w3id.org/cdif/xasDocument/1.0/context`
-once the `.htaccess` rule is added (see release checklist).
+The context is not yet served at a w3id URI
+(`https://w3id.org/cdif/xasDocument/1.0/context` returns 404), so
+documents declare these prefixes in their own `@context`.
 
 
 ## Base classes and properties
@@ -242,9 +252,11 @@ The Data Structure profile adds:
 - `cdi:isStructuredBy`: a `cdi:DataStructure` (Wide, Long, or Cube) with
   `cdi:has_DataStructureComponent` entries. **Where it goes depends on
   what it describes** — see below.
-- `cdif:hasPhysicalMapping` on each DataStructureComponent: where that
-  component's values sit, as a `cdif:LocatorMapping` carrying
-  `cdi:locator` and a `cdif:formats_InstanceVariable` back-reference.
+- `cdif:hasPhysicalMapping` on the `schema:DataDownload`: one mapping per
+  variable, saying where its values sit in the file, each with a
+  `cdif:formats_InstanceVariable` back-reference. A text column is a
+  `cdif:TextMapping` and a path into a container is a
+  `cdif:LocatorMapping` — see below.
 
 #### Where `cdi:isStructuredBy` belongs
 
@@ -308,8 +320,8 @@ number a reader slices on; 8 tells it nothing it can use.
 
 XDI is worth the warning here. The specification describes
 whitespace-separated columns, and producers differ: of the 55 files in
-the CDIF-4-XAS reference corpus, 21 are fixed-width by the test above
-and 34 are not. A profile-wide claim either way would be wrong for most
+the CDIF-4-XAS reference corpus, 20 are fixed-width by the test above
+and 35 are not. A profile-wide claim either way would be wrong for most
 of the corpus, which is why the rule is to measure per file.
 
 The profile has no start-position property, so index plus width is the
@@ -355,12 +367,17 @@ data provider) but is not required.
 
 ### XAS analysis activity (`prov:wasGeneratedBy`)
 
-An XAS document MUST carry a `prov:wasGeneratedBy` array with at least one
-activity that has:
+An XAS document MUST carry a `prov:wasGeneratedBy` array, and at least
+one of its activities MUST be an XAS analysis event. Other CDIF
+provenance activities, such as a later normalization or fitting step,
+may sit beside it in the same array; the XAS requirements below apply
+to the analysis event only. The analysis event has:
 
 - `@type`: `["schema:Action", "prov:Activity"]`
 - `schema:additionalType`: `[{"@id": "xas:analysisevent"}]`
-- `schema:object`: the material sample being analyzed (see [Sample entity](#sample-entity-schemaobject))
+- `schema:object` (recommended): the material sample being analyzed. The
+  schema does not require it, but when present it must be an
+  [xasSample](#sample-entity-schemaobject)
 - `schema:startTime` (recommended), and `schema:endTime` where the source
   records one: ISO 8601 timestamps of the acquisition
 - `prov:used`: an array of instrument wrappers (see [Instrument entities](#instrument-entities))
@@ -390,15 +407,19 @@ when the dataset was last updated **in the form available through the
 distribution**. It is not the acquisition time and not the time the
 metadata was generated.
 
-Emit all three in ISO 8601. Note that neither the JSON Schema nor the
-SHACL enforces this — both say "ISO8601 date-time" in prose and require
-only a string, so a value like `2020-08-10 09:18:48` (a space, not a
-`T`) validates cleanly and still throws in a consumer that parses it as
-a datetime. NeXus files commonly write exactly that.
+Emit all three in ISO 8601. Only `schema:dateModified` is checked: the
+`dateModifiedProperty` SHACL shape gives it an ISO 8601 pattern. For
+`schema:startTime` and `schema:endTime`, both the JSON Schema and the
+SHACL say "ISO8601 date-time" in prose and require only a string, so a
+value like `2020-08-10 09:18:48` (a space, not a `T`) validates cleanly
+and still throws in a consumer that parses it as a datetime. NeXus files
+commonly write exactly that.
 
 #### A file holding several datasets
 
-Where a distribution has `schema:hasPart` entries, **each part SHOULD
+Where a distribution has `schema:hasPart` entries — which also requires
+the `manifest/1.1` conformance claim (see [How to declare
+conformance](#how-to-declare-conformance)) — **each part SHOULD
 carry its own `prov:wasGeneratedBy`** with its own `schema:startTime` /
 `schema:endTime`. The file-level activity then spans the whole file,
 which answers "when did this batch run" — a different question from
@@ -433,7 +454,8 @@ this case.
 
 The `prov:used` array on the analysis activity is the **peer prov:used
 instrument model**: one wrapper per instrument, each carrying its
-`schema:instrument` as a one-item array. Every wrapper has:
+`schema:instrument` as an array. A wrapper looks like this (the
+wrapper's own `@type` is recommended, not required):
 
 ```json
 {
@@ -462,12 +484,14 @@ Two parts of this are easy to miss, and a document fails without them:
 
 Required component wrappers (`schema:additionalType` `@id` value):
 
-| Component | `xas:` additionalType | Required additionalProperty |
-|-----------|-----------------------|-----------------------------|
-| X-ray source | `xas:source` | source type and probe (see below) |
-| Beamline | `nxs:base_classes/NXinstrument.html` (retired: `xas:beamline`) | *(none required at xasCore; xasOptional adds `xas:collimation`, `xas:focusing`, `xas:harmonicrejection`)* |
-| Monochromator | `xas:xraymonochromator` | `xas:dspacing`, `xas:monochromatortype`, `xas:reflectionplane` |
-| X-ray monitor / detector | `xas:xraymonitor` | *(none required at xasCore; xasOptional adds detector-configuration entries)* |
+| Component | additionalType | Required on the instrument |
+|-----------|----------------|----------------------------|
+| X-ray source | `xas:source` | additionalProperty entries for the source type and the probe, each with a `schema:value`; the probe entry's `schema:name` must be `"Probe"` (see below) |
+| Beamline | `nxs:base_classes/NXinstrument.html` (retired: `xas:beamline`) | `schema:name` (the beamline name); no additionalProperty is required — see [Beamline-operational additionalProperty](#beamline-operational-additionalproperty) for the recommended ones |
+| Monochromator | `xas:xraymonochromator` | `schema:name`, and additionalProperty entries for `xas:monochromatortype`, `xas:dspacing` (with both `schema:value` and `schema:unitText`) and `xas:reflectionplane` |
+
+Other instruments, such as an X-ray monitor or detector, may be added as
+further wrappers; the profile places no requirements on them.
 
 **Retired terms.** On 2026-09-27 four technique-neutral terms were
 retired onto NeXus base classes (`nxs:` =
@@ -482,7 +506,8 @@ prefer the NeXus form:
 | `xas:temperature` | `nxs:base_classes/NXsample.html#nxsample-temperature-field` |
 
 So the X-ray source's required entries are its type and its probe, each
-under either propertyID. `xas:facility` was not retired.
+under either propertyID, and the probe entry is named `"Probe"` either
+way. `xas:facility` was not retired.
 
 The exact XAS local names are documented in the
 [XAS SKOS glossary](#xas-skos-glossary). NeXus-ontology `nxs:Field/NX*/*`
@@ -495,16 +520,19 @@ The `schema:object` of the analysis activity is a
 [`xasSample`](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/_sources/xasProperties/xasSample):
 
 - `@type`: `["schema:Thing", "schema:Product"]`
-- `schema:additionalType` MUST include the iSample material-sample URI:
-  `[{"@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"}]`
-- `schema:name`: required
+- `schema:additionalType` MUST include both the string `"MaterialSample"`
+  and the iSample material-sample URI:
+  `[{"@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"}, "MaterialSample"]`
+- `schema:name`: required, at least 3 characters (SHACL `xasSampleNode`)
 - `schema:additionalProperty` (recommended): `xas:samplepreparation`,
   plus any physico-chemical parameters from [xasOptional](#sample-physico-chemical-additionalproperty)
 
 ### Distribution (`schema:distribution`)
 
-At least one distribution MUST be typed as `cdi:PhysicalDataSet` and
-conform to the XDI specification:
+At least one distribution MUST be typed as a `schema:DataDownload` and
+one of `cdi:PhysicalDataSet`, `cdi:TabularTextDataSet` or
+`cdi:StructuredDataSet`, and MUST declare the format its bytes follow:
+either the XDI specification or a NeXus application definition. For XDI:
 
 ```json
 "@type": ["schema:DataDownload", "cdi:PhysicalDataSet"],
@@ -513,10 +541,13 @@ conform to the XDI specification:
 ]
 ```
 
-`cdi:isStructuredBy` on that distribution, with
-`cdif:hasPhysicalMapping` on each of its components, supplies the
-column-to-variable mapping expected by the Data Structure profile. An
-XDI file holds one spectrum, so the structure belongs to the
+For NeXus, `dcterms:conformsTo` names the application definition, e.g.
+`{ "@id": "nxs:applications/NXxas.html" }` (or the full
+`https://manual.nexusformat.org/classes/applications/NXxas.html`).
+
+`cdi:isStructuredBy` and `cdif:hasPhysicalMapping` on that distribution
+supply the column-to-variable mapping expected by the Data Structure
+profile. An XDI file holds one spectrum, so the structure belongs to the
 distribution; see "Where `cdi:isStructuredBy` belongs" above for the
 multi-dataset case.
 
@@ -543,19 +574,43 @@ apart are *the file says eV*, *the concept is dimensionless*, and
 
 ### Measurement technique (`schema:measurementTechnique`)
 
-Two DefinedTerm entries are required:
+Required, with two DefinedTerm entries:
 
-- Acquisition mode (`Transmission`, `Fluorescence`, `Electron yield`, ...)
-  with `schema:inDefinedTermSet` pointing at
-  `nxs:Field/NXxas/ENTRY/DATA/mode`.
 - XAS technique classification with
   `schema:identifier: "http://purl.org/pan-science/PaNET/PaNET01196"` and
   `schema:inDefinedTermSet: "http://purl.org/pan-science/PaNET/PaNET.owl"`,
   `schema:termCode: "XAS"`, `schema:name: "X-Ray Absorption Spectroscopy"`.
+  This term is the schema's `default`: it is the same in every XAS
+  document, so a producer can always supply it.
+- Acquisition mode (`Transmission`, `Fluorescence`, `Electron yield`, ...)
+  with `schema:inDefinedTermSet` pointing at
+  `nxs:Field/NXxas/ENTRY/DATA/mode`. Where the source does not record
+  the mode, give `schema:name: ":unav"` rather than leave the term out
+  or guess one from the detectors.
+
+```json
+"schema:measurementTechnique": [
+    {
+        "@type": ["schema:DefinedTerm"],
+        "schema:name": "X-Ray Absorption Spectroscopy",
+        "schema:termCode": "XAS",
+        "schema:identifier": "http://purl.org/pan-science/PaNET/PaNET01196",
+        "schema:inDefinedTermSet": "http://purl.org/pan-science/PaNET/PaNET.owl"
+    },
+    {
+        "@type": ["schema:DefinedTerm"],
+        "schema:name": "Transmission",
+        "schema:inDefinedTermSet": "nxs:Field/NXxas/ENTRY/DATA/mode"
+    }
+]
+```
 
 ### Element and edge keywords (`schema:keywords`)
 
-Two DefinedTerm entries are required:
+Recommended, not required. xasCore places no requirement on
+`schema:keywords`: base CDIF keywords apply, and plain strings are
+accepted. For discovery by element and edge, include two DefinedTerm
+entries:
 
 - Absorption edge (K, L1, L2, L3, ...) with
   `schema:inDefinedTermSet: "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md"`,
@@ -568,33 +623,67 @@ Two DefinedTerm entries are required:
 
 ## XAS-optional content
 
-None of the following is required; use where applicable. Enforced only
-by presence-conditional shape constraints in `xasDocumentRules.shacl`.
+The propertyID lists below are recommendations. The JSON Schema lists
+each one, but accepts any other propertyID too, so they are documentation
+rather than constraints. `schema:variableMeasured` itself is not optional:
+the profile requires it at the root (the Data Description component).
 
 ### Data-array `variableMeasured`
 
-Optional `cdi:InstanceVariable` / `schema:PropertyValue` items describing
-the columns of an XDI data array. Documented `xas:` propertyIDs:
+`cdi:InstanceVariable` / `schema:PropertyValue` items describing the
+columns of the data array. Recommended `xas:` propertyIDs, with the XDI
+column labels they usually correspond to:
 
-`energy`, `i0`, `itrans`, `ifluor`, `irefer`, `mutrans`, `mufluor`,
-`murefer`, `normtrans`, `normfluor`, `normrefer`, `chi`, `chi_re`,
-`chi_im`, `chi_mag`, `chi_pha`, `k`, `r`, `angle`.
+| propertyID | typical XDI column |
+|---|---|
+| `xas:monochromatorenergy` | `energy` |
+| `xas:monochromatorangle` | `angle` |
+| `xas:incidentintensity` | `i0` |
+| `xas:transmittedintensity` | `itrans` |
+| `xas:fluorescenceintensity` | `ifluor` |
+| `xas:referenceintensity` | `irefer` |
+| `xas:absorptioncoefficient` | `mutrans` |
+| `xas:fluorescenceabsorptioncoefficient` | `mufluor` |
+| `xas:referenceabsorptioncoefficient` | `murefer` |
+| `xas:normalizedtransmissionabsorptioncoefficient` | `normtrans` |
+| `xas:normalizedfluorescenceabsorptioncoefficient` | `normfluor` |
+| `xas:normalizedreferenceabsorptioncoefficient` | `normrefer` |
+| `xas:wavenumber` | `k` |
+| `xas:exafsfunction` | `chi` |
+| `xas:filteredchimagnitude` | `chi_mag` |
+| `xas:filteredchiphase` | `chi_pha` |
+| `xas:filteredchireal` | `chi_re` |
+| `xas:filteredchiimaginary` | `chi_im` |
+| `xas:radialdistance` | `r` |
 
 ### Beamline-operational additionalProperty
 
 Carried on the beamline instrument entity. Recommended `xas:` propertyIDs:
 
-`flux`, `spotsize`, `website`, `energyrange`, `energyresolution`,
-`scanmode`, `collimation`, `focusing`, `harmonicrejection`.
+`collimation`, `detectortype`, `energyrange`, `energyresolution`,
+`flux`, `focusing`, `harmonicrejection`, `scanmode`, `spotsize`,
+`website`.
 
 ### Sample physico-chemical additionalProperty
 
-Carried on the `schema:object` sample. Recommended `xas:` propertyIDs:
+Carried on the `schema:object` sample. Recommended propertyIDs:
 
-`temperature`, `pressure`, `ph`, `eh`, `concentration`, `density`,
-`viscosity`, `porosity`, `opacity`, `resistivity`, `magneticfield`,
-`magneticmoment`, `electricfield`, `electrochemicalpotential`,
-`volume`.
+- the NeXus `NXsample` temperature field,
+  `nxs:base_classes/NXsample.html#nxsample-temperature-field` (the
+  retired `xas:temperature` is still accepted)
+- `xas:` `concentration`, `density`, `eh`, `electricfield`,
+  `electrochemicalpotential`, `magneticfield`, `magneticmoment`,
+  `opacity`, `parentsample`, `ph`, `porosity`, `pressure`,
+  `resistivity`, `samplechemicalcomposition`, `samplecrystalstructure`,
+  `samplematerial`, `samplepreparation`, `viscosity`, `volume`
+- the NeXus fields `nxs:Field/NXsample/mass`,
+  `nxs:Field/NXsample/point_group` and `nxs:Field/NXsample/unit_cell`
+
+### Analysis-activity additionalProperty
+
+Carried on the `xas:analysisevent` activity. Recommended `xas:`
+propertyIDs: `edgeenergy`, `calibrationmethod`,
+`experimentdocumentation`, `installedoptions`.
 
 
 ## XAS SKOS glossary
@@ -608,7 +697,7 @@ The glossary is served through w3id with content negotiation:
 - Root `https://w3id.org/cdif/xas/` → single-page HTML glossary index
   (or the master SKOS JSON with `Accept: application/ld+json`)
 
-Source: [smrgeoinfo/XAS-CDIF](https://github.com/smrgeoinfo/XAS-CDIF).
+Source: [CDIF-4-XAS/XAS-CDIF](https://github.com/CDIF-4-XAS/XAS-CDIF).
 
 
 ## Producer resilience patterns
@@ -621,7 +710,8 @@ defensive patterns that keep the document validation-clean without
 faking data. Patterns 1–5 below are extracted from the CDIF-XAS
 reference pipeline in [smrgeoinfo/cdif-xas](https://github.com/smrgeoinfo/cdif-xas)
 (branch `local-xdi-input`), where each solves a class of failure
-observed on a 37-file real-world XDI corpus.
+observed on real-world XDI files (the reference corpus, now 55 files, is
+`exampleData/` in CDIF-4-XAS/XAS-CDIF).
 
 **Sentinel-value conventions used throughout:**
 
@@ -715,9 +805,11 @@ these in space-separated ISO (`2008-04-10 21:58:50`), slash-date
 (`20080410T215850`) forms. Normalize at parse time (Python 3.11+
 `datetime.fromisoformat` handles the space-separated form; the other
 forms fall through to explicit `strptime` patterns). Unparseable
-values pass through unchanged so downstream validation still surfaces
-them; recognized-but-non-strict inputs no longer make the profile
-output fail SHACL date-format checks.
+values pass through unchanged. Neither the JSON Schema nor the SHACL
+checks the format of these two slots (see [When the measurement
+happened](#when-the-measurement-happened-and-where-that-goes)), so this
+normalization is what keeps them parseable; validation will not catch a
+non-strict value.
 
 
 ## Complete examples
@@ -727,7 +819,8 @@ validated clean against `cdifXASDocumentResolvedSchema.json` and
 `xasDocumentRules.shacl` (0 errors, 0 SHACL violations) on release.
 
 - **`example_dds_framed.jsonld`** — profile-canonical reference
-  maintained in mBB. Complete xasCore + xasOptional content.
+  maintained in mBB. It omits the sample (`schema:object`) and the
+  wrappers' `@type`, both of which the profile permits.
 - **`exampleCDIFxas.json`** — the earlier reference XAS example from
   the mBB xasDocument profile block.
 - **`cdif_dds_framed.jsonld`** — a minimal Cu-metal example from the
@@ -742,10 +835,10 @@ validated clean against `cdifXASDocumentResolvedSchema.json` and
 - **`Se_Na2SeO4_rt_01.jsonld`** — noncompliant XDI (capital-N
   namespaced keys) demonstrating the case-normalization pattern —
   real `Beamline.Name` and `Facility.Name` content flows through.
-- **`valid_angle_dspacing.jsonld`** — angle-abscissa fixture
-  demonstrating the conditional `Mono.d_spacing` rule (required only
-  when the abscissa is monochromator angle or encoder step count,
-  optional otherwise).
+- **`valid_angle_dspacing.jsonld`** — angle-abscissa fixture: the
+  abscissa is monochromator angle rather than energy, which is what
+  makes the d-spacing necessary to convert it. The profile requires
+  `xas:dspacing` in every document regardless of the abscissa.
 
 The transformation from the original UKDS reference to the framing +
 schema shape of the profile is logged in the mBB source
@@ -784,14 +877,16 @@ pyshacl -s xasDocumentRules.shacl -f table \
 - Base profile IGs (referenced above) — [Core](https://cross-domain-interoperability-framework.github.io/profile-core/), [Discovery](https://cross-domain-interoperability-framework.github.io/profile-discovery/), [Data Description](https://cross-domain-interoperability-framework.github.io/profile-datadescription/), [Data Structure](https://cross-domain-interoperability-framework.github.io/profile-datastructure/)
 - XAS Core BB — [`_sources/xasProperties/xasCore`](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/_sources/xasProperties/xasCore)
 - XAS Optional BB — [`_sources/xasProperties/xasOptional`](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/_sources/xasProperties/xasOptional)
-- XAS SKOS glossary — [smrgeoinfo/XAS-CDIF](https://github.com/smrgeoinfo/XAS-CDIF)
+- XAS SKOS glossary — [CDIF-4-XAS/XAS-CDIF](https://github.com/CDIF-4-XAS/XAS-CDIF)
 - CDIF book — [cdifbook](https://cross-domain-interoperability-framework.github.io/cdifbook/)
 
 
 ---
 
-**Status.** This is a first-cut draft. Sections marked in the TODO
-tracker below need review or expansion before a stable 1.0 release:
+**Status.** Checked against the release schema and SHACL on
+2026-10-26, after metadataBuildingBlocks `1e91846` made the analysis
+activity and `schema:measurementTechnique` required and
+`schema:keywords` optional. Open items:
 
 - Fill in a worked walkthrough of `exampleCDIFxas.json` illustrating each
   required XAS component in-context.
