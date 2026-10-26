@@ -170,12 +170,21 @@ cdifd:CDIFCodelistShape a sh:NodeShape ;
     sh:targetClass skos:ConceptScheme .
 
 cdifd:CDIFContactPointShape a sh:NodeShape ;
+    sh:message "a contact point should give an e-mail address or a contact web page (schema:url); an e-mail address is strongly recommended" ;
+    sh:or ( [ sh:property [ sh:minCount 1 ;
+                        sh:path schema:email ] ] [ sh:property [ sh:minCount 1 ;
+                        sh:path schema:url ] ] ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:message "a contact point should be provided; an e-mail address is strongly recommended" ;
-            sh:minCount 1 ;
+            sh:message "a contact point e-mail address should be well formed" ;
             sh:path schema:email ;
             sh:pattern "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$" ;
+            sh:severity sh:Info ],
+        [ sh:datatype xsd:string ;
+            sh:message "a contact point web page should be an http(s) URL" ;
+            sh:path schema:url ;
+            sh:pattern "^https?://[^\\s]+$" ;
             sh:severity sh:Info ] ;
+    sh:severity sh:Info ;
     sh:targetClass schema:ContactPoint .
 
 cdifd:CDIFDataDescriptionConformsToShape a sh:NodeShape ;

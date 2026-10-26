@@ -81,17 +81,8 @@
             "type": "string"
           },
           {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "IRI for an equivalent resource or alternate identifier"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "IRI for an equivalent resource or alternate identifier"
           },
           {
             "$ref": "#/$defs/Identifier"
@@ -128,17 +119,8 @@
             "type": "string"
           },
           {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a reference to a resource defining conditions of Access"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a reference to a resource defining conditions of Access"
           },
           {
             "$ref": "#/$defs/Reference"
@@ -156,17 +138,8 @@
             "type": "string"
           },
           {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a reference to a license defintion"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a reference to a license defintion"
           },
           {
             "$ref": "#/$defs/Reference"
@@ -312,17 +285,8 @@
                     "type": "array",
                     "minItems": 1,
                     "items": {
-                      "type": "object",
-                      "required": [
-                        "@id"
-                      ],
-                      "additionalProperties": false,
-                      "properties": {
-                        "@id": {
-                          "type": "string",
-                          "description": "uri for specification that this distribution conforms to"
-                        }
-                      }
+                      "$ref": "#/$defs/ObjectReference",
+                      "description": "uri for specification that this distribution conforms to"
                     }
                   },
                   "schema:provider": {
@@ -331,17 +295,8 @@
                     "items": {
                       "anyOf": [
                         {
-                          "type": "object",
-                          "additionalProperties": false,
-                          "properties": {
-                            "@id": {
-                              "type": "string",
-                              "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-                            }
-                          },
-                          "required": [
-                            "@id"
-                          ]
+                          "$ref": "#/$defs/ObjectReference",
+                          "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
                         },
                         {
                           "$ref": "#/$defs/Person"
@@ -567,16 +522,7 @@
                               "type": "array",
                               "description": "identifier(s) for a standard or specification the response conforms to.",
                               "items": {
-                                "type": "object",
-                                "required": [
-                                  "@id"
-                                ],
-                                "additionalProperties": false,
-                                "properties": {
-                                  "@id": {
-                                    "type": "string"
-                                  }
-                                }
+                                "$ref": "#/$defs/ObjectReference"
                               }
                             }
                           }
@@ -1179,17 +1125,8 @@
                 "type": "array",
                 "minItems": 1,
                 "items": {
-                  "type": "object",
-                  "required": [
-                    "@id"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "@id": {
-                      "type": "string",
-                      "description": "uri for specification that this distribution conforms to"
-                    }
-                  }
+                  "$ref": "#/$defs/ObjectReference",
+                  "description": "uri for specification that this distribution conforms to"
                 }
               },
               "schema:provider": {
@@ -1198,17 +1135,8 @@
                 "items": {
                   "anyOf": [
                     {
-                      "type": "object",
-                      "additionalProperties": false,
-                      "properties": {
-                        "@id": {
-                          "type": "string",
-                          "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-                        }
-                      },
-                      "required": [
-                        "@id"
-                      ]
+                      "$ref": "#/$defs/ObjectReference",
+                      "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
                     },
                     {
                       "$ref": "#/$defs/Person"
@@ -1392,17 +1320,8 @@
             "type": "string"
           },
           {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a reference to a publishing principles statement"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a reference to a publishing principles statement"
           },
           {
             "$ref": "#/$defs/Reference"
@@ -1498,17 +1417,8 @@
           "items": {
             "anyOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference",
+                "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
               },
               {
                 "$ref": "#/$defs/Person"
@@ -1527,17 +1437,8 @@
       "items": {
         "anyOf": [
           {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
           },
           {
             "$ref": "#/$defs/Person"
@@ -1555,17 +1456,8 @@
       "description": "Party who made the dataset publicly available",
       "anyOf": [
         {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "@id": {
-              "type": "string",
-              "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-            }
-          },
-          "required": [
-            "@id"
-          ]
+          "$ref": "#/$defs/ObjectReference",
+          "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
         },
         {
           "$ref": "#/$defs/Person"
@@ -1581,17 +1473,8 @@
       "items": {
         "anyOf": [
           {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
           },
           {
             "$ref": "#/$defs/Person"
@@ -1640,17 +1523,8 @@
           "schema:funder": {
             "anyOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference",
+                "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
               },
               {
                 "$ref": "#/$defs/Person"
@@ -1704,24 +1578,15 @@
               },
               "prov:used": {
                 "type": "array",
-                "description": "Entities the activity used. Per PROV-O each value denotes a prov:Entity. An item may be (1) a string URI or free-text reference, (2) an {@id} reference, (3) an inline entity object carrying an @type that includes prov:Entity plus a schema.org type for the kind of thing used, e.g. [\"prov:Entity\",\"schema:Thing\"] (instrument), [\"prov:Entity\",\"schema:CreativeWork\"] (method/protocol), or [\"prov:Entity\",\"schema:SoftwareApplication\"] (software), or (4) a role-keyed wrapper naming what was used through one of the recognized \"used\" relations (schema:instrument, bios:computationalTool, prov:reagent). Base leaves the wrapped value loose; profiles/extensions (e.g. cdifProvActivity, adaProduct) pin its shape (Instrument, ComputationalTool, Reagent, ...).",
+                "description": "Entities the activity used. Per PROV-O each value denotes a prov:Entity. An item may be (1) a string URI or free-text reference, (2) an {@id} reference, (3) an inline entity object carrying an @type that includes prov:Entity plus a schema.org type for the kind of thing used, e.g. [\"prov:Entity\",\"schema:Thing\"] (instrument), [\"prov:Entity\",\"schema:CreativeWork\"] (method/protocol), or [\"prov:Entity\",\"schema:SoftwareApplication\"] (software), or (4) a role-keyed wrapper naming what was used through one of the recognized \"used\" relations (schema:instrument, bios:computationalTool, bios:reagent), or (5) a role-keyed wrapper under a role a consuming profile defines for itself, admitted by shape rather than by name. Base leaves the wrapped value loose; profiles/extensions (e.g. cdifProvActivity, adaProduct) pin its shape (Instrument, ComputationalTool, Reagent, ...) and close the set of role names they accept.",
                 "items": {
                   "anyOf": [
                     {
                       "type": "string"
                     },
                     {
-                      "type": "object",
-                      "required": [
-                        "@id"
-                      ],
-                      "additionalProperties": false,
-                      "properties": {
-                        "@id": {
-                          "type": "string",
-                          "description": "a resolvable reference to a representation of the software or instrument used"
-                        }
-                      }
+                      "$ref": "#/$defs/ObjectReference",
+                      "description": "a resolvable reference to a representation of the software or instrument used"
                     },
                     {
                       "type": "object",
@@ -1760,8 +1625,42 @@
                       "type": "object",
                       "description": "a role-keyed wrapper naming a reagent / material used; the extension layer pins the value to a Reagent description.",
                       "required": [
-                        "prov:reagent"
+                        "bios:reagent"
                       ]
+                    },
+                    {
+                      "type": "object",
+                      "description": "a role-keyed wrapper under a role name this layer does not recognize: an object carrying at least one prefixed-name (CURIE) property other than @id / @type, whose value is an {@id} reference, an inline description, or an array of either. CDIF deliberately does NOT enumerate profile-defined roles here: the three named above (schema:instrument, bios:computationalTool, bios:reagent) are in CDIF/bioschemas scope and stay explicit, while a domain profile is free to relate an activity to what it used through a role of its own without CDIF having to know the term. A consuming profile is expected to CLOSE the set to the roles it defines, so this branch is permissive BY DESIGN at the base layer and the restriction returns at the profile layer. allOf composes correctly in that direction -- base permissive, profile restrictive -- because an allOf intersection can only narrow: a role this layer admits by shape is still rejected by any profile that does not name it.",
+                      "minProperties": 1,
+                      "propertyNames": {
+                        "pattern": "^(@id|@type|[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*)$"
+                      },
+                      "not": {
+                        "description": "@id / @type alone is the plain {@id} reference branch, not a wrapper; at least one property here must be a role.",
+                        "propertyNames": {
+                          "enum": [
+                            "@id",
+                            "@type"
+                          ]
+                        }
+                      },
+                      "patternProperties": {
+                        "^[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*$": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "description": "an {@id} reference to, or an inline description of, the entity used in this role"
+                            },
+                            {
+                              "type": "array",
+                              "minItems": 1,
+                              "items": {
+                                "type": "object"
+                              }
+                            }
+                          ]
+                        }
+                      }
                     }
                   ]
                 }
@@ -1798,24 +1697,15 @@
                           },
                           "prov:used": {
                             "type": "array",
-                            "description": "Entities the activity used. Per PROV-O each value denotes a prov:Entity. An item may be (1) a string URI or free-text reference, (2) an {@id} reference, (3) an inline entity object carrying an @type that includes prov:Entity plus a schema.org type for the kind of thing used, e.g. [\"prov:Entity\",\"schema:Thing\"] (instrument), [\"prov:Entity\",\"schema:CreativeWork\"] (method/protocol), or [\"prov:Entity\",\"schema:SoftwareApplication\"] (software), or (4) a role-keyed wrapper naming what was used through one of the recognized \"used\" relations (schema:instrument, bios:computationalTool, prov:reagent). Base leaves the wrapped value loose; profiles/extensions (e.g. cdifProvActivity, adaProduct) pin its shape (Instrument, ComputationalTool, Reagent, ...).",
+                            "description": "Entities the activity used. Per PROV-O each value denotes a prov:Entity. An item may be (1) a string URI or free-text reference, (2) an {@id} reference, (3) an inline entity object carrying an @type that includes prov:Entity plus a schema.org type for the kind of thing used, e.g. [\"prov:Entity\",\"schema:Thing\"] (instrument), [\"prov:Entity\",\"schema:CreativeWork\"] (method/protocol), or [\"prov:Entity\",\"schema:SoftwareApplication\"] (software), or (4) a role-keyed wrapper naming what was used through one of the recognized \"used\" relations (schema:instrument, bios:computationalTool, bios:reagent), or (5) a role-keyed wrapper under a role a consuming profile defines for itself, admitted by shape rather than by name. Base leaves the wrapped value loose; profiles/extensions (e.g. cdifProvActivity, adaProduct) pin its shape (Instrument, ComputationalTool, Reagent, ...) and close the set of role names they accept.",
                             "items": {
                               "anyOf": [
                                 {
                                   "type": "string"
                                 },
                                 {
-                                  "type": "object",
-                                  "required": [
-                                    "@id"
-                                  ],
-                                  "additionalProperties": false,
-                                  "properties": {
-                                    "@id": {
-                                      "type": "string",
-                                      "description": "a resolvable reference to a representation of the software or instrument used"
-                                    }
-                                  }
+                                  "$ref": "#/$defs/ObjectReference",
+                                  "description": "a resolvable reference to a representation of the software or instrument used"
                                 },
                                 {
                                   "type": "object",
@@ -1854,8 +1744,42 @@
                                   "type": "object",
                                   "description": "a role-keyed wrapper naming a reagent / material used; the extension layer pins the value to a Reagent description.",
                                   "required": [
-                                    "prov:reagent"
+                                    "bios:reagent"
                                   ]
+                                },
+                                {
+                                  "type": "object",
+                                  "description": "a role-keyed wrapper under a role name this layer does not recognize: an object carrying at least one prefixed-name (CURIE) property other than @id / @type, whose value is an {@id} reference, an inline description, or an array of either. CDIF deliberately does NOT enumerate profile-defined roles here: the three named above (schema:instrument, bios:computationalTool, bios:reagent) are in CDIF/bioschemas scope and stay explicit, while a domain profile is free to relate an activity to what it used through a role of its own without CDIF having to know the term. A consuming profile is expected to CLOSE the set to the roles it defines, so this branch is permissive BY DESIGN at the base layer and the restriction returns at the profile layer. allOf composes correctly in that direction -- base permissive, profile restrictive -- because an allOf intersection can only narrow: a role this layer admits by shape is still rejected by any profile that does not name it.",
+                                  "minProperties": 1,
+                                  "propertyNames": {
+                                    "pattern": "^(@id|@type|[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*)$"
+                                  },
+                                  "not": {
+                                    "description": "@id / @type alone is the plain {@id} reference branch, not a wrapper; at least one property here must be a role.",
+                                    "propertyNames": {
+                                      "enum": [
+                                        "@id",
+                                        "@type"
+                                      ]
+                                    }
+                                  },
+                                  "patternProperties": {
+                                    "^[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*$": {
+                                      "anyOf": [
+                                        {
+                                          "type": "object",
+                                          "description": "an {@id} reference to, or an inline description of, the entity used in this role"
+                                        },
+                                        {
+                                          "type": "array",
+                                          "minItems": 1,
+                                          "items": {
+                                            "type": "object"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  }
                                 }
                               ]
                             }
@@ -1878,7 +1802,7 @@
                           },
                           "prov:used": {
                             "type": "array",
-                            "description": "Base generatedBy defines the allowed item shapes (string | {@id} | inline prov:Entity | a role-keyed wrapper naming schema:instrument / bios:computationalTool / prov:reagent). This profile only PINS the schema:instrument wrapper's value to the Instrument description when that key is present; it adds no other restriction, so all base item shapes (including inline prov:Entity inputs such as samples) remain valid. The wrapped value is an ARRAY of Instrument. schema:instrument is 0..* -- one activity commonly uses several instruments in the same role (a laser ablation cell plus the ICP-MS it feeds) -- and this schema implements every 1..* / 0..* property as a JSON array, never as \"object or array\", so a consumer never has to test the value's type before iterating.",
+                            "description": "Base generatedBy defines the allowed item shapes (string | {@id} | inline prov:Entity | a role-keyed wrapper naming schema:instrument / bios:computationalTool / bios:reagent). This profile only PINS the schema:instrument wrapper's value to the Instrument description when that key is present; it adds no other restriction, so all base item shapes (including inline prov:Entity inputs such as samples) remain valid. The wrapped value is an ARRAY of Instrument. schema:instrument is 0..* -- one activity commonly uses several instruments in the same role (a laser ablation cell plus the ICP-MS it feeds) -- and this schema implements every 1..* / 0..* property as a JSON array, never as \"object or array\", so a consumer never has to test the value's type before iterating.",
                             "items": {
                               "if": {
                                 "type": "object",
@@ -1961,16 +1885,7 @@
                                                 "type": "string"
                                               },
                                               {
-                                                "type": "object",
-                                                "additionalProperties": false,
-                                                "required": [
-                                                  "@id"
-                                                ],
-                                                "properties": {
-                                                  "@id": {
-                                                    "type": "string"
-                                                  }
-                                                }
+                                                "$ref": "#/$defs/ObjectReference"
                                               }
                                             ]
                                           }
@@ -2152,16 +2067,7 @@
                                                               "type": "string"
                                                             },
                                                             {
-                                                              "type": "object",
-                                                              "additionalProperties": false,
-                                                              "required": [
-                                                                "@id"
-                                                              ],
-                                                              "properties": {
-                                                                "@id": {
-                                                                  "type": "string"
-                                                                }
-                                                              }
+                                                              "$ref": "#/$defs/ObjectReference"
                                                             }
                                                           ]
                                                         },
@@ -2195,17 +2101,8 @@
                                                 ]
                                               },
                                               {
-                                                "type": "object",
-                                                "additionalProperties": false,
-                                                "properties": {
-                                                  "@id": {
-                                                    "type": "string",
-                                                    "description": "Reference to a sub-component defined elsewhere."
-                                                  }
-                                                },
-                                                "required": [
-                                                  "@id"
-                                                ]
+                                                "$ref": "#/$defs/ObjectReference",
+                                                "description": "Reference to a sub-component defined elsewhere."
                                               }
                                             ]
                                           }
@@ -2290,17 +2187,8 @@
                                               "description": "Date this metadata record was last modified (ISO 8601)."
                                             },
                                             "schema:about": {
-                                              "type": "object",
-                                              "required": [
-                                                "@id"
-                                              ],
-                                              "additionalProperties": false,
-                                              "properties": {
-                                                "@id": {
-                                                  "type": "string",
-                                                  "description": "Reference back to the instrument @id."
-                                                }
-                                              }
+                                              "$ref": "#/$defs/ObjectReference",
+                                              "description": "Reference back to the instrument @id."
                                             },
                                             "dcterms:conformsTo": {
                                               "description": "Schema or profile this metadata record conforms to.",
@@ -2311,16 +2199,7 @@
                                                     "type": "string"
                                                   },
                                                   {
-                                                    "type": "object",
-                                                    "required": [
-                                                      "@id"
-                                                    ],
-                                                    "additionalProperties": false,
-                                                    "properties": {
-                                                      "@id": {
-                                                        "type": "string"
-                                                      }
-                                                    }
+                                                    "$ref": "#/$defs/ObjectReference"
                                                   }
                                                 ]
                                               }
@@ -2373,17 +2252,8 @@
                                 "$ref": "#/$defs/Contributor"
                               },
                               {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "description": "reference to an agent defined elsewhere"
-                                  }
-                                },
-                                "required": [
-                                  "@id"
-                                ]
+                                "$ref": "#/$defs/ObjectReference",
+                                "description": "reference to an agent defined elsewhere"
                               }
                             ]
                           },
@@ -2402,17 +2272,8 @@
                                   "$ref": "#/$defs/Contributor"
                                 },
                                 {
-                                  "type": "object",
-                                  "additionalProperties": false,
-                                  "properties": {
-                                    "@id": {
-                                      "type": "string",
-                                      "description": "reference to a participant defined elsewhere"
-                                    }
-                                  },
-                                  "required": [
-                                    "@id"
-                                  ]
+                                  "$ref": "#/$defs/ObjectReference",
+                                  "description": "reference to a participant defined elsewhere"
                                 }
                               ]
                             }
@@ -2424,17 +2285,8 @@
                                 "type": "string"
                               },
                               {
-                                "type": "object",
-                                "required": [
-                                  "@id"
-                                ],
-                                "additionalProperties": false,
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "description": "reference to an input entity"
-                                  }
-                                }
+                                "$ref": "#/$defs/ObjectReference",
+                                "description": "reference to an input entity"
                               },
                               {
                                 "type": "object",
@@ -2475,17 +2327,8 @@
                                 "type": "string"
                               },
                               {
-                                "type": "object",
-                                "required": [
-                                  "@id"
-                                ],
-                                "additionalProperties": false,
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "description": "reference to an output entity"
-                                  }
-                                }
+                                "$ref": "#/$defs/ObjectReference",
+                                "description": "reference to an output entity"
                               },
                               {
                                 "type": "object",
@@ -2547,17 +2390,8 @@
                                 "type": "string"
                               },
                               {
-                                "type": "object",
-                                "required": [
-                                  "@id"
-                                ],
-                                "additionalProperties": false,
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "description": "reference to a place defined elsewhere"
-                                  }
-                                }
+                                "$ref": "#/$defs/ObjectReference",
+                                "description": "reference to a place defined elsewhere"
                               }
                             ]
                           },
@@ -2656,17 +2490,8 @@
                                 "type": "string"
                               },
                               {
-                                "type": "object",
-                                "required": [
-                                  "@id"
-                                ],
-                                "additionalProperties": false,
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "description": "reference to a methodology defined elsewhere"
-                                  }
-                                }
+                                "$ref": "#/$defs/ObjectReference",
+                                "description": "reference to a methodology defined elsewhere"
                               }
                             ]
                           },
@@ -2813,16 +2638,7 @@
                                                       "type": "string"
                                                     },
                                                     {
-                                                      "type": "object",
-                                                      "additionalProperties": false,
-                                                      "required": [
-                                                        "@id"
-                                                      ],
-                                                      "properties": {
-                                                        "@id": {
-                                                          "type": "string"
-                                                        }
-                                                      }
+                                                      "$ref": "#/$defs/ObjectReference"
                                                     }
                                                   ]
                                                 }
@@ -3004,16 +2820,7 @@
                                                                     "type": "string"
                                                                   },
                                                                   {
-                                                                    "type": "object",
-                                                                    "additionalProperties": false,
-                                                                    "required": [
-                                                                      "@id"
-                                                                    ],
-                                                                    "properties": {
-                                                                      "@id": {
-                                                                        "type": "string"
-                                                                      }
-                                                                    }
+                                                                    "$ref": "#/$defs/ObjectReference"
                                                                   }
                                                                 ]
                                                               },
@@ -3047,17 +2854,8 @@
                                                       ]
                                                     },
                                                     {
-                                                      "type": "object",
-                                                      "additionalProperties": false,
-                                                      "properties": {
-                                                        "@id": {
-                                                          "type": "string",
-                                                          "description": "Reference to a sub-component defined elsewhere."
-                                                        }
-                                                      },
-                                                      "required": [
-                                                        "@id"
-                                                      ]
+                                                      "$ref": "#/$defs/ObjectReference",
+                                                      "description": "Reference to a sub-component defined elsewhere."
                                                     }
                                                   ]
                                                 }
@@ -3142,17 +2940,8 @@
                                                     "description": "Date this metadata record was last modified (ISO 8601)."
                                                   },
                                                   "schema:about": {
-                                                    "type": "object",
-                                                    "required": [
-                                                      "@id"
-                                                    ],
-                                                    "additionalProperties": false,
-                                                    "properties": {
-                                                      "@id": {
-                                                        "type": "string",
-                                                        "description": "Reference back to the instrument @id."
-                                                      }
-                                                    }
+                                                    "$ref": "#/$defs/ObjectReference",
+                                                    "description": "Reference back to the instrument @id."
                                                   },
                                                   "dcterms:conformsTo": {
                                                     "description": "Schema or profile this metadata record conforms to.",
@@ -3163,16 +2952,7 @@
                                                           "type": "string"
                                                         },
                                                         {
-                                                          "type": "object",
-                                                          "required": [
-                                                            "@id"
-                                                          ],
-                                                          "additionalProperties": false,
-                                                          "properties": {
-                                                            "@id": {
-                                                              "type": "string"
-                                                            }
-                                                          }
+                                                          "$ref": "#/$defs/ObjectReference"
                                                         }
                                                       ]
                                                     }
@@ -3243,16 +3023,7 @@
                               "type": "string"
                             },
                             {
-                              "type": "object",
-                              "required": [
-                                "@id"
-                              ],
-                              "additionalProperties": false,
-                              "properties": {
-                                "@id": {
-                                  "type": "string"
-                                }
-                              }
+                              "$ref": "#/$defs/ObjectReference"
                             }
                           ]
                         },
@@ -4155,17 +3926,8 @@
             "type": "string"
           },
           {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a resolvable reference to a representation of the software or instrument used"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a resolvable reference to a representation of the software or instrument used"
           },
           {
             "$ref": "#/$defs/Reference"
@@ -4212,62 +3974,26 @@
           "description": "identifier for the metadata record"
         },
         "schema:about": {
-          "type": "object",
-          "required": [
-            "@id"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "@id": {
-              "type": "string",
-              "description": "this must be the @id value of the node containing the resource description metadata"
-            }
-          }
+          "$ref": "#/$defs/ObjectReference",
+          "description": "this must be the @id value of the node containing the resource description metadata"
         },
         "dcterms:conformsTo": {
           "type": "array",
           "items": {
             "allOf": [
               {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "uri for specifications that this metadata record conforms to"
-                  }
-                }
+                "$ref": "#/$defs/ObjectReference",
+                "description": "uri for specifications that this metadata record conforms to"
               },
               {
                 "allOf": [
                   {
-                    "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "description": "uri for specifications that this metadata record conforms to"
-                      }
-                    }
+                    "$ref": "#/$defs/ObjectReference",
+                    "description": "uri for specifications that this metadata record conforms to"
                   },
                   {
-                    "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "description": "uri for specifications that this metadata record conforms to"
-                      }
-                    }
+                    "$ref": "#/$defs/ObjectReference",
+                    "description": "uri for specifications that this metadata record conforms to"
                   }
                 ]
               }
@@ -4546,16 +4272,7 @@
                                                           "type": "string"
                                                         },
                                                         {
-                                                          "type": "object",
-                                                          "additionalProperties": false,
-                                                          "required": [
-                                                            "@id"
-                                                          ],
-                                                          "properties": {
-                                                            "@id": {
-                                                              "type": "string"
-                                                            }
-                                                          }
+                                                          "$ref": "#/$defs/ObjectReference"
                                                         }
                                                       ]
                                                     },
@@ -4588,16 +4305,7 @@
                                                     "type": "string"
                                                   },
                                                   {
-                                                    "type": "object",
-                                                    "required": [
-                                                      "@id"
-                                                    ],
-                                                    "additionalProperties": false,
-                                                    "properties": {
-                                                      "@id": {
-                                                        "type": "string"
-                                                      }
-                                                    }
+                                                    "$ref": "#/$defs/ObjectReference"
                                                   }
                                                 ]
                                               }
@@ -4665,16 +4373,7 @@
                                                 "dcterms:conformsTo": {
                                                   "type": "array",
                                                   "items": {
-                                                    "type": "object",
-                                                    "additionalProperties": false,
-                                                    "properties": {
-                                                      "@id": {
-                                                        "type": "string"
-                                                      }
-                                                    },
-                                                    "required": [
-                                                      "@id"
-                                                    ]
+                                                    "$ref": "#/$defs/ObjectReference"
                                                   },
                                                   "contains": {
                                                     "type": "object",
@@ -4695,16 +4394,7 @@
                                                   "description": "Identifier for the catalog record."
                                                 },
                                                 "schema:about": {
-                                                  "type": "object",
-                                                  "additionalProperties": false,
-                                                  "properties": {
-                                                    "@id": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "@id"
-                                                  ]
+                                                  "$ref": "#/$defs/ObjectReference"
                                                 }
                                               },
                                               "required": [
@@ -4735,17 +4425,8 @@
                                           ]
                                         },
                                         {
-                                          "type": "object",
-                                          "required": [
-                                            "@id"
-                                          ],
-                                          "additionalProperties": false,
-                                          "description": "object reference via URI or URI fragment referencing an @id in the same document",
-                                          "properties": {
-                                            "@id": {
-                                              "type": "string"
-                                            }
-                                          }
+                                          "$ref": "#/$defs/ObjectReference",
+                                          "description": "object reference via URI or URI fragment referencing an @id in the same document"
                                         }
                                       ]
                                     },
@@ -4775,18 +4456,8 @@
                                   }
                                 },
                                 {
-                                  "type": "object",
-                                  "additionalProperties": false,
-                                  "description": "JSON-LD @id reference to a node defined elsewhere in the graph",
-                                  "properties": {
-                                    "@id": {
-                                      "type": "string",
-                                      "description": "IRI or blank node identifier of the referenced node"
-                                    }
-                                  },
-                                  "required": [
-                                    "@id"
-                                  ]
+                                  "$ref": "#/$defs/ObjectReference",
+                                  "description": "JSON-LD @id reference to a node defined elsewhere in the graph"
                                 }
                               ]
                             },
@@ -4809,18 +4480,8 @@
                                   "$ref": "#/$defs/ValueAndConceptDescription"
                                 },
                                 {
-                                  "type": "object",
-                                  "additionalProperties": false,
-                                  "description": "JSON-LD @id reference to a node defined elsewhere in the graph",
-                                  "properties": {
-                                    "@id": {
-                                      "type": "string",
-                                      "description": "IRI or blank node identifier of the referenced node"
-                                    }
-                                  },
-                                  "required": [
-                                    "@id"
-                                  ]
+                                  "$ref": "#/$defs/ObjectReference",
+                                  "description": "JSON-LD @id reference to a node defined elsewhere in the graph"
                                 }
                               ]
                             }
@@ -4842,16 +4503,7 @@
                           ]
                         },
                         {
-                          "type": "object",
-                          "additionalProperties": false,
-                          "properties": {
-                            "@id": {
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "@id"
-                          ]
+                          "$ref": "#/$defs/ObjectReference"
                         }
                       ]
                     },
@@ -4964,16 +4616,7 @@
                                                         "type": "string"
                                                       },
                                                       {
-                                                        "type": "object",
-                                                        "additionalProperties": false,
-                                                        "required": [
-                                                          "@id"
-                                                        ],
-                                                        "properties": {
-                                                          "@id": {
-                                                            "type": "string"
-                                                          }
-                                                        }
+                                                        "$ref": "#/$defs/ObjectReference"
                                                       }
                                                     ]
                                                   },
@@ -5006,16 +4649,7 @@
                                                   "type": "string"
                                                 },
                                                 {
-                                                  "type": "object",
-                                                  "required": [
-                                                    "@id"
-                                                  ],
-                                                  "additionalProperties": false,
-                                                  "properties": {
-                                                    "@id": {
-                                                      "type": "string"
-                                                    }
-                                                  }
+                                                  "$ref": "#/$defs/ObjectReference"
                                                 }
                                               ]
                                             }
@@ -5083,16 +4717,7 @@
                                               "dcterms:conformsTo": {
                                                 "type": "array",
                                                 "items": {
-                                                  "type": "object",
-                                                  "additionalProperties": false,
-                                                  "properties": {
-                                                    "@id": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "required": [
-                                                    "@id"
-                                                  ]
+                                                  "$ref": "#/$defs/ObjectReference"
                                                 },
                                                 "contains": {
                                                   "type": "object",
@@ -5113,16 +4738,7 @@
                                                 "description": "Identifier for the catalog record."
                                               },
                                               "schema:about": {
-                                                "type": "object",
-                                                "additionalProperties": false,
-                                                "properties": {
-                                                  "@id": {
-                                                    "type": "string"
-                                                  }
-                                                },
-                                                "required": [
-                                                  "@id"
-                                                ]
+                                                "$ref": "#/$defs/ObjectReference"
                                               }
                                             },
                                             "required": [
@@ -5153,17 +4769,8 @@
                                         ]
                                       },
                                       {
-                                        "type": "object",
-                                        "required": [
-                                          "@id"
-                                        ],
-                                        "additionalProperties": false,
-                                        "description": "object reference via URI or URI fragment referencing an @id in the same document",
-                                        "properties": {
-                                          "@id": {
-                                            "type": "string"
-                                          }
-                                        }
+                                        "$ref": "#/$defs/ObjectReference",
+                                        "description": "object reference via URI or URI fragment referencing an @id in the same document"
                                       }
                                     ]
                                   },
@@ -5193,18 +4800,8 @@
                                 }
                               },
                               {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "description": "JSON-LD @id reference to a node defined elsewhere in the graph",
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "description": "IRI or blank node identifier of the referenced node"
-                                  }
-                                },
-                                "required": [
-                                  "@id"
-                                ]
+                                "$ref": "#/$defs/ObjectReference",
+                                "description": "JSON-LD @id reference to a node defined elsewhere in the graph"
                               }
                             ]
                           },
@@ -5227,18 +4824,8 @@
                                 "$ref": "#/$defs/ValueAndConceptDescription"
                               },
                               {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "description": "JSON-LD @id reference to a node defined elsewhere in the graph",
-                                "properties": {
-                                  "@id": {
-                                    "type": "string",
-                                    "description": "IRI or blank node identifier of the referenced node"
-                                  }
-                                },
-                                "required": [
-                                  "@id"
-                                ]
+                                "$ref": "#/$defs/ObjectReference",
+                                "description": "JSON-LD @id reference to a node defined elsewhere in the graph"
                               }
                             ]
                           }
@@ -5260,16 +4847,7 @@
                         ]
                       },
                       {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "properties": {
-                          "@id": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "@id"
-                        ]
+                        "$ref": "#/$defs/ObjectReference"
                       }
                     ],
                     "description": "The substantive value domain for this variable - the set of valid, meaningful values (RepresentedVariable.takesSubstantiveValuesFrom)."
@@ -5557,17 +5135,8 @@
                 "type": "string"
               },
               {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "a resolvable reference to a representation of a quality measure"
-                  }
-                }
+                "$ref": "#/$defs/ObjectReference",
+                "description": "a resolvable reference to a representation of a quality measure"
               },
               {
                 "$ref": "#/$defs/DefinedTerm"
@@ -5601,17 +5170,8 @@
           "$ref": "#/$defs/CdifKey"
         },
         {
-          "type": "object",
-          "additionalProperties": false,
-          "description": "object reference via URI or URI fragment to a cdif:Key defined elsewhere in the same document",
-          "properties": {
-            "@id": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "@id"
-          ]
+          "$ref": "#/$defs/ObjectReference",
+          "description": "object reference via URI or URI fragment to a cdif:Key defined elsewhere in the same document"
         }
       ],
       "description": "Primary key of the dataset: a cdif:Key whose cdif:isComposedOf is an ordered list of cdi:InstanceVariables (from schema:variableMeasured) that uniquely identify each data instance."
@@ -5638,16 +5198,7 @@
             ]
           },
           {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/$defs/ObjectReference"
           }
         ]
       }
@@ -6306,17 +5857,8 @@
           "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
           "anyOf": [
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "reference to a skos concept for the data type"
-                }
-              }
+              "$ref": "#/$defs/ObjectReference",
+              "description": "reference to a skos concept for the data type"
             },
             {
               "$ref": "#/$defs/DefinedTerm"
@@ -6327,6 +5869,21 @@
           ]
         }
       ]
+    },
+    "ObjectReference": {
+      "title": "Object Reference",
+      "description": "A reference to a node defined elsewhere, by its @id.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "resolvable @id of the referenced node"
+        }
+      },
+      "required": [
+        "@id"
+      ],
+      "additionalProperties": false
     },
     "DefinedTerm": {
       "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -6363,16 +5920,7 @@
               "type": "string"
             },
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/$defs/ObjectReference"
             }
           ]
         },
@@ -6428,16 +5976,7 @@
               "type": "string"
             },
             {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "@id"
-              ],
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/$defs/ObjectReference"
             }
           ],
           "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
@@ -6580,21 +6119,6 @@
         }
       ]
     },
-    "ObjectReference": {
-      "title": "Object Reference",
-      "description": "A reference to a node defined elsewhere, by its @id.",
-      "type": "object",
-      "properties": {
-        "@id": {
-          "type": "string",
-          "description": "resolvable @id of the referenced node"
-        }
-      },
-      "required": [
-        "@id"
-      ],
-      "additionalProperties": false
-    },
     "Person": {
       "description": "schema for cdif profile of schema.org/Person",
       "type": "object",
@@ -6641,7 +6165,7 @@
         },
         "schema:contactPoint": {
           "type": "object",
-          "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
+          "description": "An email address or a contact web page (a form, an issue tracker), or both; at least one is required. Schema.org also allows telephone and postal contacts. A URL-only contact is ordinary in DCAT (a vcard:Kind with only vcard:hasURL), so requiring email made such records invalid.",
           "properties": {
             "@type": {
               "default": [
@@ -6658,11 +6182,26 @@
             },
             "schema:email": {
               "type": "string"
+            },
+            "schema:url": {
+              "type": "string",
+              "format": "uri"
             }
           },
           "required": [
-            "@type",
-            "schema:email"
+            "@type"
+          ],
+          "anyOf": [
+            {
+              "required": [
+                "schema:email"
+              ]
+            },
+            {
+              "required": [
+                "schema:url"
+              ]
+            }
           ]
         },
         "schema:sameAs": {
@@ -6674,16 +6213,7 @@
                 "type": "string"
               },
               {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/$defs/ObjectReference"
               }
             ]
           }
@@ -6784,16 +6314,7 @@
                 "type": "string"
               },
               {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/$defs/ObjectReference"
               }
             ]
           }
@@ -6844,17 +6365,8 @@
         "schema:contributor": {
           "anyOf": [
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "IRI reference to a Person or Organization defined elsewhere"
-                }
-              },
-              "required": [
-                "@id"
-              ]
+              "$ref": "#/$defs/ObjectReference",
+              "description": "IRI reference to a Person or Organization defined elsewhere"
             },
             {
               "$ref": "#/$defs/Person"
@@ -6917,17 +6429,8 @@
               "type": "string"
             },
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "reference to a skos concept"
-                }
-              }
+              "$ref": "#/$defs/ObjectReference",
+              "description": "reference to a skos concept"
             },
             {
               "$ref": "#/$defs/DefinedTerm"
@@ -6943,16 +6446,7 @@
                 "type": "string"
               },
               {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/$defs/ObjectReference"
               },
               {
                 "$ref": "#/$defs/DefinedTerm"
@@ -6971,16 +6465,7 @@
               "type": "string"
             },
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/$defs/ObjectReference"
             },
             {
               "$ref": "#/$defs/DefinedTerm"
@@ -7199,17 +6684,8 @@
               }
             },
             "geosparql:crs": {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "identifier string for coordinate reference system, e.g., 'CRS84'"
-                }
-              }
+              "$ref": "#/$defs/ObjectReference",
+              "description": "identifier string for coordinate reference system, e.g., 'CRS84'"
             }
           },
           "required": [
@@ -7367,16 +6843,7 @@
               "type": "string"
             },
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/$defs/ObjectReference"
             }
           ],
           "description": "Reference capturing provenance information for this InstanceVariable (InstanceVariable.source)."
@@ -7388,16 +6855,7 @@
               "$ref": "#/$defs/StatisticsCollection"
             },
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
+              "$ref": "#/$defs/ObjectReference"
             }
           ]
         },
@@ -7405,17 +6863,8 @@
           "description": "The unit in which the data values are measured, expressed as a controlled-vocabulary entry (RepresentedVariable.describedUnitOfMeasure). For a plain-string unit, use cdif:simpleUnitOfMeasure instead.",
           "anyOf": [
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "reference to a skos concept for the data type"
-                }
-              }
+              "$ref": "#/$defs/ObjectReference",
+              "description": "reference to a skos concept for the data type"
             },
             {
               "$ref": "#/$defs/DefinedTerm"
@@ -7426,16 +6875,7 @@
           ]
         },
         "cdif:qualifies": {
-          "type": "object",
-          "required": [
-            "@id"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "@id": {
-              "type": "string"
-            }
-          },
+          "$ref": "#/$defs/ObjectReference",
           "description": "reference to an instance variable defined for this dataset"
         }
       },
@@ -7533,18 +6973,8 @@
           "default": false
         },
         "cdif:formats_InstanceVariable": {
-          "type": "object",
-          "required": [
-            "@id"
-          ],
-          "additionalProperties": false,
-          "description": "Reference to a variable defined in schema:variableMeasured.",
-          "properties": {
-            "@id": {
-              "type": "string",
-              "description": "This should be a reference to a variable defined in the schema:variableMeasured section."
-            }
-          }
+          "$ref": "#/$defs/ObjectReference",
+          "description": "Reference to a variable defined in schema:variableMeasured."
         }
       },
       "allOf": [
@@ -7724,16 +7154,7 @@
                                                 "type": "string"
                                               },
                                               {
-                                                "type": "object",
-                                                "additionalProperties": false,
-                                                "required": [
-                                                  "@id"
-                                                ],
-                                                "properties": {
-                                                  "@id": {
-                                                    "type": "string"
-                                                  }
-                                                }
+                                                "$ref": "#/$defs/ObjectReference"
                                               }
                                             ]
                                           },
@@ -7766,16 +7187,7 @@
                                           "type": "string"
                                         },
                                         {
-                                          "type": "object",
-                                          "required": [
-                                            "@id"
-                                          ],
-                                          "additionalProperties": false,
-                                          "properties": {
-                                            "@id": {
-                                              "type": "string"
-                                            }
-                                          }
+                                          "$ref": "#/$defs/ObjectReference"
                                         }
                                       ]
                                     }
@@ -7843,16 +7255,7 @@
                                       "dcterms:conformsTo": {
                                         "type": "array",
                                         "items": {
-                                          "type": "object",
-                                          "additionalProperties": false,
-                                          "properties": {
-                                            "@id": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "required": [
-                                            "@id"
-                                          ]
+                                          "$ref": "#/$defs/ObjectReference"
                                         },
                                         "contains": {
                                           "type": "object",
@@ -7873,16 +7276,7 @@
                                         "description": "Identifier for the catalog record."
                                       },
                                       "schema:about": {
-                                        "type": "object",
-                                        "additionalProperties": false,
-                                        "properties": {
-                                          "@id": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id"
-                                        ]
+                                        "$ref": "#/$defs/ObjectReference"
                                       }
                                     },
                                     "required": [
@@ -7913,17 +7307,8 @@
                                 ]
                               },
                               {
-                                "type": "object",
-                                "required": [
-                                  "@id"
-                                ],
-                                "additionalProperties": false,
-                                "description": "object reference via URI or URI fragment referencing an @id in the same document",
-                                "properties": {
-                                  "@id": {
-                                    "type": "string"
-                                  }
-                                }
+                                "$ref": "#/$defs/ObjectReference",
+                                "description": "object reference via URI or URI fragment referencing an @id in the same document"
                               }
                             ]
                           },
@@ -7953,18 +7338,8 @@
                         }
                       },
                       {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "description": "JSON-LD @id reference to a node defined elsewhere in the graph",
-                        "properties": {
-                          "@id": {
-                            "type": "string",
-                            "description": "IRI or blank node identifier of the referenced node"
-                          }
-                        },
-                        "required": [
-                          "@id"
-                        ]
+                        "$ref": "#/$defs/ObjectReference",
+                        "description": "JSON-LD @id reference to a node defined elsewhere in the graph"
                       }
                     ]
                   },
@@ -7987,18 +7362,8 @@
                         "$ref": "#/$defs/ValueAndConceptDescription"
                       },
                       {
-                        "type": "object",
-                        "additionalProperties": false,
-                        "description": "JSON-LD @id reference to a node defined elsewhere in the graph",
-                        "properties": {
-                          "@id": {
-                            "type": "string",
-                            "description": "IRI or blank node identifier of the referenced node"
-                          }
-                        },
-                        "required": [
-                          "@id"
-                        ]
+                        "$ref": "#/$defs/ObjectReference",
+                        "description": "JSON-LD @id reference to a node defined elsewhere in the graph"
                       }
                     ]
                   }
@@ -8134,16 +7499,7 @@
                                               "type": "string"
                                             },
                                             {
-                                              "type": "object",
-                                              "additionalProperties": false,
-                                              "required": [
-                                                "@id"
-                                              ],
-                                              "properties": {
-                                                "@id": {
-                                                  "type": "string"
-                                                }
-                                              }
+                                              "$ref": "#/$defs/ObjectReference"
                                             }
                                           ]
                                         },
@@ -8176,16 +7532,7 @@
                                         "type": "string"
                                       },
                                       {
-                                        "type": "object",
-                                        "required": [
-                                          "@id"
-                                        ],
-                                        "additionalProperties": false,
-                                        "properties": {
-                                          "@id": {
-                                            "type": "string"
-                                          }
-                                        }
+                                        "$ref": "#/$defs/ObjectReference"
                                       }
                                     ]
                                   }
@@ -8253,16 +7600,7 @@
                                     "dcterms:conformsTo": {
                                       "type": "array",
                                       "items": {
-                                        "type": "object",
-                                        "additionalProperties": false,
-                                        "properties": {
-                                          "@id": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "required": [
-                                          "@id"
-                                        ]
+                                        "$ref": "#/$defs/ObjectReference"
                                       },
                                       "contains": {
                                         "type": "object",
@@ -8283,16 +7621,7 @@
                                       "description": "Identifier for the catalog record."
                                     },
                                     "schema:about": {
-                                      "type": "object",
-                                      "additionalProperties": false,
-                                      "properties": {
-                                        "@id": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "@id"
-                                      ]
+                                      "$ref": "#/$defs/ObjectReference"
                                     }
                                   },
                                   "required": [
@@ -8323,17 +7652,8 @@
                               ]
                             },
                             {
-                              "type": "object",
-                              "required": [
-                                "@id"
-                              ],
-                              "additionalProperties": false,
-                              "description": "object reference via URI or URI fragment referencing an @id in the same document",
-                              "properties": {
-                                "@id": {
-                                  "type": "string"
-                                }
-                              }
+                              "$ref": "#/$defs/ObjectReference",
+                              "description": "object reference via URI or URI fragment referencing an @id in the same document"
                             }
                           ]
                         },
@@ -8363,18 +7683,8 @@
                       }
                     },
                     {
-                      "type": "object",
-                      "additionalProperties": false,
-                      "description": "JSON-LD @id reference to a node defined elsewhere in the graph",
-                      "properties": {
-                        "@id": {
-                          "type": "string",
-                          "description": "IRI or blank node identifier of the referenced node"
-                        }
-                      },
-                      "required": [
-                        "@id"
-                      ]
+                      "$ref": "#/$defs/ObjectReference",
+                      "description": "JSON-LD @id reference to a node defined elsewhere in the graph"
                     }
                   ]
                 },
@@ -8397,18 +7707,8 @@
                       "$ref": "#/$defs/ValueAndConceptDescription"
                     },
                     {
-                      "type": "object",
-                      "additionalProperties": false,
-                      "description": "JSON-LD @id reference to a node defined elsewhere in the graph",
-                      "properties": {
-                        "@id": {
-                          "type": "string",
-                          "description": "IRI or blank node identifier of the referenced node"
-                        }
-                      },
-                      "required": [
-                        "@id"
-                      ]
+                      "$ref": "#/$defs/ObjectReference",
+                      "description": "JSON-LD @id reference to a node defined elsewhere in the graph"
                     }
                   ]
                 }
@@ -9285,16 +8585,7 @@
           "type": "string"
         },
         {
-          "type": "object",
-          "required": [
-            "@id"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "@id": {
-              "type": "string"
-            }
-          }
+          "$ref": "#/$defs/ObjectReference"
         },
         {
           "$ref": "#/$defs/DefinedTerm"
@@ -9527,30 +8818,12 @@
           "description": "Concept scheme(s) this concept belongs to.",
           "anyOf": [
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
+              "$ref": "#/$defs/ObjectReference"
             },
             {
               "type": "array",
               "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               }
             }
           ]
@@ -9559,30 +8832,12 @@
           "description": "Concept scheme(s) for which this is a top concept.",
           "anyOf": [
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
+              "$ref": "#/$defs/ObjectReference"
             },
             {
               "type": "array",
               "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               }
             }
           ]
@@ -9593,18 +8848,7 @@
           "items": {
             "anyOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "description": "A reference to a SKOS Concept by URI.",
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "URI of the referenced concept."
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               },
               {
                 "$ref": "#/$defs/Concept"
@@ -9618,18 +8862,7 @@
           "items": {
             "anyOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "description": "A reference to a SKOS Concept by URI.",
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "URI of the referenced concept."
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               },
               {
                 "$ref": "#/$defs/Concept"
@@ -9709,16 +8942,7 @@
               "$ref": "#/$defs/CdifInstanceVariable"
             },
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
+              "$ref": "#/$defs/ObjectReference"
             }
           ]
         },
@@ -9731,16 +8955,7 @@
                 "$ref": "#/$defs/CdifInstanceVariable"
               },
               {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               }
             ]
           },
@@ -9832,16 +9047,7 @@
               }
             },
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
+              "$ref": "#/$defs/ObjectReference"
             }
           ]
         },
@@ -9890,16 +9096,7 @@
               "$ref": "#/$defs/CdifInstanceVariable"
             },
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
+              "$ref": "#/$defs/ObjectReference"
             }
           ]
         }
@@ -9936,16 +9133,7 @@
               "$ref": "#/$defs/CdifInstanceVariable"
             },
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
+              "$ref": "#/$defs/ObjectReference"
             }
           ]
         },
@@ -9958,16 +9146,7 @@
                 "$ref": "#/$defs/Statistics"
               },
               {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               }
             ]
           },
@@ -9982,16 +9161,7 @@
                 "$ref": "#/$defs/CdifInstanceVariable"
               },
               {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               }
             ]
           },
@@ -10015,16 +9185,7 @@
           "description": "The concept scheme this concept belongs to. Required for CDIF codelist concepts.",
           "type": "array",
           "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/$defs/ObjectReference"
           }
         },
         "skos:prefLabel": {
@@ -10045,16 +9206,7 @@
           "items": {
             "anyOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               },
               {
                 "allOf": [
@@ -10075,16 +9227,7 @@
           "description": "Broader (parent) concepts. Required on any concept that appears as a skos:narrower value of another concept. CDIF requires both directions to be explicit for hierarchy traversal.",
           "type": "array",
           "items": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/$defs/ObjectReference"
           }
         }
       },
@@ -10464,17 +9607,8 @@
                             "$ref": "#/$defs/CdifRepresentedVariable"
                           },
                           {
-                            "type": "object",
-                            "additionalProperties": false,
-                            "description": "object reference via URI or URI fragment to a RepresentedVariable defined elsewhere in the document",
-                            "properties": {
-                              "@id": {
-                                "type": "string"
-                              }
-                            },
-                            "required": [
-                              "@id"
-                            ]
+                            "$ref": "#/$defs/ObjectReference",
+                            "description": "object reference via URI or URI fragment to a RepresentedVariable defined elsewhere in the document"
                           }
                         ]
                       }
@@ -10538,7 +9672,7 @@
     "AdditionalPropertySpecification": {
       "type": "object",
       "title": "additionalProperty PropertyValueSpecification",
-      "description": "A parameter specification (an overridable default) declared on a procedure / plan instrument, typed schema:PropertyValueSpecification; the default sits in schema:defaultValue. Contrast with AdditionalProperty (schema:PropertyValue), the concrete-value form carried by a prov:used analysis-event instrument.",
+      "description": "A parameter specification (an overridable default) declared on a procedure / plan instrument, typed schema:PropertyValueSpecification; the default sits in schema:defaultValue. Contrast with AdditionalProperty (schema:PropertyValue), the concrete-value form carried by a prov:used analysis-event instrument.\nUntil 2026-10-09 this declared only '@type' and schema:name, so the description named schema:defaultValue as the point of the shape while the schema did not declare it. The object is open, so nothing failed -- 203 entries in geochemBuildingBlocks carried a default that no schema described, and a placement path ending in schema:defaultValue could not be told from a misspelling.\nA domain profile adds its own keys here (geochemBuildingBlocks carries ada:dataType and ada:fieldScope on every one of these entries). Those stay out of this block: it is a generic schema.org shape with several consumers, and only the schema.org properties are its to declare.",
       "properties": {
         "@type": {
           "type": "array",
@@ -10551,6 +9685,25 @@
           "minItems": 1
         },
         "schema:name": {
+          "description": "Human-readable label for the parameter.",
+          "type": "string"
+        },
+        "schema:valueName": {
+          "description": "Machine-readable name for the parameter, for serialization and for binding a form control to it.",
+          "type": "string"
+        },
+        "schema:defaultValue": {
+          "description": "The overridable default this specification carries -- the value that applies unless the analysis overrides it. Left untyped: a default may be a string, a number or a boolean, and which one is a property of the parameter rather than of this shape."
+        },
+        "schema:value": {
+          "description": "A value fixed by the procedure, where the parameter is NOT overridable. Both keys are declared because both occur: measured across the geochemBuildingBlocks corpus on 2026-10-09, of 369 PropertyValueSpecification entries under schema:instrument, 203 carry schema:defaultValue and 166 carry schema:value. A specification that pins a value rather than defaulting one is still a specification."
+        },
+        "schema:description": {
+          "description": "Guidance text for the parameter, e.g. shown beside a form control.",
+          "type": "string"
+        },
+        "@id": {
+          "description": "Identifier for this specification, so a recorded value elsewhere can reference the parameter it instantiates.",
           "type": "string"
         }
       },
