@@ -1,6 +1,6 @@
 # title: CDIF XAS concept placement in CDIF JSON-LD
 # description: Where cdifnexmetadata places the value of each CDIF XAS concept. Derived from CONCEPT_SLOTS in emit.py, not curated; regenerate with crosswalk/build_placement.py.
-# derived_from: https://github.com/CDIF-4-XAS/cdifnexmetadata/blob/a67116b24b1ceeedc9812af1882ebcd457a70604/src/cdifnexmetadata/emit.py
+# derived_from: https://github.com/CDIF-4-XAS/cdifnexmetadata/blob/cbd7a552156bc9e9f6b75a289d907eadef122f46/src/cdifnexmetadata/emit.py
 # mapping_tool: crosswalk/build_placement.py
 # path_notation: from the root Dataset; [x] selects the array item whose schema:additionalType is x; ' ; ' separates two places
 # unlisted_concepts: emitted as a PropertyValue in prov:wasGeneratedBy[xas:analysisevent]/schema:additionalProperty
