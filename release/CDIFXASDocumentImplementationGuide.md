@@ -715,12 +715,12 @@ observed on real-world XDI files (the reference corpus, now 55 files, is
 
 **Sentinel-value conventions used throughout:**
 
-- `"Missing"` — text placeholder for a required `schema:name` /
-  identifier-string field when the source is genuinely absent.
-- `"unknown"` — text placeholder for a required numeric / enumerated
-  field where a domain expert must supply the real value later
-  (e.g. `Mono.d_spacing` for a monochromator whose crystal cut is
-  known but whose d-spacing value wasn't captured).
+- `":unav"` — DataCite's "value unavailable", the text placeholder for
+  any required text field the source does not record: a `schema:name`,
+  or a value such as `Mono.d_spacing` for a monochromator whose
+  d-spacing wasn't captured. Both reference converters write this one
+  token (until 2026-10-26 the RML pipeline wrote `"Missing"` and
+  `"unknown"`).
 - `<http://www.opengis.net/def/nil/OGC/0/missing>` — IRI sentinel
   (from the [OGC Rainbow](http://www.opengis.net/def/nil/OGC/0/missing)
   nil-value vocabulary) for required URI-shape values like an absent
@@ -733,14 +733,22 @@ Several CDIF shapes require one of {name, identifier} to be present:
 
 | Class | Shape | If both absent |
 |-------|-------|----------------|
-| `schema:Person` | `cdifd:CDIFPersonShape` | inject `schema:name = "Missing"` |
-| `schema:Organization` | `cdifd:CDIFOrganizationShape` | inject `schema:name = "Missing"` |
+| `schema:Person` | `cdifd:CDIFPersonShape` | inject `schema:name = ":unav"` |
+| `schema:Organization` | `cdifd:CDIFOrganizationShape` | inject `schema:name = ":unav"` |
 | `schema:DefinedTerm` | `cdifd:CDIFDefinedTermShape` | inject `schema:identifier = <OGC nil missing IRI>` |
 | `schema:Role` (must have `schema:contributor`) | `cdifd:CDIFRoleShape` | inject `schema:contributor = {@id: <OGC nil missing IRI>}` |
 
 Implement as post-frame passes that recursively walk the framed document,
 identify nodes by `@type`, and inject the sentinel only when both
 alternatives are absent. Real data is never overwritten.
+
+A related case is a value that is present but too short for its shape.
+The `xasSample` shape requires a sample name of at least 3 characters,
+and XDI files often name a foil by its element alone (`Cu`, `Au`, `Pb`
+— 9 of the 55 reference files). The reference pipeline appends
+" sample" (`Cu sample`) and records what the file said in the dataset
+description's conversion notes, so the padding is never mistaken for
+the file's own wording.
 
 ### Blank-node identifier materialization
 
@@ -831,7 +839,7 @@ validated clean against `cdifXASDocumentResolvedSchema.json` and
   Exercises every producer-side resilience pattern (case-normalization,
   case-mismatched Facility/Beamline headers back-filled from
   `Facility.Name`/`Beamline.Name`, `Mono.d_spacing` synthesized as
-  `"unknown"`, placeholder creator, placeholder distribution URL).
+  `":unav"`, placeholder creator, placeholder distribution URL).
 - **`Se_Na2SeO4_rt_01.jsonld`** — noncompliant XDI (capital-N
   namespaced keys) demonstrating the case-normalization pattern —
   real `Beamline.Name` and `Facility.Name` content flows through.

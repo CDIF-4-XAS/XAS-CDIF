@@ -308,10 +308,15 @@ permitted spot by each converter.
 
 55 JSON-LD documents plus batch generation and validation reports.
 **Output, not source**: regenerate with the commands above rather than
-editing. 55/55 validate against `release/` as of 2026-10-08, checked
-with `release/FrameAndValidate.py` against the resolved schema and
-frame in `release/`. The fork's own `batch_validate_cdif.py` agrees
-(schema and SHACL, `batch_validation_report.txt`).
+editing. 55/55 validate against `release/` as of 2026-10-26: the
+resolved schema and frame via `release/FrameAndValidate.py`, and
+`xasDocumentRules.shacl` with no violations via pyshacl with
+`advanced=True`. Run SHACL that way: several shapes (the sample and
+instrument checks among them) select their targets with SPARQL, and
+without advanced mode they are skipped. That is why the fork's own
+`batch_validate_cdif.py`, which does not enable it, reported 55/55 on
+2026-10-08 while 9 documents had a sample name shorter than the
+3 characters the profile requires.
 
 That claim goes stale whenever `release/` is re-synced from
 `metadataBuildingBlocks`. When checked on 2026-10-08, the documents
@@ -324,7 +329,7 @@ after a sync, not just after a regeneration.
 The same 55 files converted by the *other* pipeline live in
 [`cdifnexmetadata/exampleMetadata-xdi`](https://github.com/CDIF-4-XAS/cdifnexmetadata),
 not here. Both sets validate 55/55, checked the same way on the same
-date; the two are kept so the
+date (2026-10-26); the two are kept so the
 implementations can be compared on identical inputs, which is what
 `cdif-xas-UKDS/CONVERGENCE-PROPOSAL.md` argues from.
 
