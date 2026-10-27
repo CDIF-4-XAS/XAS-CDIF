@@ -1,0 +1,44 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/flux",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Beamline flux",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "The total number of photons or particles passing through a given area per second: Source intensity/area (example: s-1 cm-2).  Distinct from photon flux -- the total number of photons (intensity) traveling down the beamline per second (photons per s). Photon flux might be labeled Beamline flux.",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-flux-field",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXsource/flux"
+  },
+  "references": "https://doi.org/10.5281/zenodo.14920226"
+}

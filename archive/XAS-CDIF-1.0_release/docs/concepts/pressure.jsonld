@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/pressure",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Pressure",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "Normal force acting on a surface divided by the area of that surface. ",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "Environmental condition of sample during analysis. For a mixture of gases the contribution by each constituent is called the 'partial pressure'.  https://doi.org/10.1351/goldbook.P04819",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-pressure-field",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXsample/pressure"
+  },
+  "references": [
+    " https://doi.org/10.1351/goldbook.P04819",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

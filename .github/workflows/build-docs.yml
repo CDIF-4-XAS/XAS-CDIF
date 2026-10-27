@@ -1,0 +1,140 @@
+name: Publish glossary docs
+
+# Regenerates the browsable glossary HTML plus the per-concept SKOS JSON-LD
+# files from the working-copy XAS_Glossary_SKOS.json, renders the three
+# value-list vocabularies to HTML with the iSamples tooling, and deploys
+# the site to GitHub Pages (gh-pages branch). Runs on every push to a
+# listed branch that changes a vocabulary, either generator or this
+# workflow, plus workflow_dispatch for manual runs.
+
+on:
+  push:
+    # The vocabularies are maintained on the release branch, and main is
+    # far behind it; the site follows the working branch so publishing does
+    # not wait on a merge. The branch is cdifxasRelease1.1 in both
+    # CDIF-4-XAS and the smrgeoinfo fork; only CDIF-4-XAS deploys (see the
+    # job guard below). Once the release branch is merged, narrow this to
+    # main so two branches do not take turns deploying.
+    branches: [main, cdifxasRelease1.1]
+    paths:
+      - 'XAS_Glossary_SKOS.json'
+      - 'XAS_edges_SKOS.json'
+      - 'XAS_emissionlines_SKOS.json'
+      - 'XAS_detectionmodes_SKOS.json'
+      - 'tools/generate_glossary_html.py'
+      - 'tools/generate_concept_files.py'
+      - 'tools/render_value_list_pages.py'
+      - 'build/docs/**'
+      - '.github/workflows/build-docs.yml'
+  workflow_dispatch:
+
+# Ensure one Pages deploy at a time; queue rather than cancel.
+concurrency:
+  group: publish-glossary-docs
+  cancel-in-progress: false
+
+permissions:
+  contents: write   # peaceiris/actions-gh-pages pushes to gh-pages
+
+jobs:
+  build-deploy:
+    # ONE repository publishes. peaceiris/actions-gh-pages pushes with
+    # secrets.GITHUB_TOKEN, which targets whichever repo the run belongs to -- so
+    # without this guard the site is built twice. The source commit reaches both
+    # repos (the local `origin` has two push URLs, the fork and CDIF-4-XAS), each
+    # runs this workflow, and each deploys to its own gh-pages. The two histories
+    # then look divergent while the published trees are byte-identical: measured
+    # 2026-09-27, both tips had tree d24587d2 with zero files differing, the fork
+    # 13 commits deep and CDIF-4-XAS 3.
+    #
+    # The organisation is named here, as of 2026-09-30. The fork was named until
+    # then because it was the only repo serving the site and the w3id rule
+    # XAS_PAGES pointed at it. Both of those changed:
+    #
+    #   - Pages was enabled on CDIF-4-XAS from gh-pages on 2026-09-29 and serves
+    #     the same bytes -- the index, all three value-list vocabularies and
+    #     per-concept files return 200, and the glossary, the edges vocabulary
+    #     and concepts/facility.jsonld are byte-identical between the two sites.
+    #   - perma-id/w3id.org#6767 merged 2026-09-29 (93b9432b7) and the live
+    #     redirects moved: all ten XAS identifier families now resolve through
+    #     cdif-4-xas.github.io. Checked by
+    #     validation/tools/check_w3id_redirects.py, which as of that date no
+    #     longer accepts the old base at all.
+    #
+    # The ORDER mattered, and is worth keeping if this ever moves again: enable
+    # Pages, confirm it serves, repoint XAS_PAGES, and only then flip this string.
+    # A redirect moved before its target serves gives a 303 to a 404, which is
+    # worse than a 303 to a slightly stale file; and flipping this string first
+    # freezes whichever repo w3id is still pointing at.
+    #
+    # The fork's gh-pages is now frozen at its last build. Harmless while the
+    # trees match, and nothing resolves to it, but it will go stale the next time
+    # the glossary changes -- so do not treat it as a live mirror.
+    if: github.repository == 'CDIF-4-XAS/XAS-CDIF'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Copy source glossary + LICENSE alongside the site
+        # Copy the working-copy SKOS JSON-LD into the published site as
+        # XAS_Glossary_SKOS_v2.json: the w3id rule for
+        # https://w3id.org/cdif/xas/ with Accept: application/ld+json
+        # redirects to that name. The three value-list vocabularies go
+        # alongside it under their own names -- w3id resolves
+        # xas/edge/{x}, xas/emissionline/{x} and xas/detectionmode/{x} to a
+        # fragment of these files, so they have to be published for those
+        # URIs to work. Also drop the repo LICENSE next to it.
+        run: |
+          mkdir -p build/docs
+          cp XAS_Glossary_SKOS.json build/docs/XAS_Glossary_SKOS_v2.json
+          cp XAS_edges_SKOS.json build/docs/
+          cp XAS_emissionlines_SKOS.json build/docs/
+          cp XAS_detectionmodes_SKOS.json build/docs/
+          cp LICENSE build/docs/ || true
+
+      - name: Generate glossary HTML
+        # From the published copy, not the working file: the page's "Source"
+        # link is the input's filename, and the working name
+        # (XAS_Glossary_SKOS.json) is not published, so it was a 404.
+        run: python tools/generate_glossary_html.py --source build/docs/XAS_Glossary_SKOS_v2.json
+
+      - name: Generate per-concept SKOS JSON-LD files
+        run: python tools/generate_concept_files.py
+
+      # The three value lists are rendered with the iSamples vocabulary
+      # tooling, as the CDIF provenance activity types are: its markdown
+      # writer (vocab2mdCacheV2) on an rdflib graph, then Quarto. Pinned to
+      # the commit profile-provenance uses (isamplesorg/vocabularies PR #40,
+      # whose requirements pin setuptools<81 for Python 3.12). Called
+      # directly rather than through the iSamples GitHub Action, whose cache
+      # loader fails on a fresh cache at this commit.
+      - name: Check out the iSamples vocabulary tooling
+        uses: actions/checkout@v5
+        with:
+          repository: isamplesorg/vocabularies
+          ref: 43af182f656ab09ffb3dce958bdccb5d640c89d2
+          path: .isamples
+
+      - name: Install the iSamples writer's dependencies
+        run: pip install -r .isamples/tools/requirements.txt
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.6.43
+
+      - name: Render the value-list pages
+        run: python tools/render_value_list_pages.py --isamples .isamples/tools
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/docs
+          keep_files: false
+          commit_message: "Publish glossary docs from ${{ github.sha }}"

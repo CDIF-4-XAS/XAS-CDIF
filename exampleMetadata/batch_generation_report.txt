@@ -1,0 +1,63 @@
+CDIF-XAS batch generation report
+Total inputs:  55
+  ok:          55
+  error:       0
+
+======================================================================
+OK
+======================================================================
+  262875_PtSn_OCO_Abu_1.xdi                                    -> 262875_PtSn_OCO_Abu_1.jsonld
+  262878_PtSn_OCA_Abu_1.xdi                                    -> 262878_PtSn_OCA_Abu_1.jsonld
+  262882_PtSn_OC_Abu_1.xdi                                     -> 262882_PtSn_OC_Abu_1.jsonld
+  262885_PtSn_OCH_Abu_1.xdi                                    -> 262885_PtSn_OCH_Abu_1.jsonld
+  262919_PtSn_OCO_H2_Abu_1.xdi                                 -> 262919_PtSn_OCO_H2_Abu_1.jsonld
+  262922_PtSn_OCA_H2_Abu_1.xdi                                 -> 262922_PtSn_OCA_H2_Abu_1.jsonld
+  262926_PtSn_OC_H2_Abu_1.xdi                                  -> 262926_PtSn_OC_H2_Abu_1.jsonld
+  262929_PtSn_OCH_H2_Abu_1.xdi                                 -> 262929_PtSn_OCH_H2_Abu_1.jsonld
+  263814_PtSn_OCA_1.xdi                                        -> 263814_PtSn_OCA_1.jsonld
+  263820_PtSn_OC_1.xdi                                         -> 263820_PtSn_OC_1.jsonld
+  263824_PtSn_OCH_1.xdi                                        -> 263824_PtSn_OCH_1.jsonld
+  263825_PtSn_OCH_2.xdi                                        -> 263825_PtSn_OCH_2.jsonld
+  263832_PtSn_alloy_1.xdi                                      -> 263832_PtSn_alloy_1.jsonld
+  263838_PtSn_3_1_EG_1.xdi                                     -> 263838_PtSn_3_1_EG_1.jsonld
+  263844_PtSn_OCO_1.xdi                                        -> 263844_PtSn_OCO_1.jsonld
+  263935_PtSn_Alloy_H2_1.xdi                                   -> 263935_PtSn_Alloy_H2_1.jsonld
+  263941_PtSn_EG_H2_1.xdi                                      -> 263941_PtSn_EG_H2_1.jsonld
+  b18_nxs.xdi                                                  -> b18_nxs.jsonld
+  co_metal_rt.xdi                                              -> co_metal_rt.jsonld
+  cu_metal_10K.xdi                                             -> cu_metal_10K.jsonld
+  cu_metal_rt.xdi                                              -> cu_metal_rt.jsonld
+  fe2o3_rt.xdi                                                 -> fe2o3_rt.jsonld
+  fe3c_rt.xdi                                                  -> fe3c_rt.jsonld
+  fe_metal_rt.xdi                                              -> fe_metal_rt.jsonld
+  fen_rt.xdi                                                   -> fen_rt.jsonld
+  feo_rt1.xdi                                                  -> feo_rt1.jsonld
+  ni_metal_rt.xdi                                              -> ni_metal_rt.jsonld
+  nonxafs_1d.xdi                                               -> nonxafs_1d.jsonld
+  nonxafs_2d.xdi                                               -> nonxafs_2d.jsonld
+  pt_metal_rt.xdi                                              -> pt_metal_rt.jsonld
+  Se_Na2SeO4_rt_01.xdi                                         -> Se_Na2SeO4_rt_01.jsonld
+  se_na2so4_rt.xdi                                             -> se_na2so4_rt.jsonld
+  se_znse_rt.xdi                                               -> se_znse_rt.jsonld
+  valid.xdi                                                    -> valid.jsonld
+  valid2.xdi                                                   -> valid2.jsonld
+  valid_angle_dspacing.xdi                                     -> valid_angle_dspacing.jsonld
+  xdl_as2o3_roomt_scan1.xdi                                    -> xdl_as2o3_roomt_scan1.jsonld
+  xdl_Au_Foil_L1_rt_2016Foils.xdi                              -> xdl_Au_Foil_L1_rt_2016Foils.jsonld
+  xdl_CdS_10K_03.xdi                                           -> xdl_CdS_10K_03.jsonld
+  xdl_CeO2.xdi                                                 -> xdl_CeO2.jsonld
+  xdl_co_metal_rt.xdi                                          -> xdl_co_metal_rt.jsonld
+  xdl_EuSe_eu_l3_001.xdi                                       -> xdl_EuSe_eu_l3_001.jsonld
+  xdl_Fe3O4_rt_01.xdi                                          -> xdl_Fe3O4_rt_01.jsonld
+  xdl_Fe_metal_rt_02.xdi                                       -> xdl_Fe_metal_rt_02.jsonld
+  xdl_FeO_rt_01.xdi                                            -> xdl_FeO_rt_01.jsonld
+  xdl_k2cro4_rt_003.xdi                                        -> xdl_k2cro4_rt_003.jsonld
+  xdl_Mn3O4_rt_01.xdi                                          -> xdl_Mn3O4_rt_01.jsonld
+  xdl_Pb_Foil_L2_rt_2016Foils.xdi                              -> xdl_Pb_Foil_L2_rt_2016Foils.jsonld
+  xdl_pyrite2_rt_01.xdi                                        -> xdl_pyrite2_rt_01.jsonld
+  xdl_Sr_slawsonite_15K_01.xdi                                 -> xdl_Sr_slawsonite_15K_01.jsonld
+  xdl_SrO_rt_01.xdi                                            -> xdl_SrO_rt_01.jsonld
+  xdl_V_foil.xdi                                               -> xdl_V_foil.jsonld
+  xdl_WO2_rt_01.xdi                                            -> xdl_WO2_rt_01.jsonld
+  xdl_Zn_foil.xdi                                              -> xdl_Zn_foil.jsonld
+  zn_znse_rt.xdi                                               -> zn_znse_rt.jsonld

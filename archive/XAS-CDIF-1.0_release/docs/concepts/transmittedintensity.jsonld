@@ -1,0 +1,48 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/transmittedintensity",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Transmitted intensity",
+    "@language": "en"
+  },
+  "notation": "itrans",
+  "definition": {
+    "@value": "The measured X-ray intensity transmitted through a sample.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "The the change in x-ray intensity depends on the distance the x-ray beams travels through the sample.",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "references": [
+    "https://www.esrf.fr/files/live/sites/www/files/events/conferences/2016/Summer%20school%202016/Summerschool%202016%20-%20Pascarelli.pdf",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

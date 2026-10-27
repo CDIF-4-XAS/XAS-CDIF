@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/samplecrystalstructure",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Sample crystal structure",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "Crystallographic point or space group that characterizes the crystal structure of the sample.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "A 3-D pattern of points consisting of atoms that obeys the conditions of periodicity and discreteness expressed by a set of symmetry operations (https://dictionary.iucr.org/Crystal_structure). Point groups describe the symmetry of a point without translations, always leaving at least one point fixed; space groups  describe the symmetry of a crystal lattice allowing translations. In three dimensions,  there are 32 crystallographic point groups, and 230 unique space groups (ChatGPT) . Various notation systems are used to classify these groups (Wikipedia).",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-unit-cell-field",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/Field/NXsample/unit_cell"
+  },
+  "references": [
+    "https://doi.org/10.1007/978-3-642-13281-0",
+    "https://dictionary.iucr.org/Unit_cell",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

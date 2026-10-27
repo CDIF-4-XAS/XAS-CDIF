@@ -1,0 +1,392 @@
+{
+  "count": 55,
+  "ok": 55,
+  "error": 0,
+  "per_file": [
+    {
+      "filename": "262875_PtSn_OCO_Abu_1.xdi",
+      "stem": "262875_PtSn_OCO_Abu_1",
+      "output_file": "262875_PtSn_OCO_Abu_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "262878_PtSn_OCA_Abu_1.xdi",
+      "stem": "262878_PtSn_OCA_Abu_1",
+      "output_file": "262878_PtSn_OCA_Abu_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "262882_PtSn_OC_Abu_1.xdi",
+      "stem": "262882_PtSn_OC_Abu_1",
+      "output_file": "262882_PtSn_OC_Abu_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "262885_PtSn_OCH_Abu_1.xdi",
+      "stem": "262885_PtSn_OCH_Abu_1",
+      "output_file": "262885_PtSn_OCH_Abu_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "262919_PtSn_OCO_H2_Abu_1.xdi",
+      "stem": "262919_PtSn_OCO_H2_Abu_1",
+      "output_file": "262919_PtSn_OCO_H2_Abu_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "262922_PtSn_OCA_H2_Abu_1.xdi",
+      "stem": "262922_PtSn_OCA_H2_Abu_1",
+      "output_file": "262922_PtSn_OCA_H2_Abu_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "262926_PtSn_OC_H2_Abu_1.xdi",
+      "stem": "262926_PtSn_OC_H2_Abu_1",
+      "output_file": "262926_PtSn_OC_H2_Abu_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "262929_PtSn_OCH_H2_Abu_1.xdi",
+      "stem": "262929_PtSn_OCH_H2_Abu_1",
+      "output_file": "262929_PtSn_OCH_H2_Abu_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "263814_PtSn_OCA_1.xdi",
+      "stem": "263814_PtSn_OCA_1",
+      "output_file": "263814_PtSn_OCA_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "263820_PtSn_OC_1.xdi",
+      "stem": "263820_PtSn_OC_1",
+      "output_file": "263820_PtSn_OC_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "263824_PtSn_OCH_1.xdi",
+      "stem": "263824_PtSn_OCH_1",
+      "output_file": "263824_PtSn_OCH_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "263825_PtSn_OCH_2.xdi",
+      "stem": "263825_PtSn_OCH_2",
+      "output_file": "263825_PtSn_OCH_2.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "263832_PtSn_alloy_1.xdi",
+      "stem": "263832_PtSn_alloy_1",
+      "output_file": "263832_PtSn_alloy_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "263838_PtSn_3_1_EG_1.xdi",
+      "stem": "263838_PtSn_3_1_EG_1",
+      "output_file": "263838_PtSn_3_1_EG_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "263844_PtSn_OCO_1.xdi",
+      "stem": "263844_PtSn_OCO_1",
+      "output_file": "263844_PtSn_OCO_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "263935_PtSn_Alloy_H2_1.xdi",
+      "stem": "263935_PtSn_Alloy_H2_1",
+      "output_file": "263935_PtSn_Alloy_H2_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "263941_PtSn_EG_H2_1.xdi",
+      "stem": "263941_PtSn_EG_H2_1",
+      "output_file": "263941_PtSn_EG_H2_1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "b18_nxs.xdi",
+      "stem": "b18_nxs",
+      "output_file": "b18_nxs.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "co_metal_rt.xdi",
+      "stem": "co_metal_rt",
+      "output_file": "co_metal_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "cu_metal_10K.xdi",
+      "stem": "cu_metal_10K",
+      "output_file": "cu_metal_10K.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "cu_metal_rt.xdi",
+      "stem": "cu_metal_rt",
+      "output_file": "cu_metal_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "fe2o3_rt.xdi",
+      "stem": "fe2o3_rt",
+      "output_file": "fe2o3_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "fe3c_rt.xdi",
+      "stem": "fe3c_rt",
+      "output_file": "fe3c_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "fe_metal_rt.xdi",
+      "stem": "fe_metal_rt",
+      "output_file": "fe_metal_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "fen_rt.xdi",
+      "stem": "fen_rt",
+      "output_file": "fen_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "feo_rt1.xdi",
+      "stem": "feo_rt1",
+      "output_file": "feo_rt1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "ni_metal_rt.xdi",
+      "stem": "ni_metal_rt",
+      "output_file": "ni_metal_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "nonxafs_1d.xdi",
+      "stem": "nonxafs_1d",
+      "output_file": "nonxafs_1d.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "nonxafs_2d.xdi",
+      "stem": "nonxafs_2d",
+      "output_file": "nonxafs_2d.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "pt_metal_rt.xdi",
+      "stem": "pt_metal_rt",
+      "output_file": "pt_metal_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "Se_Na2SeO4_rt_01.xdi",
+      "stem": "Se_Na2SeO4_rt_01",
+      "output_file": "Se_Na2SeO4_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "se_na2so4_rt.xdi",
+      "stem": "se_na2so4_rt",
+      "output_file": "se_na2so4_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "se_znse_rt.xdi",
+      "stem": "se_znse_rt",
+      "output_file": "se_znse_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "valid.xdi",
+      "stem": "valid",
+      "output_file": "valid.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "valid2.xdi",
+      "stem": "valid2",
+      "output_file": "valid2.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "valid_angle_dspacing.xdi",
+      "stem": "valid_angle_dspacing",
+      "output_file": "valid_angle_dspacing.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_as2o3_roomt_scan1.xdi",
+      "stem": "xdl_as2o3_roomt_scan1",
+      "output_file": "xdl_as2o3_roomt_scan1.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Au_Foil_L1_rt_2016Foils.xdi",
+      "stem": "xdl_Au_Foil_L1_rt_2016Foils",
+      "output_file": "xdl_Au_Foil_L1_rt_2016Foils.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_CdS_10K_03.xdi",
+      "stem": "xdl_CdS_10K_03",
+      "output_file": "xdl_CdS_10K_03.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_CeO2.xdi",
+      "stem": "xdl_CeO2",
+      "output_file": "xdl_CeO2.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_co_metal_rt.xdi",
+      "stem": "xdl_co_metal_rt",
+      "output_file": "xdl_co_metal_rt.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_EuSe_eu_l3_001.xdi",
+      "stem": "xdl_EuSe_eu_l3_001",
+      "output_file": "xdl_EuSe_eu_l3_001.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Fe3O4_rt_01.xdi",
+      "stem": "xdl_Fe3O4_rt_01",
+      "output_file": "xdl_Fe3O4_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Fe_metal_rt_02.xdi",
+      "stem": "xdl_Fe_metal_rt_02",
+      "output_file": "xdl_Fe_metal_rt_02.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_FeO_rt_01.xdi",
+      "stem": "xdl_FeO_rt_01",
+      "output_file": "xdl_FeO_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_k2cro4_rt_003.xdi",
+      "stem": "xdl_k2cro4_rt_003",
+      "output_file": "xdl_k2cro4_rt_003.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Mn3O4_rt_01.xdi",
+      "stem": "xdl_Mn3O4_rt_01",
+      "output_file": "xdl_Mn3O4_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Pb_Foil_L2_rt_2016Foils.xdi",
+      "stem": "xdl_Pb_Foil_L2_rt_2016Foils",
+      "output_file": "xdl_Pb_Foil_L2_rt_2016Foils.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_pyrite2_rt_01.xdi",
+      "stem": "xdl_pyrite2_rt_01",
+      "output_file": "xdl_pyrite2_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Sr_slawsonite_15K_01.xdi",
+      "stem": "xdl_Sr_slawsonite_15K_01",
+      "output_file": "xdl_Sr_slawsonite_15K_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_SrO_rt_01.xdi",
+      "stem": "xdl_SrO_rt_01",
+      "output_file": "xdl_SrO_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_V_foil.xdi",
+      "stem": "xdl_V_foil",
+      "output_file": "xdl_V_foil.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_WO2_rt_01.xdi",
+      "stem": "xdl_WO2_rt_01",
+      "output_file": "xdl_WO2_rt_01.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "xdl_Zn_foil.xdi",
+      "stem": "xdl_Zn_foil",
+      "output_file": "xdl_Zn_foil.jsonld",
+      "status": "ok",
+      "error": null
+    },
+    {
+      "filename": "zn_znse_rt.xdi",
+      "stem": "zn_znse_rt",
+      "output_file": "zn_znse_rt.jsonld",
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

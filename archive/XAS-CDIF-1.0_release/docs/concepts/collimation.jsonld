@@ -1,0 +1,53 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/collimation",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "Collimation",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "Technique used to limit the incident x-ray beam to the required dimensions and angular spread.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "beamline property, describe the arrangement of absorbers used for collimation (https://doi.org/10.1351/goldbook.C01154). From XDI dictionary 'A concise statement of how beam collimation is provided' . A collimated beam of electromagnetic radiation has parallel rays, and therefore will spread minimally as it propagates. (https://en.wikipedia.org/wiki/Collimated_beam). Collimators are divided according to shape, energy, spatial resolution and sensitivity of collimator. This is determined by the thickness of collimator, hole density, and thickness of partitions.   According to shape collimators can be: --- multi-hole collimator with parallel holes: collimator with thousands of holes, which are in a parallel axis with detector. Detector image has the same size. This is the most often used collimator. --- divergent collimator:  collimator with holes diverging towards the radiation source. It allows to gain bigger picture than surface of crystal, but it is smaller sensitivity and spatial resolution-It takes up an area larger than the area of the detector. --- convergent collimator: collimator with holes converging to radiation source. That´s what we get enlarged picture of little organ with an increased sensitivity and a spatilal resolution-It spreads a small area of the object over a larger area of the detector. --- pinhole collimator:  funnel-shaped collimator with diametr hole 3-5 mm. It provides enlarged picture wit the highest positional resolution, but there is low sensitivity (extends examination time). It is extended time of examination. It is inteded for observation of small organs (for example, thyroid gland, testicles). --- fan beam collimator: this type has focus in transversal direction while it is parallel in axial direction; has more than 50% higher spatial resolution than parallel type. It is used in cerebral computer tomography.   Thickness of the collimator varies in line with the energy of the emmiter. A low energy collimator paired with a high energy emmiter would leak photons an cause blur in the signal (https://www.wikilectures.eu/w/Collimator,  https://doi.org/10.1351/goldbook.C01155)",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXcollimator.html",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXcollimator"
+  },
+  "references": [
+    "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+    "https://en.wikipedia.org/wiki/Collimated_beam",
+    "https://doi.org/10.1351/goldbook.C01154",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

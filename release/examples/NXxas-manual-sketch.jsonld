@@ -1,0 +1,380 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://w3id.org/cdif/",
+    "ex": "https://example.org/",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "xas": "https://w3id.org/cdif/xas/",
+    "wd": "https://www.wikidata.org/entity/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch",
+  "@type": [
+    "schema:Dataset"
+  ],
+  "schema:name": "Temperature-dependent Fe K-edge XAS (synthetic)",
+  "schema:identifier": "local:NXxas-manual-sketch",
+  "schema:url": "https://w3id.org/cdif/testing/NXxas-manual-sketch.hdf5",
+  "schema:distribution": [
+    {
+      "@type": [
+        "schema:DataDownload",
+        "cdi:PhysicalDataSet"
+      ],
+      "schema:contentUrl": "https://w3id.org/cdif/testing/NXxas-manual-sketch.hdf5",
+      "schema:encodingFormat": [
+        "application/x-hdf5"
+      ],
+      "schema:contentSize": "22696",
+      "spdx:checksum": {
+        "@type": [
+          "spdx:Checksum"
+        ],
+        "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
+        "spdx:checksumValue": "24b192bf701577f3707785ed125d4c30983f46b995fa39b8e045b2d71f5f0ce1"
+      },
+      "dcterms:conformsTo": [
+        {
+          "@id": "nxs:applications/NXxas.html"
+        }
+      ],
+      "cdi:isStructuredBy": {
+        "@id": "ex:DV/NXxas-manual-sketch/structure/1",
+        "@type": [
+          "cdi:DimensionalDataStructure"
+        ],
+        "schema:name": "NXxas-manual-sketch structure 1",
+        "schema:description": "shared by 1 of 1 entries",
+        "cdi:has_DataStructureComponent": [
+          {
+            "@id": "ex:DV/NXxas-manual-sketch/1/dsc/incidentintensity",
+            "@type": [
+              "cdi:MeasureComponent"
+            ],
+            "cdif:isDefinedBy_Variable": {
+              "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch/rv/incidentintensity",
+              "@type": [
+                "cdi:RepresentedVariable"
+              ],
+              "schema:name": "incident intensity",
+              "cdif:name": [
+                "incident intensity"
+              ]
+            },
+            "cdif:hasPhysicalMapping": {
+              "@id": "ex:DV/NXxas-manual-sketch/1/pm/incidentintensity",
+              "@type": [
+                "cdif:LocatorMapping"
+              ],
+              "cdi:locator": "/entry/instrument/I0/data",
+              "cdif:physicalDataType": "xsd:decimal",
+              "cdif:formats_InstanceVariable": {
+                "@id": "ex:DV/NXxas-manual-sketch/iv/incidentintensity"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "schema:dateModified": "2026-07-29",
+  "schema:license": [
+    "http://www.opengis.net/def/nil/OGC/0/missing"
+  ],
+  "schema:description": "X-ray absorption spectroscopy measurement, Temperature-dependent Fe K-edge XAS (synthetic), read from a NeXus/HDF5 file.",
+  "schema:creator": {
+    "@type": [
+      "schema:Person"
+    ],
+    "schema:name": ":unav"
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "http://purl.org/pan-science/PaNET/PaNET01196",
+      "schema:inDefinedTermSet": "http://purl.org/pan-science/PaNET/PaNET.owl",
+      "schema:name": "X-Ray Absorption Spectroscopy",
+      "schema:termCode": "XAS"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": ":unav",
+      "schema:inDefinedTermSet": "nxs:Field/NXxas/ENTRY/DATA/mode",
+      "schema:description": "detection mode not recorded in the source file; the profile requires one, so it is reported as unknown"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch/acquisition",
+      "@type": [
+        "schema:Action",
+        "prov:Activity"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "xas:analysisevent"
+        }
+      ],
+      "schema:name": "acquisition of NXxas-manual-sketch",
+      "prov:used": [
+        {
+          "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch/used/beamline",
+          "@type": [
+            "schema:Thing",
+            "prov:Entity"
+          ],
+          "schema:instrument": [
+            {
+              "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch/instrument/beamline",
+              "@type": [
+                "schema:Product",
+                "schema:Thing",
+                "prov:Entity"
+              ],
+              "schema:name": ":unav",
+              "schema:additionalType": [
+                {
+                  "@id": "xas:beamline"
+                },
+                {
+                  "@id": "wd:Q3099911"
+                }
+              ],
+              "schema:description": "beamline not named in the source file; the profile requires one, so its name is reported as unknown rather than guessed"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch/used/source",
+          "@type": [
+            "schema:Thing",
+            "prov:Entity"
+          ],
+          "schema:instrument": [
+            {
+              "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch/instrument/source",
+              "@type": [
+                "schema:Product",
+                "schema:Thing",
+                "prov:Entity"
+              ],
+              "schema:name": "X-ray source",
+              "schema:additionalType": [
+                {
+                  "@id": "xas:source"
+                },
+                {
+                  "@id": "wd:Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:probe"
+                    }
+                  ],
+                  "schema:name": "Probe",
+                  "schema:value": ":unav",
+                  "schema:description": "not recorded in the source file; the profile requires this property, so it is reported as unknown rather than omitted or guessed"
+                },
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:xraysourcetype"
+                    }
+                  ],
+                  "schema:name": "X-ray source type",
+                  "schema:value": "Synchrotron X-ray Source",
+                  "schema:description": "not recorded in the source file; an XAS measurement is made at a synchrotron, so the technique supplies this where the file does not"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch/used/xraymonochromator",
+          "@type": [
+            "schema:Thing",
+            "prov:Entity"
+          ],
+          "schema:instrument": [
+            {
+              "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch/instrument/xraymonochromator",
+              "@type": [
+                "schema:Product",
+                "schema:Thing",
+                "prov:Entity"
+              ],
+              "schema:name": "monochromator",
+              "schema:additionalType": [
+                {
+                  "@id": "xas:xraymonochromator"
+                },
+                {
+                  "@id": "wd:Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:monochromatortype"
+                    }
+                  ],
+                  "schema:name": "monochromator crystal",
+                  "schema:value": ":unav",
+                  "schema:description": "not recorded in the source file; the profile requires this property, so it is reported as unknown rather than omitted or guessed"
+                },
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:dspacing"
+                    }
+                  ],
+                  "schema:name": "monochromator d-spacing",
+                  "schema:value": ":unav",
+                  "schema:description": "not recorded in the source file; the profile requires this property, so it is reported as unknown rather than omitted or guessed",
+                  "schema:unitText": "Angstrom"
+                },
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:reflectionplane"
+                    }
+                  ],
+                  "schema:name": "reflection plane",
+                  "schema:value": ":unav",
+                  "schema:description": "not recorded in the source file; the profile requires this property, so it is reported as unknown rather than omitted or guessed"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:object": {
+        "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch/sample",
+        "@type": [
+          "schema:Product",
+          "schema:Thing"
+        ],
+        "schema:additionalType": [
+          {
+            "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          },
+          "MaterialSample"
+        ],
+        "schema:name": "sample",
+        "schema:additionalProperty": [
+          {
+            "@type": [
+              "schema:PropertyValue"
+            ],
+            "schema:propertyID": [
+              {
+                "@id": "xas:temperature"
+              }
+            ],
+            "schema:name": "sample temperature",
+            "schema:value": "100.0 200.0 300.0",
+            "schema:unitText": "K"
+          }
+        ]
+      },
+      "schema:additionalProperty": [
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "xas:monochromatorenergy"
+            }
+          ],
+          "schema:name": "monochromatorenergy",
+          "schema:value": "7000.0 7005.0 7010.0 7015.0 7020.0 7025.0 7030.0 7035.0 7040.0 7045.0 7050.0 7055.0 7060.0 7065.0 7070.0 7075.0 7080.0 7085.0 7090.0 7095.0 7100.0 7105.0 7110.0 7115.0 7120.0 7125.0 7130.0 7135.0 7140.0 7145.0 7150.0 7155.0 7160.0 7165.0 7170.0 7175.0 7180.0 7185.0 7190.0 7195.0 7200.0 7205.0 7210.0 7215.0 7220.0 7225.0 7230.0 7235.0 7240.0 7245.0 7250.0 7255.0 7260.0 7265.0 7270.0 7275.0 7280.0 7285.0 7290.0 7295.0 7300.0",
+          "schema:unitText": "eV",
+          "schema:description": "read from a non-standard file layout (nexus-manual-sketch)"
+        }
+      ],
+      "schema:startTime": "2026-07-28T00:00:00+00:00"
+    }
+  ],
+  "schema:variableMeasured": [
+    {
+      "@id": "ex:DV/NXxas-manual-sketch/iv/incidentintensity",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:name": "data",
+      "schema:description": "incident intensity",
+      "schema:propertyID": [
+        {
+          "@id": "xas:incidentintensity"
+        }
+      ],
+      "cdif:physicalDataType": "xsd:decimal",
+      "cdif:uses": [
+        "https://w3id.org/cdif/testing/NXxas-manual-sketch/rv/incidentintensity"
+      ],
+      "schema:unitText": "counts"
+    }
+  ],
+  "schema:subjectOf": {
+    "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch/metadata",
+    "@type": [
+      "schema:Dataset"
+    ],
+    "schema:additionalType": [
+      {
+        "@id": "dcat:CatalogRecord"
+      }
+    ],
+    "schema:about": {
+      "@id": "https://w3id.org/cdif/testing/NXxas-manual-sketch"
+    },
+    "schema:description": "CDIF metadata generated by cdifnexmetadata from a NeXus/HDF5 file (NXxas-manual-sketch.hdf5).",
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/core/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/discovery/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_description/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_structure/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/xasCore/1.1"
+      }
+    ]
+  }
+}

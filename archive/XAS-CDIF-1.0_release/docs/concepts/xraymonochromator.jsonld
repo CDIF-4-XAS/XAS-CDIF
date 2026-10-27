@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "Concept": "skos:Concept",
+    "ConceptScheme": "skos:ConceptScheme",
+    "prefLabel": "skos:prefLabel",
+    "altLabel": "skos:altLabel",
+    "definition": "skos:definition",
+    "broader": "skos:broader",
+    "narrower": "skos:narrower",
+    "inScheme": "skos:inScheme",
+    "notation": "skos:notation",
+    "hasTopConcept": "skos:hasTopConcept",
+    "note": "skos:note",
+    "seeAlso": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@type": "@id"
+    },
+    "foaf:focus": {
+      "@type": "@id"
+    },
+    "dc": "http://dublincore.org/specifications/dublin-core/dcmi-terms/2020-01-20/",
+    "references": "dc:references"
+  },
+  "@id": "https://w3id.org/cdif/xas/xraymonochromator",
+  "@type": "skos:Concept",
+  "prefLabel": {
+    "@value": "X-ray monochromator",
+    "@language": "en"
+  },
+  "definition": {
+    "@value": "Device used to eliminate X-rays of energies other than those in a narrow energy or wavelength band.",
+    "@language": "en"
+  },
+  "note": {
+    "@value": "A device for isolating a narrow portion of a spectrum (Merriam-Webster).  A device that transmits a selectable narrow band of wavelengths of light or other radiation chosen from a wider range of wavelengths available at the input. [Wikipedia] see also https://doi.org/10.1351/goldbook.09304.",
+    "@language": "en"
+  },
+  "inScheme": {
+    "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
+  },
+  "seeAlso": "https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html",
+  "foaf:focus": {
+    "@id": "http://purl.org/nexusformat/definitions/BaseClass/NXmonochromator"
+  },
+  "references": [
+    "https://en.wikipedia.org/wiki/Crystal_monochromator",
+    "https://doi.org/10.1351/goldbook.09304",
+    "https://doi.org/10.5281/zenodo.14920226"
+  ]
+}

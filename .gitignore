@@ -1,0 +1,25 @@
+# Python byte-code caches
+__pycache__/
+*.py[oc]
+
+# Bundled zip archive of collection 203 — the exampleData/*.xdi
+# files are the tracked, unpacked form.
+exampleData/*.zip
+
+# JetBrains IDE settings — local to one developer's machine
+.idea/
+
+# Pages build output: tools/generate_glossary_html.py and
+# generate_concept_files.py write here, and CI regenerates it on every
+# deploy. This used to be /XAS-CDIF-1.0_release/, which collided with the
+# tracked archive/ copy of the published 1.0 deliverable -- generated
+# output for the CURRENT glossary sat in a directory named for the 1.0
+# release, and the two were repeatedly mistaken for each other.
+/build/
+
+# A .pyc outside __pycache__/ (e.g. carried along in a file move)
+# is not caught by the rule above.
+*.pyc
+
+# Local working notes
+/exampleData/new 3.txt

@@ -1,0 +1,55 @@
+version = 1
+
+# Licensing for the release package on its own, with paths relative to this
+# folder. Every file is listed: REUSE does not apply LICENSE to files that
+# carry no annotation.
+
+
+[[annotations]]
+path = "README.md"
+SPDX-FileCopyrightText = "NONE"
+SPDX-License-Identifier = "CC0-1.0"
+
+
+[[annotations]]
+# The profile (schema, frame, SHACL), its guides, the crosswalks and the
+# value-list vocabularies.
+path = [
+    "cdifXASDocumentResolvedSchema.json",
+    "cdifXASDocument-frame.jsonld",
+    "xasDocumentRules.shacl",
+    "CDIFXASDocumentImplementationGuide.md",
+    "glossaryProvenance.md",
+    "xasToCdifWorkflows.md",
+    "crosswalk/*",
+    "vocabularies/*",
+]
+SPDX-FileCopyrightText = "2025-2026 World Fair CDIF working group"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+
+[[annotations]]
+# Snapshot of the repository's XAS_Glossary_SKOS.json, which the root
+# REUSE.toml dedicates to the public domain.
+path = "XAS_Glossary_SKOS_v2.json"
+SPDX-FileCopyrightText = "2025 World Fair CDIF working group"
+SPDX-License-Identifier = "CC0-1.0"
+
+
+[[annotations]]
+# CDIF JSON-LD metadata generated or written by this project. Dedicated to
+# the public domain whatever the rights in the data file each one describes.
+path = [
+    "examples/*.json",
+    "examples/*.jsonld",
+]
+SPDX-FileCopyrightText = "2026 CDIF-4-XAS project (https://github.com/CDIF-4-XAS)"
+SPDX-License-Identifier = "CC0-1.0"
+
+
+[[annotations]]
+# Synced copy of tools/FrameAndValidate.py from the CDIF validation
+# repository, whose software is Apache-2.0.
+path = "FrameAndValidate.py"
+SPDX-FileCopyrightText = "CDIF validation contributors (https://github.com/Cross-Domain-Interoperability-Framework/validation)"
+SPDX-License-Identifier = "Apache-2.0"
