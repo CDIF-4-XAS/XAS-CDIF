@@ -12,12 +12,13 @@ project.
 
 ## This working copy
 
-Work happens on the **`cdifxasRelease1.1`** branch, which exists in both
+Work happens on **`main`** in
 [`CDIF-4-XAS/XAS-CDIF`](https://github.com/CDIF-4-XAS/XAS-CDIF) — the
-canonical repository — and `smrgeoinfo/XAS-CDIF`, a fork of it. As of
-2026-09-27 the two are at the same commit.
+canonical repository — which `smrgeoinfo/XAS-CDIF`, a fork of it, mirrors.
+Release 1.1 was developed on the `cdifxasRelease1.1` branch and merged
+into `main` on 2026-10-27.
 
-This branch is version 1.1, and goes well beyond the 1.0 deliverable: a
+Version 1.1 goes well beyond the 1.0 deliverable: a
 `xasDocument/1.1` release profile, a rebuilt glossary, machine-readable
 crosswalks, and a 55-file test corpus with generated metadata. The
 published 1.0 files are preserved in `archive/XAS-CDIF-1.0_release/`.
@@ -25,10 +26,8 @@ published 1.0 files are preserved in `archive/XAS-CDIF-1.0_release/`.
 Everything in it carries 1.1: the vocabularies (`schema:version`), the
 crosswalks (`mapping_set_version`) and the profile's conformance URIs,
 `xasDocument/1.1` with its tiers `xasCore/1.1` and `xasOptional/1.1`
-(1.0 until this release). `cdifxasRelease1.1` is **not yet tagged
-or released** — the only tag in the repository is `1.0` — so it is a
-working branch rather than a published state, pending sign-off from the
-XAS team.
+(1.0 until this release). It is tagged `1.1`; the release package is the
+`release/` folder.
 
 ### Remotes, and why there are two
 
@@ -138,7 +137,7 @@ mappings and the profile. `cdifnexmetadata` applies them to files.
 
 | from XAS-CDIF | how it gets there |
 |---|---|
-| the four crosswalk files in `crosswalk/` (the SSSOM sets and `cdifxas-units.tsv`) | copied into `src/cdifnexmetadata/data/`; `python -m cdifnexmetadata.map.crosswalk --refresh` re-downloads them from this repository's `cdifxasRelease1.1` branch |
+| the four crosswalk files in `crosswalk/` (the SSSOM sets and `cdifxas-units.tsv`) | copied into `src/cdifnexmetadata/data/`; `python -m cdifnexmetadata.map.crosswalk --refresh` re-downloads them from this repository's `main` branch |
 | the glossary concept URIs | indirectly: they are the objects of the crosswalks, and become the keys of its intermediate (next section) and the `schema:propertyID` values it emits. It does not read the vocabulary files themselves |
 | the `release/` profile | its validation target: `cdifnexmetadata ... --validate --profile-dir ../XAS-CDIF/release` |
 

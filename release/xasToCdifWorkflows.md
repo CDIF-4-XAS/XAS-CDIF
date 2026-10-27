@@ -144,7 +144,7 @@ originally built for Dataverse
 git clone https://github.com/smrgeoinfo/cdif-xas
 cd cdif-xas
 uv sync                          # Python 3.13, pinned: xdi_validator needs it
-git clone https://github.com/CDIF-4-XAS/XAS-CDIF -b cdifxasRelease1.1 ../XAS-CDIF
+git clone https://github.com/CDIF-4-XAS/XAS-CDIF ../XAS-CDIF
 
 # convert all 55 example XDI files, then validate
 uv run python tools/batch_generate_cdif.py ../XAS-CDIF/exampleData ../XAS-CDIF/exampleMetadata

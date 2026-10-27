@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A semantic description of X-ray Absorption Spectroscopy (XAS) community standards (XDI, NeXus `NXxas`) using the Cross-Domain Interoperability Framework (CDIF). It is mostly **data artifacts** (SKOS vocabularies, SSSOM crosswalks, JSON Schema/frame/SHACL for the `xasDocument/1.1` profile, example XDI and JSON-LD), plus a few stdlib-only Python scripts that build and validate them. `README.md` is detailed and authoritative; read the relevant section before changing anything structural.
 
-Work happens on branch `cdifxasRelease1.1` (not yet tagged; `main` is far behind). `origin` fetches from `CDIF-4-XAS/XAS-CDIF` and pushes to both that repo and the `smrgeoinfo/XAS-CDIF` fork.
+Work happens on `main`. Release 1.1 (tag `1.1`) was developed on `cdifxasRelease1.1` and merged on 2026-10-27; the release package is the `release/` folder. `origin` fetches from `CDIF-4-XAS/XAS-CDIF` and pushes to both that repo and the `smrgeoinfo/XAS-CDIF` fork.
 
 ## Commands
 

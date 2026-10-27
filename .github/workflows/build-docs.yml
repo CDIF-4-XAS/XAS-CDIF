@@ -9,13 +9,9 @@ name: Publish glossary docs
 
 on:
   push:
-    # The vocabularies are maintained on the release branch, and main is
-    # far behind it; the site follows the working branch so publishing does
-    # not wait on a merge. The branch is cdifxasRelease1.1 in both
-    # CDIF-4-XAS and the smrgeoinfo fork; only CDIF-4-XAS deploys (see the
-    # job guard below). Once the release branch is merged, narrow this to
-    # main so two branches do not take turns deploying.
-    branches: [main, cdifxasRelease1.1]
+    # Only main publishes, so two branches do not take turns deploying.
+    # Only CDIF-4-XAS deploys (see the job guard below).
+    branches: [main]
     paths:
       - 'XAS_Glossary_SKOS.json'
       - 'XAS_edges_SKOS.json'
