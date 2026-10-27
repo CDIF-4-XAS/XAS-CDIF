@@ -61,7 +61,7 @@
           "@type": [
             "schema:ContactPoint"
           ],
-          "schema:email": "missing@email.org"
+          "schema:email": "biggus.scienceguy@example.org"
         },
         "schema:affiliation": {
           "@type": [
@@ -85,7 +85,7 @@
           "@type": [
             "schema:ContactPoint"
           ],
-          "schema:email": "missing@email.org"
+          "schema:email": "poindexter.collectus@example.org"
         }
       }
     ]
@@ -195,7 +195,7 @@
         "schema:DefinedTerm"
       ],
       "schema:name": "Transmission",
-      "schema:identifier": "missing",
+      "schema:identifier": "https://w3id.org/cdif/xas/detectionmode/transmission",
       "schema:inDefinedTermSet": "nxs:Field/NXxas/ENTRY/DATA/mode"
     }
   ],
@@ -205,7 +205,7 @@
         "schema:DefinedTerm"
       ],
       "schema:name": "K-edge",
-      "schema:identifier": "missing",
+      "schema:identifier": "https://w3id.org/cdif/xas/edge/k",
       "schema:termCode": "K",
       "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
       "schema:about": "element.edge"
@@ -394,7 +394,7 @@
                     }
                   ],
                   "schema:name": "crystal type",
-                  "schema:value": "missing"
+                  "schema:value": "Si"
                 },
                 {
                   "@type": [
@@ -738,14 +738,13 @@
       "schema:alternateName": [
         "Monochromator energy"
       ],
-      "schema:description": "missing, definition of what this variable is about (maybe even an iAdopt description",
+      "schema:description": "The energy selected by the X-ray monochromator and delivered to the sample during an absorption scan.",
       "schema:propertyID": [
         {
           "@id": "xas:monochromatorenergy"
         }
       ],
       "schema:unitText": "eV",
-      "cdif:identifier": "should be URI from nexusFormat organization",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdi:simpleUnitOfMeasure": "eV",
       "cdif:isDefinedBy_RepresentedVariable": {
@@ -760,18 +759,17 @@
         "cdi:InstanceVariable",
         "schema:PropertyValue"
       ],
-      "schema:name": "i0 monitory intensity",
+      "schema:name": "i0 monitor intensity",
       "schema:alternateName": [
         "Monitor intensity"
       ],
-      "schema:description": "missing, definition of what this variable is about (maybe even an iAdopt description)",
+      "schema:description": "The measured X-ray intensity before it interacts with the sample.",
       "schema:propertyID": [
         {
           "@id": "xas:incidentintensity"
         }
       ],
       "schema:unitText": "counts",
-      "cdif:identifier": "should be URI from nexusFormat organization",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
       "cdif:uses": [
         "xas:incidentintensity"
@@ -785,7 +783,7 @@
         "cdi:InstanceVariable",
         "schema:PropertyValue"
       ],
-      "schema:description": "missing, definition of what this variable is about (maybe even an iAdopt description",
+      "schema:description": "The measured X-ray intensity transmitted through a sample.",
       "schema:propertyID": [
         {
           "@id": "xas:transmittedintensity"
@@ -797,7 +795,6 @@
         "transmission intensity"
       ],
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdif:identifier": "should be URI from nexusFormat organization",
       "cdif:uses": [
         "xas:transmittedintensity"
       ],
