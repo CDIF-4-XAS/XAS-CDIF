@@ -60,6 +60,9 @@ path = [
     "exampleData/xdl_co_metal_rt.xdi",
     "exampleData/xdl_k2cro4_rt_003.xdi",
     "exampleData/xdl_pyrite2_rt_01.xdi",
+    # data/Se/Se_Na2SeO4_rt_01.xdi in the library; only the header-end
+    # line differs (corrected 2025-07-25, as the file notes).
+    "exampleData/Se_Na2SeO4_rt_01.xdi",
 ]
 SPDX-FileCopyrightText = "XAS Data Library authors (https://github.com/XraySpectroscopy/XASDataLibrary)"
 SPDX-License-Identifier = "CC0-1.0"
@@ -89,3 +92,17 @@ path = [
 ]
 SPDX-FileCopyrightText = "2025 Antonio Augusto Alves Junior"
 SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+# CDIF JSON-LD metadata generated or written by this project: the
+# exampleMetadata/ corpus, the release examples, and the framing test
+# fixture. Dedicated to the public domain whatever the rights in the XDI
+# file each one describes.
+path = [
+    "exampleMetadata/*.jsonld",
+    "release/examples/*.json",
+    "release/examples/*.jsonld",
+    "tests/*.jsonld",
+]
+SPDX-FileCopyrightText = "2026 CDIF-4-XAS project (https://github.com/CDIF-4-XAS)"
+SPDX-License-Identifier = "CC0-1.0"

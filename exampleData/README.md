@@ -66,11 +66,11 @@ single spectra whose names are lower-case (`cu_metal_rt.xdi`,
 
 ## Licensing
 
-`REUSE.toml` at the repository root annotates 36 of these 55 files:
+`REUSE.toml` at the repository root annotates 37 of these 55 files:
 
 | files | source | licence |
 |---|---|---|
-| 18 `xdl_*.xdi` | XAS Data Library | public domain, recorded as CC0-1.0 |
+| 18 `xdl_*.xdi`, and `Se_Na2SeO4_rt_01.xdi` | XAS Data Library (`Se_Na2SeO4_rt_01.xdi` is `data/Se/` there; only its header-end line differs) | public domain, recorded as CC0-1.0 |
 | 15 lower-case single spectra | `data/` in the XDI specification repository | CC0-1.0, 2025 XDI Working Group |
 | 3 `valid*.xdi` | AAAlvesJr/XDI-Validator | **MIT**, 2025 Antonio Augusto Alves Junior |
 
@@ -78,12 +78,28 @@ The `valid*.xdi` fixtures are the exception worth knowing about: MIT
 carries an attribution condition, so they cannot be redistributed as
 freely as everything else here.
 
-**19 files are unannotated because their rights are unknown**: the 17
-Diamond B18 PtSn spectra, `Se_Na2SeO4_rt_01.xdi` and `b18_nxs.xdi`.
-They arrived with the original corpus and nothing records who holds
-rights in them. They are left unannotated on purpose — REUSE reads an
-unannotated file as unknown, which is true, whereas a guessed copyright
-line would not be. Resolving this needs whoever ran the beamtime.
+**18 files are unannotated because their rights are unknown**: the 17
+Diamond B18 PtSn spectra and `b18_nxs.xdi`. They are left unannotated on
+purpose — REUSE reads an unannotated file as unknown, which is true,
+whereas a guessed copyright line would not be. What is known, as of
+2026-10-26:
+
+- All 18 were written by `nexuscreator_container` (the version line says
+  0.1.0) from Diamond Light Source B18 scans made in July 2016. The
+  headers name the experimenter's folder `Andrea_Sn/`.
+- `b18_nxs.xdi` is `tests/data/b18_nxs.xdi` in
+  [MaterialsGalaxy/nexuscreator-container](https://github.com/MaterialsGalaxy/nexuscreator-container),
+  identical apart from the version line. The source of
+  `262875_PtSn_OCO_Abu_1.xdi` is there too, as
+  `resources/262875_PtSn_OCO_Abu_1.dat` and `.nxs`. That repository has
+  no licence file, so its contents carry no grant.
+- The other 16 PtSn files are not on GitHub. The commit that added them
+  (`8a7f8b5`, 2026-07-26) calls them "17 curated B18 collection 203
+  files", from a folder once named `XDI format of collection 203`;
+  nothing here says whose collection 203 is.
+
+Resolving this needs the MaterialsGalaxy maintainers or whoever ran the
+beamtime.
 
 ## Why the validator rejects these files
 
