@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: 49d2420d7c9a8a9417c4894fae8676f5fd4df8ea2641e03cfe0c6e4e454cf0f5
+# src-sha256: 19df7fa5143ef538e8d1868c6358fa7209cfabe25bb0fad17daf744fb9b3c7f8
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -768,6 +768,103 @@ def frame_cdif_document(doc_path, frame_path=None):
     return frame_cdif(doc, frame, verbose=True)
 
 
+# Canonical prefix for each CDIF-standard namespace IRI. A record may alias any
+# of these under a different prefix (e.g. `dct` instead of `dcterms` for Dublin
+# Core Terms, or `sdo` for schema.org). The framed-tree JSON Schemas and the
+# conformsTo extraction in ConformanceValidate match LITERAL prefixed keys, so an
+# alias like `dct:conformsTo` reads as a missing `dcterms:conformsTo` even though
+# the RDF is identical -- and SHACL, which works on expanded IRIs, passes it,
+# making the mismatch look like absent data. canonicalize_cdif_prefixes() rewrites
+# such aliases to the canonical prefix up front so the pipeline is agnostic to
+# which alias the source used. This map mirrors the prefixes declared in
+# CDIF-frame-2026.jsonld / CDIF-context-2026.jsonld. Keys are EXACT IRIs: an
+# `https://schema.org/` (note https) is a DIFFERENT namespace than the canonical
+# `http://schema.org/` and is intentionally left for the SOSO namespace-variant
+# lint, not silently rewritten here. Extension prefixes the map does not list
+# (cr:, rai:, wd:, ...) pass through untouched.
+CANONICAL_PREFIX_BY_IRI = {
+    "http://schema.org/": "schema",
+    "http://purl.org/dc/terms/": "dcterms",
+    "http://www.w3.org/ns/dcat#": "dcat",
+    "http://www.w3.org/ns/prov#": "prov",
+    "http://www.w3.org/ns/dqv#": "dqv",
+    "http://www.opengis.net/ont/geosparql#": "geosparql",
+    "http://www.opengis.net/ont/sf#": "sf",
+    "http://spdx.org/rdf/terms#": "spdx",
+    "http://www.w3.org/2006/time#": "time",
+    "http://www.w3.org/2004/02/skos/core#": "skos",
+    "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/": "cdi",
+    "https://w3id.org/cdif/": "cdif",
+    "http://www.w3.org/ns/csvw#": "csvw",
+    "https://w3id.org/cdif/xas/": "xas",
+    "https://manual.nexusformat.org/classes/": "nxs",
+    "https://ada.astromat.org/metadata/": "ada",
+}
+
+
+def canonicalize_cdif_prefixes(doc):
+    """Return `doc` with CDIF-standard namespace aliases rewritten to their
+    canonical prefixes (see CANONICAL_PREFIX_BY_IRI), so a record that used e.g.
+    `dct:` where the schemas expect `dcterms:` validates identically.
+
+    Rewrites prefixed object KEYS and the CURIE values of `@type` and `@id`;
+    full-IRI values (`{"@id": "https://..."}`) and literal strings are left
+    alone. The top-level `@context` is updated so the canonical prefix maps the
+    namespace and the redundant alias is dropped. Only an inline dict top-level
+    `@context` is introspected; a remote/list context, or a nested `@context`,
+    is left unchanged. The input document is not modified.
+    """
+    if not isinstance(doc, dict):
+        return doc
+    ctx = doc.get("@context")
+    if not isinstance(ctx, dict):
+        return doc
+
+    rename = {}
+    for alias, iri in ctx.items():
+        if isinstance(alias, str) and not alias.startswith("@") and isinstance(iri, str):
+            canon = CANONICAL_PREFIX_BY_IRI.get(iri)
+            if canon is not None and alias != canon:
+                rename[alias] = canon
+    if not rename:
+        return doc
+
+    def swap(curie):
+        if isinstance(curie, str):
+            prefix, sep, rest = curie.partition(":")
+            if sep and prefix in rename:
+                return f"{rename[prefix]}:{rest}"
+        return curie
+
+    def fix_ctx(c):
+        c = dict(c)
+        for alias, canon in rename.items():
+            iri = c.pop(alias, None)
+            if iri is not None:
+                c.setdefault(canon, iri)
+        return c
+
+    def walk(node, is_root=False):
+        if isinstance(node, dict):
+            out = {}
+            for k, v in node.items():
+                key = k if (isinstance(k, str) and k.startswith("@")) else swap(k)
+                if k == "@context":
+                    out[key] = fix_ctx(v) if (is_root and isinstance(v, dict)) else v
+                elif k == "@type":
+                    out[key] = [swap(x) for x in v] if isinstance(v, list) else swap(v)
+                elif k == "@id":
+                    out[key] = swap(v)
+                else:
+                    out[key] = walk(v)
+            return out
+        if isinstance(node, list):
+            return [walk(x) for x in node]
+        return node
+
+    return walk(doc, is_root=True)
+
+
 def frame_cdif(doc, frame=None, verbose=False):
     """Frame an in-memory CDIF JSON-LD document and normalize it into the form
     the StructuredSchemas validate against. `frame` is a frame object, or None
@@ -776,6 +873,10 @@ def frame_cdif(doc, frame=None, verbose=False):
     through this function too, so both tools validate the same normalized form.
     """
     doc = copy.deepcopy(doc)
+    # Normalize namespace aliases to the canonical CDIF prefixes (e.g. dct: ->
+    # dcterms:) before framing, so the compacted output uses the prefixes the
+    # StructuredSchemas require as literal keys regardless of the source's aliases.
+    doc = canonicalize_cdif_prefixes(doc)
     custom_frame = frame is not None
     frame = copy.deepcopy(frame) if custom_frame else FRAME_TEMPLATE
     say = print if verbose else (lambda *a, **k: None)
