@@ -59,6 +59,11 @@ the JSON Schema and have no SHACL violations:
 - **`exampleCDIFxas.json`** and **`example_dds_framed.jsonld`** — the
   reference examples from mBB, copied by the release sync.
 - **`cdif_dds_framed.jsonld`** — the UKDS/Dataverse-derived example (originally
+- **[LICENSE](LICENSE)**, **[LICENSES/](LICENSES/)** and
+  **[REUSE.toml](REUSE.toml)** — licensing for this folder on its own:
+  CC-BY-4.0 by default; the examples, the glossary snapshot and this README
+  CC0-1.0; `FrameAndValidate.py` Apache-2.0, as in the CDIF validation
+  repository it is copied from.
   from [UKDSResearch/cdif-xas](https://github.com/UKDSResearch/cdif-xas)),
   adapted to conform (see the change log kept alongside the file in mBB).
 - **`valid.jsonld`**, **`valid_angle_dspacing.jsonld`**,
