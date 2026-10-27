@@ -125,6 +125,299 @@ PYTHONPATH=. .venv/Scripts/python.exe tools/batch_validate_cdif.py \
 The `tools/` and `crosswalk/` scripts **in this repository** build and
 maintain the vocabulary artifacts, not the example metadata.
 
+## Relationship to `cdifnexmetadata`
+
+[`CDIF-4-XAS/cdifnexmetadata`](https://github.com/CDIF-4-XAS/cdifnexmetadata)
+is a separate repository: the Python converter that reads NeXus/HDF5 and
+XDI files and writes CDIF JSON-LD conforming to the `xasDocument/1.0`
+profile. The two divide the work as **specification here, implementation
+there**. This repository defines the concepts, the field-to-concept
+mappings and the profile. `cdifnexmetadata` applies them to files.
+
+**What `cdifnexmetadata` takes from here:**
+
+| from XAS-CDIF | how it gets there |
+|---|---|
+| the four crosswalk files in `crosswalk/` (the SSSOM sets and `cdifxas-units.tsv`) | copied into `src/cdifnexmetadata/data/`; `python -m cdifnexmetadata.map.crosswalk --refresh` re-downloads them from this repository's `cdifxasRelease1.1` branch |
+| the glossary concept URIs | indirectly: they are the objects of the crosswalks, and become the keys of its intermediate (next section) and the `schema:propertyID` values it emits. It does not read the vocabulary files themselves |
+| the `release/` profile | its validation target: `cdifnexmetadata ... --validate --profile-dir ../XAS-CDIF/release` |
+
+**What this repository takes from `cdifnexmetadata`:** one file.
+`crosswalk/cdifxas-placement.tsv`, which says where each concept goes in
+the CDIF JSON-LD, is derived by `crosswalk/build_placement.py` from
+`CONCEPT_SLOTS` in its `emit.py`, read from a sibling checkout at
+`../cdifnexmetadata`.
+
+**Where a change belongs:**
+
+- a new or renamed concept: `XAS_Glossary_SKOS.json`, here;
+- a field-to-concept mapping: the tables in `crosswalk/build_crosswalk.py`,
+  here. Re-run it, push, then `--refresh` in `cdifnexmetadata`;
+- where a concept is placed in the JSON-LD: `emit.py` in `cdifnexmetadata`,
+  then `build_placement.py` here;
+- a profile rule: `metadataBuildingBlocks`, then re-sync `release/`;
+- a new input format, or reading an existing one better: code in
+  `cdifnexmetadata` (next section).
+
+Its generated examples live in that repository (`exampleMetadata-xdi/`,
+`exampleMetadata-NEXUS/`). `exampleMetadata/` here comes from the
+cdif-xas RML fork, not from `cdifnexmetadata`.
+
+## The concept-keyed intermediate, and how to add an input format
+
+`cdifnexmetadata` does not go from file to CDIF in one step. It parses the
+source into a **concept-keyed intermediate**, the `ConceptRecord`, and then
+transforms *that* into CDIF. The intermediate is the contract a new input
+format has to meet: adding NeXus `NXsas`, `NXtomo`, or a lab instrument's
+own format is a matter of producing one of these, not of touching the
+CDIF-emitting code. Paths below (`inspect/`, `map/`, `cli.py`, `emit.py`)
+are in the `cdifnexmetadata` repository.
+
+The keys are the CDIF XAS glossary concepts in this repository, so the
+concept and the format it arrived in are separate things: a NeXus path and
+an XDI token that mean the same thing produce the same key, and the source
+field travels beside the value.
+
+(The original cdif-xas RML workflow builds a different intermediate, keyed
+on XDI names; it is described in
+[`archive/cdif-xas-rml-intermediate.md`](archive/cdif-xas-rml-intermediate.md).)
+
+### The `ConceptRecord`
+
+Dump it for any file:
+
+```bash
+uv run cdifnexmetadata scan.nxs --dump-concepts
+```
+
+With `-o` pointing at a directory, each input is written as
+`<stem>.concepts.json`.
+
+#### Shape
+
+```jsonc
+{
+  "crosswalk_source": ".../xdi-to-cdifxas.sssom.tsv",  // absolute, machine-specific
+  "crosswalk_reason": "XDI binding; the file declares its format on line 1",
+  "legacy_source": "",
+  "record_count": 1,
+  "records": [ /* one per NXentry; an XDI file has exactly one */ ],
+  "warnings": []
+}
+```
+
+`crosswalk_reason` is there because a silent choice between vocabularies
+cannot be debugged from the output alone. For a NeXus file it names the
+application definition that selected the crosswalk, or says that none
+matched and only base-class mappings were used.
+
+Each record:
+
+```jsonc
+{
+  "entry_name": "scan1",
+  "entry_path": "/scan1",          // "/" for XDI
+  "definition": "NXxas",           // application definition; null for XDI
+  "values": { /* concept URI -> list of values, below */ },
+  "bibliographic": { /* schema.org-bound values, below */ },
+  "publication_fields": { "Publication.journal": "J. Example Chem." },
+  "conversion_notes": ["temperature reported as \"room temperature\""],
+  "warnings": ["11 header(s)/column(s) had no crosswalk entry: ..."]
+}
+```
+
+#### `values` — the part that matters
+
+Keys are **CDIF XAS glossary concept URIs** as CURIEs. Each maps to a
+*list*, because a file may state a concept more than once.
+
+```jsonc
+"cdifxas:beamline": [
+  {
+    "value": "13-BM-D",
+    "units": null,
+    "source_path": "#Beamline.Name",   // "/entry/instrument/name" for NeXus
+    "predicate": "skos:exactMatch",    // from the SSSOM row
+    "confidence": 1.0,
+    "is_array": false,
+    "shape": [],
+    "dtype": "",
+    "note": "Name of the beamline."
+  }
+]
+```
+
+An array-valued concept — a data column, or an HDF5 dataset that was
+described but not read:
+
+```jsonc
+"cdifxas:incidentintensity": [
+  {
+    "value": null,               // deliberately not read; this is data
+    "units": null,
+    "source_path": "#column:3",
+    "predicate": "skos:exactMatch",
+    "confidence": 1.0,
+    "is_array": true,
+    "shape": [469],
+    "dtype": "float64",
+    "label": "i0",               // what the source called it
+    "long_name": "i0",           // NeXus long_name, where the writer set one
+    "index": 3,                  // 1-based column, tabular sources only
+    "width": [13, 13],           // observed field width, min/max
+    "note": "Data column: incident beam intensity."
+  }
+]
+```
+
+| field | meaning |
+|---|---|
+| `value` | the scalar, or `null` for an array |
+| `units` | as the source stated them, or supplied from the XDI dictionary |
+| `source_path` | where in the file it came from — an HDF5 path, or `#Header.tag` / `#column:N` |
+| `predicate` | the SSSOM predicate that licensed the mapping |
+| `confidence` | `1.0` for an `exactMatch`; a `closeMatch` carries less |
+| `is_array`, `shape`, `dtype` | set when the concept is an array that was described, not read |
+| `label`, `long_name` | names the source gave it; used to name the emitted variable |
+| `index`, `width` | position in a tabular source |
+| `note` | the crosswalk row's comment, plus any conversion note |
+| `convention` | set when the value came from the legacy path table, naming the writer convention that put it there |
+
+Optional fields appear only when set, so a scalar stays short.
+
+Arrays are described and not read on purpose: the shape is what the
+data-structure profile needs, and the numbers are data. A new parser
+should do the same.
+
+#### `bibliographic`
+
+Values the crosswalk bound to a **schema.org property** rather than to a
+concept, keyed by the property CURIE. Kept apart from `values` because a
+serialization target is not a concept.
+
+```jsonc
+"bibliographic": {
+  "schema:license":    { "value": "https://creativecommons.org/licenses/by/4.0/" },
+  "schema:identifier": { "value": "10.1021/...", "source_path": "#Publication.DOI" },
+  "schema:author":     { "value": "Smith, J. and Jones, A.",
+                         "predicate": "skos:closeMatch", "confidence": 0.8 }
+}
+```
+
+Populated only by the XDI binding, from `xdi-to-schemaorg.sssom.tsv`. A NeXus
+file carries no bibliographic fields, so a NeXus parser can ignore this.
+
+### Adding an input format
+
+In `cdifnexmetadata`, in this order:
+
+1. **Write an inspector** under `inspect/` that reads the format into
+   whatever plain structure suits it. It should know nothing about CDIF or
+   about concepts.
+2. **Write a mapper** under `map/` that turns that into a `ConceptRecord`,
+   setting `source_path`, `predicate` and `confidence` on every value.
+   This is where the format's vocabulary meets the glossary.
+3. **Supply a crosswalk**, not code, for the field-to-concept
+   correspondence: an SSSOM TSV whose subjects are your format's field
+   names and whose objects are glossary concepts.
+4. **Dispatch** in `cli.py` on what the file declares rather than on its
+   extension.
+
+`emit.py` should need no change. If it does, the concept being mapped is
+probably missing from the glossary — add it there rather than
+special-casing the emitter.
+
+#### For another NeXus application definition, only step 3 applies
+
+The NeXus inspector and mapper already walk any NXDL tree, and
+`select_crosswalk()` picks a crosswalk from the `definition` the file
+declares — so a folder of mixed techniques needs no per-file
+configuration. A new application definition is therefore a crosswalk TSV
+whose objects are NXDL paths, and nothing else.
+
+`cdifsas-to-nexus.sssom.tsv` (in `cdifnexmetadata`'s `src/cdifnexmetadata/data/`) exists as proof: small-angle scattering
+(`NXsas` — a different application definition from `NXxas`, not a
+misspelling of it) was added as a crosswalk with no code change at all.
+Pass it with `--crosswalk` and an `NXsas` file yields concepts, variables
+and a data structure.
+
+##### Writing the crosswalk
+
+Subjects are concept CURIEs, objects are NXDL paths:
+
+```
+cdifsas:detectordistance  ->  nxdl:NXsas/ENTRY:NXentry/INSTRUMENT:NXinstrument/DETECTOR:NXdetector/distance
+cdifsas:wavelength        ->  nxdl:NXmonochromator/wavelength
+```
+
+- The first segment after `nxdl:` is the **application definition**
+  (`NXsas`) or a **base class** (`NXmonochromator`).
+- Middle segments are `PLACEHOLDER:NXclass`. Matching is on the *class*;
+  the placeholder name is the NXDL's own and is a hint, not a
+  requirement, because real writers rarely use it.
+- The last segment is the field name.
+
+The two row kinds behave differently, and this is the part worth knowing
+before writing any:
+
+**An application-definition row** is rooted at the entry, so its path
+leads with a `:NXentry` segment. It applies only to files declaring that
+definition.
+
+**A base-class row** is relative to an instance of the class and does not
+lead with `:NXentry`. It applies to **any** definition — which is why a
+file declaring something no crosswalk covers still yields facility,
+beamline, probe and source type. That classification is structural, not
+by name: testing `startswith("NXxas")` instead would silently class every
+non-XAS definition as a base class and apply `NXsas` paths to XAS files.
+
+Map more than one path to the same concept where writers disagree; the
+first that resolves wins. `cdifsas:scatteringintensity` has two rows,
+one for `DETECTOR:NXdetector/data` and one for `DATA:NXdata/data`.
+
+Map only what the file contains. `Q`, the scattering vector, has no row
+because a raw `NXsas` file does not carry it — it is computed from
+wavelength, distance and pixel geometry, and a row for it would map
+something that does not exist.
+
+If a concept is technique-neutral, **reuse the existing CURIE rather than
+re-minting it**. The SAS crosswalk keeps five `cdifxas:` subjects
+unchanged — `facility`, `beamline`, `probe`, `xraysourcetype` and
+`temperature` — none of which is an XAS concept. SSSOM identifies
+concepts rather than namespaces, so re-minting them under `cdifsas:`
+would assert that a SAS facility and an XAS facility are different
+things. They are not. That they sit in an XAS-flavoured namespace is an
+accident of which crosswalk was written first; writing the second one is
+what exposed it, and the fix is a technique-neutral term rather than a
+duplicate here.
+
+That fix has since been made for four of the five. On 2026-09-27
+`beamline`, `probe`, `xraysourcetype` and `temperature` were deprecated
+in the glossary in favour of NeXus base-class terms
+(`dcterms:isReplacedBy`, e.g. `NXinstrument.html` for `beamline`), and
+the xasDocument profile accepts either spelling. `facility` was kept.
+The crosswalks still key these values on the `cdifxas:` subjects, which
+remain valid CURIEs for the deprecated concepts.
+
+`docs/NXsas.md` in `cdifnexmetadata` covers what NXsas is and how real
+files depart from the definition.
+
+A file whose definition no crosswalk covers is therefore a thin document
+rather than a failure, and `crosswalk_reason` in the dump is the only
+place that says which happened.
+
+#### Check your work by reading the intermediate
+
+```bash
+uv run cdifnexmetadata new_format_file.ext --dump-concepts
+```
+
+A concept absent from that dump will be absent from the CDIF document, and
+nothing downstream will say so. That is the failure mode this whole
+pipeline is arranged around: an unmapped field produces no output and no
+error, and a document that is missing half its metadata validates exactly
+as well as one that is complete.
+
 ## Directory inventory
 
 ### `release/` — the `xasDocument/1.0` profile
@@ -349,6 +642,7 @@ implementations can be compared on identical inputs, which is what
 | `XAS-Nexus-CDIFImplementation.xlsx`, `XAS-XDI-CDIFImplementation.xlsx` | per-format mapping sheets, superseded by `XAS-CDIFImplementation-revised.xlsx` |
 | `XDI-CDIF-Mapping.xlsx`, `XDI-CDIF-Mapping_STikhonov.xlsx` | earlier XDI mapping drafts |
 | `XDIVariablesInCDIF.txt` | XDI variable inventory |
+| `cdif-xas-rml-intermediate.md` | the cdif-xas RML workflow's intermediate, `resources/cdif_skos.json`; moved here from `release/intermediateFormats.md` on 2026-10-27 |
 | `XDISpec-FieldsCDIF-Schema.orgMapping.docx` | XDI spec fields against schema.org |
 | `CDIF4XAS_Mappings_Intro.pdf` | introduction to the mappings |
 | `Ravel_2016_*.pdf` | reference paper |

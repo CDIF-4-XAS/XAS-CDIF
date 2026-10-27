@@ -196,10 +196,11 @@ Neither converter goes from file to CDIF in one step. Both parse the
 source into a concept-keyed intermediate and then transform *that* into
 CDIF, which is why the two can be compared field by field at all.
 
-**Both structures are documented in
-[`intermediateFormats.md`](intermediateFormats.md)**, which is also the
-place to start for adding an input format — another NeXus application
-definition included.
+**Path A's intermediate is documented in the
+[repository README](../README.md#the-concept-keyed-intermediate-and-how-to-add-an-input-format)**,
+which is also the place to start for adding an input format — another
+NeXus application definition included. Path B's is described in
+[`archive/cdif-xas-rml-intermediate.md`](../archive/cdif-xas-rml-intermediate.md).
 
 | | Path A (`cdifnexmetadata`) | Path B (`cdif-xas`) |
 |---|---|---|
