@@ -1,5 +1,6 @@
 {
   "@context": {
+    "wd": "https://www.wikidata.org/entity/",
     "schema": "http://schema.org/",
     "dcterms": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#",

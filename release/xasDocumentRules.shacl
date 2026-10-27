@@ -15,7 +15,7 @@
     sh:message "Expecting SO namespace of <http://schema.org/> not <http://schema.org>" ;
     sh:not [ sh:minCount 1 ;
             sh:path rdf:type ] ;
-    sh:targetClass <http://schema.orgDataset/> .
+    sh:targetClass <http://schema.orgDataset> .
 
 <http://science-on-schema.org/1.2.3/validation/shacl#DatasetNS2Shape> a sh:NodeShape ;
     sh:message "Expecting SO namespace of <http://schema.org/> not <https://schema.org/>" ;
@@ -27,7 +27,7 @@
     sh:message "Expecting SO namespace of <http://schema.org/> not <https://schema.org>" ;
     sh:not [ sh:minCount 1 ;
             sh:path rdf:type ] ;
-    sh:targetClass <https://schema.orgDataset/> .
+    sh:targetClass <https://schema.orgDataset> .
 
 cdifd:AdditionalTypeUriShouldBeIRIShape a sh:NodeShape ;
     sh:message "schema:additionalType value looks like a URI or CURIE (prefix:localname) but is serialized as a string literal. Serialize URI values as JSON-LD IRI references: {\"@id\":\"...\"}. Free-label strings like 'MaterialSample' remain valid as strings; schema:DefinedTerm objects are also permitted." ;
@@ -1393,7 +1393,13 @@ cdifd:xasGeneratedByNode a sh:NodeShape ;
         [ sh:message "An XAS AnalysisEvent must specify at least one of prov:used, schema:additionalProperty, schema:location, or schema:object." ;
             sh:minCount 1 ;
             sh:path [ sh:alternativePath ( prov:used schema:additionalProperty schema:location schema:object ) ] ] ;
-    sh:targetClass <https://w3id.org/cdif/xas/analysisevent> .
+    sh:target [ a sh:SPARQLTarget ;
+            sh:select """
+      PREFIX schema: <http://schema.org/>
+      SELECT DISTINCT ?this
+        WHERE {
+          ?this schema:additionalType <https://w3id.org/cdif/xas/analysisevent> .
+          }""" ] .
 
 cdifd:xasInstrumentNode a sh:NodeShape ;
     sh:property [ sh:hasValue schema:Thing ;
@@ -1412,7 +1418,7 @@ cdifd:xasInstrumentNode a sh:NodeShape ;
       PREFIX schema: <http://schema.org/>
       SELECT DISTINCT ?this
         WHERE {
-          ?this schema:additionalType "wd:Q3099911".
+          ?this schema:additionalType <https://www.wikidata.org/entity/Q3099911> .
           }""" ] .
 
 cdifd:xasSampleNode a sh:NodeShape ;
