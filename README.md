@@ -12,11 +12,14 @@ project.
 
 ## This working copy
 
-Work happens on **`main`** in
-[`CDIF-4-XAS/XAS-CDIF`](https://github.com/CDIF-4-XAS/XAS-CDIF) — the
-canonical repository — which `smrgeoinfo/XAS-CDIF`, a fork of it, mirrors.
-Release 1.1 was developed on the `cdifxasRelease1.1` branch and merged
-into `main` on 2026-10-27.
+[`CDIF-4-XAS/XAS-CDIF`](https://github.com/CDIF-4-XAS/XAS-CDIF) is the
+canonical repository; `smrgeoinfo/XAS-CDIF`, a fork of it, mirrors it.
+**`main` is the current release** (1.1, developed on the
+`cdifxasRelease1.1` branch and merged on 2026-10-27). **Changes to
+release content go on the `updates` branch**: `release/` and everything
+built or copied into it (the glossary, the value lists, `crosswalk/` and
+their generators). `updates` is merged into `main` by pull request when
+the next release is cut.
 
 Version 1.1 goes well beyond the 1.0 deliverable: a
 `xasDocument/1.1` release profile, a rebuilt glossary, machine-readable
