@@ -1,7 +1,7 @@
 # Implementing the CDIF XAS profile
 
-Review and minor updates SMR 2026-07-17; revised 2026-10-08 against the
-`xasDocument/1.0` release in `release/`.
+Review and minor updates SMR 2026-07-17; revised 2026-10-26 for XAS-CDIF
+release 1.1, against the `xasDocument/1.0` profile in `release/`.
 
 This is an overview in prose. The normative statement is the resolved JSON
 Schema and SHACL rules in `release/`, and the class-by-class detail is in

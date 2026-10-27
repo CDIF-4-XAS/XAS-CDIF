@@ -1,8 +1,8 @@
 # CDIF XAS Glossary — provenance and generation
 
 Where the CDIF XAS vocabularies come from, how they were built, and what
-is generated versus curated. Part of the `cdif/xasDocument/1.0` release
-package.
+is generated versus curated. Part of the XAS-CDIF 1.1 release package
+for `cdif/xasDocument/1.0`.
 
 Verified against the repository on 2026-08-25.
 
@@ -268,6 +268,7 @@ present.
 | 2026-07-28 | All four vocabularies made to conform to the CDIF concept scheme profile |
 | 2026-07-29 | `sampledescription` minted; dimensionless quantities given `unit:UNITLESS` |
 | 2026-08-25 | Dead `rdfs:seeAlso` links removed from the enumerations |
+| 2026-10-26 | Version 1.1: `schema:version` on all four vocabularies; catalog record typed `{"@id": "dcat:CatalogRecord"}`, so they conform to the concept scheme profile again |
 
 **The spreadsheet is retired, not authoritative.** `XAS_Glossary.xlsx`
 was the original curation surface, but no script ever read it, and

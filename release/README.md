@@ -1,8 +1,9 @@
-# CDIF XAS Document Profile — 1.0 Release
+# CDIF XAS Document Profile — XAS-CDIF release 1.1
 
 Document-level CDIF profile for X-ray Absorption Spectroscopy datasets. This
 directory contains the release artifacts for the `cdif/xasDocument/1.0`
-conformance URI.
+conformance URI, as packaged in XAS-CDIF release 1.1. The profile keeps
+version 1.0; 1.1 numbers the package (vocabularies, crosswalks and guides).
 
 ## Conformance URI
 

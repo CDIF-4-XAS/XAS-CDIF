@@ -1,6 +1,6 @@
 # CDIF XAS Document Profile Implementation Guide
 
-**Version 1.1** — 2026-10-26
+**Version 1.1** (XAS-CDIF release 1.1) — 2026-10-26
 
 **Conformance URI:** `https://w3id.org/cdif/xasDocument/1.0`
 
