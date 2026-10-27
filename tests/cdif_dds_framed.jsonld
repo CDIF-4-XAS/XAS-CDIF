@@ -190,7 +190,7 @@
   ],
   "schema:name": "Se_Na2SeO4_rt_01",
   "schema:sameAs": [
-    "https://github.com/CDIF-4-XAS/XAS-CDIF/blob/main/se_na2so4_rt.xdi"
+    "https://github.com/CDIF-4-XAS/XAS-CDIF/blob/main/exampleData/Se_Na2SeO4_rt_01.xdi"
   ],
   "schema:subjectOf": {
     "@id": "ex:dataset/DV/BYSPHH/metadata",
