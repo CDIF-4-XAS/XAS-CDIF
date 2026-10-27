@@ -1002,13 +1002,16 @@
       }
     }
   ],
+  "schema:version": "1.1",
   "schema:subjectOf": {
     "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges#catalog-record",
     "@type": [
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "schema:about": {
       "@id": "https://w3id.org/cdif/xas/XAS_AbsorptionEdges"
