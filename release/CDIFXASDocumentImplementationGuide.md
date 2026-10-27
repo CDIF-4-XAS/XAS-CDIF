@@ -848,6 +848,30 @@ validated clean against `cdifXASDocumentResolvedSchema.json` and
   makes the d-spacing necessary to convert it. The profile requires
   `xas:dspacing` in every document regardless of the abscissa.
 
+The following come from `cdifnexmetadata` (its `exampleMetadata-NEXUS/`).
+All but `CeO2` describe NeXus/HDF5 files declaring `NXxas`, so their
+variables are located with `cdif:LocatorMapping` and an HDF5 path in
+`cdif:locator`, not with a column index:
+
+- **`FeXAS.jsonld`** — the fullest NeXus example: one file holding 26
+  `NXentry` scans (GSECARS, APS 13-ID-E), described as an archive of
+  parts. One `schema:Dataset`, one `schema:DataDownload`, 26
+  `schema:MediaObject` parts sharing data structures by `@id`, and
+  manifest conformance declared.
+- **`cu_metal_rt.jsonld`** — a clean single-spectrum NeXus file; the
+  smaller thing to read first.
+- **`feo_rt1.jsonld`**, **`pt_metal_rt.jsonld`** — single-spectrum NeXus
+  files of measurements also held as XDI in `exampleData/`, so the two
+  encodings can be compared on the same data.
+- **`cu_metal_10K.jsonld`** — the thinnest: the file declares `NXxas`
+  and records almost none of it, so missing required values (detection
+  mode among them) are stated as `":unav"`.
+- **`NXxas-manual-sketch.jsonld`** — from a file built to the layout the
+  NeXus manual sketches for `NXxas`, which no real file uses; shows how
+  little maps from it.
+- **`CeO2.jsonld`** — an XDI file converted by `cdifnexmetadata` rather
+  than by the RML pipeline, for comparison with the XDI examples above.
+
 The transformation from the original UKDS reference to the framing +
 schema shape of the profile is logged in the mBB source
 ([CHANGES-from-UKDS.md](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/blob/main/_sources/profiles/cdifCompositeProfile/xasDocument/CHANGES-from-UKDS.md)).

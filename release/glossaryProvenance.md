@@ -399,7 +399,7 @@ constraining `schema:propertyID` in the xasDocument profile schema:
           "xas:experimentdocumentation", "xas:installedoptions" ]
 ```
 
-Renaming them changes the schema, the SHACL bundle, all seven release
+Renaming them changes the schema, the SHACL bundle, all the release
 examples and the RML mapping's `propertyIRI` construction, and
 invalidates any document already emitting the old CURIEs.
 

@@ -238,7 +238,7 @@ Everything in this directory:
 | `xasDocumentRules.shacl` | aggregated SHACL, all six composed components |
 | `cdifXASDocument-frame.jsonld` | JSON-LD frame — apply **before** schema validation |
 | `XAS_Glossary_SKOS_v2.json` + the three value lists | the concept vocabulary |
-| `examples/` | seven worked documents, all passing both gates |
+| `examples/` | 14 worked documents (XDI and NeXus), all passing both gates |
 
 **Validate the framed document, not the emitted graph.** The profile is
 written against the tree that framing produces. Skipping the frame
@@ -286,7 +286,7 @@ target profile is explicit and reproducible rather than implicit.
 
 ## Status and contacts
 
-- The **profile** (`cdif/xasDocument/1.0`) is released; all seven examples
+- The **profile** (`cdif/xasDocument/1.0`) is released; all 14 examples
   in `examples/` pass JSON Schema and SHACL.
 - The **vocabulary** is 106 concepts plus three value lists (39 edges, 432
   emission lines, 7 detection modes), pinned to a specific NeXus fork

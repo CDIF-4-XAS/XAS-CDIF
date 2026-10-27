@@ -52,7 +52,7 @@ distribution has `schema:hasPart` entries also declares
 
 ## Examples
 
-The `examples/` directory contains seven XAS document instances. All pass
+The `examples/` directory contains 14 XAS document instances. All pass
 the JSON Schema and have no SHACL violations:
 
 - **`exampleCDIFxas.json`** and **`example_dds_framed.jsonld`** — the
@@ -63,6 +63,14 @@ the JSON Schema and have no SHACL violations:
 - **`valid.jsonld`**, **`valid_angle_dspacing.jsonld`**,
   **`262875_PtSn_OCO_Abu_1.jsonld`** and **`Se_Na2SeO4_rt_01.jsonld`** —
   output of the reference XDI pipeline.
+- **`FeXAS.jsonld`**, **`cu_metal_rt.jsonld`**, **`cu_metal_10K.jsonld`**,
+  **`feo_rt1.jsonld`**, **`pt_metal_rt.jsonld`** and
+  **`NXxas-manual-sketch.jsonld`** — NeXus/HDF5 (`NXxas`) sources, from
+  [`cdifnexmetadata`](https://github.com/CDIF-4-XAS/cdifnexmetadata)
+  (`exampleMetadata-NEXUS/`). Columns are located with
+  `cdif:LocatorMapping` (an HDF5 path) rather than a column index.
+- **`CeO2.jsonld`** — an XDI source converted by `cdifnexmetadata`
+  rather than by the RML pipeline.
 
 The implementation guide's "Complete examples" section says what each one
 is for.

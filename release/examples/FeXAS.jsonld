@@ -1,0 +1,2782 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "spdx": "http://spdx.org/rdf/terms#",
+    "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
+    "cdif": "https://w3id.org/cdif/",
+    "ex": "https://example.org/",
+    "nxs": "https://manual.nexusformat.org/classes/",
+    "xas": "https://w3id.org/cdif/xas/",
+    "wd": "https://www.wikidata.org/entity/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "https://w3id.org/cdif/testing/FeXAS",
+  "@type": [
+    "schema:Dataset"
+  ],
+  "schema:name": "FeFoil.001  [Fe K edge]",
+  "schema:identifier": "local:FeXAS",
+  "schema:url": "https://w3id.org/cdif/testing/FeXAS.nxs",
+  "schema:distribution": [
+    {
+      "@type": [
+        "schema:DataDownload",
+        "cdi:PhysicalDataSet"
+      ],
+      "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS.nxs",
+      "schema:encodingFormat": [
+        "application/x-hdf5"
+      ],
+      "schema:contentSize": "2725124",
+      "spdx:checksum": {
+        "@type": [
+          "spdx:Checksum"
+        ],
+        "spdx:algorithm": "spdx:checksumAlgorithm_sha256",
+        "spdx:checksumValue": "d120698cd72a70f437c7860fd7fd66eb5c5007a0ac0e68d643d6a4b37b185ca5"
+      },
+      "dcterms:conformsTo": [
+        {
+          "@id": "nxs:applications/NXxas.html"
+        }
+      ],
+      "schema:hasPart": [
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/FeFoil.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "FeFoil.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/FeFoil.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/1",
+            "@type": [
+              "cdi:DimensionalDataStructure"
+            ],
+            "schema:name": "FeXAS structure 1",
+            "schema:description": "shared by 1 of 26 entries",
+            "cdi:has_DataStructureComponent": [
+              {
+                "@id": "ex:DV/FeXAS/1/dsc/absorptioncoefficient",
+                "@type": [
+                  "cdi:MeasureComponent"
+                ],
+                "cdif:isDefinedBy_Variable": {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/rv/absorptioncoefficient",
+                  "@type": [
+                    "cdi:RepresentedVariable"
+                  ],
+                  "schema:name": "absorptioncoefficient",
+                  "cdif:name": [
+                    "absorptioncoefficient"
+                  ]
+                },
+                "cdif:hasPhysicalMapping": {
+                  "@id": "ex:DV/FeXAS/1/pm/absorptioncoefficient",
+                  "@type": [
+                    "cdif:LocatorMapping"
+                  ],
+                  "cdi:locator": "/FeFoil.001/data/mutrans",
+                  "cdif:physicalDataType": "xsd:decimal",
+                  "cdif:formats_InstanceVariable": {
+                    "@id": "ex:DV/FeXAS/iv/absorptioncoefficient"
+                  }
+                }
+              },
+              {
+                "@id": "ex:DV/FeXAS/1/dsc/fluorescenceabsorptioncoefficient",
+                "@type": [
+                  "cdi:MeasureComponent"
+                ],
+                "cdif:isDefinedBy_Variable": {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/rv/fluorescenceabsorptioncoefficient",
+                  "@type": [
+                    "cdi:RepresentedVariable"
+                  ],
+                  "schema:name": "fluorescence absorptioncoefficient",
+                  "cdif:name": [
+                    "fluorescence absorptioncoefficient"
+                  ]
+                },
+                "cdif:hasPhysicalMapping": {
+                  "@id": "ex:DV/FeXAS/1/pm/fluorescenceabsorptioncoefficient",
+                  "@type": [
+                    "cdif:LocatorMapping"
+                  ],
+                  "cdi:locator": "/FeFoil.001/data/mufluor",
+                  "cdif:physicalDataType": "xsd:decimal",
+                  "cdif:formats_InstanceVariable": {
+                    "@id": "ex:DV/FeXAS/iv/fluorescenceabsorptioncoefficient"
+                  }
+                }
+              },
+              {
+                "@id": "ex:DV/FeXAS/1/dsc/fluorescenceintensity",
+                "@type": [
+                  "cdi:MeasureComponent"
+                ],
+                "cdif:isDefinedBy_Variable": {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/rv/fluorescenceintensity",
+                  "@type": [
+                    "cdi:RepresentedVariable"
+                  ],
+                  "schema:name": "fluorescence intensity",
+                  "cdif:name": [
+                    "fluorescence intensity"
+                  ]
+                },
+                "cdif:hasPhysicalMapping": {
+                  "@id": "ex:DV/FeXAS/1/pm/fluorescenceintensity",
+                  "@type": [
+                    "cdif:LocatorMapping"
+                  ],
+                  "cdi:locator": "/FeFoil.001/instrument/ifluor/data",
+                  "cdif:physicalDataType": "xsd:decimal",
+                  "cdif:formats_InstanceVariable": {
+                    "@id": "ex:DV/FeXAS/iv/fluorescenceintensity"
+                  }
+                }
+              },
+              {
+                "@id": "ex:DV/FeXAS/1/dsc/incidentintensity",
+                "@type": [
+                  "cdi:MeasureComponent"
+                ],
+                "cdif:isDefinedBy_Variable": {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/rv/incidentintensity",
+                  "@type": [
+                    "cdi:RepresentedVariable"
+                  ],
+                  "schema:name": "incident intensity",
+                  "cdif:name": [
+                    "incident intensity"
+                  ]
+                },
+                "cdif:hasPhysicalMapping": {
+                  "@id": "ex:DV/FeXAS/1/pm/incidentintensity",
+                  "@type": [
+                    "cdif:LocatorMapping"
+                  ],
+                  "cdi:locator": "/FeFoil.001/instrument/i0/data",
+                  "cdif:physicalDataType": "xsd:decimal",
+                  "cdif:formats_InstanceVariable": {
+                    "@id": "ex:DV/FeXAS/iv/incidentintensity"
+                  }
+                }
+              },
+              {
+                "@id": "ex:DV/FeXAS/1/dsc/monochromatorenergy",
+                "@type": [
+                  "cdi:DimensionComponent"
+                ],
+                "cdif:isDefinedBy_Variable": {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/rv/monochromatorenergy",
+                  "@type": [
+                    "cdi:RepresentedVariable"
+                  ],
+                  "schema:name": "monochromator energy",
+                  "cdif:name": [
+                    "monochromator energy"
+                  ]
+                },
+                "cdif:hasPhysicalMapping": {
+                  "@id": "ex:DV/FeXAS/1/pm/monochromatorenergy",
+                  "@type": [
+                    "cdif:LocatorMapping"
+                  ],
+                  "cdi:locator": "/FeFoil.001/instrument/monochromator/energy",
+                  "cdif:physicalDataType": "xsd:decimal",
+                  "cdif:formats_InstanceVariable": {
+                    "@id": "ex:DV/FeXAS/iv/monochromatorenergy"
+                  }
+                }
+              },
+              {
+                "@id": "ex:DV/FeXAS/1/dsc/transmittedintensity",
+                "@type": [
+                  "cdi:MeasureComponent"
+                ],
+                "cdif:isDefinedBy_Variable": {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/rv/transmittedintensity",
+                  "@type": [
+                    "cdi:RepresentedVariable"
+                  ],
+                  "schema:name": "transmitted intensity",
+                  "cdif:name": [
+                    "transmitted intensity"
+                  ]
+                },
+                "cdif:hasPhysicalMapping": {
+                  "@id": "ex:DV/FeXAS/1/pm/transmittedintensity",
+                  "@type": [
+                    "cdif:LocatorMapping"
+                  ],
+                  "cdi:locator": "/FeFoil.001/instrument/itrans/data",
+                  "cdif:physicalDataType": "xsd:decimal",
+                  "cdif:formats_InstanceVariable": {
+                    "@id": "ex:DV/FeXAS/iv/transmittedintensity"
+                  }
+                }
+              }
+            ]
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/FeFoil.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/FeFoil.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in transmission recorded as entry /FeFoil.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/FeFoil.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of FeFoil.001",
+              "schema:startTime": "2020-08-10T09:18:48",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-10T09:22:32"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_a2n.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_a2n.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_a2n.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2",
+            "@type": [
+              "cdi:DimensionalDataStructure"
+            ],
+            "schema:name": "FeXAS structure 2",
+            "schema:description": "shared by 25 of 26 entries",
+            "cdi:has_DataStructureComponent": [
+              {
+                "@id": "ex:DV/FeXAS/2/dsc/fluorescenceabsorptioncoefficient",
+                "@type": [
+                  "cdi:MeasureComponent"
+                ],
+                "cdif:isDefinedBy_Variable": {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/rv/fluorescenceabsorptioncoefficient",
+                  "@type": [
+                    "cdi:RepresentedVariable"
+                  ],
+                  "schema:name": "fluorescence absorptioncoefficient",
+                  "cdif:name": [
+                    "fluorescence absorptioncoefficient"
+                  ]
+                },
+                "cdif:hasPhysicalMapping": {
+                  "@id": "ex:DV/FeXAS/2/pm/fluorescenceabsorptioncoefficient",
+                  "@type": [
+                    "cdif:LocatorMapping"
+                  ],
+                  "cdi:locator": "/Fe_a2n.001/data/mufluor",
+                  "cdif:physicalDataType": "xsd:decimal",
+                  "cdif:formats_InstanceVariable": {
+                    "@id": "ex:DV/FeXAS/iv/fluorescenceabsorptioncoefficient"
+                  }
+                }
+              },
+              {
+                "@id": "ex:DV/FeXAS/2/dsc/fluorescenceintensity",
+                "@type": [
+                  "cdi:MeasureComponent"
+                ],
+                "cdif:isDefinedBy_Variable": {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/rv/fluorescenceintensity",
+                  "@type": [
+                    "cdi:RepresentedVariable"
+                  ],
+                  "schema:name": "fluorescence intensity",
+                  "cdif:name": [
+                    "fluorescence intensity"
+                  ]
+                },
+                "cdif:hasPhysicalMapping": {
+                  "@id": "ex:DV/FeXAS/2/pm/fluorescenceintensity",
+                  "@type": [
+                    "cdif:LocatorMapping"
+                  ],
+                  "cdi:locator": "/Fe_a2n.001/instrument/ifluor/data",
+                  "cdif:physicalDataType": "xsd:decimal",
+                  "cdif:formats_InstanceVariable": {
+                    "@id": "ex:DV/FeXAS/iv/fluorescenceintensity"
+                  }
+                }
+              },
+              {
+                "@id": "ex:DV/FeXAS/2/dsc/incidentintensity",
+                "@type": [
+                  "cdi:MeasureComponent"
+                ],
+                "cdif:isDefinedBy_Variable": {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/rv/incidentintensity",
+                  "@type": [
+                    "cdi:RepresentedVariable"
+                  ],
+                  "schema:name": "incident intensity",
+                  "cdif:name": [
+                    "incident intensity"
+                  ]
+                },
+                "cdif:hasPhysicalMapping": {
+                  "@id": "ex:DV/FeXAS/2/pm/incidentintensity",
+                  "@type": [
+                    "cdif:LocatorMapping"
+                  ],
+                  "cdi:locator": "/Fe_a2n.001/instrument/i0/data",
+                  "cdif:physicalDataType": "xsd:decimal",
+                  "cdif:formats_InstanceVariable": {
+                    "@id": "ex:DV/FeXAS/iv/incidentintensity"
+                  }
+                }
+              },
+              {
+                "@id": "ex:DV/FeXAS/2/dsc/monochromatorenergy",
+                "@type": [
+                  "cdi:DimensionComponent"
+                ],
+                "cdif:isDefinedBy_Variable": {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/rv/monochromatorenergy",
+                  "@type": [
+                    "cdi:RepresentedVariable"
+                  ],
+                  "schema:name": "monochromator energy",
+                  "cdif:name": [
+                    "monochromator energy"
+                  ]
+                },
+                "cdif:hasPhysicalMapping": {
+                  "@id": "ex:DV/FeXAS/2/pm/monochromatorenergy",
+                  "@type": [
+                    "cdif:LocatorMapping"
+                  ],
+                  "cdi:locator": "/Fe_a2n.001/instrument/monochromator/energy",
+                  "cdif:physicalDataType": "xsd:decimal",
+                  "cdif:formats_InstanceVariable": {
+                    "@id": "ex:DV/FeXAS/iv/monochromatorenergy"
+                  }
+                }
+              }
+            ]
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_a2n.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_a2n.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_a2n.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_a2n.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_a2n.001",
+              "schema:startTime": "2020-08-10T21:14:18",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-10T21:29:09"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_a2n.002",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_a2n.002  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_a2n.002",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_a2n.002",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_a2n.002",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_a2n.002.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_a2n.002/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_a2n.002",
+              "schema:startTime": "2020-08-10T22:15:06",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-10T22:29:57"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_a41.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_a41.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_a41.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_a41.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_a41.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_a41.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_a41.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_a41.001",
+              "schema:startTime": "2020-08-12T02:17:59",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-12T02:32:50"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_a41.001_01",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_a41.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_a41.001_01",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_a41.001_01",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_a41.001_01",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_a41.001_01.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_a41.001_01/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_a41.001_01",
+              "schema:startTime": "2020-08-12T02:17:59",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-12T02:32:50"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_b88.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_b88.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_b88.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_b88.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_b88.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_b88.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_b88.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_b88.001",
+              "schema:startTime": "2020-08-10T17:26:19",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-10T17:41:10"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_b88.001_01",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_b88.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_b88.001_01",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_b88.001_01",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_b88.001_01",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_b88.001_01.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_b88.001_01/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_b88.001_01",
+              "schema:startTime": "2020-08-10T17:26:19",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-10T17:41:10"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_c3d.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_c3d.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_c3d.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_c3d.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_c3d.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_c3d.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_c3d.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_c3d.001",
+              "schema:startTime": "2020-08-12T04:34:49",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-12T04:49:40"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_c3d.002",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_c3d.002  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_c3d.002",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_c3d.002",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_c3d.002",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_c3d.002.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_c3d.002/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_c3d.002",
+              "schema:startTime": "2020-08-12T03:34:00",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-12T03:48:52"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_c75.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_c75.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_c75.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_c75.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_c75.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_c75.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_c75.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_c75.001",
+              "schema:startTime": "2020-08-11T03:14:31",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-11T03:29:23"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_d22.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_d22.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_d22.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_d22.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_d22.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_d22.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_d22.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_d22.001",
+              "schema:startTime": "2020-08-11T17:41:11",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-11T17:56:02"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_g1a.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_g1a.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_g1a.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_g1a.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_g1a.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_g1a.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_g1a.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_g1a.001",
+              "schema:startTime": "2020-08-10T14:52:00",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-10T15:06:51"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_g4x.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_g4x.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_g4x.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_g4x.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_g4x.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_g4x.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_g4x.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_g4x.001",
+              "schema:startTime": "2020-08-10T11:19:21",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-10T11:34:12"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_h02.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_h02.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_h02.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_h02.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_h02.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_h02.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_h02.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_h02.001",
+              "schema:startTime": "2020-08-12T14:34:55",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-12T14:49:46"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_j72.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_j72.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_j72.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_j72.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_j72.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_j72.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_j72.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_j72.001",
+              "schema:startTime": "2020-08-11T06:16:55",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-11T06:31:46"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_ju8.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_ju8.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_ju8.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_ju8.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_ju8.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_ju8.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_ju8.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_ju8.001",
+              "schema:startTime": "2020-08-10T12:50:32",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-10T13:05:23"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_k66.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_k66.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_k66.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_k66.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_k66.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_k66.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_k66.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_k66.001",
+              "schema:startTime": "2020-08-11T20:13:10",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-11T20:28:02"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_n19.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_n19.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_n19.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_n19.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_n19.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_n19.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_n19.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_n19.001",
+              "schema:startTime": "2020-08-12T16:21:30",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-12T16:36:21"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_r93.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_r93.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_r93.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_r93.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_r93.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_r93.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_r93.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_r93.001",
+              "schema:startTime": "2020-08-11T18:57:10",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-11T19:12:01"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_s33.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_s33.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_s33.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_s33.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_s33.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_s33.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_s33.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_s33.001",
+              "schema:startTime": "2020-08-12T14:04:30",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-12T14:19:21"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_s38.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_s38.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_s38.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_s38.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_s38.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_s38.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_s38.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_s38.001",
+              "schema:startTime": "2020-08-12T00:01:11",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-12T00:16:03"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_u71.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_u71.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_u71.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_u71.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_u71.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_u71.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_u71.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_u71.001",
+              "schema:startTime": "2020-08-12T11:17:05",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-12T11:31:56"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_v47.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_v47.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_v47.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_v47.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_v47.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_v47.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_v47.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_v47.001",
+              "schema:startTime": "2020-08-11T22:29:59",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-11T22:44:50"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_w23.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_w23.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_w23.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_w23.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_w23.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_w23.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_w23.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_w23.001",
+              "schema:startTime": "2020-08-10T20:13:30",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-10T20:28:21"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_w37.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_w37.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_w37.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_w37.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_w37.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_w37.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_w37.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_w37.001",
+              "schema:startTime": "2020-08-11T05:00:54",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-11T05:15:45"
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_x56.001",
+          "@type": [
+            "schema:MediaObject",
+            "schema:Dataset"
+          ],
+          "schema:name": "Fe_x56.001  [Fe K edge]",
+          "schema:contentUrl": "https://w3id.org/cdif/testing/FeXAS#/Fe_x56.001",
+          "cdi:isStructuredBy": {
+            "@id": "ex:DV/FeXAS/structure/2"
+          },
+          "schema:identifier": "https://w3id.org/cdif/testing/FeXAS#/Fe_x56.001",
+          "schema:url": "https://w3id.org/cdif/testing/FeXAS#/Fe_x56.001",
+          "schema:dateModified": "2026-07-28",
+          "schema:license": [
+            "http://www.opengis.net/def/nil/OGC/0/missing"
+          ],
+          "schema:creator": {
+            "@type": [
+              "schema:Person"
+            ],
+            "schema:name": ":unav"
+          },
+          "schema:description": "Fe K-edge measurement in fluorescence recorded as entry /Fe_x56.001.",
+          "schema:keywords": [
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "Iron",
+              "schema:termCode": "Fe",
+              "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+              "schema:about": "element.symbol"
+            },
+            {
+              "@type": [
+                "schema:DefinedTerm"
+              ],
+              "schema:name": "K-edge",
+              "schema:termCode": "K",
+              "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+              "schema:about": "element.edge"
+            }
+          ],
+          "dcterms:conformsTo": [
+            {
+              "@id": "nxs:applications/NXxas.html"
+            }
+          ],
+          "prov:wasGeneratedBy": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/Fe_x56.001/acquisition",
+              "@type": [
+                "schema:Action",
+                "prov:Activity"
+              ],
+              "schema:additionalType": [
+                {
+                  "@id": "xas:analysisevent"
+                }
+              ],
+              "schema:name": "acquisition of Fe_x56.001",
+              "schema:startTime": "2020-08-12T21:57:17",
+              "prov:used": [
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                },
+                {
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                }
+              ],
+              "schema:endTime": "2020-08-12T22:12:09"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "schema:dateModified": "2026-07-28",
+  "schema:license": [
+    "http://www.opengis.net/def/nil/OGC/0/missing"
+  ],
+  "schema:description": "26 measurements in one NeXus/HDF5 container, described as parts of one dataset.",
+  "schema:creator": {
+    "@type": [
+      "schema:Person"
+    ],
+    "schema:name": ":unav"
+  },
+  "schema:measurementTechnique": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:identifier": "http://purl.org/pan-science/PaNET/PaNET01196",
+      "schema:inDefinedTermSet": "http://purl.org/pan-science/PaNET/PaNET.owl",
+      "schema:name": "X-Ray Absorption Spectroscopy",
+      "schema:termCode": "XAS"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Fluorescence",
+      "schema:inDefinedTermSet": "nxs:Field/NXxas/ENTRY/DATA/mode"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Transmission",
+      "schema:inDefinedTermSet": "nxs:Field/NXxas/ENTRY/DATA/mode"
+    }
+  ],
+  "schema:keywords": [
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "K-edge",
+      "schema:termCode": "K",
+      "schema:inDefinedTermSet": "https://github.com/XraySpectroscopy/XAS-Data-Interchange/blob/master/specification/dictionary.md",
+      "schema:about": "element.edge"
+    },
+    {
+      "@type": [
+        "schema:DefinedTerm"
+      ],
+      "schema:name": "Iron",
+      "schema:termCode": "Fe",
+      "schema:inDefinedTermSet": "http://sweetontology.net/matrElement",
+      "schema:about": "element.symbol"
+    }
+  ],
+  "schema:contributor": [
+    {
+      "@type": [
+        "schema:Role"
+      ],
+      "schema:roleName": "Facility",
+      "schema:contributor": {
+        "@type": [
+          "schema:Organization"
+        ],
+        "schema:name": "APS, undulator 36mm, 66 poles, 13-ID-E"
+      }
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@id": "https://w3id.org/cdif/testing/FeXAS/acquisition",
+      "@type": [
+        "schema:Action",
+        "prov:Activity"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "xas:analysisevent"
+        }
+      ],
+      "schema:name": "acquisition of FeXAS",
+      "schema:location": {
+        "@type": [
+          "schema:Place"
+        ],
+        "schema:additionalType": [
+          {
+            "@id": "xas:facility"
+          }
+        ],
+        "schema:name": "APS, undulator 36mm, 66 poles, 13-ID-E"
+      },
+      "prov:used": [
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline",
+          "@type": [
+            "schema:Thing",
+            "prov:Entity"
+          ],
+          "schema:instrument": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline",
+              "@type": [
+                "schema:Product",
+                "schema:Thing",
+                "prov:Entity"
+              ],
+              "schema:name": "13-ID-E",
+              "schema:additionalType": [
+                {
+                  "@id": "xas:beamline"
+                },
+                {
+                  "@id": "wd:Q3099911"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/used/source",
+          "@type": [
+            "schema:Thing",
+            "prov:Entity"
+          ],
+          "schema:instrument": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source",
+              "@type": [
+                "schema:Product",
+                "schema:Thing",
+                "prov:Entity"
+              ],
+              "schema:name": "X-ray source",
+              "schema:additionalType": [
+                {
+                  "@id": "xas:source"
+                },
+                {
+                  "@id": "wd:Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:probe"
+                    }
+                  ],
+                  "schema:name": "Probe",
+                  "schema:value": "X-ray"
+                },
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:xraysourcetype"
+                    }
+                  ],
+                  "schema:name": "X-ray source type",
+                  "schema:value": "X-ray Source"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator",
+          "@type": [
+            "schema:Thing",
+            "prov:Entity"
+          ],
+          "schema:instrument": [
+            {
+              "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator",
+              "@type": [
+                "schema:Product",
+                "schema:Thing",
+                "prov:Entity"
+              ],
+              "schema:name": "monochromator",
+              "schema:additionalType": [
+                {
+                  "@id": "xas:xraymonochromator"
+                },
+                {
+                  "@id": "wd:Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:dspacing"
+                    }
+                  ],
+                  "schema:name": "monochromator d-spacing",
+                  "schema:value": "1.637514293384398",
+                  "schema:unitText": "Angstroms"
+                },
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:reflectionplane"
+                    }
+                  ],
+                  "schema:name": "reflection plane",
+                  "schema:value": "3 1 1"
+                },
+                {
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "xas:monochromatortype"
+                    }
+                  ],
+                  "schema:name": "monochromator crystal",
+                  "schema:value": ":unav",
+                  "schema:description": "not recorded in the source file; the profile requires this property, so it is reported as unknown rather than omitted or guessed"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "schema:additionalProperty": [
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "xas:edgeenergy"
+            }
+          ],
+          "schema:name": "edge energy",
+          "schema:value": "7112.000",
+          "schema:description": "read from a non-standard file layout (gsecars-athena)"
+        },
+        {
+          "@type": [
+            "schema:PropertyValue"
+          ],
+          "schema:propertyID": [
+            {
+              "@id": "xas:monochromatorchemicalformula"
+            }
+          ],
+          "schema:name": "monochromatorchemicalformula",
+          "schema:value": "Si"
+        }
+      ],
+      "schema:startTime": "2020-08-10T09:18:48",
+      "schema:endTime": "2020-08-12T22:12:09"
+    }
+  ],
+  "schema:variableMeasured": [
+    {
+      "@id": "ex:DV/FeXAS/iv/absorptioncoefficient",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:name": "mutrans",
+      "schema:description": "absorptioncoefficient",
+      "schema:propertyID": [
+        {
+          "@id": "xas:absorptioncoefficient"
+        }
+      ],
+      "cdif:physicalDataType": "xsd:decimal",
+      "cdif:uses": [
+        "https://w3id.org/cdif/testing/FeXAS/rv/absorptioncoefficient"
+      ]
+    },
+    {
+      "@id": "ex:DV/FeXAS/iv/fluorescenceabsorptioncoefficient",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:name": "mufluor",
+      "schema:description": "fluorescence absorptioncoefficient",
+      "schema:propertyID": [
+        {
+          "@id": "xas:fluorescenceabsorptioncoefficient"
+        }
+      ],
+      "cdif:physicalDataType": "xsd:decimal",
+      "cdif:uses": [
+        "https://w3id.org/cdif/testing/FeXAS/rv/fluorescenceabsorptioncoefficient"
+      ],
+      "schema:unitCode": {
+        "@id": "http://qudt.org/vocab/unit/UNITLESS"
+      }
+    },
+    {
+      "@id": "ex:DV/FeXAS/iv/fluorescenceintensity",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:name": "data",
+      "schema:description": "fluorescence intensity",
+      "schema:propertyID": [
+        {
+          "@id": "xas:fluorescenceintensity"
+        }
+      ],
+      "cdif:physicalDataType": "xsd:decimal",
+      "cdif:uses": [
+        "https://w3id.org/cdif/testing/FeXAS/rv/fluorescenceintensity"
+      ]
+    },
+    {
+      "@id": "ex:DV/FeXAS/iv/incidentintensity",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:name": "data",
+      "schema:description": "incident intensity",
+      "schema:propertyID": [
+        {
+          "@id": "xas:incidentintensity"
+        }
+      ],
+      "cdif:physicalDataType": "xsd:decimal",
+      "cdif:uses": [
+        "https://w3id.org/cdif/testing/FeXAS/rv/incidentintensity"
+      ]
+    },
+    {
+      "@id": "ex:DV/FeXAS/iv/monochromatorenergy",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:name": "energy",
+      "schema:description": "monochromator energy",
+      "schema:propertyID": [
+        {
+          "@id": "xas:monochromatorenergy"
+        }
+      ],
+      "cdif:physicalDataType": "xsd:decimal",
+      "cdif:uses": [
+        "https://w3id.org/cdif/testing/FeXAS/rv/monochromatorenergy"
+      ],
+      "schema:unitText": "eV"
+    },
+    {
+      "@id": "ex:DV/FeXAS/iv/transmittedintensity",
+      "@type": [
+        "cdi:InstanceVariable",
+        "schema:PropertyValue"
+      ],
+      "schema:name": "data",
+      "schema:description": "transmitted intensity",
+      "schema:propertyID": [
+        {
+          "@id": "xas:transmittedintensity"
+        }
+      ],
+      "cdif:physicalDataType": "xsd:decimal",
+      "cdif:uses": [
+        "https://w3id.org/cdif/testing/FeXAS/rv/transmittedintensity"
+      ]
+    }
+  ],
+  "schema:subjectOf": {
+    "@id": "https://w3id.org/cdif/testing/FeXAS/metadata",
+    "@type": [
+      "schema:Dataset"
+    ],
+    "schema:additionalType": [
+      {
+        "@id": "dcat:CatalogRecord"
+      }
+    ],
+    "schema:about": {
+      "@id": "https://w3id.org/cdif/testing/FeXAS"
+    },
+    "schema:description": "CDIF metadata generated by cdifnexmetadata from a NeXus/HDF5 file (FeXAS.nxs).",
+    "dcterms:conformsTo": [
+      {
+        "@id": "https://w3id.org/cdif/core/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/discovery/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_description/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/data_structure/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/manifest/1.1"
+      },
+      {
+        "@id": "https://w3id.org/cdif/xasCore/1.0"
+      }
+    ]
+  }
+}
