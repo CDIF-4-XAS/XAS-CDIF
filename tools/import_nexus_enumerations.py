@@ -68,6 +68,11 @@ VOCAB_VERSION = "1.1"
 VOCAB_MODIFIED = "2026-10-27"
 
 RAW = "https://raw.githubusercontent.com/{repo}/{ref}/{path}"
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+# The release package carries copies of the value lists, so release/ stands
+# alone. Written whenever the schemes are written to the repository root.
+RELEASE_VOCABULARIES = REPO_ROOT / "release" / "vocabularies"
 # NXxas moved from applications/ to contributed_definitions/ once already;
 # search all three rather than assuming.
 SEARCH_DIRS = ("contributed_definitions", "applications", "base_classes")
@@ -523,15 +528,19 @@ def main(argv=None) -> int:
         print("\n(dry run - nothing written)")
         return 1 if failed else 0
 
-    args.out_dir.mkdir(parents=True, exist_ok=True)
-    for fname, doc in outputs.items():
-        if doc is None:
-            continue
-        p = args.out_dir / fname
-        p.write_text(json.dumps(doc, indent=2, ensure_ascii=False),
-                     encoding="utf-8")
-        n = len(doc["skos:hasTopConcept"])
-        print(f"  wrote {p}  ({n} concepts)")
+    out_dirs = [args.out_dir]
+    if args.out_dir.resolve() == REPO_ROOT:
+        out_dirs.append(RELEASE_VOCABULARIES)
+    for out_dir in out_dirs:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        for fname, doc in outputs.items():
+            if doc is None:
+                continue
+            p = out_dir / fname
+            p.write_text(json.dumps(doc, indent=2, ensure_ascii=False),
+                         encoding="utf-8")
+            n = len(doc["skos:hasTopConcept"])
+            print(f"  wrote {p}  ({n} concepts)")
 
     return 1 if failed else 0
 

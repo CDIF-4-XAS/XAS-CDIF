@@ -39,7 +39,16 @@ distribution has `schema:hasPart` entries also declares
 - The concept-keyed intermediate `cdifnexmetadata` builds before emitting
   CDIF, and what a new input format (another NeXus application definition,
   say) has to produce, are described in the
-  [repository README](../README.md#the-concept-keyed-intermediate-and-how-to-add-an-input-format).
+  [repository README](https://github.com/CDIF-4-XAS/XAS-CDIF/blob/main/README.md#the-concept-keyed-intermediate-and-how-to-add-an-input-format).
+- **[crosswalk/](crosswalk/)** — the machine-readable mappings: XDI keys
+  and NeXus paths to CDIF XAS concepts (SSSOM), XDI headers to schema.org,
+  concept units, and where each concept is placed in a CDIF document. Its
+  README describes each file. Copies of the repository's `crosswalk/*.tsv`,
+  written by the same build.
+- **[vocabularies/](vocabularies/)** — the three value-list vocabularies
+  (absorption edges, emission lines, detection modes), SKOS concept schemes
+  generated from the NeXus definitions. Copies of the repository's
+  `XAS_*_SKOS.json`, written by the same build.
 - **[XAS_Glossary_SKOS_v2.json](XAS_Glossary_SKOS_v2.json)** — the released
   snapshot of the CDIF XAS glossary (SKOS concept scheme
   `https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts`, version 1.1),
@@ -50,6 +59,11 @@ distribution has `schema:hasPart` entries also declares
   curated, the SSSOM crosswalks, and open items.
 - **[FrameAndValidate.py](FrameAndValidate.py)** — utility script: frame + validate against the schema in one pass.
 - **[examples/](examples/)** — validated XAS document instances.
+- **[LICENSE](LICENSE)**, **[LICENSES/](LICENSES/)** and
+  **[REUSE.toml](REUSE.toml)** — licensing for this folder on its own:
+  CC-BY-4.0 by default; the examples, the glossary snapshot and this README
+  CC0-1.0; `FrameAndValidate.py` Apache-2.0, as in the CDIF validation
+  repository it is copied from.
 
 ## Examples
 
@@ -59,11 +73,6 @@ the JSON Schema and have no SHACL violations:
 - **`exampleCDIFxas.json`** and **`example_dds_framed.jsonld`** — the
   reference examples from mBB, copied by the release sync.
 - **`cdif_dds_framed.jsonld`** — the UKDS/Dataverse-derived example (originally
-- **[LICENSE](LICENSE)**, **[LICENSES/](LICENSES/)** and
-  **[REUSE.toml](REUSE.toml)** — licensing for this folder on its own:
-  CC-BY-4.0 by default; the examples, the glossary snapshot and this README
-  CC0-1.0; `FrameAndValidate.py` Apache-2.0, as in the CDIF validation
-  repository it is copied from.
   from [UKDSResearch/cdif-xas](https://github.com/UKDSResearch/cdif-xas)),
   adapted to conform (see the change log kept alongside the file in mBB).
 - **`valid.jsonld`**, **`valid_angle_dspacing.jsonld`**,

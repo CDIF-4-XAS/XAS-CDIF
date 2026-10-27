@@ -422,7 +422,8 @@ as well as one that is complete.
 
 ### `release/` — the `xasDocument/1.1` profile
 
-The conformance target. Everything a validator needs.
+The conformance target, and the release package: it stands alone, with
+everything a validator needs plus the mappings, vocabularies and licences.
 
 | file | content |
 |---|---|
@@ -433,6 +434,9 @@ The conformance target. Everything a validator needs.
 | `XAS_Glossary_SKOS_v2.json` | the released glossary snapshot |
 | `FrameAndValidate.py` | frame + validate a single document |
 | `examples/` | worked conforming documents |
+| `crosswalk/` | copies of `crosswalk/*.tsv` and its README, written by `build_crosswalk.py` and `build_placement.py` |
+| `vocabularies/` | copies of the three value-list vocabularies, written by `import_nexus_enumerations.py` |
+| `LICENSE`, `LICENSES/`, `REUSE.toml` | licensing for the folder on its own |
 
 Generated from
 [`metadataBuildingBlocks`](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks)

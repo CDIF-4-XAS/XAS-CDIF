@@ -197,10 +197,10 @@ source into a concept-keyed intermediate and then transform *that* into
 CDIF, which is why the two can be compared field by field at all.
 
 **Path A's intermediate is documented in the
-[repository README](../README.md#the-concept-keyed-intermediate-and-how-to-add-an-input-format)**,
+[repository README](https://github.com/CDIF-4-XAS/XAS-CDIF/blob/main/README.md#the-concept-keyed-intermediate-and-how-to-add-an-input-format)**,
 which is also the place to start for adding an input format — another
 NeXus application definition included. Path B's is described in
-[`archive/cdif-xas-rml-intermediate.md`](../archive/cdif-xas-rml-intermediate.md).
+[`archive/cdif-xas-rml-intermediate.md`](https://github.com/CDIF-4-XAS/XAS-CDIF/blob/main/archive/cdif-xas-rml-intermediate.md).
 
 | | Path A (`cdifnexmetadata`) | Path B (`cdif-xas`) |
 |---|---|---|

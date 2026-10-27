@@ -40,7 +40,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from build_crosswalk import GLOSSARY, iter_concepts  # noqa: E402
+from build_crosswalk import GLOSSARY, copy_to_release, iter_concepts  # noqa: E402
 
 OUT = HERE / "cdifxas-placement.tsv"
 # Same release version build_crosswalk.py writes into the other crosswalks.
@@ -176,6 +176,8 @@ def main(argv=None) -> int:
         w.writeheader()
         w.writerows(rows)
     print(f"  wrote {OUT.name} ({len(rows)} concepts)")
+    copy_to_release(OUT.name)
+    print(f"  copied {OUT.name} to release/crosswalk/")
     return 0
 
 

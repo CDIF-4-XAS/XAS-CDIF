@@ -56,6 +56,7 @@ import argparse
 import csv
 import json
 import os
+import shutil
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -84,6 +85,27 @@ SEARCH_DIRS = ("contributed_definitions", "applications", "base_classes")
 
 HERE = Path(__file__).resolve().parent
 GLOSSARY = HERE.parent / "XAS_Glossary_SKOS.json"
+# The release package carries copies of the crosswalks, so release/ stands
+# alone. These are the masters; the copies are refreshed on every build and
+# --check fails when one has drifted.
+RELEASE_CROSSWALK = HERE.parent / "release" / "crosswalk"
+RELEASE_FILES = ("xdi-to-cdifxas.sssom.tsv", "cdifxas-to-nexus.sssom.tsv",
+                 "xdi-to-schemaorg.sssom.tsv", "cdifxas-units.tsv",
+                 "cdifxas-placement.tsv", "README.md")
+
+
+def copy_to_release(*names: str) -> None:
+    RELEASE_CROSSWALK.mkdir(parents=True, exist_ok=True)
+    for name in names:
+        shutil.copyfile(HERE / name, RELEASE_CROSSWALK / name)
+
+
+def release_drift() -> list[str]:
+    """Release copies that are missing or differ from their master."""
+    return [f"release/crosswalk/{n} differs from crosswalk/{n}; rebuild"
+            for n in RELEASE_FILES
+            if not (RELEASE_CROSSWALK / n).is_file()
+            or (RELEASE_CROSSWALK / n).read_bytes() != (HERE / n).read_bytes()]
 # Production RML mapping -- the ground truth for which XDI-derived concept
 # keys the converter actually consumes. It lives in a separate repository,
 # so look for a checkout beside this one. $CDIF_XAS_RML overrides, and is
@@ -845,7 +867,10 @@ def main(argv=None) -> int:
             print("  all subjects and objects resolve\n")
 
     if args.check:
-        return 1 if problems else 0
+        drift = release_drift()
+        for d in drift:
+            print(f"  ! {d}")
+        return 1 if problems or drift else 0
 
     meta1, rows1 = build_xdi_set(args.ref)
     meta2, rows2 = build_nexus_set(args.ref)
@@ -858,6 +883,10 @@ def main(argv=None) -> int:
     print(f"  wrote cdifxas-to-nexus.sssom.tsv   ({len(rows2)} mappings)")
     n_units = write_units(HERE / "cdifxas-units.tsv")
     print(f"  wrote cdifxas-units.tsv             ({n_units} concepts)")
+    # The placement table is build_placement.py's output; copy it too so
+    # the release folder always has the full set.
+    copy_to_release(*RELEASE_FILES)
+    print(f"  copied {len(RELEASE_FILES)} files to release/crosswalk/")
 
     return 1 if problems else 0
 
