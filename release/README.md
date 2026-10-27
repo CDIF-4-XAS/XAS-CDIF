@@ -39,6 +39,11 @@ distribution has `schema:hasPart` entries also declares
   CDIF, and what a new input format (another NeXus application definition,
   say) has to produce, are described in the
   [repository README](../README.md#the-concept-keyed-intermediate-and-how-to-add-an-input-format).
+- **[XAS_Glossary_SKOS_v2.json](XAS_Glossary_SKOS_v2.json)** — the released
+  snapshot of the CDIF XAS glossary (SKOS concept scheme
+  `https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts`, version 1.1),
+  copied from the working `XAS_Glossary_SKOS.json` at the repository root.
+  Documents use its concept URIs as `schema:propertyID` values.
 - **[glossaryProvenance.md](glossaryProvenance.md)** — where the XAS
   vocabularies come from, how they were built, what is generated versus
   curated, the SSSOM crosswalks, and open items.
