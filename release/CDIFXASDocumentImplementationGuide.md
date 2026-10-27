@@ -2,7 +2,9 @@
 
 **Version 1.1** (XAS-CDIF release 1.1) — 2026-10-26
 
-**Conformance URI:** `https://w3id.org/cdif/xasDocument/1.0`
+**Conformance URI:** `https://w3id.org/cdif/xasDocument/1.1` (with the
+tiers `xasCore/1.1` and `xasOptional/1.1`; all three were 1.0 before
+XAS-CDIF release 1.1)
 
 This document describes the CDIF XAS Document Profile — a document-level
 profile for X-ray Absorption Spectroscopy datasets serialized as
@@ -63,8 +65,8 @@ interpret the spectrum.
 | CDIF Discovery | `cdif/discovery/1.1` | Optional discovery (creator, contributor, spatial/temporal coverage, keywords, etc.) |
 | CDIF Data Description | `cdif/data_description/1.1` | `schema:variableMeasured` (measured variables and their semantics) |
 | CDIF Data Structure | `cdif/data_structure/1.1` | `cdi:isStructuredBy` (physical / logical / tabular structure) |
-| XAS Core | `cdif/xasCore/1.0` | XAS-mandatory analysis activity, instruments, technique; sample shape |
-| XAS Optional | `cdif/xasOptional/1.0` | XAS-recommended: data-array variables, beamline-operational and sample physico-chemical additionalProperty vocabularies |
+| XAS Core | `cdif/xasCore/1.1` | XAS-mandatory analysis activity, instruments, technique; sample shape |
+| XAS Optional | `cdif/xasOptional/1.1` | XAS-recommended: data-array variables, beamline-operational and sample physico-chemical additionalProperty vocabularies |
 
 Full JSON Schema, SHACL rules, JSON-LD frame, and example documents for
 each component are in that component's release repo (see [Related
@@ -89,7 +91,7 @@ root Dataset, and that record declares conformance to these five URIs:
         { "@id": "https://w3id.org/cdif/discovery/1.1" },
         { "@id": "https://w3id.org/cdif/data_description/1.1" },
         { "@id": "https://w3id.org/cdif/data_structure/1.1" },
-        { "@id": "https://w3id.org/cdif/xasCore/1.0" }
+        { "@id": "https://w3id.org/cdif/xasCore/1.1" }
     ]
 }
 ```
@@ -99,7 +101,7 @@ A document whose distribution has `schema:hasPart` entries (see [Where
 manifest and MUST also declare `https://w3id.org/cdif/manifest/1.1`; the
 schema requires it whenever any distribution has parts.
 
-`xasOptional/1.0` is deliberately **not** declared. The xasOptional module
+`xasOptional/1.1` is deliberately **not** declared. The xasOptional module
 adds no required content — every property it contributes is optional — so
 conformance to it is satisfied vacuously by any document, and
 `detect_conformance` has no rule that can check such a claim. Declaring it
@@ -227,7 +229,7 @@ to extract the Dataset from a graph before validating.
 | `time` | `http://www.w3.org/2006/time#` | temporal |
 
 The context is not yet served at a w3id URI
-(`https://w3id.org/cdif/xasDocument/1.0/context` returns 404), so
+(`https://w3id.org/cdif/xasDocument/1.1/context` returns 404), so
 documents declare these prefixes in their own `@context`.
 
 
@@ -354,7 +356,7 @@ See the [CDIF Data Structure IG](https://cross-domain-interoperability-framework
 
 ## XAS-specific requirements
 
-The subsections below list the requirements *added* by `xasCore/1.0`. They
+The subsections below list the requirements *added* by `xasCore/1.1`. They
 are enforced by the SHACL rules in `xasDocumentRules.shacl` and by
 targeted JSON Schema constraints; see the mBB source at
 [`_sources/xasProperties/xasCore/`](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/_sources/xasProperties/xasCore).

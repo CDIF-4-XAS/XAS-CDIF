@@ -1,13 +1,14 @@
 # CDIF XAS Document Profile — XAS-CDIF release 1.1
 
 Document-level CDIF profile for X-ray Absorption Spectroscopy datasets. This
-directory contains the release artifacts for the `cdif/xasDocument/1.0`
-conformance URI, as packaged in XAS-CDIF release 1.1. The profile keeps
-version 1.0; 1.1 numbers the package (vocabularies, crosswalks and guides).
+directory contains the release artifacts for the `cdif/xasDocument/1.1`
+conformance URI, released in XAS-CDIF 1.1. The profile and its XAS tiers
+were 1.0 before this release; a document now declares `xasCore/1.1`, and
+one declaring `xasCore/1.0` does not validate.
 
 ## Conformance URI
 
-`https://w3id.org/cdif/xasDocument/1.0`
+`https://w3id.org/cdif/xasDocument/1.1`
 
 ## What this profile composes
 
@@ -17,11 +18,11 @@ version 1.0; 1.1 numbers the package (vocabularies, crosswalks and guides).
 | [CDIF Discovery](https://w3id.org/cdif/discovery/1.1) | `cdif/discovery/1.1` | Optional discovery content (spatial, temporal, etc.) |
 | [CDIF Data Description](https://w3id.org/cdif/data_description/1.1) | `cdif/data_description/1.1` | Measured variables and their semantics |
 | [CDIF Data Structure](https://w3id.org/cdif/data_structure/1.1) | `cdif/data_structure/1.1` | Physical / logical / tabular data structure |
-| [XAS Core](https://w3id.org/cdif/xasCore/1.0) | `cdif/xasCore/1.0` | XAS-mandatory analysis activity, instruments and measurement technique; sample shape |
-| [XAS Optional](https://w3id.org/cdif/xasOptional/1.0) | `cdif/xasOptional/1.0` | XAS-recommended propertyIDs for data columns, beamline, sample and analysis activity; no requirements |
+| [XAS Core](https://w3id.org/cdif/xasCore/1.1) | `cdif/xasCore/1.1` | XAS-mandatory analysis activity, instruments and measurement technique; sample shape |
+| [XAS Optional](https://w3id.org/cdif/xasOptional/1.1) | `cdif/xasOptional/1.1` | XAS-recommended propertyIDs for data columns, beamline, sample and analysis activity; no requirements |
 
 A conforming XAS document declares five of these URIs in
-`schema:subjectOf.dcterms:conformsTo` — all but `xasOptional/1.0`, which
+`schema:subjectOf.dcterms:conformsTo` — all but `xasOptional/1.1`, which
 adds no requirements and so is not declared. A document whose
 distribution has `schema:hasPart` entries also declares
 `https://w3id.org/cdif/manifest/1.1`.

@@ -1,6 +1,6 @@
 # XAS data to CDIF metadata — the two workflows
 
-How a metadata record is generated from a raw XAS dataset. The metadata record conforms to `cdif/xasDocument/1.0`. There are **two independent implementations**.
+How a metadata record is generated from a raw XAS dataset. The metadata record conforms to `cdif/xasDocument/1.1`. There are **two independent implementations**.
 They share no code — only the target profile.
 
  [cdifnexmetadata](https://github.com/CDIF-4-XAS/cdifnexmetadata/tree/main) reads both
@@ -286,7 +286,7 @@ target profile is explicit and reproducible rather than implicit.
 
 ## Status and contacts
 
-- The **profile** (`cdif/xasDocument/1.0`) is released; all 14 examples
+- The **profile** (`cdif/xasDocument/1.1`) is released; all 14 examples
   in `examples/` pass JSON Schema and SHACL.
 - The **vocabulary** is 106 concepts plus three value lists (39 edges, 432
   emission lines, 7 detection modes), pinned to a specific NeXus fork

@@ -2,7 +2,7 @@
 
 Where the CDIF XAS vocabularies come from, how they were built, and what
 is generated versus curated. Part of the XAS-CDIF 1.1 release package
-for `cdif/xasDocument/1.0`.
+for `cdif/xasDocument/1.1`.
 
 Verified against the repository on 2026-08-25.
 

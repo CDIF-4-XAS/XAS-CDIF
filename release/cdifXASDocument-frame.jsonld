@@ -1,5 +1,5 @@
 {
-  "_comment": "JSON-LD frame for the CDIF xasDocument/1.0 composite profile (https://w3id.org/cdif/xasDocument/1.0). Structures a JSON-LD input to match the shape the resolved JSON Schema expects: schema:Dataset root, embedded distribution / structure / variableMeasured / provenance / contributor blocks, and XAS-specific slots on the wasGeneratedBy activity (peer schema:instrument under prov:used, schema:object MaterialSample, schema:measurementTechnique / schema:keywords DefinedTerms). Based on the CDIF Data Description Structure profile frame, extended with the XAS-specific sub-frames enumerated below.",
+  "_comment": "JSON-LD frame for the CDIF xasDocument/1.1 composite profile (https://w3id.org/cdif/xasDocument/1.1). Structures a JSON-LD input to match the shape the resolved JSON Schema expects: schema:Dataset root, embedded distribution / structure / variableMeasured / provenance / contributor blocks, and XAS-specific slots on the wasGeneratedBy activity (peer schema:instrument under prov:used, schema:object MaterialSample, schema:measurementTechnique / schema:keywords DefinedTerms). Based on the CDIF Data Description Structure profile frame, extended with the XAS-specific sub-frames enumerated below.",
   "@context": {
     "schema": "http://schema.org/",
     "dcterms": "http://purl.org/dc/terms/",
@@ -464,7 +464,7 @@
       "@embed": "@always"
     }
   },
-  "_comment_subjectOf": "CatalogRecord for the dataset: dcterms:conformsTo declares the profile URIs (cdifCore/1.1, cdifDiscovery/1.1, cdifDataDescription/1.1, cdifDataStructure/1.1, xasCore/1.0). xasOptional/1.0 is deliberately absent: that module declares no required content, so conformance to it is vacuous and undetectable.",
+  "_comment_subjectOf": "CatalogRecord for the dataset: dcterms:conformsTo declares the profile URIs (cdifCore/1.1, cdifDiscovery/1.1, cdifDataDescription/1.1, cdifDataStructure/1.1, xasCore/1.1). xasOptional/1.1 is deliberately absent: that module declares no required content, so conformance to it is vacuous and undetectable.",
   "schema:subjectOf": {
     "@embed": "@always",
     "schema:about": {

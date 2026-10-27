@@ -3497,7 +3497,7 @@
             "additionalProperties": false,
             "properties": {
               "@id": {
-                "const": "https://w3id.org/cdif/xasCore/1.0"
+                "const": "https://w3id.org/cdif/xasCore/1.1"
               }
             }
           }

@@ -18,14 +18,14 @@ canonical repository — and `smrgeoinfo/XAS-CDIF`, a fork of it. As of
 2026-09-27 the two are at the same commit.
 
 This branch is version 1.1, and goes well beyond the 1.0 deliverable: a
-`xasDocument/1.0` release profile, a rebuilt glossary, machine-readable
+`xasDocument/1.1` release profile, a rebuilt glossary, machine-readable
 crosswalks, and a 55-file test corpus with generated metadata. The
 published 1.0 files are preserved in `archive/XAS-CDIF-1.0_release/`.
 
-The version numbers are separate: 1.1 numbers this repository's release
-(the vocabularies carry `schema:version` 1.1 and the crosswalks
-`mapping_set_version` 1.1), while the profile it ships keeps its
-conformance URI `xasDocument/1.0`. `cdifxasRelease1.1` is **not yet tagged
+Everything in it carries 1.1: the vocabularies (`schema:version`), the
+crosswalks (`mapping_set_version`) and the profile's conformance URIs,
+`xasDocument/1.1` with its tiers `xasCore/1.1` and `xasOptional/1.1`
+(1.0 until this release). `cdifxasRelease1.1` is **not yet tagged
 or released** — the only tag in the repository is `1.0` — so it is a
 working branch rather than a published state, pending sign-off from the
 XAS team.
@@ -129,7 +129,7 @@ maintain the vocabulary artifacts, not the example metadata.
 
 [`CDIF-4-XAS/cdifnexmetadata`](https://github.com/CDIF-4-XAS/cdifnexmetadata)
 is a separate repository: the Python converter that reads NeXus/HDF5 and
-XDI files and writes CDIF JSON-LD conforming to the `xasDocument/1.0`
+XDI files and writes CDIF JSON-LD conforming to the `xasDocument/1.1`
 profile. The two divide the work as **specification here, implementation
 there**. This repository defines the concepts, the field-to-concept
 mappings and the profile. `cdifnexmetadata` applies them to files.
@@ -420,7 +420,7 @@ as well as one that is complete.
 
 ## Directory inventory
 
-### `release/` — the `xasDocument/1.0` profile
+### `release/` — the `xasDocument/1.1` profile
 
 The conformance target. Everything a validator needs.
 

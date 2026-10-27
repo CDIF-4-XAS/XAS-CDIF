@@ -1,7 +1,7 @@
 # Implementing the CDIF XAS profile
 
 Review and minor updates SMR 2026-07-17; revised 2026-10-26 for XAS-CDIF
-release 1.1, against the `xasDocument/1.0` profile in `release/`.
+release 1.1, against the `xasDocument/1.1` profile in `release/`.
 
 This is an overview in prose. The normative statement is the resolved JSON
 Schema and SHACL rules in `release/`, and the class-by-class detail is in
@@ -56,12 +56,12 @@ the profiles the document conforms to:
         {"@id": "https://w3id.org/cdif/discovery/1.1"},
         {"@id": "https://w3id.org/cdif/data_description/1.1"},
         {"@id": "https://w3id.org/cdif/data_structure/1.1"},
-        {"@id": "https://w3id.org/cdif/xasCore/1.0"}
+        {"@id": "https://w3id.org/cdif/xasCore/1.1"}
     ]
 }
 ```
 
-`xasOptional/1.0` is not declared: that module adds no required content, so a
+`xasOptional/1.1` is not declared: that module adds no required content, so a
 claim to conform to it is vacuous and cannot be checked.
 
 ## 1\. Define variables
