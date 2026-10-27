@@ -1,6 +1,7 @@
 # mapping_set_id: https://w3id.org/cdif/xas/crosswalk/xdi-to-schemaorg
 # mapping_set_title: XDI extension headers to standard CDIF properties
 # mapping_set_description: Bibliographic and rights headers seen in XDI data that CDIF models with schema.org rather than with an XAS concept. Held separately from xdi-to-cdifxas so that each set has a single object_source. Subjects are extension headers (source 'dat' in the project mapping spreadsheet), not XDI/1.0 dictionary tags.
+# mapping_set_version: 1.1
 # license: https://creativecommons.org/licenses/by/4.0/
 # mapping_provider: https://github.com/CDIF-4-XAS/XAS-CDIF
 # creator_id:

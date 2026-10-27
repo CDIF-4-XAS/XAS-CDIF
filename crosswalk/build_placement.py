@@ -43,6 +43,8 @@ sys.path.insert(0, str(HERE))
 from build_crosswalk import GLOSSARY, iter_concepts  # noqa: E402
 
 OUT = HERE / "cdifxas-placement.tsv"
+# Same release version build_crosswalk.py writes into the other crosswalks.
+VOCAB_VERSION = "1.1"
 EMIT = Path("src/cdifnexmetadata/emit.py")
 
 # Where each emit.py slot target lands in the document, read off
@@ -161,6 +163,7 @@ def main(argv=None) -> int:
         "# derived_from: https://github.com/CDIF-4-XAS/cdifnexmetadata/"
         f"blob/{rev or 'main'}/{EMIT.as_posix()}",
         "# mapping_tool: crosswalk/build_placement.py",
+        "# version: " + VOCAB_VERSION,
         "# path_notation: from the root Dataset; [x] selects the array "
         "item whose schema:additionalType is x; ' ; ' separates two places",
         "# unlisted_concepts: emitted as a PropertyValue in "

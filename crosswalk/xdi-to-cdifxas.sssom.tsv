@@ -1,6 +1,7 @@
 # mapping_set_id: https://w3id.org/cdif/xas/crosswalk/xdi-to-cdifxas
 # mapping_set_title: XDI dictionary terms to CDIF XAS concepts (all detection modes)
 # mapping_set_description: One of two bindings onto the CDIF XAS concept hub. Subject IRIs are minted under CDIF w3id because the XDI specification defines none. Scope is the transmission slice.
+# mapping_set_version: 1.1
 # license: https://creativecommons.org/licenses/by/4.0/
 # mapping_provider: https://github.com/CDIF-4-XAS/XAS-CDIF
 # creator_id:

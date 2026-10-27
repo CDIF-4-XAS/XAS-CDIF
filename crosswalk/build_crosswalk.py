@@ -75,6 +75,10 @@ REPO = "XraySpectroscopy/nexus_definitions"
 # 89971f39 is 2026-07-03, the state the enumerations were built from.
 PINNED_REF = "89971f3922664b5c3fc5eb9929b2fbf5252dcefd"
 
+# Release version of the CDIF XAS vocabularies and crosswalks. Written into
+# every generated file; bump it together with the glossary's schema:version.
+VOCAB_VERSION = "1.1"
+
 RAW = "https://raw.githubusercontent.com/{repo}/{ref}/{path}"
 SEARCH_DIRS = ("contributed_definitions", "applications", "base_classes")
 
@@ -673,6 +677,7 @@ def build_xdi_set(ref: str) -> tuple[dict, list[dict]]:
             "One of two bindings onto the CDIF XAS concept hub. Subject "
             "IRIs are minted under CDIF w3id because the XDI specification "
             "defines none. Scope is the transmission slice.",
+        "mapping_set_version": VOCAB_VERSION,
         "license": "https://creativecommons.org/licenses/by/4.0/",
         "mapping_provider": "https://github.com/CDIF-4-XAS/XAS-CDIF",
         "creator_id": [f"orcid:{CURATOR.rsplit('/', 1)[-1]}"],
@@ -711,6 +716,7 @@ def build_cdif_set() -> tuple[dict, list[dict]]:
             "separately from xdi-to-cdifxas so that each set has a single "
             "object_source. Subjects are extension headers (source 'dat' in "
             "the project mapping spreadsheet), not XDI/1.0 dictionary tags.",
+        "mapping_set_version": VOCAB_VERSION,
         "license": "https://creativecommons.org/licenses/by/4.0/",
         "mapping_provider": "https://github.com/CDIF-4-XAS/XAS-CDIF",
         "creator_id": [f"orcid:{CURATOR.rsplit('/', 1)[-1]}"],
@@ -750,6 +756,7 @@ def build_nexus_set(ref: str) -> tuple[dict, list[dict]]:
             "redirect-later basis. Mappings target NeXus BASE classes "
             "wherever the concept is a property of a kind of thing rather "
             "than a requirement of the technique.",
+        "mapping_set_version": VOCAB_VERSION,
         "license": "https://creativecommons.org/licenses/by/4.0/",
         "mapping_provider": "https://github.com/CDIF-4-XAS/XAS-CDIF",
         "creator_id": [f"orcid:{CURATOR.rsplit('/', 1)[-1]}"],
@@ -797,6 +804,7 @@ def write_units(path: Path) -> int:
         + GLOSSARY.name + "; edit the glossary, not this file.",
         "# unit_id is a QUDT CURIE; unit: expands to "
         "http://qudt.org/vocab/unit/",
+        "# version: " + VOCAB_VERSION,
     ]
     with path.open("w", encoding="utf-8", newline="") as f:
         for line in header:

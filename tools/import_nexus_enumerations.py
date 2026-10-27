@@ -59,6 +59,10 @@ REPO = "XraySpectroscopy/nexus_definitions"
 # 89971f39 is 2026-07-03, the state the enumerations were built from.
 PINNED_REF = "89971f3922664b5c3fc5eb9929b2fbf5252dcefd"
 
+# Release version of the CDIF XAS vocabularies and crosswalks. Written into
+# every generated file; bump it together with the glossary's schema:version.
+VOCAB_VERSION = "1.1"
+
 RAW = "https://raw.githubusercontent.com/{repo}/{ref}/{path}"
 # NXxas moved from applications/ to contributed_definitions/ once already;
 # search all three rather than assuming.
@@ -257,10 +261,13 @@ def build_scheme(scheme_id, title, description, concepts, source_note):
         "note": en(source_note),
         "hasTopConcept": [skosify(c) for c in concepts],
     })
+    scheme["schema:version"] = VOCAB_VERSION
     scheme["schema:subjectOf"] = {
         "@id": f"{uri}#catalog-record",
         "@type": ["schema:Dataset"],
-        "schema:additionalType": ["dcat:CatalogRecord"],
+        # An IRI reference, not the string "dcat:CatalogRecord": the concept
+        # scheme profile requires the object form.
+        "schema:additionalType": [{"@id": "dcat:CatalogRecord"}],
         "schema:about": {"@id": uri},
         "dcterms:conformsTo": [{"@id": CDIF_CONCEPTSCHEME_PROFILE}],
     }

@@ -2791,13 +2791,14 @@
     "@value": "Reference concepts for describing X-ray absorption spectroscopy data in CDIF metadata: measurement quantities, instrument components, sample properties and processing results. Serves as the technique vocabulary that the XDI and NeXus bindings both map onto.",
     "@language": "en"
   },
+  "schema:version": "1.1",
   "schema:subjectOf": {
     "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts#catalog-record",
     "@type": [
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {"@id": "dcat:CatalogRecord"}
     ],
     "schema:about": {
       "@id": "https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts"
