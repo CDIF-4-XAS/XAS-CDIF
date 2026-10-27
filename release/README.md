@@ -60,10 +60,11 @@ distribution has `schema:hasPart` entries also declares
 - **[FrameAndValidate.py](FrameAndValidate.py)** — utility script: frame + validate against the schema in one pass.
 - **[examples/](examples/)** — validated XAS document instances.
 - **[LICENSE](LICENSE)**, **[LICENSES/](LICENSES/)** and
-  **[REUSE.toml](REUSE.toml)** — licensing for this folder on its own:
-  CC-BY-4.0 by default; the examples, the glossary snapshot and this README
-  CC0-1.0; `FrameAndValidate.py` Apache-2.0, as in the CDIF validation
-  repository it is copied from.
+  **[REUSE.toml](REUSE.toml)** — licensing for this folder on its own,
+  REUSE-compliant: the profile, guides, crosswalks and value lists
+  CC-BY-4.0 (World Fair CDIF working group); the examples, the glossary
+  snapshot and this README CC0-1.0; `FrameAndValidate.py` Apache-2.0, as in
+  the CDIF validation repository it is copied from.
 
 ## Examples
 

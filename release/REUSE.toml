@@ -1,14 +1,31 @@
 version = 1
 
 # Licensing for the release package on its own, with paths relative to this
-# folder. It follows the repository-root REUSE.toml: files not listed here
-# are under LICENSE (CC-BY-4.0).
+# folder. Every file is listed: REUSE does not apply LICENSE to files that
+# carry no annotation.
 
 
 [[annotations]]
 path = "README.md"
 SPDX-FileCopyrightText = "NONE"
 SPDX-License-Identifier = "CC0-1.0"
+
+
+[[annotations]]
+# The profile (schema, frame, SHACL), its guides, the crosswalks and the
+# value-list vocabularies.
+path = [
+    "cdifXASDocumentResolvedSchema.json",
+    "cdifXASDocument-frame.jsonld",
+    "xasDocumentRules.shacl",
+    "CDIFXASDocumentImplementationGuide.md",
+    "glossaryProvenance.md",
+    "xasToCdifWorkflows.md",
+    "crosswalk/*",
+    "vocabularies/*",
+]
+SPDX-FileCopyrightText = "2025-2026 World Fair CDIF working group"
+SPDX-License-Identifier = "CC-BY-4.0"
 
 
 [[annotations]]
