@@ -273,6 +273,7 @@
     }
   ],
   "schema:version": "1.1",
+  "dcterms:modified": "2026-10-27",
   "schema:subjectOf": {
     "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes#catalog-record",
     "@type": [
