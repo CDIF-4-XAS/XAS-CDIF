@@ -1,7 +1,8 @@
 name: Publish glossary docs
 
 # Regenerates the browsable glossary HTML plus the per-concept SKOS JSON-LD
-# files from the working-copy XAS_Glossary_SKOS.json, and deploys
+# files from the working-copy XAS_Glossary_SKOS.json, renders the three
+# value-list vocabularies to HTML with the iSamples tooling, and deploys
 # the site to GitHub Pages (gh-pages branch). Runs on every push to a
 # listed branch that changes a vocabulary, either generator or this
 # workflow, plus workflow_dispatch for manual runs.
@@ -22,6 +23,7 @@ on:
       - 'XAS_detectionmodes_SKOS.json'
       - 'tools/generate_glossary_html.py'
       - 'tools/generate_concept_files.py'
+      - 'tools/render_value_list_pages.py'
       - 'build/docs/**'
       - '.github/workflows/build-docs.yml'
   workflow_dispatch:
@@ -104,6 +106,30 @@ jobs:
 
       - name: Generate per-concept SKOS JSON-LD files
         run: python tools/generate_concept_files.py
+
+      # The three value lists are rendered with the iSamples vocabulary
+      # tooling, as the CDIF provenance activity types are: its markdown
+      # writer (vocab2mdCacheV2) on an rdflib graph, then Quarto. Pinned to
+      # the commit profile-provenance uses (isamplesorg/vocabularies PR #40,
+      # whose requirements pin setuptools<81 for Python 3.12). Called
+      # directly rather than through the iSamples GitHub Action, whose cache
+      # loader fails on a fresh cache at this commit.
+      - name: Check out the iSamples vocabulary tooling
+        uses: actions/checkout@v5
+        with:
+          repository: isamplesorg/vocabularies
+          ref: 43af182f656ab09ffb3dce958bdccb5d640c89d2
+          path: .isamples
+
+      - name: Install the iSamples writer's dependencies
+        run: pip install -r .isamples/tools/requirements.txt
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.6.43
+
+      - name: Render the value-list pages
+        run: python tools/render_value_list_pages.py --isamples .isamples/tools
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4

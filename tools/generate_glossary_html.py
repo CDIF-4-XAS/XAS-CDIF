@@ -321,6 +321,9 @@ XDI column definitions, sample properties Nexus doesn't model) exist as XAS-spec
 <dt>Namespace</dt><dd><a class="ref" href="{html.escape(scheme_uri)}">{html.escape(scheme_uri)}</a></dd>
 <dt>Concepts</dt><dd>{len(concepts)}</dd>
 <dt>Source</dt><dd><a class="ref" href="{html.escape(source_path.name)}">{html.escape(source_path.name)}</a></dd>
+<dt>Value lists</dt><dd><a class="ref" href="XAS_edges_SKOS.html">absorption edges</a> ·
+<a class="ref" href="XAS_emissionlines_SKOS.html">emission lines</a> ·
+<a class="ref" href="XAS_detectionmodes_SKOS.html">detection modes</a></dd>
 </dl>
 </section>
 {chr(10).join(render_concept(c, concept_by_uri, narrower) for c in concepts_sorted)}

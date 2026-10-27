@@ -62,6 +62,10 @@ PINNED_REF = "89971f3922664b5c3fc5eb9929b2fbf5252dcefd"
 # Release version of the CDIF XAS vocabularies and crosswalks. Written into
 # every generated file; bump it together with the glossary's schema:version.
 VOCAB_VERSION = "1.1"
+# dcterms:modified on each generated scheme; the rendered vocabulary pages
+# show it. A constant, not today's date, so regeneration is reproducible:
+# set it when the vocabularies change.
+VOCAB_MODIFIED = "2026-10-27"
 
 RAW = "https://raw.githubusercontent.com/{repo}/{ref}/{path}"
 # NXxas moved from applications/ to contributed_definitions/ once already;
@@ -262,6 +266,7 @@ def build_scheme(scheme_id, title, description, concepts, source_note):
         "hasTopConcept": [skosify(c) for c in concepts],
     })
     scheme["schema:version"] = VOCAB_VERSION
+    scheme["dcterms:modified"] = VOCAB_MODIFIED
     scheme["schema:subjectOf"] = {
         "@id": f"{uri}#catalog-record",
         "@type": ["schema:Dataset"],

@@ -22,6 +22,7 @@ python crosswalk/build_placement.py                  # cdifxas-placement.tsv, fr
 # Glossary site (what CI runs; output to build/docs/, which is gitignored)
 python tools/generate_glossary_html.py
 python tools/generate_concept_files.py [--dry-run]
+python tools/render_value_list_pages.py --isamples ../../iSamples/vocabularies/tools  # needs quarto
 
 # Value-list vocabularies from NeXus NXDL enumerations
 python tools/import_nexus_enumerations.py [--dry-run]

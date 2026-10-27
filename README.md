@@ -654,6 +654,7 @@ implementations can be compared on identical inputs, which is what
 |---|---|
 | `generate_concept_files.py` | per-concept files from the glossary |
 | `generate_glossary_html.py` | the browsable glossary |
+| `render_value_list_pages.py` | HTML pages for the three value lists, with the [iSamples vocabulary tooling](https://github.com/isamplesorg/vocabularies) and Quarto |
 | `add_detection_mode_concepts.py` | detection-mode concepts |
 | `import_nexus_enumerations.py` | pulls enumerated values from NXDL into the three value-list vocabularies (not the glossary) |
 
@@ -807,7 +808,24 @@ chain.
 
 ## Browsable glossary
 
-See `tools/generate_glossary_html.py`.
+Published at <https://cdif-4-xas.github.io/XAS-CDIF/> by
+`.github/workflows/build-docs.yml`:
+
+- `index.html`, the glossary, from `tools/generate_glossary_html.py`;
+- `XAS_edges_SKOS.html`, `XAS_emissionlines_SKOS.html` and
+  `XAS_detectionmodes_SKOS.html`, the value lists, rendered by
+  `tools/render_value_list_pages.py` with the iSamples vocabulary writer
+  (`vocab2mdCacheV2.py` in
+  [isamplesorg/vocabularies](https://github.com/isamplesorg/vocabularies),
+  pinned in the workflow) and Quarto, as the CDIF provenance activity
+  types are. Every concept has an anchor named for the last segment of
+  its URI, so `<page>#<localname>` reaches it;
+- the vocabulary JSON-LD files and one JSON-LD file per glossary concept
+  under `concepts/`.
+
+To build the value-list pages locally, install the iSamples
+`tools/requirements.txt` and Quarto, then
+`python tools/render_value_list_pages.py --isamples <checkout>/tools`.
 
 ## Copyright and License
 
