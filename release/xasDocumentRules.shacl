@@ -774,8 +774,8 @@ cdifd:QualifiesRequiredForAttributeShape a sh:NodeShape ;
 
 cdifd:XasCoreConformsToShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
-            sh:hasValue <https://w3id.org/cdif/xasCore/1.0> ;
-            sh:message "Metadata record must declare conformance to the CDIF XAS core profile (https://w3id.org/cdif/xasCore/1.0)" ;
+            sh:hasValue <https://w3id.org/cdif/xasCore/1.1> ;
+            sh:message "Metadata record must declare conformance to the CDIF XAS core profile (https://w3id.org/cdif/xasCore/1.1)" ;
             sh:path dcterms:conformsTo ] ;
     sh:target [ a sh:SPARQLTarget ;
             sh:select """
