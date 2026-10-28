@@ -36,9 +36,26 @@ cdifd:AdditionalTypeUriShouldBeIRIShape a sh:NodeShape ;
     sh:severity sh:Violation ;
     sh:targetObjectsOf schema:additionalType .
 
-cdifd:CDIFActionShape a sh:NodeShape ;
-    sh:property [ sh:class schema:EntryPoint ;
-            sh:minCount 1 ;
+cdifd:CDIFActionQueryInputShape a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class schema:PropertyValueSpecification ;
+            sh:path schema:query-input ;
+            sh:property [ sh:datatype xsd:boolean ;
+                    sh:message "valueRequired is specified by a boolean (not a string) value, either 'true' or 'false'" ;
+                    sh:path schema:valueRequired ],
+                [ sh:datatype xsd:string ;
+                    sh:message "if a URL template has query parameters, match the parameter name in this field and provide a description" ;
+                    sh:minCount 1 ;
+                    sh:path schema:valueName ],
+                [ sh:datatype xsd:string ;
+                    sh:message "provide a description for the query parameter" ;
+                    sh:minCount 1 ;
+                    sh:path schema:description ] ] ;
+    sh:targetSubjectsOf schema:query-input .
+
+cdifd:CDIFActionTargetShape a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:class schema:EntryPoint ;
             sh:path schema:target ;
             sh:property [ sh:datatype xsd:string ;
                     sh:path schema:contentType ],
@@ -47,33 +64,19 @@ cdifd:CDIFActionShape a sh:NodeShape ;
                     sh:minCount 1 ;
                     sh:path schema:urlTemplate ],
                 [ sh:datatype xsd:string ;
-                    sh:path schema:httpMethod ] ],
-        [ sh:class schema:PropertyValueSpecification ;
-            sh:path schema:query-input ;
-            sh:property [ sh:datatype xsd:string ;
-                    sh:message "if a URL template has query parameters, match the parameter name in this field and provide a description" ;
-                    sh:minCount 1 ;
-                    sh:path schema:valueName ],
-                [ sh:datatype xsd:string ;
-                    sh:message "provide a description for the query parameter" ;
-                    sh:minCount 1 ;
-                    sh:path schema:description ],
-                [ sh:datatype xsd:boolean ;
-                    sh:message "valueRequired is specified by a boolean (not a string) value, either 'true' or 'false'" ;
-                    sh:path schema:valueRequired ] ] ;
+                    sh:path schema:httpMethod ] ] ;
     sh:target [ a sh:SPARQLTarget ;
             sh:select """
             PREFIX schema: <http://schema.org/>
-            PREFIX prov: <http://www.w3.org/ns/prov#>
             SELECT ?this WHERE {
                 ?this a ?type .
+                ?this schema:target ?target .
                 FILTER (?type IN (
                     schema:Action, schema:AssessAction, schema:ConsumeAction,
                     schema:ControlAction, schema:CreateAction, schema:FindAction,
                     schema:InteractAction, schema:MoveAction, schema:PlayAction, schema:SearchAction,
                     schema:DeleteAction, schema:TransferAction, schema:UpdateAction
                 ))
-                FILTER NOT EXISTS { ?this a prov:Activity }
             }
         """ ] .
 
@@ -574,6 +577,13 @@ cdifd:CDIFVariableMeasuredShape a sh:NodeShape ;
         }
       }""" ] .
 
+cdifd:CDIFWebServiceActionShape a sh:NodeShape ;
+    sh:property [ a sh:PropertyShape ;
+            sh:message "An action offered as a schema:potentialAction must carry a schema:target giving the endpoint to invoke it." ;
+            sh:minCount 1 ;
+            sh:path schema:target ] ;
+    sh:targetObjectsOf schema:potentialAction .
+
 cdifd:CDIFadditionalPropertyShape a sh:NodeShape ;
     sh:message "The propertyID identifies the kind of property represented by the variable. a propertyID must be a uri reference, a name string, or a schema:DefinedTerm",
         "the context of an identifier, the PropertyValue provides the identifeir value string-- either as a schema:value or a url. The value can be either a full URI or identifier token part of URI if a url is provided. url value must be a resolvable URI that identifies the resoruce." ;
@@ -764,8 +774,8 @@ cdifd:QualifiesRequiredForAttributeShape a sh:NodeShape ;
 
 cdifd:XasCoreConformsToShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
-            sh:hasValue <https://w3id.org/cdif/xasCore/1.1> ;
-            sh:message "Metadata record must declare conformance to the CDIF XAS core profile (https://w3id.org/cdif/xasCore/1.1)" ;
+            sh:hasValue <https://w3id.org/cdif/xasCore/1.0> ;
+            sh:message "Metadata record must declare conformance to the CDIF XAS core profile (https://w3id.org/cdif/xasCore/1.0)" ;
             sh:path dcterms:conformsTo ] ;
     sh:target [ a sh:SPARQLTarget ;
             sh:select """
