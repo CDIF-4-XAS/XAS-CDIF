@@ -30,7 +30,9 @@ Everything in it carries 1.1: the vocabularies (`schema:version`), the
 crosswalks (`mapping_set_version`) and the profile's conformance URIs,
 `xasDocument/1.1` with its tiers `xasCore/1.1` and `xasOptional/1.1`
 (1.0 until this release). It is tagged `1.1`; the release package is the
-`release/` folder.
+`release/` folder, published as `XAS-CDIF-1.1.zip` with the
+[GitHub release](https://github.com/CDIF-4-XAS/XAS-CDIF/releases/tag/1.1).
+The DOI badge above is the 1.0 deposit; 1.1 is not on Zenodo yet.
 
 ### Remotes, and why there are two
 
@@ -74,6 +76,16 @@ The organisation publishes today, and the w3id rules depend on that:
 personal account; `perma-id/w3id.org#6767` moved it, merged 2026-09-29.
 All ten XAS identifier families now resolve through the organisation,
 which `validation/tools/check_w3id_redirects.py` checks.
+
+The profile URIs are in the same file. `perma-id/w3id.org#7006`, merged
+2026-10-28, added the 1.1 rules:
+
+| URI | resolves to |
+|---|---|
+| `w3id.org/cdif/xasDocument/1.1` | this repository's `release/` on `main`: the folder for browsers, the resolved schema for `application/schema+json`, the SHACL for Turtle, the frame for JSON-LD; `/guide` and `/frame` sub-paths |
+| `w3id.org/cdif/xasCore/1.1`, `xasOptional/1.1` | the building blocks in `metadataBuildingBlocks` (`xasCore/1.0` still resolves) |
+| `w3id.org/cdif/xasCore`, `xasDocument` | redirect to `/1.1` |
+| `w3id.org/cdif/xas/edge/{x}`, `emissionline/{x}`, `detectionmode/{x}` | the value-list HTML page at `#{x}` for browsers, the JSON-LD file otherwise |
 
 The fork's `gh-pages` is frozen at its last build. Nothing resolves to
 it, and it will go stale the next time the glossary changes, so do not
@@ -825,7 +837,8 @@ Published at <https://cdif-4-xas.github.io/XAS-CDIF/> by
   [isamplesorg/vocabularies](https://github.com/isamplesorg/vocabularies),
   pinned in the workflow) and Quarto, as the CDIF provenance activity
   types are. Every concept has an anchor named for the last segment of
-  its URI, so `<page>#<localname>` reaches it;
+  its URI, so `<page>#<localname>` reaches it, and w3id sends a browser
+  asking for a value-list concept URI there;
 - the vocabulary JSON-LD files and one JSON-LD file per glossary concept
   under `concepts/`.
 
