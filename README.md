@@ -148,6 +148,18 @@ profile. The two divide the work as **specification here, implementation
 there**. This repository defines the concepts, the field-to-concept
 mappings and the profile. `cdifnexmetadata` applies them to files.
 
+**The version aligned with this release is `cdifnexmetadata` 1.1.0**
+([PyPI](https://pypi.org/project/cdifnexmetadata/1.1.0/), tag
+[`1.1`](https://github.com/CDIF-4-XAS/cdifnexmetadata/releases/tag/1.1)).
+It emits `xasCore/1.1`, bundles the 1.1 crosswalks, and its output
+validates against `release/`. Versions 0.1.0 and 0.1.1 predate this
+release and emit `xasCore/1.0`, which the 1.1 profile rejects.
+
+```bash
+pip install "cdifnexmetadata[validate]==1.1.0"
+cdifnexmetadata scan.nxs --validate --profile-dir XAS-CDIF/release
+```
+
 **What `cdifnexmetadata` takes from here:**
 
 | from XAS-CDIF | how it gets there |
