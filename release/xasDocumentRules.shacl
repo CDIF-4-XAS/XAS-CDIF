@@ -272,6 +272,28 @@ cdifd:CDIFDatasetMandatoryShape a sh:NodeShape ;
               FILTER NOT EXISTS { ?dpu prov:used ?this . }
               FILTER NOT EXISTS { ?dib schema:isBasedOn ?this . }
               FILTER NOT EXISTS { ?dsrc dcterms:source ?this . }
+              # Exclude datasets that are MEMBERS OF A DISTRIBUTION -- files
+              # inside a packaged download. Measured 2026-11-06 against the
+              # Astromat record in doc-discoverydatadescription: a zip
+              # distribution lists its two component files as schema:hasPart,
+              # both typed schema:Dataset, and this shape then demanded an
+              # identifier, a licence, a dateModified and a landing page of
+              # each -- 8 of that record's 11 violations -- while the
+              # distribution's own description says the components "are not
+              # individually accessible". The only way to satisfy it was to
+              # invent metadata for a file nobody can fetch.
+              #
+              # Scoped to parts of a DISTRIBUTION rather than to every object
+              # of schema:hasPart, deliberately: hasPart carries several
+              # different meanings in CDIF, and a member dataset of a
+              # collection IS an independently documented resource that should
+              # still be held to these requirements. Only a component of a
+              # packaged download is not. Same discipline as the exclusions
+              # above -- the documented resource is never reached this way.
+              FILTER NOT EXISTS {
+                ?dsd schema:distribution ?dist .
+                ?dist schema:hasPart ?this .
+              }
             }
           """ ] .
 
@@ -619,10 +641,9 @@ cdifd:CDIFadditionalPropertyShape a sh:NodeShape ;
       }""" ] .
 
 cdifd:CDIFxasInstanceVariableShape a sh:NodeShape ;
-    sh:property [ sh:message "for cdi InstanceVariable a physical data type should be provided." ;
-            sh:minCount 1 ;
+    sh:property [ sh:message "a cdif:physicalDataType must be an IRI, a non-empty string, or a schema:DefinedTerm carrying an identifier." ;
             sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ;
-                        sh:minLength 5 ] [ sh:class schema:DefinedTerm ;
+                        sh:minLength 1 ] [ sh:class schema:DefinedTerm ;
                         sh:property [ sh:message "a defined term should have an identifier that is a resolvable URI" ;
                                 sh:minCount 1 ;
                                 sh:or ( [ sh:datatype xsd:string ;
@@ -636,11 +657,18 @@ cdifd:CDIFxasInstanceVariableShape a sh:NodeShape ;
                                                                             sh:pattern "^https?:\\/\\/[^\\s]+$" ] ] ) ] ) ] ) ;
                                 sh:path schema:identifier ] ] ) ;
             sh:path <https://w3id.org/cdif/physicalDataType> ;
+            sh:severity sh:Warning ],
+        [ sh:message "for cdi InstanceVariable a physical data type should be provided." ;
+            sh:minCount 1 ;
+            sh:path <https://w3id.org/cdif/physicalDataType> ;
             sh:severity sh:Warning ] ;
     sh:targetClass cdi:InstanceVariable .
 
 cdifd:InstanceVariableRepresentedVariableExclusivityShape a sh:NodeShape ;
     sh:property [ sh:maxCount 0 ;
+            sh:message "cdif:definition is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
+            sh:path <https://w3id.org/cdif/definition> ],
+        [ sh:maxCount 0 ;
             sh:message "cdi:takesSubstantiveValuesFrom is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must be declared on the RepresentedVariable, not duplicated on the InstanceVariable." ;
             sh:path cdi:takesSubstantiveValuesFrom ],
         [ sh:maxCount 0 ;
@@ -663,10 +691,7 @@ cdifd:InstanceVariableRepresentedVariableExclusivityShape a sh:NodeShape ;
             sh:path <https://w3id.org/cdif/externalDefinition> ],
         [ sh:maxCount 0 ;
             sh:message "cdif:uses_Concept is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
-            sh:path <https://w3id.org/cdif/uses_Concept> ],
-        [ sh:maxCount 0 ;
-            sh:message "cdif:definition is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
-            sh:path <https://w3id.org/cdif/definition> ] ;
+            sh:path <https://w3id.org/cdif/uses_Concept> ] ;
     sh:severity sh:Violation ;
     sh:target [ a sh:SPARQLTarget ;
             sh:prefixes ( [ sh:namespace "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/" ;
@@ -1309,6 +1334,13 @@ cdifd:structuredDataSetLocatorMappingShape a sh:NodeShape ;
             sh:path <https://w3id.org/cdif/hasPhysicalMapping> ;
             sh:severity sh:Violation ] ;
     sh:targetClass cdi:StructuredDataSet .
+
+cdifd:tabularTextDataSetMappingsShape a sh:NodeShape ;
+    sh:property [ sh:message "A TabularTextDataSet must have physical mappings (cdif:hasPhysicalMapping) linking variables to columns; required by the JSON Schema of both cdifTabularData and cdifTabularTextDataSet." ;
+            sh:minCount 1 ;
+            sh:path <https://w3id.org/cdif/hasPhysicalMapping> ;
+            sh:severity sh:Violation ] ;
+    sh:targetClass cdi:TabularTextDataSet .
 
 cdifd:temporalExtentProperty a sh:PropertyShape ;
     sh:message "temporalCoverage problem; need an ISO 8601 dateTime, ISO 8601 time interval (two xsd:date separated by a '/' character),  or a time:ProperInterval. ISO time interval allows YYYY, YYYY-MM, or YYYY-DD-MM" ;
