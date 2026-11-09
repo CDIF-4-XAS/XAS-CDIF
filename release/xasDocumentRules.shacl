@@ -395,8 +395,11 @@ cdifd:CDIFInstanceVariableShape a sh:NodeShape ;
             sh:minLength 10 ;
             sh:path schema:description ;
             sh:severity sh:Info ],
-        [ sh:message "a propertID must be a uri reference, a name string, or a schema:DefinedTerm" ;
+        [ sh:message "a variable should carry a schema:propertyID identifying the concept it measures." ;
             sh:minCount 1 ;
+            sh:path schema:propertyID ;
+            sh:severity sh:Warning ],
+        [ sh:message "a propertID must be a uri reference, a name string, or a schema:DefinedTerm" ;
             sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ;
                         sh:minLength 5 ] [ sh:class schema:DefinedTerm ;
                         sh:property [ sh:message "a defined term should have an identifier that is a resolvable URI" ;
@@ -532,8 +535,22 @@ cdifd:CDIFSubjectOfPlacementShape a sh:NodeShape ;
       """ ] .
 
 cdifd:CDIFVariableMeasuredShape a sh:NodeShape ;
-    sh:property [ sh:message "a propertID must be a uri reference, a name string, or a schema:DefinedTerm" ;
+    sh:property [ sh:message "a variable should carry a schema:propertyID identifying the concept it measures." ;
             sh:minCount 1 ;
+            sh:path schema:propertyID ;
+            sh:severity sh:Warning ],
+        [ sh:datatype xsd:string ;
+            sh:message "a variableMeasured should have a text description explaining the variable" ;
+            sh:minCount 1 ;
+            sh:minLength 10 ;
+            sh:path schema:description ;
+            sh:severity sh:Info ],
+        [ sh:message "measurementTechnique describes how the variable values were determined" ;
+            sh:minCount 0 ;
+            sh:or ( [ sh:datatype xsd:string ] [ sh:nodeKind sh:IRI ] [ sh:class schema:DefinedTerm ] ) ;
+            sh:path schema:measurementTechnique ;
+            sh:severity sh:Info ],
+        [ sh:message "a propertID must be a uri reference, a name string, or a schema:DefinedTerm" ;
             sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ;
                         sh:minLength 5 ] [ sh:class schema:DefinedTerm ;
                         sh:property [ sh:message "a defined term should have an identifier that is a resolvable URI" ;
@@ -550,17 +567,6 @@ cdifd:CDIFVariableMeasuredShape a sh:NodeShape ;
                                 sh:path schema:identifier ] ] ) ;
             sh:path schema:propertyID ;
             sh:severity sh:Warning ],
-        [ sh:datatype xsd:string ;
-            sh:message "a variableMeasured should have a text description explaining the variable" ;
-            sh:minCount 1 ;
-            sh:minLength 10 ;
-            sh:path schema:description ;
-            sh:severity sh:Info ],
-        [ sh:message "measurementTechnique describes how the variable values were determined" ;
-            sh:minCount 0 ;
-            sh:or ( [ sh:datatype xsd:string ] [ sh:nodeKind sh:IRI ] [ sh:class schema:DefinedTerm ] ) ;
-            sh:path schema:measurementTechnique ;
-            sh:severity sh:Info ],
         [ sh:datatype xsd:string ;
             sh:message "unitText identifies the unit of measurement as a string" ;
             sh:minCount 0 ;
@@ -666,6 +672,9 @@ cdifd:CDIFxasInstanceVariableShape a sh:NodeShape ;
 
 cdifd:InstanceVariableRepresentedVariableExclusivityShape a sh:NodeShape ;
     sh:property [ sh:maxCount 0 ;
+            sh:message "cdif:uses_Concept is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
+            sh:path <https://w3id.org/cdif/uses_Concept> ],
+        [ sh:maxCount 0 ;
             sh:message "cdif:definition is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
             sh:path <https://w3id.org/cdif/definition> ],
         [ sh:maxCount 0 ;
@@ -688,10 +697,7 @@ cdifd:InstanceVariableRepresentedVariableExclusivityShape a sh:NodeShape ;
             sh:path cdi:measures ],
         [ sh:maxCount 0 ;
             sh:message "cdif:externalDefinition is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
-            sh:path <https://w3id.org/cdif/externalDefinition> ],
-        [ sh:maxCount 0 ;
-            sh:message "cdif:uses_Concept is a RepresentedVariable property; when cdif:isDefinedBy_RepresentedVariable is set it must not be duplicated on the InstanceVariable." ;
-            sh:path <https://w3id.org/cdif/uses_Concept> ] ;
+            sh:path <https://w3id.org/cdif/externalDefinition> ] ;
     sh:severity sh:Violation ;
     sh:target [ a sh:SPARQLTarget ;
             sh:prefixes ( [ sh:namespace "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/" ;
@@ -1205,11 +1211,23 @@ cdifd:generatedByNode a sh:NodeShape ;
         }
       }""" ] .
 
+cdifd:instrumentClassified a sh:NodeShape ;
+    sh:message "An instrument should carry a classification from a controlled vocabulary, in either schema:category or schema:additionalType." ;
+    sh:or ( [ sh:property [ sh:minCount 1 ;
+                        sh:path schema:category ] ] [ sh:property [ sh:minCount 1 ;
+                        sh:path schema:additionalType ] ] ) ;
+    sh:severity sh:Warning ;
+    sh:target [ a sh:SPARQLTarget ;
+            sh:select """
+      PREFIX schema: <http://schema.org/>
+      SELECT DISTINCT ?this
+        WHERE {
+          ?s schema:instrument ?this .
+          FILTER (isIRI(?this) || isBlank(?this))
+          }""" ] .
+
 cdifd:instrumentNode a sh:NodeShape ;
-    sh:property [ sh:message "An instrument should have a domain-specific type URI (schema:additionalType)." ;
-            sh:path schema:additionalType ;
-            sh:severity sh:Info ],
-        [ sh:message "An instrument should have a landing page URL (schema:url)." ;
+    sh:property [ sh:message "An instrument should have a landing page URL (schema:url)." ;
             sh:path schema:url ;
             sh:severity sh:Info ],
         [ sh:message "An instrument should have a commissioned date (schema:validFrom)." ;
@@ -1221,10 +1239,6 @@ cdifd:instrumentNode a sh:NodeShape ;
             sh:minLength 3 ;
             sh:path schema:name ;
             sh:severity sh:Violation ],
-        [ sh:message "An instrument should have a category classification from a controlled vocabulary (schema:category)." ;
-            sh:minCount 1 ;
-            sh:path schema:category ;
-            sh:severity sh:Warning ],
         [ sh:message "An instrument should have an identifier (schema:identifier)." ;
             sh:path schema:identifier ;
             sh:severity sh:Info ],
@@ -1243,6 +1257,9 @@ cdifd:instrumentNode a sh:NodeShape ;
             sh:severity sh:Info ],
         [ sh:message "An instrument should identify contributors with roles (e.g. operator, custodian, PI)." ;
             sh:path schema:contributor ;
+            sh:severity sh:Info ],
+        [ sh:message "An instrument should have a domain-specific type URI (schema:additionalType)." ;
+            sh:path schema:additionalType ;
             sh:severity sh:Info ] ;
     sh:target [ a sh:SPARQLTarget ;
             sh:select """

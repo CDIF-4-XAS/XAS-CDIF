@@ -8,13 +8,46 @@
       "type": "object",
       "description": "JSON-LD prefixes used by optional XAS fields.",
       "properties": {
+        "schema": {
+          "const": "http://schema.org/"
+        },
+        "dcterms": {
+          "const": "http://purl.org/dc/terms/"
+        },
+        "spdx": {
+          "const": "http://spdx.org/rdf/terms#"
+        },
+        "dcat": {
+          "const": "http://www.w3.org/ns/dcat#"
+        },
+        "prov": {
+          "const": "http://www.w3.org/ns/prov#"
+        },
+        "geosparql": {
+          "const": "http://www.opengis.net/ont/geosparql#"
+        },
+        "dqv": {
+          "const": "http://www.w3.org/ns/dqv#"
+        },
+        "cdi": {
+          "const": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/"
+        },
+        "cdif": {
+          "const": "https://w3id.org/cdif/"
+        },
         "xas": {
           "const": "https://w3id.org/cdif/xas/"
         },
         "nxs": {
           "const": "https://manual.nexusformat.org/classes/"
         }
-      }
+      },
+      "required": [
+        "dcat",
+        "dcterms",
+        "prov",
+        "schema"
+      ]
     },
     "@id": {
       "type": "string",
@@ -3478,32 +3511,56 @@
                 "description": "uri for specifications that this metadata record conforms to"
               },
               {
-                "allOf": [
-                  {
-                    "$ref": "#/$defs/ObjectReference",
-                    "description": "uri for specifications that this metadata record conforms to"
-                  },
-                  {
-                    "$ref": "#/$defs/ObjectReference",
-                    "description": "uri for specifications that this metadata record conforms to"
-                  }
-                ]
+                "$ref": "#/$defs/ObjectReference",
+                "description": "uri for specifications that this metadata record conforms to"
               }
             ]
           },
           "minItems": 1,
-          "contains": {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "const": "https://w3id.org/cdif/xasCore/1.1"
+          "allOf": [
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "const": "https://w3id.org/cdif/core/1.1"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "const": "https://w3id.org/cdif/discovery/1.1"
+                  }
+                }
+              }
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "@id": {
+                    "const": "https://w3id.org/cdif/xasCore/1.1"
+                  }
+                }
               }
             }
-          }
+          ]
         },
         "schema:maintainer": {
           "description": "Identification of the agent that maintains the metadata, with contact information. Should include person name and affiliation, or position name and affiliation, or just organization name. e-mail address is preferred contact information.",
@@ -5665,8 +5722,18 @@
           ]
         },
         "schema:alternateName": {
-          "type": "string",
-          "description": "other labels by which the person might be known"
+          "description": "other labels by which the person might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
         },
         "schema:affiliation": {
           "$ref": "#/$defs/Organization",
@@ -5796,8 +5863,18 @@
           "description": "string label for organization that is meaningful for human users"
         },
         "schema:alternateName": {
-          "type": "string",
-          "description": "other labels by which the organization might be known"
+          "description": "other labels by which the organization might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
         },
         "schema:description": {
           "type": "string",
