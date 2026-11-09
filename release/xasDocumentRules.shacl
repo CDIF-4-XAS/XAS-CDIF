@@ -448,10 +448,10 @@ cdifd:CDIFInstanceVariableShape a sh:NodeShape ;
 
 cdifd:CDIFLabeledLinkShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
-            sh:message "value must be a resolvable URL, but we aren't testing to see if the URL resolves..... Can't get xsd:anyURI to work with JSON Schema validation..." ;
+            sh:message "schema:url must be an http(s), ftp(s), sftp, s3 or gs URL. Whether it resolves is not tested." ;
             sh:minCount 1 ;
             sh:path schema:url ;
-            sh:pattern "^https?:\\/\\/[^\\s]+$" ] ;
+            sh:pattern "^(https?|ftps?|sftp|s3|gs)://[^\\s]+$" ] ;
     sh:targetClass schema:CreativeWork .
 
 cdifd:CDIFLinkRoleShape a sh:NodeShape ;
@@ -1162,10 +1162,10 @@ cdifd:derivedFromProperty a sh:NodeShape ;
     sh:message "PROV:derivedFrom must have a string value, a CreativeWork citing a source or an @id reference to a source." ;
     sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ] [ sh:class schema:CreativeWork ;
                 sh:property [ sh:datatype xsd:string ;
-                        sh:message "value must be a resolvable URL, but we aren't testing to see if the URL resolves..... Can't get xsd:anyURI to work with JSON Schema validation..." ;
+                        sh:message "schema:url must be an http(s), ftp(s), sftp, s3 or gs URL. Whether it resolves is not tested." ;
                         sh:minCount 1 ;
                         sh:path schema:url ;
-                        sh:pattern "^https?:\\/\\/[^\\s]+$" ] ] ) ;
+                        sh:pattern "^(https?|ftps?|sftp|s3|gs)://[^\\s]+$" ] ] ) ;
     sh:targetObjectsOf prov:wasDerivedFrom .
 
 cdifd:fundingShape a sh:NodeShape ;
