@@ -291,132 +291,14 @@
     "schema:endTime": {},
     "schema:actionStatus": {},
     "schema:error": {},
-    "prov:used": {
-      "@embed": "@always",
-      "schema:instrument": {
-        "@embed": "@always",
-        "schema:name": {},
-        "schema:identifier": {
-          "@embed": "@always"
-        },
-        "schema:additionalType": {
-          "@embed": "@always"
-        },
-        "schema:additionalProperty": {
-          "@embed": "@always",
-          "schema:name": {},
-          "schema:propertyID": {
-            "@embed": "@always"
-          },
-          "schema:value": {},
-          "schema:unitText": {},
-          "schema:unitCode": {
-            "@embed": "@always"
-          }
-        },
-        "schema:model": {
-          "@embed": "@always",
-          "schema:name": {},
-          "schema:identifier": {
-            "@embed": "@always"
-          }
-        },
-        "schema:hasPart": {
-          "@embed": "@always",
-          "schema:name": {},
-          "schema:additionalType": {
-            "@embed": "@always"
-          },
-          "schema:additionalProperty": {
-            "@embed": "@always",
-            "schema:name": {},
-            "schema:propertyID": {
-              "@embed": "@always"
-            },
-            "schema:value": {},
-            "schema:unitText": {}
-          },
-          "schema:model": {
-            "@embed": "@always",
-            "schema:name": {}
-          }
-        }
-      }
-    },
+    "prov:used": {"@embed": "@always"},
     "_comment_object": "xasCore MaterialSample: schema:object is a Product/Thing dual-typed schema:additionalType [MaterialSample, iSamples materialsample IRI]. Carries the sample name and optional physico-chemical additionalProperty entries (xas:samplepreparation, the NXsample temperature field, xas:porosity, xas:ph, ...).",
-    "schema:object": {
-      "@embed": "@always",
-      "schema:name": {},
-      "schema:description": {},
-      "schema:identifier": {
-        "@embed": "@always"
-      },
-      "schema:additionalType": {
-        "@embed": "@always"
-      },
-      "schema:additionalProperty": {
-        "@embed": "@always",
-        "schema:name": {},
-        "schema:propertyID": {
-          "@embed": "@always"
-        },
-        "schema:value": {},
-        "schema:unitText": {}
-      }
-    },
+    "schema:object": {"@embed": "@always"},
     "_comment_location": "xasCore beamline location: schema:location is a Place dual-typed schema:additionalType xas:facility. Optional schema:geo / geosparql:hasGeometry for beamline coordinates.",
-    "schema:location": {
-      "@embed": "@always",
-      "schema:name": {},
-      "schema:identifier": {
-        "@embed": "@always"
-      },
-      "schema:additionalType": {
-        "@embed": "@always"
-      },
-      "schema:geo": {
-        "@embed": "@always",
-        "schema:latitude": {},
-        "schema:longitude": {}
-      },
-      "geosparql:hasGeometry": {
-        "@embed": "@always",
-        "geosparql:asWKT": {
-          "@embed": "@always"
-        },
-        "geosparql:crs": {
-          "@embed": "@always"
-        }
-      }
-    },
-    "schema:actionProcess": {
-      "@embed": "@always",
-      "schema:name": {},
-      "schema:description": {},
-      "schema:step": {
-        "@embed": "@always"
-      }
-    },
-    "schema:agent": {
-      "@embed": "@always",
-      "schema:name": {},
-      "schema:identifier": {
-        "@embed": "@always"
-      },
-      "schema:contactPoint": {
-        "@embed": "@always"
-      },
-      "schema:affiliation": {
-        "@embed": "@always"
-      }
-    },
-    "schema:participant": {
-      "@embed": "@always",
-      "schema:name": {},
-      "schema:contributor": {
-        "@embed": "@always"
-      }
-    },
+    "schema:location": {"@embed": "@always"},
+    "schema:actionProcess": {"@embed": "@always"},
+    "schema:agent": {"@embed": "@always"},
+    "schema:participant": {"@embed": "@always"},
     "schema:identifier": {
       "@embed": "@always"
     },
@@ -429,19 +311,7 @@
     "prov:generated": {
       "@embed": "@always"
     },
-    "prov:wasAssociatedWith": {
-      "@embed": "@always",
-      "schema:name": {},
-      "schema:identifier": {
-        "@embed": "@always"
-      },
-      "schema:contactPoint": {
-        "@embed": "@always"
-      },
-      "schema:affiliation": {
-        "@embed": "@always"
-      }
-    },
+    "prov:wasAssociatedWith": {"@embed": "@always"},
     "prov:atLocation": {
       "@embed": "@always"
     },
