@@ -51,7 +51,7 @@ EMIT = Path("src/cdifnexmetadata/emit.py")
 # emit_document() and _instruments(). Paths are from the root Dataset;
 # [x] filters an array to the item whose schema:additionalType is x.
 ACTIVITY = "prov:wasGeneratedBy[xas:analysisevent]"
-INSTRUMENT = ACTIVITY + "/prov:used/schema:instrument[{}]"
+INSTRUMENT = ACTIVITY + "/schema:instrument[{}]"
 TARGETS = {
     "facility": (
         "schema:contributor[schema:roleName=Facility]/schema:contributor"
