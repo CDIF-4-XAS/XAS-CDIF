@@ -410,231 +410,215 @@
       ],
       "schema:startTime": "2008-04-10T21:58:50",
       "schema:endTime": "2008-04-10T22:14:37",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product",
+            "prov:Entity"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "xas:source"
+            },
+            {
+              "@id": "wd:Q3099911"
+            }
+          ],
+          "schema:name": "APS bending magnet source",
+          "schema:additionalProperty": [
             {
               "@type": [
-                "schema:Thing",
-                "schema:Product",
-                "prov:Entity"
+                "schema:PropertyValue"
               ],
-              "schema:additionalType": [
+              "schema:name": "X-ray source",
+              "schema:propertyID": [
                 {
-                  "@id": "xas:source"
-                },
-                {
-                  "@id": "wd:Q3099911"
+                  "@id": "nxs:base_classes/NXsource.html#nxsource-type-field"
                 }
               ],
-              "schema:name": "APS bending magnet source",
-              "schema:additionalProperty": [
+              "schema:value": "Synchrotron X-ray Source"
+            },
+            {
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:name": "Probe",
+              "schema:propertyID": [
                 {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:name": "X-ray source",
-                  "schema:propertyID": [
-                    {
-                      "@id": "nxs:base_classes/NXsource.html#nxsource-type-field"
-                    }
-                  ],
-                  "schema:value": "Synchrotron X-ray Source"
-                },
-                {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:name": "Probe",
-                  "schema:propertyID": [
-                    {
-                      "@id": "nxs:base_classes/NXsource.html#nxsource-probe-field"
-                    }
-                  ],
-                  "schema:value": "x-ray"
+                  "@id": "nxs:base_classes/NXsource.html#nxsource-probe-field"
                 }
-              ]
+              ],
+              "schema:value": "x-ray"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "@id": "_:b4",
+          "@type": [
+            "schema:Thing",
+            "schema:Product",
+            "prov:Entity"
+          ],
+          "schema:additionalType": [
             {
-              "@id": "_:b4",
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            {
+              "@id": "wd:Q3099911"
+            }
+          ],
+          "schema:identifier": [
+            "xas:Beamline/13-BM-D"
+          ],
+          "schema:name": "13-BM-D",
+          "schema:additionalProperty": [
+            {
+              "@id": "_:b5",
               "@type": [
-                "schema:Thing",
-                "schema:Product",
-                "prov:Entity"
+                "schema:PropertyValue"
               ],
-              "schema:additionalType": [
+              "schema:name": "collimation",
+              "schema:propertyID": [
                 {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                {
-                  "@id": "wd:Q3099911"
+                  "@id": "xas:collimation"
                 }
               ],
-              "schema:identifier": [
-                "xas:Beamline/13-BM-D"
+              "schema:value": "none"
+            },
+            {
+              "@id": "_:b6",
+              "@type": [
+                "schema:PropertyValue"
               ],
-              "schema:name": "13-BM-D",
-              "schema:additionalProperty": [
+              "schema:name": "focusing",
+              "schema:propertyID": [
                 {
-                  "@id": "_:b5",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:name": "collimation",
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:collimation"
-                    }
-                  ],
-                  "schema:value": "none"
-                },
-                {
-                  "@id": "_:b6",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:name": "focusing",
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:focusing"
-                    }
-                  ],
-                  "schema:value": "no"
-                },
-                {
-                  "@id": "_:b7",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:name": "harmonic rejection",
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:harmonicrejection"
-                    }
-                  ],
-                  "schema:value": "Rh-coated mirror, detuned "
+                  "@id": "xas:focusing"
                 }
-              ]
+              ],
+              "schema:value": "no"
+            },
+            {
+              "@id": "_:b7",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:name": "harmonic rejection",
+              "schema:propertyID": [
+                {
+                  "@id": "xas:harmonicrejection"
+                }
+              ],
+              "schema:value": "Rh-coated mirror, detuned "
             }
           ]
         },
         {
-          "schema:instrument": [
+          "@id": "_:b13",
+          "@type": [
+            "schema:Thing",
+            "schema:Product",
+            "prov:Entity"
+          ],
+          "schema:additionalType": [
             {
-              "@id": "_:b13",
+              "@id": "xas:xraymonochromator"
+            },
+            {
+              "@id": "wd:Q3099911"
+            }
+          ],
+          "schema:identifier": [
+            "xas:Mono/Si 111"
+          ],
+          "schema:name": "Si 111",
+          "schema:additionalProperty": [
+            {
+              "@id": "_:b14",
               "@type": [
-                "schema:Thing",
-                "schema:Product",
-                "prov:Entity"
+                "schema:PropertyValue"
               ],
-              "schema:additionalType": [
+              "schema:name": "d-spacing",
+              "schema:propertyID": [
                 {
-                  "@id": "xas:xraymonochromator"
-                },
-                {
-                  "@id": "wd:Q3099911"
+                  "@id": "xas:dspacing"
                 }
               ],
-              "schema:identifier": [
-                "xas:Mono/Si 111"
+              "schema:value": "3.13550",
+              "schema:unitText": "Angstrom"
+            },
+            {
+              "@type": [
+                "schema:PropertyValue"
               ],
-              "schema:name": "Si 111",
-              "schema:additionalProperty": [
+              "schema:name": "crystal type",
+              "schema:propertyID": [
                 {
-                  "@id": "_:b14",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:name": "d-spacing",
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:dspacing"
-                    }
-                  ],
-                  "schema:value": "3.13550",
-                  "schema:unitText": "Angstrom"
-                },
-                {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:name": "crystal type",
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:monochromatortype"
-                    }
-                  ],
-                  "schema:value": "Si"
-                },
-                {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:name": "reflection plane",
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:reflectionplane"
-                    }
-                  ],
-                  "schema:value": "1,1,1"
+                  "@id": "xas:monochromatortype"
                 }
-              ]
+              ],
+              "schema:value": "Si"
+            },
+            {
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:name": "reflection plane",
+              "schema:propertyID": [
+                {
+                  "@id": "xas:reflectionplane"
+                }
+              ],
+              "schema:value": "1,1,1"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "@id": "_:b8",
+          "@type": [
+            "schema:Thing",
+            "schema:Product",
+            "prov:Entity"
+          ],
+          "schema:additionalType": [
             {
-              "@id": "_:b8",
+              "@id": "xas:xraymonitor"
+            },
+            {
+              "@id": "wd:Q3099911"
+            }
+          ],
+          "schema:identifier": [
+            "xas:Detector"
+          ],
+          "schema:name": "x-ray intensity monitor",
+          "schema:additionalProperty": [
+            {
+              "@id": "_:b9",
               "@type": [
-                "schema:Thing",
-                "schema:Product",
-                "prov:Entity"
+                "schema:PropertyValue"
               ],
-              "schema:additionalType": [
+              "schema:name": "incident-flux detection method",
+              "schema:propertyID": [
                 {
-                  "@id": "xas:xraymonitor"
-                },
-                {
-                  "@id": "wd:Q3099911"
+                  "@id": "xas:detectori0"
                 }
               ],
-              "schema:identifier": [
-                "xas:Detector"
+              "schema:value": "10cm  N2"
+            },
+            {
+              "@id": "_:b10",
+              "@type": [
+                "schema:PropertyValue"
               ],
-              "schema:name": "x-ray intensity monitor",
-              "schema:additionalProperty": [
+              "schema:name": "transmitted-flux detection method",
+              "schema:propertyID": [
                 {
-                  "@id": "_:b9",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:name": "incident-flux detection method",
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:detectori0"
-                    }
-                  ],
-                  "schema:value": "10cm  N2"
-                },
-                {
-                  "@id": "_:b10",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:name": "transmitted-flux detection method",
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:detectorit"
-                    }
-                  ],
-                  "schema:value": "10cm  N2 (?)"
+                  "@id": "xas:detectorit"
                 }
-              ]
+              ],
+              "schema:value": "10cm  N2 (?)"
             }
           ]
         }

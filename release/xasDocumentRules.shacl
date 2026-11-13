@@ -270,6 +270,8 @@ cdifd:CDIFDatasetMandatoryShape a sh:NodeShape ;
               # never the object, so this never excludes the documented dataset.
               FILTER NOT EXISTS { ?dpd prov:wasDerivedFrom ?this . }
               FILTER NOT EXISTS { ?dpu prov:used ?this . }
+              FILTER NOT EXISTS { ?dpo schema:object ?this . }
+              FILTER NOT EXISTS { ?dpi schema:instrument ?this . }
               FILTER NOT EXISTS { ?dib schema:isBasedOn ?this . }
               FILTER NOT EXISTS { ?dsrc dcterms:source ?this . }
               # Exclude datasets that are MEMBERS OF A DISTRIBUTION -- files
@@ -957,11 +959,12 @@ cdifd:cdifKeyShape a sh:NodeShape ;
     sh:targetClass <https://w3id.org/cdif/Key> .
 
 cdifd:cdifProvActivityShape a sh:NodeShape ;
-    sh:property [ sh:message "A cdifProvActivity should identify a responsible agent (schema:Person, schema:Organization, or IRI reference)" ;
-            sh:or ( [ sh:class schema:Person ] [ sh:class schema:Organization ] [ sh:nodeKind sh:IRI ] ) ;
-            sh:path schema:agent ;
-            sh:severity sh:Warning ],
-        [ sh:datatype xsd:string ;
+    sh:message "A cdifProvActivity must have at least one of schema:instrument, schema:object or schema:actionProcess" ;
+    sh:or ( [ sh:minCount 1 ;
+                sh:path schema:instrument ] [ sh:minCount 1 ;
+                sh:path schema:object ] [ sh:minCount 1 ;
+                sh:path schema:actionProcess ] ) ;
+    sh:property [ sh:datatype xsd:string ;
             sh:message "A cdifProvActivity should specify a schema:startTime (ISO8601 date-time)" ;
             sh:path schema:startTime ;
             sh:severity sh:Warning ],
@@ -969,16 +972,10 @@ cdifd:cdifProvActivityShape a sh:NodeShape ;
             sh:message "A cdifProvActivity should specify a schema:endTime (ISO8601 date-time)" ;
             sh:path schema:endTime ;
             sh:severity sh:Warning ],
-        [ sh:message "Instruments should be a DefinedTerm, CreativeWork, IRI, or descriptive string" ;
-            sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ] [ sh:class schema:DefinedTerm ] [ sh:class schema:CreativeWork ] ) ;
+        [ sh:message "A schema:instrument value should be an IRI reference, or an instrument (schema:Product), software (schema:SoftwareApplication) or reagent (schema:DefinedTerm, schema:Product or schema:ChemicalSubstance)" ;
+            sh:or ( [ sh:nodeKind sh:IRI ] [ sh:class schema:Product ] [ sh:class schema:SoftwareApplication ] [ sh:class schema:DefinedTerm ] [ sh:class schema:ChemicalSubstance ] ) ;
             sh:path schema:instrument ;
             sh:severity sh:Info ],
-        [ sh:message "A cdifProvActivity must specify at least one resource that was used (prov:used)" ;
-            sh:minCount 1 ;
-            sh:or ( [ sh:nodeKind sh:IRI ] [ sh:nodeKind sh:BlankNode ] [ sh:datatype xsd:string ;
-                        sh:minLength 3 ] ) ;
-            sh:path prov:used ;
-            sh:severity sh:Violation ],
         [ sh:in ( "schema:CompletedActionStatus" "schema:ActiveActionStatus" "schema:PotentialActionStatus" "schema:FailedActionStatus" ) ;
             sh:message "schema:actionStatus should be one of: schema:CompletedActionStatus, schema:ActiveActionStatus, schema:PotentialActionStatus, schema:FailedActionStatus" ;
             sh:path schema:actionStatus ;
@@ -990,6 +987,10 @@ cdifd:cdifProvActivityShape a sh:NodeShape ;
         [ sh:datatype xsd:string ;
             sh:message "A cdifProvActivity should have a schema:description" ;
             sh:path schema:description ;
+            sh:severity sh:Warning ],
+        [ sh:message "A cdifProvActivity should identify a responsible agent (schema:Person, schema:Organization, schema:Role/AgentInRole, or IRI reference)" ;
+            sh:or ( [ sh:class schema:Person ] [ sh:class schema:Organization ] [ sh:class schema:Role ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path schema:agent ;
             sh:severity sh:Warning ] ;
     sh:target [ a sh:SPARQLTarget ;
             sh:select """
@@ -997,7 +998,7 @@ cdifd:cdifProvActivityShape a sh:NodeShape ;
 	  PREFIX prov: <http://www.w3.org/ns/prov#>
 	  SELECT DISTINCT ?this
 	    WHERE {
-	    ?this a prov:Activity .
+	    ?this a prov:Activity , schema:Action .
 	    {
 	      FILTER NOT EXISTS { ?s ?p ?this . }
 	    }
@@ -1188,9 +1189,8 @@ cdifd:fundingShape a sh:NodeShape ;
     sh:targetClass schema:MonetaryGrant .
 
 cdifd:generatedByNode a sh:NodeShape ;
-    sh:property [ sh:message "The generatedBy Activity should specify at least one resource that was used" ;
-            sh:minCount 1 ;
-            sh:or ( [ sh:nodeKind sh:IRI ] [ sh:nodeKind sh:BlankNode ] [ sh:datatype xsd:string ;
+    sh:property [ sh:message "A prov:used value should be an IRI (an @id reference) or a string of at least 3 characters" ;
+            sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ;
                         sh:minLength 3 ] ) ;
             sh:path prov:used ;
             sh:severity sh:Warning ] ;
@@ -1449,9 +1449,9 @@ cdifd:xasGeneratedByNode a sh:NodeShape ;
     sh:property [ sh:hasValue prov:Activity ;
             sh:message "An XAS AnalysisEvent must also have rdf:type prov:Activity." ;
             sh:path rdf:type ],
-        [ sh:message "An XAS AnalysisEvent must specify at least one of prov:used, schema:additionalProperty, schema:location, or schema:object." ;
+        [ sh:message "An XAS AnalysisEvent must specify at least one of schema:instrument, schema:additionalProperty, schema:location, or schema:object." ;
             sh:minCount 1 ;
-            sh:path [ sh:alternativePath ( prov:used schema:additionalProperty schema:location schema:object ) ] ] ;
+            sh:path [ sh:alternativePath ( schema:instrument schema:additionalProperty schema:location schema:object ) ] ] ;
     sh:target [ a sh:SPARQLTarget ;
             sh:select """
       PREFIX schema: <http://schema.org/>

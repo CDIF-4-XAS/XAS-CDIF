@@ -1524,7 +1524,8 @@
       "items": {
         "allOf": [
           {
-            "title": "very simple links or names of software or instruments used to generate a resource.",
+            "title": "Activity that generated the resource (CDIF core)",
+            "description": "The CDIF core definition of a prov:wasGeneratedBy value: a prov:Activity whose prov:used items are strings or @id references. Any further structure belongs to the profiles that extend it (cdifProvActivity for the schema.org implementation, provActivity for the PROV-O one), which may only narrow it.",
             "type": "object",
             "required": [
               "@type"
@@ -1538,91 +1539,27 @@
                 "minItems": 1,
                 "contains": {
                   "const": "prov:Activity"
-                }
+                },
+                "description": "Must include prov:Activity. Stated as \"contains\" rather than a single value so an extending profile can add types (cdifProvActivity adds schema:Action)."
               },
               "prov:used": {
                 "type": "array",
-                "description": "Entities the activity used. Per PROV-O each value denotes a prov:Entity. An item may be (1) a string URI or free-text reference, (2) an {@id} reference, (3) an inline entity object carrying an @type that includes prov:Entity plus a schema.org type for the kind of thing used, e.g. [\"prov:Entity\",\"schema:Thing\"] (instrument), [\"prov:Entity\",\"schema:CreativeWork\"] (method/protocol), or [\"prov:Entity\",\"schema:SoftwareApplication\"] (software), or (4) a role-keyed wrapper naming what was used through one of the recognized \"used\" relations (schema:instrument, bios:computationalTool, bios:reagent), or (5) a role-keyed wrapper under a role a consuming profile defines for itself, admitted by shape rather than by name. Base leaves the wrapped value loose; profiles/extensions (e.g. cdifProvActivity, adaProduct) pin its shape (Instrument, ComputationalTool, Reagent, ...) and close the set of role names they accept.",
+                "description": "Entities the activity used. Optional. Each item is a string (an IRI or a free-text name) or an object that identifies the entity by @id. The @id reference is deliberately NOT sealed: an extending profile may describe the entity in place as long as it keeps the @id, and a profile that wants only bare references can seal it itself. Role-keyed wrappers (an object whose key names a role, with no @id) are not accepted; in the schema.org implementation what an activity used is recorded with schema:instrument and schema:object instead.",
                 "items": {
                   "anyOf": [
                     {
-                      "type": "string"
-                    },
-                    {
-                      "$ref": "#/$defs/ObjectReference",
-                      "description": "a resolvable reference to a representation of the software or instrument used"
+                      "type": "string",
+                      "description": "an IRI or a free-text name of the entity used"
                     },
                     {
                       "type": "object",
-                      "description": "an inline prov:Entity used by the activity (see prov:used description)",
+                      "description": "an entity used, identified by @id; it may also be described in place",
+                      "required": [
+                        "@id"
+                      ],
                       "properties": {
-                        "@type": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "minItems": 1,
-                          "contains": {
-                            "const": "prov:Entity"
-                          }
-                        }
-                      },
-                      "required": [
-                        "@type"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "description": "a role-keyed wrapper naming an instrument used by the activity; the extension layer pins the value to an Instrument description.",
-                      "required": [
-                        "schema:instrument"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "description": "a role-keyed wrapper naming a computational tool (software) used; the extension layer pins the value to a ComputationalTool description.",
-                      "required": [
-                        "bios:computationalTool"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "description": "a role-keyed wrapper naming a reagent / material used; the extension layer pins the value to a Reagent description.",
-                      "required": [
-                        "bios:reagent"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "description": "a role-keyed wrapper under a role name this layer does not recognize: an object carrying at least one prefixed-name (CURIE) property other than @id / @type, whose value is an {@id} reference, an inline description, or an array of either. CDIF deliberately does NOT enumerate profile-defined roles here: the three named above (schema:instrument, bios:computationalTool, bios:reagent) are in CDIF/bioschemas scope and stay explicit, while a domain profile is free to relate an activity to what it used through a role of its own without CDIF having to know the term. A consuming profile is expected to CLOSE the set to the roles it defines, so this branch is permissive BY DESIGN at the base layer and the restriction returns at the profile layer. allOf composes correctly in that direction -- base permissive, profile restrictive -- because an allOf intersection can only narrow: a role this layer admits by shape is still rejected by any profile that does not name it.",
-                      "minProperties": 1,
-                      "propertyNames": {
-                        "pattern": "^(@id|@type|[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*)$"
-                      },
-                      "not": {
-                        "description": "@id / @type alone is the plain {@id} reference branch, not a wrapper; at least one property here must be a role.",
-                        "propertyNames": {
-                          "enum": [
-                            "@id",
-                            "@type"
-                          ]
-                        }
-                      },
-                      "patternProperties": {
-                        "^[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*$": {
-                          "anyOf": [
-                            {
-                              "type": "object",
-                              "description": "an {@id} reference to, or an inline description of, the entity used in this role"
-                            },
-                            {
-                              "type": "array",
-                              "minItems": 1,
-                              "items": {
-                                "type": "object"
-                              }
-                            }
-                          ]
+                        "@id": {
+                          "type": "string"
                         }
                       }
                     }
@@ -1633,11 +1570,12 @@
           },
           {
             "title": "CDIF Provenance Activity",
-            "description": "Extended provenance activity building block for CDIF. Extends the minimal prov:Activity (generatedBy) with schema.org Action properties for comprehensive provenance documentation including agents, instruments, methodology, temporal bounds, action chaining, and more.",
+            "description": "Extended provenance activity building block for CDIF -- the schema.org implementation. Extends the minimal prov:Activity (generatedBy) with schema.org Action properties for agents, instruments, inputs and outputs, methodology and plan, temporal bounds, action chaining, and more. What the activity used is recorded with schema:instrument (instruments, software, reagents) and schema:object (inputs), not with prov:used.",
             "type": "object",
             "allOf": [
               {
-                "title": "very simple links or names of software or instruments used to generate a resource.",
+                "title": "Activity that generated the resource (CDIF core)",
+                "description": "The CDIF core definition of a prov:wasGeneratedBy value: a prov:Activity whose prov:used items are strings or @id references. Any further structure belongs to the profiles that extend it (cdifProvActivity for the schema.org implementation, provActivity for the PROV-O one), which may only narrow it.",
                 "type": "object",
                 "required": [
                   "@type"
@@ -1651,91 +1589,27 @@
                     "minItems": 1,
                     "contains": {
                       "const": "prov:Activity"
-                    }
+                    },
+                    "description": "Must include prov:Activity. Stated as \"contains\" rather than a single value so an extending profile can add types (cdifProvActivity adds schema:Action)."
                   },
                   "prov:used": {
                     "type": "array",
-                    "description": "Entities the activity used. Per PROV-O each value denotes a prov:Entity. An item may be (1) a string URI or free-text reference, (2) an {@id} reference, (3) an inline entity object carrying an @type that includes prov:Entity plus a schema.org type for the kind of thing used, e.g. [\"prov:Entity\",\"schema:Thing\"] (instrument), [\"prov:Entity\",\"schema:CreativeWork\"] (method/protocol), or [\"prov:Entity\",\"schema:SoftwareApplication\"] (software), or (4) a role-keyed wrapper naming what was used through one of the recognized \"used\" relations (schema:instrument, bios:computationalTool, bios:reagent), or (5) a role-keyed wrapper under a role a consuming profile defines for itself, admitted by shape rather than by name. Base leaves the wrapped value loose; profiles/extensions (e.g. cdifProvActivity, adaProduct) pin its shape (Instrument, ComputationalTool, Reagent, ...) and close the set of role names they accept.",
+                    "description": "Entities the activity used. Optional. Each item is a string (an IRI or a free-text name) or an object that identifies the entity by @id. The @id reference is deliberately NOT sealed: an extending profile may describe the entity in place as long as it keeps the @id, and a profile that wants only bare references can seal it itself. Role-keyed wrappers (an object whose key names a role, with no @id) are not accepted; in the schema.org implementation what an activity used is recorded with schema:instrument and schema:object instead.",
                     "items": {
                       "anyOf": [
                         {
-                          "type": "string"
-                        },
-                        {
-                          "$ref": "#/$defs/ObjectReference",
-                          "description": "a resolvable reference to a representation of the software or instrument used"
+                          "type": "string",
+                          "description": "an IRI or a free-text name of the entity used"
                         },
                         {
                           "type": "object",
-                          "description": "an inline prov:Entity used by the activity (see prov:used description)",
+                          "description": "an entity used, identified by @id; it may also be described in place",
+                          "required": [
+                            "@id"
+                          ],
                           "properties": {
-                            "@type": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "minItems": 1,
-                              "contains": {
-                                "const": "prov:Entity"
-                              }
-                            }
-                          },
-                          "required": [
-                            "@type"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "description": "a role-keyed wrapper naming an instrument used by the activity; the extension layer pins the value to an Instrument description.",
-                          "required": [
-                            "schema:instrument"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "description": "a role-keyed wrapper naming a computational tool (software) used; the extension layer pins the value to a ComputationalTool description.",
-                          "required": [
-                            "bios:computationalTool"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "description": "a role-keyed wrapper naming a reagent / material used; the extension layer pins the value to a Reagent description.",
-                          "required": [
-                            "bios:reagent"
-                          ]
-                        },
-                        {
-                          "type": "object",
-                          "description": "a role-keyed wrapper under a role name this layer does not recognize: an object carrying at least one prefixed-name (CURIE) property other than @id / @type, whose value is an {@id} reference, an inline description, or an array of either. CDIF deliberately does NOT enumerate profile-defined roles here: the three named above (schema:instrument, bios:computationalTool, bios:reagent) are in CDIF/bioschemas scope and stay explicit, while a domain profile is free to relate an activity to what it used through a role of its own without CDIF having to know the term. A consuming profile is expected to CLOSE the set to the roles it defines, so this branch is permissive BY DESIGN at the base layer and the restriction returns at the profile layer. allOf composes correctly in that direction -- base permissive, profile restrictive -- because an allOf intersection can only narrow: a role this layer admits by shape is still rejected by any profile that does not name it.",
-                          "minProperties": 1,
-                          "propertyNames": {
-                            "pattern": "^(@id|@type|[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*)$"
-                          },
-                          "not": {
-                            "description": "@id / @type alone is the plain {@id} reference branch, not a wrapper; at least one property here must be a role.",
-                            "propertyNames": {
-                              "enum": [
-                                "@id",
-                                "@type"
-                              ]
-                            }
-                          },
-                          "patternProperties": {
-                            "^[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*$": {
-                              "anyOf": [
-                                {
-                                  "type": "object",
-                                  "description": "an {@id} reference to, or an inline description of, the entity used in this role"
-                                },
-                                {
-                                  "type": "array",
-                                  "minItems": 1,
-                                  "items": {
-                                    "type": "object"
-                                  }
-                                }
-                              ]
+                            "@id": {
+                              "type": "string"
                             }
                           }
                         }
@@ -1759,26 +1633,22 @@
                     "description": "Must include both schema:Action and prov:Activity (prov:Activity required by base generatedBy schema)"
                   },
                   "prov:used": {
+                    "description": "Not used by this profile. A prov:used a record carries is accepted when it passes the core shape in generatedBy (strings and @id references) and is checked by nothing more. Record instruments, software and reagents with schema:instrument, and inputs with schema:object."
+                  },
+                  "schema:instrument": {
                     "type": "array",
-                    "description": "Base generatedBy defines the allowed item shapes (string | {@id} | inline prov:Entity | a role-keyed wrapper naming schema:instrument / bios:computationalTool / bios:reagent). This profile only PINS the schema:instrument wrapper's value to the Instrument description when that key is present; it adds no other restriction, so all base item shapes (including inline prov:Entity inputs such as samples) remain valid. The wrapped value is an ARRAY of Instrument. schema:instrument is 0..* -- one activity commonly uses several instruments in the same role (a laser ablation cell plus the ICP-MS it feeds) -- and this schema implements every 1..* / 0..* property as a JSON array, never as \"object or array\", so a consumer never has to test the value's type before iterating.",
+                    "minItems": 1,
+                    "description": "Instruments, software and reagents the activity used. Each item is either an {@id} reference to a thing described elsewhere, or a description in place whose schema:additionalType carries exactly one of three Wikidata terms (as the Wikidata entity IRI https://www.wikidata.org/entity/Q..., or a wd: CURIE bound to it), which says what kind of thing it is and selects the shape it must have: https://www.wikidata.org/entity/Q3099911 (measuring instrument) -> Instrument; https://www.wikidata.org/entity/Q7397 (software) -> Software; https://www.wikidata.org/entity/Q2356542 (chemical reagent, used here for reagents and reference materials) -> Reagent. The kind is read from additionalType, not @type, because a reagent can be a schema:Product just as an instrument is. Always an array: one activity commonly uses several (a laser ablation cell plus the ICP-MS it feeds, the acquisition software, the standards).",
                     "items": {
-                      "if": {
-                        "type": "object",
-                        "required": [
-                          "schema:instrument"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "schema:instrument": {
-                            "type": "array",
-                            "minItems": 1,
-                            "items": {
-                              "$ref": "#/$defs/Instrument"
-                            }
-                          }
+                      "anyOf": [
+                        {
+                          "$ref": "#/$defs/ObjectReference",
+                          "description": "reference to an instrument, software or reagent described elsewhere"
+                        },
+                        {
+                          "$ref": "#/$defs/UsedResource"
                         }
-                      }
+                      ]
                     }
                   },
                   "schema:name": {
@@ -1840,88 +1710,12 @@
                     }
                   },
                   "schema:object": {
-                    "description": "Input entity (or entities) for this activity. Per schema.org, the range of schema:object is schema:Thing. Accepts four shapes (1) a string URI, (2) an @id reference object, (3) an inline schema:Thing object, or (4) an array whose items take any of those shapes (used when an activity has multiple inputs, e.g. samples analyzed). Supports action chaining where the value references the result of a prior activity.",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "$ref": "#/$defs/ObjectReference",
-                        "description": "reference to an input entity"
-                      },
-                      {
-                        "type": "object",
-                        "description": "Inline schema:Thing object describing the input entity.",
-                        "properties": {
-                          "@type": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "minItems": 1
-                          }
-                        },
-                        "required": [
-                          "@type"
-                        ]
-                      },
-                      {
-                        "type": "array",
-                        "description": "Multiple input entities (e.g. samples analyzed). Each item may be a string URI, an @id reference, or an inline schema:Thing.",
-                        "items": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "object"
-                            }
-                          ]
-                        }
-                      }
-                    ]
+                    "$ref": "#/$defs/ThingValue",
+                    "description": "Input entity (or entities) for this activity. Per schema.org, the range of schema:object is schema:Thing. Accepts four shapes (1) a string URI, (2) an @id reference object, (3) an inline schema:Thing object, or (4) an array whose items take any of those shapes (used when an activity has multiple inputs, e.g. samples analyzed). Supports action chaining where the value references the result of a prior activity."
                   },
                   "schema:result": {
-                    "description": "Output entity (or entities) produced by this activity. Per schema.org, the range is schema:Thing. Accepts: (1) a string URI reference (action chaining shorthand to be referenced as schema:object of a subsequent activity); (2) a single {\"@id\": \"<uri>\"} object reference; (3) an inline schema:Thing (object with @type); or (4) an array of any of these forms (e.g. multiple datasets produced by this activity). Profiles may restrict the array item shape further.",
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "$ref": "#/$defs/ObjectReference",
-                        "description": "reference to an output entity"
-                      },
-                      {
-                        "type": "object",
-                        "description": "Inline schema:Thing object describing the output entity.",
-                        "properties": {
-                          "@type": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "minItems": 1
-                          }
-                        },
-                        "required": [
-                          "@type"
-                        ]
-                      },
-                      {
-                        "type": "array",
-                        "description": "Multiple output entities. Each item may be a string URI, an @id reference, or an inline schema:Thing.",
-                        "items": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "type": "object"
-                            }
-                          ]
-                        }
-                      }
-                    ]
+                    "$ref": "#/$defs/ThingValue",
+                    "description": "Output entity (or entities) produced by this activity. Per schema.org, the range is schema:Thing. Accepts: (1) a string URI reference (action chaining shorthand to be referenced as schema:object of a subsequent activity); (2) a single {\"@id\": \"<uri>\"} object reference; (3) an inline schema:Thing (object with @type); or (4) an array of any of these forms (e.g. multiple datasets produced by this activity). Profiles may restrict the array item shape further."
                   },
                   "schema:actionStatus": {
                     "type": "string",
@@ -1957,95 +1751,10 @@
                     ]
                   },
                   "schema:actionProcess": {
-                    "description": "Methodology or protocol for this activity",
+                    "description": "The plan the activity followed, or the procedure as it was performed. The {@id} reference form is the link to the plan (a protocol, method or workflow definition described elsewhere; CDIF defines no inline plan object). An inline HowTo is the procedure as performed; when the activity also followed a plan, that HowTo links the plan with schema:isBasedOn. One path finds the plan in both cases: prov:wasGeneratedBy/schema:actionProcess/schema:isBasedOn?",
                     "anyOf": [
                       {
-                        "type": "object",
-                        "description": "A methodology or protocol described as a HowTo with optional steps",
-                        "properties": {
-                          "@type": {
-                            "type": "array",
-                            "items": {
-                              "type": "string"
-                            },
-                            "contains": {
-                              "const": "schema:HowTo"
-                            },
-                            "minItems": 1
-                          },
-                          "@id": {
-                            "type": "string"
-                          },
-                          "schema:name": {
-                            "type": "string",
-                            "description": "Name of the methodology or protocol"
-                          },
-                          "schema:description": {
-                            "type": "string",
-                            "description": "Description of the methodology"
-                          },
-                          "schema:url": {
-                            "type": "string",
-                            "format": "uri",
-                            "description": "URL to a published methodology or protocol document"
-                          },
-                          "schema:step": {
-                            "type": "array",
-                            "description": "Ordered steps in this methodology",
-                            "items": {
-                              "type": "object",
-                              "description": "A single step in a HowTo methodology",
-                              "properties": {
-                                "@type": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string"
-                                  },
-                                  "contains": {
-                                    "const": "schema:HowToStep"
-                                  },
-                                  "minItems": 1
-                                },
-                                "schema:name": {
-                                  "type": "string",
-                                  "description": "Name of this step"
-                                },
-                                "schema:description": {
-                                  "type": "string",
-                                  "description": "Description of what this step involves"
-                                },
-                                "schema:url": {
-                                  "type": "string",
-                                  "format": "uri",
-                                  "description": "URL to documentation for this step"
-                                },
-                                "schema:position": {
-                                  "type": "integer",
-                                  "description": "Ordinal position of this step"
-                                }
-                              },
-                              "required": [
-                                "@type",
-                                "schema:name"
-                              ]
-                            }
-                          }
-                        },
-                        "required": [
-                          "@type"
-                        ],
-                        "anyOf": [
-                          {
-                            "required": [
-                              "schema:name"
-                            ]
-                          },
-                          {
-                            "required": [
-                              "schema:url"
-                            ]
-                          }
-                        ]
+                        "$ref": "#/$defs/HowTo"
                       },
                       {
                         "type": "string"
@@ -2061,13 +1770,30 @@
                     "description": "Error description for failed activities"
                   },
                   "schema:additionalProperty": {
-                    "description": "Domain-specific extension properties",
+                    "description": "Domain-specific extension properties, typically the parameter values this run used. schema.org does not list Action among this property's domains, so validator.schema.org warns on it; that warning is known and accepted, because schema.org has no Action property for parameter values.",
                     "type": "array",
                     "items": {
                       "$ref": "#/$defs/AdditionalProperty"
                     }
                   }
-                }
+                },
+                "anyOf": [
+                  {
+                    "required": [
+                      "schema:instrument"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "schema:object"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "schema:actionProcess"
+                    ]
+                  }
+                ]
               }
             ]
           },
@@ -2165,34 +1891,27 @@
                   }
                 }
               },
-              "prov:used": {
+              "schema:instrument": {
                 "type": "array",
                 "items": {
                   "if": {
-                    "description": "When this peer prov:used entry's instrument is a beamline (schema:additionalType contains the NXinstrument class), its schema:additionalProperty entries SHOULD use the XDI Beamline vocabulary (XDI-CDIF-Mapping.xlsx rows 10-20, excluding Beamline.name which maps to schema:name).",
+                    "description": "When a schema:instrument item is a beamline (schema:additionalType contains the NXinstrument class), its schema:additionalProperty entries SHOULD use the XDI Beamline vocabulary (XDI-CDIF-Mapping.xlsx rows 10-20, excluding Beamline.name which maps to schema:name).",
+                    "type": "object",
                     "properties": {
-                      "schema:instrument": {
+                      "schema:additionalType": {
                         "type": "array",
                         "contains": {
                           "type": "object",
+                          "additionalProperties": false,
+                          "required": [
+                            "@id"
+                          ],
                           "properties": {
-                            "schema:additionalType": {
-                              "type": "array",
-                              "contains": {
-                                "type": "object",
-                                "additionalProperties": false,
-                                "required": [
-                                  "@id"
-                                ],
-                                "properties": {
-                                  "@id": {
-                                    "enum": [
-                                      "nxs:base_classes/NXinstrument.html",
-                                      "xas:beamline"
-                                    ]
-                                  }
-                                }
-                              }
+                            "@id": {
+                              "enum": [
+                                "nxs:base_classes/NXinstrument.html",
+                                "xas:beamline"
+                              ]
                             }
                           }
                         }
@@ -2200,52 +1919,45 @@
                     }
                   },
                   "then": {
+                    "type": "object",
                     "properties": {
-                      "schema:instrument": {
+                      "schema:additionalProperty": {
                         "type": "array",
-                        "contains": {
-                          "type": "object",
-                          "properties": {
-                            "schema:additionalProperty": {
-                              "type": "array",
-                              "items": {
-                                "allOf": [
-                                  {
-                                    "$ref": "#/$defs/AdditionalProperty"
-                                  },
-                                  {
-                                    "properties": {
-                                      "schema:propertyID": {
-                                        "type": "array",
-                                        "minItems": 1,
-                                        "items": {
-                                          "anyOf": [
-                                            {
-                                              "$ref": "#/$defs/propertyID_item"
-                                            },
-                                            {
-                                              "enum": [
-                                                "xas:collimation",
-                                                "xas:detectortype",
-                                                "xas:energyrange",
-                                                "xas:energyresolution",
-                                                "xas:flux",
-                                                "xas:focusing",
-                                                "xas:harmonicrejection",
-                                                "xas:scanmode",
-                                                "xas:spotsize",
-                                                "xas:website"
-                                              ]
-                                            }
-                                          ]
-                                        }
+                        "items": {
+                          "allOf": [
+                            {
+                              "$ref": "#/$defs/AdditionalProperty"
+                            },
+                            {
+                              "properties": {
+                                "schema:propertyID": {
+                                  "type": "array",
+                                  "minItems": 1,
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "$ref": "#/$defs/propertyID_item"
+                                      },
+                                      {
+                                        "enum": [
+                                          "xas:collimation",
+                                          "xas:detectortype",
+                                          "xas:energyrange",
+                                          "xas:energyresolution",
+                                          "xas:flux",
+                                          "xas:focusing",
+                                          "xas:harmonicrejection",
+                                          "xas:scanmode",
+                                          "xas:spotsize",
+                                          "xas:website"
+                                        ]
                                       }
-                                    }
+                                    ]
                                   }
-                                ]
+                                }
                               }
                             }
-                          }
+                          ]
                         }
                       }
                     }
@@ -2265,11 +1977,12 @@
             "allOf": [
               {
                 "title": "CDIF Provenance Activity",
-                "description": "Extended provenance activity building block for CDIF. Extends the minimal prov:Activity (generatedBy) with schema.org Action properties for comprehensive provenance documentation including agents, instruments, methodology, temporal bounds, action chaining, and more.",
+                "description": "Extended provenance activity building block for CDIF -- the schema.org implementation. Extends the minimal prov:Activity (generatedBy) with schema.org Action properties for agents, instruments, inputs and outputs, methodology and plan, temporal bounds, action chaining, and more. What the activity used is recorded with schema:instrument (instruments, software, reagents) and schema:object (inputs), not with prov:used.",
                 "type": "object",
                 "allOf": [
                   {
-                    "title": "very simple links or names of software or instruments used to generate a resource.",
+                    "title": "Activity that generated the resource (CDIF core)",
+                    "description": "The CDIF core definition of a prov:wasGeneratedBy value: a prov:Activity whose prov:used items are strings or @id references. Any further structure belongs to the profiles that extend it (cdifProvActivity for the schema.org implementation, provActivity for the PROV-O one), which may only narrow it.",
                     "type": "object",
                     "required": [
                       "@type"
@@ -2283,91 +1996,27 @@
                         "minItems": 1,
                         "contains": {
                           "const": "prov:Activity"
-                        }
+                        },
+                        "description": "Must include prov:Activity. Stated as \"contains\" rather than a single value so an extending profile can add types (cdifProvActivity adds schema:Action)."
                       },
                       "prov:used": {
                         "type": "array",
-                        "description": "Entities the activity used. Per PROV-O each value denotes a prov:Entity. An item may be (1) a string URI or free-text reference, (2) an {@id} reference, (3) an inline entity object carrying an @type that includes prov:Entity plus a schema.org type for the kind of thing used, e.g. [\"prov:Entity\",\"schema:Thing\"] (instrument), [\"prov:Entity\",\"schema:CreativeWork\"] (method/protocol), or [\"prov:Entity\",\"schema:SoftwareApplication\"] (software), or (4) a role-keyed wrapper naming what was used through one of the recognized \"used\" relations (schema:instrument, bios:computationalTool, bios:reagent), or (5) a role-keyed wrapper under a role a consuming profile defines for itself, admitted by shape rather than by name. Base leaves the wrapped value loose; profiles/extensions (e.g. cdifProvActivity, adaProduct) pin its shape (Instrument, ComputationalTool, Reagent, ...) and close the set of role names they accept.",
+                        "description": "Entities the activity used. Optional. Each item is a string (an IRI or a free-text name) or an object that identifies the entity by @id. The @id reference is deliberately NOT sealed: an extending profile may describe the entity in place as long as it keeps the @id, and a profile that wants only bare references can seal it itself. Role-keyed wrappers (an object whose key names a role, with no @id) are not accepted; in the schema.org implementation what an activity used is recorded with schema:instrument and schema:object instead.",
                         "items": {
                           "anyOf": [
                             {
-                              "type": "string"
-                            },
-                            {
-                              "$ref": "#/$defs/ObjectReference",
-                              "description": "a resolvable reference to a representation of the software or instrument used"
+                              "type": "string",
+                              "description": "an IRI or a free-text name of the entity used"
                             },
                             {
                               "type": "object",
-                              "description": "an inline prov:Entity used by the activity (see prov:used description)",
+                              "description": "an entity used, identified by @id; it may also be described in place",
+                              "required": [
+                                "@id"
+                              ],
                               "properties": {
-                                "@type": {
-                                  "type": "array",
-                                  "items": {
-                                    "type": "string"
-                                  },
-                                  "minItems": 1,
-                                  "contains": {
-                                    "const": "prov:Entity"
-                                  }
-                                }
-                              },
-                              "required": [
-                                "@type"
-                              ]
-                            },
-                            {
-                              "type": "object",
-                              "description": "a role-keyed wrapper naming an instrument used by the activity; the extension layer pins the value to an Instrument description.",
-                              "required": [
-                                "schema:instrument"
-                              ]
-                            },
-                            {
-                              "type": "object",
-                              "description": "a role-keyed wrapper naming a computational tool (software) used; the extension layer pins the value to a ComputationalTool description.",
-                              "required": [
-                                "bios:computationalTool"
-                              ]
-                            },
-                            {
-                              "type": "object",
-                              "description": "a role-keyed wrapper naming a reagent / material used; the extension layer pins the value to a Reagent description.",
-                              "required": [
-                                "bios:reagent"
-                              ]
-                            },
-                            {
-                              "type": "object",
-                              "description": "a role-keyed wrapper under a role name this layer does not recognize: an object carrying at least one prefixed-name (CURIE) property other than @id / @type, whose value is an {@id} reference, an inline description, or an array of either. CDIF deliberately does NOT enumerate profile-defined roles here: the three named above (schema:instrument, bios:computationalTool, bios:reagent) are in CDIF/bioschemas scope and stay explicit, while a domain profile is free to relate an activity to what it used through a role of its own without CDIF having to know the term. A consuming profile is expected to CLOSE the set to the roles it defines, so this branch is permissive BY DESIGN at the base layer and the restriction returns at the profile layer. allOf composes correctly in that direction -- base permissive, profile restrictive -- because an allOf intersection can only narrow: a role this layer admits by shape is still rejected by any profile that does not name it.",
-                              "minProperties": 1,
-                              "propertyNames": {
-                                "pattern": "^(@id|@type|[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*)$"
-                              },
-                              "not": {
-                                "description": "@id / @type alone is the plain {@id} reference branch, not a wrapper; at least one property here must be a role.",
-                                "propertyNames": {
-                                  "enum": [
-                                    "@id",
-                                    "@type"
-                                  ]
-                                }
-                              },
-                              "patternProperties": {
-                                "^[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*$": {
-                                  "anyOf": [
-                                    {
-                                      "type": "object",
-                                      "description": "an {@id} reference to, or an inline description of, the entity used in this role"
-                                    },
-                                    {
-                                      "type": "array",
-                                      "minItems": 1,
-                                      "items": {
-                                        "type": "object"
-                                      }
-                                    }
-                                  ]
+                                "@id": {
+                                  "type": "string"
                                 }
                               }
                             }
@@ -2391,26 +2040,22 @@
                         "description": "Must include both schema:Action and prov:Activity (prov:Activity required by base generatedBy schema)"
                       },
                       "prov:used": {
+                        "description": "Not used by this profile. A prov:used a record carries is accepted when it passes the core shape in generatedBy (strings and @id references) and is checked by nothing more. Record instruments, software and reagents with schema:instrument, and inputs with schema:object."
+                      },
+                      "schema:instrument": {
                         "type": "array",
-                        "description": "Base generatedBy defines the allowed item shapes (string | {@id} | inline prov:Entity | a role-keyed wrapper naming schema:instrument / bios:computationalTool / bios:reagent). This profile only PINS the schema:instrument wrapper's value to the Instrument description when that key is present; it adds no other restriction, so all base item shapes (including inline prov:Entity inputs such as samples) remain valid. The wrapped value is an ARRAY of Instrument. schema:instrument is 0..* -- one activity commonly uses several instruments in the same role (a laser ablation cell plus the ICP-MS it feeds) -- and this schema implements every 1..* / 0..* property as a JSON array, never as \"object or array\", so a consumer never has to test the value's type before iterating.",
+                        "minItems": 1,
+                        "description": "Instruments, software and reagents the activity used. Each item is either an {@id} reference to a thing described elsewhere, or a description in place whose schema:additionalType carries exactly one of three Wikidata terms (as the Wikidata entity IRI https://www.wikidata.org/entity/Q..., or a wd: CURIE bound to it), which says what kind of thing it is and selects the shape it must have: https://www.wikidata.org/entity/Q3099911 (measuring instrument) -> Instrument; https://www.wikidata.org/entity/Q7397 (software) -> Software; https://www.wikidata.org/entity/Q2356542 (chemical reagent, used here for reagents and reference materials) -> Reagent. The kind is read from additionalType, not @type, because a reagent can be a schema:Product just as an instrument is. Always an array: one activity commonly uses several (a laser ablation cell plus the ICP-MS it feeds, the acquisition software, the standards).",
                         "items": {
-                          "if": {
-                            "type": "object",
-                            "required": [
-                              "schema:instrument"
-                            ]
-                          },
-                          "then": {
-                            "properties": {
-                              "schema:instrument": {
-                                "type": "array",
-                                "minItems": 1,
-                                "items": {
-                                  "$ref": "#/$defs/Instrument"
-                                }
-                              }
+                          "anyOf": [
+                            {
+                              "$ref": "#/$defs/ObjectReference",
+                              "description": "reference to an instrument, software or reagent described elsewhere"
+                            },
+                            {
+                              "$ref": "#/$defs/UsedResource"
                             }
-                          }
+                          ]
                         }
                       },
                       "schema:name": {
@@ -2472,88 +2117,12 @@
                         }
                       },
                       "schema:object": {
-                        "description": "Input entity (or entities) for this activity. Per schema.org, the range of schema:object is schema:Thing. Accepts four shapes (1) a string URI, (2) an @id reference object, (3) an inline schema:Thing object, or (4) an array whose items take any of those shapes (used when an activity has multiple inputs, e.g. samples analyzed). Supports action chaining where the value references the result of a prior activity.",
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "$ref": "#/$defs/ObjectReference",
-                            "description": "reference to an input entity"
-                          },
-                          {
-                            "type": "object",
-                            "description": "Inline schema:Thing object describing the input entity.",
-                            "properties": {
-                              "@type": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                },
-                                "minItems": 1
-                              }
-                            },
-                            "required": [
-                              "@type"
-                            ]
-                          },
-                          {
-                            "type": "array",
-                            "description": "Multiple input entities (e.g. samples analyzed). Each item may be a string URI, an @id reference, or an inline schema:Thing.",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "string"
-                                },
-                                {
-                                  "type": "object"
-                                }
-                              ]
-                            }
-                          }
-                        ]
+                        "$ref": "#/$defs/ThingValue",
+                        "description": "Input entity (or entities) for this activity. Per schema.org, the range of schema:object is schema:Thing. Accepts four shapes (1) a string URI, (2) an @id reference object, (3) an inline schema:Thing object, or (4) an array whose items take any of those shapes (used when an activity has multiple inputs, e.g. samples analyzed). Supports action chaining where the value references the result of a prior activity."
                       },
                       "schema:result": {
-                        "description": "Output entity (or entities) produced by this activity. Per schema.org, the range is schema:Thing. Accepts: (1) a string URI reference (action chaining shorthand to be referenced as schema:object of a subsequent activity); (2) a single {\"@id\": \"<uri>\"} object reference; (3) an inline schema:Thing (object with @type); or (4) an array of any of these forms (e.g. multiple datasets produced by this activity). Profiles may restrict the array item shape further.",
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "$ref": "#/$defs/ObjectReference",
-                            "description": "reference to an output entity"
-                          },
-                          {
-                            "type": "object",
-                            "description": "Inline schema:Thing object describing the output entity.",
-                            "properties": {
-                              "@type": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                },
-                                "minItems": 1
-                              }
-                            },
-                            "required": [
-                              "@type"
-                            ]
-                          },
-                          {
-                            "type": "array",
-                            "description": "Multiple output entities. Each item may be a string URI, an @id reference, or an inline schema:Thing.",
-                            "items": {
-                              "anyOf": [
-                                {
-                                  "type": "string"
-                                },
-                                {
-                                  "type": "object"
-                                }
-                              ]
-                            }
-                          }
-                        ]
+                        "$ref": "#/$defs/ThingValue",
+                        "description": "Output entity (or entities) produced by this activity. Per schema.org, the range is schema:Thing. Accepts: (1) a string URI reference (action chaining shorthand to be referenced as schema:object of a subsequent activity); (2) a single {\"@id\": \"<uri>\"} object reference; (3) an inline schema:Thing (object with @type); or (4) an array of any of these forms (e.g. multiple datasets produced by this activity). Profiles may restrict the array item shape further."
                       },
                       "schema:actionStatus": {
                         "type": "string",
@@ -2589,95 +2158,10 @@
                         ]
                       },
                       "schema:actionProcess": {
-                        "description": "Methodology or protocol for this activity",
+                        "description": "The plan the activity followed, or the procedure as it was performed. The {@id} reference form is the link to the plan (a protocol, method or workflow definition described elsewhere; CDIF defines no inline plan object). An inline HowTo is the procedure as performed; when the activity also followed a plan, that HowTo links the plan with schema:isBasedOn. One path finds the plan in both cases: prov:wasGeneratedBy/schema:actionProcess/schema:isBasedOn?",
                         "anyOf": [
                           {
-                            "type": "object",
-                            "description": "A methodology or protocol described as a HowTo with optional steps",
-                            "properties": {
-                              "@type": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                },
-                                "contains": {
-                                  "const": "schema:HowTo"
-                                },
-                                "minItems": 1
-                              },
-                              "@id": {
-                                "type": "string"
-                              },
-                              "schema:name": {
-                                "type": "string",
-                                "description": "Name of the methodology or protocol"
-                              },
-                              "schema:description": {
-                                "type": "string",
-                                "description": "Description of the methodology"
-                              },
-                              "schema:url": {
-                                "type": "string",
-                                "format": "uri",
-                                "description": "URL to a published methodology or protocol document"
-                              },
-                              "schema:step": {
-                                "type": "array",
-                                "description": "Ordered steps in this methodology",
-                                "items": {
-                                  "type": "object",
-                                  "description": "A single step in a HowTo methodology",
-                                  "properties": {
-                                    "@type": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "string"
-                                      },
-                                      "contains": {
-                                        "const": "schema:HowToStep"
-                                      },
-                                      "minItems": 1
-                                    },
-                                    "schema:name": {
-                                      "type": "string",
-                                      "description": "Name of this step"
-                                    },
-                                    "schema:description": {
-                                      "type": "string",
-                                      "description": "Description of what this step involves"
-                                    },
-                                    "schema:url": {
-                                      "type": "string",
-                                      "format": "uri",
-                                      "description": "URL to documentation for this step"
-                                    },
-                                    "schema:position": {
-                                      "type": "integer",
-                                      "description": "Ordinal position of this step"
-                                    }
-                                  },
-                                  "required": [
-                                    "@type",
-                                    "schema:name"
-                                  ]
-                                }
-                              }
-                            },
-                            "required": [
-                              "@type"
-                            ],
-                            "anyOf": [
-                              {
-                                "required": [
-                                  "schema:name"
-                                ]
-                              },
-                              {
-                                "required": [
-                                  "schema:url"
-                                ]
-                              }
-                            ]
+                            "$ref": "#/$defs/HowTo"
                           },
                           {
                             "type": "string"
@@ -2693,13 +2177,30 @@
                         "description": "Error description for failed activities"
                       },
                       "schema:additionalProperty": {
-                        "description": "Domain-specific extension properties",
+                        "description": "Domain-specific extension properties, typically the parameter values this run used. schema.org does not list Action among this property's domains, so validator.schema.org warns on it; that warning is known and accepted, because schema.org has no Action property for parameter values.",
                         "type": "array",
                         "items": {
                           "$ref": "#/$defs/AdditionalProperty"
                         }
                       }
-                    }
+                    },
+                    "anyOf": [
+                      {
+                        "required": [
+                          "schema:instrument"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "schema:object"
+                        ]
+                      },
+                      {
+                        "required": [
+                          "schema:actionProcess"
+                        ]
+                      }
+                    ]
                   }
                 ]
               },
@@ -2742,143 +2243,515 @@
                     "type": "string",
                     "description": "Date/time the XAS analysis finished"
                   },
-                  "prov:used": {
+                  "schema:instrument": {
                     "type": "array",
                     "items": {
                       "anyOf": [
                         {
-                          "type": "object",
-                          "required": [
-                            "schema:instrument"
-                          ],
-                          "properties": {
-                            "schema:instrument": {
-                              "type": "array",
-                              "minItems": 1,
-                              "items": {
-                                "allOf": [
-                                  {
-                                    "title": "XAS Instrument",
-                                    "description": "XAS-specific instrument building block. Extends the generic instrument building block with required wd:Q3099911 (Wikidata scientific instrument) additionalType classification.",
-                                    "allOf": [
+                          "$ref": "#/$defs/ObjectReference"
+                        },
+                        {
+                          "title": "XAS Instrument",
+                          "description": "XAS-specific instrument building block. Extends the generic instrument building block with required wd:Q3099911 (Wikidata scientific instrument) additionalType classification.",
+                          "allOf": [
+                            {
+                              "title": "Instrument Description",
+                              "description": "Schema for describing laboratory instruments and instrument systems. Supports ownership, manufacturer, model, commissioning dates, hierarchical sub-components via schema:hasPart, and domain-specific typing. Instruments may be standalone devices or complex systems with sub-components.",
+                              "type": "object",
+                              "properties": {
+                                "@context": {
+                                  "type": "object",
+                                  "description": "JSON-LD context declaring namespace prefixes.",
+                                  "properties": {
+                                    "schema": {
+                                      "const": "http://schema.org/"
+                                    },
+                                    "dcterms": {
+                                      "const": "http://purl.org/dc/terms/"
+                                    }
+                                  },
+                                  "required": [
+                                    "schema"
+                                  ]
+                                },
+                                "@id": {
+                                  "type": "string",
+                                  "description": "Persistent identifier URI for this instrument metadata record."
+                                },
+                                "@type": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "minItems": 1,
+                                  "description": "Must include schema:Product. schema:Thing is allowed but no longer required -- Product is a subclass of Thing, so it adds nothing. May include additional types.",
+                                  "contains": {
+                                    "const": "schema:Product"
+                                  }
+                                },
+                                "schema:additionalType": {
+                                  "description": "Domain-specific type classifications. Should include a scientific instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).",
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "#/$defs/cdifConceptOrTermOrString"
+                                  },
+                                  "minItems": 1
+                                },
+                                "schema:name": {
+                                  "type": "string",
+                                  "minLength": 3,
+                                  "description": "Human-readable name for this instrument."
+                                },
+                                "schema:description": {
+                                  "type": "string",
+                                  "description": "Text description of this instrument, its purpose, and capabilities."
+                                },
+                                "schema:alternateName": {
+                                  "description": "Alternate name(s), e.g. specific make/model designation, common abbreviation.",
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
                                       {
-                                        "$ref": "#/$defs/Instrument"
+                                        "type": "string"
                                       },
                                       {
+                                        "$ref": "#/$defs/ObjectReference"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "schema:identifier": {
+                                  "description": "Formal identifier(s) for this instrument. Use PropertyValue for structured identifiers (e.g. PIDINST, serial number, inventory number).",
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "$ref": "#/$defs/Identifier"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "schema:url": {
+                                  "type": "string",
+                                  "format": "uri",
+                                  "description": "Landing page URL for this instrument."
+                                },
+                                "schema:manufacturer": {
+                                  "$ref": "#/$defs/Organization",
+                                  "description": "Organization that manufactured this instrument."
+                                },
+                                "schema:model": {
+                                  "type": "object",
+                                  "description": "Product model information for this instrument.",
+                                  "properties": {
+                                    "@type": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      },
+                                      "contains": {
+                                        "const": "schema:ProductModel"
+                                      },
+                                      "minItems": 1
+                                    },
+                                    "schema:name": {
+                                      "type": "string",
+                                      "description": "Model name or number."
+                                    },
+                                    "schema:identifier": {
+                                      "description": "Model identifier.",
+                                      "anyOf": [
+                                        {
+                                          "type": "string"
+                                        },
+                                        {
+                                          "$ref": "#/$defs/Identifier"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "@type",
+                                    "schema:name"
+                                  ]
+                                },
+                                "schema:category": {
+                                  "description": "Instrument type classification(s) from a controlled vocabulary.",
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "#/$defs/DefinedTerm"
+                                  }
+                                },
+                                "schema:owner": {
+                                  "$ref": "#/$defs/Organization",
+                                  "description": "Organization that owns this instrument."
+                                },
+                                "schema:contributor": {
+                                  "description": "Agents associated with this instrument in specific roles (e.g. operator, custodian, principal investigator). Use schema:owner for the owning organization.",
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "#/$defs/Contributor"
+                                  }
+                                },
+                                "schema:additionalProperty": {
+                                  "type": "array",
+                                  "description": "Instrument-specific properties (measured variables, detection limits, calibration information, operating parameters, etc.). On a procedure / plan instrument (e.g. an instrument named directly on an ada:TAPPDefinition) these are schema:PropertyValueSpecification parameter templates (an overridable default); on an analysis-event instrument (an activity's schema:instrument) they are schema:PropertyValue concrete values. The JSON Schema accepts both; a profile SHACL rule pins which form applies in which context.",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "$ref": "#/$defs/AdditionalProperty"
+                                      },
+                                      {
+                                        "$ref": "#/$defs/AdditionalPropertySpecification"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "schema:validFrom": {
+                                  "type": "string",
+                                  "description": "Date the instrument was commissioned (ISO 8601)."
+                                },
+                                "schema:validThrough": {
+                                  "type": "string",
+                                  "description": "Date the instrument was decommissioned (ISO 8601). Absent if still operational."
+                                },
+                                "schema:hasPart": {
+                                  "type": "array",
+                                  "description": "Sub-components of this instrument system. Each item is either an inline instrument description or an @id reference.",
+                                  "items": {
+                                    "anyOf": [
+                                      {
                                         "type": "object",
+                                        "description": "A sub-component of an instrument system. Uses the same structure as the parent instrument but without nesting (single level of hasPart).",
                                         "properties": {
+                                          "@type": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "minItems": 1,
+                                            "description": "Must include schema:Product (as the parent instrument does) or schema:Thing (accepted for existing components).",
+                                            "anyOf": [
+                                              {
+                                                "contains": {
+                                                  "const": "schema:Product"
+                                                }
+                                              },
+                                              {
+                                                "contains": {
+                                                  "const": "schema:Thing"
+                                                }
+                                              }
+                                            ]
+                                          },
+                                          "@id": {
+                                            "type": "string"
+                                          },
+                                          "schema:name": {
+                                            "type": "string",
+                                            "minLength": 3
+                                          },
+                                          "schema:description": {
+                                            "type": "string"
+                                          },
+                                          "schema:alternateName": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "schema:identifier": {
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "$ref": "#/$defs/Identifier"
+                                              }
+                                            ]
+                                          },
                                           "schema:additionalType": {
+                                            "description": "Component type classification.",
                                             "type": "array",
                                             "items": {
                                               "$ref": "#/$defs/cdifConceptOrTermOrString"
-                                            },
-                                            "minItems": 1,
-                                            "uniqueItems": true,
-                                            "allOf": [
-                                              {
-                                                "contains": {
-                                                  "type": "object",
-                                                  "additionalProperties": false,
-                                                  "required": [
-                                                    "@id"
-                                                  ],
-                                                  "properties": {
-                                                    "@id": {
-                                                      "const": "wd:Q3099911"
-                                                    }
-                                                  }
+                                            }
+                                          },
+                                          "schema:additionalProperty": {
+                                            "type": "array",
+                                            "items": {
+                                              "anyOf": [
+                                                {
+                                                  "$ref": "#/$defs/AdditionalProperty"
                                                 },
-                                                "description": "wd:Q3099911 is Wikidata scientific instrument. Declare prefix wd: https://www.wikidata.org/entity/"
+                                                {
+                                                  "$ref": "#/$defs/AdditionalPropertySpecification"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "schema:manufacturer": {
+                                            "$ref": "#/$defs/Organization"
+                                          },
+                                          "schema:model": {
+                                            "type": "object",
+                                            "properties": {
+                                              "@type": {
+                                                "type": "array",
+                                                "items": {
+                                                  "anyOf": [
+                                                    {
+                                                      "type": "string"
+                                                    },
+                                                    {
+                                                      "$ref": "#/$defs/ObjectReference"
+                                                    }
+                                                  ]
+                                                },
+                                                "contains": {
+                                                  "const": "schema:ProductModel"
+                                                },
+                                                "minItems": 1
+                                              },
+                                              "schema:name": {
+                                                "type": "string"
+                                              },
+                                              "schema:identifier": {
+                                                "anyOf": [
+                                                  {
+                                                    "type": "string"
+                                                  },
+                                                  {
+                                                    "$ref": "#/$defs/Identifier"
+                                                  }
+                                                ]
                                               }
+                                            },
+                                            "required": [
+                                              "@type"
                                             ]
                                           }
                                         },
                                         "required": [
-                                          "schema:additionalType"
+                                          "@type",
+                                          "schema:name"
                                         ]
+                                      },
+                                      {
+                                        "$ref": "#/$defs/ObjectReference",
+                                        "description": "Reference to a sub-component defined elsewhere."
                                       }
                                     ]
-                                  },
-                                  {
+                                  }
+                                },
+                                "schema:relatedLink": {
+                                  "type": "array",
+                                  "description": "Links to related resources (manuals, datasheets, calibration records, related instruments), each naming how the target relates to the instrument. Uses the same linkRole block as cdifCore; before 2026-09-23 this property was a labeled link here and a LinkRole there.",
+                                  "items": {
+                                    "description": "A typed link, implemented as a schema.org LinkRole: schema:linkRelationship names how the target relates to the subject, and schema:target carries the EntryPoint actually being linked to.\nThis is the right shape when the relationship itself is the point -- \"this is the canonical version of\", \"this is the download endpoint for\". Where the value is simply a work at a URL, such as a license or a terms-of-service document, use schemaorgProperties/labeledLink instead: a licence is a work, not a role, and wrapping it in a Role forces every consumer through an indirection to reach the thing itself.\nDefined here as a block rather than inline in a profile (where it lived until 2026-09-23) so that more than one consumer can reuse it. While it was inline in cdifCore, schemaorgProperties/instrument could not reach it and defined schema:relatedLink as a labeled link instead -- the same property carrying two different shapes depending on which node held it.",
                                     "type": "object",
-                                    "description": "As a prov:used entity, the instrument's @type includes prov:Entity (the PROV-O range of prov:used) alongside schema:Thing / schema:Product.",
                                     "properties": {
                                       "@type": {
+                                        "default": [
+                                          "schema:LinkRole"
+                                        ],
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        },
                                         "contains": {
-                                          "const": "prov:Entity"
+                                          "const": "schema:LinkRole"
+                                        },
+                                        "minItems": 1
+                                      },
+                                      "schema:linkRelationship": {
+                                        "$ref": "#/$defs/cdifConceptOrTermOrString",
+                                        "description": "How the target relates to the subject, as a controlled-vocabulary value or a plain string label. Required: a typed link whose relationship is unstated carries no more information than a bare URL, which is what schemaorgProperties/labeledLink is for.",
+                                        "default": "missing"
+                                      },
+                                      "schema:target": {
+                                        "type": "object",
+                                        "description": "The entry point being linked to. Deliberately not sealed: real targets also carry schema:httpMethod, schema:urlTemplate, schema:contentType and domain-specific properties, and JSON-LD is open-world.",
+                                        "properties": {
+                                          "@type": {
+                                            "default": [
+                                              "schema:EntryPoint"
+                                            ],
+                                            "type": "array",
+                                            "items": {
+                                              "type": "string"
+                                            },
+                                            "contains": {
+                                              "const": "schema:EntryPoint"
+                                            },
+                                            "minItems": 1
+                                          },
+                                          "schema:name": {
+                                            "type": "string"
+                                          },
+                                          "schema:url": {
+                                            "type": "string",
+                                            "format": "uri"
+                                          },
+                                          "schema:encodingFormat": {
+                                            "type": "string",
+                                            "description": "registered MIME types are expected"
+                                          }
                                         }
                                       }
-                                    }
+                                    },
+                                    "required": [
+                                      "@type",
+                                      "schema:linkRelationship"
+                                    ]
                                   }
-                                ]
-                              }
+                                },
+                                "schema:subjectOf": {
+                                  "description": "Catalog record metadata-about-metadata for this instrument description.",
+                                  "type": "object",
+                                  "properties": {
+                                    "@id": {
+                                      "type": "string"
+                                    },
+                                    "@type": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "schema:dateModified": {
+                                      "type": "string",
+                                      "description": "Date this metadata record was last modified (ISO 8601)."
+                                    },
+                                    "schema:about": {
+                                      "$ref": "#/$defs/ObjectReference",
+                                      "description": "Reference back to the instrument @id."
+                                    },
+                                    "dcterms:conformsTo": {
+                                      "description": "Schema or profile this metadata record conforms to.",
+                                      "type": "array",
+                                      "items": {
+                                        "anyOf": [
+                                          {
+                                            "type": "string"
+                                          },
+                                          {
+                                            "$ref": "#/$defs/ObjectReference"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "@type"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "@type",
+                                "schema:name"
+                              ]
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "schema:additionalType": {
+                                  "type": "array",
+                                  "items": {
+                                    "$ref": "#/$defs/cdifConceptOrTermOrString"
+                                  },
+                                  "minItems": 1,
+                                  "uniqueItems": true,
+                                  "allOf": [
+                                    {
+                                      "contains": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": [
+                                          "@id"
+                                        ],
+                                        "properties": {
+                                          "@id": {
+                                            "const": "wd:Q3099911"
+                                          }
+                                        }
+                                      },
+                                      "description": "wd:Q3099911 is Wikidata scientific instrument. Declare prefix wd: https://www.wikidata.org/entity/"
+                                    }
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "schema:additionalType"
+                              ]
                             }
-                          }
-                        },
-                        {
-                          "type": "string"
-                        },
-                        {
-                          "$ref": "#/$defs/ObjectReference"
+                          ]
                         }
                       ]
                     },
                     "allOf": [
                       {
-                        "description": "Must contain a prov:used entry whose schema:instrument is classified as an NXinstrument (via schema:additionalType) and carries a schema:name (the beamline name).",
+                        "description": "Must contain a schema:instrument item classified as an NXinstrument (via schema:additionalType) and carries a schema:name (the beamline name).",
                         "contains": {
                           "type": "object",
                           "properties": {
-                            "schema:instrument": {
+                            "schema:additionalType": {
                               "type": "array",
                               "contains": {
                                 "type": "object",
-                                "properties": {
-                                  "schema:additionalType": {
-                                    "type": "array",
-                                    "contains": {
-                                      "type": "object",
-                                      "additionalProperties": false,
-                                      "required": [
-                                        "@id"
-                                      ],
-                                      "properties": {
-                                        "@id": {
-                                          "enum": [
-                                            "nxs:base_classes/NXinstrument.html",
-                                            "xas:beamline"
-                                          ]
-                                        }
-                                      }
-                                    }
-                                  },
-                                  "schema:name": {
-                                    "type": "string"
-                                  }
-                                },
+                                "additionalProperties": false,
                                 "required": [
-                                  "schema:additionalType",
-                                  "schema:name"
-                                ]
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "enum": [
+                                      "nxs:base_classes/NXinstrument.html",
+                                      "xas:beamline"
+                                    ]
+                                  }
+                                }
                               }
+                            },
+                            "schema:name": {
+                              "type": "string"
                             }
                           },
                           "required": [
-                            "schema:instrument"
+                            "schema:additionalType",
+                            "schema:name"
                           ]
                         }
                       },
                       {
-                        "description": "Must contain a prov:used entry whose schema:instrument is classified as an xas:xraymonochromator (via schema:additionalType) and has a schema:additionalProperty carrying the xas:dspacing PropertyValue with a schema:value.",
+                        "description": "Must contain a schema:instrument item classified as an xas:xraymonochromator (via schema:additionalType) and has a schema:additionalProperty carrying the xas:dspacing PropertyValue with a schema:value.",
                         "contains": {
                           "type": "object",
                           "properties": {
-                            "schema:instrument": {
+                            "schema:additionalType": {
+                              "type": "array",
+                              "contains": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "const": "xas:xraymonochromator"
+                                  }
+                                }
+                              }
+                            },
+                            "schema:additionalProperty": {
                               "type": "array",
                               "contains": {
                                 "type": "object",
                                 "properties": {
-                                  "schema:additionalType": {
+                                  "schema:propertyID": {
                                     "type": "array",
                                     "contains": {
                                       "type": "object",
@@ -2888,51 +2761,25 @@
                                       ],
                                       "properties": {
                                         "@id": {
-                                          "const": "xas:xraymonochromator"
+                                          "const": "xas:dspacing"
                                         }
                                       }
                                     }
                                   },
-                                  "schema:additionalProperty": {
-                                    "type": "array",
-                                    "contains": {
-                                      "type": "object",
-                                      "properties": {
-                                        "schema:propertyID": {
-                                          "type": "array",
-                                          "contains": {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "required": [
-                                              "@id"
-                                            ],
-                                            "properties": {
-                                              "@id": {
-                                                "const": "xas:dspacing"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "required": [
-                                        "schema:propertyID",
-                                        "schema:value"
-                                      ]
-                                    }
+                                  "schema:value": {
+                                    "type": "string"
                                   }
                                 },
                                 "required": [
-                                  "schema:additionalType",
-                                  "schema:additionalProperty"
+                                  "schema:propertyID",
+                                  "schema:value"
                                 ]
                               }
                             }
                           },
                           "required": [
-                            "schema:instrument"
+                            "schema:additionalType",
+                            "schema:additionalProperty"
                           ]
                         }
                       }
@@ -3085,264 +2932,242 @@
           {
             "type": "object",
             "properties": {
-              "prov:used": {
+              "schema:instrument": {
                 "type": "array",
-                "description": "Array of instrument-wrapper entries used by the analysis. Under the peer prov:used model each instrument (source, beamline, monochromator, monitor, ...) is its own top-level wrapper differentiated by schema:instrument.schema:additionalType. An x-ray source (with type and probe properties) and a monochromator (with crystal type, d_spacing, and reflection plane properties) are required here; the NXinstrument-typed beamline and the monochromator d_spacing schema:value are additionally required by xasGeneratedBy.",
+                "description": "Instruments the analysis used, each its own schema:instrument item, told apart by schema:additionalType. An x-ray source (with type and probe properties) and a monochromator (with crystal type, d_spacing, and reflection plane properties) are required here; the NXinstrument-typed beamline and the monochromator d_spacing schema:value are additionally required by xasGeneratedBy.\n",
                 "allOf": [
                   {
-                    "description": "Must contain a peer wrapper whose schema:instrument is classified as xas:source and carries schema:additionalProperty entries for the NXsource type and probe fields (each with a schema:value; the probe entry is also named \"Probe\").",
+                    "description": "Must contain a schema:instrument item classified as xas:source and carries schema:additionalProperty entries for the NXsource type and probe fields (each with a schema:value; the probe entry is also named \"Probe\").",
                     "contains": {
                       "type": "object",
                       "required": [
-                        "schema:instrument"
+                        "schema:additionalType",
+                        "schema:additionalProperty"
                       ],
                       "properties": {
-                        "schema:instrument": {
+                        "schema:additionalType": {
                           "type": "array",
                           "contains": {
                             "type": "object",
+                            "additionalProperties": false,
                             "required": [
-                              "schema:additionalType",
-                              "schema:additionalProperty"
+                              "@id"
                             ],
                             "properties": {
-                              "schema:additionalType": {
-                                "type": "array",
-                                "contains": {
-                                  "type": "object",
-                                  "additionalProperties": false,
-                                  "required": [
-                                    "@id"
-                                  ],
-                                  "properties": {
-                                    "@id": {
-                                      "const": "xas:source"
-                                    }
-                                  }
-                                }
-                              },
-                              "schema:additionalProperty": {
-                                "type": "array",
-                                "minItems": 2,
-                                "items": {
-                                  "$ref": "#/$defs/AdditionalProperty"
-                                },
-                                "allOf": [
-                                  {
+                              "@id": {
+                                "const": "xas:source"
+                              }
+                            }
+                          }
+                        },
+                        "schema:additionalProperty": {
+                          "type": "array",
+                          "minItems": 2,
+                          "items": {
+                            "$ref": "#/$defs/AdditionalProperty"
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "type": "object",
+                                "required": [
+                                  "schema:propertyID",
+                                  "schema:value"
+                                ],
+                                "properties": {
+                                  "schema:propertyID": {
+                                    "type": "array",
                                     "contains": {
                                       "type": "object",
+                                      "additionalProperties": false,
                                       "required": [
-                                        "schema:propertyID",
-                                        "schema:value"
+                                        "@id"
                                       ],
                                       "properties": {
-                                        "schema:propertyID": {
-                                          "type": "array",
-                                          "contains": {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "required": [
-                                              "@id"
-                                            ],
-                                            "properties": {
-                                              "@id": {
-                                                "enum": [
-                                                  "nxs:base_classes/NXsource.html#nxsource-type-field",
-                                                  "xas:xraysourcetype"
-                                                ]
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
+                                        "@id": {
+                                          "enum": [
+                                            "nxs:base_classes/NXsource.html#nxsource-type-field",
+                                            "xas:xraysourcetype"
+                                          ]
                                         }
                                       }
                                     }
                                   },
-                                  {
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "contains": {
+                                "type": "object",
+                                "required": [
+                                  "schema:name",
+                                  "schema:propertyID",
+                                  "schema:value"
+                                ],
+                                "properties": {
+                                  "schema:propertyID": {
+                                    "type": "array",
                                     "contains": {
                                       "type": "object",
+                                      "additionalProperties": false,
                                       "required": [
-                                        "schema:name",
-                                        "schema:propertyID",
-                                        "schema:value"
+                                        "@id"
                                       ],
                                       "properties": {
-                                        "schema:propertyID": {
-                                          "type": "array",
-                                          "contains": {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "required": [
-                                              "@id"
-                                            ],
-                                            "properties": {
-                                              "@id": {
-                                                "enum": [
-                                                  "nxs:base_classes/NXsource.html#nxsource-probe-field",
-                                                  "xas:probe"
-                                                ]
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "schema:name": {
-                                          "const": "Probe"
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
+                                        "@id": {
+                                          "enum": [
+                                            "nxs:base_classes/NXsource.html#nxsource-probe-field",
+                                            "xas:probe"
+                                          ]
                                         }
                                       }
                                     }
+                                  },
+                                  "schema:name": {
+                                    "const": "Probe"
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
                                   }
-                                ]
+                                }
                               }
                             }
-                          }
+                          ]
                         }
                       }
                     }
                   },
                   {
-                    "description": "Must contain a peer wrapper whose schema:instrument is classified as xas:xraymonochromator, has a schema:name, and carries schema:additionalProperty entries for xas:monochromatortype, xas:dspacing (with value + unitText), and xas:reflectionplane.",
+                    "description": "Must contain a schema:instrument item classified as xas:xraymonochromator, has a schema:name, and carries schema:additionalProperty entries for xas:monochromatortype, xas:dspacing (with value + unitText), and xas:reflectionplane.",
                     "contains": {
                       "type": "object",
                       "required": [
-                        "schema:instrument"
+                        "schema:additionalType",
+                        "schema:name",
+                        "schema:additionalProperty"
                       ],
                       "properties": {
-                        "schema:instrument": {
+                        "schema:additionalType": {
                           "type": "array",
                           "contains": {
                             "type": "object",
+                            "additionalProperties": false,
                             "required": [
-                              "schema:additionalType",
-                              "schema:name",
-                              "schema:additionalProperty"
+                              "@id"
                             ],
                             "properties": {
-                              "schema:additionalType": {
-                                "type": "array",
-                                "contains": {
-                                  "type": "object",
-                                  "additionalProperties": false,
-                                  "required": [
-                                    "@id"
-                                  ],
-                                  "properties": {
-                                    "@id": {
-                                      "const": "xas:xraymonochromator"
-                                    }
-                                  }
-                                }
-                              },
-                              "schema:name": {
-                                "type": "string"
-                              },
-                              "schema:additionalProperty": {
-                                "description": "Require crystal type, d_spacing (with unitText), and reflection plane properties.",
-                                "type": "array",
-                                "minItems": 3,
-                                "items": {
-                                  "$ref": "#/$defs/AdditionalProperty"
-                                },
-                                "allOf": [
-                                  {
-                                    "contains": {
-                                      "type": "object",
-                                      "required": [
-                                        "schema:propertyID",
-                                        "schema:value"
-                                      ],
-                                      "properties": {
-                                        "schema:propertyID": {
-                                          "type": "array",
-                                          "contains": {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "required": [
-                                              "@id"
-                                            ],
-                                            "properties": {
-                                              "@id": {
-                                                "const": "xas:monochromatortype"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      }
-                                    }
-                                  },
-                                  {
-                                    "contains": {
-                                      "type": "object",
-                                      "required": [
-                                        "schema:propertyID",
-                                        "schema:value",
-                                        "schema:unitText"
-                                      ],
-                                      "properties": {
-                                        "schema:propertyID": {
-                                          "type": "array",
-                                          "contains": {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "required": [
-                                              "@id"
-                                            ],
-                                            "properties": {
-                                              "@id": {
-                                                "const": "xas:dspacing"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        },
-                                        "schema:unitText": {
-                                          "type": "string"
-                                        }
-                                      }
-                                    }
-                                  },
-                                  {
-                                    "contains": {
-                                      "type": "object",
-                                      "required": [
-                                        "schema:propertyID",
-                                        "schema:value"
-                                      ],
-                                      "properties": {
-                                        "schema:propertyID": {
-                                          "type": "array",
-                                          "contains": {
-                                            "type": "object",
-                                            "additionalProperties": false,
-                                            "required": [
-                                              "@id"
-                                            ],
-                                            "properties": {
-                                              "@id": {
-                                                "const": "xas:reflectionplane"
-                                              }
-                                            }
-                                          }
-                                        },
-                                        "schema:value": {
-                                          "type": "string"
-                                        }
-                                      }
-                                    }
-                                  }
-                                ]
+                              "@id": {
+                                "const": "xas:xraymonochromator"
                               }
                             }
                           }
+                        },
+                        "schema:name": {
+                          "type": "string"
+                        },
+                        "schema:additionalProperty": {
+                          "description": "Require crystal type, d_spacing (with unitText), and reflection plane properties.",
+                          "type": "array",
+                          "minItems": 3,
+                          "items": {
+                            "$ref": "#/$defs/AdditionalProperty"
+                          },
+                          "allOf": [
+                            {
+                              "contains": {
+                                "type": "object",
+                                "required": [
+                                  "schema:propertyID",
+                                  "schema:value"
+                                ],
+                                "properties": {
+                                  "schema:propertyID": {
+                                    "type": "array",
+                                    "contains": {
+                                      "type": "object",
+                                      "additionalProperties": false,
+                                      "required": [
+                                        "@id"
+                                      ],
+                                      "properties": {
+                                        "@id": {
+                                          "const": "xas:monochromatortype"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "contains": {
+                                "type": "object",
+                                "required": [
+                                  "schema:propertyID",
+                                  "schema:value",
+                                  "schema:unitText"
+                                ],
+                                "properties": {
+                                  "schema:propertyID": {
+                                    "type": "array",
+                                    "contains": {
+                                      "type": "object",
+                                      "additionalProperties": false,
+                                      "required": [
+                                        "@id"
+                                      ],
+                                      "properties": {
+                                        "@id": {
+                                          "const": "xas:dspacing"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  },
+                                  "schema:unitText": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "contains": {
+                                "type": "object",
+                                "required": [
+                                  "schema:propertyID",
+                                  "schema:value"
+                                ],
+                                "properties": {
+                                  "schema:propertyID": {
+                                    "type": "array",
+                                    "contains": {
+                                      "type": "object",
+                                      "additionalProperties": false,
+                                      "required": [
+                                        "@id"
+                                      ],
+                                      "properties": {
+                                        "@id": {
+                                          "const": "xas:reflectionplane"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "schema:value": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            }
+                          ]
                         }
                       }
                     }
@@ -7637,486 +7462,6 @@
         "schema:value"
       ]
     },
-    "Instrument": {
-      "title": "Instrument Description",
-      "description": "Schema for describing laboratory instruments and instrument systems. Supports ownership, manufacturer, model, commissioning dates, hierarchical sub-components via schema:hasPart, and domain-specific typing. Instruments may be standalone devices or complex systems with sub-components.",
-      "type": "object",
-      "properties": {
-        "@context": {
-          "type": "object",
-          "description": "JSON-LD context declaring namespace prefixes.",
-          "properties": {
-            "schema": {
-              "const": "http://schema.org/"
-            },
-            "dcterms": {
-              "const": "http://purl.org/dc/terms/"
-            }
-          },
-          "required": [
-            "schema"
-          ]
-        },
-        "@id": {
-          "type": "string",
-          "description": "Persistent identifier URI for this instrument metadata record."
-        },
-        "@type": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "minItems": 2,
-          "description": "Must include schema:Product and schema:Thing. May include additional types.",
-          "allOf": [
-            {
-              "contains": {
-                "const": "schema:Product"
-              }
-            },
-            {
-              "contains": {
-                "const": "schema:Thing"
-              }
-            }
-          ]
-        },
-        "schema:additionalType": {
-          "description": "Domain-specific type classifications. Should include a scientific instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/cdifConceptOrTermOrString"
-          },
-          "minItems": 1
-        },
-        "schema:name": {
-          "type": "string",
-          "minLength": 3,
-          "description": "Human-readable name for this instrument."
-        },
-        "schema:description": {
-          "type": "string",
-          "description": "Text description of this instrument, its purpose, and capabilities."
-        },
-        "schema:alternateName": {
-          "description": "Alternate name(s), e.g. specific make/model designation, common abbreviation.",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/$defs/ObjectReference"
-              }
-            ]
-          }
-        },
-        "schema:identifier": {
-          "description": "Formal identifier(s) for this instrument. Use PropertyValue for structured identifiers (e.g. PIDINST, serial number, inventory number).",
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "#/$defs/Identifier"
-              }
-            ]
-          }
-        },
-        "schema:url": {
-          "type": "string",
-          "format": "uri",
-          "description": "Landing page URL for this instrument."
-        },
-        "schema:manufacturer": {
-          "$ref": "#/$defs/Organization",
-          "description": "Organization that manufactured this instrument."
-        },
-        "schema:model": {
-          "type": "object",
-          "description": "Product model information for this instrument.",
-          "properties": {
-            "@type": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              },
-              "contains": {
-                "const": "schema:ProductModel"
-              },
-              "minItems": 1
-            },
-            "schema:name": {
-              "type": "string",
-              "description": "Model name or number."
-            },
-            "schema:identifier": {
-              "description": "Model identifier.",
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "$ref": "#/$defs/Identifier"
-                }
-              ]
-            }
-          },
-          "required": [
-            "@type",
-            "schema:name"
-          ]
-        },
-        "schema:category": {
-          "description": "Instrument type classification(s) from a controlled vocabulary.",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/DefinedTerm"
-          }
-        },
-        "schema:owner": {
-          "$ref": "#/$defs/Organization",
-          "description": "Organization that owns this instrument."
-        },
-        "schema:contributor": {
-          "description": "Agents associated with this instrument in specific roles (e.g. operator, custodian, principal investigator). Use schema:owner for the owning organization.",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/Contributor"
-          }
-        },
-        "schema:additionalProperty": {
-          "type": "array",
-          "description": "Instrument-specific properties (measured variables, detection limits, calibration information, operating parameters, etc.). On a procedure / plan instrument (e.g. an instrument named directly on an ada:TAPPDefinition) these are schema:PropertyValueSpecification parameter templates (an overridable default); on a prov:used analysis-event instrument they are schema:PropertyValue concrete values. The JSON Schema accepts both; a profile SHACL rule pins which form applies in which context.",
-          "items": {
-            "anyOf": [
-              {
-                "$ref": "#/$defs/AdditionalProperty"
-              },
-              {
-                "type": "object",
-                "title": "additionalProperty PropertyValueSpecification",
-                "description": "A parameter specification (an overridable default) declared on a procedure / plan instrument, typed schema:PropertyValueSpecification; the default sits in schema:defaultValue. Contrast with AdditionalProperty (schema:PropertyValue), the concrete-value form carried by a prov:used analysis-event instrument.\nUntil 2026-10-09 this declared only '@type' and schema:name, so the description named schema:defaultValue as the point of the shape while the schema did not declare it. The object is open, so nothing failed -- 203 entries in geochemBuildingBlocks carried a default that no schema described, and a placement path ending in schema:defaultValue could not be told from a misspelling.\nA domain profile adds its own keys here (geochemBuildingBlocks carries ada:dataType and ada:fieldScope on every one of these entries). Those stay out of this block: it is a generic schema.org shape with several consumers, and only the schema.org properties are its to declare.",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:PropertyValueSpecification"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "description": "Human-readable label for the parameter.",
-                    "type": "string"
-                  },
-                  "schema:valueName": {
-                    "description": "Machine-readable name for the parameter, for serialization and for binding a form control to it.",
-                    "type": "string"
-                  },
-                  "schema:defaultValue": {
-                    "description": "The overridable default this specification carries -- the value that applies unless the analysis overrides it. Left untyped: a default may be a string, a number or a boolean, and which one is a property of the parameter rather than of this shape."
-                  },
-                  "schema:value": {
-                    "description": "A value fixed by the procedure, where the parameter is NOT overridable. Both keys are declared because both occur: measured across the geochemBuildingBlocks corpus on 2026-10-09, of 369 PropertyValueSpecification entries under schema:instrument, 203 carry schema:defaultValue and 166 carry schema:value. A specification that pins a value rather than defaulting one is still a specification."
-                  },
-                  "schema:description": {
-                    "description": "Guidance text for the parameter, e.g. shown beside a form control.",
-                    "type": "string"
-                  },
-                  "@id": {
-                    "description": "Identifier for this specification, so a recorded value elsewhere can reference the parameter it instantiates.",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@type",
-                  "schema:name"
-                ]
-              }
-            ]
-          }
-        },
-        "schema:validFrom": {
-          "type": "string",
-          "description": "Date the instrument was commissioned (ISO 8601)."
-        },
-        "schema:validThrough": {
-          "type": "string",
-          "description": "Date the instrument was decommissioned (ISO 8601). Absent if still operational."
-        },
-        "schema:hasPart": {
-          "type": "array",
-          "description": "Sub-components of this instrument system. Each item is either an inline instrument description or an @id reference.",
-          "items": {
-            "anyOf": [
-              {
-                "type": "object",
-                "description": "A sub-component of an instrument system. Uses the same structure as the parent instrument but without nesting (single level of hasPart).",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "minItems": 1,
-                    "contains": {
-                      "const": "schema:Thing"
-                    }
-                  },
-                  "@id": {
-                    "type": "string"
-                  },
-                  "schema:name": {
-                    "type": "string",
-                    "minLength": 3
-                  },
-                  "schema:description": {
-                    "type": "string"
-                  },
-                  "schema:alternateName": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "schema:identifier": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "$ref": "#/$defs/Identifier"
-                      }
-                    ]
-                  },
-                  "schema:additionalType": {
-                    "description": "Component type classification.",
-                    "type": "array",
-                    "items": {
-                      "$ref": "#/$defs/cdifConceptOrTermOrString"
-                    }
-                  },
-                  "schema:additionalProperty": {
-                    "type": "array",
-                    "items": {
-                      "anyOf": [
-                        {
-                          "$ref": "#/$defs/AdditionalProperty"
-                        },
-                        {
-                          "type": "object",
-                          "title": "additionalProperty PropertyValueSpecification",
-                          "description": "A parameter specification (an overridable default) declared on a procedure / plan instrument, typed schema:PropertyValueSpecification; the default sits in schema:defaultValue. Contrast with AdditionalProperty (schema:PropertyValue), the concrete-value form carried by a prov:used analysis-event instrument.\nUntil 2026-10-09 this declared only '@type' and schema:name, so the description named schema:defaultValue as the point of the shape while the schema did not declare it. The object is open, so nothing failed -- 203 entries in geochemBuildingBlocks carried a default that no schema described, and a placement path ending in schema:defaultValue could not be told from a misspelling.\nA domain profile adds its own keys here (geochemBuildingBlocks carries ada:dataType and ada:fieldScope on every one of these entries). Those stay out of this block: it is a generic schema.org shape with several consumers, and only the schema.org properties are its to declare.",
-                          "properties": {
-                            "@type": {
-                              "type": "array",
-                              "items": {
-                                "type": "string"
-                              },
-                              "contains": {
-                                "const": "schema:PropertyValueSpecification"
-                              },
-                              "minItems": 1
-                            },
-                            "schema:name": {
-                              "description": "Human-readable label for the parameter.",
-                              "type": "string"
-                            },
-                            "schema:valueName": {
-                              "description": "Machine-readable name for the parameter, for serialization and for binding a form control to it.",
-                              "type": "string"
-                            },
-                            "schema:defaultValue": {
-                              "description": "The overridable default this specification carries -- the value that applies unless the analysis overrides it. Left untyped: a default may be a string, a number or a boolean, and which one is a property of the parameter rather than of this shape."
-                            },
-                            "schema:value": {
-                              "description": "A value fixed by the procedure, where the parameter is NOT overridable. Both keys are declared because both occur: measured across the geochemBuildingBlocks corpus on 2026-10-09, of 369 PropertyValueSpecification entries under schema:instrument, 203 carry schema:defaultValue and 166 carry schema:value. A specification that pins a value rather than defaulting one is still a specification."
-                            },
-                            "schema:description": {
-                              "description": "Guidance text for the parameter, e.g. shown beside a form control.",
-                              "type": "string"
-                            },
-                            "@id": {
-                              "description": "Identifier for this specification, so a recorded value elsewhere can reference the parameter it instantiates.",
-                              "type": "string"
-                            }
-                          },
-                          "required": [
-                            "@type",
-                            "schema:name"
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  "schema:manufacturer": {
-                    "$ref": "#/$defs/Organization"
-                  },
-                  "schema:model": {
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "type": "array",
-                        "items": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "$ref": "#/$defs/ObjectReference"
-                            }
-                          ]
-                        },
-                        "contains": {
-                          "const": "schema:ProductModel"
-                        },
-                        "minItems": 1
-                      },
-                      "schema:name": {
-                        "type": "string"
-                      },
-                      "schema:identifier": {
-                        "anyOf": [
-                          {
-                            "type": "string"
-                          },
-                          {
-                            "$ref": "#/$defs/Identifier"
-                          }
-                        ]
-                      }
-                    },
-                    "required": [
-                      "@type"
-                    ]
-                  }
-                },
-                "required": [
-                  "@type",
-                  "schema:name"
-                ]
-              },
-              {
-                "$ref": "#/$defs/ObjectReference",
-                "description": "Reference to a sub-component defined elsewhere."
-              }
-            ]
-          }
-        },
-        "schema:relatedLink": {
-          "type": "array",
-          "description": "Links to related resources (manuals, datasheets, calibration records, related instruments), each naming how the target relates to the instrument. Uses the same linkRole block as cdifCore; before 2026-09-23 this property was a labeled link here and a LinkRole there.",
-          "items": {
-            "description": "A typed link, implemented as a schema.org LinkRole: schema:linkRelationship names how the target relates to the subject, and schema:target carries the EntryPoint actually being linked to.\nThis is the right shape when the relationship itself is the point -- \"this is the canonical version of\", \"this is the download endpoint for\". Where the value is simply a work at a URL, such as a license or a terms-of-service document, use schemaorgProperties/labeledLink instead: a licence is a work, not a role, and wrapping it in a Role forces every consumer through an indirection to reach the thing itself.\nDefined here as a block rather than inline in a profile (where it lived until 2026-09-23) so that more than one consumer can reuse it. While it was inline in cdifCore, schemaorgProperties/instrument could not reach it and defined schema:relatedLink as a labeled link instead -- the same property carrying two different shapes depending on which node held it.",
-            "type": "object",
-            "properties": {
-              "@type": {
-                "default": [
-                  "schema:LinkRole"
-                ],
-                "type": "array",
-                "items": {
-                  "type": "string"
-                },
-                "contains": {
-                  "const": "schema:LinkRole"
-                },
-                "minItems": 1
-              },
-              "schema:linkRelationship": {
-                "$ref": "#/$defs/cdifConceptOrTermOrString",
-                "description": "How the target relates to the subject, as a controlled-vocabulary value or a plain string label. Required: a typed link whose relationship is unstated carries no more information than a bare URL, which is what schemaorgProperties/labeledLink is for.",
-                "default": "missing"
-              },
-              "schema:target": {
-                "type": "object",
-                "description": "The entry point being linked to. Deliberately not sealed: real targets also carry schema:httpMethod, schema:urlTemplate, schema:contentType and domain-specific properties, and JSON-LD is open-world.",
-                "properties": {
-                  "@type": {
-                    "default": [
-                      "schema:EntryPoint"
-                    ],
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "schema:EntryPoint"
-                    },
-                    "minItems": 1
-                  },
-                  "schema:name": {
-                    "type": "string"
-                  },
-                  "schema:url": {
-                    "type": "string",
-                    "format": "uri"
-                  },
-                  "schema:encodingFormat": {
-                    "type": "string",
-                    "description": "registered MIME types are expected"
-                  }
-                }
-              }
-            },
-            "required": [
-              "@type",
-              "schema:linkRelationship"
-            ]
-          }
-        },
-        "schema:subjectOf": {
-          "description": "Catalog record metadata-about-metadata for this instrument description.",
-          "type": "object",
-          "properties": {
-            "@id": {
-              "type": "string"
-            },
-            "@type": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "schema:dateModified": {
-              "type": "string",
-              "description": "Date this metadata record was last modified (ISO 8601)."
-            },
-            "schema:about": {
-              "$ref": "#/$defs/ObjectReference",
-              "description": "Reference back to the instrument @id."
-            },
-            "dcterms:conformsTo": {
-              "description": "Schema or profile this metadata record conforms to.",
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/ObjectReference"
-                  }
-                ]
-              }
-            }
-          },
-          "required": [
-            "@type"
-          ]
-        }
-      },
-      "required": [
-        "@type",
-        "schema:name"
-      ]
-    },
     "IsStructuredByProperty": {
       "anyOf": [
         {
@@ -9827,6 +9172,786 @@
         "cdif:isDefinedBy_DescriptorVariable"
       ]
     },
+    "AdditionalPropertySpecification": {
+      "type": "object",
+      "title": "additionalProperty PropertyValueSpecification",
+      "description": "A parameter specification (an overridable default) declared on a procedure / plan instrument, typed schema:PropertyValueSpecification; the default sits in schema:defaultValue. Contrast with AdditionalProperty (schema:PropertyValue), the concrete-value form carried by an analysis-event instrument.\nUntil 2026-10-09 this declared only '@type' and schema:name, so the description named schema:defaultValue as the point of the shape while the schema did not declare it. The object is open, so nothing failed -- 203 entries in geochemBuildingBlocks carried a default that no schema described, and a placement path ending in schema:defaultValue could not be told from a misspelling.\nA domain profile adds its own keys here (geochemBuildingBlocks carries ada:dataType and ada:fieldScope on every one of these entries). Those stay out of this block: it is a generic schema.org shape with several consumers, and only the schema.org properties are its to declare.",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:PropertyValueSpecification"
+          },
+          "minItems": 1
+        },
+        "schema:name": {
+          "description": "Human-readable label for the parameter.",
+          "type": "string"
+        },
+        "schema:valueName": {
+          "description": "Machine-readable name for the parameter, for serialization and for binding a form control to it.",
+          "type": "string"
+        },
+        "schema:defaultValue": {
+          "description": "The overridable default this specification carries -- the value that applies unless the analysis overrides it. Left untyped: a default may be a string, a number or a boolean, and which one is a property of the parameter rather than of this shape."
+        },
+        "schema:value": {
+          "description": "A value fixed by the procedure, where the parameter is NOT overridable. Both keys are declared because both occur: measured across the geochemBuildingBlocks corpus on 2026-10-09, of 369 PropertyValueSpecification entries under schema:instrument, 203 carry schema:defaultValue and 166 carry schema:value. A specification that pins a value rather than defaulting one is still a specification."
+        },
+        "schema:description": {
+          "description": "Guidance text for the parameter, e.g. shown beside a form control.",
+          "type": "string"
+        },
+        "@id": {
+          "description": "Identifier for this specification, so a recorded value elsewhere can reference the parameter it instantiates.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "@type",
+        "schema:name"
+      ]
+    },
+    "UsedResource": {
+      "type": "object",
+      "description": "An instrument, software or reagent described in place. schema:additionalType must carry exactly one of the three kind terms; the kind then pins the shape. A domain profile adds its own properties (a role, a version, settings).",
+      "required": [
+        "@type",
+        "schema:additionalType"
+      ],
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "schema:additionalType": {
+          "type": "array",
+          "minItems": 1
+        }
+      },
+      "oneOf": [
+        {
+          "description": "schema:additionalType names the Wikidata measuring-instrument term",
+          "properties": {
+            "schema:additionalType": {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "https://www.wikidata.org/entity/Q3099911",
+                      "wd:Q3099911"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "schema:additionalType"
+          ]
+        },
+        {
+          "description": "schema:additionalType names the Wikidata software term",
+          "properties": {
+            "schema:additionalType": {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "https://www.wikidata.org/entity/Q7397",
+                      "wd:Q7397"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "schema:additionalType"
+          ]
+        },
+        {
+          "description": "schema:additionalType names the Wikidata chemical-reagent term",
+          "properties": {
+            "schema:additionalType": {
+              "contains": {
+                "type": "object",
+                "required": [
+                  "@id"
+                ],
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "https://www.wikidata.org/entity/Q2356542",
+                      "wd:Q2356542"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "schema:additionalType"
+          ]
+        }
+      ],
+      "allOf": [
+        {
+          "if": {
+            "description": "schema:additionalType names the Wikidata measuring-instrument term",
+            "properties": {
+              "schema:additionalType": {
+                "contains": {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "properties": {
+                    "@id": {
+                      "enum": [
+                        "https://www.wikidata.org/entity/Q3099911",
+                        "wd:Q3099911"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "schema:additionalType"
+            ]
+          },
+          "then": {
+            "title": "Instrument Description",
+            "description": "Schema for describing laboratory instruments and instrument systems. Supports ownership, manufacturer, model, commissioning dates, hierarchical sub-components via schema:hasPart, and domain-specific typing. Instruments may be standalone devices or complex systems with sub-components.",
+            "type": "object",
+            "properties": {
+              "@context": {
+                "type": "object",
+                "description": "JSON-LD context declaring namespace prefixes.",
+                "properties": {
+                  "schema": {
+                    "const": "http://schema.org/"
+                  },
+                  "dcterms": {
+                    "const": "http://purl.org/dc/terms/"
+                  }
+                },
+                "required": [
+                  "schema"
+                ]
+              },
+              "@id": {
+                "type": "string",
+                "description": "Persistent identifier URI for this instrument metadata record."
+              },
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 1,
+                "description": "Must include schema:Product. schema:Thing is allowed but no longer required -- Product is a subclass of Thing, so it adds nothing. May include additional types.",
+                "contains": {
+                  "const": "schema:Product"
+                }
+              },
+              "schema:additionalType": {
+                "description": "Domain-specific type classifications. Should include a scientific instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).",
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/cdifConceptOrTermOrString"
+                },
+                "minItems": 1
+              },
+              "schema:name": {
+                "type": "string",
+                "minLength": 3,
+                "description": "Human-readable name for this instrument."
+              },
+              "schema:description": {
+                "type": "string",
+                "description": "Text description of this instrument, its purpose, and capabilities."
+              },
+              "schema:alternateName": {
+                "description": "Alternate name(s), e.g. specific make/model designation, common abbreviation.",
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/$defs/ObjectReference"
+                    }
+                  ]
+                }
+              },
+              "schema:identifier": {
+                "description": "Formal identifier(s) for this instrument. Use PropertyValue for structured identifiers (e.g. PIDINST, serial number, inventory number).",
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "$ref": "#/$defs/Identifier"
+                    }
+                  ]
+                }
+              },
+              "schema:url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Landing page URL for this instrument."
+              },
+              "schema:manufacturer": {
+                "$ref": "#/$defs/Organization",
+                "description": "Organization that manufactured this instrument."
+              },
+              "schema:model": {
+                "type": "object",
+                "description": "Product model information for this instrument.",
+                "properties": {
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "contains": {
+                      "const": "schema:ProductModel"
+                    },
+                    "minItems": 1
+                  },
+                  "schema:name": {
+                    "type": "string",
+                    "description": "Model name or number."
+                  },
+                  "schema:identifier": {
+                    "description": "Model identifier.",
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "$ref": "#/$defs/Identifier"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "@type",
+                  "schema:name"
+                ]
+              },
+              "schema:category": {
+                "description": "Instrument type classification(s) from a controlled vocabulary.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/DefinedTerm"
+                }
+              },
+              "schema:owner": {
+                "$ref": "#/$defs/Organization",
+                "description": "Organization that owns this instrument."
+              },
+              "schema:contributor": {
+                "description": "Agents associated with this instrument in specific roles (e.g. operator, custodian, principal investigator). Use schema:owner for the owning organization.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Contributor"
+                }
+              },
+              "schema:additionalProperty": {
+                "type": "array",
+                "description": "Instrument-specific properties (measured variables, detection limits, calibration information, operating parameters, etc.). On a procedure / plan instrument (e.g. an instrument named directly on an ada:TAPPDefinition) these are schema:PropertyValueSpecification parameter templates (an overridable default); on an analysis-event instrument (an activity's schema:instrument) they are schema:PropertyValue concrete values. The JSON Schema accepts both; a profile SHACL rule pins which form applies in which context.",
+                "items": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/AdditionalProperty"
+                    },
+                    {
+                      "$ref": "#/$defs/AdditionalPropertySpecification"
+                    }
+                  ]
+                }
+              },
+              "schema:validFrom": {
+                "type": "string",
+                "description": "Date the instrument was commissioned (ISO 8601)."
+              },
+              "schema:validThrough": {
+                "type": "string",
+                "description": "Date the instrument was decommissioned (ISO 8601). Absent if still operational."
+              },
+              "schema:hasPart": {
+                "type": "array",
+                "description": "Sub-components of this instrument system. Each item is either an inline instrument description or an @id reference.",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "description": "A sub-component of an instrument system. Uses the same structure as the parent instrument but without nesting (single level of hasPart).",
+                      "properties": {
+                        "@type": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "description": "Must include schema:Product (as the parent instrument does) or schema:Thing (accepted for existing components).",
+                          "anyOf": [
+                            {
+                              "contains": {
+                                "const": "schema:Product"
+                              }
+                            },
+                            {
+                              "contains": {
+                                "const": "schema:Thing"
+                              }
+                            }
+                          ]
+                        },
+                        "@id": {
+                          "type": "string"
+                        },
+                        "schema:name": {
+                          "type": "string",
+                          "minLength": 3
+                        },
+                        "schema:description": {
+                          "type": "string"
+                        },
+                        "schema:alternateName": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "schema:identifier": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "$ref": "#/$defs/Identifier"
+                            }
+                          ]
+                        },
+                        "schema:additionalType": {
+                          "description": "Component type classification.",
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/$defs/cdifConceptOrTermOrString"
+                          }
+                        },
+                        "schema:additionalProperty": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/$defs/AdditionalProperty"
+                              },
+                              {
+                                "$ref": "#/$defs/AdditionalPropertySpecification"
+                              }
+                            ]
+                          }
+                        },
+                        "schema:manufacturer": {
+                          "$ref": "#/$defs/Organization"
+                        },
+                        "schema:model": {
+                          "type": "object",
+                          "properties": {
+                            "@type": {
+                              "type": "array",
+                              "items": {
+                                "anyOf": [
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "$ref": "#/$defs/ObjectReference"
+                                  }
+                                ]
+                              },
+                              "contains": {
+                                "const": "schema:ProductModel"
+                              },
+                              "minItems": 1
+                            },
+                            "schema:name": {
+                              "type": "string"
+                            },
+                            "schema:identifier": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "$ref": "#/$defs/Identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "@type"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@type",
+                        "schema:name"
+                      ]
+                    },
+                    {
+                      "$ref": "#/$defs/ObjectReference",
+                      "description": "Reference to a sub-component defined elsewhere."
+                    }
+                  ]
+                }
+              },
+              "schema:relatedLink": {
+                "type": "array",
+                "description": "Links to related resources (manuals, datasheets, calibration records, related instruments), each naming how the target relates to the instrument. Uses the same linkRole block as cdifCore; before 2026-09-23 this property was a labeled link here and a LinkRole there.",
+                "items": {
+                  "description": "A typed link, implemented as a schema.org LinkRole: schema:linkRelationship names how the target relates to the subject, and schema:target carries the EntryPoint actually being linked to.\nThis is the right shape when the relationship itself is the point -- \"this is the canonical version of\", \"this is the download endpoint for\". Where the value is simply a work at a URL, such as a license or a terms-of-service document, use schemaorgProperties/labeledLink instead: a licence is a work, not a role, and wrapping it in a Role forces every consumer through an indirection to reach the thing itself.\nDefined here as a block rather than inline in a profile (where it lived until 2026-09-23) so that more than one consumer can reuse it. While it was inline in cdifCore, schemaorgProperties/instrument could not reach it and defined schema:relatedLink as a labeled link instead -- the same property carrying two different shapes depending on which node held it.",
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "default": [
+                        "schema:LinkRole"
+                      ],
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "contains": {
+                        "const": "schema:LinkRole"
+                      },
+                      "minItems": 1
+                    },
+                    "schema:linkRelationship": {
+                      "$ref": "#/$defs/cdifConceptOrTermOrString",
+                      "description": "How the target relates to the subject, as a controlled-vocabulary value or a plain string label. Required: a typed link whose relationship is unstated carries no more information than a bare URL, which is what schemaorgProperties/labeledLink is for.",
+                      "default": "missing"
+                    },
+                    "schema:target": {
+                      "type": "object",
+                      "description": "The entry point being linked to. Deliberately not sealed: real targets also carry schema:httpMethod, schema:urlTemplate, schema:contentType and domain-specific properties, and JSON-LD is open-world.",
+                      "properties": {
+                        "@type": {
+                          "default": [
+                            "schema:EntryPoint"
+                          ],
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "contains": {
+                            "const": "schema:EntryPoint"
+                          },
+                          "minItems": 1
+                        },
+                        "schema:name": {
+                          "type": "string"
+                        },
+                        "schema:url": {
+                          "type": "string",
+                          "format": "uri"
+                        },
+                        "schema:encodingFormat": {
+                          "type": "string",
+                          "description": "registered MIME types are expected"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "@type",
+                    "schema:linkRelationship"
+                  ]
+                }
+              },
+              "schema:subjectOf": {
+                "description": "Catalog record metadata-about-metadata for this instrument description.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "type": "string"
+                  },
+                  "@type": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "schema:dateModified": {
+                    "type": "string",
+                    "description": "Date this metadata record was last modified (ISO 8601)."
+                  },
+                  "schema:about": {
+                    "$ref": "#/$defs/ObjectReference",
+                    "description": "Reference back to the instrument @id."
+                  },
+                  "dcterms:conformsTo": {
+                    "description": "Schema or profile this metadata record conforms to.",
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "$ref": "#/$defs/ObjectReference"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "@type"
+                ]
+              }
+            },
+            "required": [
+              "@type",
+              "schema:name"
+            ]
+          }
+        },
+        {
+          "if": {
+            "description": "schema:additionalType names the Wikidata software term",
+            "properties": {
+              "schema:additionalType": {
+                "contains": {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "properties": {
+                    "@id": {
+                      "enum": [
+                        "https://www.wikidata.org/entity/Q7397",
+                        "wd:Q7397"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "schema:additionalType"
+            ]
+          },
+          "then": {
+            "type": "object",
+            "description": "Software used by the activity (acquisition, reduction, processing).",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "const": "schema:SoftwareApplication"
+                }
+              },
+              "@id": {
+                "type": "string"
+              },
+              "schema:name": {
+                "type": "string"
+              },
+              "schema:softwareVersion": {
+                "type": "string"
+              },
+              "schema:url": {
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "required": [
+              "@type",
+              "schema:name"
+            ]
+          }
+        },
+        {
+          "if": {
+            "description": "schema:additionalType names the Wikidata chemical-reagent term",
+            "properties": {
+              "schema:additionalType": {
+                "contains": {
+                  "type": "object",
+                  "required": [
+                    "@id"
+                  ],
+                  "properties": {
+                    "@id": {
+                      "enum": [
+                        "https://www.wikidata.org/entity/Q2356542",
+                        "wd:Q2356542"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "schema:additionalType"
+            ]
+          },
+          "then": {
+            "type": "object",
+            "description": "A reagent, standard or reference material used by the activity. @type says what the material is: schema:DefinedTerm for a material identified by a registry entry (e.g. a GeoReM reference material), schema:Product for a catalogued specimen or purchased lot, schema:ChemicalSubstance for a bulk chemical.",
+            "properties": {
+              "@type": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "contains": {
+                  "enum": [
+                    "schema:DefinedTerm",
+                    "schema:Product",
+                    "schema:ChemicalSubstance"
+                  ]
+                }
+              },
+              "@id": {
+                "type": "string"
+              },
+              "schema:name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "@type",
+              "schema:name"
+            ]
+          }
+        }
+      ]
+    },
+    "ThingValue": {
+      "description": "A value in a slot whose schema.org range is schema:Thing. Accepts four shapes: (1) a string URI; (2) an {@id} reference to a thing described elsewhere; (3) an inline schema:Thing (an object with @type); or (4) an array whose items take any of those shapes. Shared by the activity's and a step's schema:object and schema:result, so an input or output is written the same way at both levels.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/$defs/ObjectReference",
+          "description": "reference to an entity described elsewhere"
+        },
+        {
+          "type": "object",
+          "description": "Inline schema:Thing object describing the entity.",
+          "properties": {
+            "@type": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "@type"
+          ]
+        },
+        {
+          "type": "array",
+          "description": "Multiple entities. Each item may be a string URI, an @id reference, or an inline schema:Thing.",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "HowTo": {
+      "type": "object",
+      "description": "A methodology or protocol described as a HowTo with optional steps",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:HowTo"
+          },
+          "minItems": 1
+        },
+        "@id": {
+          "type": "string"
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Name of the methodology or protocol"
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Description of the methodology"
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to a published methodology or protocol document"
+        },
+        "schema:isBasedOn": {
+          "$ref": "#/$defs/ObjectReference",
+          "description": "The plan this procedure was based on, when the activity both followed a plan and records the procedure as performed. A reference only, for now."
+        },
+        "schema:step": {
+          "type": "array",
+          "description": "Ordered steps in this methodology",
+          "items": {
+            "$ref": "#/$defs/HowToStep"
+          }
+        }
+      },
+      "required": [
+        "@type"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "schema:name"
+          ]
+        },
+        {
+          "required": [
+            "schema:url"
+          ]
+        }
+      ]
+    },
     "xsdDataType": {
       "type": "string",
       "enum": [
@@ -10018,6 +10143,155 @@
       "required": [
         "@value",
         "@language"
+      ]
+    },
+    "HowToStep": {
+      "type": "object",
+      "description": "A single step in a HowTo methodology. A step typed schema:HowToStep alone carries only its text, position and documentation link. Typed schema:HowToStep AND schema:Action, it also carries what the step used, acted on and produced, who performed it, the parameter values it used, and a nested sub-procedure -- the activity's own properties, so a step and the activity it belongs to are described the same way. Declaring schema:Action is required once any of those properties is present. A process is therefore free to be a set of HowTo objects, or one HowTo whose steps are actions with sub-procedures of their own; which parts are direct HowTo objects and which are steps is the protocol author's decision.",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "schema:HowToStep"
+          },
+          "minItems": 1,
+          "description": "Must include schema:HowToStep. Include schema:Action as well to describe the step as an action; that is required when the step carries any action property."
+        },
+        "@id": {
+          "type": "string",
+          "description": "Identifier for this step, so that a later step can name it as its schema:object, or name what it produced."
+        },
+        "schema:name": {
+          "type": "string",
+          "description": "Name of this step"
+        },
+        "schema:description": {
+          "type": "string",
+          "description": "Description of what this step involves"
+        },
+        "schema:url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to documentation for this step"
+        },
+        "schema:position": {
+          "type": "integer",
+          "description": "Ordinal position of this step"
+        },
+        "schema:additionalType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Further classification of this step (e.g. bios:LabProcess for a wet-lab step, schema:CreateAction for a step that produces something)."
+        },
+        "schema:agent": {
+          "description": "Agent responsible for carrying out this step",
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Person"
+            },
+            {
+              "$ref": "#/$defs/Organization"
+            },
+            {
+              "$ref": "#/$defs/Contributor"
+            },
+            {
+              "$ref": "#/$defs/ObjectReference",
+              "description": "reference to an agent defined elsewhere"
+            }
+          ]
+        },
+        "schema:instrument": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Instruments, software and reagents this step used, in the same form as the activity's schema:instrument -- either an {@id} reference, or a description in place whose schema:additionalType carries exactly one of the three Wikidata kind terms that selects its shape.",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/ObjectReference",
+                "description": "reference to an instrument, software or reagent described elsewhere"
+              },
+              {
+                "$ref": "#/$defs/UsedResource"
+              }
+            ]
+          }
+        },
+        "schema:object": {
+          "$ref": "#/$defs/ThingValue",
+          "description": "Input entity (or entities) for this step. Supports chaining, where the value references what a prior step produced."
+        },
+        "schema:result": {
+          "$ref": "#/$defs/ThingValue",
+          "description": "Output entity (or entities) this step produced, which a later step may name as its schema:object."
+        },
+        "schema:additionalProperty": {
+          "description": "The parameter values this step used (e.g. beam conditions for an acquisition step, correction settings for a processing step).",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/AdditionalProperty"
+          }
+        },
+        "schema:actionProcess": {
+          "$ref": "#/$defs/HowTo",
+          "description": "Sub-procedure for this step, a nested schema:HowTo with its own ordered steps. Use it for a step whose internal procedure has several phases."
+        }
+      },
+      "required": [
+        "@type",
+        "schema:name"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "anyOf": [
+              {
+                "required": [
+                  "schema:agent"
+                ]
+              },
+              {
+                "required": [
+                  "schema:instrument"
+                ]
+              },
+              {
+                "required": [
+                  "schema:object"
+                ]
+              },
+              {
+                "required": [
+                  "schema:result"
+                ]
+              },
+              {
+                "required": [
+                  "schema:additionalProperty"
+                ]
+              },
+              {
+                "required": [
+                  "schema:actionProcess"
+                ]
+              }
+            ]
+          },
+          "then": {
+            "properties": {
+              "@type": {
+                "contains": {
+                  "const": "schema:Action"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }
