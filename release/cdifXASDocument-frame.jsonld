@@ -1,5 +1,5 @@
 {
-  "_comment": "JSON-LD frame for the CDIF xasDocument/1.1 composite profile (https://w3id.org/cdif/xasDocument/1.1). Structures a JSON-LD input to match the shape the resolved JSON Schema expects: schema:Dataset root, embedded distribution / structure / variableMeasured / provenance / contributor blocks, and XAS-specific slots on the wasGeneratedBy activity (peer schema:instrument under prov:used, schema:object MaterialSample, schema:measurementTechnique / schema:keywords DefinedTerms). Based on the CDIF Data Description Structure profile frame, extended with the XAS-specific sub-frames enumerated below.",
+  "_comment": "JSON-LD frame for the CDIF xasDocument/1.2 composite profile (https://w3id.org/cdif/xasDocument/1.2). Structures a JSON-LD input to match the shape the resolved JSON Schema expects: schema:Dataset root, embedded distribution / structure / variableMeasured / provenance / contributor blocks, and XAS-specific slots on the wasGeneratedBy activity (schema:instrument entries on the activity, schema:object MaterialSample, schema:measurementTechnique / schema:keywords DefinedTerms). Based on the CDIF Data Description Structure profile frame, extended with the XAS-specific sub-frames enumerated below.",
   "@context": {
     "schema": "http://schema.org/",
     "dcterms": "http://purl.org/dc/terms/",
@@ -279,7 +279,7 @@
       "@embed": "@always"
     }
   },
-  "_comment_wasGeneratedBy": "xasCore analysis Activity (Action). Requires xas:analysisevent in schema:additionalType, peer schema:instrument entries in prov:used covering beamline/mono/detector/source, schema:object as MaterialSample, and schema:location as Place with xas:facility additionalType.",
+  "_comment_wasGeneratedBy": "xasCore analysis Activity (Action). Requires xas:analysisevent in schema:additionalType, schema:instrument entries on the activity covering beamline/mono/detector/source, schema:object as MaterialSample, and schema:location as Place with xas:facility additionalType.",
   "prov:wasGeneratedBy": {
     "@embed": "@always",
     "schema:additionalType": {
@@ -334,7 +334,7 @@
       "@embed": "@always"
     }
   },
-  "_comment_subjectOf": "CatalogRecord for the dataset: dcterms:conformsTo declares the profile URIs (cdifCore/1.1, cdifDiscovery/1.1, cdifDataDescription/1.1, cdifDataStructure/1.1, xasCore/1.1). xasOptional/1.1 is deliberately absent: that module declares no required content, so conformance to it is vacuous and undetectable.",
+  "_comment_subjectOf": "CatalogRecord for the dataset: dcterms:conformsTo declares the profile URIs (cdifCore/1.1, cdifDiscovery/1.1, cdifDataDescription/1.1, cdifDataStructure/1.1, xasCore/1.2). xasOptional/1.2 is deliberately absent: that module declares no required content, so conformance to it is vacuous and undetectable.",
   "schema:subjectOf": {
     "@embed": "@always",
     "schema:about": {

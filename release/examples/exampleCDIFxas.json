@@ -842,7 +842,7 @@
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/cdif/xasCore/1.1"
+        "@id": "https://w3id.org/cdif/xasCore/1.2"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
