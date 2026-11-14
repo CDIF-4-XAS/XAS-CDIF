@@ -78,7 +78,7 @@ PINNED_REF = "89971f3922664b5c3fc5eb9929b2fbf5252dcefd"
 
 # Release version of the CDIF XAS vocabularies and crosswalks. Written into
 # every generated file; bump it together with the glossary's schema:version.
-VOCAB_VERSION = "1.1"
+VOCAB_VERSION = "1.2"
 
 RAW = "https://raw.githubusercontent.com/{repo}/{ref}/{path}"
 SEARCH_DIRS = ("contributed_definitions", "applications", "base_classes")

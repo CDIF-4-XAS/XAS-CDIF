@@ -61,11 +61,11 @@ PINNED_REF = "89971f3922664b5c3fc5eb9929b2fbf5252dcefd"
 
 # Release version of the CDIF XAS vocabularies and crosswalks. Written into
 # every generated file; bump it together with the glossary's schema:version.
-VOCAB_VERSION = "1.1"
+VOCAB_VERSION = "1.2"
 # dcterms:modified on each generated scheme; the rendered vocabulary pages
 # show it. A constant, not today's date, so regeneration is reproducible:
 # set it when the vocabularies change.
-VOCAB_MODIFIED = "2026-10-27"
+VOCAB_MODIFIED = "2026-11-14"
 
 RAW = "https://raw.githubusercontent.com/{repo}/{ref}/{path}"
 
