@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: a2ad52493ed1bc1dbd5b9c4b508b2fe8109dafc096fc1d9104f94508be7e55cc
+# src-sha256: 6ac898cbba205fc9d06162bef2a5531c579c60468a7edf8601a47c67e153d935
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -831,12 +831,15 @@ def remove_nulls_and_normalize(obj, parent_key=None):
             if isinstance(ef, list) and len(ef) == 1:
                 result['schema:encodingFormat'] = ef[0]
 
-        # schema:contributor inside Role: unwrap single-element array to bare value
-        # (at root level it's an array of contributors, but inside Role it's a single agent)
+        # schema:contributor / schema:participant inside Role: unwrap a single-element
+        # array to the bare value. Both are in ARRAY_PROPERTIES (a dataset's contributors,
+        # an activity's participants), but inside a Role each holds the one agent in that
+        # role -- schema.org's Role pattern repeats the property the Role sits under.
         if 'schema:Role' in type_list:
-            inner = result.get('schema:contributor')
-            if isinstance(inner, list) and len(inner) == 1:
-                result['schema:contributor'] = inner[0]
+            for k in ('schema:contributor', 'schema:participant'):
+                inner = result.get(k)
+                if isinstance(inner, list) and len(inner) == 1:
+                    result[k] = inner[0]
 
         # schema:alternateName: array on variableMeasured and spatialCoverage items,
         # on an instrument and on its schema:hasPart components (typed schema:Thing,
@@ -1390,24 +1393,28 @@ def check_conformance_consistency(framed, source_doc=None):
     # one it has no rule for (codelist, complexCitation, ...) would otherwise
     # look like an over-claim every single time.
     try:
-        from detect_conformance import CONFORMANCE_CLASSES
+        from detect_conformance import CONFORMANCE_CLASSES, current_uri
         detectable = {c["uri"] for c in CONFORMANCE_CLASSES}
     except Exception:
         detectable = None
+        current_uri = lambda u: u  # noqa: E731
     subject = source_doc if source_doc is not None else framed
     detected = {u for u in (detect_fn(subject) or [])
                 if u.startswith(CDIF_URI_PREFIX)}
     declared_all = _declared_conformance(subject)
-    declared = {u for u in declared_all if u.startswith(CDIF_URI_PREFIX)}
+    declared_raw = {u for u in declared_all if u.startswith(CDIF_URI_PREFIX)}
+    # By class: a replaced version (core/1.1) claims the class now at core/2.0.
+    declared = {current_uri(u) for u in declared_raw}
     comparable = declared if detectable is None else (declared & detectable)
     return {
-        'declared': sorted(declared),
+        'declared': sorted(declared_raw),
         'detected': sorted(detected),
         'overclaimed': sorted(comparable - detected),
         'undeclared': sorted(detected - declared),
-        'other': sorted(declared_all - declared),
+        'other': sorted(declared_all - declared_raw),
         'unchecked': sorted(declared - comparable),
-        'lost_in_framing': bool(declared and not _declared_conformance(framed)),
+        'outdated': sorted(u for u in declared_raw if current_uri(u) != u.rstrip("/")),
+        'lost_in_framing': bool(declared_raw and not _declared_conformance(framed)),
     }
 
 
