@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: 6ac898cbba205fc9d06162bef2a5531c579c60468a7edf8601a47c67e153d935
+# src-sha256: 8c3819a5581956bc1ca9ed8aed57f26fd772f419485e1e1216712a932afe1f93
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -431,10 +431,18 @@ def normalize_bare_structure(obj):
     if isinstance(obj, list):
         return [normalize_bare_structure(x) for x in obj]
     if isinstance(obj, dict):
+        # A component's cdif:isDefinedBy_Variable may be an InstanceVariable that
+        # framing inlined from schema:variableMeasured. There cdif:qualifies is a
+        # single objectReference (cdifInstanceVariable), not the component's
+        # array, so wrapping it would fail a valid variable.
+        t = obj.get('@type')
+        is_variable = any(_local_name(v) == 'InstanceVariable'
+                          for v in (t if isinstance(t, list) else [t]) if isinstance(v, str))
         out = {}
         for k, v in obj.items():
             v = normalize_bare_structure(v)
-            if k in STRUCTURE_ARRAY_KEYS and not isinstance(v, list):
+            if k in STRUCTURE_ARRAY_KEYS and not isinstance(v, list) and \
+                    not (is_variable and k == 'cdif:qualifies'):
                 v = [v]
             out[k] = v
         return out
