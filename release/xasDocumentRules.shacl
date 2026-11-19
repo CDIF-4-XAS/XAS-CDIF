@@ -451,10 +451,11 @@ cdifd:CDIFInstanceVariableShape a sh:NodeShape ;
 
 cdifd:CDIFLabeledLinkShape a sh:NodeShape ;
     sh:property [ sh:datatype xsd:string ;
-            sh:message "schema:url must be an http(s), ftp(s), sftp, s3 or gs URL. Whether it resolves is not tested." ;
+            sh:message "A schema:CreativeWork should have a schema:url, an http(s), ftp(s), sftp, s3 or gs URL. Whether it resolves is not tested." ;
             sh:minCount 1 ;
             sh:path schema:url ;
-            sh:pattern "^(https?|ftps?|sftp|s3|gs)://[^\\s]+$" ] ;
+            sh:pattern "^(https?|ftps?|sftp|s3|gs)://[^\\s]+$" ;
+            sh:severity sh:Warning ] ;
     sh:targetClass schema:CreativeWork .
 
 cdifd:CDIFLinkRoleShape a sh:NodeShape ;
@@ -489,7 +490,7 @@ cdifd:CDIFPersonShape a sh:NodeShape ;
     sh:targetClass schema:Person .
 
 cdifd:CDIFRelationShape a sh:NodeShape ;
-    sh:message "On a dcat:Relationship, dcterms:relation names the related resource and dcat:hadRole (a skos:Concept) classifies the relation. A Relationship that also declares schema:CreativeWork is a labeled link as well, and CDIFLabeledLinkShape requires its schema:url." ;
+    sh:message "On a dcat:Relationship, dcterms:relation names the related resource and dcat:hadRole (a skos:Concept) classifies the relation. A Relationship that also declares schema:CreativeWork is a labeled link as well, and CDIFLabeledLinkShape asks for its schema:url." ;
     sh:property [ a sh:PropertyShape ;
             sh:maxCount 1 ;
             sh:message "dcterms:relation must be an @id reference to the related resource (recommended) or a URI-shaped string. DCMI recommends the URI form and permits the string form." ;
