@@ -86,13 +86,17 @@ All ten XAS identifier families now resolve through the organisation,
 which `validation/tools/check_w3id_redirects.py` checks.
 
 The profile URIs are in the same file. `perma-id/w3id.org#7006`, merged
-2026-10-28, added the 1.1 rules:
+2026-10-28, added the 1.1 rules; `perma-id/w3id.org#7190`, merged
+2026-11-16, added the 1.2 rules and pinned the superseded versions, so
+each versioned URI keeps serving the version it names:
 
 | URI | resolves to |
 |---|---|
-| `w3id.org/cdif/xasDocument/1.1` | this repository's `release/` on `main`: the folder for browsers, the resolved schema for `application/schema+json`, the SHACL for Turtle, the frame for JSON-LD; `/guide` and `/frame` sub-paths |
-| `w3id.org/cdif/xasCore/1.1`, `xasOptional/1.1` | the building blocks in `metadataBuildingBlocks` (`xasCore/1.0` still resolves) |
-| `w3id.org/cdif/xasCore`, `xasDocument` | redirect to `/1.1` |
+| `w3id.org/cdif/xasDocument/1.2` | this repository's `release/` on `main`: the folder for browsers, the resolved schema for `application/schema+json`, the SHACL for Turtle, the frame for JSON-LD; `/guide` and `/frame` sub-paths |
+| `w3id.org/cdif/xasDocument/1.1` | the same, from the `1.1` tag |
+| `w3id.org/cdif/xasCore/1.2`, `xasOptional/1.2` | the building blocks in `metadataBuildingBlocks` `main` |
+| `w3id.org/cdif/xasCore/1.1`, `xasOptional/1.1`; `/1.0` | the same building blocks pinned to commits `39bfc139e6` and `1ffb495b84` (`metadataBuildingBlocks` has no tags) |
+| `w3id.org/cdif/xasCore`, `xasOptional`, `xasDocument` | redirect to `/1.2` |
 | `w3id.org/cdif/xas/edge/{x}`, `emissionline/{x}`, `detectionmode/{x}` | the value-list HTML page at `#{x}` for browsers, the JSON-LD file otherwise |
 
 The fork's `gh-pages` is frozen at its last build. Nothing resolves to
