@@ -53,10 +53,10 @@ the profiles the document conforms to:
     "schema:additionalType": [{"@id": "dcat:CatalogRecord"}],
     "schema:about": {"@id": "<the root Dataset @id>"},
     "dcterms:conformsTo": [
-        {"@id": "https://w3id.org/cdif/core/1.1"},
-        {"@id": "https://w3id.org/cdif/discovery/1.1"},
-        {"@id": "https://w3id.org/cdif/data_description/1.1"},
-        {"@id": "https://w3id.org/cdif/data_structure/1.1"},
+        {"@id": "https://w3id.org/cdif/core/2.0"},
+        {"@id": "https://w3id.org/cdif/discovery/2.0"},
+        {"@id": "https://w3id.org/cdif/data_description/2.0"},
+        {"@id": "https://w3id.org/cdif/data_structure/2.0"},
         {"@id": "https://w3id.org/cdif/xasCore/1.2"}
     ]
 }
