@@ -63,10 +63,10 @@ interpret the spectrum.
 
 | Component | Conformance URI | Contribution |
 |-----------|-----------------|--------------|
-| CDIF Core | `cdif/core/1.1` | Mandatory dataset discovery (identifier, name, license, dateModified, url-or-distribution, catalog record) |
-| CDIF Discovery | `cdif/discovery/1.1` | Optional discovery (creator, contributor, spatial/temporal coverage, keywords, etc.) |
-| CDIF Data Description | `cdif/data_description/1.1` | `schema:variableMeasured` (measured variables and their semantics) |
-| CDIF Data Structure | `cdif/data_structure/1.1` | `cdi:isStructuredBy` (physical / logical / tabular structure) |
+| CDIF Core | `cdif/core/2.0` | Mandatory dataset discovery (identifier, name, license, dateModified, url-or-distribution, catalog record) |
+| CDIF Discovery | `cdif/discovery/2.0` | Optional discovery (creator, contributor, spatial/temporal coverage, keywords, etc.) |
+| CDIF Data Description | `cdif/data_description/2.0` | `schema:variableMeasured` (measured variables and their semantics) |
+| CDIF Data Structure | `cdif/data_structure/2.0` | `cdi:isStructuredBy` (physical / logical / tabular structure) |
 | XAS Core | `cdif/xasCore/1.2` | XAS-mandatory analysis activity, instruments, technique; sample shape |
 | XAS Optional | `cdif/xasOptional/1.2` | XAS-recommended: data-array variables, beamline-operational and sample physico-chemical additionalProperty vocabularies |
 
@@ -89,10 +89,10 @@ root Dataset, and that record declares conformance to these five URIs:
     ],
     "schema:about": { "@id": "..." },
     "dcterms:conformsTo": [
-        { "@id": "https://w3id.org/cdif/core/1.1" },
-        { "@id": "https://w3id.org/cdif/discovery/1.1" },
-        { "@id": "https://w3id.org/cdif/data_description/1.1" },
-        { "@id": "https://w3id.org/cdif/data_structure/1.1" },
+        { "@id": "https://w3id.org/cdif/core/2.0" },
+        { "@id": "https://w3id.org/cdif/discovery/2.0" },
+        { "@id": "https://w3id.org/cdif/data_description/2.0" },
+        { "@id": "https://w3id.org/cdif/data_structure/2.0" },
         { "@id": "https://w3id.org/cdif/xasCore/1.2" }
     ]
 }
@@ -100,7 +100,7 @@ root Dataset, and that record declares conformance to these five URIs:
 
 A document whose distribution has `schema:hasPart` entries (see [Where
 `cdi:isStructuredBy` belongs](#where-cdiisstructuredby-belongs)) is a
-manifest and MUST also declare `https://w3id.org/cdif/manifest/1.1`; the
+manifest and MUST also declare `https://w3id.org/cdif/manifest/2.0`; the
 schema requires it whenever any distribution has parts.
 
 `xasOptional/1.2` is deliberately **not** declared. The xasOptional module
@@ -422,7 +422,7 @@ commonly write exactly that.
 #### A file holding several datasets
 
 Where a distribution has `schema:hasPart` entries — which also requires
-the `manifest/1.1` conformance claim (see [How to declare
+the `manifest/2.0` conformance claim (see [How to declare
 conformance](#how-to-declare-conformance)) — **each part SHOULD
 carry its own `prov:wasGeneratedBy`** with its own `schema:startTime` /
 `schema:endTime`. The file-level activity then spans the whole file,
