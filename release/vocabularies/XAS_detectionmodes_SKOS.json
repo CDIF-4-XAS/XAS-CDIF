@@ -272,8 +272,8 @@
       }
     }
   ],
-  "schema:version": "1.1",
-  "dcterms:modified": "2026-10-27",
+  "schema:version": "1.2",
+  "dcterms:modified": "2026-11-14",
   "schema:subjectOf": {
     "@id": "https://w3id.org/cdif/xas/XAS_DetectionModes#catalog-record",
     "@type": [
@@ -289,7 +289,7 @@
     },
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/conceptscheme/1.1"
+        "@id": "https://w3id.org/cdif/conceptscheme/2.0"
       }
     ]
   }

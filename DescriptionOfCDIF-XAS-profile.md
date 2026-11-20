@@ -1,7 +1,8 @@
 # Implementing the CDIF XAS profile
 
 Review and minor updates SMR 2026-07-17; revised 2026-10-26 for XAS-CDIF
-release 1.1, against the `xasDocument/1.1` profile in `release/`.
+release 1.1, and 2026-11-14 for release 1.2, against the
+`xasDocument/1.2` profile in `release/`.
 
 This is an overview in prose. The normative statement is the resolved JSON
 Schema and SHACL rules in `release/`, and the class-by-class detail is in
@@ -18,7 +19,7 @@ The "[Dictionary of XAS Data Interchange Metadata](https://github.com/XraySpectr
 
 Element symbol and element edge are considered properties of the analysis event because a given instrument in a given configuration can analyze for different elements and edges. They are implemented as keywords (see section 4); a `schema:about` property on each keyword identifies the XDI field it carries. The profile recommends these keywords but does not require them.
 
-Mono.d\_spacing is a property of the monochromator component in the XAS analysis instrument. It is implemented as an additionalProperty (`xas:dspacing`) of the monochromator, which is one of the instruments listed in the `prov:wasGeneratedBy/prov:used` list.
+Mono.d\_spacing is a property of the monochromator component in the XAS analysis instrument. It is implemented as an additionalProperty (`xas:dspacing`) of the monochromator, which is one of the instruments listed in the activity's `schema:instrument` array.
 
 ## Namespaces
 
@@ -52,16 +53,16 @@ the profiles the document conforms to:
     "schema:additionalType": [{"@id": "dcat:CatalogRecord"}],
     "schema:about": {"@id": "<the root Dataset @id>"},
     "dcterms:conformsTo": [
-        {"@id": "https://w3id.org/cdif/core/1.1"},
-        {"@id": "https://w3id.org/cdif/discovery/1.1"},
-        {"@id": "https://w3id.org/cdif/data_description/1.1"},
-        {"@id": "https://w3id.org/cdif/data_structure/1.1"},
-        {"@id": "https://w3id.org/cdif/xasCore/1.1"}
+        {"@id": "https://w3id.org/cdif/core/2.0"},
+        {"@id": "https://w3id.org/cdif/discovery/2.0"},
+        {"@id": "https://w3id.org/cdif/data_description/2.0"},
+        {"@id": "https://w3id.org/cdif/data_structure/2.0"},
+        {"@id": "https://w3id.org/cdif/xasCore/1.2"}
     ]
 }
 ```
 
-`xasOptional/1.1` is not declared: that module adds no required content, so a
+`xasOptional/1.2` is not declared: that module adds no required content, so a
 claim to conform to it is vacuous and cannot be checked.
 
 ## 1\. Define variables
@@ -103,25 +104,22 @@ The event is a `schema:Action` that is also a `prov:Activity`, classified with `
 It has various properties (besides the regular name and description):
 
 * `schema:startTime`, `schema:endTime`: ISO 8601 timestamps of the acquisition. When the scan ran belongs on the activity, not as `schema:temporalCoverage` on the dataset.
-* `prov:used`: the instruments used to acquire data. The instrumentation is described as one `prov:used` wrapper per component, each holding its instrument in a `schema:instrument` array. Every instrument has `prov:Entity` in its `@type` and `wd:Q3099911` (Wikidata "scientific instrument") in its `schema:additionalType`, beside a component type:
+* `schema:instrument`: the instruments used to acquire data, one entry per component, directly on the activity. (Until release 1.2 each was wrapped in its own `prov:used` entity.) Every instrument has `wd:Q3099911` (Wikidata "scientific instrument") in its `schema:additionalType`, beside a component type:
 
   ```json
-  {
-      "@type": ["schema:Thing", "prov:Entity"],
-      "schema:instrument": [{
-          "@type": ["schema:Thing", "schema:Product", "prov:Entity"],
-          "schema:additionalType": [{"@id": "xas:source"}, {"@id": "wd:Q3099911"}],
-          "schema:name": "APS bending magnet source",
-          "schema:additionalProperty": [
-              {"@type": ["schema:PropertyValue"], "schema:name": "X-ray source",
-               "schema:propertyID": [{"@id": "nxs:base_classes/NXsource.html#nxsource-type-field"}],
-               "schema:value": "Synchrotron X-ray Source"},
-              {"@type": ["schema:PropertyValue"], "schema:name": "Probe",
-               "schema:propertyID": [{"@id": "nxs:base_classes/NXsource.html#nxsource-probe-field"}],
-               "schema:value": "x-ray"}
-          ]
-      }]
-  }
+  "schema:instrument": [{
+      "@type": ["schema:Thing", "schema:Product", "prov:Entity"],
+      "schema:additionalType": [{"@id": "xas:source"}, {"@id": "wd:Q3099911"}],
+      "schema:name": "APS bending magnet source",
+      "schema:additionalProperty": [
+          {"@type": ["schema:PropertyValue"], "schema:name": "X-ray source",
+           "schema:propertyID": [{"@id": "nxs:base_classes/NXsource.html#nxsource-type-field"}],
+           "schema:value": "Synchrotron X-ray Source"},
+          {"@type": ["schema:PropertyValue"], "schema:name": "Probe",
+           "schema:propertyID": [{"@id": "nxs:base_classes/NXsource.html#nxsource-probe-field"}],
+           "schema:value": "x-ray"}
+      ]
+  }]
   ```
 
   The components, and what each must carry:

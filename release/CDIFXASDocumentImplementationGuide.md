@@ -1,10 +1,12 @@
 # CDIF XAS Document Profile Implementation Guide
 
-**Version 1.1** (XAS-CDIF release 1.1) — 2026-10-26
+**Version 1.2** (XAS-CDIF release 1.2) — 2026-11-14
 
-**Conformance URI:** `https://w3id.org/cdif/xasDocument/1.1` (with the
-tiers `xasCore/1.1` and `xasOptional/1.1`; all three were 1.0 before
-XAS-CDIF release 1.1)
+**Conformance URI:** `https://w3id.org/cdif/xasDocument/1.2` (with the
+tiers `xasCore/1.2` and `xasOptional/1.2`). All three were 1.1 in
+XAS-CDIF release 1.1, and 1.0 before that. 1.2 moved the instruments
+from `prov:used` wrappers to `schema:instrument` on the activity, which
+a 1.1 document with instruments does not satisfy.
 
 This document describes the CDIF XAS Document Profile — a document-level
 profile for X-ray Absorption Spectroscopy datasets serialized as
@@ -61,12 +63,12 @@ interpret the spectrum.
 
 | Component | Conformance URI | Contribution |
 |-----------|-----------------|--------------|
-| CDIF Core | `cdif/core/1.1` | Mandatory dataset discovery (identifier, name, license, dateModified, url-or-distribution, catalog record) |
-| CDIF Discovery | `cdif/discovery/1.1` | Optional discovery (creator, contributor, spatial/temporal coverage, keywords, etc.) |
-| CDIF Data Description | `cdif/data_description/1.1` | `schema:variableMeasured` (measured variables and their semantics) |
-| CDIF Data Structure | `cdif/data_structure/1.1` | `cdi:isStructuredBy` (physical / logical / tabular structure) |
-| XAS Core | `cdif/xasCore/1.1` | XAS-mandatory analysis activity, instruments, technique; sample shape |
-| XAS Optional | `cdif/xasOptional/1.1` | XAS-recommended: data-array variables, beamline-operational and sample physico-chemical additionalProperty vocabularies |
+| CDIF Core | `cdif/core/2.0` | Mandatory dataset discovery (identifier, name, license, dateModified, url-or-distribution, catalog record) |
+| CDIF Discovery | `cdif/discovery/2.0` | Optional discovery (creator, contributor, spatial/temporal coverage, keywords, etc.) |
+| CDIF Data Description | `cdif/data_description/2.0` | `schema:variableMeasured` (measured variables and their semantics) |
+| CDIF Data Structure | `cdif/data_structure/2.0` | `cdi:isStructuredBy` (physical / logical / tabular structure) |
+| XAS Core | `cdif/xasCore/1.2` | XAS-mandatory analysis activity, instruments, technique; sample shape |
+| XAS Optional | `cdif/xasOptional/1.2` | XAS-recommended: data-array variables, beamline-operational and sample physico-chemical additionalProperty vocabularies |
 
 Full JSON Schema, SHACL rules, JSON-LD frame, and example documents for
 each component are in that component's release repo (see [Related
@@ -87,21 +89,21 @@ root Dataset, and that record declares conformance to these five URIs:
     ],
     "schema:about": { "@id": "..." },
     "dcterms:conformsTo": [
-        { "@id": "https://w3id.org/cdif/core/1.1" },
-        { "@id": "https://w3id.org/cdif/discovery/1.1" },
-        { "@id": "https://w3id.org/cdif/data_description/1.1" },
-        { "@id": "https://w3id.org/cdif/data_structure/1.1" },
-        { "@id": "https://w3id.org/cdif/xasCore/1.1" }
+        { "@id": "https://w3id.org/cdif/core/2.0" },
+        { "@id": "https://w3id.org/cdif/discovery/2.0" },
+        { "@id": "https://w3id.org/cdif/data_description/2.0" },
+        { "@id": "https://w3id.org/cdif/data_structure/2.0" },
+        { "@id": "https://w3id.org/cdif/xasCore/1.2" }
     ]
 }
 ```
 
 A document whose distribution has `schema:hasPart` entries (see [Where
 `cdi:isStructuredBy` belongs](#where-cdiisstructuredby-belongs)) is a
-manifest and MUST also declare `https://w3id.org/cdif/manifest/1.1`; the
+manifest and MUST also declare `https://w3id.org/cdif/manifest/2.0`; the
 schema requires it whenever any distribution has parts.
 
-`xasOptional/1.1` is deliberately **not** declared. The xasOptional module
+`xasOptional/1.2` is deliberately **not** declared. The xasOptional module
 adds no required content — every property it contributes is optional — so
 conformance to it is satisfied vacuously by any document, and
 `detect_conformance` has no rule that can check such a claim. Declaring it
@@ -134,8 +136,8 @@ An XAS document describes:
    RepresentedVariable and InstanceVariable so the file can be parsed
    deterministically.
 4. **How it was generated** — a `prov:wasGeneratedBy` activity of type
-   `xas:analysisevent` whose `prov:used` array lists the beamline, X-ray
-   source and monochromator as peer instruments.
+   `xas:analysisevent` whose `schema:instrument` array lists the beamline,
+   X-ray source and monochromator.
 5. **What was analyzed** — a `schema:object` sample entity typed as
    `MaterialSample` with iSample additionalType and (optionally)
    physico-chemical additionalProperty entries.
@@ -229,7 +231,7 @@ to extract the Dataset from a graph before validating.
 | `time` | `http://www.w3.org/2006/time#` | temporal |
 
 The context is not yet served at a w3id URI
-(`https://w3id.org/cdif/xasDocument/1.1/context` returns 404), so
+(`https://w3id.org/cdif/xasDocument/1.2/context` returns 404), so
 documents declare these prefixes in their own `@context`.
 
 
@@ -356,7 +358,7 @@ See the [CDIF Data Structure IG](https://cross-domain-interoperability-framework
 
 ## XAS-specific requirements
 
-The subsections below list the requirements *added* by `xasCore/1.1`. They
+The subsections below list the requirements *added* by `xasCore/1.2`. They
 are enforced by the SHACL rules in `xasDocumentRules.shacl` and by
 targeted JSON Schema constraints; see the mBB source at
 [`_sources/xasProperties/xasCore/`](https://github.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/tree/main/_sources/xasProperties/xasCore).
@@ -382,7 +384,7 @@ to the analysis event only. The analysis event has:
   [xasSample](#sample-entity-schemaobject)
 - `schema:startTime` (recommended), and `schema:endTime` where the source
   records one: ISO 8601 timestamps of the acquisition
-- `prov:used`: an array of instrument wrappers (see [Instrument entities](#instrument-entities))
+- `schema:instrument`: an array of the instruments (see [Instrument entities](#instrument-entities))
 - `schema:additionalProperty` (recommended): `xas:edgeenergy` value of the
   measured edge, plus other analysis-scale properties like
   `xas:calibrationmethod`
@@ -420,7 +422,7 @@ commonly write exactly that.
 #### A file holding several datasets
 
 Where a distribution has `schema:hasPart` entries — which also requires
-the `manifest/1.1` conformance claim (see [How to declare
+the `manifest/2.0` conformance claim (see [How to declare
 conformance](#how-to-declare-conformance)) — **each part SHOULD
 carry its own `prov:wasGeneratedBy`** with its own `schema:startTime` /
 `schema:endTime`. The file-level activity then spans the whole file,
@@ -440,51 +442,54 @@ file-level activity describes in full:
     "schema:additionalType": [{"@id": "xas:analysisevent"}],
     "schema:startTime": "2020-08-10T09:18:48",
     "schema:endTime": "2020-08-10T09:22:32",
-    "prov:used": [{"@id": "ex:FeXAS/used/beamline"}]
+    "schema:instrument": [
+        {"@id": "ex:FeXAS/instrument/beamline"},
+        {"@id": "ex:FeXAS/instrument/source"},
+        {"@id": "ex:FeXAS/instrument/xraymonochromator"}
+    ]
 }]
 ```
 
-`prov:used` is not optional here even when the instruments are stated
-elsewhere: the `cdifProvActivity` shape requires at least one on **any**
-activity reached through `prov:wasGeneratedBy`, and a part's activity is
-reached exactly that way.
+A part's activity needs something of this kind even when the
+instruments are described in full on the file-level activity: the
+`cdifProvActivity` shape requires at least one of `schema:instrument`,
+`schema:object` or `schema:actionProcess` on **any** activity reached
+through `prov:wasGeneratedBy`, and a part's activity is reached exactly
+that way.
 
 Every XDI file holds one spectrum, so an XDI-only producer never meets
 this case.
 
 ### Instrument entities
 
-The `prov:used` array on the analysis activity is the **peer prov:used
-instrument model**: one wrapper per instrument, each carrying its
-`schema:instrument` as an array. A wrapper looks like this (the
-wrapper's own `@type` is recommended, not required):
+The analysis activity lists its instruments in `schema:instrument`, one
+entry per instrument, directly on the activity:
 
 ```json
-{
-    "@type": ["schema:Thing", "prov:Entity"],
-    "schema:instrument": [ {
-        "@type": ["schema:Thing", "schema:Product", "prov:Entity"],
-        "schema:additionalType": [
-            { "@id": "xas:<component-URI>" },
-            { "@id": "wd:Q3099911" }
-        ],
-        "schema:name": "...",
-        "schema:additionalProperty": [ ... ]
-    } ]
-}
+"schema:instrument": [ {
+    "@type": ["schema:Thing", "schema:Product", "prov:Entity"],
+    "schema:additionalType": [
+        { "@id": "xas:<component-URI>" },
+        { "@id": "wd:Q3099911" }
+    ],
+    "schema:name": "...",
+    "schema:additionalProperty": [ ... ]
+} ]
 ```
 
-Two parts of this are easy to miss, and a document fails without them:
+Until release 1.2 each instrument sat inside its own `prov:used`
+wrapper, `{"@type": [...], "schema:instrument": [ ... ]}`. 1.2 drops the
+wrapper, which carried nothing but the instrument.
 
-- `prov:Entity` on the instrument's own `@type`, not only on the wrapper,
-  because the instrument is what the activity used (`prov:used` has range
-  `prov:Entity`).
-- `wd:Q3099911` (Wikidata "scientific instrument") in
-  `schema:additionalType`, beside the component type. `xasInstrument`
-  requires it on every instrument. Declare
-  `wd: https://www.wikidata.org/entity/`.
+One part of this is easy to miss, and a document fails without it:
+`wd:Q3099911` (Wikidata "scientific instrument") in
+`schema:additionalType`, beside the component type. `xasInstrument`
+requires it on every instrument. Declare
+`wd: https://www.wikidata.org/entity/`. `prov:Entity` in the
+instrument's `@type`, required while the instrument was the object of
+`prov:used`, is no longer required; both converters still emit it.
 
-Required component wrappers (`schema:additionalType` `@id` value):
+Required components (`schema:additionalType` `@id` value):
 
 | Component | additionalType | Required on the instrument |
 |-----------|----------------|----------------------------|
@@ -493,7 +498,7 @@ Required component wrappers (`schema:additionalType` `@id` value):
 | Monochromator | `xas:xraymonochromator` | `schema:name`, and additionalProperty entries for `xas:monochromatortype`, `xas:dspacing` (with both `schema:value` and `schema:unitText`) and `xas:reflectionplane` |
 
 Other instruments, such as an X-ray monitor or detector, may be added as
-further wrappers; the profile places no requirements on them.
+further instruments; the profile places no requirements on them.
 
 **Retired terms.** On 2026-09-27 four technique-neutral terms were
 retired onto NeXus base classes (`nxs:` =
@@ -829,8 +834,8 @@ validated clean against `cdifXASDocumentResolvedSchema.json` and
 `xasDocumentRules.shacl` (0 errors, 0 SHACL violations) on release.
 
 - **`example_dds_framed.jsonld`** — profile-canonical reference
-  maintained in mBB. It omits the sample (`schema:object`) and the
-  wrappers' `@type`, both of which the profile permits.
+  maintained in mBB. It omits the sample (`schema:object`), which the
+  profile permits.
 - **`exampleCDIFxas.json`** — the earlier reference XAS example from
   the mBB xasDocument profile block.
 - **`cdif_dds_framed.jsonld`** — a minimal Cu-metal example from the

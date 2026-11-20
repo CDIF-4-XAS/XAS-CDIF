@@ -44,14 +44,14 @@ from build_crosswalk import GLOSSARY, copy_to_release, iter_concepts  # noqa: E4
 
 OUT = HERE / "cdifxas-placement.tsv"
 # Same release version build_crosswalk.py writes into the other crosswalks.
-VOCAB_VERSION = "1.1"
+VOCAB_VERSION = "1.2"
 EMIT = Path("src/cdifnexmetadata/emit.py")
 
 # Where each emit.py slot target lands in the document, read off
 # emit_document() and _instruments(). Paths are from the root Dataset;
 # [x] filters an array to the item whose schema:additionalType is x.
 ACTIVITY = "prov:wasGeneratedBy[xas:analysisevent]"
-INSTRUMENT = ACTIVITY + "/prov:used/schema:instrument[{}]"
+INSTRUMENT = ACTIVITY + "/schema:instrument[{}]"
 TARGETS = {
     "facility": (
         "schema:contributor[schema:roleName=Facility]/schema:contributor"

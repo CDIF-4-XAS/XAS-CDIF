@@ -276,15 +276,15 @@
               ],
               "schema:name": "acquisition of FeFoil.001",
               "schema:startTime": "2020-08-10T09:18:48",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-10T09:22:32"
@@ -469,15 +469,15 @@
               ],
               "schema:name": "acquisition of Fe_a2n.001",
               "schema:startTime": "2020-08-10T21:14:18",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-10T21:29:09"
@@ -547,15 +547,15 @@
               ],
               "schema:name": "acquisition of Fe_a2n.002",
               "schema:startTime": "2020-08-10T22:15:06",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-10T22:29:57"
@@ -625,15 +625,15 @@
               ],
               "schema:name": "acquisition of Fe_a41.001",
               "schema:startTime": "2020-08-12T02:17:59",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-12T02:32:50"
@@ -703,15 +703,15 @@
               ],
               "schema:name": "acquisition of Fe_a41.001_01",
               "schema:startTime": "2020-08-12T02:17:59",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-12T02:32:50"
@@ -781,15 +781,15 @@
               ],
               "schema:name": "acquisition of Fe_b88.001",
               "schema:startTime": "2020-08-10T17:26:19",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-10T17:41:10"
@@ -859,15 +859,15 @@
               ],
               "schema:name": "acquisition of Fe_b88.001_01",
               "schema:startTime": "2020-08-10T17:26:19",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-10T17:41:10"
@@ -937,15 +937,15 @@
               ],
               "schema:name": "acquisition of Fe_c3d.001",
               "schema:startTime": "2020-08-12T04:34:49",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-12T04:49:40"
@@ -1015,15 +1015,15 @@
               ],
               "schema:name": "acquisition of Fe_c3d.002",
               "schema:startTime": "2020-08-12T03:34:00",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-12T03:48:52"
@@ -1093,15 +1093,15 @@
               ],
               "schema:name": "acquisition of Fe_c75.001",
               "schema:startTime": "2020-08-11T03:14:31",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-11T03:29:23"
@@ -1171,15 +1171,15 @@
               ],
               "schema:name": "acquisition of Fe_d22.001",
               "schema:startTime": "2020-08-11T17:41:11",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-11T17:56:02"
@@ -1249,15 +1249,15 @@
               ],
               "schema:name": "acquisition of Fe_g1a.001",
               "schema:startTime": "2020-08-10T14:52:00",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-10T15:06:51"
@@ -1327,15 +1327,15 @@
               ],
               "schema:name": "acquisition of Fe_g4x.001",
               "schema:startTime": "2020-08-10T11:19:21",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-10T11:34:12"
@@ -1405,15 +1405,15 @@
               ],
               "schema:name": "acquisition of Fe_h02.001",
               "schema:startTime": "2020-08-12T14:34:55",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-12T14:49:46"
@@ -1483,15 +1483,15 @@
               ],
               "schema:name": "acquisition of Fe_j72.001",
               "schema:startTime": "2020-08-11T06:16:55",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-11T06:31:46"
@@ -1561,15 +1561,15 @@
               ],
               "schema:name": "acquisition of Fe_ju8.001",
               "schema:startTime": "2020-08-10T12:50:32",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-10T13:05:23"
@@ -1639,15 +1639,15 @@
               ],
               "schema:name": "acquisition of Fe_k66.001",
               "schema:startTime": "2020-08-11T20:13:10",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-11T20:28:02"
@@ -1717,15 +1717,15 @@
               ],
               "schema:name": "acquisition of Fe_n19.001",
               "schema:startTime": "2020-08-12T16:21:30",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-12T16:36:21"
@@ -1795,15 +1795,15 @@
               ],
               "schema:name": "acquisition of Fe_r93.001",
               "schema:startTime": "2020-08-11T18:57:10",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-11T19:12:01"
@@ -1873,15 +1873,15 @@
               ],
               "schema:name": "acquisition of Fe_s33.001",
               "schema:startTime": "2020-08-12T14:04:30",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-12T14:19:21"
@@ -1951,15 +1951,15 @@
               ],
               "schema:name": "acquisition of Fe_s38.001",
               "schema:startTime": "2020-08-12T00:01:11",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-12T00:16:03"
@@ -2029,15 +2029,15 @@
               ],
               "schema:name": "acquisition of Fe_u71.001",
               "schema:startTime": "2020-08-12T11:17:05",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-12T11:31:56"
@@ -2107,15 +2107,15 @@
               ],
               "schema:name": "acquisition of Fe_v47.001",
               "schema:startTime": "2020-08-11T22:29:59",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-11T22:44:50"
@@ -2185,15 +2185,15 @@
               ],
               "schema:name": "acquisition of Fe_w23.001",
               "schema:startTime": "2020-08-10T20:13:30",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-10T20:28:21"
@@ -2263,15 +2263,15 @@
               ],
               "schema:name": "acquisition of Fe_w37.001",
               "schema:startTime": "2020-08-11T05:00:54",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-11T05:15:45"
@@ -2341,15 +2341,15 @@
               ],
               "schema:name": "acquisition of Fe_x56.001",
               "schema:startTime": "2020-08-12T21:57:17",
-              "prov:used": [
+              "schema:instrument": [
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/source"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source"
                 },
                 {
-                  "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator"
+                  "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator"
                 }
               ],
               "schema:endTime": "2020-08-12T22:12:09"
@@ -2453,148 +2453,121 @@
         ],
         "schema:name": "APS, undulator 36mm, 66 poles, 13-ID-E"
       },
-      "prov:used": [
+      "schema:instrument": [
         {
-          "@id": "https://w3id.org/cdif/testing/FeXAS/used/beamline",
+          "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline",
           "@type": [
+            "schema:Product",
             "schema:Thing",
             "prov:Entity"
           ],
-          "schema:instrument": [
+          "schema:name": "13-ID-E",
+          "schema:additionalType": [
             {
-              "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/beamline",
-              "@type": [
-                "schema:Product",
-                "schema:Thing",
-                "prov:Entity"
-              ],
-              "schema:name": "13-ID-E",
-              "schema:additionalType": [
-                {
-                  "@id": "xas:beamline"
-                },
-                {
-                  "@id": "wd:Q3099911"
-                }
-              ]
+              "@id": "xas:beamline"
+            },
+            {
+              "@id": "wd:Q3099911"
             }
           ]
         },
         {
-          "@id": "https://w3id.org/cdif/testing/FeXAS/used/source",
+          "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source",
           "@type": [
+            "schema:Product",
             "schema:Thing",
             "prov:Entity"
           ],
-          "schema:instrument": [
+          "schema:name": "X-ray source",
+          "schema:additionalType": [
             {
-              "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/source",
+              "@id": "xas:source"
+            },
+            {
+              "@id": "wd:Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
               "@type": [
-                "schema:Product",
-                "schema:Thing",
-                "prov:Entity"
+                "schema:PropertyValue"
               ],
-              "schema:name": "X-ray source",
-              "schema:additionalType": [
+              "schema:propertyID": [
                 {
-                  "@id": "xas:source"
-                },
-                {
-                  "@id": "wd:Q3099911"
+                  "@id": "xas:probe"
                 }
               ],
-              "schema:additionalProperty": [
+              "schema:name": "Probe",
+              "schema:value": "X-ray"
+            },
+            {
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
                 {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:probe"
-                    }
-                  ],
-                  "schema:name": "Probe",
-                  "schema:value": "X-ray"
-                },
-                {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:xraysourcetype"
-                    }
-                  ],
-                  "schema:name": "X-ray source type",
-                  "schema:value": "X-ray Source"
+                  "@id": "xas:xraysourcetype"
                 }
-              ]
+              ],
+              "schema:name": "X-ray source type",
+              "schema:value": "X-ray Source"
             }
           ]
         },
         {
-          "@id": "https://w3id.org/cdif/testing/FeXAS/used/xraymonochromator",
+          "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator",
           "@type": [
+            "schema:Product",
             "schema:Thing",
             "prov:Entity"
           ],
-          "schema:instrument": [
+          "schema:name": "monochromator",
+          "schema:additionalType": [
             {
-              "@id": "https://w3id.org/cdif/testing/FeXAS/instrument/xraymonochromator",
+              "@id": "xas:xraymonochromator"
+            },
+            {
+              "@id": "wd:Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
               "@type": [
-                "schema:Product",
-                "schema:Thing",
-                "prov:Entity"
+                "schema:PropertyValue"
               ],
-              "schema:name": "monochromator",
-              "schema:additionalType": [
+              "schema:propertyID": [
                 {
-                  "@id": "xas:xraymonochromator"
-                },
-                {
-                  "@id": "wd:Q3099911"
+                  "@id": "xas:dspacing"
                 }
               ],
-              "schema:additionalProperty": [
+              "schema:name": "monochromator d-spacing",
+              "schema:value": "1.637514293384398",
+              "schema:unitText": "Angstroms"
+            },
+            {
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
                 {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:dspacing"
-                    }
-                  ],
-                  "schema:name": "monochromator d-spacing",
-                  "schema:value": "1.637514293384398",
-                  "schema:unitText": "Angstroms"
-                },
-                {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:reflectionplane"
-                    }
-                  ],
-                  "schema:name": "reflection plane",
-                  "schema:value": "3 1 1"
-                },
-                {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "xas:monochromatortype"
-                    }
-                  ],
-                  "schema:name": "monochromator crystal",
-                  "schema:value": ":unav",
-                  "schema:description": "not recorded in the source file; the profile requires this property, so it is reported as unknown rather than omitted or guessed"
+                  "@id": "xas:reflectionplane"
                 }
-              ]
+              ],
+              "schema:name": "reflection plane",
+              "schema:value": "3 1 1"
+            },
+            {
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "xas:monochromatortype"
+                }
+              ],
+              "schema:name": "monochromator crystal",
+              "schema:value": ":unav",
+              "schema:description": "not recorded in the source file; the profile requires this property, so it is reported as unknown rather than omitted or guessed"
             }
           ]
         }
@@ -2760,22 +2733,22 @@
     "schema:description": "CDIF metadata generated by cdifnexmetadata from a NeXus/HDF5 file (FeXAS.nxs).",
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/core/1.1"
+        "@id": "https://w3id.org/cdif/core/2.0"
       },
       {
-        "@id": "https://w3id.org/cdif/discovery/1.1"
+        "@id": "https://w3id.org/cdif/discovery/2.0"
       },
       {
-        "@id": "https://w3id.org/cdif/data_description/1.1"
+        "@id": "https://w3id.org/cdif/data_description/2.0"
       },
       {
-        "@id": "https://w3id.org/cdif/data_structure/1.1"
+        "@id": "https://w3id.org/cdif/data_structure/2.0"
       },
       {
-        "@id": "https://w3id.org/cdif/manifest/1.1"
+        "@id": "https://w3id.org/cdif/manifest/2.0"
       },
       {
-        "@id": "https://w3id.org/cdif/xasCore/1.1"
+        "@id": "https://w3id.org/cdif/xasCore/1.2"
       }
     ]
   }

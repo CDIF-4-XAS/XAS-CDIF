@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: 19df7fa5143ef538e8d1868c6358fa7209cfabe25bb0fad17daf744fb9b3c7f8
+# src-sha256: 8c3819a5581956bc1ca9ed8aed57f26fd772f419485e1e1216712a932afe1f93
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -18,6 +18,7 @@ Usage:
                                [--schema schema.json] [--frame frame.jsonld]
 """
 
+import collections
 import copy
 import json
 import argparse
@@ -316,8 +317,11 @@ STRUCTURE_ROOT_TYPES = frozenset({
 # it. Framing with @embed:@always inlines the whole target; these get collapsed
 # back to a bare {@id} because the full node is retained at its own slot (or is
 # an external resource) and the tightened schemas type these slots as {@id}-only
-# references. The collapse runs on EVERY doc type (see remove_nulls_and_normalize),
-# not just bare-structure docs -- cdif:qualifies also appears in dataset-rooted
+# references. collapse_reference_slots checks that premise per node: a copy is
+# collapsed only when a copy of the same @id with the same properties survives
+# elsewhere, and is otherwise left inline for the schema to judge. The collapse
+# runs on EVERY doc type (last step of frame_cdif_document), not just
+# bare-structure docs -- cdif:qualifies also appears in dataset-rooted
 # data-description docs, and schema:about (manifest part -> documented file) /
 # schema:result (activity -> produced entity) are reference slots on manifest /
 # provenance / dataset docs.
@@ -362,15 +366,50 @@ REFERENCE_ONLY_KEYS = (
 STRUCTURE_ARRAY_KEYS = ('cdif:name', 'cdif:qualifies', 'cdif:semantic')
 
 
-def _collapse_to_id_ref(value):
-    """Reduce an embedded node (a dict carrying @id plus other keys) to a bare
-    {@id} reference. Recurses into lists; leaves inline objects without @id (e.g.
-    an anonymous role) and plain strings untouched."""
-    if isinstance(value, list):
-        return [_collapse_to_id_ref(v) for v in value]
-    if isinstance(value, dict) and '@id' in value and len(value) > 1:
-        return {'@id': value['@id']}
-    return value
+def collapse_reference_slots(tree, keys=REFERENCE_ONLY_KEYS):
+    """Reduce framing-embedded nodes under reference-only `keys` to a bare
+    {@id} -- but only where that is non-lossy: some copy of the same @id that
+    survives elsewhere in `tree` carries at least the same properties.
+    Otherwise the inline node is kept, so its description reaches the schema.
+
+    The premise that the target "is defined elsewhere" does not always hold. An
+    activity's schema:result is very often the ONLY place its output is
+    described (name, @type, encodingFormat); collapsing it unconditionally threw
+    those triples away before validation, and the record passed while its
+    outputs were never checked. A node kept inline here counts as surviving, so
+    a later reference-slot copy of the same @id collapses against it, and the
+    reference slots inside it are judged the same way. Inline objects without
+    @id and plain strings are left untouched. Mutates and returns `tree`."""
+    kept = {}        # @id -> key sets of the copies that survive
+    queue = []       # (container, index-or-key, node) under a reference slot
+
+    def scan(o):
+        if isinstance(o, list):
+            for x in o:
+                scan(x)
+        elif isinstance(o, dict):
+            if '@id' in o and len(o) > 1:
+                kept.setdefault(o['@id'], []).append(set(o))
+            for k, v in o.items():
+                if k not in keys:
+                    scan(v)
+                    continue
+                slots = ([(v, i, x) for i, x in enumerate(v)]
+                         if isinstance(v, list) else [(o, k, v)])
+                for container, slot, node in slots:
+                    if isinstance(node, dict) and '@id' in node and len(node) > 1:
+                        queue.append((container, slot, node))
+                    else:
+                        scan(node)
+
+    scan(tree)
+    while queue:
+        container, slot, node = queue.pop(0)
+        if any(ks >= set(node) for ks in kept.get(node['@id'], ())):
+            container[slot] = {'@id': node['@id']}
+        else:
+            scan(node)
+    return tree
 
 
 def _is_structure_rooted(doc):
@@ -386,18 +425,24 @@ def _is_structure_rooted(doc):
 
 
 def normalize_bare_structure(obj):
-    """Recursive normalizations for bare DataStructure documents: collapse
-    framing-inlined component references (cdif:qualifies / cdi:refersTo) back to
-    bare {@id}, and wrap single-valued STRUCTURE_ARRAY_KEYS into arrays."""
+    """Recursive normalizations for bare DataStructure documents: wrap
+    single-valued STRUCTURE_ARRAY_KEYS into arrays. (Framing-inlined component
+    references are collapsed for every doc type by collapse_reference_slots.)"""
     if isinstance(obj, list):
         return [normalize_bare_structure(x) for x in obj]
     if isinstance(obj, dict):
+        # A component's cdif:isDefinedBy_Variable may be an InstanceVariable that
+        # framing inlined from schema:variableMeasured. There cdif:qualifies is a
+        # single objectReference (cdifInstanceVariable), not the component's
+        # array, so wrapping it would fail a valid variable.
+        t = obj.get('@type')
+        is_variable = any(_local_name(v) == 'InstanceVariable'
+                          for v in (t if isinstance(t, list) else [t]) if isinstance(v, str))
         out = {}
         for k, v in obj.items():
             v = normalize_bare_structure(v)
-            if k in REFERENCE_ONLY_KEYS:
-                v = _collapse_to_id_ref(v)
-            if k in STRUCTURE_ARRAY_KEYS and not isinstance(v, list):
+            if k in STRUCTURE_ARRAY_KEYS and not isinstance(v, list) and \
+                    not (is_variable and k == 'cdif:qualifies'):
                 v = [v]
             out[k] = v
         return out
@@ -421,21 +466,51 @@ def _normalize_structure_subtrees(obj):
 
 
 
+_CATALOG_RECORD_TOKENS = frozenset({
+    'dcat:CatalogRecord',
+    'http://www.w3.org/ns/dcat#CatalogRecord',
+})
+
+
 def _is_catalog_record(item):
     """True if the item's schema:additionalType marks it as a catalog record.
 
     The CDIF schema:subjectOf wrapper is itself @type=schema:Dataset (so the
     Dataset frame matches it), but is distinguished by schema:additionalType
-    containing 'dcat:CatalogRecord'. The main-entity picker uses this to skip
-    the catalog-record entity."""
+    dcat:CatalogRecord. The main-entity picker uses this to skip the
+    catalog-record entity.
+
+    The value may be the compact CURIE 'dcat:CatalogRecord' or the full dcat#
+    IRI, as a bare string or an {@id} object -- the IRI-lint normalization emits
+    the {@id} form -- singly or in a list. All of these are recognized; matching
+    only the compact string let an {@id}-form catalog record through as an
+    ordinary candidate."""
     if not isinstance(item, dict):
         return False
     at = item.get('schema:additionalType')
     if at is None:
         return False
-    if isinstance(at, str):
-        at = [at]
-    return 'dcat:CatalogRecord' in at
+    for v in (at if isinstance(at, list) else [at]):
+        if isinstance(v, dict):
+            v = v.get('@id')
+        if isinstance(v, str) and v in _CATALOG_RECORD_TOKENS:
+            return True
+    return False
+
+
+def _has_catalog_record_subjectof(item):
+    """True if item carries schema:subjectOf whose value is a catalog record.
+
+    This is the CDIF metadata-about-metadata wrapper that marks the described
+    resource -- the document's root -- as distinct from a related dataset or a
+    schema:hasPart member, neither of which carries it. A bare schema:subjectOf
+    is not enough: its value must itself be tagged dcat:CatalogRecord."""
+    so = item.get('schema:subjectOf') if isinstance(item, dict) else None
+    if so is None:
+        return False
+    return any(_is_catalog_record(v)
+               for v in (so if isinstance(so, list) else [so])
+               if isinstance(v, dict))
 
 
 def _frame_root_types(frame):
@@ -503,24 +578,81 @@ def _referenced_ids(graph):
     return refs
 
 
+def _haspart_member_ids(graph):
+    """@ids of nodes that appear as a schema:hasPart member anywhere in the
+    graph -- i.e. parts of some other node.
+
+    A part is never the document's main entity, so the picker excludes these.
+    Collected across the whole tree (the hasPart may sit on a nested node),
+    from both an embedded member (a dict carrying its own @id) and a bare
+    {@id} reference."""
+    ids = set()
+
+    def collect(value):
+        if isinstance(value, dict):
+            got = value.get('@id')
+            if isinstance(got, str):
+                ids.add(got)
+        elif isinstance(value, list):
+            for v in value:
+                collect(v)
+
+    def walk(node):
+        if isinstance(node, dict):
+            for key, value in node.items():
+                if key == 'schema:hasPart':
+                    collect(value)
+                walk(value)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+
+    for item in graph:
+        walk(item)
+    return ids
+
+
 def pick_main_entity(graph, frame):
     """Choose the document's main entity from a framed @graph.
 
-    Profile-agnostic: prefer a node nothing else references (the root of a
-    hasPart tree), then one whose @type matches the frame's root type
-    (skipping catalog records), then a node with schema:distribution, then one
-    with schema:url, then the first non-catalog-record node.
+    Profile-agnostic: skip catalog records and schema:hasPart members, prefer
+    the node carrying schema:subjectOf (its catalog record), then a node
+    nothing else references (the root of a hasPart tree), then one with
+    schema:distribution, then one with schema:url, then one whose @type matches
+    the frame's root type, then the first remaining node.
 
-    The unreferenced-node check has to come FIRST. Without it, a dataset
-    whose parts carry the distributions -- a package of independently
-    accessible resources, where the aggregate itself has no single
-    download -- loses to its own first part on the schema:distribution
-    test, and the validator then reports on the part while silently
-    discarding the dataset. Every such record passes, because the thing
-    being checked was never the thing being described.
+    A schema:hasPart member is excluded first because it is a child of some
+    other node, never the subject. Without this, a record whose root and one of
+    its parts are both schema:Dataset can validate the part: framing hoists both
+    to the @graph, and a part that sorts first and carries a schema:url wins the
+    url test below (CDIF-validation issue #20). schema:subjectOf then names the
+    root positively, since the catalog record's schema:about back-reference
+    keeps the root from looking "unreferenced".
+
+    The unreferenced-node check still matters for packages whose parts carry the
+    distributions -- a set of independently accessible resources where the
+    aggregate has no single download -- so the aggregate is not lost to its own
+    first part on the schema:distribution test.
     """
     candidates = [it for it in graph
                   if isinstance(it, dict) and not _is_catalog_record(it)]
+    # A schema:hasPart member is a child, never the main entity. Drop parts up
+    # front so a part that happens to carry a distribution or url (and sorts
+    # before the aggregate in the framed @graph) can't be chosen over the
+    # resource that contains it. Guarded: never empty the candidate set.
+    part_ids = _haspart_member_ids(graph)
+    if part_ids:
+        non_parts = [it for it in candidates if it.get('@id') not in part_ids]
+        if non_parts:
+            candidates = non_parts
+    # The described resource carries schema:subjectOf whose value is its catalog
+    # record (schema:additionalType dcat:CatalogRecord); a related dataset or a
+    # part does not. Prefer it -- this is the root even when the catalog record's
+    # schema:about back-reference makes it look "referenced" below. Guarded: only
+    # narrows when such a node exists.
+    subj = [it for it in candidates if _has_catalog_record_subjectof(it)]
+    if subj:
+        candidates = subj
     if len(candidates) > 1:
         referenced = _referenced_ids(graph)
         roots = [it for it in candidates
@@ -633,13 +765,6 @@ def remove_nulls_and_normalize(obj, parent_key=None):
             if new_key == 'schema:identifier' and is_bare_id_reference(new_value):
                 new_value = new_value['@id']
 
-            # Collapse framing-embedded references back to a bare {@id} for
-            # reference-only slots (the tightened schemas type these as {@id};
-            # framing with @embed:@always inlines the whole target). Ungated --
-            # runs on every doc type, before the array wrap below.
-            if new_key in REFERENCE_ONLY_KEYS:
-                new_value = _collapse_to_id_ref(new_value)
-
             # Wrap in array if schema expects array and value is not already an array
             if new_key in ARRAY_PROPERTIES and not isinstance(new_value, list):
                 new_value = [new_value]
@@ -698,8 +823,14 @@ def remove_nulls_and_normalize(obj, parent_key=None):
                 result['schema:about'] = [about]
 
         # schema:encodingFormat: array on DataDownload and on MediaObject
-        # (archive member files in schema:hasPart), string on EntryPoint
-        if 'schema:DataDownload' in type_list or 'schema:MediaObject' in type_list:
+        # (archive member files in schema:hasPart), string on EntryPoint.
+        # A schema:hasPart item is a manifest part whatever its type -- untyped
+        # parts (NIAID's) carry an encodingFormat the manifest types as an array.
+        # Keyed on the parent rather than added to ARRAY_PROPERTIES because 19
+        # constraints (an OpenAPI content item, a related link's EntryPoint
+        # target) type it as a string; none of those sit under schema:hasPart.
+        if ('schema:DataDownload' in type_list or 'schema:MediaObject' in type_list
+                or parent_key == 'schema:hasPart' and 'schema:EntryPoint' not in type_list):
             ef = result.get('schema:encodingFormat')
             if ef is not None and not isinstance(ef, list):
                 result['schema:encodingFormat'] = [ef]
@@ -708,21 +839,27 @@ def remove_nulls_and_normalize(obj, parent_key=None):
             if isinstance(ef, list) and len(ef) == 1:
                 result['schema:encodingFormat'] = ef[0]
 
-        # schema:contributor inside Role: unwrap single-element array to bare value
-        # (at root level it's an array of contributors, but inside Role it's a single agent)
+        # schema:contributor / schema:participant inside Role: unwrap a single-element
+        # array to the bare value. Both are in ARRAY_PROPERTIES (a dataset's contributors,
+        # an activity's participants), but inside a Role each holds the one agent in that
+        # role -- schema.org's Role pattern repeats the property the Role sits under.
         if 'schema:Role' in type_list:
-            inner = result.get('schema:contributor')
-            if isinstance(inner, list) and len(inner) == 1:
-                result['schema:contributor'] = inner[0]
+            for k in ('schema:contributor', 'schema:participant'):
+                inner = result.get(k)
+                if isinstance(inner, list) and len(inner) == 1:
+                    result[k] = inner[0]
 
         # schema:alternateName: array on variableMeasured and spatialCoverage items,
-        # string on Person/Organization
+        # on an instrument and on its schema:hasPart components (typed schema:Thing,
+        # which separates them from a manifest's parts), string on Person/Organization
         is_var_or_place = ('cdi:InstanceVariable' in type_list or
                            'schema:PropertyValue' in type_list and parent_key == 'schema:variableMeasured' or
                            'schema:Place' in type_list)
+        is_instrument_or_part = (parent_key == 'schema:instrument' or
+                                 parent_key == 'schema:hasPart' and 'schema:Thing' in type_list)
         alt = result.get('schema:alternateName')
         if alt is not None:
-            if is_var_or_place and not isinstance(alt, list):
+            if (is_var_or_place or is_instrument_or_part) and not isinstance(alt, list):
                 result['schema:alternateName'] = [alt]
 
         # schema:identifier: single object/string on Person/Organization agents
@@ -865,6 +1002,11 @@ def canonicalize_cdif_prefixes(doc):
     return walk(doc, is_root=True)
 
 
+# JSON-LD 1.1 gen-delim characters: a simple term can serve as a prefix only when
+# its IRI ends in one of these (JSON-LD 1.1, 4.1.2 "Compact IRIs").
+GEN_DELIMS = (':', '/', '?', '#', '[', ']', '@')
+
+
 def frame_cdif(doc, frame=None, verbose=False):
     """Frame an in-memory CDIF JSON-LD document and normalize it into the form
     the StructuredSchemas validate against. `frame` is a frame object, or None
@@ -895,8 +1037,14 @@ def frame_cdif(doc, frame=None, verbose=False):
                 if isinstance(v, str) and k not in doc_ctx:
                     doc_ctx[k] = v
             doc['@context'] = doc_ctx
+            # Prefixes only. A term alias ("prefLabel": "skos:prefLabel") copied
+            # into the frame context makes compaction write the alias instead of
+            # the CURIE the StructuredSchemas require, so a document that is
+            # perfectly valid JSON-LD fails on every aliased property. JSON-LD 1.1
+            # (4.1.2) lets a simple term act as a prefix only when its IRI ends in
+            # a gen-delim character, so that is the test.
             for k, v in doc_ctx.items():
-                if isinstance(v, str) and k not in frame_ctx:
+                if isinstance(v, str) and k not in frame_ctx and v.endswith(GEN_DELIMS):
                     frame_ctx[k] = v
 
     # Step 1: Expand the document (resolves all prefixes to full IRIs)
@@ -938,7 +1086,54 @@ def frame_cdif(doc, frame=None, verbose=False):
     else:
         result = _normalize_structure_subtrees(result)
 
+    # Step 7: collapse framing-embedded copies in reference-only slots back to a
+    # bare {@id} where the node's description survives elsewhere. Last, so the
+    # "survives elsewhere" test sees the document exactly as it will be validated.
+    result = collapse_reference_slots(result)
+
+    # Step 8: drop blank-node @ids that identify nothing.
+    result = prune_unreferenced_blank_ids(result)
+
     return result
+
+
+def prune_unreferenced_blank_ids(doc):
+    """Remove each blank-node @id (_:...) that occurs only once in the document.
+
+    Framing labels every node, so a node the source left anonymous comes out with
+    an @id such as "_:b22". A schema rule that an object must carry @id -- the core
+    prov:used item, for one -- then passes for every inline entity, identified or
+    not. A label used once links nothing, so removing it changes no triple. pyld
+    already prunes labels used once, but it counts over the whole framed @graph:
+    when a second top-level match (a catalog record whose schema:about points back
+    at the dataset) embeds the dataset again, every label in it occurs twice and is
+    kept, and after pick_main_entity each occurs once. Labels that occur more than
+    once in the validated document are references and are kept.
+    """
+    counts = collections.Counter()
+
+    def count(node):
+        if isinstance(node, dict):
+            v = node.get('@id')
+            if isinstance(v, str) and v.startswith('_:'):
+                counts[v] += 1
+            for x in node.values():
+                count(x)
+        elif isinstance(node, list):
+            for x in node:
+                count(x)
+
+    def prune(node):
+        if isinstance(node, dict):
+            return {k: prune(v) for k, v in node.items()
+                    if not (k == '@id' and isinstance(v, str)
+                            and v.startswith('_:') and counts[v] == 1)}
+        if isinstance(node, list):
+            return [prune(x) for x in node]
+        return node
+
+    count(doc)
+    return prune(doc)
 
 
 # Files the schema globs match but which are not schemas. conformance-schema-map
@@ -1206,24 +1401,28 @@ def check_conformance_consistency(framed, source_doc=None):
     # one it has no rule for (codelist, complexCitation, ...) would otherwise
     # look like an over-claim every single time.
     try:
-        from detect_conformance import CONFORMANCE_CLASSES
+        from detect_conformance import CONFORMANCE_CLASSES, current_uri
         detectable = {c["uri"] for c in CONFORMANCE_CLASSES}
     except Exception:
         detectable = None
+        current_uri = lambda u: u  # noqa: E731
     subject = source_doc if source_doc is not None else framed
     detected = {u for u in (detect_fn(subject) or [])
                 if u.startswith(CDIF_URI_PREFIX)}
     declared_all = _declared_conformance(subject)
-    declared = {u for u in declared_all if u.startswith(CDIF_URI_PREFIX)}
+    declared_raw = {u for u in declared_all if u.startswith(CDIF_URI_PREFIX)}
+    # By class: a replaced version (core/1.1) claims the class now at core/2.0.
+    declared = {current_uri(u) for u in declared_raw}
     comparable = declared if detectable is None else (declared & detectable)
     return {
-        'declared': sorted(declared),
+        'declared': sorted(declared_raw),
         'detected': sorted(detected),
         'overclaimed': sorted(comparable - detected),
         'undeclared': sorted(detected - declared),
-        'other': sorted(declared_all - declared),
+        'other': sorted(declared_all - declared_raw),
         'unchecked': sorted(declared - comparable),
-        'lost_in_framing': bool(declared and not _declared_conformance(framed)),
+        'outdated': sorted(u for u in declared_raw if current_uri(u) != u.rstrip("/")),
+        'lost_in_framing': bool(declared_raw and not _declared_conformance(framed)),
     }
 
 

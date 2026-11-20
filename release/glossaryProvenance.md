@@ -1,8 +1,8 @@
 # CDIF XAS Glossary — provenance and generation
 
 Where the CDIF XAS vocabularies come from, how they were built, and what
-is generated versus curated. Part of the XAS-CDIF 1.1 release package
-for `cdif/xasDocument/1.1`.
+is generated versus curated. Part of the XAS-CDIF 1.2 release package
+for `cdif/xasDocument/1.2`.
 
 Verified against the repository on 2026-08-25.
 
@@ -18,7 +18,7 @@ sample properties and processing results.
 |---|---|
 | Scheme URI | `https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts` |
 | Concept URIs | `https://w3id.org/cdif/xas/{localname}` |
-| Conforms to | `https://w3id.org/cdif/conceptscheme/1.1` |
+| Conforms to | `https://w3id.org/cdif/conceptscheme/2.0` |
 | Master file | `XAS_Glossary_SKOS.json` (repository root) |
 | Release copy | `release/XAS_Glossary_SKOS_v2.json` (the same concepts; only the scheme's repository links differ, until they are repointed at release) |
 
@@ -269,6 +269,7 @@ present.
 | 2026-07-29 | `sampledescription` minted; dimensionless quantities given `unit:UNITLESS` |
 | 2026-08-25 | Dead `rdfs:seeAlso` links removed from the enumerations |
 | 2026-10-26 | Version 1.1: `schema:version` on all four vocabularies; catalog record typed `{"@id": "dcat:CatalogRecord"}`, so they conform to the concept scheme profile again |
+| 2026-11-14 | Version 1.2: `schema:version` and the crosswalks' `mapping_set_version` move to 1.2 with the release; no concept changed |
 
 **The spreadsheet is retired, not authoritative.** `XAS_Glossary.xlsx`
 was the original curation surface, but no script ever read it, and

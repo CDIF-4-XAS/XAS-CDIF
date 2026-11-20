@@ -14,8 +14,9 @@ project.
 
 [`CDIF-4-XAS/XAS-CDIF`](https://github.com/CDIF-4-XAS/XAS-CDIF) is the
 canonical repository; `smrgeoinfo/XAS-CDIF`, a fork of it, mirrors it.
-**`main` is the current release** (1.1, developed on the
-`cdifxasRelease1.1` branch and merged on 2026-10-27). **Changes to
+**`main` is the current release** (1.2, developed on `updates` and
+merged in 2026-11; 1.1 was merged on 2026-10-27 and is tagged `1.1`).
+**Changes to
 release content go on the `updates` branch**: `release/` and everything
 built or copied into it (the glossary, the value lists, `crosswalk/` and
 their generators). `updates` is merged into `main` by pull request when
@@ -26,11 +27,20 @@ Version 1.1 goes well beyond the 1.0 deliverable: a
 crosswalks, and a 55-file test corpus with generated metadata. The
 published 1.0 files are preserved in `archive/XAS-CDIF-1.0_release/`.
 
-Everything in it carries 1.1: the vocabularies (`schema:version`), the
+Everything in it carries 1.2: the vocabularies (`schema:version`), the
 crosswalks (`mapping_set_version`) and the profile's conformance URIs,
-`xasDocument/1.1` with its tiers `xasCore/1.1` and `xasOptional/1.1`
-(1.0 until this release). It is tagged `1.1`; the release package is the
-`release/` folder.
+`xasDocument/1.2` with its tiers `xasCore/1.2` and `xasOptional/1.2`.
+1.2 changes one thing in the profile: the analysis activity lists its
+instruments directly in `schema:instrument` rather than in `prov:used`
+wrappers. A 1.1 document with instruments does not satisfy it, which is
+why it is a new version and not a change under the 1.1 URIs. The
+vocabularies and crosswalks are unchanged apart from their version.
+
+Each release is tagged (`1.1`, `1.2`); the release package is the
+`release/` folder, published as `XAS-CDIF-<version>.zip` with the GitHub
+release ([1.2](https://github.com/CDIF-4-XAS/XAS-CDIF/releases/tag/1.2),
+[1.1](https://github.com/CDIF-4-XAS/XAS-CDIF/releases/tag/1.1)). The DOI
+badge above is the 1.0 deposit; 1.1 and 1.2 are not on Zenodo yet.
 
 ### Remotes, and why there are two
 
@@ -74,6 +84,20 @@ The organisation publishes today, and the w3id rules depend on that:
 personal account; `perma-id/w3id.org#6767` moved it, merged 2026-09-29.
 All ten XAS identifier families now resolve through the organisation,
 which `validation/tools/check_w3id_redirects.py` checks.
+
+The profile URIs are in the same file. `perma-id/w3id.org#7006`, merged
+2026-10-28, added the 1.1 rules; `perma-id/w3id.org#7190`, merged
+2026-11-16, added the 1.2 rules and pinned the superseded versions, so
+each versioned URI keeps serving the version it names:
+
+| URI | resolves to |
+|---|---|
+| `w3id.org/cdif/xasDocument/1.2` | this repository's `release/` on `main`: the folder for browsers, the resolved schema for `application/schema+json`, the SHACL for Turtle, the frame for JSON-LD; `/guide` and `/frame` sub-paths |
+| `w3id.org/cdif/xasDocument/1.1` | the same, from the `1.1` tag |
+| `w3id.org/cdif/xasCore/1.2`, `xasOptional/1.2` | the building blocks in `metadataBuildingBlocks` `main` |
+| `w3id.org/cdif/xasCore/1.1`, `xasOptional/1.1`; `/1.0` | the same building blocks pinned to commits `39bfc139e6` and `1ffb495b84` (`metadataBuildingBlocks` has no tags) |
+| `w3id.org/cdif/xasCore`, `xasOptional`, `xasDocument` | redirect to `/1.2` |
+| `w3id.org/cdif/xas/edge/{x}`, `emissionline/{x}`, `detectionmode/{x}` | the value-list HTML page at `#{x}` for browsers, the JSON-LD file otherwise |
 
 The fork's `gh-pages` is frozen at its last build. Nothing resolves to
 it, and it will go stale the next time the glossary changes, so do not
@@ -131,10 +155,23 @@ maintain the vocabulary artifacts, not the example metadata.
 
 [`CDIF-4-XAS/cdifnexmetadata`](https://github.com/CDIF-4-XAS/cdifnexmetadata)
 is a separate repository: the Python converter that reads NeXus/HDF5 and
-XDI files and writes CDIF JSON-LD conforming to the `xasDocument/1.1`
+XDI files and writes CDIF JSON-LD conforming to the `xasDocument/1.2`
 profile. The two divide the work as **specification here, implementation
 there**. This repository defines the concepts, the field-to-concept
 mappings and the profile. `cdifnexmetadata` applies them to files.
+
+**The version aligned with this release is `cdifnexmetadata` 1.2.0**
+([PyPI](https://pypi.org/project/cdifnexmetadata/1.2.0/), tag
+[`1.2`](https://github.com/CDIF-4-XAS/cdifnexmetadata/releases/tag/1.2)).
+It emits `xasCore/1.2`, bundles the 1.2 crosswalks, and its output
+validates against `release/`. Each cdifnexmetadata version validates
+only against the XAS-CDIF release of the same number: 1.1.0 writes the
+1.1 instrument model, and 0.1.0 and 0.1.1 emit `xasCore/1.0`.
+
+```bash
+pip install "cdifnexmetadata[validate]==1.2.0"
+cdifnexmetadata scan.nxs --validate --profile-dir XAS-CDIF/release
+```
 
 **What `cdifnexmetadata` takes from here:**
 
@@ -422,7 +459,7 @@ as well as one that is complete.
 
 ## Directory inventory
 
-### `release/` — the `xasDocument/1.1` profile
+### `release/` — the `xasDocument/1.2` profile
 
 The conformance target, and the release package: it stands alone, with
 everything a validator needs plus the mappings, vocabularies and licences.
@@ -552,9 +589,9 @@ carries. Most concepts become a `schema:PropertyValue` whose
 | JSON-LD object | concepts placed there (examples) |
 |---|---|
 | acquisition activity in `prov:wasGeneratedBy`, `schema:additionalProperty` | `edgeenergy`, `calibrationmethod` |
-| `prov:used` wrapper with additionalType `xas:source` | `xraysourcetype`, `probe` |
-| `prov:used` wrapper with additionalType `xas:xraymonochromator` | `dspacing`, `monochromatortype`, `reflectionplane` |
-| `prov:used` wrapper with additionalType `xas:beamline` | the beamline name; optionally `flux`, `spotsize`, `scanmode`, … |
+| the activity's `schema:instrument` with additionalType `xas:source` | `xraysourcetype`, `probe` |
+| the activity's `schema:instrument` with additionalType `xas:xraymonochromator` | `dspacing`, `monochromatortype`, `reflectionplane` |
+| the activity's `schema:instrument` with additionalType `xas:beamline` | the beamline name; optionally `flux`, `spotsize`, `scanmode`, … |
 | the sample, as the activity's `schema:object` | `temperature`, `samplepreparation`, … |
 | root `schema:keywords` | `elementanalyzed`, `edgeanalyzed`, as `DefinedTerm`s |
 | root `schema:measurementTechnique` | `xasmeasurementmode` |
@@ -695,7 +732,7 @@ build time rather than as silently unmapped data.
 All four conform to the **CDIF concept scheme profile**
 ([`profile-conceptscheme`](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme)),
 and each declares it in a `schema:subjectOf` catalog record with
-`dcterms:conformsTo https://w3id.org/cdif/conceptscheme/1.1`. To check:
+`dcterms:conformsTo https://w3id.org/cdif/conceptscheme/2.0`. To check:
 
 ```bash
 python ../profile-conceptscheme/FrameAndValidate.py XAS_Glossary_SKOS.json -v \
@@ -825,7 +862,8 @@ Published at <https://cdif-4-xas.github.io/XAS-CDIF/> by
   [isamplesorg/vocabularies](https://github.com/isamplesorg/vocabularies),
   pinned in the workflow) and Quarto, as the CDIF provenance activity
   types are. Every concept has an anchor named for the last segment of
-  its URI, so `<page>#<localname>` reaches it;
+  its URI, so `<page>#<localname>` reaches it, and w3id sends a browser
+  asking for a value-list concept URI there;
 - the vocabulary JSON-LD files and one JSON-LD file per glossary concept
   under `concepts/`.
 
