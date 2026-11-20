@@ -728,7 +728,7 @@ build time rather than as silently unmapped data.
 All four conform to the **CDIF concept scheme profile**
 ([`profile-conceptscheme`](https://github.com/Cross-Domain-Interoperability-Framework/profile-conceptscheme)),
 and each declares it in a `schema:subjectOf` catalog record with
-`dcterms:conformsTo https://w3id.org/cdif/conceptscheme/1.1`. To check:
+`dcterms:conformsTo https://w3id.org/cdif/conceptscheme/2.0`. To check:
 
 ```bash
 python ../profile-conceptscheme/FrameAndValidate.py XAS_Glossary_SKOS.json -v \

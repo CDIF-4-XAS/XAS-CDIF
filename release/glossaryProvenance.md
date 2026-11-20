@@ -18,7 +18,7 @@ sample properties and processing results.
 |---|---|
 | Scheme URI | `https://w3id.org/cdif/xas/CDIF4XAS_Reference_Concepts` |
 | Concept URIs | `https://w3id.org/cdif/xas/{localname}` |
-| Conforms to | `https://w3id.org/cdif/conceptscheme/1.1` |
+| Conforms to | `https://w3id.org/cdif/conceptscheme/2.0` |
 | Master file | `XAS_Glossary_SKOS.json` (repository root) |
 | Release copy | `release/XAS_Glossary_SKOS_v2.json` (the same concepts; only the scheme's repository links differ, until they are repointed at release) |
 
