@@ -1422,6 +1422,7 @@ cdifd:spatialExtentProperty a sh:NodeShape ;
                         sh:path schema:name ] ] [ sh:property [ sh:minCount 1 ;
                         sh:or ( [ sh:nodeKind sh:IRIOrLiteral ] [ sh:class schema:PropertyValue ] ) ;
                         sh:path schema:identifier ] ] ) ;
+    sh:severity sh:Warning ;
     sh:targetClass schema:Place .
 
 cdifd:structuredDataSetLocatorMappingShape a sh:NodeShape ;
