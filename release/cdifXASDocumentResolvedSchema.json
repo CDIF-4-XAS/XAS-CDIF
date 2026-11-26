@@ -2440,121 +2440,7 @@
                                   "items": {
                                     "anyOf": [
                                       {
-                                        "type": "object",
-                                        "description": "A sub-component of an instrument system. Uses the same structure as the parent instrument but without nesting (single level of hasPart).",
-                                        "properties": {
-                                          "@type": {
-                                            "type": "array",
-                                            "items": {
-                                              "type": "string"
-                                            },
-                                            "minItems": 1,
-                                            "description": "Must include schema:Product (as the parent instrument does) or schema:Thing (accepted for existing components).",
-                                            "anyOf": [
-                                              {
-                                                "contains": {
-                                                  "const": "schema:Product"
-                                                }
-                                              },
-                                              {
-                                                "contains": {
-                                                  "const": "schema:Thing"
-                                                }
-                                              }
-                                            ]
-                                          },
-                                          "@id": {
-                                            "type": "string"
-                                          },
-                                          "schema:name": {
-                                            "type": "string",
-                                            "minLength": 3
-                                          },
-                                          "schema:description": {
-                                            "type": "string"
-                                          },
-                                          "schema:alternateName": {
-                                            "type": "array",
-                                            "items": {
-                                              "type": "string"
-                                            }
-                                          },
-                                          "schema:identifier": {
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "$ref": "#/$defs/Identifier"
-                                              }
-                                            ]
-                                          },
-                                          "schema:additionalType": {
-                                            "description": "Component type classification.",
-                                            "type": "array",
-                                            "items": {
-                                              "$ref": "#/$defs/cdifConceptOrTermOrString"
-                                            }
-                                          },
-                                          "schema:additionalProperty": {
-                                            "type": "array",
-                                            "items": {
-                                              "anyOf": [
-                                                {
-                                                  "$ref": "#/$defs/AdditionalProperty"
-                                                },
-                                                {
-                                                  "$ref": "#/$defs/AdditionalPropertySpecification"
-                                                }
-                                              ]
-                                            }
-                                          },
-                                          "schema:manufacturer": {
-                                            "$ref": "#/$defs/Organization"
-                                          },
-                                          "schema:model": {
-                                            "type": "object",
-                                            "properties": {
-                                              "@type": {
-                                                "type": "array",
-                                                "items": {
-                                                  "anyOf": [
-                                                    {
-                                                      "type": "string"
-                                                    },
-                                                    {
-                                                      "$ref": "#/$defs/ObjectReference"
-                                                    }
-                                                  ]
-                                                },
-                                                "contains": {
-                                                  "const": "schema:ProductModel"
-                                                },
-                                                "minItems": 1
-                                              },
-                                              "schema:name": {
-                                                "type": "string"
-                                              },
-                                              "schema:identifier": {
-                                                "anyOf": [
-                                                  {
-                                                    "type": "string"
-                                                  },
-                                                  {
-                                                    "$ref": "#/$defs/Identifier"
-                                                  }
-                                                ]
-                                              }
-                                            },
-                                            "required": [
-                                              "@type"
-                                            ]
-                                          }
-                                        },
-                                        "required": [
-                                          "@type",
-                                          "schema:name"
-                                        ]
+                                        "$ref": "#/$defs/InstrumentComponent"
                                       },
                                       {
                                         "$ref": "#/$defs/ObjectReference",
@@ -4762,6 +4648,17 @@
         "schema:termCode": {
           "type": "string",
           "description": "A representative code for this keyword in the controlled vocabulary. Analogous to skos:Notation"
+        },
+        "schema:about": {
+          "description": "What this term is about, or the part it plays in the record, as EITHER a plain string OR an object reference ({\"@id\": \"<uri>\"}). schema.org lists schema:DefinedTerm in the domain of schema:about. In CDIF records it marks where a keyword came from when that is not the dataset's own description: for example 'DCATtheme' for a keyword taken from dcat:theme, or 'portal level value' for one that describes the source portal and not the dataset.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/ObjectReference"
+            }
+          ]
         }
       },
       "allOf": [
@@ -8887,6 +8784,137 @@
         "schema:name"
       ]
     },
+    "InstrumentComponent": {
+      "type": "object",
+      "description": "A sub-component of an instrument system (for example a sensor, or a sensing element within a sensor). Uses the same structure as the parent instrument and may itself carry schema:hasPart, so component hierarchies nest to any depth (instrument > sensor > sensing element ...).",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "description": "Must include schema:Product (as the parent instrument does) or schema:Thing (accepted for existing components).",
+          "anyOf": [
+            {
+              "contains": {
+                "const": "schema:Product"
+              }
+            },
+            {
+              "contains": {
+                "const": "schema:Thing"
+              }
+            }
+          ]
+        },
+        "@id": {
+          "type": "string"
+        },
+        "schema:name": {
+          "type": "string",
+          "minLength": 3
+        },
+        "schema:description": {
+          "type": "string"
+        },
+        "schema:alternateName": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schema:identifier": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/$defs/Identifier"
+            }
+          ]
+        },
+        "schema:additionalType": {
+          "description": "Component type classification.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cdifConceptOrTermOrString"
+          }
+        },
+        "schema:additionalProperty": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/AdditionalProperty"
+              },
+              {
+                "$ref": "#/$defs/AdditionalPropertySpecification"
+              }
+            ]
+          }
+        },
+        "schema:manufacturer": {
+          "$ref": "#/$defs/Organization"
+        },
+        "schema:model": {
+          "type": "object",
+          "properties": {
+            "@type": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/$defs/ObjectReference"
+                  }
+                ]
+              },
+              "contains": {
+                "const": "schema:ProductModel"
+              },
+              "minItems": 1
+            },
+            "schema:name": {
+              "type": "string"
+            },
+            "schema:identifier": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "$ref": "#/$defs/Identifier"
+                }
+              ]
+            }
+          },
+          "required": [
+            "@type"
+          ]
+        },
+        "schema:hasPart": {
+          "type": "array",
+          "description": "Nested sub-components, for example the sensing elements within a sensor. Each item is an InstrumentComponent or an @id reference, so component hierarchies nest to any depth (instrument > sensor > sensing element ...).",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/InstrumentComponent"
+              },
+              {
+                "$ref": "#/$defs/ObjectReference"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "@type",
+        "schema:name"
+      ]
+    },
     "UsedResource": {
       "type": "object",
       "description": "An instrument, software or reagent described in place. schema:additionalType must carry exactly one of the three kind terms; the kind then pins the shape. A domain profile adds its own properties (a role, a version, settings).",
@@ -9177,121 +9205,7 @@
                 "items": {
                   "anyOf": [
                     {
-                      "type": "object",
-                      "description": "A sub-component of an instrument system. Uses the same structure as the parent instrument but without nesting (single level of hasPart).",
-                      "properties": {
-                        "@type": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "minItems": 1,
-                          "description": "Must include schema:Product (as the parent instrument does) or schema:Thing (accepted for existing components).",
-                          "anyOf": [
-                            {
-                              "contains": {
-                                "const": "schema:Product"
-                              }
-                            },
-                            {
-                              "contains": {
-                                "const": "schema:Thing"
-                              }
-                            }
-                          ]
-                        },
-                        "@id": {
-                          "type": "string"
-                        },
-                        "schema:name": {
-                          "type": "string",
-                          "minLength": 3
-                        },
-                        "schema:description": {
-                          "type": "string"
-                        },
-                        "schema:alternateName": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          }
-                        },
-                        "schema:identifier": {
-                          "anyOf": [
-                            {
-                              "type": "string"
-                            },
-                            {
-                              "$ref": "#/$defs/Identifier"
-                            }
-                          ]
-                        },
-                        "schema:additionalType": {
-                          "description": "Component type classification.",
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/$defs/cdifConceptOrTermOrString"
-                          }
-                        },
-                        "schema:additionalProperty": {
-                          "type": "array",
-                          "items": {
-                            "anyOf": [
-                              {
-                                "$ref": "#/$defs/AdditionalProperty"
-                              },
-                              {
-                                "$ref": "#/$defs/AdditionalPropertySpecification"
-                              }
-                            ]
-                          }
-                        },
-                        "schema:manufacturer": {
-                          "$ref": "#/$defs/Organization"
-                        },
-                        "schema:model": {
-                          "type": "object",
-                          "properties": {
-                            "@type": {
-                              "type": "array",
-                              "items": {
-                                "anyOf": [
-                                  {
-                                    "type": "string"
-                                  },
-                                  {
-                                    "$ref": "#/$defs/ObjectReference"
-                                  }
-                                ]
-                              },
-                              "contains": {
-                                "const": "schema:ProductModel"
-                              },
-                              "minItems": 1
-                            },
-                            "schema:name": {
-                              "type": "string"
-                            },
-                            "schema:identifier": {
-                              "anyOf": [
-                                {
-                                  "type": "string"
-                                },
-                                {
-                                  "$ref": "#/$defs/Identifier"
-                                }
-                              ]
-                            }
-                          },
-                          "required": [
-                            "@type"
-                          ]
-                        }
-                      },
-                      "required": [
-                        "@type",
-                        "schema:name"
-                      ]
+                      "$ref": "#/$defs/InstrumentComponent"
                     },
                     {
                       "$ref": "#/$defs/ObjectReference",
