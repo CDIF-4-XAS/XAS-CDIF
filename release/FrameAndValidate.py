@@ -3,7 +3,7 @@
 # GENERATED FILE -- DO NOT EDIT.
 # Synced from CDIF/validation/tools/FrameAndValidate.py (the normative source).
 # Edit there, then run:  python tools/sync_frameandvalidate.py --apply
-# src-sha256: 8c3819a5581956bc1ca9ed8aed57f26fd772f419485e1e1216712a932afe1f93
+# src-sha256: c6a834774870295350ad9f60ef78adfd494d8bb55d71d26f4f9d400ce583abf6
 # <<< CDIF-SYNC GENERATED <<<
 
 """
@@ -359,6 +359,10 @@ REFERENCE_ONLY_KEYS = (
     # exactly {@id}. This was NOT safe before 2026-09-24, when two CDIF sites
     # still admitted an inline variable that a collapse would have destroyed.
     'cdi:indexes',
+    # Sealed {@id} on cdif:ForeignKey, its only definition. A key in the same
+    # document is held as cdif:has_PrimaryKey (or cdif:hasPrimaryKey) on the
+    # referenced data, and framing embeds a second copy here.
+    'cdif:references_PrimaryKey',
 )
 
 # Keys the (bare-structure) schema requires as arrays but framing collapses to a
