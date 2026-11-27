@@ -179,9 +179,10 @@ cdifd:CDIFContactPointShape a sh:NodeShape ;
                         sh:path schema:email ] ] [ sh:property [ sh:minCount 1 ;
                         sh:path schema:url ] ] ) ;
     sh:property [ sh:datatype xsd:string ;
+            sh:flags "i" ;
             sh:message "a contact point e-mail address should be well formed" ;
             sh:path schema:email ;
-            sh:pattern "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$" ;
+            sh:pattern "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$" ;
             sh:severity sh:Info ],
         [ sh:datatype xsd:string ;
             sh:message "a contact point web page should be an http(s) URL" ;
@@ -1310,7 +1311,6 @@ cdifd:datasetScopeStatisticsShape a sh:NodeShape ;
         """ ] .
 
 cdifd:derivedFromProperty a sh:NodeShape ;
-    sh:filterShape [ sh:nodeKind sh:BlankNode ] ;
     sh:message "PROV:derivedFrom must have a string value, a CreativeWork citing a source or an @id reference to a source." ;
     sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ] [ sh:class schema:CreativeWork ;
                 sh:property [ sh:datatype xsd:string ;
@@ -1511,12 +1511,10 @@ cdifd:tabularTextDataSetMappingsShape a sh:NodeShape ;
             sh:severity sh:Violation ] ;
     sh:targetClass cdi:TabularTextDataSet .
 
-cdifd:temporalExtentProperty a sh:PropertyShape ;
-    sh:message "temporalCoverage problem; need an ISO 8601 dateTime, ISO 8601 time interval (two xsd:date separated by a '/' character),  or a time:ProperInterval. ISO time interval allows YYYY, YYYY-MM, or YYYY-DD-MM" ;
-    sh:minCount 0 ;
-    sh:or ( [ sh:class time:ProperInterval ] [ sh:class time:Instant ] [ sh:datatype xsd:string ;
-                sh:or ( [ sh:pattern "^[1-2][0-9]{3}-([0][1-9]|[1][0-2])(-([0-2][0-9]|[3][0-1])(T([0-1][0-9]|[2][0-3])(:[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?)?(Z|[+-][0-2][0-9]:[0-5][0-9])?)?)?$" ] [ sh:pattern "^(([1-2][0-9]{3}(-([0][1-9]|[1][0-2])(-([0-2][0-9]|[3][0-1]))?)?)|(\\.\\.))\\/([1-2][0-9]{3}(-([0][1-9]|[1][0-2])(-([0-2][0-9]|[3][0-1]))?)?)|(\\.\\.)$" ] ) ] ) ;
-    sh:path schema:temporalCoverage .
+cdifd:temporalCoverageNode a sh:NodeShape ;
+    sh:property cdifd:temporalCoverageObjectProperty,
+        cdifd:temporalExtentProperty ;
+    sh:targetSubjectsOf schema:temporalCoverage .
 
 cdifd:timeInstantNode a sh:NodeShape ;
     sh:property [ sh:class time:TimePosition ;
@@ -1525,13 +1523,17 @@ cdifd:timeInstantNode a sh:NodeShape ;
     sh:targetClass time:Instant .
 
 cdifd:timeIntervalNode a sh:NodeShape ;
-    sh:property [ sh:class time:Instant ;
-            sh:message "A time interval must have a beginning " ;
-            sh:minCount 1 ;
+    sh:message "A time interval needs at least one bound: time:hasBeginning, time:hasEnd, time:intervalStartedBy or time:intervalFinishedBy" ;
+    sh:or ( [ sh:property [ sh:minCount 1 ;
+                        sh:path time:hasBeginning ] ] [ sh:property [ sh:minCount 1 ;
+                        sh:path time:hasEnd ] ] [ sh:property [ sh:minCount 1 ;
+                        sh:path time:intervalStartedBy ] ] [ sh:property [ sh:minCount 1 ;
+                        sh:path time:intervalFinishedBy ] ] ) ;
+    sh:property [ sh:message "A time interval beginning must be typed time:Instant and give either a time:inTimePosition that is a time:TimePosition, or a time:inXSDDate (YYYY-MM-DD)" ;
+            sh:or ( cdifd:numericInstantShape cdifd:calendarInstantShape ) ;
             sh:path time:hasBeginning ],
-        [ sh:class time:Instant ;
-            sh:message "A time interval must have an end " ;
-            sh:minCount 1 ;
+        [ sh:message "A time interval end must be typed time:Instant and give either a time:inTimePosition that is a time:TimePosition, or a time:inXSDDate (YYYY-MM-DD)" ;
+            sh:or ( cdifd:numericInstantShape cdifd:calendarInstantShape ) ;
             sh:path time:hasEnd ] ;
     sh:targetClass time:ProperInterval .
 
@@ -1887,10 +1889,35 @@ cdifd:spatialExtentDefinedTermShape a sh:NodeShape ;
                         sh:path schema:identifier ] ] [ sh:property cdifd:termLabelProperty ] ) ;
     sh:targetClass schema:DefinedTerm .
 
+cdifd:temporalCoverageObjectProperty a sh:PropertyShape ;
+    sh:message "A temporalCoverage object must declare @type time:ProperInterval" ;
+    sh:or ( [ sh:nodeKind sh:Literal ] [ sh:class time:ProperInterval ] ) ;
+    sh:path schema:temporalCoverage .
+
+cdifd:temporalExtentProperty a sh:PropertyShape ;
+    sh:message "A temporalCoverage string should be an ISO 8601 date or dateTime, or an ISO 8601 interval (start/end, either may be '..'). Dates may be YYYY, YYYY-MM or YYYY-MM-DD" ;
+    sh:minCount 0 ;
+    sh:or ( [ sh:nodeKind sh:BlankNodeOrIRI ] [ sh:datatype xsd:string ;
+                sh:or ( [ sh:pattern "^[1-2][0-9]{3}(-([0][1-9]|[1][0-2])(-([0-2][0-9]|[3][0-1])(T([0-1][0-9]|[2][0-3])(:[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?)?(Z|[+-][0-2][0-9]:[0-5][0-9])?)?)?)?$" ] [ sh:pattern "^([1-2][0-9]{3}(-([0][1-9]|[1][0-2])(-([0-2][0-9]|[3][0-1]))?)?|\\.\\.)/([1-2][0-9]{3}(-([0][1-9]|[1][0-2])(-([0-2][0-9]|[3][0-1]))?)?|\\.\\.)$" ] ) ] ) ;
+    sh:path schema:temporalCoverage ;
+    sh:severity sh:Warning .
+
 <https://cdif.org/validation/0.1/skos#conceptPrefLabelProperty> a sh:PropertyShape ;
     sh:message "Every skos:Concept must have at least one skos:prefLabel." ;
     sh:minCount 1 ;
     sh:path skos:prefLabel .
+
+cdifd:calendarInstantShape a sh:NodeShape ;
+    sh:class time:Instant ;
+    sh:property [ sh:minCount 1 ;
+            sh:path time:inXSDDate ;
+            sh:pattern "^-?[0-9]{4,}-[0-9]{2}-[0-9]{2}(Z|[+-][0-9]{2}:[0-9]{2})?$" ] .
+
+cdifd:numericInstantShape a sh:NodeShape ;
+    sh:class time:Instant ;
+    sh:property [ sh:class time:TimePosition ;
+            sh:minCount 1 ;
+            sh:path time:inTimePosition ] .
 
 cdifd:termLabelProperty a sh:PropertyShape ;
     sh:datatype xsd:string ;

@@ -3568,8 +3568,31 @@
                 "type": "string",
                 "format": "uri",
                 "description": "identifier for a named time ordinal era that is younger bound of time interval, e.g. 'isc:LowerDevonian' "
+              },
+              "time:hasBeginning": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/numericInstant_type"
+                  },
+                  {
+                    "$ref": "#/$defs/calendarInstant_type"
+                  }
+                ]
+              },
+              "time:hasEnd": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/numericInstant_type"
+                  },
+                  {
+                    "$ref": "#/$defs/calendarInstant_type"
+                  }
+                ]
               }
             },
+            "required": [
+              "@type"
+            ],
             "anyOf": [
               {
                 "required": [
@@ -3620,104 +3643,15 @@
                 "minItems": 1
               },
               "time:hasBeginning": {
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "time:Instant"
-                    },
-                    "minItems": 1
-                  },
-                  "time:inTimePosition": {
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "default": [
-                          "time:TimePosition"
-                        ],
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "time:TimePosition"
-                        },
-                        "minItems": 1
-                      },
-                      "time:hasTRS": {
-                        "type": "string",
-                        "description": "identifier for a temporal reference system; default is million years before prsent as a decimal number",
-                        "default": "http://www.opengis.net/def/crs/OGC/0/ChronometricGeologicTime"
-                      },
-                      "time:numericPosition": {
-                        "type": "number"
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "time:hasTRS",
-                      "time:numericPosition"
-                    ]
-                  }
-                },
-                "required": [
-                  "time:inTimePosition"
-                ]
+                "$ref": "#/$defs/numericInstant_type"
               },
               "time:hasEnd": {
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "time:Instant"
-                    },
-                    "minItems": 1
-                  },
-                  "time:inTimePosition": {
-                    "type": "object",
-                    "properties": {
-                      "@type": {
-                        "default": [
-                          "time:TimePosition"
-                        ],
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        },
-                        "contains": {
-                          "const": "time:TimePosition"
-                        },
-                        "minItems": 1
-                      },
-                      "time:hasTRS": {
-                        "type": "string",
-                        "description": "identifier for a temporal reference system; default is million years before prsent as a decimal number",
-                        "default": "http://www.opengis.net/def/crs/OGC/0/ChronometricGeologicTime"
-                      },
-                      "time:numericPosition": {
-                        "type": "number"
-                      }
-                    },
-                    "required": [
-                      "@type",
-                      "time:hasTRS",
-                      "time:numericPosition"
-                    ]
-                  }
-                },
-                "required": [
-                  "time:inTimePosition"
-                ]
+                "$ref": "#/$defs/numericInstant_type"
               }
             },
+            "required": [
+              "@type"
+            ],
             "anyOf": [
               {
                 "required": [
@@ -3749,58 +3683,10 @@
                 "minItems": 1
               },
               "time:hasBeginning": {
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "default": [
-                      "time:Instant"
-                    ],
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "time:Instant"
-                    },
-                    "minItems": 1
-                  },
-                  "time:inXSDDate": {
-                    "type": "string",
-                    "description": "the date of the instant, as an xsd:date",
-                    "pattern": "^-?\\d{4,}-\\d{2}-\\d{2}(Z|[+-]\\d{2}:\\d{2})?$"
-                  }
-                },
-                "required": [
-                  "@type",
-                  "time:inXSDDate"
-                ]
+                "$ref": "#/$defs/calendarInstant_type"
               },
               "time:hasEnd": {
-                "type": "object",
-                "properties": {
-                  "@type": {
-                    "default": [
-                      "time:Instant"
-                    ],
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "time:Instant"
-                    },
-                    "minItems": 1
-                  },
-                  "time:inXSDDate": {
-                    "type": "string",
-                    "description": "the date of the instant, as an xsd:date",
-                    "pattern": "^-?\\d{4,}-\\d{2}-\\d{2}(Z|[+-]\\d{2}:\\d{2})?$"
-                  }
-                },
-                "required": [
-                  "@type",
-                  "time:inXSDDate"
-                ]
+                "$ref": "#/$defs/calendarInstant_type"
               }
             },
             "required": [
@@ -7860,6 +7746,83 @@
         {
           "$ref": "#/$defs/Organization"
         }
+      ]
+    },
+    "numericInstant_type": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "time:Instant"
+          },
+          "minItems": 1
+        },
+        "time:inTimePosition": {
+          "type": "object",
+          "properties": {
+            "@type": {
+              "default": [
+                "time:TimePosition"
+              ],
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "contains": {
+                "const": "time:TimePosition"
+              },
+              "minItems": 1
+            },
+            "time:hasTRS": {
+              "type": "string",
+              "description": "identifier for a temporal reference system; default is million years before prsent as a decimal number",
+              "default": "http://www.opengis.net/def/crs/OGC/0/ChronometricGeologicTime"
+            },
+            "time:numericPosition": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "@type",
+            "time:hasTRS",
+            "time:numericPosition"
+          ]
+        }
+      },
+      "required": [
+        "@type",
+        "time:inTimePosition"
+      ]
+    },
+    "calendarInstant_type": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "default": [
+            "time:Instant"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "contains": {
+            "const": "time:Instant"
+          },
+          "minItems": 1
+        },
+        "time:inXSDDate": {
+          "type": "string",
+          "description": "the date of the instant, as an xsd:date",
+          "pattern": "^-?\\d{4,}-\\d{2}-\\d{2}(Z|[+-]\\d{2}:\\d{2})?$"
+        }
+      },
+      "required": [
+        "@type",
+        "time:inXSDDate"
       ]
     },
     "Statistics": {
