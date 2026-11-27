@@ -9,12 +9,6 @@ analysis activity records its instruments: directly in
 declares `xasCore/1.2`; one declaring `xasCore/1.2` or `xasCore/1.0`
 does not validate. Release 1.1 remains available at the tag `1.1`.
 
-The CDIF profiles it composes are CDIF 2.0 (`core/2.0`, `discovery/2.0`,
-`data_description/2.0`, `data_structure/2.0`, `manifest/2.0`): CDIF went
-from 1.1 straight to 2.0, and there is no CDIF 1.2. The XAS tiers stay 1.2.
-The two converters emit CDIF 1.1, for XAS-CDIF 1.1; the converter examples
-here are their output with the CDIF conformance URIs moved to 2.0.
-
 ## Conformance URI
 
 `https://w3id.org/cdif/xasDocument/1.2`
@@ -23,10 +17,10 @@ here are their output with the CDIF conformance URIs moved to 2.0.
 
 | Component | Conformance URI | Role |
 |-----------|-----------------|------|
-| [CDIF Core](https://w3id.org/cdif/core/2.0) | `cdif/core/2.0` | Mandatory dataset discovery content |
-| [CDIF Discovery](https://w3id.org/cdif/discovery/2.0) | `cdif/discovery/2.0` | Optional discovery content (spatial, temporal, etc.) |
-| [CDIF Data Description](https://w3id.org/cdif/data_description/2.0) | `cdif/data_description/2.0` | Measured variables and their semantics |
-| [CDIF Data Structure](https://w3id.org/cdif/data_structure/2.0) | `cdif/data_structure/2.0` | Physical / logical / tabular data structure |
+| [CDIF Core](https://w3id.org/cdif/core/1.1) | `cdif/core/1.1` | Mandatory dataset discovery content |
+| [CDIF Discovery](https://w3id.org/cdif/discovery/1.1) | `cdif/discovery/1.1` | Optional discovery content (spatial, temporal, etc.) |
+| [CDIF Data Description](https://w3id.org/cdif/data_description/1.1) | `cdif/data_description/1.1` | Measured variables and their semantics |
+| [CDIF Data Structure](https://w3id.org/cdif/data_structure/1.1) | `cdif/data_structure/1.1` | Physical / logical / tabular data structure |
 | [XAS Core](https://w3id.org/cdif/xasCore/1.2) | `cdif/xasCore/1.2` | XAS-mandatory analysis activity, instruments and measurement technique; sample shape |
 | [XAS Optional](https://w3id.org/cdif/xasOptional/1.2) | `cdif/xasOptional/1.2` | XAS-recommended propertyIDs for data columns, beamline, sample and analysis activity; no requirements |
 
@@ -34,7 +28,7 @@ A conforming XAS document declares five of these URIs in
 `schema:subjectOf.dcterms:conformsTo` — all but `xasOptional/1.2`, which
 adds no requirements and so is not declared. A document whose
 distribution has `schema:hasPart` entries also declares
-`https://w3id.org/cdif/manifest/2.0`.
+`https://w3id.org/cdif/manifest/1.1`.
 
 ## Files
 

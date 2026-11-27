@@ -193,8 +193,8 @@ cdifd:CDIFContactPointShape a sh:NodeShape ;
 
 cdifd:CDIFDataDescriptionConformsToShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
-            sh:hasValue <https://w3id.org/cdif/data_description/2.0> ;
-            sh:message "Metadata record must declare conformance to the CDIF data description profile (https://w3id.org/cdif/data_description/2.0)" ;
+            sh:hasValue <https://w3id.org/cdif/data_description/1.1> ;
+            sh:message "Metadata record must declare conformance to the CDIF data description profile (https://w3id.org/cdif/data_description/1.1)" ;
             sh:path dcterms:conformsTo ;
             sh:severity sh:Warning ] ;
     sh:target [ a sh:SPARQLTarget ;
@@ -219,8 +219,8 @@ cdifd:CDIFDataDownloadShape a sh:NodeShape ;
 
 cdifd:CDIFDataStructureConformsToShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
-            sh:hasValue <https://w3id.org/cdif/data_structure/2.0> ;
-            sh:message "A catalog record on a dataset using CDIF data structure properties should include dcterms:conformsTo <https://w3id.org/cdif/data_structure/2.0>." ;
+            sh:hasValue <https://w3id.org/cdif/data_structure/1.1> ;
+            sh:message "A catalog record on a dataset using CDIF data structure properties should include dcterms:conformsTo <https://w3id.org/cdif/data_structure/1.1>." ;
             sh:minCount 1 ;
             sh:path dcterms:conformsTo ;
             sh:severity sh:Warning ] ;
@@ -302,8 +302,8 @@ cdifd:CDIFDatasetMandatoryShape a sh:NodeShape ;
 
 cdifd:CDIFDiscoveryConformsToShape a sh:NodeShape ;
     sh:property [ a sh:PropertyShape ;
-            sh:hasValue <https://w3id.org/cdif/discovery/2.0> ;
-            sh:message "A catalog record on a dataset using CDIF discovery properties should include dcterms:conformsTo <https://w3id.org/cdif/discovery/2.0>." ;
+            sh:hasValue <https://w3id.org/cdif/discovery/1.1> ;
+            sh:message "A catalog record on a dataset using CDIF discovery properties should include dcterms:conformsTo <https://w3id.org/cdif/discovery/1.1>." ;
             sh:minCount 1 ;
             sh:path dcterms:conformsTo ;
             sh:severity sh:Warning ] ;
@@ -514,16 +514,13 @@ cdifd:CDIFRelationShape a sh:NodeShape ;
     sh:targetClass dcat:Relationship .
 
 cdifd:CDIFRoleShape a sh:NodeShape ;
-    sh:description "https://cross-domain-interoperability-framework.github.io/cdifbook/metadata/schemaorgimplementation.html" ;
-    sh:message "a Role must be filled by a Person, Organization, or IRI reference to one, under schema:contributor, schema:agent or schema:participant (the property the Role sits under)" ;
-    sh:or ( [ sh:property [ sh:minCount 1 ;
-                        sh:or ( [ sh:class schema:Person ] [ sh:class schema:Organization ] [ sh:nodeKind sh:IRI ] ) ;
-                        sh:path schema:contributor ] ] [ sh:property [ sh:minCount 1 ;
-                        sh:or ( [ sh:class schema:Person ] [ sh:class schema:Organization ] [ sh:nodeKind sh:IRI ] ) ;
-                        sh:path schema:agent ] ] [ sh:property [ sh:minCount 1 ;
-                        sh:or ( [ sh:class schema:Person ] [ sh:class schema:Organization ] [ sh:nodeKind sh:IRI ] ) ;
-                        sh:path schema:participant ] ] ) ;
-    sh:property cdifd:roleNameProperty ;
+    sh:message "The schema.org construct for assigining a role to a contributor nests a second schema:contributor node inside a schema:contributor node." ;
+    sh:property [ sh:description "https://cross-domain-interoperability-framework.github.io/cdifbook/metadata/schemaorgimplementation.html" ;
+            sh:message "a Role must be filled by a Person, Organization, or IRI reference to one" ;
+            sh:minCount 1 ;
+            sh:or ( [ sh:class schema:Person ] [ sh:class schema:Organization ] [ sh:nodeKind sh:IRI ] ) ;
+            sh:path schema:contributor ],
+        cdifd:roleNameProperty ;
     sh:targetClass schema:Role .
 
 cdifd:CDIFSubjectOfPlacementShape a sh:NodeShape ;
@@ -981,8 +978,8 @@ cdifd:cdifProvActivityShape a sh:NodeShape ;
             sh:or ( [ sh:nodeKind sh:IRI ] [ sh:class schema:Product ] [ sh:class schema:SoftwareApplication ] [ sh:class schema:DefinedTerm ] [ sh:class schema:ChemicalSubstance ] ) ;
             sh:path schema:instrument ;
             sh:severity sh:Info ],
-        [ sh:in ( "schema:CompletedActionStatus" "schema:ActiveActionStatus" "schema:PotentialActionStatus" "schema:FailedActionStatus" "http://schema.org/CompletedActionStatus" "http://schema.org/ActiveActionStatus" "http://schema.org/PotentialActionStatus" "http://schema.org/FailedActionStatus" "https://schema.org/CompletedActionStatus" "https://schema.org/ActiveActionStatus" "https://schema.org/PotentialActionStatus" "https://schema.org/FailedActionStatus" ) ;
-            sh:message "schema:actionStatus should be one of: schema:CompletedActionStatus, schema:ActiveActionStatus, schema:PotentialActionStatus, schema:FailedActionStatus, as the CURIE or the full http:// or https://schema.org/ IRI" ;
+        [ sh:in ( "schema:CompletedActionStatus" "schema:ActiveActionStatus" "schema:PotentialActionStatus" "schema:FailedActionStatus" ) ;
+            sh:message "schema:actionStatus should be one of: schema:CompletedActionStatus, schema:ActiveActionStatus, schema:PotentialActionStatus, schema:FailedActionStatus" ;
             sh:path schema:actionStatus ;
             sh:severity sh:Info ],
         [ sh:message "schema:actionProcess should be a HowTo, IRI reference, or descriptive string" ;
@@ -1036,12 +1033,6 @@ cdifd:cdifProvHowToStepShape a sh:NodeShape ;
             sh:path schema:position ;
             sh:severity sh:Warning ] ;
     sh:targetClass schema:HowToStep .
-
-cdifd:cdifQualifiesTargetShape a sh:NodeShape ;
-    sh:message "cdif:qualifies must not point at another cdi:AttributeComponent: its target is the component whose observations are being qualified. The JSON Schema enforces this for an inline target; this shape covers a target given as an {@id} reference." ;
-    sh:not [ sh:class cdi:AttributeComponent ] ;
-    sh:severity sh:Violation ;
-    sh:targetObjectsOf <https://w3id.org/cdif/qualifies> .
 
 cdifd:cdifRepresentedVariable_ConceptSystemShape a sh:NodeShape ;
     sh:property [ sh:message "A cdi:ConceptSystem may carry cdif:has_Concept members (the concepts it structures)." ;
@@ -1106,76 +1097,6 @@ cdifd:cdifSubstantiveValueDomainShape a sh:NodeShape ;
             sh:severity sh:Warning ] ;
     sh:severity sh:Violation ;
     sh:targetClass <https://w3id.org/cdif/SubstantiveValueDomain> .
-
-cdifd:cdifValueAndConceptDescriptionBoundsShape a sh:NodeShape ;
-    sh:severity sh:Violation ;
-    sh:sparql [ a sh:SPARQLConstraint ;
-            sh:message "cdi:maximumValueInclusive and cdi:maximumValueExclusive both state the upper limit, and nothing checks that the two agree. W3C tabular-metadata 5.11.2, the source of these properties, treats specifying both as an error: keep one." ;
-            sh:prefixes ( [ sh:namespace "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/" ;
-                        sh:prefix "cdi" ] ) ;
-            sh:select """
-			PREFIX cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/>
-			SELECT DISTINCT $this (cdi:maximumValueInclusive AS ?path) (?inc AS ?value)
-			WHERE {
-				$this cdi:maximumValueInclusive ?inc .
-				$this cdi:maximumValueExclusive ?exc .
-			}""" ],
-        [ a sh:SPARQLConstraint ;
-            sh:message "cdi:minimumValueInclusive and cdi:minimumValueExclusive both state the lower limit, and nothing checks that the two agree. W3C tabular-metadata 5.11.2, the source of these properties, treats specifying both as an error: keep one." ;
-            sh:prefixes ( [ sh:namespace "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/" ;
-                        sh:prefix "cdi" ] ) ;
-            sh:select """
-			PREFIX cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/>
-			SELECT DISTINCT $this (cdi:minimumValueInclusive AS ?path) (?inc AS ?value)
-			WHERE {
-				$this cdi:minimumValueInclusive ?inc .
-				$this cdi:minimumValueExclusive ?exc .
-			}""" ] ;
-    sh:targetClass cdi:ValueAndConceptDescription .
-
-cdifd:cdifValueDomainContinuousNotEnumerableShape a sh:NodeShape ;
-    sh:severity sh:Violation ;
-    sh:sparql [ a sh:SPARQLConstraint ;
-            sh:message "A value domain classified Continuous cannot also take its values from an enumeration: a continuous scale has uncountably many values. Either drop cdif:takesValuesFrom, or classify the domain Nominal or Ordinal." ;
-            sh:prefixes ( [ sh:namespace "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/" ;
-                        sh:prefix "cdi" ] [ sh:namespace "https://w3id.org/cdif/" ;
-                        sh:prefix "cdif" ] ) ;
-            sh:select """
-			PREFIX cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/>
-			PREFIX cdif: <https://w3id.org/cdif/>
-			SELECT DISTINCT $this (cdif:takesValuesFrom AS ?path) (?level AS ?value)
-			WHERE {
-				$this cdif:takesValuesFrom ?enum .
-				$this cdi:isDescribedBy ?vacd .
-				?vacd cdi:classificationLevel ?level .
-				FILTER (STR(?level) = "Continuous")
-			}""" ] ;
-    sh:targetClass <https://w3id.org/cdif/SentinelValueDomain>,
-        <https://w3id.org/cdif/SubstantiveValueDomain> .
-
-cdifd:cdifValueDomainEnumerationRedundancyShape a sh:NodeShape ;
-    sh:severity sh:Warning ;
-    sh:sparql [ a sh:SPARQLConstraint ;
-            sh:message "This value domain names an enumeration in cdif:takesValuesFrom and also defines its values by a bound or a logical expression. The codelist and the description then state the value set twice, with nothing checking that the two agree; prefer the codelist, and keep cdi:isDescribedBy for cdi:classificationLevel and cdi:description." ;
-            sh:prefixes ( [ sh:namespace "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/" ;
-                        sh:prefix "cdi" ] [ sh:namespace "https://w3id.org/cdif/" ;
-                        sh:prefix "cdif" ] ) ;
-            sh:select """
-			PREFIX cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/>
-			PREFIX cdif: <https://w3id.org/cdif/>
-			SELECT DISTINCT $this (?p AS ?path) (?v AS ?value)
-			WHERE {
-				$this cdif:takesValuesFrom ?enum .
-				$this cdi:isDescribedBy ?vacd .
-				?vacd ?p ?v .
-				FILTER (?p IN (
-					cdif:logicalExpression,
-					cdi:minimumValueInclusive, cdi:minimumValueExclusive,
-					cdi:maximumValueInclusive, cdi:maximumValueExclusive
-				))
-			}""" ] ;
-    sh:targetClass <https://w3id.org/cdif/SentinelValueDomain>,
-        <https://w3id.org/cdif/SubstantiveValueDomain> .
 
 cdifd:cdifVariableDescriptorComponentShape a sh:NodeShape ;
     sh:property [ sh:message "A cdi:VariableDescriptorComponent must carry an inline cdi:DescriptorVariable via cdif:isDefinedBy_DescriptorVariable." ;
@@ -1755,7 +1676,7 @@ cdifd:metadataConformsToPresent a sh:PropertyShape ;
     sh:path dcterms:conformsTo .
 
 cdifd:metadataProfileProperty a sh:PropertyShape ;
-    sh:hasValue <https://w3id.org/cdif/core/2.0> ;
+    sh:hasValue <https://w3id.org/cdif/core/1.1> ;
     sh:message "provide identifiers for specifications used in this record to provide guidance for machine agents processing the metadata record" ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
