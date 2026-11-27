@@ -443,9 +443,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/CeO2/rv/incidentintensity"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/CeO2/rv/incidentintensity"
+      }
     },
     {
       "@id": "ex:DV/CeO2/iv/monochromatorenergy",
@@ -461,9 +461,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/CeO2/rv/monochromatorenergy"
-      ],
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/CeO2/rv/monochromatorenergy"
+      },
       "schema:unitText": "eV"
     },
     {
@@ -480,9 +480,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/CeO2/rv/transmittedintensity"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/CeO2/rv/transmittedintensity"
+      }
     }
   ],
   "schema:subjectOf": {

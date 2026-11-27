@@ -252,9 +252,9 @@
         }
       ],
       "schema:unitText": "eV",
-      "cdif:uses": [
-        "https://example.org/struct/DV/Se_Na2SeO4_rt_01/rv/Column_1"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/Se_Na2SeO4_rt_01/rv/Column_1"
+      }
     },
     {
       "@id": "ex:DV/Se_Na2SeO4_rt_01/iv/Column_2",
@@ -268,9 +268,9 @@
           "@id": "xas:transmittedintensity"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/Se_Na2SeO4_rt_01/rv/Column_2"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/Se_Na2SeO4_rt_01/rv/Column_2"
+      }
     },
     {
       "@id": "ex:DV/Se_Na2SeO4_rt_01/iv/Column_3",
@@ -284,9 +284,9 @@
           "@id": "xas:incidentintensity"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/Se_Na2SeO4_rt_01/rv/Column_3"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/Se_Na2SeO4_rt_01/rv/Column_3"
+      }
     }
   ],
   "prov:wasGeneratedBy": [

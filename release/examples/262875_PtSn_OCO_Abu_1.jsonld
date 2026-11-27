@@ -336,9 +336,9 @@
           "@id": "xas:monochromatorenergy"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_1"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_1"
+      }
     },
     {
       "@id": "ex:DV/262875_PtSn_OCO_Abu_1/iv/Column_2",
@@ -352,9 +352,9 @@
           "@id": "xas:incidentintensity"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_2"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_2"
+      }
     },
     {
       "@id": "ex:DV/262875_PtSn_OCO_Abu_1/iv/Column_3",
@@ -368,9 +368,9 @@
           "@id": "xas:transmittedintensity"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_3"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_3"
+      }
     },
     {
       "@id": "ex:DV/262875_PtSn_OCO_Abu_1/iv/Column_4",
@@ -384,9 +384,9 @@
           "@id": "xas:referenceintensity"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_4"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_4"
+      }
     },
     {
       "@id": "ex:DV/262875_PtSn_OCO_Abu_1/iv/Column_5",
@@ -400,9 +400,9 @@
           "@id": "xas:absorptioncoefficient"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_5"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_5"
+      }
     },
     {
       "@id": "ex:DV/262875_PtSn_OCO_Abu_1/iv/Column_6",
@@ -416,9 +416,9 @@
           "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_6"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_6"
+      }
     },
     {
       "@id": "ex:DV/262875_PtSn_OCO_Abu_1/iv/Column_7",
@@ -432,9 +432,9 @@
           "@id": "http://www.opengis.net/def/nil/OGC/0/missing"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_7"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/262875_PtSn_OCO_Abu_1/rv/Column_7"
+      }
     }
   ],
   "prov:wasGeneratedBy": [

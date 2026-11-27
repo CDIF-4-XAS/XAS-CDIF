@@ -2618,9 +2618,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/FeXAS/rv/absorptioncoefficient"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/FeXAS/rv/absorptioncoefficient"
+      }
     },
     {
       "@id": "ex:DV/FeXAS/iv/fluorescenceabsorptioncoefficient",
@@ -2636,9 +2636,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/FeXAS/rv/fluorescenceabsorptioncoefficient"
-      ],
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/FeXAS/rv/fluorescenceabsorptioncoefficient"
+      },
       "schema:unitCode": {
         "@id": "http://qudt.org/vocab/unit/UNITLESS"
       }
@@ -2657,9 +2657,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/FeXAS/rv/fluorescenceintensity"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/FeXAS/rv/fluorescenceintensity"
+      }
     },
     {
       "@id": "ex:DV/FeXAS/iv/incidentintensity",
@@ -2675,9 +2675,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/FeXAS/rv/incidentintensity"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/FeXAS/rv/incidentintensity"
+      }
     },
     {
       "@id": "ex:DV/FeXAS/iv/monochromatorenergy",
@@ -2693,9 +2693,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/FeXAS/rv/monochromatorenergy"
-      ],
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/FeXAS/rv/monochromatorenergy"
+      },
       "schema:unitText": "eV"
     },
     {
@@ -2712,9 +2712,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/FeXAS/rv/transmittedintensity"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/FeXAS/rv/transmittedintensity"
+      }
     }
   ],
   "schema:subjectOf": {

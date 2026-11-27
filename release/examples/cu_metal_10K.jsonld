@@ -301,9 +301,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/cu_metal_10K/rv/monochromatorenergy"
-      ],
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/cu_metal_10K/rv/monochromatorenergy"
+      },
       "schema:unitText": "eV"
     }
   ],

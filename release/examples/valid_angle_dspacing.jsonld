@@ -225,9 +225,9 @@
         }
       ],
       "schema:unitText": "deg",
-      "cdif:uses": [
-        "https://example.org/struct/DV/valid_angle_dspacing/rv/Column_1"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/valid_angle_dspacing/rv/Column_1"
+      }
     },
     {
       "@id": "ex:DV/valid_angle_dspacing/iv/Column_2",
@@ -241,9 +241,9 @@
           "@id": "xas:absorptioncoefficient"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/valid_angle_dspacing/rv/Column_2"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/valid_angle_dspacing/rv/Column_2"
+      }
     }
   ],
   "prov:wasGeneratedBy": [

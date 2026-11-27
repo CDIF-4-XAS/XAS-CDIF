@@ -401,9 +401,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/feo_rt1/rv/absorptioncoefficient"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/feo_rt1/rv/absorptioncoefficient"
+      }
     },
     {
       "@id": "ex:DV/feo_rt1/iv/incidentintensity",
@@ -419,9 +419,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/feo_rt1/rv/incidentintensity"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/feo_rt1/rv/incidentintensity"
+      }
     },
     {
       "@id": "ex:DV/feo_rt1/iv/monochromatorenergy",
@@ -437,9 +437,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/feo_rt1/rv/monochromatorenergy"
-      ],
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/feo_rt1/rv/monochromatorenergy"
+      },
       "schema:unitText": "eV"
     },
     {
@@ -456,9 +456,9 @@
         }
       ],
       "cdif:physicalDataType": "xsd:decimal",
-      "cdif:uses": [
-        "https://w3id.org/cdif/testing/feo_rt1/rv/transmittedintensity"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://w3id.org/cdif/testing/feo_rt1/rv/transmittedintensity"
+      }
     }
   ],
   "schema:subjectOf": {

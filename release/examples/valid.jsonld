@@ -225,9 +225,9 @@
         }
       ],
       "schema:unitText": "eV",
-      "cdif:uses": [
-        "https://example.org/struct/DV/valid/rv/Column_1"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/valid/rv/Column_1"
+      }
     },
     {
       "@id": "ex:DV/valid/iv/Column_2",
@@ -241,9 +241,9 @@
           "@id": "xas:absorptioncoefficient"
         }
       ],
-      "cdif:uses": [
-        "https://example.org/struct/DV/valid/rv/Column_2"
-      ]
+      "cdif:isDefinedBy_RepresentedVariable": {
+        "@id": "https://example.org/struct/DV/valid/rv/Column_2"
+      }
     }
   ],
   "prov:wasGeneratedBy": [
