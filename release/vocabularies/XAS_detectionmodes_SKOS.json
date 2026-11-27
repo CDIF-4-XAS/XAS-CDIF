@@ -289,7 +289,7 @@
     },
     "dcterms:conformsTo": [
       {
-        "@id": "https://w3id.org/cdif/conceptscheme/2.0"
+        "@id": "https://w3id.org/cdif/conceptscheme/1.1"
       }
     ]
   }

@@ -218,7 +218,7 @@ CONTEXT = {
     "rdfs:seeAlso": {"@type": "@id"},
 }
 
-CDIF_CONCEPTSCHEME_PROFILE = "https://w3id.org/cdif/conceptscheme/2.0"
+CDIF_CONCEPTSCHEME_PROFILE = "https://w3id.org/cdif/conceptscheme/1.1"
 
 # The builders below write short keys; this is applied on the way out.
 SKOS_KEY = {
