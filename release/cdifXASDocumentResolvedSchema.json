@@ -3948,104 +3948,10 @@
         }
       },
       "then": {
-        "description": "Standalone data-structure object (one of the four variants). The structure is the subject of the record, not something attached to downloadable data, so no schema:DataDownload appears: a distribution here would be describing a different resource than the one the record is about.",
+        "description": "Standalone data-structure object (one of the three layouts). The structure is the subject of the record, not something attached to downloadable data, so no schema:DataDownload appears: a distribution here would be describing a different resource than the one the record is about.",
         "allOf": [
           {
             "anyOf": [
-              {
-                "type": "object",
-                "description": "Data organization based on reusable data structure components.",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "cdi:DataStructure"
-                    },
-                    "minItems": 1
-                  },
-                  "@id": {
-                    "type": "string",
-                    "description": "Identifier for this DataStructure node"
-                  },
-                  "cdif:has_ForeignKey": {
-                    "description": "Variables whose values identify records in a different dataset.",
-                    "type": "array",
-                    "items": {
-                      "anyOf": [
-                        {
-                          "$ref": "#/$defs/ForeignKey"
-                        },
-                        {
-                          "$ref": "#/$defs/ObjectReference"
-                        }
-                      ]
-                    },
-                    "minItems": 1
-                  },
-                  "cdi:has_DataStructureComponent": {
-                    "type": "array",
-                    "items": {
-                      "anyOf": [
-                        {
-                          "title": "DDI-CDI Data Structure Component",
-                          "description": "Role given to a represented variable in the context of a long or wide data structure to identify the units associated to data points, and in dimensional and key value data structures to provide identifying fields for the instance values.",
-                          "anyOf": [
-                            {
-                              "$ref": "#/$defs/IdentifierComponent"
-                            },
-                            {
-                              "$ref": "#/$defs/MeasureComponent"
-                            },
-                            {
-                              "$ref": "#/$defs/AttributeComponent"
-                            },
-                            {
-                              "$ref": "#/$defs/DimensionComponent"
-                            },
-                            {
-                              "$ref": "#/$defs/VariableValueComponent"
-                            },
-                            {
-                              "$ref": "#/$defs/VariableDescriptorComponent"
-                            }
-                          ]
-                        },
-                        {
-                          "$ref": "#/$defs/ObjectReference"
-                        }
-                      ]
-                    },
-                    "minItems": 1
-                  },
-                  "cdif:has_PrimaryKey": {
-                    "$ref": "#/$defs/CdifKey",
-                    "description": "Variables in the structure that uniquely identify a record."
-                  }
-                },
-                "required": [
-                  "@type"
-                ],
-                "anyOf": [
-                  {
-                    "required": [
-                      "cdi:has_DataStructureComponent"
-                    ]
-                  },
-                  {
-                    "required": [
-                      "cdif:has_ForeignKey"
-                    ]
-                  },
-                  {
-                    "required": [
-                      "cdif:has_PrimaryKey"
-                    ]
-                  }
-                ]
-              },
               {
                 "type": "object",
                 "description": "Structure of a dimensional data set (organized collection of multidimensional data). It is described by dimension, measure and attribute components.",
@@ -4057,6 +3963,11 @@
                     },
                     "contains": {
                       "const": "cdi:DimensionalDataStructure"
+                    },
+                    "not": {
+                      "contains": {
+                        "const": "cdi:DataStructure"
+                      }
                     },
                     "minItems": 1
                   },
@@ -4079,6 +3990,27 @@
                         },
                         {
                           "$ref": "#/$defs/DimensionComponent"
+                        },
+                        {
+                          "$ref": "#/$defs/ObjectReference"
+                        }
+                      ]
+                    },
+                    "contains": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "required": [
+                            "@type"
+                          ],
+                          "properties": {
+                            "@type": {
+                              "type": "array",
+                              "contains": {
+                                "const": "cdi:DimensionComponent"
+                              }
+                            }
+                          }
                         },
                         {
                           "$ref": "#/$defs/ObjectReference"
@@ -4123,6 +4055,11 @@
                     },
                     "contains": {
                       "const": "cdi:LongDataStructure"
+                    },
+                    "not": {
+                      "contains": {
+                        "const": "cdi:DataStructure"
+                      }
                     },
                     "minItems": 1
                   },
@@ -4198,6 +4135,11 @@
                     },
                     "contains": {
                       "const": "cdi:WideDataStructure"
+                    },
+                    "not": {
+                      "contains": {
+                        "const": "cdi:DataStructure"
+                      }
                     },
                     "minItems": 1
                   },
@@ -6661,102 +6603,8 @@
     "IsStructuredByProperty": {
       "anyOf": [
         {
-          "description": "Reusable data-structure description for this distribution. One of the four DataStructure variants (DataStructure, Dimensional, Long, Wide) as an inline definition, or an @id reference to one declared elsewhere in the document or published at a resolvable URI. (A profile may further require the inline form via SHACL.)",
+          "description": "Reusable data-structure description for this distribution. One of the three layouts (Dimensional, Long, Wide) as an inline definition, or an @id reference to one declared elsewhere in the document or published at a resolvable URI. (A profile may further require the inline form via SHACL.)",
           "anyOf": [
-            {
-              "type": "object",
-              "description": "Data organization based on reusable data structure components.",
-              "properties": {
-                "@type": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "contains": {
-                    "const": "cdi:DataStructure"
-                  },
-                  "minItems": 1
-                },
-                "@id": {
-                  "type": "string",
-                  "description": "Identifier for this DataStructure node"
-                },
-                "cdif:has_ForeignKey": {
-                  "description": "Variables whose values identify records in a different dataset.",
-                  "type": "array",
-                  "items": {
-                    "anyOf": [
-                      {
-                        "$ref": "#/$defs/ForeignKey"
-                      },
-                      {
-                        "$ref": "#/$defs/ObjectReference"
-                      }
-                    ]
-                  },
-                  "minItems": 1
-                },
-                "cdi:has_DataStructureComponent": {
-                  "type": "array",
-                  "items": {
-                    "anyOf": [
-                      {
-                        "title": "DDI-CDI Data Structure Component",
-                        "description": "Role given to a represented variable in the context of a long or wide data structure to identify the units associated to data points, and in dimensional and key value data structures to provide identifying fields for the instance values.",
-                        "anyOf": [
-                          {
-                            "$ref": "#/$defs/IdentifierComponent"
-                          },
-                          {
-                            "$ref": "#/$defs/MeasureComponent"
-                          },
-                          {
-                            "$ref": "#/$defs/AttributeComponent"
-                          },
-                          {
-                            "$ref": "#/$defs/DimensionComponent"
-                          },
-                          {
-                            "$ref": "#/$defs/VariableValueComponent"
-                          },
-                          {
-                            "$ref": "#/$defs/VariableDescriptorComponent"
-                          }
-                        ]
-                      },
-                      {
-                        "$ref": "#/$defs/ObjectReference"
-                      }
-                    ]
-                  },
-                  "minItems": 1
-                },
-                "cdif:has_PrimaryKey": {
-                  "$ref": "#/$defs/CdifKey",
-                  "description": "Variables in the structure that uniquely identify a record."
-                }
-              },
-              "required": [
-                "@type"
-              ],
-              "anyOf": [
-                {
-                  "required": [
-                    "cdi:has_DataStructureComponent"
-                  ]
-                },
-                {
-                  "required": [
-                    "cdif:has_ForeignKey"
-                  ]
-                },
-                {
-                  "required": [
-                    "cdif:has_PrimaryKey"
-                  ]
-                }
-              ]
-            },
             {
               "type": "object",
               "description": "Structure of a dimensional data set (organized collection of multidimensional data). It is described by dimension, measure and attribute components.",
@@ -6768,6 +6616,11 @@
                   },
                   "contains": {
                     "const": "cdi:DimensionalDataStructure"
+                  },
+                  "not": {
+                    "contains": {
+                      "const": "cdi:DataStructure"
+                    }
                   },
                   "minItems": 1
                 },
@@ -6790,6 +6643,27 @@
                       },
                       {
                         "$ref": "#/$defs/DimensionComponent"
+                      },
+                      {
+                        "$ref": "#/$defs/ObjectReference"
+                      }
+                    ]
+                  },
+                  "contains": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "required": [
+                          "@type"
+                        ],
+                        "properties": {
+                          "@type": {
+                            "type": "array",
+                            "contains": {
+                              "const": "cdi:DimensionComponent"
+                            }
+                          }
+                        }
                       },
                       {
                         "$ref": "#/$defs/ObjectReference"
@@ -6834,6 +6708,11 @@
                   },
                   "contains": {
                     "const": "cdi:LongDataStructure"
+                  },
+                  "not": {
+                    "contains": {
+                      "const": "cdi:DataStructure"
+                    }
                   },
                   "minItems": 1
                 },
@@ -6910,6 +6789,11 @@
                   "contains": {
                     "const": "cdi:WideDataStructure"
                   },
+                  "not": {
+                    "contains": {
+                      "const": "cdi:DataStructure"
+                    }
+                  },
                   "minItems": 1
                 },
                 "@id": {
@@ -6970,102 +6854,8 @@
           "type": "array",
           "minItems": 1,
           "items": {
-            "description": "Reusable data-structure description for this distribution. One of the four DataStructure variants (DataStructure, Dimensional, Long, Wide) as an inline definition, or an @id reference to one declared elsewhere in the document or published at a resolvable URI. (A profile may further require the inline form via SHACL.)",
+            "description": "Reusable data-structure description for this distribution. One of the three layouts (Dimensional, Long, Wide) as an inline definition, or an @id reference to one declared elsewhere in the document or published at a resolvable URI. (A profile may further require the inline form via SHACL.)",
             "anyOf": [
-              {
-                "type": "object",
-                "description": "Data organization based on reusable data structure components.",
-                "properties": {
-                  "@type": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
-                    },
-                    "contains": {
-                      "const": "cdi:DataStructure"
-                    },
-                    "minItems": 1
-                  },
-                  "@id": {
-                    "type": "string",
-                    "description": "Identifier for this DataStructure node"
-                  },
-                  "cdif:has_ForeignKey": {
-                    "description": "Variables whose values identify records in a different dataset.",
-                    "type": "array",
-                    "items": {
-                      "anyOf": [
-                        {
-                          "$ref": "#/$defs/ForeignKey"
-                        },
-                        {
-                          "$ref": "#/$defs/ObjectReference"
-                        }
-                      ]
-                    },
-                    "minItems": 1
-                  },
-                  "cdi:has_DataStructureComponent": {
-                    "type": "array",
-                    "items": {
-                      "anyOf": [
-                        {
-                          "title": "DDI-CDI Data Structure Component",
-                          "description": "Role given to a represented variable in the context of a long or wide data structure to identify the units associated to data points, and in dimensional and key value data structures to provide identifying fields for the instance values.",
-                          "anyOf": [
-                            {
-                              "$ref": "#/$defs/IdentifierComponent"
-                            },
-                            {
-                              "$ref": "#/$defs/MeasureComponent"
-                            },
-                            {
-                              "$ref": "#/$defs/AttributeComponent"
-                            },
-                            {
-                              "$ref": "#/$defs/DimensionComponent"
-                            },
-                            {
-                              "$ref": "#/$defs/VariableValueComponent"
-                            },
-                            {
-                              "$ref": "#/$defs/VariableDescriptorComponent"
-                            }
-                          ]
-                        },
-                        {
-                          "$ref": "#/$defs/ObjectReference"
-                        }
-                      ]
-                    },
-                    "minItems": 1
-                  },
-                  "cdif:has_PrimaryKey": {
-                    "$ref": "#/$defs/CdifKey",
-                    "description": "Variables in the structure that uniquely identify a record."
-                  }
-                },
-                "required": [
-                  "@type"
-                ],
-                "anyOf": [
-                  {
-                    "required": [
-                      "cdi:has_DataStructureComponent"
-                    ]
-                  },
-                  {
-                    "required": [
-                      "cdif:has_ForeignKey"
-                    ]
-                  },
-                  {
-                    "required": [
-                      "cdif:has_PrimaryKey"
-                    ]
-                  }
-                ]
-              },
               {
                 "type": "object",
                 "description": "Structure of a dimensional data set (organized collection of multidimensional data). It is described by dimension, measure and attribute components.",
@@ -7077,6 +6867,11 @@
                     },
                     "contains": {
                       "const": "cdi:DimensionalDataStructure"
+                    },
+                    "not": {
+                      "contains": {
+                        "const": "cdi:DataStructure"
+                      }
                     },
                     "minItems": 1
                   },
@@ -7099,6 +6894,27 @@
                         },
                         {
                           "$ref": "#/$defs/DimensionComponent"
+                        },
+                        {
+                          "$ref": "#/$defs/ObjectReference"
+                        }
+                      ]
+                    },
+                    "contains": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "required": [
+                            "@type"
+                          ],
+                          "properties": {
+                            "@type": {
+                              "type": "array",
+                              "contains": {
+                                "const": "cdi:DimensionComponent"
+                              }
+                            }
+                          }
                         },
                         {
                           "$ref": "#/$defs/ObjectReference"
@@ -7143,6 +6959,11 @@
                     },
                     "contains": {
                       "const": "cdi:LongDataStructure"
+                    },
+                    "not": {
+                      "contains": {
+                        "const": "cdi:DataStructure"
+                      }
                     },
                     "minItems": 1
                   },
@@ -7218,6 +7039,11 @@
                     },
                     "contains": {
                       "const": "cdi:WideDataStructure"
+                    },
+                    "not": {
+                      "contains": {
+                        "const": "cdi:DataStructure"
+                      }
                     },
                     "minItems": 1
                   },

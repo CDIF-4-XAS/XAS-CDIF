@@ -909,16 +909,19 @@ cdifd:cdifCategoryStatisticShape a sh:NodeShape ;
             sh:severity sh:Violation ] ;
     sh:targetClass cdi:CategoryStatistics .
 
-cdifd:cdifDataStructure_DataStructureShape a sh:NodeShape ;
-    sh:property [ sh:message "A cdi:DataStructure must carry at least one cdi:has_DataStructureComponent." ;
+cdifd:cdifDataStructure_DimensionalDataStructureShape a sh:NodeShape ;
+    sh:property [ sh:message "A cdi:DimensionalDataStructure must have at least one cdi:DimensionComponent." ;
+            sh:path cdi:has_DataStructureComponent ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [ sh:or ( [ sh:class cdi:DimensionComponent ] [ sh:not [ sh:property [ sh:minCount 1 ;
+                                                sh:path rdf:type ] ] ] ) ] ;
+            sh:severity sh:Violation ],
+        [ sh:message "A cdi:DimensionalDataStructure must carry at least one cdi:has_DataStructureComponent." ;
             sh:minCount 1 ;
             sh:path cdi:has_DataStructureComponent ;
-            sh:severity sh:Violation ] ;
-    sh:targetClass cdi:DataStructure .
-
-cdifd:cdifDataStructure_DimensionalDataStructureShape a sh:NodeShape ;
-    sh:property [ sh:message "A cdi:DimensionalDataStructure must carry at least one cdi:has_DataStructureComponent." ;
-            sh:minCount 1 ;
+            sh:severity sh:Violation ],
+        [ sh:message "A cdi:DimensionalDataStructure may not have VariableDescriptor or VariableValue components." ;
+            sh:not [ sh:or ( [ sh:class cdi:VariableDescriptorComponent ] [ sh:class cdi:VariableValueComponent ] ) ] ;
             sh:path cdi:has_DataStructureComponent ;
             sh:severity sh:Violation ] ;
     sh:targetClass cdi:DimensionalDataStructure .
@@ -938,6 +941,28 @@ cdifd:cdifDataStructure_LongDataStructureShape a sh:NodeShape ;
     sh:property [ sh:message "A cdi:LongDataStructure must carry at least one cdi:has_DataStructureComponent." ;
             sh:minCount 1 ;
             sh:path cdi:has_DataStructureComponent ;
+            sh:severity sh:Violation ],
+        [ sh:message "A cdi:LongDataStructure may not have Measure or Dimension components." ;
+            sh:not [ sh:or ( [ sh:class cdi:MeasureComponent ] [ sh:class cdi:DimensionComponent ] ) ] ;
+            sh:path cdi:has_DataStructureComponent ;
+            sh:severity sh:Violation ],
+        [ sh:message "A cdi:LongDataStructure must have exactly one IdentifierComponent." ;
+            sh:path cdi:has_DataStructureComponent ;
+            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [ sh:class cdi:IdentifierComponent ] ;
+            sh:severity sh:Violation ],
+        [ sh:message "A cdi:LongDataStructure must have exactly one VariableDescriptorComponent." ;
+            sh:path cdi:has_DataStructureComponent ;
+            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [ sh:class cdi:VariableDescriptorComponent ] ;
+            sh:severity sh:Violation ],
+        [ sh:message "A cdi:LongDataStructure must have exactly one VariableValueComponent." ;
+            sh:path cdi:has_DataStructureComponent ;
+            sh:qualifiedMaxCount 1 ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [ sh:class cdi:VariableValueComponent ] ;
             sh:severity sh:Violation ] ;
     sh:targetClass cdi:LongDataStructure .
 
@@ -945,28 +970,27 @@ cdifd:cdifDataStructure_WideDataStructureShape a sh:NodeShape ;
     sh:property [ sh:message "A cdi:WideDataStructure must carry at least one cdi:has_DataStructureComponent." ;
             sh:minCount 1 ;
             sh:path cdi:has_DataStructureComponent ;
+            sh:severity sh:Violation ],
+        [ sh:message "A cdi:WideDataStructure may not have Dimension or VariableDescriptor or VariableValue components." ;
+            sh:not [ sh:or ( [ sh:class cdi:DimensionComponent ] [ sh:class cdi:VariableDescriptorComponent ] [ sh:class cdi:VariableValueComponent ] ) ] ;
+            sh:path cdi:has_DataStructureComponent ;
             sh:severity sh:Violation ] ;
     sh:targetClass cdi:WideDataStructure .
 
+cdifd:cdifDataStructure_abstractStructureShape a sh:NodeShape ;
+    sh:message "cdi:DataStructure is abstract: type the structure cdi:DimensionalDataStructure, cdi:LongDataStructure or cdi:WideDataStructure instead." ;
+    sh:not [ sh:nodeKind sh:BlankNodeOrIRI ] ;
+    sh:severity sh:Violation ;
+    sh:target [ a sh:SPARQLTarget ;
+            sh:select "SELECT ?this WHERE { ?this a <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/DataStructure> }" ] .
+
 cdifd:cdifDataStructure_inlineStructureShape a sh:NodeShape ;
-    sh:sparql [ sh:message "A distribution's cdi:isStructuredBy must resolve to a structure that carries cdi:has_DataStructureComponent. The components may be written inline or on a node identified by @id elsewhere in the same document -- in RDF both denote the same node, and this rule is satisfied either way. What it rejects is a reference to a structure that is never defined. Exempt: a plain cdi:DataStructure whose content is a key (cdif:has_ForeignKey or cdif:has_PrimaryKey), since cdif:ForeignKey and cdif:Key compose variables through cdi:ComponentPosition wrappers and imply no components. The exemption does NOT extend to the Dimensional, Long and Wide variants: each names a data layout, and a layout listing no components describes nothing." ;
+    sh:sparql [ sh:message "A distribution's cdi:isStructuredBy must resolve to a structure that carries cdi:has_DataStructureComponent. The components may be written inline or on a node identified by @id elsewhere in the same document -- in RDF both denote the same node, and this rule is satisfied either way. What it rejects is a reference to a structure that is never defined, or a layout that lists no components." ;
             sh:select """
 			SELECT $this WHERE {
 				$this <http://schema.org/distribution> ?dist .
 				?dist <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy> ?s .
 				FILTER NOT EXISTS { ?s <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent> ?c }
-				FILTER NOT EXISTS {
-					{ ?s <https://w3id.org/cdif/has_ForeignKey> ?k }
-					UNION
-					{ ?s <https://w3id.org/cdif/has_PrimaryKey> ?k }
-					FILTER NOT EXISTS {
-						?s a ?t .
-						FILTER (?t IN (
-							<http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/DimensionalDataStructure>,
-							<http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/LongDataStructure>,
-							<http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/WideDataStructure>))
-					}
-				}
 			}
 		""" ;
             sh:severity sh:Violation ] ;
